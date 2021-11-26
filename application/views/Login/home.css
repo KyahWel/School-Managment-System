@@ -1,0 +1,134 @@
+.wrapper-button a{
+    text-decoration: none;
+}
+
+/* Add styles to the form container */
+.wrapper-button {
+    position: absolute;
+    padding: 16px;
+    width: max-content;
+    top: 55%;
+    right: 0%;
+    transform: translate(-50%, -50%);
+}
+.btn:hover {
+    opacity: 1;
+}
+
+h1{
+    width: auto;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 2rem;
+}
+.login-btn{
+    /* button box */
+    display: block;
+    width: 300px;
+    height: 80px;
+    opacity: 0.9;
+    cursor: pointer;
+    text-align: center;
+    margin: 50px auto;
+    background: maroon;
+    border-radius: 50px;
+    border: 1px solid #000000;
+    box-shadow: 0px 9px 5px 0px #00000040;
+    box-sizing: border-box;
+    padding: 20px;
+    overflow: hidden;
+    position: relative;
+
+    /* button label/title */
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;  
+    
+    transition-duration: 0.2s;
+    webkit-transition-duration: 0.1s; /* Safari */
+    -moz-transition-duration:  0.1s;
+    -ms-transition-duration: 0.1s;
+}
+
+.login-btn:hover{
+    background-color: #B20000;
+    opacity: 10px;
+    transform: scale(1.03);
+    color: white;
+}
+
+.login-btn:after {
+    content: "";
+    background: rgba(231, 231, 229, 0.651);
+    display: block;
+    position: absolute;
+    padding-top: 150%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.5s
+  }
+  
+.login-btn:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+  }
+  
+  .login-btn:focus { outline:0; }
+  
+
+@media screen and (min-width: 1445px){
+   .login-btn{
+        width: 350px;
+        height: 100px;
+   }
+}
+
+@media screen and (max-width: 1024px){
+    .wrapper-button { 
+        left: 50%;
+        top: 55%;
+        right: 0;
+    }
+}
+
+@media screen and (max-width: 570px){
+    .navbar-light .navbar-brand{
+        font-size: .7rem;
+        padding-left: 0;
+        color: white;
+    }
+    .login-btn{
+        width: 250px;
+        height: 70px;
+        font-size: 1.2rem;
+    }
+    .wrapper-button {
+        left: 50%;
+        top: 55%;
+    }
+}
+
+
+@media screen and (max-width: 375px){
+    .login-btn{
+        width: 220px;
+        height: 60px;
+        font-size: 1rem;
+    }
+    h1{
+        font-size: 1.7rem;
+    }
+}
+
+@media screen and (max-width: 320px){
+    .login-btn{
+        margin: 40px;
+    }
+}
