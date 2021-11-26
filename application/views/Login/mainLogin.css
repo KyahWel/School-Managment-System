@@ -1,0 +1,288 @@
+/* global styles on login */
+body, html {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* header styles */
+.navbar{
+    padding-top: 20px;
+}
+  
+.navbar-light .navbar-nav{
+    padding-right: 25px;
+}
+ .navbar-light button.navbar-toggler{
+    outline: none;
+ }
+
+.navbar-light .navbar-brand:hover{
+    color: white;
+}
+.navbar-light .navbar-brand{
+    
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    color:white;
+    padding-left: 15px;
+}
+a{
+    position: relative;
+    text-decoration: none;
+}
+a:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(9, 9, 9);
+    visibility: hidden;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out ;
+    -o-transition:  all 0.3s ease-in-out;
+}
+
+a:hover:before {
+    visibility: visible;
+    width: 100%;
+}
+a.active{
+    content: "";
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    position: relative;
+    margin-top: 5px;
+    top: 20%;
+    /* text-decoration: 2px solid underline brown ; */
+    color: black;
+    font-weight: bold;
+}
+.bg-img {
+    /* The image used */
+    background: url(../Login/assets/bg.png) no-repeat center/cover #f4f4f4;
+    position: relative;
+    height: 100vh;
+}
+/* form wrapper for student, faculty, admin */
+.wrapper {
+    position: absolute;
+    margin: 0 auto;
+    padding: 16px;
+    width: 445px;
+    top: 55%;
+    right: -12%;
+    transform: translate(-50%, -50%);
+    padding:2rem;
+
+}
+.input-group-addon {
+    position: absolute;
+    padding: 8px 12px;
+}
+h3{
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    color: black;
+    padding-bottom: 2rem;
+}
+h5{
+    font-family: 'Rokkit';
+    font-weight: 600;
+    color: black;
+}
+hr{
+    background-color: black;
+    opacity: 1;
+}
+form{
+    font-family: 'Roboto', sans-serif;
+}
+label{
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 35px;
+    color: black;
+}
+
+.wrapper p{
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+.btn-default{
+    background: #B20000;
+    width: 80px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    font-size: .7rem;
+    border: none;
+    padding: 5px 7px;
+    color: white;
+}
+
+.btn-default:hover{
+    background-color: #F2BD53;
+    opacity: 1;
+    color: black;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+ .btn-default:focus {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    box-shadow: none;
+}
+
+
+.navbar-light button.navbar-toggler {
+    outline: none;
+}
+
+.wrapper .apply{
+    width: 100%;
+    padding: 6px;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 5px;
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.25);
+}
+
+.wrapper .apply:hover{
+    background-color: #f39303;
+}
+
+form .form-control:focus{
+    border-color: #ced4da;
+    box-shadow: none;
+}
+.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    font-size: 0.8rem;
+    font-family: 'Playfair', sans-serif;
+}
+
+.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    font-size: 0.8rem;
+    font-family: 'Playfair', sans-serif;
+
+}
+
+.form-control::-ms-input-placeholder { /* Microsoft Edge */
+    font-size: 0.8rem;
+    font-family: 'Playfair', sans-serif;
+
+
+}
+
+input[type=text], input[type=password]{
+    color: black;
+    font-size: 0.9rem;
+    padding-left: 35px;
+}
+
+.wrapper a{
+    color: black;
+    font-weight: 900;
+}
+
+@media screen and (max-width: 1024px){
+    .bg-img{
+        background: none #f4f4f4;
+    }
+    .navbar-light{
+        background:#B20000;
+        box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.25);
+        border-bottom: 1px solid white;
+    }
+    .navbar-light .navbar-nav .nav-link{
+        color: white;
+    }
+    .navbar-light .navbar-brand{
+        font-size: .9rem;
+        padding-left: 0;
+        color: white;
+    }
+    .navbar{
+        padding-top: 5px;
+    }
+    .wrapper {
+        left: 50%;
+        top: 54%;
+        /* border-radius: 30px;
+        box-shadow: 2px 4px 8px 10px rgba(0, 0, 0, 0.25); */
+    }
+
+}
+
+@media screen and (max-width: 570px){   
+    .navbar-light img{
+        width: 45px;
+    }
+    .wrapper{
+        width:350px;
+        padding-bottom: 5px;
+    }
+    .wrapper p{
+        font-size: 0.7rem;    
+    }
+    .wrapper .apply{
+        font-size: 0.7rem;
+    }
+    .navbar-light .navbar-brand{
+        font-size: 0.7rem;
+    }
+    h3{
+        font-size: 1.4rem;
+    }   
+}
+
+@media screen and (max-width: 375px){
+    .navbar-light .navbar-brand{
+        font-size: x-small;
+    }
+    .navbar-light img{
+        width: 30px;
+    }
+    .navbar-light .container-fluid{
+        margin-left: 0;
+    }
+    .wrapper {
+        left: 50%;
+        top: 51%;
+
+        width: fit-content;
+    }
+   
+    label,h5{
+        font-size: 0.8rem;
+    }
+    h3{
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 320px){
+    .navbar-light .navbar-brand{
+        font-size: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 280px){
+    .wrapper {
+        width: 200px;
+        margin: 1rem;
+    }
+}
