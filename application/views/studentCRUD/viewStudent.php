@@ -47,7 +47,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			
 		</tr>
 		<tr>
-			<td> <?php echo $row->id?> </td>
+			<td> <?php echo $row->studentID?> </td>
 			<td> <?php echo $row->studentNumber?> </td>
 			<td> <?php echo $row->firstname?> </td>
 			<td> <?php echo $row->middlename?> </td>
@@ -59,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<td> <?php echo $row->birthplace?> </td>
 			<td> <?php echo $row->contactnum?> </td>
 			<td> <?php echo $row->email?> </td>
-			<td> <?php echo $row->unit?> <?php echo $row->street?> <?php echo $row->barangay?> <?php echo $row->city?> <?php echo $row->province?> <?php echo $row->zip?></td>
+			<td> <?php echo $row->unit?> <?php echo $row->street?> <?php echo $row->barangay?> <?php echo $row->city?> <?php echo $row->province?> <?php echo $row->zipcode?></td>
 			<td> <?php echo $row->username?> </td>
 			<td> <?php echo $row->password?> </td>
 			<td> <?php echo $row->type?> </td>

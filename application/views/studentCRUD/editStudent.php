@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 	
 	<h1>This is Edit Admin-Student Screen</h1>
-	<form method="POST" action="<?php echo site_url('studentController/updateStudent')?>/<?php echo $row->id; ?>">
+	<form method="POST" action="<?php echo site_url('studentController/updateStudent')?>/<?php echo $row->studentID; ?>">
 		Username: <input type="text" name="username" value=<?php echo $row->username?>> <br><br>
 		Password: <input type="text" name ="password" value=<?php echo $row->password?>> <br><br>
 		Course: <input type="text" name="course" value=<?php echo $row->course?>> <br><br>
