@@ -17,7 +17,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		Enter Username: <input type="text" name="username"> <br><br>
 		Enter Password: <input type="text" name ="password"> <br><br>
 		Enter ApplicantID: <input type="text" name ="applicantID"> <br><br>
-		Enter CourseID: <input type="text" name ="courseID"> <br><br>
 		Enter Student Status: <input type="text" name ="type"> <br><br>
 		Enter Creator ID: <input type="text" name ="creatorID"> <br><br>
 		<input type="submit" name="submit" value="Create student account">

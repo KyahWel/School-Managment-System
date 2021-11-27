@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			
 		</tr>
 		<tr>
-			<td> <?php echo $row->id?> </td>
+			<td> <?php echo $row->adminID?> </td>
 			<td> <?php echo $row->adminNumber?> </td>
 			<td> <?php echo $row->username?> </td>
 			<td> <?php echo $row->firstname?> </td>

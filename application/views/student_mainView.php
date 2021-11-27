@@ -52,30 +52,48 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</tr>
 		<?php foreach($student as $studentrow) {?>
 		<tr>
-			<td> <?php echo $studentrow->id?> </td>
+			<td> <?php echo $studentrow->studentID?> </td>
 			<td> <?php echo $studentrow->studentNumber?> </td>
 			<td> <?php echo $studentrow->firstname?> </td>
 			<td> <?php echo $studentrow->lastname?> </td>
 			<td>  
 				
 				<?php if ($studentrow->status == 1):  ?>
-					<a href="<?php echo site_url('studentController/editStudent')?>/<?php echo $studentrow->id ?>" class='decor'>Edit </a>
-					<a href="<?php echo site_url('studentController/viewStudent')?>/<?php echo $studentrow->id ?>" class='decor'>| View </a>
-					<a href="<?php echo site_url('studentController/deactivateData')?>/<?php echo $studentrow->id ?>" class='decor'> | Deactivate </a>
+					<a href="<?php echo site_url('studentController/editStudent')?>/<?php echo $studentrow->studentID ?>" class='decor'>Edit </a>
+					<a href="<?php echo site_url('studentController/viewStudent')?>/<?php echo $studentrow->studentID ?>" class='decor'>| View </a>
+					<a href="<?php echo site_url('studentController/deactivateData')?>/<?php echo $studentrow->studentID ?>" class='decor'> | Deactivate </a>
 				<?php else: ?>
-					<a href="<?php echo site_url('studentController/editStudent')?>/<?php echo $studentrow->id ?>" class='isDisabled decor'>Edit </a>
-					<a href="<?php echo site_url('studentController/viewStudent')?>/<?php echo $studentrow->id ?>" class='decor'>| View </a>
-					<a href="<?php echo site_url('studentController/reactivateData')?>/<?php echo $studentrow->id ?>" class='decor'> | Activate </a>	
+					<a href="<?php echo site_url('studentController/editStudent')?>/<?php echo $studentrow->studentID ?>" class='isDisabled decor'>Edit </a>
+					<a href="<?php echo site_url('studentController/viewStudent')?>/<?php echo $studentrow->studentID ?>" class='isDisabled decor'>| View </a>
+					<a href="<?php echo site_url('studentController/reactivateData')?>/<?php echo $studentrow->studentID ?>" class='decor'> | Activate </a>	
 				<?php endif ?>					
 			</td>
 		</tr>
 			<?php }?>
 	</table>
 	<br>
-	
+	<br>
+	<form action="<?php echo site_url('admin_loginpage')?>">
+    	<input type="submit" value= "Logout"/>
+	</form>	
+	<br>
 	<form action="<?php echo site_url('admin_main')?>">
-    	<input type="submit" value= "Back"/>
+    	<input type="submit" value= "Admin Control Center"/>
 	</form>		
+	<br>			
+	<form action="<?php echo site_url('teacherController')?>">
+    	<input type="submit" value= "Teacher Control Center"/>
+	</form>		
+	<br>
+	<form action="<?php echo site_url('courseController')?>">
+    	<input type="submit" value= "Course Control Center"/>
+	</form>		
+	<br>
+	<form action="<?php echo site_url('eventscontroller')?>">
+    	<input type="submit" value= " Events Control Center"/>
+	</form>					
+
+
 	
 </body>
 </body>

@@ -20,12 +20,11 @@ class studentModel extends CI_Model {
 		}while($query->num_rows()>0);
 
 		$data = array(
-			'id' => NULL,
+			'studentID' => NULL,
 			'username' => $_POST['username'],
 			'password' => $_POST['password'],
 			'studentNumber' => $holder,
 			'applicantID' => $_POST['applicantID'],
-			'course' => $_POST['courseID'],
 			'type' => $_POST['type'],
 			'creatorID' => $_POST['creatorID'],
 			'status' => 1
@@ -36,13 +35,13 @@ class studentModel extends CI_Model {
 
 	public function viewData()
 	{
-		$query = $this->db->query('SELECT student_accounts.id,student_accounts.studentNumber, applicant_details.firstname, applicant_details.lastname, student_accounts.status FROM student_accounts RIGHT JOIN applicant_details ON student_accounts.applicantID = applicant_details.id');
+		$query = $this->db->query('SELECT * FROM student_accounts RIGHT JOIN applicant_accounts ON student_accounts.applicantID = applicant_accounts.applicantID');
 		return $query->result();
 	}
 
 	public function getData($id)
 	{	
-		$query = $this->db->query('SELECT * FROM student_accounts RIGHT JOIN applicant_details ON student_accounts.applicantID = applicant_details.id WHERE student_accounts.id ='.$id);
+		$query = $this->db->query('SELECT * FROM student_accounts RIGHT JOIN applicant_accounts ON student_accounts.applicantID = applicant_accounts.applicantID WHERE student_accounts.studentID ='.$id);
 		return $query->row();
 	}
 
@@ -54,7 +53,7 @@ class studentModel extends CI_Model {
 			'course' => $_POST['course']
 			# Add Year Level
 		);
-		$this->db->where('id',$id);
+		$this->db->where('studentID',$id);
 		$this->db->update('student_accounts',$data);
 	}
 
@@ -62,7 +61,7 @@ class studentModel extends CI_Model {
 		$data = array(
 			'status' => 0
 		);
-		$this->db->where('id',$id);
+		$this->db->where('studentID',$id);
 		$this->db->update('student_accounts',$data);
 	}
 
@@ -70,7 +69,7 @@ class studentModel extends CI_Model {
 		$data = array(
 			'status' => 1
 		);
-		$this->db->where('id',$id);
+		$this->db->where('studentID',$id);
 		$this->db->update('student_accounts',$data);
 	}
 

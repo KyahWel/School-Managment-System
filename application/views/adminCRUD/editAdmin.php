@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 	<h1>This is Edit Admin Screen</h1>
-	<form method="POST" action="<?php echo site_url('admin_main/updateAdmin')?>/<?php echo $row->id; ?>">
+	<form method="POST" action="<?php echo site_url('admin_main/updateAdmin')?>/<?php echo $row->adminID; ?>">
 		Firstname: <input type="text" name="firstname" value="<?php echo $row->firstname?>"> <br><br>
 		Lastname: <input type="text" name ="lastname" value=<?php echo $row->lastname?>> <br><br>
 		Username: <input type="text" name="username" value="<?php echo $row->username?>"> <br><br>

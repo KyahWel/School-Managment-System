@@ -57,28 +57,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<td>  
 				
 				<?php if ($row->status == 1):  ?>
-					<a href="<?php echo site_url('admin_main/editAdmin')?>/<?php echo $row->id ?>" class='decor'>Edit </a>
-					<a href="<?php echo site_url('admin_main/viewAdmin')?>/<?php echo $row->id ?>" class='decor'>| View </a>
-					<a href="<?php echo site_url('admin_main/deactivateData')?>/<?php echo $row->id ?>" class='decor'> | Deactivate </a>
+					<a href="<?php echo site_url('admin_main/editAdmin')?>/<?php echo $row->adminID ?>" class='decor'>Edit </a>
+					<a href="<?php echo site_url('admin_main/viewAdmin')?>/<?php echo $row->adminID ?>" class='decor'>| View </a>
+					<a href="<?php echo site_url('admin_main/deactivateData')?>/<?php echo $row->adminID ?>" class='decor'> | Deactivate </a>
 				<?php else: ?>
-					<a href="<?php echo site_url('admin_main/editAdmin')?>/<?php echo $row->id ?>" class='isDisabled decor'>Edit </a>
-					<a href="<?php echo site_url('admin_main/viewAdmin')?>/<?php echo $row->id ?>" class='decor'>| View </a>
-					<a href="<?php echo site_url('admin_main/reactivateData')?>/<?php echo $row->id ?>" class='decor'> | Activate </a>	
+					<a href="<?php echo site_url('admin_main/editAdmin')?>/<?php echo $row->adminID ?>" class='isDisabled decor'>Edit </a>
+					<a href="<?php echo site_url('admin_main/viewAdmin')?>/<?php echo $row->adminID ?>" class='decor'>| View </a>
+					<a href="<?php echo site_url('admin_main/reactivateData')?>/<?php echo $row->adminID ?>" class='decor'> | Activate </a>	
 				<?php endif ?>					
 			</td>
 		</tr>
 			<?php }?>
 	</table>
 	<br>
+	<br>
 	<form action="<?php echo site_url('admin_loginpage')?>">
     	<input type="submit" value= "Logout"/>
 	</form>	
 	<br>
-	<form action="<?php echo site_url('studentcontroller')?>">
-    	<input type="submit" value= " Student Control Center"/>
+	<form action="<?php echo site_url('studentController')?>">
+    	<input type="submit" value= "Student Control Center"/>
+	</form>		
+	<br>			
+	<form action="<?php echo site_url('teacherController')?>">
+    	<input type="submit" value= "Teacher Control Center"/>
+	</form>		
+	<br>
+	<form action="<?php echo site_url('courseController')?>">
+    	<input type="submit" value= "Course Control Center"/>
 	</form>	
 	<br>
-	
+	<form action="<?php echo site_url('eventscontroller')?>">
+    	<input type="submit" value= " Events Control Center"/>
+	</form>
 
 	
 </body>

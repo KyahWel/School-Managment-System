@@ -53,5 +53,20 @@
             </tbody>
         </table>
     </div>
+    <form action="<?php echo site_url('admin_loginpage')?>">
+    	<input type="submit" value= "Logout"/>
+	</form>	
+	<br>
+	<form action="<?php echo site_url('admin_main')?>">
+	<input type="submit" value= " Admin Control Center"/>
+	</form>		
+	<br>				
+	<form action="<?php echo site_url('teachercontroller')?>">
+    	<input type="submit" value= " Teacher Control Center"/>
+	</form>	
+	<br>
+	<form action="<?php echo site_url('studentcontroller')?>">
+    	<input type="submit" value= " Student Control Center"/>
+	</form>	
 </body>
 </html>
