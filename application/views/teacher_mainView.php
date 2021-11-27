@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<a href="<?php echo site_url('teacherController/deactivateData')?>/<?php echo $teacherrow->teacherID ?>" class='decor'> | Deactivate </a>
 				<?php else: ?>
 					<a href="<?php echo site_url('teacherController/editteacher')?>/<?php echo $teacherrow->teacherID ?>" class='isDisabled decor'>Edit </a>
-					<a href="<?php echo site_url('teacherController/viewteacher')?>/<?php echo $teacherrow->teacherID ?>" class='decor'>| View </a>
+					<a href="<?php echo site_url('teacherController/viewteacher')?>/<?php echo $teacherrow->teacherID ?>" class='isDisabled decor'>| View </a>
 					<a href="<?php echo site_url('teacherController/reactivateData')?>/<?php echo $teacherrow->teacherID ?>" class='decor'> | Activate </a>	
 				<?php endif ?>					
 			</td>
@@ -91,7 +91,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<form action="<?php echo site_url('coursecontroller')?>">
     	<input type="submit" value= " Course Control Center"/>
 	</form>	
-	
+	<br>
+	<form action="<?php echo site_url('eventscontroller')?>">
+    	<input type="submit" value= " Events Control Center"/>
+	</form>	
 </body>
 </body>
 </html>

@@ -18,7 +18,7 @@ class AdminModel extends CI_Model {
 		}while($query->num_rows()>0);
 			
 		$data = array(
-			'id' => NULL,
+			'adminID' => NULL,
 			'adminNumber' => $holder,
 			'username' => $_POST['username'],
 			'password' => $_POST['password'],
@@ -38,7 +38,7 @@ class AdminModel extends CI_Model {
 
 	public function getData($id) #Edit
 	{
-		$query = $this->db->query('SELECT * FROM admin_accounts WHERE `id` ='.$id) ;
+		$query = $this->db->query('SELECT * FROM admin_accounts WHERE `adminID` ='.$id) ;
 		return $query->row();
 	}
 
@@ -50,7 +50,7 @@ class AdminModel extends CI_Model {
 			'firstname' => $_POST['firstname'],
 			'lastname' => $_POST['lastname']
 		);
-		$this->db->where('id',$id);
+		$this->db->where('adminID',$id);
 		$this->db->update('admin_accounts',$data);
 	}
 
@@ -58,7 +58,7 @@ class AdminModel extends CI_Model {
 		$data = array(
 			'status' => 0
 		);
-		$this->db->where('id',$id);
+		$this->db->where('adminID',$id);
 		$this->db->update('admin_accounts',$data);
 	}
 
@@ -66,7 +66,7 @@ class AdminModel extends CI_Model {
 		$data = array(
 			'status' => 1
 		);
-		$this->db->where('id',$id);
+		$this->db->where('adminID',$id);
 		$this->db->update('admin_accounts',$data);
 	}
 
