@@ -80,21 +80,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	<input type="submit" value= "Logout"/>
 	</form>	
 	<br>
-	<form action="<?php echo site_url('admin_main')?>">
-	<input type="submit" value= " Admin Control Center"/>
-	</form>	
-	<br>	
-	<form action="<?php echo site_url('studentcontroller')?>">
-    	<input type="submit" value= " Student Control Center"/>
-	</form>	
-	<br>	
-	<form action="<?php echo site_url('coursecontroller')?>">
-    	<input type="submit" value= " Course Control Center"/>
+	<form action="<?php echo site_url('studentController')?>">
+    	<input type="submit" value= "Student Tab"/>
+	</form>		
+	<br>			
+	<form action="<?php echo site_url('teacherController')?>">
+    	<input type="submit" value= "Faculty Tab"/>
+	</form>		
+	<br>
+	<form action="<?php echo site_url('courseController')?>">
+    	<input type="submit" value= "Course Tab"/>
 	</form>	
 	<br>
 	<form action="<?php echo site_url('eventscontroller')?>">
-    	<input type="submit" value= " Events Control Center"/>
-	</form>	
+    	<input type="submit" value= " Events Tab"/>
+	</form>
+	<br>
+	<form action="<?php echo site_url('applicantcontroller/viewallapplicant')?>">
+    	<input type="submit" value= " Admission Tab"/>
+	</form>
 </body>
 </body>
 </html>

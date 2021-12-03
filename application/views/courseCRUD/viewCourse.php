@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<th>Course ID</th>
 			<th>Degree</th>
 			<th>Major</th>
-			<th>Total Units</th>
+			<th>College</th>
 			<th>Status</th>
 			
 		</tr>
@@ -37,7 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<td> <?php echo $row->courseID?> </td>
 			<td> <?php echo $row->degree?> </td>
 			<td> <?php echo $row->major?> </td>
-			<td> <?php echo $row->totalUnits?> </td>
+			<td> <?php echo $row->college?> </td>
 			<td> <?php echo $row->status?> </td>
 		</tr>
 			

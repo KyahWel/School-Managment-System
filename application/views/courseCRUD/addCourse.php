@@ -16,7 +16,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<form method="POST">
 		Enter Degree: <input type="text" name="degree"> <br><br>
 		Enter Major: <input type="text" name ="major"> <br><br>
-		Total units: <input type="text" name="totalUnits"> <br><br>
+		College: 
+		<select name="college">
+			<option value="" disabled selected hidden>Please Select</option>
+			<option value="College of Science">College of Science</option>
+			<option value="College of Engineering">College of Engineering</option>
+			<option value="College of Industrial Education">College of Industrial Education</option>
+			<option value="College of Architecture and Fine Arts">College of Architecture and Fine Arts</option>
+			<option value="College of Liberal Arts">College of Liberal Arts</option>
+		</select> <br><br>
 		<input type="submit" name="submit" value="Create course">
 	</form>
 	<br>

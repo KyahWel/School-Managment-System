@@ -76,19 +76,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</form>	
 	<br>
 	<form action="<?php echo site_url('studentController')?>">
-    	<input type="submit" value= "Student Control Center"/>
+    	<input type="submit" value= "Student Tab"/>
 	</form>		
 	<br>			
 	<form action="<?php echo site_url('teacherController')?>">
-    	<input type="submit" value= "Teacher Control Center"/>
+    	<input type="submit" value= "Faculty Tab"/>
 	</form>		
 	<br>
 	<form action="<?php echo site_url('courseController')?>">
-    	<input type="submit" value= "Course Control Center"/>
+    	<input type="submit" value= "Course Tab"/>
 	</form>	
 	<br>
 	<form action="<?php echo site_url('eventscontroller')?>">
-    	<input type="submit" value= " Events Control Center"/>
+    	<input type="submit" value= " Events Tab"/>
+	</form>
+	<br>
+	<form action="<?php echo site_url('applicantcontroller/viewallapplicant')?>">
+    	<input type="submit" value= " Admission Tab"/>
 	</form>
 
 	

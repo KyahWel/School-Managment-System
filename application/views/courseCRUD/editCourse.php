@@ -15,7 +15,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<form method="POST" action="<?php echo site_url('admin_main/updateAdmin')?>/<?php echo $row->courseID; ?>">
 		Degree: <input type="text" name="degree" value="<?php echo $row->degree?>"> <br><br>
 		Major: <input type="text" name ="major" value=<?php echo $row->major?>> <br><br>
-		Total Units: <input type="text" name="totalUnits" value="<?php echo $row->totalUnits?>"> <br><br>
+		<select name="college">
+			<option value="" disabled selected hidden>Please Select</option>
+			<option value="College of Science">College of Science</option>
+			<option value="College of Engineering">College of Engineering</option>
+			<option value="College of Industrial Education">College of Industrial Education</option>
+			<option value="College of Architecture and Fine Arts">College of Architecture and Fine Arts</option>
+			<option value="College of Liberal Arts">College of Liberal Arts</option>
+		</select> <br><br>
 		<input type="submit" name="submit" value="Edit course details">
 	</form>
 	<br>
