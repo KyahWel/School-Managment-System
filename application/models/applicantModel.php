@@ -1,27 +1,24 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+class applicantModel extends CI_Model {
 
-class uploadModel extends CI_Model {
-
-	public function __construct()
-	{
+	public function __construct(){	
 		$this->load->database();
 	}
 
-
-    public function upload_files(){
-        $this->load->library('upload');
-        
-                /* for testing
-                print_r($_FILES['medical_record']); 
-                print_r("<br>");
-                print_r($_FILES['form_137']);
-                print_r("<br>");
-                print_r($_FILES['good_moral']);
-                print_r("<br>");
-                */
-
-                $max_size = 1250000;
+	public function insertData() #Create
+	{	
+		$this->load->library('upload');
+		$digits = 4;
+		$year = 19;
+		do{
+			$holder = "TUPM-APPLICANT-".$year."-".rand(pow(10, $digits-1), pow(10, $digits)-1);
+			$this->db->select('*');
+			$this->db->from('applicant_accounts');
+			$this->db->where('applicantNumber',$holder);
+			$query=$this->db->get();
+		}while($query->num_rows()>0);
+		$max_size = 1250000;
 
                 $seed = str_split('abcdefghijklmnopqrstuvwxyz'
                                 .'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -77,29 +74,65 @@ class uploadModel extends CI_Model {
                             move_uploaded_file($gm_tmp, $gm_uploadpath);
 
                             $data = array(
+								'applicantID' => NULL,
+								'applicantNumber' => $holder,
+								'firstname' => $_POST['firstname'],
+								'middlename' => $_POST['middlename'],
+								'lastname' => $_POST['lastname'],
+								'extname' => $_POST['extname'],
+								'LRN' => $_POST['LRN'],
+								'gender' => $_POST['gender'],
+								'age' => $_POST['age'],
+								'birthday' => $_POST['birthday'],
+								'birthplace' => $_POST['birthplace'],
+								'contactnum' => $_POST['contactnum'],
+								'landline' => $_POST['landline'],
+								'email' => $_POST['email'],
+								'unit' => $_POST['unit'],
+								'street' => $_POST['street'],
+								'barangay' => $_POST['barangay'],
+								'city' => $_POST['city'],
+								'province' => $_POST['province'],
+								'zipcode' => $_POST['zipcode'],
+								'last_school_attended' => $_POST['school'],
+								'track' => $_POST['track'],
+								'school_address' => $_POST['school_address'],
+								'year_level' => $_POST['year_level'],
+								'year_graduated' => $_POST['year_graduated'],
+								'category' => $_POST['category'],
+								'gpa' => $_POST['gpa'],
+								'applicant_result' => "Undefined",
                                 'medical_record' => $mr_newimgname,
                                 'form_137' => $f137_newimgname,
                                 'good_moral' => $gm_newimgname
                             ); 
-                            $this->db->insert('applicant_accounts',$data);
-
-                            print_r("Successfully uploaded files");
-
-
-                        } else {
-                            print_r("File is not supported.");
-                            $error = array('error' => $this->upload->display_errors());
-                        }
+							$this->db->insert('applicant_accounts',$data);
+							unset($_POST);
+                        } 
                     } 
-                } else {
-                    print_r("Unknown error occured.");
-                    $error = array('error' => $this->upload->display_errors());
-                }
-        
-    }
+                } 
+	
+	}
+	
+	public function viewData() #Read
+	{
+		$query = $this->db->query('SELECT * FROM applicant_accounts');
+		return $query->result();
+	}
 
-    function getAllData(){
-            $query = $this->db->query('SELECT * FROM applicant_accounts ');
-            return $query->result();
-    }
+	public function getData($id)
+	{	
+		$query = $this->db->query('SELECT * FROM applicant_accounts  WHERE applicant_accounts.applicantID ='.$id);
+		return $query->row();
+	}
+
+	public function updateData($id)
+	{
+		$data = array(
+			'applicant_result' =>  $_POST['result']
+		);
+		$this->db->where('applicantID',$id);
+		$this->db->update('applicant_accounts',$data);
+	}
+
 }

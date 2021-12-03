@@ -18,7 +18,6 @@ class studentModel extends CI_Model {
 			$this->db->where('studentNumber',$holder);
 			$query=$this->db->get();
 		}while($query->num_rows()>0);
-
 		$data = array(
 			'studentID' => NULL,
 			'username' => $_POST['username'],

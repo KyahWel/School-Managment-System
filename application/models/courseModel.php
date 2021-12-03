@@ -14,7 +14,7 @@ class courseModel extends CI_Model {
 			'courseID' => NULL,
 			'degree' => $_POST['degree'],
 			'major' => $_POST['major'],
-			'totalUnits' => $_POST['totalUnits'],
+			'college' => $_POST['college'],
 			'status' => 1
 		);
 		$this->db->insert('course_table',$data);
@@ -38,8 +38,9 @@ class courseModel extends CI_Model {
 		$data = array(
 			'username' => $_POST['username'],
 			'password' => $_POST['password'],
-			'course' => $_POST['course']
-			# Add Year Level
+			'course' => $_POST['course'],
+			'college' => $_POST['college']
+
 		);
 		$this->db->where('courseID',$id);
 		$this->db->update('course_table',$data);

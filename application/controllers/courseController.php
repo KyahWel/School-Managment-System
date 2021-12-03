@@ -18,7 +18,7 @@ class courseController extends CI_Controller {
 	{
 		$this->load->view('/courseCRUD/addcourse');
 
-		if(isset($_POST['degree']) && isset($_POST['major'])){
+		if(isset($_POST['degree']) && isset($_POST['major']) && isset($_POST['college'])){
 			$this->courseModel->insertData();
 			redirect('courseController');
 		}
@@ -28,6 +28,7 @@ class courseController extends CI_Controller {
 		$data['row'] = $this->courseModel->getData($id);
 		$this->load->view('/courseCRUD/viewcourse',$data);
 	}
+
 	public function editCourse($id)
 	{
 		$data['row'] = $this->courseModel->getData($id);

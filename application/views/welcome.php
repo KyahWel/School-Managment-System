@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	<input type="submit" value= "Student"/>
 	</form>
 	<br>
-	<form action="<?php echo site_url('applicantcontroller/personal_info')?>">
+	<form action="<?php echo site_url('applicantController')?>">
     	<input type="submit" value= "Applicants"/>
 	</form>
 	<br>

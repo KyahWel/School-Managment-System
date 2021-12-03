@@ -13,6 +13,7 @@
 </head>
 <body>
     <h1>EVENTS AND ANNOUNCEMENTS MAIN VIEW</h1>
+    <h4>(add back buttons on view,edit )</h4>
     <button><a href="<?php echo site_url('eventsController/add') ?>">Add Event</a></button>
     <div class="container">
         <table>
@@ -57,16 +58,25 @@
     	<input type="submit" value= "Logout"/>
 	</form>	
 	<br>
-	<form action="<?php echo site_url('admin_main')?>">
-	<input type="submit" value= " Admin Control Center"/>
+	<form action="<?php echo site_url('studentController')?>">
+    	<input type="submit" value= "Student Tab"/>
 	</form>		
-	<br>				
-	<form action="<?php echo site_url('teachercontroller')?>">
-    	<input type="submit" value= " Teacher Control Center"/>
+	<br>			
+	<form action="<?php echo site_url('teacherController')?>">
+    	<input type="submit" value= "Faculty Tab"/>
+	</form>		
+	<br>
+	<form action="<?php echo site_url('courseController')?>">
+    	<input type="submit" value= "Course Tab"/>
 	</form>	
 	<br>
-	<form action="<?php echo site_url('studentcontroller')?>">
-    	<input type="submit" value= " Student Control Center"/>
-	</form>	
+	<form action="<?php echo site_url('eventscontroller')?>">
+    	<input type="submit" value= " Events Tab"/>
+	</form>
+	<br>
+	<form action="<?php echo site_url('applicantcontroller/viewallapplicant')?>">
+    	<input type="submit" value= " Admission Tab"/>
+	</form>
+	<br>
 </body>
 </html>
