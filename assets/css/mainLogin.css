@@ -1,8 +1,9 @@
 /* global styles on login */
 body, html {
-    height: 100%;
     font-family: 'Poppins', sans-serif;
     overflow-x: none;
+    background:  #f4f4f4;
+    height: 100%;
 }
 
 * {
@@ -10,6 +11,17 @@ body, html {
 }
 
 /* header styles */
+/* .bg-img{
+    background: url('/xampp/htdocs/Team-03/assets/images/bg.png') no-repeat center/cover #1f4c69;
+    position: relative;
+    height: 100vh;
+} */
+
+img.background{
+    background: no-repeat center/cover #f4f4f4;
+    position: relative;
+    height: 100vh;
+}
 .navbar{
     padding-top: 20px;
 }
@@ -17,8 +29,11 @@ body, html {
 .navbar-light .navbar-nav{
     padding-right: 25px;
 }
- .navbar-light button.navbar-toggler{
+ .navbar-light .navbar-toggler,  .navbar-light .navbar-toggler:focus{
     outline: none;
+    border: none;
+    font-size: 1rem;
+    padding: 3px;
  }
 
 .navbar-light .navbar-brand:hover{
@@ -32,53 +47,32 @@ body, html {
     color:white;
     padding-left: 15px;
 }
-a{
+/* a{
     position: relative;
     text-decoration: none;
-}
-a:before {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: rgb(9, 9, 9);
-    visibility: hidden;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out ;
-    -o-transition:  all 0.3s ease-in-out;
+} */
+
+.navbar .navbar-nav .nav-link:hover {
+    color: #000000;
+  }
+ 
+.active {
+    color: black;
+    font-weight: 600;
 }
 
-a:hover:before {
-    visibility: visible;
-    width: 100%;
-}
-a.active{
-    content: "";
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    position: relative;
-    margin-top: 5px;
-    top: 20%;
-    /* text-decoration: 2px solid underline brown ; */
+.active::before {
     color: black;
-    font-weight: bold;
+    font-weight: normal;
 }
-.bg-img {
-    /* The image used */
-    background: url(../Login/assets/bg.png) no-repeat center/cover #f4f4f4;
-    position: relative;
-    height: 100vh;
-}
+
+
 /* form wrapper for student, faculty, admin */
 .wrapper {
     position: absolute;
     margin: 0 auto;
     padding: 16px;
-    width: 445px;
+    width: 425px;
     top: 55%;
     right: -12%;
     transform: translate(-50%, -50%);
@@ -92,15 +86,10 @@ a.active{
 h3{
     font-family: 'Roboto', sans-serif;
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
     letter-spacing: 1px;
     color: black;
     padding-bottom: 2rem;
-}
-h5{
-    font-family: 'Rokkit';
-    font-weight: 600;
-    color: black;
 }
 hr{
     background-color: black;
@@ -136,7 +125,6 @@ label{
     opacity: 1;
     color: black;
     font-weight: 500;
-    letter-spacing: 0.5px;
 }
 
  .btn-default:focus {
@@ -199,8 +187,8 @@ input[type=text], input[type=password]{
 }
 
 @media screen and (max-width: 1024px){
-    .bg-img{
-        background: none #f4f4f4;
+    img.background{
+        background: none #f4f4f4 !important;
     }
     .navbar-light{
         background:#B20000;
@@ -221,8 +209,7 @@ input[type=text], input[type=password]{
     .wrapper {
         left: 50%;
         top: 54%;
-        /* border-radius: 30px;
-        box-shadow: 2px 4px 8px 10px rgba(0, 0, 0, 0.25); */
+       
     }
 
 }
