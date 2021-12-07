@@ -8,7 +8,7 @@
     padding: 16px;
     width: max-content;
     top: 55%;
-    right: 0%;
+    right: -5%;
     transform: translate(-50%, -50%);
 }
 .btn:hover {
