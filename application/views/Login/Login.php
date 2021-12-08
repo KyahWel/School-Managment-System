@@ -20,7 +20,7 @@
         <!-- Logo Text -->
         <span class="font-weight-bold">Technological University of the Philippines</span>
       </a>
-
+    
 
       <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
         <span class="navbar-toggler-icon" id="toogler" style="display: none;"></span>
@@ -93,10 +93,15 @@
         </div>
 
         <p class="text-left">
-          Forgot your password?
-          <a href="#!">Click here!</a><br>
+          <a href="#!">Forgot your password?</a><br>
         </p>
-        <button type="button" class="btn btn-default apply" name="apply">APPLY HERE</button>
+
+        <p class="text-left1">
+              Applicant?
+          <a href="#applicantLogin" onclick="applicantLogin()">Click here!</a><br>
+        </p>
+        
+        
       </form>
     </div>
 
@@ -132,8 +137,8 @@
         </div>
 
         <p class="text-left">
-          Forgot your password?
-          <a href="#!">Click here!</a>
+
+          <a href="#!">Forgot your password?</a><br>
         </p>
       </form>
     </div>
@@ -170,11 +175,49 @@
         </div>
 
         <p class="text-left">
-          Forgot your password?
-          <a href="#!">Click here!</a>
+
+          <a href="#!">Forgot your password?</a><br>
         </p>
       </form>
     </div>
+
+
+<!-- APPLICANT LOGIN ACCESS MODULE -->
+<div class="wrapper" id="applicantLogin" style="display: none;">
+      <h3> <strong>Applicant Access Module</strong></h3>
+      <form action="#" method="POST">
+        <hr>
+
+        <!-- Username -->
+        <div class="form-group mb-4">
+          <label for="username">Applicant Number</label>
+          <div class="input-group-addon">
+            <i class="fa fa-user"></i>
+          </div>
+          <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group mb-4">
+          <label for="password">Password</label>
+          <div class="input-group-addon">
+            <i class="fa fa-key"></i>
+          </div>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+        </div>
+
+        <!-- clear entries and login button -->
+        <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+          <input type="reset" class="btn btn-default" name="reset" value="Clear entries"></input>
+          <input type="submit" class="btn btn-default " name="login" value="Login"></input>
+        </div>
+        
+        <!--<p class= "notice">
+             </p> -->  
+        <button type="button" class="btn btn-default apply" name="apply">APPLY HERE</button>
+      </form>
+    </div>
+
 
 
   <script>
@@ -185,6 +228,7 @@
       document.getElementById('studentsLogin').style.display = "none";
       document.getElementById('facultyLogin').style.display = "none";
       document.getElementById('adminLogin').style.display = "none";
+      document.getElementById('applicantLogin').style.display = "none";
     }
 
     function studentsLogin() {
@@ -194,6 +238,7 @@
       document.getElementById('studentsLogin').style.display = "block";
       document.getElementById('facultyLogin').style.display = "none";
       document.getElementById('adminLogin').style.display = "none";
+      document.getElementById('applicantLogin').style.display = "none";
     }
 
     function facultyLogin() {
@@ -203,6 +248,7 @@
       document.getElementById('studentsLogin').style.display = "none";
       document.getElementById('facultyLogin').style.display = "block";
       document.getElementById('adminLogin').style.display = "none";
+      document.getElementById('applicantLogin').style.display = "none";
     }
 
     function adminLogin() {
@@ -212,7 +258,21 @@
       document.getElementById('studentsLogin').style.display = "none";
       document.getElementById('facultyLogin').style.display = "none";
       document.getElementById('adminLogin').style.display = "block";
+      document.getElementById('applicantLogin').style.display = "none";
     }
+
+    function applicantLogin() {
+      document.getElementById('toogler').style.display = "block";
+      document.getElementById('navs').style.display = "inline-flex";
+      document.getElementById('Home').style.display = "none";
+      document.getElementById('studentsLogin').style.display = "none";
+      document.getElementById('facultyLogin').style.display = "none";
+      document.getElementById('adminLogin').style.display = "none";
+      document.getElementById('applicantLogin').style.display = "block";
+    }
+
+
+
     const linkColor = document.querySelectorAll('a')
 
     function colorLink() {
