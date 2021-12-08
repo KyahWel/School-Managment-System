@@ -22,7 +22,7 @@
       </a>
 
 
-      <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+      <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"  >
         <span class="navbar-toggler-icon" id="toogler" style="display: none;"></span>
       </button>
 
@@ -67,36 +67,39 @@
         <h3> <strong>Student Access Module</strong></h3>
 
         <hr>
-
-        <!-- Username -->
-        <div class="form-group mb-4">
-          <label for="username">Student Number</label>
-          <div class="input-group-addon">
-            <i class="fa fa-user"></i>
+         <!-- add login for student -->
+     
+          <!-- Username -->
+          <div class="form-group mb-4">
+            <label for="username">Student Number</label>
+            <div class="input-group-addon">
+              <i class="fa fa-user"></i>
+            </div>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Student Number" required>
           </div>
-          <input type="text" class="form-control" id="username" name="username" placeholder="Student Number" required>
-        </div>
 
-        <!-- Password -->
-        <div class="form-group mb-4">
-          <label for="password">Password</label>
-          <div class="input-group-addon">
-            <i class="fa fa-key"></i>
+          <!-- Password -->
+          <div class="form-group mb-4">
+            <label for="password">Password</label>
+            <div class="input-group-addon">
+              <i class="fa fa-key"></i>
+            </div>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
           </div>
-          <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-        </div>
 
-        <!-- clear entries and login button -->
-        <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
-          <input type="reset" class="btn btn-default" name="reset" value="Clear entries"></input>
-          <input type="submit" class="btn btn-default " name="login" value="Login"></input>
-        </div>
+          <!-- clear entries and login button -->
+          <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+            <input type="reset" class="btn btn-default" name="reset" value="Clear entries"></input>
+           
+            <input type="submit" class="btn btn-default " value="Login" >
+          </div>
+     
 
         <p class="text-left">
           Forgot your password?
           <a href="#!">Click here!</a><br>
         </p>
-        <button type="button" class="btn btn-default apply" name="apply">APPLY HERE</button>
+        <button type="button" class="btn btn-default apply" name="apply" href="">APPLY HERE</button>
       </form>
     </div>
 
@@ -142,7 +145,7 @@
     <!-- ADMIN ACCESS MODULE -->
     <div class="wrapper" id="adminLogin" style="display: none;">
       <h3> <strong>Admin Access Module</strong></h3>
-      <form action="#" method="POST">
+      <form action="<?php echo site_url('admin_main')?>" method="POST">
         <hr>
 
         <!-- Username -->

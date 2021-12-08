@@ -70,9 +70,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<?php }?>
 	</table>
 	<br>
-	<form action="<?php echo site_url('admin_loginpage')?>">
+	<form action="<?php echo site_url('homepage')?>">
     	<input type="submit" value= "Logout"/>
-	</form>	
+	</form>		
 	<br>
 	<form action="<?php echo site_url('studentController')?>">
     	<input type="submit" value= "Student Tab"/>
@@ -93,7 +93,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<form action="<?php echo site_url('applicantcontroller/viewallapplicant')?>">
     	<input type="submit" value= " Admission Tab"/>
 	</form>
-
+	<br>
+    <form action="<?php echo site_url('examcontroller')?>">
+        <input type="submit" value= " Exam Schedules Tab"/>
+    </form>				
 	
 </body>
 </body>
