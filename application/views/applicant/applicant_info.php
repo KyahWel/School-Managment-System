@@ -15,7 +15,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<br>
 	<!-- Divs for update status -->
 	<h3>Applicant Number: <?php echo $applicant->applicantNumber?> </h3>
+	<div id ='static' style="display:block;">
+		<b>Application Status:</b>  <?php echo $applicant->applicant_result?>  
+		<br>
+		<br>
+		<input type="button" value="Update applicant status" onclick="updateStatus()"/>
+	</div>
 	
+	<div id ='updating' style="display:none;">
+		<form method="POST" action="<?php echo site_url('applicantcontroller/updatestatus')?>/<?php echo $applicant->applicantID ?>">
+			<b> Application Status: </b>
+			<select name="result">
+				<option value="Passed" selected> Passed </option>
+				<option value="Failed"> Failed</option>
+			</select>
+			<br>
+			<br>
+			<input type="submit" name="submit" value="Update applicant status">
+			<input type="button" value="Cancel" onclick="cancel()"/>
+		</form>
+		
+		
+	</div>
+		
 	<!-- --------------------------------------------------------------------------------------- -->
 	<br>
 	<h1>Personal Info</h1>
@@ -73,5 +95,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     	<input type="submit" value= " Go Back"/>
 	</form>
 
+	<script>
+		function updateStatus() {
+			document.getElementById('static').style.display = "none";
+			document.getElementById('updating').style.display = "block";
+			document.getElementById('button_update').style.display = "none";
+		}
+
+		function cancel() {
+			document.getElementById('static').style.display = "block";
+			document.getElementById('updating').style.display = "none";
+		}
+		
+		
+	</script>
 </body>
 </html>
