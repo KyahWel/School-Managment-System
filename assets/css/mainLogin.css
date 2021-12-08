@@ -27,12 +27,12 @@ img.background{
 }
   
 .navbar-light .navbar-nav{
-    padding-right: 25px;
+    padding-right: 30px;
 }
  .navbar-light .navbar-toggler,  .navbar-light .navbar-toggler:focus{
     outline: none;
     border: none;
-    font-size: 1rem;
+    font-size: 2rem;
     padding: 3px;
  }
 
@@ -47,6 +47,7 @@ img.background{
     color:white;
     padding-left: 15px;
 }
+
 /* a{
     position: relative;
     text-decoration: none;
@@ -66,6 +67,9 @@ img.background{
     font-weight: normal;
 }
 
+.nav-item{
+    padding-right: 30px;
+}
 
 /* form wrapper for student, faculty, admin */
 .wrapper {
@@ -74,9 +78,10 @@ img.background{
     padding: 16px;
     width: 425px;
     top: 55%;
-    right: -12%;
+    right: -7%;
     transform: translate(-50%, -50%);
     padding:2rem;
+    
 
 }
 .input-group-addon {
@@ -134,6 +139,31 @@ label{
     box-shadow: none;
 }
 
+.text-left{
+    color: blue;
+    
+}
+
+.text-left:hover{
+    text-shadow: 0.3px 0.3px blue;
+    transform: none;
+}
+
+.wrapper p a.active{
+    transform: none;
+    font-weight:normal;
+
+
+}
+
+/* .text-left1 a{
+    color:black;
+    font-weight: 900;
+} */
+
+.text-left1:hover{
+    text-shadow: 0.2px 0.2px black;
+}
 
 .navbar-light button.navbar-toggler {
     outline: none;
@@ -181,10 +211,9 @@ input[type=text], input[type=password]{
     padding-left: 35px;
 }
 
-.wrapper a{
-    color: black;
-    font-weight: 900;
-}
+
+
+
 
 @media screen and (max-width: 1024px){
     img.background{
