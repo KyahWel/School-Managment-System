@@ -52,5 +52,6 @@ class Admin_Main extends CI_Controller {
 		redirect('admin_main');
 	}
 
+	
 
 }
