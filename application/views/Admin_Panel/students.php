@@ -1,5 +1,5 @@
 <?php
-include('/xampp/htdocs/Team-03/application/views/includes/adminSideBar.php')
+include __DIR__.'/../includes/adminSideBar.php'
 ?>
 <div class="height-100 pt-2 container-fluid">
 <h3>Students</h3>
