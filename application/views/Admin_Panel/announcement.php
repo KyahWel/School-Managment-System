@@ -1,11 +1,6 @@
 <?php
-<<<<<<< HEAD
-include __DIR__.'/../includes/adminSideBar.php' 
-=======
-include __DIR__.'/../includes/adminSideBar.php'
->>>>>>> develop
+  include __DIR__.'/../includes/adminSideBar.php' 
 ?>
-
 <div class="height-100 pt-2 container-fluid">
 
 <div class="container my-3">
