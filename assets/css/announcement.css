@@ -1,0 +1,135 @@
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Announcement Tab */
+
+.AnnouncenentTab h3{
+    margin-top: 4px;
+}
+
+#back-button .btn{
+    background-color: #800000;
+    color: white;
+    border-color: transparent;
+    margin-bottom: 20px;
+}
+
+.btn:focus{
+    box-shadow: none;
+}
+
+#back-button a:hover{
+    background-color: white;
+    border-color: #800000;
+    color: #800000;
+}
+
+/*Create Announcement*/
+
+#create{
+    margin-bottom: 20px;
+}
+
+.accordion-button{
+    background-color: #800000;
+    color: white;
+}
+
+.accordion-button::after{
+    filter: brightness(0%) invert(100%);
+}
+
+.accordion-button:not(.collapsed){
+    background-color: #800000;
+    color:white;
+}
+
+.accordion-button:not(.collapsed)::after{
+    filter: brightness(0%) invert(100%);
+}
+
+.accordion-button:focus{
+    box-shadow: none;
+}
+
+#addAnnouncementForm .form-control:focus{
+    box-shadow: none;
+    border-color: #800000;
+}
+
+#save{
+    background-color: #800000;
+    border-color: transparent;
+    color: white;
+    text-decoration: none;
+    margin-right: 8px;
+}
+
+#cancel{
+    background-color: #aaaaaa;
+    border-color: transparent;
+    color: black;
+    text-decoration: none;
+}
+
+.container .addAnnouncementButton button:focus{
+    box-shadow: none;
+}
+
+#save:hover{
+    background-color: white;
+    border-color: #800000;
+    color: #800000;
+}
+
+#cancel:hover{
+    background-color: white;
+    border-color: #800000;
+    color: #800000;
+}
+
+/*Announcement Table*/
+
+.table-title{
+    background-color: #800000;
+    color: white;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.table-title h2{
+    font-size: inherit;
+    margin: 15px;
+}
+
+#table-body thead{
+    text-align: center;
+}
+
+#table-body tbody{
+    text-align: center;
+
+}
+
+/* Action Button */
+
+#table-body tbody .action-buttons li{
+    list-style-type: none;
+    display: inline-block;
+}
+
+#table-body tbody .action-buttons li button{
+    color: #800000;
+}
+
+#table-body tbody .action-buttons li button:focus{
+    box-shadow: none;
+}
+
+/* Edit Announcement */
+
+.modal-header{
+    background-color: #800000;
+    color: white;
+}
