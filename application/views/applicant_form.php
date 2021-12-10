@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<select id ="courses" name = "course_chosen">
 				<option value="" selected>--Please Select--</option>
 				<?php foreach($course as $course) {?>
-					<option value=<?php echo $course->degree?> in <?php echo $course->major?>><?php echo $course->degree?> in <?php echo $course->major?></option>
+					<option value='<?php echo $course->degree?> in <?php echo $course->major?>'><?php echo $course->degree?> in <?php echo $course->major?></option>
 				<?php }?>
 			</select>
 			<hr>

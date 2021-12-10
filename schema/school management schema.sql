@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 03, 2021 at 04:47 PM
+-- Generation Time: Dec 07, 2021 at 07:00 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `school_management`
+-- Database: `student_management`
 --
 
 -- --------------------------------------------------------
@@ -37,7 +37,14 @@ CREATE TABLE IF NOT EXISTS `admin_accounts` (
   `lastname` varchar(255) NOT NULL,
   `status` int(1) NOT NULL,
   PRIMARY KEY (`adminID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin_accounts`
+--
+
+INSERT INTO `admin_accounts` (`adminID`, `adminNumber`, `username`, `password`, `firstname`, `lastname`, `status`) VALUES
+(1, 'TUP-ADMIN-0000', 'admin', 'admin', ' ', ' ', 1);
 
 -- --------------------------------------------------------
 
@@ -80,14 +87,15 @@ CREATE TABLE IF NOT EXISTS `applicant_accounts` (
   `good_moral` varchar(255) NOT NULL,
   `applicant_result` varchar(255) NOT NULL,
   PRIMARY KEY (`applicantID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `applicant_accounts`
 --
 
 INSERT INTO `applicant_accounts` (`applicantID`, `applicantNumber`, `course_chosen`, `firstname`, `middlename`, `lastname`, `extname`, `LRN`, `gender`, `age`, `birthday`, `birthplace`, `contactnum`, `landline`, `email`, `unit`, `street`, `barangay`, `city`, `province`, `zipcode`, `last_school_attended`, `track`, `school_address`, `year_level`, `year_graduated`, `category`, `gpa`, `medical_record`, `form_137`, `good_moral`, `applicant_result`) VALUES
-(1, 'TUPM-APPLICANT-19-4970', 'Bachelor of Science in Information Technology', 'William Cris', 'Entero', 'Hod', ' ', 123456789, 'Male', 20, '2001-03-02', 'Metro Manila', '09270287483', '717-1426', 'williamcris18@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', 'TVL', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, '', '', '', 'Failed');
+(1, 'TUPM-APPLICANT-19-9231', 'Bachelor of Science in Computer Science', 'William Cris', 'Entero', 'Hod', ' ', 123456, 'Male', 20, '2001-03-20', 'Metro Manila', '09270287483', '717-1426', 'williamcris18@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', 'TVL', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-N4SsLOvQ.jpg', 'F137-N4SsLOvQ.jpg', 'GM-N4SsLOvQ.jpg', 'Passed'),
+(2, 'TUPM-APPLICANT-19-1268', 'Bachelor of Science in Information Technology', 'William Cris', 'Entero', 'Hod', ' ', 123456, 'Male', 20, '2001-03-02', 'Metro Manila', '09270287483', '717-1426', 'williamcris18@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', 'TVL', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-6QU1ZlHJ.jpg', 'F137-6QU1ZlHJ.jpg', 'GM-6QU1ZlHJ.jpg', 'Undefined');
 
 -- --------------------------------------------------------
 
@@ -142,14 +150,17 @@ CREATE TABLE IF NOT EXISTS `course_table` (
   `college` varchar(255) NOT NULL,
   `status` int(1) NOT NULL,
   PRIMARY KEY (`courseID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `course_table`
 --
 
 INSERT INTO `course_table` (`courseID`, `degree`, `major`, `college`, `status`) VALUES
-(1, 'Bachelor of Science', 'Information Technology', 'College of Science', 1);
+(1, 'Bachelor of Science', 'Information Technology', 'College of Science', 1),
+(2, 'Bachelor of Science', 'Computer Science', 'College of Science', 1),
+(3, 'Bachelor of Science', 'Information System', 'College of Engineering', 1),
+(4, 'Bachelor of Science', 'Computer Engineering', 'College of Science', 1);
 
 -- --------------------------------------------------------
 
@@ -216,14 +227,36 @@ DROP TABLE IF EXISTS `examination_table`;
 CREATE TABLE IF NOT EXISTS `examination_table` (
   `examID` int(255) NOT NULL AUTO_INCREMENT,
   `applicantID` int(255) NOT NULL,
+  `schedule` int(255) NOT NULL,
+  PRIMARY KEY (`examID`),
+  KEY `applicantExam` (`applicantID`),
+  KEY `schedule` (`schedule`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `exam_schedule`
+--
+
+DROP TABLE IF EXISTS `exam_schedule`;
+CREATE TABLE IF NOT EXISTS `exam_schedule` (
+  `schedID` int(255) NOT NULL AUTO_INCREMENT,
   `date` date NOT NULL,
   `time` time NOT NULL,
-  `room_no` int(255) NOT NULL,
+  `building` varchar(255) NOT NULL,
+  `room_no` varchar(255) NOT NULL,
   `floor_no` int(255) NOT NULL,
-  `Building` varchar(255) NOT NULL,
-  PRIMARY KEY (`examID`),
-  KEY `applicantExam` (`applicantID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `status` int(1) NOT NULL,
+  PRIMARY KEY (`schedID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `exam_schedule`
+--
+
+INSERT INTO `exam_schedule` (`schedID`, `date`, `time`, `building`, `room_no`, `floor_no`, `status`) VALUES
+(0, '2021-12-09', '16:00:00', 'College of Engineering', 'COE-153', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -347,7 +380,8 @@ ALTER TABLE `events_announcements`
 -- Constraints for table `examination_table`
 --
 ALTER TABLE `examination_table`
-  ADD CONSTRAINT `applicantExam` FOREIGN KEY (`applicantID`) REFERENCES `applicant_accounts` (`applicantID`);
+  ADD CONSTRAINT `applicantExam` FOREIGN KEY (`applicantID`) REFERENCES `applicant_accounts` (`applicantID`),
+  ADD CONSTRAINT `schedule` FOREIGN KEY (`schedule`) REFERENCES `exam_schedule` (`schedID`);
 
 --
 -- Constraints for table `student_accounts`

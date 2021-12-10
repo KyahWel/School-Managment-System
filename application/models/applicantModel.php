@@ -76,6 +76,7 @@ class applicantModel extends CI_Model {
                             $data = array(
 								'applicantID' => NULL,
 								'applicantNumber' => $holder,
+								'course_chosen' => $_POST['course_chosen'],
 								'firstname' => $_POST['firstname'],
 								'middlename' => $_POST['middlename'],
 								'lastname' => $_POST['lastname'],
@@ -101,7 +102,7 @@ class applicantModel extends CI_Model {
 								'year_graduated' => $_POST['year_graduated'],
 								'category' => $_POST['category'],
 								'gpa' => $_POST['gpa'],
-								'applicant_result' => "Undefined",
+								'applicant_result' => "Applied",
                                 'medical_record' => $mr_newimgname,
                                 'form_137' => $f137_newimgname,
                                 'good_moral' => $gm_newimgname
@@ -111,7 +112,6 @@ class applicantModel extends CI_Model {
                         } 
                     } 
                 } 
-	
 	}
 	
 	public function viewData() #Read
@@ -133,6 +133,21 @@ class applicantModel extends CI_Model {
 		);
 		$this->db->where('applicantID',$id);
 		$this->db->update('applicant_accounts',$data);
+	}
+
+	public function login(){
+		$data = array(
+			'applicantNumber' => $_POST['applicantnumber']
+		);
+		
+		$this->db->select('*');
+		$this->db->from('applicant_accounts');
+		$this->db->where($data);
+		$query=$this->db->get();
+		if($query->num_rows()==0)
+			return 0;
+		else 
+			print_r($query);
 	}
 
 }

@@ -6,20 +6,13 @@ class eventsController extends CI_Controller {
         parent:: __construct();
         $this->load->model('eventsModel');
     }
-    public function index(){
-        $data['result'] = $this->eventsModel->getAllData();
-		$this->load->view('events_mainView', $data);
-	}
-    public function add(){
-        $this->load->view('eventsCrud/eventsAdd');
-    }
     public function create(){
         $this->eventsModel->createData();
-        redirect("eventsController");
+        redirect("admincontroller/announcement");
     }
     public function view($eaID){
-        $data['row'] = $this->eventsModel->getData($eaID);
-        $this->load->view('eventsCRUD/eventsView',$data);
+        $data['viewAnnouncement'] = $this->eventsModel->getData($eaID);
+        $this->load->view('adminpanel/announcement',$data);
     }
     public function edit($eaID){
         $data['row'] = $this->eventsModel->getData($eaID);
