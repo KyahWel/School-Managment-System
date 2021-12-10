@@ -92,48 +92,6 @@ include __DIR__ . '/../includes/adminSideBar.php'
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>ID-123</td>
-              <!--?php echo $row->eaID; ?>-->
-              <td>TUP Event</td>
-              <!--?php echo $row->title; ?>-->
-              <td>12-21-2021</td>
-              <!--?php echo $row->date; ?>-->
-              <td>10:00 AM</td>
-              <!--?php echo $row->time; ?>-->
-              <td>Foundation Day</td>
-              <!--?php echo $row->details; ?>-->
-              <td>Status</td>
-              <!--?php echo $row->status; ?>-->
-              <td>
-                <div class="action-buttons">
-                  <li><button type="button" id="view" class="btn" data-bs-toggle="modal" data-bs-target="#viewAnnouncement"><i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                  <li><button type="button" id="edit" class="btn" data-bs-toggle="modal" data-bs-target="#editAnnouncement"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-                  <li>
-                    <div id="status">ACTIVATED</div>
-                  </li>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-      </div>
-
-        
-      <table class="table align-middle table-borderless table-hover" id="table-body"> <!--Table Body-->
-        <thead>
-          <tr>
-            <th>Event ID</th>
-            <th>Title</th>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Details</th>                                    
-            <th>Status</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
           <?php foreach($result as $row) {?>
             <tr>
               <td><?php echo $row->eaID; ?></td> 
@@ -144,16 +102,20 @@ include __DIR__ . '/../includes/adminSideBar.php'
               <td><?php echo $row->status; ?></td> 
               <td>
                 <div class="action-buttons">
-                  <li><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#viewAnnouncement">data-bs-toggle="modal" data-bs-target="#editAnnouncement"><i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i></button></li>
-                  <li><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editAnnouncement"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i></button></li>
-                  <li><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#"><i class="fas fa-times-circle" data-bs-toggle="tooltip" title="Deactivate"></i></button></li>
+                  <li><button type="button" id="view" class="btn" data-bs-toggle="modal" data-bs-target="#viewAnnouncement"><i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
+                  <li><button type="button" id="edit" class="btn" data-bs-toggle="modal" data-bs-target="#editAnnouncement"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
+                  <li>
+                    <div id="status">ACTIVATED</div>
+                  </li>
                 </div>
               </td>
             </tr>
           <?php } ?>
-        </tbody>
-      </table>
-    
+          </tbody>
+        </table>
+
+      </div>
+
     </div>
 
     <!--View Announcement-->
