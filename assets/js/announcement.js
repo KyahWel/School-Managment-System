@@ -21,7 +21,6 @@ Status.addEventListener('click', function (event) {
         Edit.style.background = "gray"
         View.style.background = "gray"
         Status.innerHTML = "DEACTIVATED"
-
         View.disabled = true;
         Edit.disabled = true;
     }
