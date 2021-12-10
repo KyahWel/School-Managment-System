@@ -8,7 +8,7 @@
     padding: 16px;
     width: max-content;
     top: 55%;
-    right: -5%;
+    right: 0;
     transform: translate(-50%, -50%);
 }
 .btn:hover {
@@ -100,7 +100,7 @@ h1{
 
 @media screen and (max-width: 570px){
     .navbar-light .navbar-brand{
-        font-size: .7rem;
+        font-size: .6rem;
         padding-left: 0;
         color: white;
     }
@@ -115,7 +115,6 @@ h1{
     }
 }
 
-
 @media screen and (max-width: 375px){
     .login-btn{
         width: 220px;
@@ -128,6 +127,9 @@ h1{
 }
 
 @media screen and (max-width: 320px){
+    .navbar-light .navbar-brand{
+        font-size: 0.55rem;
+    }
     .login-btn{
         margin: 40px;
     }

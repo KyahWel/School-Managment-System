@@ -17,11 +17,11 @@ body, html {
     height: 100vh;
 } */
 
-img.background{
+/* img.background{
     background: no-repeat center/cover #f4f4f4;
     position: relative;
     height: 100vh;
-}
+} */
 .navbar{
     padding-top: 20px;
 }
@@ -29,10 +29,10 @@ img.background{
 .navbar-light .navbar-nav{
     padding-right: 30px;
 }
- .navbar-light .navbar-toggler,  .navbar-light .navbar-toggler:focus{
+ .navbar-light button.navbar-toggler,  .navbar-light button.navbar-toggler:focus{
     outline: none;
     border: none;
-    font-size: 2rem;
+    font-size: 1rem;
     padding: 3px;
  }
 
@@ -96,9 +96,19 @@ h3{
     color: black;
     padding-bottom: 2rem;
 }
+.errormsg{
+    color: red;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    font-style: oblique;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
 hr{
     background-color: black;
     opacity: 1;
+    margin-top: 2px;
 }
 form{
     font-family: 'Roboto', sans-serif;
@@ -139,27 +149,16 @@ label{
     box-shadow: none;
 }
 
-.text-left{
+.wrapper p.text-left{
     color: blue;
-    
+   
 }
 
-.text-left:hover{
-    text-shadow: 0.3px 0.3px blue;
+.wrapper p.text-left:hover{
     transform: none;
+    font-weight: 300;
 }
 
-.wrapper p a.active{
-    transform: none;
-    font-weight:normal;
-
-
-}
-
-/* .text-left1 a{
-    color:black;
-    font-weight: 900;
-} */
 
 .text-left1:hover{
     text-shadow: 0.2px 0.2px black;
@@ -211,14 +210,7 @@ input[type=text], input[type=password]{
     padding-left: 35px;
 }
 
-
-
-
-
 @media screen and (max-width: 1024px){
-    img.background{
-        background: none #f4f4f4 !important;
-    }
     .navbar-light{
         background:#B20000;
         box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.25);
@@ -226,27 +218,30 @@ input[type=text], input[type=password]{
     }
     .navbar-light .navbar-nav .nav-link{
         color: white;
+
+    }
+    .navbar-light img{
+        width: 40px;
     }
     .navbar-light .navbar-brand{
-        font-size: .9rem;
+        font-size: .8rem;
         padding-left: 0;
         color: white;
     }
+ 
     .navbar{
         padding-top: 5px;
     }
     .wrapper {
         left: 50%;
-        top: 54%;
+        top: 50%;
+        right: 0%;
        
     }
 
 }
 
 @media screen and (max-width: 570px){   
-    .navbar-light img{
-        width: 45px;
-    }
     .wrapper{
         width:350px;
         padding-bottom: 5px;
@@ -257,18 +252,12 @@ input[type=text], input[type=password]{
     .wrapper .apply{
         font-size: 0.7rem;
     }
-    .navbar-light .navbar-brand{
-        font-size: 0.7rem;
-    }
     h3{
         font-size: 1.4rem;
     }   
 }
 
 @media screen and (max-width: 375px){
-    .navbar-light .navbar-brand{
-        font-size: x-small;
-    }
     .navbar-light img{
         width: 30px;
     }
@@ -287,12 +276,6 @@ input[type=text], input[type=password]{
     }
     h3{
         font-size: 1rem;
-    }
-}
-
-@media screen and (max-width: 320px){
-    .navbar-light .navbar-brand{
-        font-size: 0.5rem;
     }
 }
 

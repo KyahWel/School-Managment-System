@@ -29,7 +29,7 @@
         <nav class="nav">
             <div>
                 <div class="nav_list">
-                    <div class="welcome text-dark pt-3 fw-bold" id="welcome" style="color: steelblue;">
+                    <div class="welcome text-dark pt-3 fw-bold" id="welcome" style="color: steelblue; font-size:1rem">
                     <i class='fa fa-user' style="color:cornflowerblue"></i>
                         Hello, Admin!
                         <hr>
@@ -65,7 +65,7 @@
                         // show navbar
                         nav.classList.toggle('side')
                         // change icon
-                        toggle.classList.toggle('fa-close')
+                        toggle.classList.toggle('fa-times')
                         // add padding to body
                         bodypd.classList.toggle('body-pd')
                         // add padding to header
@@ -86,4 +86,3 @@
             }
         });
     </script>
-</body>
