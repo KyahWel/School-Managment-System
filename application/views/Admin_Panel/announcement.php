@@ -93,21 +93,23 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>ID-123</td> <!--?php echo $row->eaID; ?>-->
-            <td>TUP Event</td> <!--?php echo $row->title; ?>-->
-            <td>12-21-2021</td> <!--?php echo $row->date; ?>-->
-            <td>10:00 AM</td> <!--?php echo $row->time; ?>-->
-            <td>Foundation Day</td> <!--?php echo $row->details; ?>-->
-            <td>Status</td> <!--?php echo $row->status; ?>-->
-            <td>
-              <div class="action-buttons">
-                <li><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#viewAnnouncement"><i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i></button></li>
-                <li><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editAnnouncement"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i></button></li>
-                <li><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#"><i class="fas fa-times-circle" data-bs-toggle="tooltip" title="Deactivate"></i></button></li>
-              </div>
-            </td>
-          </tr>
+          <?php foreach($result as $row) {?>
+            <tr>
+              <td><?php echo $row->eaID; ?></td> 
+              <td><?php echo $row->title; ?></td> 
+              <td> <?php echo $row->date; ?></td>
+              <td><?php echo $row->time; ?></td> 
+              <td><?php echo $row->details; ?></td> 
+              <td><?php echo $row->status; ?></td> 
+              <td>
+                <div class="action-buttons">
+                  <li><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#viewAnnouncement">data-bs-toggle="modal" data-bs-target="#editAnnouncement"><i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i></button></li>
+                  <li><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editAnnouncement"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i></button></li>
+                  <li><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#"><i class="fas fa-times-circle" data-bs-toggle="tooltip" title="Deactivate"></i></button></li>
+                </div>
+              </td>
+            </tr>
+          <?php } ?>
         </tbody>
       </table>
     
@@ -122,7 +124,7 @@
             <h5 class="modal-title" id="viewAnnouncementHeader">View Announcement</h5>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" id="load_data">
           <div class="row mb-3">
               <div class="col">
                   <label>Title:</label>
@@ -198,6 +200,5 @@
 </div>
 
 </div>
-
 <script src="<?php echo base_url('assets/js/announcement.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>

@@ -43,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			
 	</table>
 		<br>
-		<form action="<?php echo site_url('courseController')?>">
+	<form action="<?php echo site_url('courseController')?>">
     	<input type="submit" value= "Back"/>
 	</form>	
 </body>

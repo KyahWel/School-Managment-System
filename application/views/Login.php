@@ -98,7 +98,6 @@
         <p class="text-left">
           <a href="#!">Forgot your password?</a><br>
         </p>
-<<<<<<< HEAD:application/views/Login/Login.php
 
         <p class="text-left1">
               Applicant?
@@ -106,9 +105,6 @@
         </p>
         
         
-=======
-        <button type="button" class="btn btn-default apply" name="apply" href="">APPLY HERE</button>
->>>>>>> develop:application/views/Login.php
       </form>
     </div>
 
@@ -154,7 +150,7 @@
     <!-- ADMIN ACCESS MODULE -->
     <div class="wrapper" id="adminLogin" style="display: none;">
       <h3> <strong>Admin Access Module</strong></h3>
-      <form action="<?php echo site_url('admin_main')?>" method="POST">
+      <form action="<?php echo site_url('admincontroller/dashboard')?>" method="POST">
         <hr>
 
         <!-- Username -->
