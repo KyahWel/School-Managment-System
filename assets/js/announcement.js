@@ -1,3 +1,4 @@
+
 var Status = document.getElementById("status");
 var Edit = document.getElementById("edit");
 var View = document.getElementById("view");
@@ -25,5 +26,4 @@ Status.addEventListener('click', function (event) {
         Edit.disabled = true;
     }
 });
-
 

@@ -119,6 +119,41 @@ include __DIR__ . '/../includes/adminSideBar.php'
         </table>
 
       </div>
+
+        
+      <table class="table align-middle table-borderless table-hover" id="table-body"> <!--Table Body-->
+        <thead>
+          <tr>
+            <th>Event ID</th>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Details</th>                                    
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach($result as $row) {?>
+            <tr>
+              <td><?php echo $row->eaID; ?></td> 
+              <td><?php echo $row->title; ?></td> 
+              <td> <?php echo $row->date; ?></td>
+              <td><?php echo $row->time; ?></td> 
+              <td><?php echo $row->details; ?></td> 
+              <td><?php echo $row->status; ?></td> 
+              <td>
+                <div class="action-buttons">
+                  <li><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#viewAnnouncement">data-bs-toggle="modal" data-bs-target="#editAnnouncement"><i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i></button></li>
+                  <li><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editAnnouncement"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i></button></li>
+                  <li><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#"><i class="fas fa-times-circle" data-bs-toggle="tooltip" title="Deactivate"></i></button></li>
+                </div>
+              </td>
+            </tr>
+          <?php } ?>
+        </tbody>
+      </table>
+    
     </div>
 
     <!--View Announcement-->
@@ -128,9 +163,15 @@ include __DIR__ . '/../includes/adminSideBar.php'
           <div class="modal-header">
             <h5 class="modal-title" id="viewAnnouncementHeader">View Announcement</h5>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+
+        </div>
+        <div class="modal-body" id="load_data">
+          <div class="row mb-3">
+
           </div>
           <div class="modal-body">
             <div class="row mb-3">
+
               <div class="col">
                 <label>Title:</label>
               </div>
@@ -211,6 +252,5 @@ include __DIR__ . '/../includes/adminSideBar.php'
   </div>
 
 </div>
-
 <script src="<?php echo base_url('assets/js/announcement.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
