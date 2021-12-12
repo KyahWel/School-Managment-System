@@ -2,13 +2,13 @@
 include __DIR__.'/../includes/adminSideBar.php'
 ?>
 
-<div class="height-100 pt-2 container-fluid">
+<div class="height-100 pt-2 container">
 
   <div class="container my-3">
     
     <!--Announcement Tab-->
     <div class="AnnouncenentTab my-3">
-      <h3>Announcement Tab</h3>
+      <h3>Events/Announcement</h3>
     </div>
 
     <!--Create Announcement-->
@@ -73,7 +73,7 @@ include __DIR__.'/../includes/adminSideBar.php'
       </div>
 
       <div class="table-responsive">  
-        <table class="table align-middle table-striped table-borderless table-hover" id="table-body"> <!--Table Body-->
+        <table class="table table-light align-middle table-striped table-borderless table-hover" id="table-body"> <!--Table Body-->
           <thead>
             <tr>
               <th>Title</th>
@@ -197,3 +197,5 @@ include __DIR__.'/../includes/adminSideBar.php'
 
 <script src="<?php echo base_url('assets/js/announcement.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
+</body>
+</html>
