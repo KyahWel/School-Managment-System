@@ -1,0 +1,42 @@
+body{
+    background: #f4f4f4;
+}
+
+.bg-default{
+    background:white;
+}
+
+.header{
+    background: maroon;
+    transition: .5s;
+    -moz-transition: .5s;
+    -webkit-transition: .5s;
+    -o-transition: .5s;
+}
+
+.applicant-head{
+    padding:8px;
+    background: maroon;
+    transition: .5s;
+    letter-spacing: 1px;
+    -moz-transition: .5s;
+    -webkit-transition: .5s;
+    -o-transition: .5s;
+}
+
+.information{
+    background:#93D9F6;
+    width: 70%;
+    font-size: 0.75rem;
+    padding: 15px;
+}
+.information i.fa{
+    font-size: 2.2rem;
+}
+
+/* this is needed to make the content scrollable on larger screens */
+@media (min-width: 576px) {
+    .h-sm-100 {
+        height: 100%;
+    }
+}
