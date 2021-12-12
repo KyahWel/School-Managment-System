@@ -13,10 +13,10 @@ include __DIR__.'/../includes/adminSideBar.php'
 
     <!--Create Announcement-->
     <div class="col-12 align-self-center" id="create">
-      <div class="accordion" id="accordion-addAnnouncement">
+      <div class="accordion accordion-flush" id="accordion-addAnnouncement">
         <div class="accordion-item">
           <h2 class="accordion-header" id="addAnnouncementHeader">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#addAnnouncement" aria-expanded="true" aria-controls="addAnnouncement">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#addAnnouncement" aria-expanded="false" aria-controls="addAnnouncement">
                 Add Announcement
             </button>
           </h2>
