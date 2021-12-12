@@ -10,17 +10,17 @@ body{
     font-weight: 800
 }
 
+/* Back Button */
+
 #back-button .btn{
     background-color: #800000;
     color: white;
     border-color: transparent;
     margin-bottom: 20px;
 }
-
 .btn:focus{
     box-shadow: none;
 }
-
 #back-button a:hover{
     background-color: white;
     border-color: #800000;
@@ -32,51 +32,46 @@ body{
 #create{
     margin-bottom: 20px;
 }
-.accordion-item{
-    border-radius: 30px;
-}
+
 .accordion-button{
     background-color: #302323;
     color: white;
     font-size: 0.9rem;
     padding: 15px 1.3rem;
 }
+.accordion-button::after{
+    filter: brightness(0%) invert(100%);
+}
+.accordion-button:not(.collapsed){
+    background-color: #800000;
+    color:white;
+}
+.accordion-button:not(.collapsed)::after{
+    filter: brightness(0%) invert(100%);
+}
+.accordion-button:focus{
+    box-shadow: none;
+}
+
+.accordion-item{
+    border-radius: 30px;
+}
 .accordion-item:first-of-type .accordion-button{
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
 }
-
-.accordion-item:last-of-type {
+.accordion-item:last-of-type{
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
 }
-.accordion-item:last-of-type .accordion-button.collapsed {
+.accordion-item:last-of-type .accordion-button.collapsed{
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     background: maroon;
-}
-.accordion-item:last-of-type {
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-}
-
-.accordion-button::after{
-    filter: brightness(0%) invert(100%);
-}
-
-.accordion-button:not(.collapsed){
-    background-color: #800000;
-    color:white;
-}
-
-.accordion-button:not(.collapsed)::after{
-    filter: brightness(0%) invert(100%);
-}
-
-.accordion-button:focus{
-    box-shadow: none;
 }
 
 #addAnnouncementForm .form-control:focus{
@@ -92,7 +87,6 @@ body{
     margin-right: 8px;
     font-size: 0.8rem;
 }
-
 #cancel{
     background-color: #aaaaaa;
     border-color: transparent;
@@ -108,26 +102,24 @@ body{
 .form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     font-size: 0.8rem;
 }
-
 .form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
     font-size: 0.8rem;
 }
-
 .form-control::-ms-input-placeholder { /* Microsoft Edge */
     font-size: 0.8rem;
 }
 
-input[type=text], input[type=date],input[type=time], textarea{
+input[type=text], input[type=date], input[type=time], textarea{
     color: black;
     font-size: 0.8rem;
 }
+
 #save:hover{
     background-color: white;
     border-color: #800000;
     color: #800000;
     font-size: 0.8rem;
 }
-
 #cancel:hover{
     background-color: white;
     border-color: #800000;
@@ -136,6 +128,7 @@ input[type=text], input[type=date],input[type=time], textarea{
 }
 
 /*Announcement Table*/
+
 .table-wrapper{
     background: white;
     border-radius: 25px;
@@ -146,27 +139,29 @@ input[type=text], input[type=date],input[type=time], textarea{
     text-align: center;
     border-radius: 25px 25px 0 0 ;
 }
-
 .table-title h2{
     font-size: inherit;
     margin: 15px;
 }
-
+tr{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 #table-body thead{
     text-align: center;
 }
-
 #table-body tbody{
     text-align: center;
 
 }
+
 /* Action Button */
 
 #table-body tbody .action-buttons li{
     list-style-type: none;
     display: inline-block;
 }
-
 #table-body tbody .action-buttons li button, #table-body tbody .action-buttons li #status{
     color: white;
     background-color:maroon;
@@ -184,11 +179,9 @@ input[type=text], input[type=date],input[type=time], textarea{
     opacity: 0.9;
     background-color: rgb(175, 9, 9);
 }
-
 #table-body tbody .action-buttons li button #edit:hover{
     opacity: 1;
 }
-
 #table-body tbody .action-buttons li button:focus{
     box-shadow: none;
 }

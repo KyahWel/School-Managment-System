@@ -5,8 +5,9 @@ include __DIR__.'/../includes/adminSideBar.php'
 <div class="height-100 pt-2 container-fluid">
 
   <div class="container my-3">
-     <!--Announcement Tab-->
-     <div class="AnnouncenentTab my-3">
+    
+    <!--Announcement Tab-->
+    <div class="AnnouncenentTab my-3">
       <h3>Announcement Tab</h3>
     </div>
 
@@ -63,15 +64,16 @@ include __DIR__.'/../includes/adminSideBar.php'
     <div class="col-12 align-self-center" id="AnnouncementTable">
       <div class="table-wrapper">
           
-        <div class="table-title"> <!--Table Header-->
-          <div class="row">
-            <div class="col">
-                <h2>List of Announcements</h2>
-            </div>
+      <div class="table-title"> <!--Table Header-->
+        <div class="row">
+          <div class="col">
+              <h2>List of Announcements</h2>
           </div>
         </div>
-          
-        <table class="table align-middle table-borderless table-hover" id="table-body"> <!--Table Body-->
+      </div>
+
+      <div class="table-responsive">  
+        <table class="table align-middle table-striped table-borderless table-hover" id="table-body"> <!--Table Body-->
           <thead>
             <tr>
               <th>Title</th>
@@ -86,7 +88,7 @@ include __DIR__.'/../includes/adminSideBar.php'
             <?php foreach($result as $row) {?>
               <tr>
                 <td><?php echo $row->title; ?></td> 
-                <td> <?php echo $row->date; ?></td>
+                <td><?php echo $row->date; ?></td>
                 <td><?php echo $row->time; ?></td> 
                 <td><?php echo $row->details; ?></td> 
                 <td><?php echo $row->status; ?></td> 
@@ -103,7 +105,8 @@ include __DIR__.'/../includes/adminSideBar.php'
             <?php } ?>
           </tbody>
         </table>
-      
+      </div>
+
       </div>
     </div>
 
