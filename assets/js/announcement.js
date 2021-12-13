@@ -3,7 +3,7 @@ var Status = document.getElementById("status");
 var Edit = document.getElementById("edit");
 var View = document.getElementById("view");
 
-// Disable the button on initial page load
+// enable active button on initial page load
 Status.disabled = false;
 
 //add event listener
@@ -15,6 +15,7 @@ Status.addEventListener('click', function (event) {
         Edit.style.background = "maroon"
         View.style.background = "maroon"
         Status.innerHTML = "ACTIVATED"
+
     }
 
     else {

@@ -12,7 +12,7 @@ class applicantController extends CI_Controller {
 	}
 	public function index()
 	{
-		$this->load->view('applicant_login');
+		$this->load->view('applicant_form');
 		if(isset($_POST['applicantnumber'])){
 			if($this->applicantModel->insertData()==0){
 				echo('fail');
