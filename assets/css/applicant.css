@@ -1,11 +1,23 @@
+html, body{
+    margin:0px;
+    height:100%;
+}
 body{
     background: #f4f4f4;
 }
 
-.bg-default{
-    background:white;
+@media (min-width: 767px) {
+    .bg-default{
+        background:white;
+        height:100vh;
+    }
 }
-
+@media (max-width: 767px) {
+    .bg-default{
+        background:white;
+        height:0;
+    }
+}
 .header{
     background: maroon;
     transition: .5s;
@@ -26,14 +38,110 @@ body{
 
 .information{
     background:#93D9F6;
-    width: 70%;
     font-size: 0.75rem;
     padding: 15px;
+    width:80%;
 }
 .information i.fa{
     font-size: 2.2rem;
 }
 
+.information p{
+    padding-bottom:0;
+    padding-left: 3rem;
+    margin-bottom: 0.3rem;
+}
+
+/* breadcrumbs */
+
+
+
+/* personal info */
+.Wrapper{
+    background: white;
+    border-radius: 25px;
+    border: 0.1px solid rgb(221, 220, 220);
+    margin-bottom: 2rem;
+}
+
+.tabTitle{
+    background: maroon;
+    border-radius: 25px 25px 0 0;
+    letter-spacing: 0.8px;
+}
+
+.tabTitle p, .Contents{
+    padding:10px 35px;
+
+}
+
+.Contents{
+    border-radius: 0 0 25px 25px;
+}
+
+label{
+    font-weight: 500;
+}
+/* step buttons */
+.stepButtons .btn-warning{
+    background: #F2BD53;
+    align-content: flex-end;
+    place-items: right;
+    align-self: flex-end;
+    text-align: left;
+    color: maroon;
+    font-weight: 500;
+    font-size: small;
+}
+.stepButtons .btn-warning:hover{
+    background: #faba39;
+}
+
+/* final procedure */
+#final_step .Wrapper .Contents p.note1{
+    color: red;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+#final_step .Wrapper .Contents h3{
+    letter-spacing: 1px;
+    font-size: 1.7rem;
+
+}
+#final_step .Wrapper .Contents p.note2, #final_step .Wrapper .Contents p.note3{
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+#final_step .Wrapper .Contents p.note3{
+    color: #00336D;
+    letter-spacing: 0.8px;
+}
+#final_step .Wrapper .Contents p.note4{
+    color: red;
+    letter-spacing: 0.8px;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+#final_step .Wrapper .Contents button.download{
+    font-size: 0.9rem;
+    background: #F2BD53;
+    box-shadow: 2px 5px 4px rgba(0, 0, 0, 0.25);
+    border: 0.5px solid;
+    border-image-source: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+}
+#final_step .Wrapper .Contents button.download:hover{
+    background: #ffb521;
+}
+#final_step .Wrapper .Contents .finishedButton{
+    background: #DB1A00;
+    font-size: 0.9rem;
+    opacity:0.9;
+}
+#final_step .Wrapper .Contents .finishedButton:hover{
+    opacity: 1;
+}
 /* this is needed to make the content scrollable on larger screens */
 @media (min-width: 576px) {
     .h-sm-100 {

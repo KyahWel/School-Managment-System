@@ -73,7 +73,7 @@ include __DIR__.'/../includes/adminSideBar.php'
       </div>
 
       <div class="table-responsive">  
-        <table class="table table-light align-middle table-striped table-borderless table-hover" id="table-body"> <!--Table Body-->
+        <table class="table table-default align-middle table-striped table-borderless table-hover" id="table-body"> <!--Table Body-->
           <thead>
             <tr>
               <th>Title</th>
