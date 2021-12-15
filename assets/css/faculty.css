@@ -1,0 +1,115 @@
+#table-body tr{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#table-body td{
+ max-width: 200px;
+ overflow: hidden;
+ text-overflow: ellipsis;
+ white-space: nowrap;
+}
+
+
+/* Title Page and Back Button */
+
+#back-button{
+    background-color: #800000;
+    color: white;
+    border-color: transparent;
+    margin: 0px 10px 10px 0px; /*align button and title*/
+}
+
+.btn:focus{
+    box-shadow: none;
+}
+
+#back-button:hover{
+    background-color: white;
+    border-color: #800000;
+    color: #800000;
+}
+
+.FacultyTab h3{
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.viewProfessorTitle h3{
+    font-size: 1.5rem;
+    font-weight: 800;
+    display: inline;
+}
+
+/* Add Faculty */
+
+.form-label{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.form-control{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.form-control:focus{
+    box-shadow: none;
+    border-color: #800000;
+}
+
+/* Filter and Search */
+
+#filterAndSearch{
+    text-align: right;
+}
+
+select:invalid{
+    color: gray;
+}
+
+option{
+    color: black;
+}
+
+select:active{
+    box-shadow: none;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+#search{
+    color: white;
+    background-color: #800000;
+    padding: .1rem .5rem;
+}
+
+#search i{
+    font-size: 10px;
+}
+
+/* Professor View Page */
+
+#professorAvatar .btn{
+    padding: 3px 13px 3px 3px;
+}
+
+#professorAvatar i{
+    color: white;
+    background-color: #800000;
+    font-size: 50px;
+    padding: 15px 18px;
+    border-radius: 50%;
+}
+
+#viewProfessorInformation td{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 15px 5px;
+}

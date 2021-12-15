@@ -1,9 +1,8 @@
-
 var Status = document.getElementById("status");
 var Edit = document.getElementById("edit");
 var View = document.getElementById("view");
 
-// enable active button on initial page load
+// Disable the button on initial page load
 Status.disabled = false;
 
 //add event listener
@@ -15,7 +14,6 @@ Status.addEventListener('click', function (event) {
         Edit.style.background = "maroon"
         View.style.background = "maroon"
         Status.innerHTML = "ACTIVATED"
-
     }
 
     else {
@@ -27,3 +25,14 @@ Status.addEventListener('click', function (event) {
     }
 });
 
+// View Professor Page 
+
+function mainFaculty() {
+    document.getElementById('mainFaculty').style.display = "block";
+    document.getElementById('viewProfessor').style.display = "none";
+}
+
+function viewProfessor() {
+    document.getElementById('mainFaculty').style.display = "none";
+    document.getElementById('viewProfessor').style.display = "block";
+}

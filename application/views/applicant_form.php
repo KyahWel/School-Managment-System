@@ -87,7 +87,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<!-- Email Address -->
 			<table>
 				<tr>
-					<td> Email Address: <input type="text" name='email'> </td>
+					<td> Email Address: <input type="text" name='email' name='email'> </td>
 				</tr>
 			</table>
 			<br>

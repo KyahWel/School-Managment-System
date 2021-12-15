@@ -38,6 +38,7 @@ a {
     justify-content: space-between;
     padding: 0 0rem;
     background-color: maroon;
+    border-bottom: 1px solid whitesmoke;
     z-index: var(--z-fixed);
     transition: .5s
 }
