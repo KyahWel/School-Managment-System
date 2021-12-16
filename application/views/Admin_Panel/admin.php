@@ -21,7 +21,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                 </h2>
                 <div id="addAdmin" class="accordion-collapse collapse" aria-labelledby="addAdminHeader" data-bs-parent="#accordion-addAdmin">
                     <div class="accordion-body">
-                        <form method="POST" action="<?php echo site_url('AdminController/create') ?>" id="addAdminForm">
+                        <form method="POST" action="<?php echo site_url('admin_main/addadmin') ?>" id="addAdminForm">
                             <div class="row mb-3">
                                 <div class="col-6">
                                     <label class="form-label">Firstname:</label>
@@ -42,12 +42,13 @@ include __DIR__.'/../includes/adminSideBar.php'
                                     <input type="text" name ="password" class="form-control">
                                 </div>        
                             </div>
-	                    </form>
-	                    <br>
-                        <div class="addAdminButton d-flex justify-content-end">
+                            <div class="addAdminButton d-flex justify-content-end">
                             <button class="btn btn-default" id="save" type="submit" value="save">Save</button>
                             <button class="btn btn-default" id="cancel" type="reset" value="cancel">Cancel</button>
                         </div>
+	                    </form>
+	                    <br>
+                        
                     </div>
                 </div>
             </div>
@@ -81,50 +82,45 @@ include __DIR__.'/../includes/adminSideBar.php'
 			                    <th>Username</th>
 			                    <th>First Name</th>
 			                    <th>Last Name</th>
-			                    <th>Password</th>
+			                    <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>001</td> 
-                                <td>Ad001-2001</td>
-                                <td>admin</td>
-                                <td>admin</td>
-                                <td>admin</td>
-                                <td>admin</td>
-                                <td>
-                                    <div class="action-buttons">
-                                        <li><button type="button" id="view" class="btn" data-bs-toggle="modal" data-bs-target="#viewAdmin"><i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                        <li><button type="button" id="edit" class="btn" data-bs-toggle="modal" data-bs-target="#editAdmin"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-                                        <li>
-                                            <div id="status">Activate</div>
-                                        </li>
-                                    </div>
-                                </td>
-                            </tr>
 
-                        <!--<?php foreach($result as $row) {?>
+                        <?php foreach($result as $row) {?>
                             <tr>
                                 <td><?php echo $row->adminID; ?></td>
 			                    <td><?php echo $row->adminNumber; ?></td>
 			                    <td><?php echo $row->username; ?></td>
 			                    <td><?php echo $row->firstname; ?></td>
 			                    <td><?php echo $row->lastname; ?></td>
-			                    <td><?php echo $row->password; ?></td>
+			                    <td><?php echo $row->status; ?></td>
                                 <td>
                                     <div class="action-buttons">
-                                        <li><button type="button" id="view" class="btn" data-bs-toggle="modal" data-bs-target="#viewAdmin"><i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                        <li><button type="button" id="edit" class="btn" data-bs-toggle="modal" data-bs-target="#editAdmin"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-                                        <li>
-                                            <div id="status">Activate</div>
-                                        </li>
+                                        <?php if ($row->status == 1): ?>
+                                        <li><button type="button" id="view" data-id='<?php echo $row->adminID;?>' class="btn view_data" data-bs-toggle="modal" data-bs-target="#viewAdmin"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
+                                            <?php if ($row->adminID == 1): ?>
+                                                <li><button type="button" id="edit" data-id='<?php echo $row->adminID;?>'  class="btn" disabled style="background-color: gray;"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
+                                                <li><button type="button" class="btn"  disabled style="background-color: gray;"> Deactivate </button>
+                                            <?php else: ?>
+                                                <li><button type="button" id="edit" data-id='<?php echo $row->adminID;?>' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editAdmin"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
+                                                <li><button type="button" class="btn"  onclick="location.href='<?php echo site_url('admin_main/deactivate')?>/<?php echo $row->adminID; ?>'">
+                                                 Deactivate
+                                                </button>
+                                            <?php endif ?>               
+                                        <?php else: ?>
+                                            <li><button type="button" id="view" data-id='<?php echo $row->adminID;?>' class="btn" disabled style="background-color: gray;"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
+                                            <li><button type="button" id="edit" data-id='<?php echo $row->adminID;?>' class="btn" disabled style="background-color: gray;"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
+                                            <li><button type="button" class="btn" onclick="location.href='<?php echo site_url('admin_main/activate')?>/<?php echo $row->adminID; ?>'">
+                                                Activate
+                                            </button>
+                                            </li>	
+                                        <?php endif ?>
                                     </div>
                                 </td>
                             </tr>
                         <?php } ?>
-                        </tbody>-->
-                        
                         </tbody>
                     </table>	
                 </div>
@@ -141,38 +137,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                     </div>
                     <div class="modal-body">
                         <div id="admin_result">
-                        <form action="" id="viewAdminForm">
-                            <div class="row mb-3">
-                                <div class="col-6">
-                                    <label>ID: </label>
-                                    <label>001</label>
-                                </div>
-                                <div class="col-6">
-                                    <label>Admin Number: </label>
-                                    <label>Ad001-2001</label>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-6">
-                                    <label>Username: </label>
-                                    <label>admin</label>
-                                </div>
-                                <div class="col-6">
-                                    <label>Password: </label>
-                                    <label>admin</label>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-6">
-                                    <label>Firstname: </label>
-                                    <label>admin</label>
-                                </div>
-                                <div class="col-6">
-                                    <label>Lastname: </label>
-                                    <label>admin</label>
-                                </div>
-                            </div>
-                        </form>
+                                        
                         </div>
                         <div class="editAdminButton d-flex justify-content-end">
                             <button class="btn btn-default" id="save" type="button" data-bs-dismiss="modal">Exit</button>
@@ -192,39 +157,48 @@ include __DIR__.'/../includes/adminSideBar.php'
                     </div>
                 
                     <div class="modal-body">
-                        <form action="" id="editAdminForm">
-                            <div class="row mb-3">
-                                <div class="col-6">
-                                    <label class="form-label">Firstname:</label>
-                                    <input type="text" class="form-control" name="firstname">
-                                </div>
-                                <div class="col-6">
-                                    <label class="form-label">Lastname:</label>
-                                    <input type="text" class="form-control" name ="lastname">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-6">
-                                    <label class="form-label">Username:</label>
-                                    <input type="text" class="form-control" name="username">
-                                </div>
-                                <div class="col-6">
-                                    <label class="form-label">Password:</label>
-                                    <input type="text" class="form-control" name ="password">
-                                </div>
-                            </div>
-                            <div class="editAdminButton d-flex justify-content-end">
-                                <button class="btn btn-default" id="save" type="submit" value="save">Save Changes</button>
-                                <button class="btn btn-default" id="cancel" type="button" data-bs-dismiss="modal">Cancel</button><br>
-                            </div>                    
-                        </form>
+                        <div id="edit_admin">
+
+                        </div>
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+<!-- jQuery JS CDN -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> 
+ <!-- jQuery DataTables JS CDN -->
+ <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+ <!-- Ajax fetching data -->
+ <script type="text/javascript">
+    $(document).ready(function(){
+      $('#dataTable').DataTable();
+      $('.view_data').click(function(){
+        var adminData = $(this).data('id');
+        $.ajax({
+          url: "<?php echo site_url('admin_main/viewAdmin');?>",
+          method: "POST",
+          data: {adminData:adminData},
+          success: function(data){
+            $('#admin_result').html(data);
+          }
+        });
+      });
+      $('.edit_data').click(function(){
+        var id = $(this).data('id');
+        $.ajax({
+          url: "<?php echo site_url('admin_main/editAdmin');?>",
+          method: "POST",
+          data: {id:id},
+          success: function(data){
+            $('#edit_admin').html(data);
+          }
+        });
+      });
+    });
+</script>
 <script src="<?php echo base_url('assets/js/admin.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 </body>
