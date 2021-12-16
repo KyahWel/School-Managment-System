@@ -54,7 +54,10 @@ body{
 
 /* breadcrumbs */
 
-
+.form-control:focus{
+    box-shadow: none;
+    border-color: #800000;
+}
 
 /* personal info */
 .Wrapper{
@@ -86,6 +89,8 @@ body{
 label{
     font-weight: 500;
 }
+
+
 /* step buttons */
 .stepButtons .btn-warning{
     background: #F2BD53;
@@ -100,6 +105,8 @@ label{
 .stepButtons .btn-warning:hover{
     background: #faba39;
 }
+
+
 
 /* final procedure */
 #final_step .Wrapper .Contents p.note1{
@@ -145,6 +152,8 @@ label{
 #final_step .Wrapper .Contents .finishedButton:hover{
     opacity: 1;
 }
+
+
 
 /* this is needed to make the content scrollable on larger screens */
 @media (min-width: 576px) {

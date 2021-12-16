@@ -41,6 +41,7 @@ function final_step() {
         if (!form.checkValidity()) {
           event.preventDefault()
           event.stopPropagation()
+          alert("Please fill in all the required fields.");
           
         }
 
