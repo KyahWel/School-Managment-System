@@ -2,6 +2,11 @@
 include __DIR__.'/../includes/adminSideBar.php'
 ?>
 
+<head>
+    <link href="<?php echo base_url('assets/css/faculty.css'); ?>" rel="stylesheet" type="text/css">
+    <title>Admin | Faculty</title>
+</head>
+
 <div class="height-100 pt-2 container-fluid">
 
     <!-- Faculty Main Page -->
@@ -120,9 +125,9 @@ include __DIR__.'/../includes/adminSideBar.php'
                         </thead>
                         <tbody>     
                             <tr>
-                                <td class="ellipsis first">Prof-123</td> 
-                                <td class="ellipsis">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis eum maxime hic doloremque, quae veritatis vel nam, alias ut cupiditate et a ipsum magni accusantium recusandae eos reprehenderit aspernatur distinctio.</td>
-                                <td class="ellipsis">
+                                <td>Prof-123</td> 
+                                <td>Lida Cruz</td>
+                                <td>
                                 <div class="action-buttons">
                                     <li><button type="button" id="view" class="btn" onclick="viewProfessor()"><i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
                                     <li><button type="button" id="edit" class="btn" data-bs-toggle="modal" data-bs-target="#editProfessor"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
@@ -247,7 +252,7 @@ include __DIR__.'/../includes/adminSideBar.php'
         </div>
 
         <div class="viewProfessorContent d-flex align-items-center">
-            <div id="professorAvatar">
+            <div id="viewProfessorAvatar">
                 <button class="btn"><i class="fas fa-user"></i></button>
             </div>
             <div class="table-responsive">
@@ -267,6 +272,129 @@ include __DIR__.'/../includes/adminSideBar.php'
                         </td>
                     </tr>
                 </table>
+            </div>
+        </div>
+        
+        <div class="col-12 align-self-center my-3" id="viewProfessorTable">
+            <ul class="nav nav-tabs d-flex flex-row justify-content-start" id="viewProfessorTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="viewProfessorInformationTab" data-bs-toggle="tab" data-bs-target="#ProfessorInformation" type="button" role="tab" aria-controls="ProfessorInformation" aria-selected="true">Professor Information</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="viewProfessorSubjectTab" data-bs-toggle="tab" data-bs-target="#ProfessorSubject" type="button" role="tab" aria-controls="ProfessorSubject" aria-selected="false">Subject</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="viewProfessorSectionTab" data-bs-toggle="tab" data-bs-target="#ProfessorSection" type="button" role="tab" aria-controls="ProfessorSection" aria-selected="false">Section</button>
+                </li>
+            </ul>
+            <div class="tab-content p-3" id="viewProfessorTabContent">
+                <div class="tab-pane show active" id="ProfessorInformation" role="tabpanel" aria-labelledby="viewProfessorInformationTab">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 mb-1"> <!--Last Name-->
+                            <input type="text" class="form-control" readonly>
+                            <label class="form-label pt-2">Last Name</label>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-1"> <!--First Name-->
+                            <input type="text" class="form-control" readonly>
+                            <label class="form-label pt-2">First Name</label>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-1"> <!--Middle Name-->
+                            <input type="text" class="form-control" readonly>
+                            <label class="form-label pt-2">Middle Name</label>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-1"> <!--Suffix-->
+                            <input type="text" class="form-control" readonly>
+                            <label class="form-label pt-2">Suffix</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 mb-1"> <!--Phone Number-->
+                            <input type="text" class="form-control" readonly>
+                            <label class="form-label pt-2">Phone Number</label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 mb-1"> <!--Email-->
+                            <input type="text" class="form-control" readonly>
+                            <label class="form-label pt-2">Email</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="ProfessorSubject" role="tabpanel" aria-labelledby="viewProfessorSubjectTab">
+                    <div class="table-responsive">  
+                        <table class="table align-middle table-striped table-borderless table-hover" id="table-body"> <!--Table Body-->
+                            <thead>
+                                <tr>
+                                    <th>School Year</th>
+                                    <th>Year Level</th>
+                                    <th>Semester</th>
+                                    <th>Course</th>
+                                    <th>Subject Code</th>
+                                    <th>Subject Title</th>
+                                </tr>
+                            </thead>
+                            <tbody>     
+                                <tr>
+                                    <td>2020-2021</td> 
+                                    <td>First</td>
+                                    <td>Second</td>
+                                    <td>BSCS</td>
+                                    <td>Math-01</td>
+                                    <td>Mathematics 1</td>
+                                </tr>
+                                <tr>
+                                    <td>2020-2021</td> 
+                                    <td>First</td>
+                                    <td>Second</td>
+                                    <td>BSCS</td>
+                                    <td>Math-01</td>
+                                    <td>Mathematics 1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane" id="ProfessorSection" role="tabpanel" aria-labelledby="viewProfessorSectionTab">
+                    <div class="table-responsive">  
+                        <table class="table align-middle table-striped table-borderless table-hover" id="table-body"> <!--Table Body-->
+                            <thead>
+                                <tr>
+                                    <th>School Year</th>
+                                    <th>Year Level</th>
+                                    <th>Semester</th>
+                                    <th>Course</th>
+                                    <th>Section</th>
+                                    <th>Subject Code</th>
+                                    <th>Subject Title</th>
+                                    <th>Day</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>     
+                                <tr>
+                                    <td>2020-2021</td> 
+                                    <td>First</td>
+                                    <td>Second</td>
+                                    <td>BSCS</td>
+                                    <td>BSCS-1A</td>
+                                    <td>Math-01</td>
+                                    <td>Mathematics 1</td>
+                                    <td>Monday</td>
+                                    <td>7:00AM-9:00AM</td>
+                                </tr>
+                                <tr>
+                                    <td>2020-2021</td> 
+                                    <td>First</td>
+                                    <td>Second</td>
+                                    <td>BSCS</td>
+                                    <td>BSCS-1A</td>
+                                    <td>Math-01</td>
+                                    <td>Mathematics 1</td>
+                                    <td>Monday</td>
+                                    <td>7:00AM-9:00AM</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
