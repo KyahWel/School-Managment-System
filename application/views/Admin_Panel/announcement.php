@@ -2,13 +2,18 @@
 include __DIR__.'/../includes/adminSideBar.php'
 ?>
 
+<head>
+  <link href="<?php echo base_url('assets/css/announcement.css'); ?>" rel="stylesheet" type="text/css">
+  <title>Admin| Events and Announcement</title>
+</head>
+
 <div class="height-100 pt-2 container">
 
   <div class="container my-3">
     
     <!--Announcement Tab-->
     <div class="AnnouncenentTab my-3">
-      <h3>Events/Announcement</h3>
+      <h3>Events and Announcement</h3>
     </div>
 
     <!--Create Announcement-->
@@ -73,7 +78,7 @@ include __DIR__.'/../includes/adminSideBar.php'
       </div>
 
       <div class="table-responsive">  
-        <table class="table table-default align-middle table-striped table-borderless table-hover" id="table-body"> <!--Table Body-->
+        <table class="table table-default table-striped align-middle  table-borderless table-hover" id="table-body"> <!--Table Body-->
           <thead>
             <tr>
               <th>Title</th>
@@ -106,7 +111,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                         <li><button type="button" id="view" data-id='<?php echo $row->eaID;?>' class="btn" disabled style="background-color: gray;"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
                         <li><button type="button" id="edit" data-id='<?php echo $row->eaID;?>' class="btn" disabled style="background-color: gray;"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
                         <li>
-                        <li><button type="button" class="btn" onclick="location.href='<?php if($row->status == 1){echo site_url('eventsController/deactivate');} else {echo site_url('eventsController/activate');}?>/<?php echo $row->eaID; ?>'">
+                        <li><button type="button" id="status" class="btn" onclick="location.href='<?php if($row->status == 1){echo site_url('eventsController/deactivate');} else {echo site_url('eventsController/activate');}?>/<?php echo $row->eaID; ?>'">
                           Activate
                         </button>
                         </li>	
@@ -196,7 +201,6 @@ include __DIR__.'/../includes/adminSideBar.php'
 </script>
 
  <!-- External Javascripts -->
-<script src="<?php echo base_url('assets/js/announcement.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 </body>
 </html>
