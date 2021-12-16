@@ -1,257 +1,535 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Welcome page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url('assets/css/applicant.css'); ?>" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-	<form action="<?php echo site_url('welcome')?>">
-		<input type="submit" value=" Back" />
-	</form>
-	<br>
-	<!-- Yung tatlong div under sya ng form tag na may method ng POST para makuha yung input fields -->
-	<form method='POST' enctype="multipart/form-data">
-	<!-- ------------------------------------------------------------------------------------------------------- -->
-	<!-- 1st Div -->
+    <div class="d-flex justify-content-between text-white header px-3 py-2">
+        <div class="brand">
+            Technological University of the Philippines
+        </div>
+        <!-- <div class="cancel">
+            Cancel Application
+        </div> -->
+    </div>
+    <div class="container-fluid">
+        <div class="row height-100vh">
+            <div class="col-lg-3 col-md-3 col-sm-0 col-xl-2 px-0 bg-default d-flex sticky-top">
+                <div class="d-flex flex-md-column flex-row flex-grow-1 align-items-center text-dark">
+                    <div href="/" class="d-block align-items-center pb-sm-3 text-dark text-decoration-none">
+                        <div class="d-none d-md-inline">
+                            <img src="assets/images/applicantAvatar.svg" alt="" class="pt-4 mx-4" style="width: 125px;">
+                            <br>
+                            <p class="text-center pt-4 h5">Welcome,</p>
+                            <p class="text-center pt-2 fw-bold h5">Applicant-21-2322 </p>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-		<div id='personalInfo' style="display: block;">
-			<h1> Step 1: Personal Information </h1>
+            <!-- Contents -->
+            <div class="col d-flex flex-column">
+                <div class="container-fluid" id="steps" style="display: block;">
+                    <div class="mt-3 applicant-head text-white px-3">
+                        Appicant ID: <span class="fw-bold"> Applicant-21-2123 </span>
+                        <!--APPLICANT NUMBER READ -->
+                    </div>
 
-			<!-- Course Dropdown, next change: use AJAX and JQUERY to retrieve data from database-->
-			<label for="courses"> Course: </label>
-			<select id ="courses" name = "course_chosen">
-				<option value="" selected>--Please Select--</option>
-				<?php foreach($course as $course) {?>
-					<option value='<?php echo $course->degree?> in <?php echo $course->major?>'><?php echo $course->degree?> in <?php echo $course->major?></option>
-				<?php }?>
-			</select>
-			<hr>
-
-			<!-- Name Input -->
-			<table>
-				<tr>
-					<td> Name: <input type="text" name="firstname" placeholder="First Name"> </td>
-					<td> <input type="text" placeholder="Middle Name" name='middlename'> </td>
-					<td> <input type="text" placeholder="Surname" name="lastname"> </td>
-					<td> <input type="text" placeholder="Extension Name" name='extname'> </td>
-				</tr>
-			</table>
-			<br>
-
-			<!-- LRN and Gender -->
-			<table>
-				<tr>
-					<td> LRN Number: <input type="text" name="LRN"> </td>
-					<td> Gender:
-						<input type="radio" name="gender" value="Male"> Male
-						<input type="radio" name="gender" value="Female"> Female
-					</td>
-				</tr>
-			</table>
-			<br>
-
-			<!-- Birthdate and Age -->
-			<table>
-				<tr>
-					<td> Birthdate: <input type="date" name='birthday'> </td>
-					<td> Age: <input type="text" name='age'> </td>
-				</tr>
-			</table>
-			<br>
-
-			<!-- Birthplace -->
-			<table>
-				<tr>
-					<td> Birthplace: <input text="text" name='birthplace'> </td>
-				</tr>
-			</table>
-			<br>
-
-			<!-- Contact Number & Landline -->
-			<table>
-				<tr>
-					<td> Contact Address: <input type="text" name='contactnum'> </td>
-					<td> Landline Number: <input type="text" name="landline"> </td>
-				</tr>
-			</table>
-			<br>
-
-			<!-- Email Address -->
-			<table>
-				<tr>
-					<td> Email Address: <input type="text" name='email' name='email'> </td>
-				</tr>
-			</table>
-			<br>
-
-			<hr>
-
-			<!-- Permanent Address -->
-			<h2> Permanent Address</h2>
-
-			<!-- Unit and Street -->
-			<table>
-				<tr>
-					<td> Unit #: <input type="text" name='unit'> </td>
-					<td> Street: <input type="text" name='street'> </td>
-				</tr>
-			</table>
-
-			<!-- Barangay and City -->
-			<table>
-				<tr>
-					<td> Barangay: <input type="text" name='barangay'> </td>
-					<td> City: <input type="text" name='city'> </td>
-				</tr>
-			</table>
-
-			<!-- Zip and Province -->
-			<table>
-				<tr>
-					<td> Zip Code: <input type="text" name='zipcode'> </td>
-					<td> Province: <input type="text" name='province'> </td>
-				</tr>
-			</table>
-			<br>
-			<input type="button" value="Next Step: EDUCATIONAL ATTAINMENT" onclick="educationalAttainment()" />
-		</div>
+                    <!--Information -->
+                    <div class=" mt-3 applicant-head text-dark px-3 rounded-3 information ">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-shrink-0">
+                                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                1. Kindly type 'NA' in boxes where there are no possible answers to the information being requested. <br>
+                                2. Enter a valid email address to receive the test permit.
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
-	<!-- ------------------------------------------------------------------------------------------------------- -->
-	<!-- 2nd Div -->
+                <div class="row height-sm-100 contents">
+                    <div class="col">
+                        <form method='POST' class="needs-validation" novalidate enctype="multipart/form-data">
+
+                            <!-- Personal Information -->
+                            <div id='personalInfo' class=" container pt-3" style="display: block;">
+                                <div class="Wrapper">
+                                    <div class="tabTitle">
+                                        <p class="text-white"><i class="fa fa-user"></i> <span class="px-2"> Personal Information </span></p>
+                                    </div>
+                                    <div class="Contents">
+
+                                        <!-- Course Dropdown, next change: use AJAX and JQUERY to retrieve data from database-->
+                                        <div class="mb-3 row">
+                                            <label for="courses" class="col-2 form-label small pt-2">Course: </label>
+                                            <div class="col-lg-7 col-md-10 col-sm-12">
+                                                <select class="form-select form-select-sm" id="courses" name="course_chosen" aria-label="Select Course" >
+                                                    <option value="" selected>--Please Select--</option>
+                                                    <?php foreach ($course as $course) { ?>
+                                                        <option value='<?php echo $course->degree ?> in <?php echo $course->major ?>'><?php echo $course->degree ?> in <?php echo $course->major ?></option>
+                                                    <?php } ?>
+                                                </select>
+                                                <div class="invalid-feedback">
+                                                    Please select a course.
+                                                </div>
+                                            </div>
+                                            <hr class="mt-4 mb-1">
+                                        </div>
+
+                                        <!-- Name Input-->
+                                        <div class="row mt-0">
+                                            <!-- <div class="col-lg-2 col-md-none form-label small ">                                                   
+                                                    <label for="Name" class="form-control-sm">Name: </label>
+                                            </div> -->
+                                            <div class="col-lg-3 col-md-6 py-1 small">
+                                                <label for="firstname" class="form-label small">First Name</label>
+                                                <input type="text" name="firstname" class="form-control form-control-sm" aria-label="First name" required>
+                                                <div class="invalid-feedback">
+                                                    Please input your first name.
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 py-1">
+                                                <label for="middlename" class="form-label small">Middle Name</label>
+                                                <input type="text" name='middlename' class="form-control form-control-sm" aria-label="Last name" required>
+                                                <div class="invalid-feedback">
+                                                    Please input your middle name.
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 py-1">
+                                                <label for="lastname" class="form-label small">Surname</label>
+                                                <input type="text" name="lastname" class="form-control form-control-sm" aria-label="Surname" required>
+                                                <div class="invalid-feedback">
+                                                    Please input your surname.
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 py-1">
+                                                <label for="extname" class="form-label small">Suffix</label>
+                                                <input type="text" name='extname' class="form-control form-control-sm" aria-label="Extension Name" required>
+                                                <div class="invalid-feedback">
+                                                    Please input your extension name.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- LRN and Gender-->
+                                        <div class="row mt-2 small">
+                                            <label for="LRN" class="form-label col-lg-2 col-md-12 pt-1">LRN:</label>
+                                            <div class="col-lg-3 col-md-12">
+                                                <input type="text" name="LRN" class="form-control form-control-sm" minlength="10" aria-label="LRN" required>
+                                                <div class="invalid-feedback">
+                                                    Please input your LRN.
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-2 col-md-none"> </div>
+
+                                            <label for="gender" class="form-label col-lg-2 col-md-12 pt-1">Gender:</label>
+                                            <div class="col-lg-3 col-md-12 pt-1">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="gender" value="Male">Male
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="gender" value="Female">Female
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Birthdate and Age-->
+                                        <div class="row mt-2 small">
+                                            <label for="birthday" class="form-label col-lg-2 col-md-12 pt-1">Birth Date:</label>
+                                            <div class="col-lg-3 col-md-12">
+                                                <input type="date" name='birthday' class="form-control form-control-sm" aria-label="Birthdate" required>
+                                                <div class="invalid-feedback">
+                                                    Please input your birthdate.
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-2 col-md-none"> </div>
+
+                                            <label for="age" class="form-label col-lg-2 col-md-12 pt-1">Age:</label>
+                                            <div class="col-lg-3 col-md-12">
+                                                <input type="text" name='age' class="form-control form-control-sm" aria-label="Age" required>
+                                                <div class="invalid-feedback">
+                                                    Please input your age.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Birthplace-->
+                                        <div class="row mt-2 small">
+                                            <label for="birthplace" class="form-label col-lg-2 pt-1">Birth Place:</label>
+                                            <div class="col-lg-3">
+                                                <input type="text" name='birthplace' class="form-control form-control-sm" aria-label="Birthpalace" required>
+                                                <div class="invalid-feedback">
+                                                    Please input your birthplace.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Contact Number and Landline-->
+                                        <div class="row mt-2 small">
+                                            <label for="contactnum" class="form-label col-lg-2 col-md-12 pt-1">Contact Number:</label>
+                                            <div class="col-lg-3 col-md-12">
+                                                <input type="tel" name='contactnum' class="form-control form-control-sm" aria-label="Contact Number" required>
+                                                <div class="invalid-feedback">
+                                                    Please input your contact number.
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-2 col-md-none"> </div>
+
+                                            <label for="landline" class="form-label col-lg-2 col-md-12 pt-1">Landline:</label>
+                                            <div class="col-lg-3 col-md-12">
+                                                <input type="tel" name='landline' class="form-control form-control-sm" aria-label="Landline" required>
+                                                <div class="invalid-feedback">
+                                                    Please input your landline number.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Email Address-->
+                                        <div class="row mt-2 small">
+                                            <label for="email" class="form-label col-lg-2 pt-1">Email Address:</label>
+                                            <div class="col-lg-4">
+                                                <input type="email" name='email' class="form-control form-control-sm" aria-label="Email Address" required>
+                                                <div class="invalid-feedback">
+                                                    Please input your <strong>valid</strong> email address.
+                                                </div>
+                                            </div>
+                                            <hr class="mt-4 mb-3">
+                                        </div>
+
+                                        <!-- Permanent Address -->
+                                        <p class="fw-bold">PERMANENT ADDRESS</p>
+
+                                        <!--Unit and Street-->
+                                        <div class="row mt-2 small">
+                                            <label for="unit" class="form-label col-lg-2 col-md-12  pt-1">Unit #:</label>
+                                            <div class="col-lg-3 col-md-12">
+                                                <input type="text" name='unit' class="form-control form-control-sm" aria-label="Unit Number" required>
+                                                <div class="invalid-feedback">
+                                                    Please input your unit #.
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-2 col-md-none"> </div>
+
+                                            <label for="street" class="form-label col-lg-2 col-md-12 pt-1">Street:</label>
+                                            <div class="col-lg-3 col-md-12">
+                                                <input type="text" name='street' class="form-control form-control-sm" aria-label="Street" required>
+                                                <div class="invalid-feedback">
+                                                    Please input your street.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Barangay and City-->
+                                        <div class="row mt-2 small">
+                                            <label for="barangay" class="form-label col-lg-2 col-md-12  pt-1">Barangay:</label>
+                                            <div class="col-lg-3 col-md-12">
+                                                <input type="text" name='barangay' class="form-control form-control-sm" aria-label="Barangay" required>
+                                                <div class="invalid-feedback">
+                                                    Please input your barangay.
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-2 col-md-none"> </div>
+
+                                            <label for="city" class="form-label col-lg-2 col-md-12 pt-1">City:</label>
+                                            <div class="col-lg-3 col-md-12">
+                                                <input type="text" name='city' class="form-control form-control-sm" aria-label="City" required>
+                                                <div class="invalid-feedback">
+                                                    Please input your city.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Zipcode and Province-->
+                                        <div class="row mt-2 small">
+
+                                            <label for="zipcode" class="form-label col-lg-2 col-md-6 pt-1">Zipcode:</label>
+                                            <div class="col-lg-3 col-md-6">
+                                                <input type="text" name='zipcode' class="form-control form-control-sm" aria-label="Zipcode" required>
+                                                <div class="invalid-feedback">
+                                                    Please input your zipcode.
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-2 col-md-none"> </div>
+
+                                            <label for="province" class="form-label col-lg-2 col-md-6 pt-1">Province:</label>
+                                            <div class="col-lg-3 col-md-6">
+                                                <input type="text" name='province' class="form-control form-control-sm" aria-label="Province" required>
+                                                <div class="invalid-feedback">
+                                                    Please input your province.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--  Next Step button-->
+                                        <br>
+                                        <div class="d-flex stepButtons">
+                                            <button type="button" class="btn btn-warning ms-auto mb-2" onclick="educationalAttainment()">
+                                                <div class=" d-flex align-items-center ">
+                                                    <div class="flex-shrink-0">
+                                                        <span class="next text-dark">Next Step </span> <br> Educational Attainment
+                                                    </div>
+                                                    <div class="flex-grow-1 ms-2">
+                                                        <i class="fas fa-angle-double-right fa-lg"></i>
+                                                    </div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--personalInfoContents-->
+                            </div>
+                            <!--personalInfoWrapper-->
+
+                            <!-- ------------------------------------------------------------------------------------------------------- -->
+                            <!-- Educational Attainment -->
+                            <div id='educationalattainment' class=" container pt-3" style="display: none;">
+                                <div class="Wrapper">
+                                    <div class="tabTitle">
+                                        <p class="text-white"><i class="fa fa-user-graduate"></i> <span class="px-2"> Educational Attainment </span></p>
+                                    </div>
+                                    <div class="Contents">
+                                        <p class="fw-bold">SCHOOL LAST ATTENDED</p>
+
+                                        <!--Name of School and Track-->
+                                        <div class="row mt-2 small">
+                                            <label for="school" class="form-label col-lg-2 col-md-12 pt-1">Name of School:</label>
+                                            <div class="col-lg-4 col-md-12">
+                                                <input type="text" name="school" class="form-control form-control-sm" aria-label="Name of School" required>
+                                                <div class="invalid-feedback">
+                                                    Please input your school name.
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-1 col-md-none"> </div>
+
+                                            <label class="form-label col-lg-2 col-md-12 pt-1">Program/Track:</label>
+                                            <div class="col-lg-3 col-md-12">
+                                                <select class="form-select form-select-sm" name="track" aria-label="Program Track" required>
+                                                    <option selected disabled></option>
+                                                    <option value="">ABM</option>
+                                                    <option value="">HUMSS</option>
+                                                    <option value="">STEM</option>
+                                                    <option value="">ICT</option>
+                                                    <option value="">GAS</option>
+                                                    <option value="">N/A</option>
+                                                </select>
+                                                <div class="invalid-feedback">
+                                                    Please select your track.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- School Adress-->
+                                        <div class="row mt-2 small">
+                                            <div class="col-lg-2">
+                                                <label class="form-label pt-1">School Address:</label>
+                                            </div>
+                                            <div class="col-lg-10">
+                                                <input type="text" name="school_address" class="form-control form-control-sm" aria-label="School Address" required>
+                                                <div class="invalid-feedback">
+                                                    Please input your school address.
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Year Level and Graduated-->
+                                        <div class="row mt-2 small">
+                                            <label class="form-label col-lg-2 col-md-12  pt-1">Year Level:</label>
+                                            <div class="col-lg-3 col-md-12">
+                                                <input type="text" name="year_level" class="form-control form-control-sm" aria-label="Year level" required>
+                                                <div class="invalid-feedback">
+                                                    Please input year level.
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-2 col-md-none"> </div>
 
 
-		<div id='educationalattainment' style="display:none;">
-			<h1> Step 2: Educational Attainment</h1>
-			<h3> School Last Attended</h3>
+                                            <label class="form-label col-lg-2 col-md-12 pt-1">Year Graduated:</label>
 
-			<!-- School and Track -->
-			<table>
-				<tr>
-					<td> Name of School: <input type="text" name='school'> </td>
-					<td> Program/Track: <input type="text" name="track"> </td>
-				</tr>
-			</table>
+                                            <div class="col-lg-3 col-md-12">
+                                                <input type="text" name="year_graduated" class="form-control form-control-sm" aria-label="Year Graduated" required>
+                                                <div class="invalid-feedback">
+                                                    Please input graduated year.
+                                                </div>
+                                            </div>
+                                        </div>
 
+                                        <!-- Category-->
+                                        <div class="row mt-2 small">
+                                            <label class="form-label col-lg-2 col-md-12  pt-1">Category:</label>
+                                            <div class="col-lg-3 col-md-12 pt-1">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="category" value="K-12">K-12
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="category" value="Old Curriculum">Old Curriculum
+                                                </div>
+                                            </div>
+                                        </div>
 
-			<!-- School Address -->
-			<table>
-				<tr>
-					<td> School Address: <input type="text" name="school_address"> </td>
-				</tr>
-			</table>
-
-			<!-- Year Level and Graduated -->
-			<table>
-				<tr>
-					<td> Year Level: <input type="text" name="year_level"> </td>
-					<td> Year Graduated: <input type="text" name="year_graduated"> </td>
-				</tr>
-			</table>
-
-			<!-- Category -->
-			<table>
-				<tr>
-					<td> Category: <input type="radio" value="K-12" name="category"> K-12 </td>
-					<td> <input type="radio" value="Old Curriculum" name="category"> Old Curriculum </td>
-				</tr>
-			</table>
-
-			<!-- GPA -->
-			<table>
-				<tr>
-					<td> GPA: <input type="text" name="gpa" placeholder="input gpa"> </td>
-				</tr>
-			</table>
-			<br>
-
-			<!-- Previous and Next Buttons -->
-			<table>
-				<tr>
-					<td>
-						<input type="button" value="Previous Step: PERSONAL INFORMATION" onclick="personalInfo()" />
-					</td>
-					<td>
-						<input type="button" value="Next Step: REQUIREMENTS" onclick="requirement()" />
-					</td>
-				</tr>
-			</table>
-		</div>
-
-		<!-- ------------------------------------------------------------------------------------------------------- -->
-
-		<!-- 3rd Div file system -->
+                                        <!-- GPA-->
+                                        <div class="row mt-2 small">
+                                            <div class="col-lg-2">
+                                                <label class="form-label pt-1">GPA:</label>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <input type="tel" name="gpa" maxlength="4" class="form-control form-control-sm" aria-label="GPA" required>
+                                                <div class="invalid-feedback">
+                                                    Please input your gpa.
+                                                </div>
+                                            </div>
+                                        </div>
 
 
-		<div id='requirements' style="display:none;">
-			<h1> Step 3: Requirements</h1>
-				<label>Medical Record</label>
-				<input type="file" name="medical_record">
-				<br><br>
-				<label>Form 137</label>
-				<input type="file" name="form_137">
-				<br><br>
-				<label>Good Moral</label>
-				<input type="file" name="good_moral">
-				<br><br>
-			<br>
-			<input type="button" value="Previous Step: REQUIREMENTS" onclick="educationalAttainment()" /> 
-			<input type="button" value="Next Step: Final Step" onclick="final_step()" />
-		</div>
-	<!-- ------------------------------------------------------------------------------------------------------- -->
-	<!-- 4th Div Final -->
-		<div id='Final' style="display:none;">
-			<h1> Step 4: Final Procedure</h1>
-			<h2> Applicant ID: </h2>
+                                        <!-- Step button-->
+                                        <div class="pt-5 mt-5"></div>
+                                        <div class="d-flex stepButtons justify-content-between">
+                                            <button type="button" class="btn btn-warning mb-3" onclick="personalInfo()">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="flex-grow-1 ms-1 px-0">
+                                                        <i class="fas fa-angle-double-left fa-lg"></i>
+                                                    </div>
+                                                    <div class="flex-shrink-0 text-end">
+                                                        <span class="next text-dark">Previous Step </span> <br> Personal Information
+                                                    </div>
+                                                </div>
+                                            </button>
 
-			<p> Take the TUPSTAT on scheduled date, time, and specific venue. Bring with you the following: </p>
-			<p> a.) Test Permit </p>
-			<p> b.) 2 Sharpened pencil with eraser</p>
+                                            <button type="button" class="btn btn-warning ms-auto mb-3" onclick="requirement()">
+                                                <div class=" d-flex align-items-center ">
+                                                    <div class="flex-shrink-0 text-start d-md-block">
+                                                        <span class="next text-dark">Next Step </span> <br> Requirements
+                                                    </div>
+                                                    <div class="flex-grow-1 ms-1 px-0">
+                                                        <i class="fas fa-angle-double-right fa-lg"></i>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!--Education Contents-->
+                                </div>
+                                <!--Education Wrapper-->
+                            </div>
+                            <!-- educational attainment div -->
 
-			<button type="button"> Download Test Permit</button>
-			<p style="color: red"> Note: Please come one hour before the time. </p>
-			<input type="submit" value="Submit"/>
-		</div>
-	</form>
-	<script>
-		function personalInfo() {
-			document.getElementById('personalInfo').style.display = "block";
-			document.getElementById('educationalattainment').style.display = "none";
-			document.getElementById('requirements').style.display = "none";
-			document.getElementById('Final').style.display = "none";
-		}
+                            <!-- ------------------------------------------------------------------------------------------------------- -->
+                            <!-- Requirements -->
+                            <div id='requirement' class=" container pt-3 " style="display: none;">
+                                <div class="Wrapper">
+                                    <div class="tabTitle">
+                                        <p class="text-white"><i class="fas fa-file"></i> <span class="px-2">Requirements </span></p>
+                                    </div>
+                                    <div class="Contents">
+                                        <p class="fw-bold">ADMISSION REQUIREMENTS</p>
 
-		function educationalAttainment() {
-			document.getElementById('personalInfo').style.display = "none";
-			document.getElementById('educationalattainment').style.display = "block";
-			document.getElementById('requirements').style.display = "none";
-			document.getElementById('Final').style.display = "none";
-		}
+                                        <!--Medical Record-->
+                                        <div class="row mt-4 small">
+                                            <label class="form-label col-lg-2 col-md-12 pt-1">Medical Record:</label>
+                                            <div class="col-lg-7 mb-3">
+                                                <input name="medical_record" class="form-control form-control-sm" type="file" aria-label="Medical Record" required>
+                                            </div>
+                                        </div>
 
-		function requirement() {
-			document.getElementById('personalInfo').style.display = "none";
-			document.getElementById('educationalattainment').style.display = "none";
-			document.getElementById('requirements').style.display = "block";
-			document.getElementById('Final').style.display = "none";
-		}
-		function final_step() {
-			document.getElementById('personalInfo').style.display = "none";
-			document.getElementById('educationalattainment').style.display = "none";
-			document.getElementById('requirements').style.display = "none";
-			document.getElementById('Final').style.display = "block";
-		}
-		
-	</script>
-	
-</body>
+                                        <!--Form 137-->
+                                        <div class="row mt-2 small">
+                                            <label class="form-label col-lg-2 col-md-12 pt-1">Form 137:</label>
+                                            <div class="col-lg-7 mb-3">
+                                                <input name="form_137" class="form-control form-control-sm" type="file" aria-label="Form 137" required>
+                                            </div>
+                                        </div>
+
+                                        <!--Good Moral-->
+                                        <div class="row mt-2 small">
+                                            <label class="form-label col-lg-2 col-md-12 pt-1">Good Moral:</label>
+                                            <div class="col-lg-7 mb-3">
+                                                <input name="good_moral" class="form-control form-control-sm" type="file" aria-label="Good Moral" required>
+                                            </div>
+                                        </div>
+
+                                        <!--  Step buttons-->
+                                        <div class="pt-5 mt-5"></div>
+                                        <div class="d-flex stepButtons justify-contend-between">
+                                            <button class="btn btn-warning mb-2" onclick="educationalAttainment()">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="flex-shrink-0">
+                                                        <i class="fas fa-angle-double-left fa-lg"></i>
+                                                    </div>
+                                                    <div class="flex-grow-1 ms-3 text-end">
+                                                        <span class="next text-dark">Previous Step </span> <br> Educational Attainment
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <button type="submit" class="btn btn-warning ms-auto mb-3">
+                                                <div class=" d-flex align-items-center ">
+                                                    <div class="flex-shrink-0 text-start d-md-block">
+                                                        <span class="next text-dark">PROCEED
+                                                    </div>
+                                                    <div class="flex-grow-1 ms-1 px-0">
+                                                        <i class="fas fa-angle-double-right fa-lg"></i>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                            <!-- <input type="submit" value="PROCEED" class="btn btn-warning ms-auto mb-2 fw-bold text-dark px-5 py-3" onclick="final_step()"> -->
+                                        </div>
+                                    </div>
+                                    <!-- Requiremets Contents-->
+                                </div>
+                                <!--Requirements Wrapper-->
+                            </div>
+                            <!-- requirements div -->
+                        </form>
+
+                        <!-- -------------------------------------------------------------------------------------------------------
+                        <!-- Final Procedure -->
+                        <div id='final_step' class="container mt-4 pt-3 " style="display: none;">
+                            <div class="Wrapper">
+                                <div class="tabTitle px-2">
+                                    <p class="text-white">Applicant Name: LIDA CRUZ </p>
+                                </div>
+                                <div class="Contents">
+                                    <p class="note1 small">Please take note of your Applicant ID.</p>
+                                    <h3 class="fw-bold pt-3"> Applicant ID: applicant ID READ </h4>
+                                        <p class="note2 pt-4"> Take the TUPSTAT on scheduled date, time, and specific venue. Bring with you the following: <br>
+                                            a.) Test Permit <br>
+                                            b.) 2 Sharpened pencil with eraser</p>
+                                        <p class="note3 pt-2 fw-bold"> Kindly check your email for the test permit or download it here.</p>
+
+                                        <button type="button" class="btn btn-warning download mb-2"> Download Test Permit </button>
+
+                                        <p class="note4 pt-3 fw-bold"> Note: Please come one hour before the time.</p>
+
+                                        <!--  DONE button-->
+                                        <div class="pt-4 mb-3"></div>
+                                        <div class="d-flex  align-items-end">
+                                            <input type="button" value="DONE" class="btn finishedButton btn-default text-white ms-auto my-3 mx-2 px-4">
+                                        </div>
+                                </div>
+                                <!--Contents-->
+                            </div>
+                            <!--wrapper-->
+                        </div>
+                        <!-- final step div -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="<?php echo base_url('assets/js/applicant.js'); ?>"></script>
 </body>
 
 </html>

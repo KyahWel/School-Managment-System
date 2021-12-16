@@ -1,89 +1,86 @@
 <?php
-include __DIR__.'/../includes/adminSideBar.php'
+include __DIR__ . '/../includes/adminSideBar.php'
 ?>
 
+<head>
+    <title>Admin| Change Password</title>
+</head>
 
 <div class="height-100 pt-2 container-fluid">
-  <div class="container my-3"> 
-    <!--ChangePassword Tab-->
-   <div class="ChangePasswordTab my-3">
-      <h3>Change Password</h3>
-    </div>  
-
-    <!--ChangePassword Box-->
-    <div class="col-12 align-self-center" id="cp">
-      <div class="table-wrapper">
-          
-      <div class="Box-title"> 
-        <div class="Changepassword-header">
-          <h5>Change Password</h5>
-        </div> 
-      </div>
-      <div class="alert">  
-        <strong>Note!</strong> Minimum of 8 characters long.
-      </div>  
-
-       <!-- Password input-->
-       <form>
-        <div class="form-group"> 
-            <div class="form-group row">  
-              <label for="op" class="form-label col-lg-2 col-md-12">Old Password:</label>
-                <div class="col-sm-6">
-                    <input type="password" class="form-control form-control-sm" id="op" placeholder="" required="" minlength="8" value=""><br/>
-                  </div>
-            </div>
-
-            <div class="form-group row">
-              <label for="np" class="form-label col-lg-2 col-md-12">New Password:</label>
-                <div class="col-sm-6">
-                    <input type="password" class="form-control form-control-sm" id="np" placeholder="" required="" minlength="8" value=""><br/>
-                  </div>
-            </div>
-          
-            <div class="form-group row">
-              <label for="c_np" class="form-label col-lg-2 col-md-12">Confirm New Password:</label>
-                <div class="col-sm-6">
-                    <input type="password" class="form-control form-control-sm" id="c_np" placeholder="" required="" minlength="8" value=""><br/>
-                  </div>
-           </div>
+    <div class="container my-3">
+        <!--ChangePassword Tab-->
+        <div class="ChangePasswordTab my-3">
+            <h3>Change Password</h3>
         </div>
-          
-      </form>
-    
-        <!-- Password input
-        <div class="form-group">
-           <label class="col-md-4 control-label" for="op"> Old Password</label>
-           <div class="col-md-4">
-             <input id="op" name="op" type="password" placeholder="Old Password" class="form-control input-md" required="" minlength="8" value="">
-           </div>
 
-           <label class="col-md-4 control-label" for="np">New Password</label>
-           <div class="col-md-4">
-             <input id="np" name="np" type="password" placeholder="New Password" class="form-control input-md" required="" minlength="8" value="">
-           </div>
+        <!--ChangePassword Box-->
+        <div class="col-12 align-self-center" id="cp">
+            <div class="table-wrapper">
+                <div class="Changepassword-header">
+                    <p class="px-4 py-2">Change Password</p>
+                </div>
 
-           <label class="col-md-4 control-label" for="c_np">Confirm New Password</label>
-           <div class="col-md-4">
-              <input id="c_np" name="c_np" type="password" placeholder="Confirm New Password" class="form-control input-md" required="" minlength="8" value="">
-           </div>
-        </div>-->
-      
+                <div class="passContents">
+                    <div class="alert pt-3 px-4" style="color: #00336D;">
+                        <strong>Note!</strong> Password length must be minimum of 8 and maximum of 15 characters.
+                    </div>
 
-             <!-- Button (Double) -->
-           <div class="form-group">
-              <label class="col-md-4 control-label" for="save"></label>
-                 <div class="d-flex justify-content-end">
-                    <button id="save" name="save" class="btn btn-primary" value="1">Save</button>
-                    <button class="btn btn-default" id="cancel" type="reset" value="cancel">Cancel</button>
-                 </div>       
-             </div>
+                    <!-- Password input-->
+                    <form class="mx-5 px-3" action="#">
+                        <div class="form-group row mb-2">
+                            <label for="oldpassword" class="form-label col-lg-3 col-md-3 col-sm-12 pt-1">Old Password:</label>
+                            <div class="col-lg-5 col-md-8 col-sm-12">
+                                <input type="password" name="oldpass" class="form-control form-control-sm" id="oldpassword" placeholder="Old password" required><br />
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-2">
+                            <label for="newpassword" class="form-label col-lg-3 col-md-3 col-sm-12 pt-1">New Password:</label>
+                            <div class="col-lg-5 col-md-8 col-sm-12">
+                                <input type="password" name="newpass" class="form-control form-control-sm" id="newpassword" placeholder="New password" required minlength="8" maxlength="15"><br />
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-2">
+                            <label for="confirmpassword" class="form-label col-lg-3 col-md-3 col-sm-12 pt-1">Confirm New Password:</label>
+                            <div class="col-lg-5 col-md-8 col-sm-12">
+                                <input type="password" name="confirmpass" class="form-control form-control-sm" id="confirmpassword" placeholder="Confirm Password" required minlength="8" maxlength="15"><br />
+                            </div>
+                        </div>
+
+                        <!-- Button (Double) -->
+                        <div class="save-cancel">
+                            <div class="d-flex justify-content-end">
+                                <button type="submit" id="save" name="submit" class="btn btn-primary mx-2">Save</button>
+                                <button type="reset" class="btn btn-default" id="cancel">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
     </div>
-  </div> 
-
 </div>
 
-<script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
+<script type="text/javascript">
+    var newpass = document.getElementById("newpassword");
+    var confirmpass = document.getElementById("confirmpassword");
+    var unmatched = document.getElementById("notmatch");
+
+    // new password and confirm password validation
+    function validatePassword() {
+        if (newpass.value != confirmpass.value) {
+            confirmpass.setCustomValidity("Passwords don't Match");
+
+        } else {
+            confirmpass.setCustomValidity('');
+        }
+    }
+    newpass.onchange = validatePassword;
+    confirmpass.onkeyup = validatePassword;
+</script>
+
 </body>
 
 </html>
-
