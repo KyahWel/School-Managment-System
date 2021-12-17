@@ -10,6 +10,7 @@ class applicantController extends CI_Controller {
 		
 		$this->load->helper(array('form', 'url','file'));
 	}
+
 	public function index()
 	{
 		$data['course'] = $this->courseModel->viewData();
@@ -44,4 +45,14 @@ class applicantController extends CI_Controller {
 		$data['applicant'] = $this->applicantModel->getData($id);
 		$this->load->view('/applicant/applicant_data',$data);
 	}
+
+	public function addApplicant()
+	{	
+		$data['course'] = $this->courseModel->viewData();
+		$this->load->view('applicant_registration',$data);
+		if(isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_FILES['medical_record']) && isset($_FILES['form_137']) && isset($_FILES['good_moral'])){
+			$this->applicantModel->insertData();
+			redirect('Welcome');
+	}
+}
 }
