@@ -25,7 +25,7 @@
                 <div class="d-flex flex-md-column flex-row flex-grow-1 align-items-center text-dark">
                     <div href="/" class="d-block align-items-center pb-sm-3 text-dark text-decoration-none">
                         <div class="d-none d-md-inline">
-                            <img src="assets/images/applicantAvatar.svg" alt="" class="pt-4 mx-4" style="width: 125px;">
+                            <img src="../assets/images/applicantAvatar.svg" alt="" class="pt-4 mx-4" style="width: 125px;">
                             <br>
                             <p class="text-center pt-4 h5">Welcome,</p>
                             <p class="text-center pt-2 fw-bold h5">Applicant-21-2322 </p>
@@ -57,7 +57,7 @@
                                 <!--  DONE button-->
                             <div class="pt-4 mb-3"></div>
                             <div class="d-flex  align-items-end">
-                                <input type="button" value="DONE" class="btn finishedButton btn-default text-white ms-auto my-3 mx-2 px-4">
+                                <input type="button" value="DONE" class="btn finishedButton btn-default text-white ms-auto my-3 mx-2 px-4" onclick="location.href='<?php echo site_url('Homepage')?>'">
                             </div>
                         </div>
                         <!--Contents-->

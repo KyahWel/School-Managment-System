@@ -64,7 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 <div class="row height-sm-100 contents">
                     <div class="col">
-                        <form method='POST' class="needs-validation" novalidate enctype="multipart/form-data">
+                        <form method='POST' class="needs-validation" novalidate enctype="multipart/form-data" name="applicantform">
 
                             <!-- Personal Information -->
                             <div id='personalInfo' class=" container pt-3" style="display: block;">
@@ -118,7 +118,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 </div>
                                             </div>
                                             <div class="col-lg-3 col-md-6 py-1">
-                                                <labe class="form-label small">Suffix</label>
+                                                <label class="form-label small">Suffix</label>
                                                 <input type="text" name='extname' class="form-control form-control-sm" aria-label="Extension Name" required>
                                                 <div class="invalid-feedback">
                                                     Please input your extension name.
@@ -137,14 +137,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             </div>
 
                                             <div class="col-lg-2 col-md-none"> </div>
-
-                                            <label class="form-label col-lg-2 col-md-12 pt-1">Gender:</label>
+                                                <label class="form-label col-lg-2 col-md-12 pt-1">Gender:</label>
                                             <div class="col-lg-3 col-md-12 pt-1">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gender" value="Male">Male
+                                                <div class="form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="gender" value="Male" required>
+                                                    <label class="form-check-label" for="gender"> Male </label>
+                                                    <div class="invalid-feedback"> Please select your gender. </div>
                                                 </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gender" value="Female">Female
+                                                <div class="form-check-inline mb-3">
+                                                    <input class="form-check-input" type="radio" name="gender" value="Female" required>
+                                                    <label class="form-check-label" for="gender"> Female </label>
+                                                    <div class="invalid-feedback"> &nbsp </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -279,7 +282,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <!--  Next Step button-->
                                         <br>
                                         <div class="d-flex stepButtons">
-                                            <button type="button" class="btn btn-warning ms-auto mb-2" onclick="educationalAttainment()">
+                                            <button type="button" class="btn btn-warning ms-auto mb-2" onclick="educationalAttainment();">
                                                 <div class=" d-flex align-items-center ">
                                                     <div class="flex-shrink-0">
                                                         <span class="next text-dark">Next Step </span> <br> Educational Attainment
@@ -372,12 +375,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <!-- Category-->
                                         <div class="row mt-2 small">
                                             <label class="form-label col-lg-2 col-md-12  pt-1">Category:</label>
-                                            <div class="col-lg-3 col-md-12 pt-1">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="category" value="K-12">K-12
+                                            <div class="col-lg-4 col-md-12 pt-1">
+                                            <div class="form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="category" value="K-12" required>
+                                                    <label class="form-check-label" for="category"> K-12 </label>
+                                                    <div class="invalid-feedback"> Please select your category. </div>
                                                 </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="category" value="Old Curriculum">Old Curriculum
+                                                <div class="form-check-inline mb-3">
+                                                    <input class="form-check-input" type="radio" name="category" value="Old Curriculum" required>
+                                                    <label class="form-check-label" for="category"> Old Curriculum </label>
+                                                    <div class="invalid-feedback"> &nbsp </div>
                                                 </div>
                                             </div>
                                         </div>
