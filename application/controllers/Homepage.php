@@ -8,4 +8,11 @@ class Homepage extends CI_Controller {
 	{
 		$this->load->view('login');
 	}
+
+	public function registration_final_step()
+	{
+		$this->load->view('applicant/applicantFinalStep');
+	}
+	
+
 }

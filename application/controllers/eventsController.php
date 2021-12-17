@@ -39,6 +39,7 @@ class eventsController extends CI_Controller {
             ';
         echo $output;
     }
+    
     public function edit(){
         $eventData = $this->input->post('id');
         $records = $this->eventsModel->getData($eventData);

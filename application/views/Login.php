@@ -202,7 +202,7 @@
 
         <!-- Password -->
         <div class="form-group mb-4">
-          <label for="password">Password</label>
+          <label for="password">PassSword</label>
           <div class="input-group-addon">
             <i class="fa fa-key"></i>
           </div>
@@ -217,7 +217,7 @@
         
         <!--<p class= "notice">
              </p> -->  
-        <button type="button" class="btn btn-default apply" name="apply">APPLY HERE</button>
+        <button type="button" class="btn btn-default apply" name="apply" onclick="location.href='<?php echo site_url('applicantController')?>'">APPLY HERE</button>
       </form>
     </div>
 
