@@ -42,7 +42,7 @@ function final_step() {
           event.preventDefault()
           event.stopPropagation()
           alert("Please fill in all the required fields.");
-          
+          // Add return sa first step
         }
 
         form.classList.add('was-validated')

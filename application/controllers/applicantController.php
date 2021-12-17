@@ -12,24 +12,15 @@ class applicantController extends CI_Controller {
 	}
 	public function index()
 	{
-		$this->load->view('applicant_form');
-		if(isset($_POST['applicantnumber'])){
-			if($this->applicantModel->insertData()==0){
-				echo('fail');
-			}
-		}
-		
-	}
-	public function addApplicant()
-	{	
 		$data['course'] = $this->courseModel->viewData();
-		$this->load->view('applicant_form',$data);
+		$this->load->view('applicant/applicant_registration',$data);
 		if(isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_FILES['medical_record']) && isset($_FILES['form_137']) && isset($_FILES['good_moral'])){
 			$this->applicantModel->insertData();
-			redirect('Welcome');
+			redirect('Homepage/registration_final_step');
 		}
 		
 	}
+
 	public function viewAllApplicant(){
 		$data['applicant'] = $this->applicantModel->viewData();
 		$this->load->view('/applicant/applicants',$data);
