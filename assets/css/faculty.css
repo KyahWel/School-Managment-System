@@ -3,35 +3,57 @@ body{
     font-size: 0.9rem;
 }
 
+/* Title Page */
+
+.FacultyTab h3{
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+/* Back Button */
+
+#back-button{
+    background-color: #800000;
+    color: white;
+    border-color: transparent;
+    margin: 0px 10px 10px 0px; /*align button and title*/
+}
+#back-button:hover{
+    background-color: white;
+    border-color: #800000;
+    color: #800000;
+}
+.btn:focus{
+    box-shadow: none;
+}
+
 /* Accordion */
 
 .accordion-item{
     border-radius: 30px;
 }
-.accordion-button{
-    background-color: #302323;
-    color: white;
-    font-size: 0.9rem;
-    padding: 15px 1.3rem;
-}
 .accordion-item:first-of-type .accordion-button{
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
 }
-.accordion-item:last-of-type {
+.accordion-item:last-of-type{
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
 }
-.accordion-item:last-of-type .accordion-button.collapsed {
+.accordion-item:last-of-type .accordion-button.collapsed{
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     background: maroon;
 }
-.accordion-item:last-of-type {
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
+.accordion-button{
+    background-color: #302323;
+    color: white;
+    font-size: 0.9rem;
+    padding: 15px 1.3rem;
 }
 .accordion-button::after{
     filter: brightness(0%) invert(100%);
@@ -54,8 +76,8 @@ body{
     border-color: transparent;
     color: white;
     text-decoration: none;
-    margin-right: 8px;
     font-size: 0.8rem;
+    margin-right: 8px;
 }
 #cancel{
     background-color: #aaaaaa;
@@ -82,19 +104,30 @@ body{
 
 /* Form Responsiveness */
 
-.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+.form-label{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.form-control{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.form-control:focus{
+    box-shadow: none;
+    border-color: #800000;
+}
+.form-control::placeholder{ /* Chrome, Firefox, Opera, Safari 10.1+ */
     font-size: 0.8rem;
 }
-
-.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+.form-control:-ms-input-placeholder{ /* Internet Explorer 10-11 */
     font-size: 0.8rem;
 }
-
-.form-control::-ms-input-placeholder { /* Microsoft Edge */
+.form-control::-ms-input-placeholder{ /* Microsoft Edge */
     font-size: 0.8rem;
 }
-
-input[type=text], input[type=date],input[type=time], textarea{
+input[type=text], input[type=date], input[type=time], textarea{
     color: black;
     font-size: 0.8rem;
 }
@@ -165,49 +198,6 @@ input[type=text], input[type=date],input[type=time], textarea{
     box-shadow: none;
 }
 
-/* Title Page and Back Button */
-
-#back-button{
-    background-color: #800000;
-    color: white;
-    border-color: transparent;
-    margin: 0px 10px 10px 0px; /*align button and title*/
-}
-
-.btn:focus{
-    box-shadow: none;
-}
-
-#back-button:hover{
-    background-color: white;
-    border-color: #800000;
-    color: #800000;
-}
-
-.FacultyTab h3{
-    font-size: 1.5rem;
-    font-weight: 800;
-}
-
-/* Add Faculty */
-
-.form-label{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.form-control{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.form-control:focus{
-    box-shadow: none;
-    border-color: #800000;
-}
-
 /* Modal */
 
 .modal-header{
@@ -220,34 +210,28 @@ input[type=text], input[type=date],input[type=time], textarea{
 #filterAndSearch{
     text-align: right;
 }
-
 select:invalid{
     color: gray;
 }
-
 option{
     color: black;
 }
-
 select:active{
     box-shadow: none;
 }
-
 textarea:focus, input:focus{
     outline: none;
 }
-
 #search{
     color: white;
     background-color: #800000;
     padding: .1rem .5rem;
 }
-
 #search i{
     font-size: 10px;
 }
 
-/* Professor View Page */
+/* Professor View Page Title */
 
 .viewProfessorTitle h3{
     font-size: 1.5rem;
@@ -255,10 +239,11 @@ textarea:focus, input:focus{
     display: inline;
 }
 
+/* Professor View Page Avatar */
+
 #viewProfessorAvatar .btn{
     padding: 3px 13px 3px 3px;
 }
-
 #viewProfessorAvatar i{
     color: white;
     background-color: #800000;
@@ -266,6 +251,8 @@ textarea:focus, input:focus{
     padding: 15px 18px;
     border-radius: 50%;
 }
+
+/* Professor View Page Details */
 
 #viewProfessorInformation td{
     color: black;
@@ -275,51 +262,53 @@ textarea:focus, input:focus{
     padding: 15px 5px;
 }
 
-/* Professor View Page Table */
+/* Professor View Page Tab-Header */
 
+ul#viewProfessorTab.nav{
+    background-color: #800000;
+    border-bottom: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link{
+    color: white;
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+    color: #800000;
+    background-color: white;
+    border-color: white;
+    font-weight: 200;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
 button#viewProfessorInformationTab.nav-link.active::before,
 button#viewProfessorSubjectTab.nav-link.active::before,
 button#viewProfessorSectionTab.nav-link.active::before{
     background: none;
 }
-
 div#ProfessorInformation.tab-pane.active.show::before,
 div#ProfessorSubject.tab-pane.active::before,
 div#ProfessorSection.tab-pane.active::before{
     background: none;
 }
 
+/* Professor View Page Tab-Content */
+
+div#viewProfessorTabContent.tab-content{
+    background: white;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
 #viewProfessorTabContent label{
     color: rgb(95, 95, 95);
     font-weight: 200;
 }
-
-#ProfessorSubject #table-body td{
-    font-weight: 200;
-}
-
+#ProfessorSubject #table-body td,
 #ProfessorSection #table-body td{
     font-weight: 200;
 }
-
-ul#viewProfessorTab.nav{
-    background-color: #800000;
-    border-top-left-radius: .25rem;
-    border-top-right-radius: .25rem;
-}
-
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
-    color: #800000;
+.form-control:disabled, .form-control[readonly] {
     background-color: white;
-    border-color: white;
-    font-weight: 200;
-}
-
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link{
-    color: white;
-}
-
-div#viewProfessorTabContent.tab-content{
-    background: white;
+    opacity: 1;
 }
 
