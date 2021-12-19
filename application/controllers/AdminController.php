@@ -12,7 +12,8 @@ class AdminController extends CI_Controller {
 
 	public function admin()
 	{
-        $this->load->view('Admin_Panel/admin');
+        $data['result'] = $this->AdminModel->viewData();
+        $this->load->view('Admin_Panel/admin',$data);
 	}
 
 	public function admission()
