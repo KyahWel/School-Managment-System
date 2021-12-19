@@ -4,7 +4,7 @@ include __DIR__.'/../includes/adminSideBar.php'
 
 <head>
   <link href="<?php echo base_url('assets/css/announcement.css'); ?>" rel="stylesheet" type="text/css">
-  <title>Admin| Events and Announcement</title>
+  <title>Admin | Events and Announcements</title>
 </head>
 
 <div class="height-100 pt-2 container">
@@ -13,7 +13,7 @@ include __DIR__.'/../includes/adminSideBar.php'
     
     <!--Announcement Tab-->
     <div class="AnnouncenentTab my-3">
-      <h3>Events and Announcement</h3>
+      <h3>Events and Announcements</h3>
     </div>
 
     <!--Create Announcement-->

@@ -88,6 +88,7 @@ header .email{
     background-color:white;
     padding: .5rem 1rem 0 0;
     z-index: var(--z-fixed);
+    border-right: 1px solid rgb(232, 226, 226);
     transition: .5s;
     -moz-transition:.5s ;
     -o-transition: .5s;
@@ -142,9 +143,10 @@ header .email{
 .nav_icon {
     font-size: 1rem
 }
-.nav .logout{
-    text-align: right;
-   align-items: flex-end;
+.nav #logout{
+    padding-bottom: 4rem;
+    /* align-self: flex-end; */
+    margin-right: 1rem ;
 }
 .side {
     left: 0
