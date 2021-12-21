@@ -9,6 +9,21 @@
   <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
   <link href="<?php echo base_url('assets/css/mainLogin.css'); ?>" rel="stylesheet" type="text/css">
   <link href="<?php echo base_url('assets/css/home.css'); ?>" rel="stylesheet" type="text/css">
+
+  <style>
+    .background {
+      background: url(assets/images/bg.png) no-repeat center/cover #f4f4f4;
+      position: relative;
+      height: 100vh;
+    }
+
+    @media screen and (max-width: 1024px) {
+      .background {
+        background: none #f4f4f4;
+      }
+    }
+    
+  </style>
 </head>
 
 <body>
@@ -20,9 +35,9 @@
         <!-- Logo Text -->
         <span class="font-weight-bold">Technological University of the Philippines</span>
       </a>
-    
 
-      <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"  >
+
+      <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
         <span class="navbar-toggler-icon" id="toogler" style="display: none;"></span>
       </button>
 
@@ -32,7 +47,7 @@
             <a class="nav-link " href="#Home" onclick="Home()">HOME</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="#studentsLogin" onclick="studentsLogin()">STUDENTS</a>
+            <a class="nav-link" href="#studentsLogin" onclick="studentsLogin()">STUDENTS</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#facultyLogin" onclick="facultyLogin()">FACULTY</a>
@@ -46,183 +61,179 @@
 
   <!-- buttons -->
 
-    <img class="background" src="assets/images/bg.png">
-    <!-- HOME PAGE -->
-    <div class="wrapper-button" id="Home" style="display: block;">
-      <h1>Access Modules</h1>
-      <a href="#studentsLogin" onclick="studentsLogin()">
-        <button class="btn login-btn ">Students</button>
-      </a>
-      <a href="#facultyLogin" onclick="facultyLogin()">
-        <button class="btn login-btn ">Faculty</button>
-      </a>
-      <a href="#adminLogin" onclick="adminLogin()">
-        <button class="btn  login-btn ">Admin</button>
-      </a>
-    </div>
+  <div class="background">
+  <!-- HOME PAGE -->
+  <div class="wrapper-button" id="Home" style="display: block;">
+    <h1>Access Modules</h1>
+    <a href="#studentsLogin" onclick="studentsLogin()">
+      <button class="btn login-btn ">Students</button>
+    </a>
+    <a href="#facultyLogin" onclick="facultyLogin()">
+      <button class="btn login-btn ">Faculty</button>
+    </a>
+    <a href="#adminLogin" onclick="adminLogin()">
+      <button class="btn  login-btn ">Admin</button>
+    </a>
+  </div>
 
-    <!-- STUDENTS ACCESS -->
-    <div class="wrapper" id="studentsLogin" style="display: none;">
-      <form action="#" method="POST">
-        <h3> <strong>Student Access Module</strong></h3>
+  <!-- STUDENTS ACCESS -->
+  <div class="wrapper" id="studentsLogin" style="display: none;">
+    <h3><strong>Student Access Module</strong></h3>
+    <form action="#" method="POST">
 
-        <hr>
-         <!-- add login for student -->
-     
-          <!-- Username -->
-          <div class="form-group mb-4">
-            <label for="username">Student Number</label>
-            <div class="input-group-addon">
-              <i class="fa fa-user"></i>
-            </div>
-            <input type="text" class="form-control" id="username" name="username" placeholder="Student Number" required>
-          </div>
+    <!-- Invalid username or password -->
+    <div class="errormsg" id="invalid"></div>
 
-          <!-- Password -->
-          <div class="form-group mb-4">
-            <label for="password">Password</label>
-            <div class="input-group-addon">
-              <i class="fa fa-key"></i>
-            </div>
-            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-          </div>
-
-          <!-- clear entries and login button -->
-          <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
-            <input type="reset" class="btn btn-default" name="reset" value="Clear entries"></input>
-           
-            <input type="submit" class="btn btn-default " value="Login" >
-          </div>
-     
-
-        <p class="text-left">
-          <a href="#!">Forgot your password?</a><br>
-        </p>
-
-        <p class="text-left1">
-              Applicant?
-          <a href="#applicantLogin" onclick="applicantLogin()">Click here!</a><br>
-        </p>
-        
-        
-      </form>
-    </div>
-
-
-    <!-- FACULTY ACCESS MODULE -->
-    <div class="wrapper" id="facultyLogin" style="display: none;">
-      <form action="#" method="POST">
-        <h3> <strong>Faculty Access Module</strong></h3>
-        <hr>
-
-        <!-- Username -->
-        <div class="form-group mb-4">
-          <label for="username">Username</label>
-          <div class="input-group-addon">
-            <i class="fa fa-user"></i>
-          </div>
-          <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+    <hr>
+      <!-- Username -->
+      <div class="form-group mb-4">
+        <label for="username">Student Number</label>
+        <div class="input-group-addon">
+          <i class="fa fa-user"></i>
         </div>
+        <input type="text" class="form-control" id="username" name="username" placeholder="Student Number" required>
+      </div>
 
-        <!-- Password -->
-        <div class="form-group mb-4">
-          <label for="password">Password</label>
-          <div class="input-group-addon">
-            <i class="fa fa-key"></i>
-          </div>
-          <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+      <!-- Password -->
+      <div class="form-group mb-4">
+        <label for="password">Password</label>
+        <div class="input-group-addon">
+          <i class="fa fa-key"></i>
         </div>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+      </div>
 
-        <!-- clear entries and login button -->
-        <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
-          <input type="reset" class="btn btn-default" name="reset" value="Clear entries"></input>
-          <input type="submit" class="btn btn-default " name="login" value="Login"></input>
+      <!-- clear entries and login button -->
+      <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+        <input type="reset" class="btn btn-default" name="reset" value="Clear entries"></input>
+
+        <input type="submit" class="btn btn-default " value="Login">
+      </div>
+
+
+      <p class="text-left">
+        <a href="#!">Forgot password?</a><br>
+      </p>
+
+      <p class="text-left1">
+        Applicant?
+        <a href="#applicantLogin" onclick="applicantLogin()">Click here!</a><br>
+      </p>
+
+
+    </form>
+  </div>
+
+
+  <!-- FACULTY ACCESS MODULE -->
+  <div class="wrapper" id="facultyLogin" style="display: none;">
+    <h3><strong>Faculty Access Module</strong></h3>
+    <form action="#" method="POST">
+
+    <!-- Invalid username or password -->
+    <div class="errormsg" id="invalid"></div>
+
+    <hr>
+      <!-- Username -->
+      <div class="form-group mb-4">
+        <label for="username">Username</label>
+        <div class="input-group-addon">
+          <i class="fa fa-user"></i>
         </div>
+        <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+      </div>
 
-        <p class="text-left">
-
-          <a href="#!">Forgot your password?</a><br>
-        </p>
-      </form>
-    </div>
-
-
-    <!-- ADMIN ACCESS MODULE -->
-    <div class="wrapper" id="adminLogin" style="display: none;">
-      <h3> <strong>Admin Access Module</strong></h3>
-      <form action="<?php echo site_url('admincontroller/dashboard')?>" method="POST">
-        <hr>
-
-        <!-- Username -->
-        <div class="form-group mb-4">
-          <label for="username">Username</label>
-          <div class="input-group-addon">
-            <i class="fa fa-user"></i>
-          </div>
-          <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+      <!-- Password -->
+      <div class="form-group mb-4">
+        <label for="password">Password</label>
+        <div class="input-group-addon">
+          <i class="fa fa-key"></i>
         </div>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+      </div>
 
-        <!-- Password -->
-        <div class="form-group mb-4">
-          <label for="password">Password</label>
-          <div class="input-group-addon">
-            <i class="fa fa-key"></i>
-          </div>
-          <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+      <!-- clear entries and login button -->
+      <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+        <input type="reset" class="btn btn-default" name="reset" value="Clear entries"></input>
+        <input type="submit" class="btn btn-default " name="login" value="Login"></input>
+      </div>
+
+      <p class="text-left">
+        <a href="#!">Forgot password?</a><br>
+      </p>
+    </form>
+  </div>
+
+
+  <!-- ADMIN ACCESS MODULE -->
+  <div class="wrapper" id="adminLogin" style="display: none;">
+    <h3> <strong>Admin Access Module</strong></h3>
+    <form action="<?php echo site_url('admin_main') ?>" method="POST">
+
+    <!-- Invalid username or password -->
+    <div class="errormsg" id="invalid"></div>
+
+    <hr>
+      <!-- Username -->
+      <div class="form-group mb-4">
+        <label for="username">Username</label>
+        <div class="input-group-addon">
+          <i class="fa fa-user"></i>
         </div>
+        <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+      </div>
 
-        <!-- clear entries and login button -->
-        <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
-          <input type="reset" class="btn btn-default" name="reset" value="Clear entries"></input>
-          <input type="submit" class="btn btn-default " name="login" value="Login"></input>
+      <!-- Password -->
+      <div class="form-group mb-4">
+        <label for="password">Password</label>
+        <div class="input-group-addon">
+          <i class="fa fa-key"></i>
         </div>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+      </div>
 
-        <p class="text-left">
+      <!-- clear entries and login button -->
+      <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+        <input type="reset" class="btn btn-default" name="reset" value="Clear entries"></input>
+        <input type="submit" class="btn btn-default " name="login" value="Login"></input>
+      </div>
 
-          <a href="#!">Forgot your password?</a><br>
-        </p>
-      </form>
-    </div>
+      <p class="text-left">
+        <a href="#!">Forgot password?</a><br>
+      </p>
+    </form>
+  </div>
 
 
-<!-- APPLICANT LOGIN ACCESS MODULE -->
-<div class="wrapper" id="applicantLogin" style="display: none;">
-      <h3> <strong>Applicant Access Module</strong></h3>
-      <form action="#" method="POST">
-        <hr>
+  <!-- APPLICANT LOGIN ACCESS MODULE -->
+  <div class="wrapper" id="applicantLogin" style="display: none;">
+    <h3 class="applicant"> <strong>Applicant Access Module</strong></h3>
+    <form action="#" method="POST">
+      <hr>
 
-        <!-- Username -->
-        <div class="form-group mb-4">
-          <label for="username">Applicant Number</label>
-          <div class="input-group-addon">
-            <i class="fa fa-user"></i>
-          </div>
-          <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+      <!-- Username -->
+      <div class="form-group mb-4">
+        <label for="username">Applicant Number</label>
+        <div class="input-group-addon">
+          <i class="fa fa-user"></i>
         </div>
+        <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+      </div>
 
-        <!-- Password -->
-        <div class="form-group mb-4">
-          <label for="password">PassSword</label>
-          <div class="input-group-addon">
-            <i class="fa fa-key"></i>
-          </div>
-          <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
-        </div>
+      <!-- clear entries and login button -->
+      <div class="btn-toolbar justify-content-between mb-5" role="toolbar" aria-label="Toolbar with button groups">
+        <input type="reset" class="btn btn-default" name="reset" value="Clear entries"></input>
+        <input type="submit" class="btn btn-default " name="login" value="Login"></input>
+      </div>
 
-        <!-- clear entries and login button -->
-        <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
-          <input type="reset" class="btn btn-default" name="reset" value="Clear entries"></input>
-          <input type="submit" class="btn btn-default " name="login" value="Login"></input>
-        </div>
-        
-        <!--<p class= "notice">
-             </p> -->  
-        <button type="button" class="btn btn-default apply" name="apply" onclick="location.href='<?php echo site_url('applicantController')?>'">APPLY HERE</button>
-      </form>
-    </div>
+      <!--<p class= "notice">
+             </p> -->
+             <button type="button" class="btn btn-default apply" name="apply" onclick="location.href='<?php echo site_url('applicantController')?>'">APPLY</button>
+    </form>
+  </div>
 
 
-
+  </div>
   <script>
     function Home() {
       document.getElementById('toogler').style.display = "none";
