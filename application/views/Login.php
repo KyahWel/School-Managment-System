@@ -168,7 +168,7 @@
   <!-- ADMIN ACCESS MODULE -->
   <div class="wrapper" id="adminLogin" style="display: none;">
     <h3> <strong>Admin Access Module</strong></h3>
-    <form action="<?php echo site_url('admin_main') ?>" method="POST">
+    <form action="<?php echo site_url('adminController/login') ?>" method="POST">
 
     <!-- Invalid username or password -->
     <div class="errormsg" id="invalid"></div>
@@ -208,7 +208,7 @@
   <!-- APPLICANT LOGIN ACCESS MODULE -->
   <div class="wrapper" id="applicantLogin" style="display: none;">
     <h3 class="applicant"> <strong>Applicant Access Module</strong></h3>
-    <form action="#" method="POST">
+    <form action="applicantController/applicantData" method="POST">
       <hr>
 
       <!-- Username -->
