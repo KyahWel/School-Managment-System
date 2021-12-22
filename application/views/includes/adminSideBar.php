@@ -23,7 +23,7 @@
         <div class="text-white ms-auto email">
             TUP-ADMIN-0000
         </div>
-        <!-- <div class="header_img"> <img src="assets/images/avatar.svg" alt=""></div> -->
+        <div class="header_img"> <img src="../assets/images/avatar.svg" alt=""></div>
     </header>
 
     <div class="l-navbar side" id="nav-bar">
@@ -32,7 +32,7 @@
             <div>
                 <div class="nav_list">
                     <div class="welcome text-dark pt-3 fw-bold" id="welcome" style="color: steelblue; font-size:1rem">
-                        <i class='fa fa-user' style="color:cornflowerblue"></i>
+                    <i class='fa fa-user nav_icon' style="color:steelblue;"></i>
                         Hello, Admin!
                         <hr>
                     </div>

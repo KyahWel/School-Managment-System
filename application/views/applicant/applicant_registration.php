@@ -16,12 +16,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <body>
     <div class="d-flex justify-content-between text-white header px-3 py-2">
-        <div class="brand">
+        <div class="brand py-2">
             Technological University of the Philippines
         </div>
-        <!-- <div class="cancel">
-            Cancel Application
-        </div> -->
+        <button type="button" class="btn btn-outline-warning cancel mx-1 fw-bold" data-bs-toggle="modal" data-bs-target="#cancelApplication">
+            Cancel
+        </button>
+        <!-- Cancel Dialog Box-->
+        <div class="modal fade" id="cancelApplication" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="cancelApplicationLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title text-dark fw-bold" id="cancelApplicationLabel">Cancel Application</h6>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-dark">
+                Are you sure you want to cancel your application?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                <button type="reset" class="btn btn-primary">Yes</button>
+            </div>
+            </div>
+        </div>
+        </div>
+      
     </div>
     <div class="container-fluid">
         <div class="row height-100vh">
@@ -44,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="container-fluid" id="steps" style="display: block;">
                     <div class="mt-3 applicant-head text-white px-3">
                         Appicant ID: <span class="fw-bold"> Applicant-21-2123 </span>
-                        <!--APPLICANT NUMBER READ -->
+                       
                     </div>
 
                     <!--Information -->
@@ -93,9 +112,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                         <!-- Name Input-->
                                         <div class="row mt-0">
-                                            <!-- <div class="col-lg-2 col-md-none form-label small ">                                                   
-                                                    <label for="Name" class="form-control-sm">Name: </label>
-                                            </div> -->
                                             <div class="col-lg-3 col-md-6 py-1">
                                                 <label class="form-label small">First Name</label>
                                                 <input type="text" name="firstname" class="form-control form-control-sm" aria-label="First name" required>
@@ -511,6 +527,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </div>
 
+    <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/applicant.js'); ?>"></script>
 </body>
 
