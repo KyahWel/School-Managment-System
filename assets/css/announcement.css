@@ -185,7 +185,7 @@ input[type=text], input[type=date],input[type=time], textarea{
     padding: 3.1px 7px;
     border-radius: 3px;
     cursor: pointer;
-    width: 58.5px;
+    width: 55px;
     margin-left: 1px;
 }
 #table-body tbody .action-buttons li button:hover, #table-body tbody .action-buttons li #status:hover{

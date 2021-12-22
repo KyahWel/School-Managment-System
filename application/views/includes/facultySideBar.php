@@ -23,7 +23,7 @@
         <div class="text-white ms-auto email">
             TUP-PROF-0000
         </div>
-        <!-- <div class="header_img"> <img src="assets/images/avatar.svg" alt=""></div> -->
+        <div class="header_img"> <img src="../assets/images/avatar.svg" alt=""></div>
     </header>
 
     <div class="l-navbar side" id="nav-bar">

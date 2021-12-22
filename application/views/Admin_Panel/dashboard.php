@@ -4,7 +4,6 @@ include __DIR__ . '/../includes/adminSideBar.php'
 
 <head>
     <link href="<?php echo base_url('assets/css/adminDashboard.css'); ?>" rel="stylesheet" type="text/css">
-    <link href="https://cdn.jsdelivr.net/gh/nizarmah/calendar-javascript-lib@master/calendarorganizer.min.js" rel="stylesheet">
     <title>Admin | Dashboard </title>
 </head>
 
@@ -12,24 +11,44 @@ include __DIR__ . '/../includes/adminSideBar.php'
     <div class="height-100 pt-2 container-fluid">
         <h3 class="mt-2">Dashboard</h3>
         <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-12">
-                
+            <!-- Date today -->
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-2">
+                <div class="calendar py-5">
+                    <div class="month pt-4">
+                        <h1 id="getMonth"></h1>
+                    </div>
+                    <div class="day text-center">
+                        <p id="today"></p>
+                    </div>
+                </div>
             </div>
 
-
-            <div class="col-lg-8 col-md-6 col-sm-12">
+            <!-- Billboard -->
+            <div class="col-lg-8 col-md-6 col-sm-12 mb-2">
                 <div class="billboard">
                     <div class="billboardTitle">
                         <p class="text-center text-white p-2">Current Billboard</p>
                     </div>
                     <div class="billboardContent px-3">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet dignissimos iure ex at accusamus perspiciatis numquam soluta repudiandae magni debitis.
+                        <dl>
+                            <dt>
+                                <h5 class="title">Title, When</h5>
+                            </dt>
+                            <dd class="details">Details</dd>
+                        </dl>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="col-12 align-self-center my-3" id="viewInfoDashboard">
+        <!-- Filter and Search -->
+        <div class=" d-flex justify-content-end my-3" id="filterAndSearch">
+            <label class="px-2 pt-1">Search ID: </label>
+            <input type="text" id="searchFacultyID" name="searchFacultyID" placeholder="Search Faculty ID">
+            <button type="button" class="btn btn-sm" id="search"><i class="fas fa-search" data-bs-toggle="tooltip" title="Search"></i></button>
+        </div>
+
+        <div class="col-12 align-self-center my-" id="viewInfoDashboard">
             <ul class="nav nav-tabs d-flex flex-row justify-content-start" id="viewInfoTab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link student active" id="viewStudentButton" data-bs-toggle="tab" data-bs-target="#studentsTabContent" type="button" role="tab" aria-controls="studentsTabContent" aria-selected="true">Students</button>
@@ -107,9 +126,9 @@ include __DIR__ . '/../includes/adminSideBar.php'
             </div>
         </div>
     </div>
-    
-    <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 
+    <script src="<?php echo base_url('assets/js/calendar.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 
 </body>
 

@@ -8,16 +8,12 @@ include __DIR__ . '/../includes/adminSideBar.php'
 
 <div class="height-100 pt-2 container-fluid">
     <div class="container my-3">
-        <!--ChangePassword Tab-->
-        <div class="ChangePasswordTab">
-            <h3>Change Password</h3>
-        </div>
 
         <!--ChangePassword Box-->
         <div class="col-12 align-self-center pt-3" id="cp">
             <div class="table-wrapper">
                 <div class="Changepassword-header">
-                    <p class="px-4 py-3"></p>
+                    <p class="px-4 py-2">Change Password</p>
                 </div>
 
                 <div class="passContents">
