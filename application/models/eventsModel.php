@@ -8,13 +8,13 @@ class eventsModel extends CI_Model {
 		$this->load->database();
 	}
 
-    function createData() {
+    function createData($id) {
         $data = array (
             'title' => $this->input->post('title'),
             'details' => $this->input->post('details'),
             'date' => $this->input->post('date'),
             'time' => $this->input->post('time'),
-            'creatorID' => $this->input->post('creatorID'),
+            'creatorID' => $id,
             'status' => 1
         );
         $this->db->insert('events_announcements',$data);
@@ -24,6 +24,7 @@ class eventsModel extends CI_Model {
         $query = $this->db->query('SELECT * FROM events_announcements');
         return $query->result();
     }
+
     function getData($eaID) {
         $query = $this->db->query('SELECT * FROM events_announcements WHERE `eaID` =' .$eaID);
         return $query->row();
