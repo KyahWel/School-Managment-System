@@ -1,11 +1,10 @@
 <?php
-include __DIR__ . '/../includes/adminSideBar.php'
+include __DIR__ . '/../includes/facultySideBar.php'
 ?>
 
 <head>
     <title>Change Password</title>
 </head>
-
 <div class="height-100 pt-2 container-fluid">
     <div class="container my-3">
 
@@ -22,7 +21,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
                     </div>
 
                     <!-- Password input-->
-                    <form class="px-4 " method="POST" action="../admin_Main/changePass/<?= $this->session->userdata('auth_admin')['adminID']?>">
+                    <form class="px-4 " action="#">
                         <div class="form-group row mb-2 px-1">
                             <label for="oldpassword" class="form-label col-lg-3 col-md-12 col-sm-12 pt-1 fw-bold">Old Password:</label>
                             <div class="col-lg-6 col-md-12 col-sm-12">

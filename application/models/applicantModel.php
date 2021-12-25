@@ -10,9 +10,9 @@ class applicantModel extends CI_Model {
 	{	
 		$this->load->library('upload');
 		$digits = 4;
-		$year = 19;
+		$year = 21;
 		do{
-			$holder = "TUPM-APPLICANT-".$year."-".rand(pow(10, $digits-1), pow(10, $digits)-1);
+			$holder = "TUPM-APPL".$year."-".rand(pow(10, $digits-1), pow(10, $digits)-1);
 			$this->db->select('*');
 			$this->db->from('applicant_accounts');
 			$this->db->where('applicantNumber',$holder);
@@ -137,7 +137,7 @@ class applicantModel extends CI_Model {
 
 	public function login(){
 		$data = array(
-			'applicantNumber' => $_POST['applicantnumber']
+			'applicantNumber' => $_POST['username']
 		);
 		
 		$this->db->select('*');
@@ -145,9 +145,10 @@ class applicantModel extends CI_Model {
 		$this->db->where($data);
 		$query=$this->db->get();
 		if($query->num_rows()==0)
-			return 0;
+			return NULL;
 		else 
-			print_r($query);
+			return $query->row();
 	}
+
 
 }

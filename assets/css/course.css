@@ -1,35 +1,28 @@
-body{
+body {
     font-family: 'Poppins', sans-serif;
     font-size: 0.9rem;
 }
-
-/* Announcement Tab */
-
-.AnnouncenentTab h3{
+/*Course Tab*/
+.CourseTab h3{
     font-size: 1.5rem;
-    font-weight: 800
+    font-weight: 800;
 }
-
 #back-button .btn{
     background-color: #800000;
     color: white;
     border-color: transparent;
     margin-bottom: 20px;
 }
-
 .btn:focus{
     box-shadow: none;
 }
-
 #back-button a:hover{
     background-color: white;
     border-color: #800000;
     color: #800000;
 }
-
-/*Create Announcement*/
-
-#create{
+/*Add Course*/
+#createCourse{
     margin-bottom: 20px;
 }
 .accordion-item{
@@ -45,7 +38,6 @@ body{
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
 }
-
 .accordion-item:last-of-type {
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
@@ -61,29 +53,23 @@ body{
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
 }
-
 .accordion-button::after{
     filter: brightness(0%) invert(100%);
 }
-
 .accordion-button:not(.collapsed){
     background-color: #800000;
     color:white;
 }
-
 .accordion-button:not(.collapsed)::after{
     filter: brightness(0%) invert(100%);
 }
-
 .accordion-button:focus{
     box-shadow: none;
 }
-
-#addAnnouncementForm .form-control:focus{
+#addCourseForm .form-control:focus{
     box-shadow: none;
     border-color: #800000;
 }
-
 #save{
     background-color: #800000;
     border-color: transparent;
@@ -92,7 +78,6 @@ body{
     margin-right: 8px;
     font-size: 0.8rem;
 }
-
 #cancel{
     background-color: #aaaaaa;
     border-color: transparent;
@@ -100,26 +85,41 @@ body{
     text-decoration: none;
     font-size: 0.8rem;
 }
-
-.container .addAnnouncementButton button:focus{
+.container .addCourseButton button:focus{
     box-shadow: none;
 }
-
 .form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     font-size: 0.8rem;
 }
-
 .form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
     font-size: 0.8rem;
 }
-
 .form-control::-ms-input-placeholder { /* Microsoft Edge */
     font-size: 0.8rem;
 }
-
-input[type=text], input[type=date],input[type=time], textarea{
+#collegeSelect:hover{
+    box-shadow: none;
+    border-color: #3d3b3b;
+}
+#collegeSelect{
+    box-shadow: none;
+    background-color: rgb(223, 222, 222);
+}
+input[type=text], textarea{
     color: black;
     font-size: 0.8rem;
+}
+select:invalid{
+    color: gray;
+}
+option{
+    color: black;
+}
+select:active{
+    box-shadow: none;
+}
+textarea:focus, input:focus{
+    outline: none;
 }
 #save:hover{
     background-color: white;
@@ -127,7 +127,6 @@ input[type=text], input[type=date],input[type=time], textarea{
     color: #800000;
     font-size: 0.8rem;
 }
-
 #cancel:hover{
     background-color: white;
     border-color: #800000;
@@ -135,12 +134,38 @@ input[type=text], input[type=date],input[type=time], textarea{
     font-size: 0.8rem;
 }
 
-/*Announcement Table*/
+
+/* Filter and Search */
+
+#filterAndSearch{
+    text-align: right;
+}
+select:invalid{
+    color: gray;
+}
+option{
+    color: black;
+}
+select:active{
+    box-shadow: none;
+}
+textarea:focus, input:focus{
+    outline: none;
+}
+#search{
+    color: white;
+    background-color: #800000;
+    padding: .1rem .5rem;
+}
+#search i{
+    font-size: 10px;
+}
+
+/*Course List*/
 .table-wrapper{
     background: white;
     border-radius: 25px;
     border: 0.1px solid rgb(221, 220, 220);
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
 }
 .table-title{
     background-color: #800000;
@@ -148,58 +173,56 @@ input[type=text], input[type=date],input[type=time], textarea{
     text-align: center;
     border-radius: 25px 25px 0 0 ;
 }
-
 .table-title h2{
     font-size: inherit;
     margin: 15px;
 }
-
 #table-body thead{
     text-align: center;
 }
-
 #table-body tbody{
     text-align: center;
-
 }
-/* Action Button */
 
+/* Action Button */
 #table-body tbody .action-buttons li{
     list-style-type: none;
     display: inline-block;
 }
-
 #table-body tbody .action-buttons li button{
     color: white;
     background-color:maroon;
     font-size: 0.55rem;
-    padding: 2.8px 5px;
+    padding: 3px 5px;
     opacity: 0.93;
-    margin-top: 2.4px;
+    margin-top: 2.5px;
 }
 #table-body tbody .action-buttons li #status{ 
     color: white;
     background-color:maroon;
     font-size: 0.53rem;
     opacity: 0.93;
-    padding: 3.1px 7px;
+    padding: 4.2px 7px;
     border-radius: 3px;
     cursor: pointer;
-    width: 55px;
-    margin-left: 1px;
 }
 #table-body tbody .action-buttons li button:hover, #table-body tbody .action-buttons li #status:hover{
     opacity: 1;
 }
-
-
 #table-body tbody .action-buttons li button:focus{
     box-shadow: none;
 }
-
-/* Edit Announcement */
-
+/* Course View */
+.table-wrapper-2{
+    background: white;
+    border-radius: 25px;
+}
+/* Edit Course */
 .modal-header{
     background-color: #800000;
     color: white;
+}
+#editCourseForm .form-control:focus{
+    box-shadow: none;
+    border-color: #800000;
 }

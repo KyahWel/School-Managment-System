@@ -105,6 +105,9 @@ class Admin_Main extends CI_Controller {
 		redirect("admincontroller/admin");
 	}
 
-	
-
+	public function changePass($id)
+	{	
+		$this->AdminModel->changePassword($id);
+		redirect("admincontroller/dashboard");
+	}
 }

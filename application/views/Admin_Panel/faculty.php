@@ -70,7 +70,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                                 </div>
                                 <div class="addProfessorButton d-flex justify-content-end"> <!--Buttons-->
                                     <button class="btn btn-default" id="save" type="submit" value="save">Save</button>
-                                    <button class="btn btn-default" id="cancel" type="submit" value="cancel">Cancel</button>
+                                    <button class="btn btn-default" id="cancel" type="reset" value="cancel">Cancel</button>
                                 </div>  
                             </form>
                         </div>
@@ -86,19 +86,17 @@ include __DIR__.'/../includes/adminSideBar.php'
             <label>Filter by:</label>
             <select required>
                 <option value="" disabled selected hidden>College</option>
-                <option value="College 1">College 1</option>
-                <option value="College 2">College 2</option>
-                <option value="College 3">College 3</option>
-                <option value="College 4">College 4</option>
+                <option value="college">College 1</option>
+                <option value="college">College 2</option>
+                <option value="college">College 3</option>
             </select>
             <select required>
                 <option value="" disabled selected hidden>Department</option>
-                <option value="Department 1">Department 1</option>
-                <option value="Department 2">Department 2</option>
-                <option value="Department 3">Department 3</option>
-                <option value="Department 4">Department 4</option>
+                <option value="department">Department 1</option>
+                <option value="department">Department 2</option>
+                <option value="department">Department 3</option>
             </select>
-            <input type="text" id="searchFacultyID" name="searchFacultyID" placeholder="Search Faculty ID">
+            <input type="text" name="search" placeholder="Search Faculty ID">
             <button type="button" class="btn btn-sm" id="search"><i class="fas fa-search" data-bs-toggle="tooltip" title="Search"></i></button>
         </div>  
 
@@ -184,7 +182,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                             </div>
                             <div class="editProfessorButton d-flex justify-content-end"> <!--Buttons-->
                                 <button class="btn btn-default" id="save" type="submit" value="save">Save</button>
-                                <button class="btn btn-default" id="cancel" type="submit" value="cancel">Cancel</button>
+                                <button class="btn btn-default" id="cancel" type="button" data-bs-dismiss="modal">Cancel</button>
                             </div>  
                         </form>
                     </div>
@@ -193,7 +191,7 @@ include __DIR__.'/../includes/adminSideBar.php'
             </div>
         </div>
 
-        <!-- Add Subject -->
+        <!-- Add Subject --> 
         <div class="modal fade" id="addSubjectFaculty" tabindex="-1" aria-labelledby="addSubjectFacultyHeader" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
@@ -233,7 +231,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                             </div>
                             <div class="addSubjectFacultyButton d-flex justify-content-end"> <!--Buttons-->
                                 <button class="btn btn-default" id="save" type="submit" value="save">Save</button>
-                                <button class="btn btn-default" id="cancel" type="submit" value="cancel">Cancel</button>
+                                <button class="btn btn-default" id="cancel" type="button" data-bs-dismiss="modal">Cancel</button>
                             </div>  
                         </form>
                     </div>
@@ -251,6 +249,7 @@ include __DIR__.'/../includes/adminSideBar.php'
             <h3>Lida's Profile</h3>
         </div>
 
+        <!-- View Professor Information -->
         <div class="viewProfessorContent d-flex align-items-center">
             <div id="viewProfessorAvatar">
                 <button class="btn"><i class="fas fa-user"></i></button>
@@ -274,7 +273,38 @@ include __DIR__.'/../includes/adminSideBar.php'
                 </table>
             </div>
         </div>
-        
+
+        <!-- View Professor Filter and Search -->
+        <div class="col-12 align-self-center my-3" id="filterAndSearch">
+            <label>Filter by:</label>
+            <select required>
+                <option value="" disabled selected hidden>School Year</option>
+                <option value="schoolYear">2019</option>
+                <option value="schoolYear">2020</option>
+                <option value="schoolYear">2021</option>
+            </select>
+            <select required>
+                <option value="" disabled selected hidden>Year Level</option>
+                <option value="yearLevel">First</option>
+                <option value="yearLevel">Second</option>
+                <option value="yearLevel">Third</option>
+            </select>
+            <select required>
+                <option value="" disabled selected hidden>Semester</option>
+                <option value="semester">First</option>
+                <option value="semester">Second</option>
+            </select>
+            <select required>
+                <option value="" disabled selected hidden>Subject Code</option>
+                <option value="subjectCode">12345</option>
+                <option value="subjectCode">67890</option>
+                <option value="subjectCode">76543</option>
+            </select>
+            <input type="text" name="search" placeholder="Search">
+            <button type="button" class="btn btn-sm" id="search"><i class="fas fa-search" data-bs-toggle="tooltip" title="Search"></i></button>
+        </div> 
+
+        <!-- View Professor Table -->
         <div class="col-12 align-self-center my-3" id="viewProfessorTable">
             <ul class="nav nav-tabs d-flex flex-row justify-content-start" id="viewProfessorTab" role="tablist">
                 <li class="nav-item" role="presentation">
@@ -288,6 +318,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                 </li>
             </ul>
             <div class="tab-content p-3" id="viewProfessorTabContent">
+                <!-- Information Tab -->
                 <div class="tab-pane show active" id="ProfessorInformation" role="tabpanel" aria-labelledby="viewProfessorInformationTab">
                     <div class="row">
                         <div class="col-lg-3 col-md-6 mb-1"> <!--Last Name-->
@@ -318,6 +349,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                         </div>
                     </div>
                 </div>
+                <!-- Subject Tab -->
                 <div class="tab-pane" id="ProfessorSubject" role="tabpanel" aria-labelledby="viewProfessorSubjectTab">
                     <div class="table-responsive">  
                         <table class="table align-middle table-striped table-borderless table-hover" id="table-body"> <!--Table Body-->
@@ -352,6 +384,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                         </table>
                     </div>
                 </div>
+                <!-- Section Tab -->
                 <div class="tab-pane" id="ProfessorSection" role="tabpanel" aria-labelledby="viewProfessorSectionTab">
                     <div class="table-responsive">  
                         <table class="table align-middle table-striped table-borderless table-hover" id="table-body"> <!--Table Body-->

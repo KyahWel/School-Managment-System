@@ -80,10 +80,37 @@ class AdminModel extends CI_Model {
 		$this->db->from('admin_accounts');
 		$this->db->where($data);
 		$query=$this->db->get();
-		if($query->num_rows()==0)
-			return 0;
+		if($query->num_rows()!=0)
+			return $query->row();
 		else 
-			return 1;
+			return NULL;
+	}
 
+	public function changePassword($id) #Changepassword
+	{	
+		$data = array(
+			'adminID' => $id,
+			'password' => $_POST['oldpass']
+		);
+		$this->db->select('*');
+		$this->db->from('admin_accounts');
+		$this->db->where($data);
+		$query=$this->db->get();
+		if($query->num_rows()!=0){
+			$newPassword = $_POST['newpass'];
+			$confirmPassword = $_POST['confirmpass'];
+			if($newPassword==$confirmPassword){
+				$newdata = array(
+					'password' => $newPassword,
+				);
+				$this->db->where('adminID',$id);
+				$this->db->update('admin_accounts',$newdata);
+			}
+			else
+				return NULL;
+		}
+		else 
+			return NULL;
+		
 	}
 }

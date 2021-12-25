@@ -98,9 +98,6 @@ body{
     color: #800000;
     font-size: 0.8rem;
 }
- button:focus{
-    box-shadow: none;
-}
 
 /* Form Responsiveness */
 
