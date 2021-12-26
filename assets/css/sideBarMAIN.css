@@ -1,6 +1,6 @@
 :root {
     --header-height: 2rem;
-    --nav-width:68px;
+    --nav-width: 68px;
     --z-fixed: 100
 }
 
@@ -9,10 +9,13 @@
 ::after {
     box-sizing: border-box
 }
-html,body{
+
+html,
+body {
     font-family: 'Poppins', sans-serif;
     font-size: 0.9rem;
 }
+
 body {
     position: relative;
     margin: var(--header-height) 0 0 0;
@@ -21,7 +24,7 @@ body {
     transition: .5s;
     background: #f4f4f4;
     overflow: none;
-    font-family: 'Poppins',sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 a {
@@ -44,29 +47,34 @@ a {
     transition: .5s
 }
 
-.l-navbar .welcome{
+.l-navbar .welcome {
     margin: 0 auto;
     text-align: center;
 }
-.l-navbar i{
+
+.l-navbar i {
     padding-right: 7px;
 }
-hr{
+
+hr {
     align-items: center;
     margin-left: 1rem;
 }
+
 .header_toggle {
     color: white;
     font-size: 1.25rem;
     cursor: pointer;
-    position:absolute;
-    left:1.5rem;
+    position: absolute;
+    left: 1.5rem;
 }
-span.brand{
+
+span.brand {
     font-size: 0.8rem;
     letter-spacing: 2px;
-    padding-left:  10px;
+    padding-left: 10px;
 }
+
 .header_img {
     width: 25px;
     height: 25px;
@@ -78,8 +86,8 @@ span.brand{
     margin-left: 5px;
 }
 
-header .email{
-    font-size:0.8rem;
+header .email {
+    font-size: 0.8rem;
     letter-spacing: 1px;
 }
 
@@ -89,12 +97,13 @@ header .email{
     left: -30%;
     width: var(--nav-width);
     height: 100vh;
-    background-color:white;
+    background-color: white;
     padding: .5rem 1rem 0 0;
     z-index: var(--z-fixed);
     border-right: 1px solid rgb(232, 226, 226);
+    box-shadow: 3px 0px 5px 0px rgba(0, 0, 0, 0.25);
     transition: .5s;
-    -moz-transition:.5s ;
+    -moz-transition: .5s;
     -o-transition: .5s;
     -webkit-transition: .5s;
 }
@@ -108,7 +117,8 @@ header .email{
 }
 
 .nav_logo,
-.nav_link, a {
+.nav_link,
+a {
     display: grid;
     grid-template-columns: max-content max-content;
     align-items: center;
@@ -127,10 +137,10 @@ header .email{
 .nav_logo-name {
     color: var(--white-color);
     font-weight: 700;
-
 }
 
-.nav_link,a {
+.nav_link,
+a {
     position: relative;
     color: var(--first-color-light);
     margin-bottom: 0.5rem;
@@ -138,19 +148,22 @@ header .email{
     font-size: 0.8rem;
 }
 
-.nav_link:hover, a:hover {
-    color:rgb(202, 0, 0);
+.nav_link:hover,
+a:hover {
+    color: rgb(202, 0, 0);
     font-weight: 900;
 }
 
 .nav_icon {
     font-size: 1rem
 }
-.nav #logout{
+
+.nav #logout {
     padding-bottom: 4rem;
     /* align-self: flex-end; */
-    margin-right: 1rem ;
+    margin-right: 1rem;
 }
+
 .side {
     left: 0
 }
@@ -179,54 +192,51 @@ header .email{
 }
 
 @media screen and (min-width: 1500px) {
-html,body{
-    font-size: 1rem;
+    html,
+    body {
+        font-size: 1rem;
+    }
 }
-}
+
 @media screen and (min-width: 768px) {
     body {
         margin: calc(var(--header-height) + 1rem) 0 0 0;
         padding-left: calc(var(--nav-width) + 2rem)
     }
-
     .header {
         height: calc(var(--header-height) + 1rem);
         padding: 0 2rem 0 calc(var(--nav-width) + 2rem)
     }
-
     .l-navbar {
         left: 0;
         padding: 1rem 0.8rem 0 0;
-
     }
-
     .side {
         width: calc(var(--nav-width) + 156px);
     }
-
     .body-pd {
         padding-left: calc(var(--nav-width) + 175px)
     }
 }
 
-@media screen and (max-width: 768px){
-    .header{
+@media screen and (max-width: 768px) {
+    .header {
         padding: 15px;
     }
-    span.brand{
+    span.brand {
         display: none;
     }
-    .welcome{
+    .welcome {
         display: none;
     }
 }
-@media screen and (max-width: 576px){
-    
+
+@media screen and (max-width: 576px) {
     .header_toggle {
-        left:1.5rem;
+        left: 1.5rem;
         font-size: 1rem;
     }
-     header .email{
-        font-size:0.7rem;
+    header .email {
+        font-size: 0.7rem;
     }
 }

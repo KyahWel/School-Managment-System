@@ -1,0 +1,143 @@
+#enrollmentTabContent .searchBG,
+#applicantTabContent .searchBG {
+    color: white;
+    background-color: #800000;
+    padding: .1rem .5rem;
+    font-size: 11px;
+}
+
+select:invalid {
+    color: gray;
+    font-style: oblique;
+    font-size: 0.8rem;
+    padding: .1rem 0;
+}
+
+option {
+    color: black;
+    font-style: normal;
+}
+
+#viewApplicantEnrolledStudents td {
+    color: black;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 5px 5px;
+}
+
+
+/*Professor View Page Tab-Header */
+
+#viewApplicantEnrolledStudents {
+    border: 0.1px solid rgb(221, 220, 220);
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+}
+
+ul#viewApplTab.nav {
+    background-color: maroon;
+    border-bottom: none;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link {
+    color: white;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .student.active {
+    color: #800000;
+    background-color: white;
+    border-color: white;
+    font-weight: 200;
+    border-top-left-radius: 25px;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .faculty.Button.active {
+    color: #800000;
+    background-color: white;
+    border-color: white;
+    font-weight: 200;
+    border-radius: 0;
+}
+
+button#viewApplicantButton.nav-link.active::before,
+button#viewEnrollmenttButton.nav-link.active::before {
+    background: none;
+}
+
+div#viewApplicantButton.tab-pane.active.show::before,
+div#viewEnrollmenttButton.tab-pane.active::before {
+    background: none;
+}
+
+
+/* Information Content */
+
+.tab-content {
+    background-color: white;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+#enrollmentTabContent #table-body td,
+#applicantTabContent #table-body td {
+    font-weight: 200;
+}
+
+.addBtn,
+.confirmBtn {
+    font-size: 0.8rem;
+    background: #DB1A00;
+    border: none;
+    opacity: 0.9;
+    padding: 2px 7px;
+}
+
+.addBtn:hover,
+.confirmBtn:hover {
+    background: #DB1A00;
+    opacity: 1;
+}
+
+.addALL {
+    background: maroon;
+    opacity: 0.9;
+    border: none;
+    font-size: 0.8rem;
+    color: white;
+}
+
+.addALL:hover {
+    background: maroon;
+    opacity: 1;
+}
+
+.addALL:focus {
+    background: maroon;
+}
+
+.enrollmentDetails {
+    background: white;
+    border-radius: 20px;
+}
+
+.tabHeader {
+    background: maroon;
+    font-size: 1rem;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.tabHeader p {
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.tabDetails {
+    background: white;
+}
