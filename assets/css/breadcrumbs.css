@@ -1,0 +1,63 @@
+
+.step_progressbar{
+    display:block;
+    width: auto;
+    margin: auto;
+    background-color: transparent;
+}
+ul{
+    display: block;
+    list-style: none;
+    align-items: center;
+    justify-content: space-between;
+    counter-reset: step;
+}
+li{
+    display:inline-block;
+    position: relative;
+    width: 32.22%;
+    text-align: center;
+    margin-bottom: 15px 0;
+
+}
+li:before{
+    display:block;
+    width:50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    line-height: 50px;
+    text-align: center;
+    content: counter(step);
+    counter-increment: step;
+    margin: 10px auto;
+    position:relative;
+    z-index: 2;
+    font-size: 20px;
+}
+li.active{
+    color: #F2BD53;
+    font-weight: bold;
+}
+li:after{
+    content:"";
+    width: 100%;
+    height: 2px;
+    background-color: #bdbdbd;
+    position: absolute;
+    top: 35px;
+    left: -50%;
+    z-index:1;
+}
+li:first-child:after{
+    content: none;
+
+}
+li.active + li:after{
+    background-color: #800000;
+}
+li.active:before{
+    background-color: #800000;
+    color: #F2BD53;
+}
+
