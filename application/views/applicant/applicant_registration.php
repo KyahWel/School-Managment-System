@@ -12,6 +12,65 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/css/applicant.css'); ?>" rel="stylesheet" type="text/css">
     <title>Applicant Registration</title>
+
+    <style> type="text/css">
+         .container{
+             width: 100%;
+         }   
+         .progressbar{
+             counter-reset: step;
+             height: 40px;
+             margin-top: 20px;
+             margin-bottom: 55px;
+         }
+         .progressbar li{
+             list-style-type: none;
+             float: left;
+             width: 32.22%;
+             position: relative;
+             text-align: center;
+             font-family: Arial, Helvetica, sans-serif;
+             font-weight: bold;
+         }
+         .progressbar li:before {
+             content: counter(step);
+             counter-increment: step;
+             width: 30px;
+             height: 30px;
+             line-height: 30px;
+             border: 1px solid #ddd;
+             display: block;
+             text-align: center;
+             margin: 0 auto 10px auto;
+             border-radius: 50%;
+             background-color: white;
+         }
+         .progressbar li:after{
+             content: '';
+             position: absolute;
+             width: 100%;
+             height: 1px;
+             background-color: #ddd;
+             top: 15px;
+             left: -50%;
+             z-index: -1;
+         }
+         .progressbar li:first-child:after{
+             content: none;
+         }
+         .progressbar li.active{
+             color: #F2BD53;
+             
+         }
+         .progressbar li.active:before{
+             border-color: #800000;
+             background-color: #800000;
+         }
+         .progressbar li.active + li:after{
+             background-color: #800000;
+             background-size: 10px;
+         }
+    </style>
 </head>
 
 <body>
@@ -84,9 +143,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="row height-sm-100 contents">
                     <div class="col">
                         <form method='POST' class="needs-validation" novalidate enctype="multipart/form-data" name="applicantform">
-
                             <!-- Personal Information -->
                             <div id='personalInfo' class=" container pt-3" style="display: block;">
+                                   <ul class="progressbar">
+                                        <li class="active">Personal Information</li> 
+                                        <li>Educational Attainment</li>
+                                        <li>Requirements</li>
+                                    </ul>
                                 <div class="Wrapper">
                                     <div class="tabTitle">
                                         <p class="text-white"><i class="fa fa-user"></i> <span class="px-2"> Personal Information </span></p>
@@ -316,9 +379,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
                             <!-- ------------------------------------------------------------------------------------------------------- -->
+
                             <!-- Educational Attainment -->
                             <div id='educationalattainment' class=" container pt-3" style="display: none;">
-                                <div class="Wrapper">
+                                   <ul class="progressbar">
+                                        <li>Personal Information</li> 
+                                        <li class="active">Educational Attainment</li>
+                                        <li>Requirements</li>
+                                    </ul>
+                                <div class="Wrapper">         
                                     <div class="tabTitle">
                                         <p class="text-white"><i class="fa fa-user-graduate"></i> <span class="px-2"> Educational Attainment </span></p>
                                     </div>
@@ -443,6 +512,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                     </div>
                                                 </div>
                                             </button>
+
                                         </div>
                                     </div>
                                     <!--Education Contents-->
@@ -455,6 +525,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <!-- ------------------------------------------------------------------------------------------------------- -->
                             <!-- Requirements -->
                             <div id='requirement' class=" container pt-3 " style="display: none;">
+                                   <ul class="progressbar">
+                                        <li>Personal Information</li> 
+                                        <li>Educational Attainment</li>
+                                        <li class="active">Requirements</li>
+                                    </ul>
                                 <div class="Wrapper">
                                     <div class="tabTitle">
                                         <p class="text-white"><i class="fas fa-file"></i> <span class="px-2">Requirements </span></p>
