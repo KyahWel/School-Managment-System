@@ -21,7 +21,7 @@ class AdminController extends CI_Controller {
 						'adminNumber' =>  $data->adminNumber
 					];
 					$this->session->set_userdata('auth_admin',$auth_userdetails);
-					redirect('adminController/dashboard');
+					redirect('AdminController/dashboard');
 				}
 				else{
 					$this->session->set_flashdata('status','Invalid Email or Password'); //Palitan ng error message, deactivated yung account

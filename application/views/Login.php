@@ -9,7 +9,7 @@
   <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
   <link href="<?php echo base_url('assets/css/mainLogin.css'); ?>" rel="stylesheet" type="text/css">
   <link href="<?php echo base_url('assets/css/home.css'); ?>" rel="stylesheet" type="text/css">
-
+<title>ERS | Technological University of the Philippines</title>
   <style>
     .background {
       background: url(assets/images/bg.png) no-repeat center/cover #f4f4f4;
@@ -217,7 +217,7 @@
         <div class="input-group-addon">
           <i class="fa fa-user"></i>
         </div>
-        <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+        <input type="text" class="form-control" id="username" name="username" placeholder="Applicant Number" required>
       </div>
 
       <!-- clear entries and login button -->
