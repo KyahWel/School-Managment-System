@@ -264,8 +264,8 @@ textarea:focus, input:focus{
 ul#viewProfessorTab.nav{
     background-color: #800000;
     border-bottom: none;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
 }
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link{
     color: white;
@@ -275,8 +275,6 @@ ul#viewProfessorTab.nav{
     background-color: white;
     border-color: white;
     font-weight: 200;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
 }
 button#viewProfessorInformationTab.nav-link.active::before,
 button#viewProfessorSubjectTab.nav-link.active::before,

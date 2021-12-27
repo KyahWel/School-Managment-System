@@ -288,6 +288,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                 <option value="yearLevel">First</option>
                 <option value="yearLevel">Second</option>
                 <option value="yearLevel">Third</option>
+                <option value="yearLevel">Fourth</option>
             </select>
             <select required>
                 <option value="" disabled selected hidden>Semester</option>
@@ -319,7 +320,7 @@ include __DIR__.'/../includes/adminSideBar.php'
             </ul>
             <div class="tab-content p-3" id="viewProfessorTabContent">
                 <!-- Information Tab -->
-                <div class="tab-pane show active" id="ProfessorInformation" role="tabpanel" aria-labelledby="viewProfessorInformationTab">
+                <div class="tab-pane show active my-3" id="ProfessorInformation" role="tabpanel" aria-labelledby="viewProfessorInformationTab">
                     <div class="row">
                         <div class="col-lg-3 col-md-6 mb-1"> <!--Last Name-->
                             <input type="text" class="form-control" readonly>
