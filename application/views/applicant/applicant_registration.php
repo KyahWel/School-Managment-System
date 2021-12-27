@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,11 +11,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/css/applicant.css'); ?>" rel="stylesheet" type="text/css">
-    <link href="<?php echo base_url('assets/css/breadcrumbs.css'); ?>" rel="stylesheet" type="text/css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Applicant Registration</title>
-
 
 </head>
 
@@ -29,23 +27,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </button>
         <!-- Cancel Dialog Box-->
         <div class="modal fade" id="cancelApplication" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="cancelApplicationLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h6 class="modal-title text-dark fw-bold" id="cancelApplicationLabel">Cancel Application</h6>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body text-dark">
-                Are you sure you want to cancel your application?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                <button type="reset" class="btn btn-primary">Yes</button>
-            </div>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h6 class="modal-title text-white fw-bold" id="cancelApplicationLabel">Cancel Application</h6>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-dark">
+                        Are you sure you want to cancel your application?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                        <button type="reset" class="btn btn-primary">Yes</button>
+                    </div>
+                </div>
             </div>
         </div>
-        </div>
-      
+
     </div>
     <div class="container-fluid">
         <div class="row height-100vh">
@@ -68,7 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="container-fluid" id="steps" style="display: block;">
                     <div class="mt-3 applicant-head text-white px-3">
                         Appicant ID: <span class="fw-bold"> Applicant-21-2123 </span>
-                       
+
                     </div>
 
                     <!--Information -->
@@ -104,7 +102,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     </div>
                                     <div class="Contents">
 
-                                        <!-- Course Dropdown, next change: use AJAX and JQUERY to retrieve data from database-->
                                         <div class="mb-3 row">
                                             <label for="courses" class="col-2 form-label small pt-2">Course: </label>
                                             <div class="col-lg-7 col-md-10 col-sm-12">
@@ -155,7 +152,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                         <!-- LRN and Gender-->
                                         <div class="row mt-2 small">
-                                            <label  class="form-label col-lg-2 col-md-12 pt-1">LRN:</label>
+                                            <label class="form-label col-lg-2 col-md-12 pt-1">LRN:</label>
                                             <div class="col-lg-3 col-md-12">
                                                 <input type="text" name="LRN" class="form-control form-control-sm" minlength="10" aria-label="LRN" required>
                                                 <div class="invalid-feedback">
@@ -164,7 +161,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             </div>
 
                                             <div class="col-lg-2 col-md-none"> </div>
-                                                <label class="form-label col-lg-2 col-md-12 pt-1">Gender:</label>
+                                            <label class="form-label col-lg-2 col-md-12 pt-1">Gender:</label>
                                             <div class="col-lg-3 col-md-12 pt-1">
                                                 <div class="form-check-inline">
                                                     <input class="form-check-input" type="radio" name="gender" value="Male" required>
@@ -411,7 +408,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <div class="row mt-2 small">
                                             <label class="form-label col-lg-2 col-md-12  pt-1">Category:</label>
                                             <div class="col-lg-4 col-md-12 pt-1">
-                                            <div class="form-check-inline">
+                                                <div class="form-check-inline">
                                                     <input class="form-check-input" type="radio" name="category" value="K-12" required>
                                                     <label class="form-check-label" for="category"> K-12 </label>
                                                     <div class="invalid-feedback"> Please select your category. </div>
@@ -544,10 +541,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                             <!-- requirements div -->
                         </form>
-
-
-                      <!-- PA-REDIRECT NA LANG SA FINAL STEP pagkasubmit- [applicant/applicantFinalStep.php] -->
-
                     </div>
                 </div>
             </div>

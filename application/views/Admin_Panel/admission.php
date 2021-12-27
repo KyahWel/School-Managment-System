@@ -6,12 +6,12 @@ include __DIR__ . '/../includes/adminSideBar.php'
     <link href="<?php echo base_url('assets/css/admission.css'); ?>" rel="stylesheet" type="text/css">
     <title>Admin | Admission </title>
 </head>
-<div class="height-100 pt-2 container-fluid">
+<div class="height-100 pt-2 container-fluid pb-3">
     <h3 class="pt-3" id="tab" style="display:block">Admission</h3>
 
     <!--Tab Title -->
     <div class="col-12 align-self-center my-" id="viewApplicantEnrolledStudents" style="display:block">
-        <ul class="nav nav-tabs d-flex flex-row justify-content-start" id="viewApplTab" role="tablist">
+        <ul class="nav nav-tabs d-flex flex-row justify-content-start" id="viewTab" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link student active" id="viewApplicantButton" data-bs-toggle="tab" data-bs-target="#applicantTabContent" type="button" role="tab" aria-controls="applicantTabContent" aria-selected="true">Applicant</button>
             </li>
@@ -28,20 +28,21 @@ include __DIR__ . '/../includes/adminSideBar.php'
                         <div class="px-2 pt-2 text-dark">
                             <input type="checkbox" name="addAll" id="checkApplicant" onclick="checkedAll.call(this);" /> Select all
                         </div>
-                        <div class="ms-auto" id="filterAndSearch">
+                        <div class="ms-auto">
                             <label class="mb-2">Filter by:</label>
-                            <select required placeholder="status">
+                            <select name="stats"required placeholder="status">
                                 <option value="" disabled selected hidden>Status</option>
-                                <option value="Passed">Passed</option>
-                                <option value="Failed">Failed</option>
+                                <option name="stats" value="Passed">Passed</option>
+                                <option name="stats" value="Failed">Failed</option>
+                                <option name="stats" value="Applied">Applied</option>
                             </select>
                             <input type="text" id="searchApplicantID" name="searchApplicantID" placeholder="Search Applicant ID">
-                            <button type="button" class="btn btn-sm searchBG" id="searchApplicantID"><i class="fas fa-search" title="Search"></i></button>
+                            <button type="button" class="btn btn-sm searchBG" id="searchApplicantIDIcon"><i class="fas fa-search" title="Search"></i></button>
                         </div>
                     </div>
                     <div class="table-responsive mt-3">
 
-                        <table class="table align-middle table-striped table-borderless table-hover" id="table-body">
+                        <table class="table align-middle table-striped table-borderless table-hover" id="table-bodyAppl">
                             <!--Table Body-->
                             <thead>
                                 <tr>
@@ -87,7 +88,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h6 class="modal-title text-white fw-bold" id="cancelApplicationLabel">Add Applicant</h6>
+                                        <h6 class="modal-title text-white" id="cancelApplicationLabel">Add Applicant</h6>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body text-dark">
@@ -106,13 +107,13 @@ include __DIR__ . '/../includes/adminSideBar.php'
 
         <!-- Enrollment List -->
         <div class="tab-pane show" id="enrollmentTabContent" role="tabpanel" aria-labelledby="Enrollment">
-            <div class=" d-flex justify-content-end my-1" id="filterAndSearch">
+            <div class=" d-flex justify-content-end my-1">
                 <label class="px-2 pt-1 mb-2">Search ID: </label>
                 <input type="text" id="searchStudentID" name="searchStudentID" placeholder="Search Student ID">
-                <button type="button" class="btn btn-sm mx-1 searchBG" id="searchApplicantID"><i class="fas fa-search"></i></button>
+                <button type="button" class="btn btn-sm mx-1 searchBG" id="searchStudentIDIcon"><i class="fas fa-search"></i></button>
             </div>
             <div class="table-responsive">
-                <table class="table align-middle table-striped table-borderless table-hover" id="table-body">
+                <table class="table align-middle table-striped table-borderless table-hover" id="table-bodyEnroll">
                     <!--Table Body-->
                     <thead>
                         <tr>
@@ -132,7 +133,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
                             <td>BS-Computer Science</td>
                             <td>Third</td>
                             <td>
-                                <button type="button" class="btn btn-primary text-white text-uppercase confirmBtn">Confirm Enrollment</button>
+                                <button type="button" onclick="lastpage()" class="btn btn-primary text-white text-uppercase confirmBtn">Confirm Enrollment</button>
                             </td>
                         </tr>
                         <tr>
@@ -142,7 +143,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
                             <td>BS-Computer Science</td>
                             <td>Third</td>
                             <td>
-                                <button type="button" class="btn btn-primary text-white text-uppercase confirmBtn" onclick="lastpage()">Confirm Enrollment</button>
+                                <button type="button" onclick="lastpage()" class="btn btn-primary text-white text-uppercase confirmBtn">Confirm Enrollment</button>
                             </td>
                         </tr>
                     </tbody>
@@ -151,33 +152,30 @@ include __DIR__ . '/../includes/adminSideBar.php'
         </div>
     </div>
 </div>
-<div>
-</div>
 
-<div class="container my-3" id='viewEnrollmentDetails' style="display:none">
-    <div class="mx-2 my-3" style="display:inline">
-        <button type="button" class="btn btn btn-danger" onclick="enrollment()" style="background:maroon; border:none; font-size:0.8rem" onclick="requirement()">
-            <i class="fa fa-arrow-left"></i> Back</button>confirm enrollment 
-    </div>
-    <div class="Title">
-        <h3>Lida's Profile</h3>
+<!-- Enrollment Details/Confirmation Tab -->
+<div class="height-100 pt-2 container-fluid" id='viewEnrollmentDetails' style="display:none">
+    <div class="mx-2">
+        <button type="button" class="btn btn btn-danger my-3" onclick="enrollment()" style="background:maroon; border:none; font-size:0.8rem" onclick="requirement()">
+            <i class="fa fa-arrow-left"></i> Back</button>
+        <span class="confirmTitle m-2">Confirm Enrollment </span>
     </div>
 
-    <!-- View Professor Information -->
-    <div class="viewProfessorContent d-flex align-items-center">
-        <div id="viewProfessorAvatar">
-            <img src="../assets/images/applicantAvatar.svg" alt="">
+    <div class="viewStudentContent d-flex align-items-center">
+        <div>
+            <img id="viewStudentAvatar" src="../assets/images/applicantAvatar.svg" alt="Applicant Avatar">
         </div>
+
         <div class="table-responsive">
-            <table id="viewProfessorInformation">
+            <table id="viewStudentInformation" class="table-body">
                 <tr>
-                    <td class="px-2 pt-2">
+                    <td class="px-3 pt-2">
                         <p><b>Student ID:</b></p>
                         <p><b>Name:</b></p>
                         <p><b>Course:</b></p>
                         <p><b>Term/Sem:</b></p>
                     </td>
-                    <td class="px-3 pt-2">
+                    <td class="pt-2 px-2">
                         <p>TUPM-STUDENT21-1234</p>
                         <p>Lida Cruz</p>
                         <p>BS-Computer Science</p>
@@ -186,22 +184,21 @@ include __DIR__ . '/../includes/adminSideBar.php'
                 </tr>
             </table>
         </div>
-
     </div>
 
-    <div class="enrollmentDetails my-3" id="details">
+    <div class="enrollmentDetails mt-3 mb-5" id="details">
         <div class="tabHeader">
             <p class="text-center text-white p-2">Enrollment Details</p>
         </div>
-        <div class="tabDetails">
-            <p class="fw-bold px-4"> Subjects Enrolled</p>
+        <div class="tabDetails p-3">
+            <h6 class="fw-bold px-4"> Subjects Enrolled</h6>
             <div class="table-responsive">
-                <table class="table align-middle table-striped table-borderless table-hover px-2" id="table-body">
+                <table class="table align-middle table-striped table-borderless table-hover px-2" id="table-bodyDetails">
                     <!--Table Body-->
                     <thead>
                         <tr>
                             <th>&nbsp;</th>
-                            <th style="width: 200px;">Subject Code</th>
+                            <th style="width: 250px;">Subject Code</th>
                             <th>Subject</th>
                             <th>Units</th>
                         </tr>
@@ -219,23 +216,62 @@ include __DIR__ . '/../includes/adminSideBar.php'
                             <td>Data Analytics</td>
                             <td>3</td>
                         </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>ABC-14</td>
+                            <td>Information Assurance and Security</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>ABC-15</td>
+                            <td>Web Development</td>
+                            <td>3</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
-            <p class="fw-bold px-4"> Attachment Receipt</p>
-            <img src="../assets/images/download.png" alt="" class="px-3" style="width: 375px;">
+            <h6 class="fw-bold px-4"> Attachment Receipt</h6>
+            <img id="receiptAttachment" src="../assets/images/download.png" alt="Receipt Attachment" class="px-3">
+
+            <!-- Receipt Modal -->
+            <div id="myModal" class="modal modalReceipt">
+            <span class="close">&times;</span>
+                <img class="modal-content modalReceiptContent" id="receipt01">
+                <div id="caption" class="text-center"></div>
+            </div>
+
+            <div class=" d-flex justify-content-end my-3 mx-2">
+                <button type="button" class="btn btn-primary text-uppercase confirmEnrollment px-3" style="padding: 7px;"> Confirm</button>
+            </div>
         </div>
     </div>
-
-
-</div>
-
-
 </div>
 
 
 
 <script type="text/javascript">
+
+    var modal = document.getElementById("myModal");
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img = document.getElementById("receiptAttachment");
+    var modalImg = document.getElementById("receipt01");
+    var captionText = document.getElementById("caption");
+    img.onclick = function() {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+    }
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
     function checkedAll() {
         // this refers to the clicked checkbox
         // find all checkboxes inside the checkbox' form

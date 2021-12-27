@@ -26,16 +26,13 @@ option {
     padding: 5px 5px;
 }
 
-
-/*Professor View Page Tab-Header */
-
 #viewApplicantEnrolledStudents {
     border: 0.1px solid rgb(221, 220, 220);
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
     border-radius: 25px;
 }
 
-ul#viewApplTab.nav {
+ul#viewTab.nav {
     background-color: maroon;
     border-bottom: none;
     border-top-left-radius: 25px;
@@ -48,10 +45,9 @@ ul#viewApplTab.nav {
 }
 
 .nav-tabs .nav-item.show .nav-link,
-.nav-tabs .student.active {
+.nav-tabs .student.Button.active {
     color: #800000;
     background-color: white;
-    border-color: white;
     font-weight: 200;
     border-top-left-radius: 25px;
 }
@@ -84,13 +80,26 @@ div#viewEnrollmenttButton.tab-pane.active::before {
     border-bottom-right-radius: 25px;
 }
 
-#enrollmentTabContent #table-body td,
-#applicantTabContent #table-body td {
+#enrollmentTabContent #table-bodyEnroll td,
+#applicantTabContent #table-bodyAppl td {
     font-weight: 200;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#enrollmentTabContent #table-bodyEnroll tr,
+#applicantTabContent #table-bodyAppl tr {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
 }
 
 .addBtn,
-.confirmBtn {
+.confirmBtn,
+.confirmEnrollment {
     font-size: 0.8rem;
     background: #DB1A00;
     border: none;
@@ -99,13 +108,14 @@ div#viewEnrollmenttButton.tab-pane.active::before {
 }
 
 .addBtn:hover,
-.confirmBtn:hover {
+.confirmBtn:hover,
+.confirmEnrollment:hover {
     background: #DB1A00;
     opacity: 1;
 }
 
 .addALL {
-    background: maroon;
+    background: #920003;
     opacity: 0.9;
     border: none;
     font-size: 0.8rem;
@@ -113,7 +123,7 @@ div#viewEnrollmenttButton.tab-pane.active::before {
 }
 
 .addALL:hover {
-    background: maroon;
+    background: #920003;
     opacity: 1;
 }
 
@@ -123,7 +133,10 @@ div#viewEnrollmenttButton.tab-pane.active::before {
 
 .enrollmentDetails {
     background: white;
-    border-radius: 20px;
+    border-radius: 25px;
+    border: 0.1px solid rgb(221, 220, 220);
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-bottom: 3rem;
 }
 
 .tabHeader {
@@ -140,4 +153,192 @@ div#viewEnrollmenttButton.tab-pane.active::before {
 
 .tabDetails {
     background: white;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+.modal-header {
+    background: maroon;
+}
+
+.modal-title {
+    letter-spacing: 1.5px;
+    font-weight: 500;
+}
+
+.modal-footer button.btn-primary {
+    background: #a94c4c;
+    border: none;
+    opacity: 0.9;
+}
+
+.modal-footer button.btn-primary:hover {
+    opacity: 1;
+}
+
+span.confirmTitle {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.viewStudentContent {
+    font-size: 1rem;
+}
+
+
+/* receipt attachment modal */
+
+#receiptAttachment {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+    max-width: 300px;
+    max-height: max-content;
+}
+
+#receiptAttachment:hover {
+    opacity: 0.7;
+}
+
+
+/* The Modal (background) */
+
+.modalReceipt {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 10;
+    padding-left: 15rem;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.9);
+    /* Black w/ opacity */
+}
+
+
+/* Modal Content (image) */
+
+.modalReceiptContent {
+    margin: auto;
+    display: block;
+    width: 100%;
+    max-width: 650px;
+    max-height: 500px;
+}
+
+
+/* Caption of Modal Image */
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+
+/* Add Animation */
+
+.modalReceiptContent,
+#caption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+
+/* The Close Button */
+
+.close {
+    position: absolute;
+    top: 40px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* 100% Image Width on Smaller Screens */
+
+@media only screen and (max-width: 768px) {
+    .modalReceiptContent {
+        width: 100%;
+    }
+    .modalReceipt {
+        padding-left: 16rem;
+        padding-right: 2rem;
+    }
+}
+
+@media only screen and (max-width: 680px) {
+    .modalReceipt {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    span.confirmTitle {
+        font-size: 1.2rem;
+    }
+    #viewStudentAvatar {
+        width: 120px;
+    }
+    .viewStudentContent {
+        font-size: 0.9rem;
+    }
+}
+
+.table-body tr {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.table-body td {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }

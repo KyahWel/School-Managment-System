@@ -91,6 +91,14 @@ header .email {
     letter-spacing: 1px;
 }
 
+.dropdown-menu {
+    min-width: 7.3rem;
+}
+
+element.style {
+    transform: translate3d(-95px, 37px, 0px);
+}
+
 .l-navbar {
     position: fixed;
     top: 5;
