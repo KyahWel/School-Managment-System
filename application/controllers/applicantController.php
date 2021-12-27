@@ -11,6 +11,16 @@ class applicantController extends CI_Controller {
 		$this->load->helper(array('form', 'url','file'));
 	}
 
+	public function applicantData(){
+		$data['applicant'] = $this->applicantModel->login();
+		if($data != NULL){ 
+			$this->load->view('/applicant/applicantDataRead',$data);
+		}
+		else{
+			redirect('Homepage#');
+		}
+	}
+
 	public function index()
 	{
 		$data['course'] = $this->courseModel->viewData();
@@ -18,8 +28,7 @@ class applicantController extends CI_Controller {
 		if(isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_FILES['medical_record']) && isset($_FILES['form_137']) && isset($_FILES['good_moral'])){
 			$this->applicantModel->insertData();
 			redirect('Homepage/registration_final_step');
-		}
-		
+		}	
 	}
 
 	public function viewAllApplicant(){

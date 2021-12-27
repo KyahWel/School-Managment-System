@@ -1,7 +1,6 @@
 :root {
     --header-height: 2rem;
-    --nav-width: 65px;
-    --normal-font-size: 1rem;
+    --nav-width:68px;
     --z-fixed: 100
 }
 
@@ -10,13 +9,15 @@
 ::after {
     box-sizing: border-box
 }
-
+html,body{
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+}
 body {
     position: relative;
     margin: var(--header-height) 0 0 0;
     padding: 0 1rem;
     font-family: var(--body-font);
-    font-size: var(--normal-font-size);
     transition: .5s;
     background: #f4f4f4;
     overflow: none;
@@ -67,11 +68,14 @@ span.brand{
     padding-left:  10px;
 }
 .header_img {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     display: flex;
     justify-content: center;
     overflow: hidden;
+    border: 2px solid lightskyblue;
+    border-radius: 50%;
+    margin-left: 5px;
 }
 
 header .email{
@@ -118,7 +122,6 @@ header .email{
 
 .nav_logo-icon {
     font-size: 0.9rem;
-    color: var(--white-color)
 }
 
 .nav_logo-name {
@@ -175,6 +178,11 @@ header .email{
     height: 100vh;
 }
 
+@media screen and (min-width: 1500px) {
+html,body{
+    font-size: 1rem;
+}
+}
 @media screen and (min-width: 768px) {
     body {
         margin: calc(var(--header-height) + 1rem) 0 0 0;
@@ -188,7 +196,7 @@ header .email{
 
     .l-navbar {
         left: 0;
-        padding: 1rem 1rem 0 0;
+        padding: 1rem 0.8rem 0 0;
 
     }
 
@@ -197,7 +205,7 @@ header .email{
     }
 
     .body-pd {
-        padding-left: calc(var(--nav-width) + 188px)
+        padding-left: calc(var(--nav-width) + 175px)
     }
 }
 
@@ -206,6 +214,9 @@ header .email{
         padding: 15px;
     }
     span.brand{
+        display: none;
+    }
+    .welcome{
         display: none;
     }
 }

@@ -10,6 +10,31 @@ class AdminController extends CI_Controller {
 		$this->load->model('eventsModel');
 	}
 
+	public function login(){
+		$data = $this->AdminModel->login();
+			if($data != NULL){ 
+				if($data->status == 1){
+					$auth_userdetails = [
+						'adminID' => $data->adminID,
+						'firstname' =>  $data->firstname,
+						'lastname' =>  $data->lastname,
+						'adminNumber' =>  $data->adminNumber
+					];
+					$this->session->set_userdata('auth_admin',$auth_userdetails);
+					redirect('adminController/dashboard');
+				}
+				else{
+					$this->session->set_flashdata('status','Invalid Email or Password'); //Palitan ng error message, deactivated yung account
+					redirect('Homepage#');
+				}
+			}
+			else{
+				$this->session->set_flashdata('status','Invalid Email or Password'); //Palitan ng error message, invalid email or password
+				redirect('Homepage#');
+			}
+		
+	}
+
 	public function admin()
 	{
         $data['result'] = $this->AdminModel->viewData();

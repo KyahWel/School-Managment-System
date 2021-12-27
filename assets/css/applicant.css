@@ -1,9 +1,9 @@
 html, body{
     margin:0px;
     height:100%;
-}
-body{
     background: #f4f4f4;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.93rem;
 }
 
 @media (min-width: 767px) {
@@ -25,7 +25,40 @@ body{
     -webkit-transition: .5s;
     -o-transition: .5s;
 }
+.brand{
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
 
+button.cancel{
+    border: 1px solid #fac04c;
+    color: #fac04c;
+    padding: 5px 15px;
+    font-size: 0.8rem;
+    letter-spacing: 0.8px;
+    font-family: 'Poppins', sans-serif;
+}
+button.cancel:hover{
+    background: #fac04c;
+    border: 1px solid #e69a04;
+}
+button.cancel:focus{
+    box-shadow: none;
+}
+/* applicant data */
+button.logout{
+    color: white;
+    border: 2px solid white;
+    padding: 5px 15px;
+    font-size: 0.8rem;
+    letter-spacing: 0.8px;
+    font-family: 'Poppins', sans-serif;
+}
+
+button.cancel:focus{
+    box-shadow: none;
+}
+/* ------------------ */
 .applicant-head{
     padding:8px;
     background: maroon;

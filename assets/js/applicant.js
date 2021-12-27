@@ -1,22 +1,25 @@
 function personalInfo() {
+    document.getElementById('steps').style.display = "block";
     document.getElementById('personalInfo').style.display = "block";
     document.getElementById('educationalattainment').style.display = "none";
     document.getElementById('requirement').style.display = "none";
-    document.getElementById('Final').style.display = "none";
+    document.getElementById('final_step').style.display = "none";
 }
 
 function educationalAttainment() {
+  document.getElementById('steps').style.display = "block";
     document.getElementById('personalInfo').style.display = "none";
     document.getElementById('educationalattainment').style.display = "block";
     document.getElementById('requirement').style.display = "none";
-    document.getElementById('Final').style.display = "none";
+    document.getElementById('final_step').style.display = "none";
 }
 
 function requirement() {
+  document.getElementById('steps').style.display = "block";
     document.getElementById('personalInfo').style.display = "none";
     document.getElementById('educationalattainment').style.display = "none";
     document.getElementById('requirement').style.display = "block";
-    document.getElementById('Final').style.display = "none";
+    document.getElementById('final_step').style.display = "none";
 }
 
 function final_step() {
