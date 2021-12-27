@@ -137,7 +137,7 @@ textarea:focus, input:focus{
 
 /* Filter and Search */
 
-#filterAndSearch{
+#filter{
     text-align: right;
 }
 select:invalid{

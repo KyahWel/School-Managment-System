@@ -56,8 +56,8 @@ include __DIR__.'/../includes/adminSideBar.php'
             </div>
         </div>
 
-        <!-- Filter and Search -->
-        <div class="col-12 align-self-center my-3" id="filterAndSearch">
+        <!--Search -->
+        <div class="col-12 align-self-center my-3" id="filter">
             <label>Filter by:</label>
             <select required>
                 <option value="" disabled selected hidden>College</option>
@@ -73,7 +73,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                 <option value="IT">Information Technology</option>
                 <option value="IS">Information System</option>
             </select>
-            <input type="text" id="searchFacultyID" name="searchFacultyID" placeholder="Search Course ID">
+            <input type="text" id="searchCourseID" name="searchCourseID" placeholder="Search Course ID">
             <button type="button" class="btn btn-sm" id="search"><i class="fas fa-search" data-bs-toggle="tooltip" title="Search"></i></button>
         </div>  
 
