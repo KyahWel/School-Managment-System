@@ -1,36 +1,40 @@
-html, body{
-    margin:0px;
-    height:100%;
+html,
+body {
+    margin: 0px;
+    height: 100%;
     background: #f4f4f4;
     font-family: 'Poppins', sans-serif;
     font-size: 0.93rem;
 }
 
 @media (min-width: 767px) {
-    .bg-default{
-        background:white;
-        height:100vh;
+    .bg-default {
+        background: white;
+        height: 100vh;
     }
 }
+
 @media (max-width: 767px) {
-    .bg-default{
-        background:white;
-        height:0;
+    .bg-default {
+        background: white;
+        height: 0;
     }
 }
-.header{
+
+.header {
     background: maroon;
     transition: .5s;
     -moz-transition: .5s;
     -webkit-transition: .5s;
     -o-transition: .5s;
 }
-.brand{
+
+.brand {
     letter-spacing: 1px;
     font-size: 0.9rem;
 }
 
-button.cancel{
+button.cancel {
     border: 1px solid #fac04c;
     color: #fac04c;
     padding: 5px 15px;
@@ -38,15 +42,20 @@ button.cancel{
     letter-spacing: 0.8px;
     font-family: 'Poppins', sans-serif;
 }
-button.cancel:hover{
+
+button.cancel:hover {
     background: #fac04c;
     border: 1px solid #e69a04;
 }
-button.cancel:focus{
+
+button.cancel:focus {
     box-shadow: none;
 }
+
+
 /* applicant data */
-button.logout{
+
+button.logout {
     color: white;
     border: 2px solid white;
     padding: 5px 15px;
@@ -55,12 +64,15 @@ button.logout{
     font-family: 'Poppins', sans-serif;
 }
 
-button.cancel:focus{
+button.cancel:focus {
     box-shadow: none;
 }
+
+
 /* ------------------ */
-.applicant-head{
-    padding:8px;
+
+.applicant-head {
+    padding: 8px;
     background: maroon;
     transition: .5s;
     letter-spacing: 1px;
@@ -69,63 +81,136 @@ button.cancel:focus{
     -o-transition: .5s;
 }
 
-.information{
-    background:#93D9F6;
+.information {
+    background: #93D9F6;
     font-size: 0.75rem;
     padding: 15px;
-    width:80%;
+    width: 80%;
 }
-.information i.fa{
+
+.information i.fa {
     font-size: 2.2rem;
 }
 
-.information p{
-    padding-bottom:0;
+.information p {
+    padding-bottom: 0;
     padding-left: 3rem;
     margin-bottom: 0.3rem;
 }
 
+
 /* breadcrumbs */
 
-.form-control:focus{
+.step_progressbar {
+    display: block;
+    width: auto;
+    margin: auto;
+    background-color: transparent;
+}
+
+ul {
+    display: block;
+    list-style: none;
+    align-items: center;
+    justify-content: space-between;
+    counter-reset: step;
+}
+
+li {
+    display: inline-block;
+    position: relative;
+    width: 32.22%;
+    text-align: center;
+    margin-bottom: 15px 0;
+}
+
+li:before {
+    display: block;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: white;
+    line-height: 35px;
+    text-align: center;
+    content: counter(step);
+    counter-increment: step;
+    margin: 10px auto;
+    position: relative;
+    z-index: 2;
+    font-size: 1rem;
+}
+
+li.active {
+    color: #F2BD53;
+    font-weight: bold;
+}
+
+li:after {
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: #bdbdbd;
+    position: absolute;
+    top: 25px;
+    left: -50%;
+    z-index: 1;
+}
+
+li:first-child:after {
+    content: none;
+}
+
+li.active+li:after {
+    background-color: #800000;
+}
+
+li.active:before {
+    background-color: #800000;
+    color: #F2BD53;
+}
+
+.form-control:focus {
     box-shadow: none;
     border-color: #800000;
 }
 
+
 /* personal info */
-.Wrapper{
+
+.Wrapper {
     background: white;
     border-radius: 25px;
     border: 0.1px solid rgb(221, 220, 220);
     margin-bottom: 2rem;
-     transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
     -moz-transition: .5s ease-in-out;
     -webkit-transition: .5s ease-in-out;
     -o-transition: .5s ease-in-out;
 }
 
-.tabTitle{
+.tabTitle {
     background: maroon;
     border-radius: 25px 25px 0 0;
     letter-spacing: 0.8px;
 }
 
-.tabTitle p, .Contents{
-    padding:10px 35px;
-
+.tabTitle p,
+.Contents {
+    padding: 10px 35px;
 }
 
-.Contents{
+.Contents {
     border-radius: 0 0 25px 25px;
 }
 
-label{
+label {
     font-weight: 500;
 }
 
 
 /* step buttons */
-.stepButtons .btn-warning{
+
+.stepButtons .btn-warning {
     background: #F2BD53;
     align-content: flex-end;
     place-items: right;
@@ -135,60 +220,91 @@ label{
     font-weight: 500;
     font-size: small;
 }
-.stepButtons .btn-warning:hover{
+
+.stepButtons .btn-warning:hover {
     background: #faba39;
 }
 
 
-
 /* final procedure */
-#final_step .Wrapper .Contents p.note1{
+
+#final_step .Wrapper .Contents p.note1 {
     color: red;
     letter-spacing: 0.5px;
     font-weight: 500;
 }
-#final_step .Wrapper .Contents h3{
+
+#final_step .Wrapper .Contents h3 {
     letter-spacing: 1px;
     font-size: 1.7rem;
-
 }
-#final_step .Wrapper .Contents p.note2, #final_step .Wrapper .Contents p.note3{
+
+#final_step .Wrapper .Contents p.note2,
+#final_step .Wrapper .Contents p.note3 {
     font-size: 0.9rem;
     letter-spacing: 1px;
 }
-#final_step .Wrapper .Contents p.note3{
+
+#final_step .Wrapper .Contents p.note3 {
     color: #00336D;
     letter-spacing: 0.8px;
 }
-#final_step .Wrapper .Contents p.note4{
+
+#final_step .Wrapper .Contents p.note4 {
     color: red;
     letter-spacing: 0.8px;
     font-weight: 500;
     font-size: 0.9rem;
 }
-#final_step .Wrapper .Contents button.download{
+
+#final_step .Wrapper .Contents button.download {
     font-size: 0.9rem;
     background: #F2BD53;
     box-shadow: 2px 5px 4px rgba(0, 0, 0, 0.25);
     border: 0.5px solid;
-    border-image-source: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+    border-image-source: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
 }
-#final_step .Wrapper .Contents button.download:hover{
+
+#final_step .Wrapper .Contents button.download:hover {
     background: #ffb521;
 }
-#final_step .Wrapper .Contents .finishedButton{
+
+#final_step .Wrapper .Contents .finishedButton {
     background: #DB1A00;
     font-size: 0.9rem;
-    opacity:0.9;
+    opacity: 0.9;
 }
-#final_step .Wrapper .Contents .finishedButton:hover{
+
+#final_step .Wrapper .Contents .finishedButton:hover {
     opacity: 1;
 }
 
 
+/* modal cancel */
+
+.modal-header {
+    background: maroon;
+    color: white;
+}
+
+.modal-title {
+    letter-spacing: 1.5px;
+    font-weight: 500;
+}
+
+.modal-footer button.btn-primary {
+    background: #a94c4c;
+    border: none;
+    opacity: 0.9;
+}
+
+.modal-footer button.btn-primary:hover {
+    opacity: 1;
+}
+
 
 /* this is needed to make the content scrollable on larger screens */
+
 @media (min-width: 576px) {
     .h-sm-100 {
         height: 100%;

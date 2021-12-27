@@ -87,6 +87,7 @@ body, html {
 .input-group-addon {
     position: absolute;
     padding: 8px 12px;
+    font-size: 0.8rem;
 }
 h3{
     font-family: 'Roboto', sans-serif;
