@@ -199,7 +199,6 @@ include __DIR__.'/../includes/adminSideBar.php'
       });
     });
 </script>
-<script src="<?php echo base_url('assets/js/admin.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 </body>
 

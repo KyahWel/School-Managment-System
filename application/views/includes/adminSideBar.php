@@ -9,9 +9,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/css/sideBarMAIN.css'); ?>" rel="stylesheet" type="text/css">
-    <link href="<?php echo base_url('assets/css/admintabsMAIN.css'); ?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url('assets/css/announcement.css'); ?>" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url('assets/css/changePassword.css'); ?>" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
 </head>
 
 <body oncontextmenu='return false' class="snippet-body body-pd" id="body-pd">
@@ -21,9 +20,18 @@
             <span class="brand"> Technological University of the Philippines</span>
         </div>
         <div class="text-white ms-auto email">
-        <?= $this->session->userdata('auth_admin')['adminNumber']?>
+            <?= $this->session->userdata('auth_admin')['adminNumber'] ?>
         </div>
-        <div class="header_img"> <img src="../assets/images/avatar.svg" alt=""></div>
+        <div class="header_img"> <img src="../assets/images/avatar.svg" alt="">
+
+        </div>
+        <div class="btn-group ">
+            <button class="btn text-white dropdown-toggle mx-0 px-0" type="button" id="headerAvatarDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="avatarDropdown" style="background: skyblue; max-width:50px;">
+                <li><input type="file" class="dropdown-item form-cotrol form-control-sm" placeholder=""></input></li>
+            </ul>
+        </div>
     </header>
 
     <div class="l-navbar side" id="nav-bar">
@@ -32,8 +40,7 @@
             <div>
                 <div class="nav_list">
                     <div class="welcome text-dark pt-3 fw-bold" id="welcome" style="color: steelblue; font-size:1rem">
-                    <i class='fa fa-user nav_icon' style="color:steelblue;"></i>
-                        Hello, <?= $this->session->userdata('auth_admin')['firstname']?>
+                        Hello, <?= $this->session->userdata('auth_admin')['firstname'] ?>
                         <hr>
                     </div>
                     <a href="<?php echo base_url('AdminController/dashboard'); ?>" class="nav_link pt-3"> <i class='fa fa-th-large nav_icon'></i> <span class="nav_name">Dashboard</span> </a>
@@ -83,6 +90,7 @@
                 if (menuItem[i].href === currentLocation) {
                     menuItem[i].className = "active"
                 }
+
             }
         });
     </script>

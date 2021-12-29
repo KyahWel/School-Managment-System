@@ -47,7 +47,8 @@ include __DIR__ . '/../includes/adminSideBar.php'
             <input type="text" id="searchFacultyID" name="searchFacultyID" placeholder="Search Faculty ID">
             <button type="button" class="btn btn-sm" id="search"><i class="fas fa-search" data-bs-toggle="tooltip" title="Search"></i></button>
         </div>
-
+        
+        <!-- Students List -->
         <div class="col-12 align-self-center my-" id="viewInfoDashboard">
             <ul class="nav nav-tabs d-flex flex-row justify-content-start" id="viewInfoTab" role="tablist">
                 <li class="nav-item" role="presentation">
@@ -91,6 +92,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
                     </div>
                 </div>
 
+                <!-- Faculty List -->
                 <div class="tab-pane" id="facultyTabContent" role="tabpanel" aria-labelledby="Faculty Information">
                     <div class="table-responsive">
                         <table class="table align-middle table-striped table-borderless table-hover" id="table-body">
