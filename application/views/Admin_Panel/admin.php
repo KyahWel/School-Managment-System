@@ -39,7 +39,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                                 </div>
                                 <div class="col-6">
                                     <label class="form-label">Password:</label>
-                                    <input type="text" name ="password" class="form-control">
+                                    <input type="password" name ="password" class="form-control">
                                 </div>        
                             </div>
                             <div class="addAdminButton d-flex justify-content-end">

@@ -124,12 +124,12 @@ include __DIR__.'/../includes/adminSideBar.php'
 
         <!--Course View-->
         <div class="modal fade" id="viewCourse" tabindex="-1" aria-labelledby="viewCourseHeader" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="viewCourseHeader">View Course</h5>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
+                    </div> 
                     <div class="modal-body">
                             <div class="row mb-3">
                                 <div class="col-6">
@@ -157,6 +157,80 @@ include __DIR__.'/../includes/adminSideBar.php'
                                     <label>1</label>
                                 </div>   
                             </div>
+
+                            <!--List of Subjects-->
+                            <div class="table-wrapper">
+                                <div class="table-title">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h2>List of Subjects</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-responsive">  
+                                    <table class="table table-default align-middle table-default table-borderless" id="table-body">
+                                        <thead>
+                                            <tr>
+                                                <th>Subject Code</th>
+			                                    <th>Subject Name</th>
+			                                    <th>Units</th>
+			                                    <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Subj1</td>
+                                                <td>Web Development</td>
+                                                <td>1</td>
+                                                <td>1</td> 
+                                            </tr>
+                                            <tr>
+                                                <td>Subj2</td>
+                                                <td>Information Assurance and Security</td>
+                                                <td>3</td>
+                                                <td>1</td> 
+                                            </tr>
+                                            <tr>
+                                                <td>Subj3</td>
+                                                <td>Software Engineering</td>
+                                                <td>2</td>
+                                                <td>1</td> 
+                                            </tr>
+                                            <tr>
+                                                <td>Subj4</td>
+                                                <td>Data Analytics</td>
+                                                <td>3</td>
+                                                <td>1</td> 
+                                            </tr>
+                                            <tr>
+                                                <td>Subj5</td>
+                                                <td>Parallel and Distributed Computing</td>
+                                                <td>3</td>
+                                                <td>1</td> 
+                                            </tr>
+                                            <tr>
+                                                <td>Subj6</td>
+                                                <td>CS Professional Elective 1</td>
+                                                <td>3</td>
+                                                <td>1</td> 
+                                            </tr>
+                                            <tr>
+                                                <td>Subj7</td>
+                                                <td>CS Professional Elective 2</td>
+                                                <td>3</td>
+                                                <td>1</td> 
+                                            </tr>
+                                            <tr>
+                                                <td>Subj8</td>
+                                                <td>Readings in Philippine History</td>
+                                                <td>3</td>
+                                                <td>1</td> 
+                                            </tr>
+                                        </tbody>
+                                    </table>	
+                                </div>
+                            </div>
+                        <br>    
                         <div class="editCourseButton d-flex justify-content-end">
                             <button class="btn btn-default" id="save" type="button" data-bs-dismiss="modal">Exit</button>
                         </div>                                                                         
@@ -167,7 +241,7 @@ include __DIR__.'/../includes/adminSideBar.php'
 
         <!--Edit Course-->
         <div class="modal fade" id="editCourse" tabindex="-1" aria-labelledby="editCourseHeader" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="editCourseHeader">Edit Course</h5>
@@ -197,6 +271,49 @@ include __DIR__.'/../includes/adminSideBar.php'
 		                            </select>
                                 </div>
                             </div><br>
+
+                            <!--Add/Edit Subjects-->
+                            <div class="addSubject">
+                                <div class="col align-self-center" id="filter">
+                                    <select name="college">
+			                            <option value="" disabled selected hidden>Select Year Level</option>
+			                            <option value="College of Science">1st Year</option>
+			                            <option value="College of Engineering">2nd Year</option>
+			                            <option value="College of Industrial Education">3rd Year</option>
+			                            <option value="College of Architecture and Fine Arts">4th Year</option>
+		                            </select>
+                                </div><br>
+                                <!--
+                                <div class="table-wrapper-2">
+                                    <div class="table-title">
+                                        <div class="row">
+                                            <div class="col">
+                                                <h2>List of Subjects</h2>
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="table-responsive">  
+                                    <table class="table table-default align-middle table-striped table-borderless table-hover" id="table-body">
+                                        <thead>
+                                            <tr>
+                                                <th>Subject Code</th>
+			                                    <th>Subject Name</th>
+			                                    <th>Units</th>
+			                                    <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Subj1</td>
+                                                <td>Software Engineering</td>
+                                                <td>2</td>
+                                                <td>1</td> 
+                                            </tr>
+                                        </tbody>
+                                    </table>	
+                                </div>
+                            </div>
+                            <br>-->
                             <div class="editCourseButton d-flex justify-content-end">
                                 <button class="btn btn-default" id="save" type="submit" value="save">Save</button>
                                 <button class="btn btn-default" id="cancel" type="submit" value="cancel">Cancel</button>
