@@ -31,11 +31,11 @@ include __DIR__.'/../includes/adminSideBar.php'
 
                     <div id="addProfessor" class="accordion-collapse collapse" aria-labelledby="addProfessorHeader" data-bs-parent="#accordion-addProfessor">
                         <div class="accordion-body">
-                            <form action="" id="addProfessorForm">
+                            <form method="POST" action="<?php echo site_url('FacultyController/addFaculty')?>/<?= $this->session->userdata('auth_admin')['adminID']?>" id="addProfessorForm">
                                 <div class="row mb-3">
                                     <div class="col"> <!--Creator ID-->
                                         <label class="form-label">Creator ID</label>
-                                        <input type="text" class="form-control" name="creatorID">
+                                        <input type="text" class="form-control" name="creatorID" disabled value="<?= $this->session->userdata('auth_admin')['adminID']?>">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -118,23 +118,40 @@ include __DIR__.'/../includes/adminSideBar.php'
                             <tr>
                                 <th>Faculty ID</th>
                                 <th>Faculty Name</th>
+                                <th>Status</th>
                                 <th>Action</th>
+                                
                             </tr>
                         </thead>
-                        <tbody>     
-                            <tr>
-                                <td>Prof-123</td> 
-                                <td>Lida Cruz</td>
-                                <td>
-                                <div class="action-buttons">
-                                    <li><button type="button" id="view" class="btn" onclick="viewProfessor()"><i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                    <li><button type="button" id="edit" class="btn" data-bs-toggle="modal" data-bs-target="#editProfessor"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-                                    <li>
-                                        <div id="status">ACTIVATED</div>
-                                    </li>
-                                </div>
-                                </td>
-                            </tr>
+                        <tbody>  
+                            <?php foreach($teacher as $teacherrow) {?>
+                                <tr>
+                                    <td><?php echo $teacherrow->teacherNumber?></td> 
+                                    <td><?php echo $teacherrow->firstname;?> <?php echo $teacherrow->lastname?></td>
+                                    <td><?php echo $teacherrow->status;?></td>
+                                    <td>
+                                    <div class="action-buttons">
+                                        <?php if ($teacherrow->status == 1): ?>
+                                            <li><button type="button" id="view" data-id='<?php echo $teacherrow->teacherID;?>' class="btn view_data" onclick="viewProfessor()"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
+                                            <li><button type="button" id="edit" data-id='<?php echo $teacherrow->teacherID;?>' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editProfessor"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
+                                            <li>
+                                            <li><button type="button"  class="btn" id="status" onclick="location.href='<?php if($teacherrow->status == 1){echo site_url('FacultyController/deactivate');} else {echo site_url('FacultyController/activate');}?>/<?php echo $teacherrow->teacherID; ?>'">
+                                                Deactivate
+                                            </button>
+                                            </li>
+                                        <?php else: ?>
+                                            <li><button type="button" id="view" data-id='<?php echo $teacherrow->teacherID;?>' class="btn" disabled style="background-color: gray;"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
+                                            <li><button type="button" id="edit" data-id='<?php echo $teacherrow->teacherID;?>' class="btn" disabled style="background-color: gray;"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
+                                            <li>
+                                            <li><button type="button"  class="btn"  id="status" onclick="location.href='<?php if($teacherrow->status == 1){echo site_url('FacultyController/deactivate');} else {echo site_url('FacultyController/activate');}?>/<?php echo $teacherrow->teacherID; ?>'">
+                                            Activate
+                                            </button>
+                                            </li>	
+                                        <?php endif ?>
+                                    </div>
+                                    </td>
+                                </tr> 
+                            <?php } ?> 
                         </tbody>
                     </table>
                 </div>
@@ -153,38 +170,9 @@ include __DIR__.'/../includes/adminSideBar.php'
                     </div>
 
                     <div class="modal-body">
-                        <form action="" id="editProfessorForm">
-                            <div class="row mb-3">
-                                <div class="col"> <!--Year Level-->
-                                    <label class="form-label">Year Level</label>
-                                    <input type="text" class="form-control" name="yearlevel">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-6"> <!--Username-->
-                                    <label class="form-label">Username</label>
-                                    <input type="text" class="form-control" name="username">
-                                </div>
-                                <div class="col-6"> <!--Password-->
-                                    <label class="form-label">Password</label>
-                                    <input type="text" class="form-control" name="password">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-6"> <!--College-->
-                                    <label class="form-label">College</label>
-                                    <input type="text" class="form-control" name="college">
-                                </div>
-                                <div class="col-6"> <!--Department-->
-                                    <label class="form-label">Department</label>
-                                    <input type="text" class="form-control" name="department">
-                                </div>
-                            </div>
-                            <div class="editProfessorButton d-flex justify-content-end"> <!--Buttons-->
-                                <button class="btn btn-default" id="save" type="submit" value="save">Save</button>
-                                <button class="btn btn-default" id="cancel" type="button" data-bs-dismiss="modal">Cancel</button>
-                            </div>  
-                        </form>
+                        <div id="edit_faculty">
+
+                        </div>
                     </div>
 
                 </div>
@@ -244,35 +232,10 @@ include __DIR__.'/../includes/adminSideBar.php'
 
     <!-- Faculty View Page -->
     <div class="container my-3" id='viewProfessor' style="display: none;">     
-        <div class="viewProfessorTitle">
-            <button class="btn btn-default btn-sm" id="back-button" onclick="mainFaculty()">Back</button>
-            <h3>Lida's Profile</h3>
-        </div>
-
-        <!-- View Professor Information -->
-        <div class="viewProfessorContent d-flex align-items-center">
-            <div id="viewProfessorAvatar">
-                <button class="btn"><i class="fas fa-user"></i></button>
-            </div>
-            <div class="table-responsive">
-                <table id="viewProfessorInformation">
-                    <tr>
-                        <td>
-                            <b>Faculty ID:</b><br>
-                            <b>Name:</b><br>
-                            <b>Username:</b><br>
-                            <b>Department:</b><br>
-                        </td>
-                        <td>
-                            1234567890<br>
-                            Lida Cruz<br>
-                            Lida12345<br>
-                            Mathematics Department<br>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
+        <div id="view_faculty">
+                
+        </div>                                
+        
 
         <!-- View Professor Filter and Search -->
         <div class="col-12 align-self-center my-3" id="filterAndSearch">
@@ -340,7 +303,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-6 col-md-6 mb-1"> <!--Phone Number-->
+                        <div clas s="col-lg-6 col-md-6 mb-1"> <!--Phone Number-->
                             <input type="text" class="form-control" readonly>
                             <label class="form-label pt-2">Phone Number</label>
                         </div>
@@ -437,3 +400,36 @@ include __DIR__.'/../includes/adminSideBar.php'
 
 <script src="<?php echo base_url('assets/js/faculty.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
+
+<!-- jQuery JS CDN -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> 
+ <!-- jQuery DataTables JS CDN -->
+ <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+ <!-- Ajax fetching data -->
+ <script type="text/javascript">
+    $(document).ready(function(){
+      $('#dataTable').DataTable();
+      $('.view_data').click(function(){
+         var id = $(this).data('id');
+         $.ajax({
+          url: "<?php echo site_url('FacultyController/viewFaculty');?>",
+          method: "POST",
+          data: {id:id},
+          success: function(data){
+            $('#view_faculty').html(data);
+         }
+        });
+       });
+      $('.edit_data').click(function(){
+        var id = $(this).data('id');
+        $.ajax({
+          url: "<?php echo site_url('FacultyController/editFaculty');?>",
+          method: "POST",
+          data: {id:id},
+          success: function(data){
+            $('#edit_faculty').html(data);
+          }
+        });
+      });
+    });
+</script>

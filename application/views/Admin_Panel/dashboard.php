@@ -107,20 +107,18 @@ include __DIR__ . '/../includes/adminSideBar.php'
                                 </tr>
                             </thead>
                             <tbody>
+                            <tbody>  
+                            <?php foreach($teacher as $teacherrow) {?>
                                 <tr>
-                                    <td>Prof001-2001</td>
-                                    <td>test</td>
-                                    <td>Wally</td>
-                                    <td>BSCS-3A-NS</td>
-                                    <td>Regular</td>
-                                </tr>
-                                <tr>
-                                    <td>Prof002-2001</td>
-                                    <td>test1</td>
-                                    <td>Dexter</td>
-                                    <td>BSCS-3A-NS</td>
-                                    <td>Regular</td>
-                                </tr>
+                                    <td><?php echo $teacherrow->teacherNumber?></td> 
+                                    <td><?php echo $teacherrow->firstname;?></td>
+                                    <td><?php echo $teacherrow->lastname?></td>
+                                    <td> </td>
+                                    <td><?php echo $teacherrow->status;?></td>
+                                </tr> 
+                            <?php } ?> 
+                        </tbody>
+
                             </tbody>
                         </table>
                     </div>

@@ -21,7 +21,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                 </h2>
                 <div id="addCourse" class="accordion-collapse collapse" aria-labelledby="addCourseHeader" data-bs-parent="#accordion-addCourse">
                     <div class="accordion-body">
-                        <form method="POST" action="<?php echo site_url('admin_main/addcourse') ?>" id="addCourseForm">
+                        <form method="POST" action="<?php echo site_url('courseController/addcourse') ?>" id="addCourseForm">
                             <div class="row mb-3">
                                 <div class="col-6">
                                     <label class="form-label">Enter Degree: </label>
@@ -91,7 +91,6 @@ include __DIR__.'/../includes/adminSideBar.php'
                     <table class="table table-default align-middle table-striped table-borderless table-hover" id="table-body">
                         <thead>
                             <tr>
-                                <th>Course ID</th>
 			                    <th>Degree</th>
 			                    <th>Major</th>
 			                    <th>College</th>
@@ -100,23 +99,37 @@ include __DIR__.'/../includes/adminSideBar.php'
                             </tr>
                         </thead>
                         <tbody>
+                        <?php foreach($course as $courserow) {?>
                             <tr>
-                                <td>Course1</td>
-                                <td>Bachelor of Science</td>
-                                <td>Computer Science</td>
-                                <td>College of Science</td> 
-                                <td>1</td>
+                                <td><?php echo $courserow->degree?></td>
+                                <td><?php echo $courserow->major?></td>
+                                <td><?php echo $courserow->college?></td> 
+                                <td><?php echo $courserow->status?></td>
                                 <td>
                                 <div class="action-buttons">
-                                    <li><button type="button" id="view" class="btn" data-bs-toggle="modal" data-bs-target="#viewCourse"><i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                    <li><button type="button" id="edit" class="btn" data-bs-toggle="modal" data-bs-target="#editCourse"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
+                                    <?php if ($courserow->status == 1): ?>
+                                    <li><button type="button" id="view" data-id='<?php echo $courserow->courseID;?>' class="btn view_data" data-bs-toggle="modal" data-bs-target="#viewCourse"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
+                                    <li><button type="button" id="edit" data-id='<?php echo $courserow->courseID;?>' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editCourse"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
                                     <li>
-                                        <div id="status">Activate</div>
+                                    <li><button type="button" class="btn" id="status" onclick="location.href='<?php if($courserow->status == 1){echo site_url('courseController/deactivate');} else {echo site_url('courseController/activate');}?>/<?php echo $courserow->courseID; ?>'">
+                                        Deactivate
+                                    </button>
                                     </li>
+                                    <?php else: ?>
+                                        <li><button type="button" id="view" data-id='<?php echo $courserow->courseID;?>' class="btn" disabled style="background-color: gray;"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
+                                        <li><button type="button" id="edit" data-id='<?php echo $courserow->courseID;?>' class="btn" disabled style="background-color: gray;"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
+                                        <li>
+                                        <li><button type="button" id="status" class="btn" onclick="location.href='<?php if($courserow->status == 1){echo site_url('courseController/deactivate');} else {echo site_url('courseController/activate');}?>/<?php echo $courserow->courseID; ?>'">
+                                        Activate
+                                        </button>
+                                        </li>	
+                                    <?php endif ?>
                                 </div>
                                 </td>
                             </tr>
+                        <?php }?>
                         </tbody>
+                       
                     </table>	
                 </div>
             </div>
@@ -275,12 +288,12 @@ include __DIR__.'/../includes/adminSideBar.php'
                             <!--Add/Edit Subjects-->
                             <div class="addSubject">
                                 <div class="col align-self-center" id="filter">
-                                    <select name="college">
+                                    <select name="year">
 			                            <option value="" disabled selected hidden>Select Year Level</option>
-			                            <option value="College of Science">1st Year</option>
-			                            <option value="College of Engineering">2nd Year</option>
-			                            <option value="College of Industrial Education">3rd Year</option>
-			                            <option value="College of Architecture and Fine Arts">4th Year</option>
+			                            <option value="first">1st Year</option>
+			                            <option value="second">2nd Year</option>
+			                            <option value="third">3rd Year</option>
+			                            <option value="fourth">4th Year</option>
 		                            </select>
                                 </div><br>
                                 <!--
@@ -327,6 +340,38 @@ include __DIR__.'/../includes/adminSideBar.php'
     </div>
 </div>
 <script src="<?php echo base_url('assets/js/course.js'); ?>"></script>
+!-- jQuery JS CDN -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> 
+ <!-- jQuery DataTables JS CDN -->
+ <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+ <!-- Ajax fetching data -->
+ <script type="text/javascript">
+    $(document).ready(function(){
+      $('#dataTable').DataTable();
+      $('.view_data').click(function(){
+        var id = $(this).data('id');
+        $.ajax({
+          url: "<?php echo site_url('courseController/viewCourse');?>",
+          method: "POST",
+          data: {id:id},
+          success: function(data){
+            $('#view_course').html(data);
+          }
+        });
+      });
+      $('.edit_data').click(function(){
+        var id = $(this).data('id');
+        $.ajax({
+          url: "<?php echo site_url('courseController/editCourse');?>",
+          method: "POST",
+          data: {id:id},
+          success: function(data){
+            $('#edit_course').html(data);
+          }
+        });
+      });
+    });
+</script>
 <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 </body>
 

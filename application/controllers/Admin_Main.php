@@ -13,7 +13,7 @@ class Admin_Main extends CI_Controller {
 	{
 		if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['firstname']) && isset($_POST['lastname'])){
 			$this->AdminModel->insertData();
-			redirect("admincontroller/admin");
+			redirect("Admin/admin");
 		}
 	}
 	public function viewAdmin()
@@ -74,10 +74,6 @@ class Admin_Main extends CI_Controller {
 					<label class="form-label">Username:</label>
 					<input type="text" class="form-control" name="username" value="'.$records->username.'">
 				</div>
-				<div class="col-6">
-					<label class="form-label">Password:</label>
-					<input type="text" class="form-control" name ="password" value="'.$records->password.'">
-				</div>
 			</div>
 			<div class="editAdminButton d-flex justify-content-end">
 				<button class="btn btn-default" id="save" type="submit" value="save">Save Changes</button>
@@ -90,24 +86,29 @@ class Admin_Main extends CI_Controller {
 	public function updateAdmin($id)
 	{	
 		$data['row'] = $this->AdminModel->updateData($id);
-		redirect("admincontroller/admin");
+		redirect("Admin/admin");
 	}
 
 	public function deactivate($id)
 	{	
 		$data['row'] = $this->AdminModel->deactivateData($id);
-		redirect("admincontroller/admin");
+		redirect("Admin/admin");
 	}
 
 	public function activate($id)
 	{	
 		$data['row'] = $this->AdminModel->reactivateData($id);
-		redirect("admincontroller/admin");
+		redirect("Admin/admin");
 	}
 
 	public function changePass($id)
 	{	
-		$this->AdminModel->changePassword($id);
-		redirect("admincontroller/dashboard");
+		if($id != 1){
+			$this->AdminModel->changePassword($id);
+			
+		}
+		
+		redirect("Admin/dashboard");
+		//Create error page
 	}
 }

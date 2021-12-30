@@ -15,7 +15,7 @@ class AdminModel extends CI_Model {
 			$this->db->from('admin_accounts');
 			$this->db->where('adminNumber',$holder);
 			$query=$this->db->get();
-		}while($query->num_rows()>0);
+		} while($query->num_rows()>0);
 			
 		$data = array(
 			'adminID' => NULL,
@@ -46,7 +46,6 @@ class AdminModel extends CI_Model {
 	{
 		$data = array(
 			'username' => $_POST['username'],
-			'password' => $_POST['password'],
 			'firstname' => $_POST['firstname'],
 			'lastname' => $_POST['lastname']
 		);
@@ -110,7 +109,6 @@ class AdminModel extends CI_Model {
 				return NULL;
 		}
 		else 
-			return NULL;
-		
+			return NULL;		
 	}
 }
