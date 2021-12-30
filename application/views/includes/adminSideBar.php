@@ -43,16 +43,16 @@
                         Hello, <?= $this->session->userdata('auth_admin')['firstname'] ?>
                         <hr>
                     </div>
-                    <a href="<?php echo base_url('AdminController/dashboard'); ?>" class="nav_link pt-3"> <i class='fa fa-th-large nav_icon'></i> <span class="nav_name">Dashboard</span> </a>
-                    <a href="<?php echo base_url('AdminController/students'); ?>" class="nav_link"> <i class='fa fa-graduation-cap nav_icon'></i> <span class="nav_name">Students</span> </a>
-                    <a href="<?php echo base_url('AdminController/faculty'); ?>" class="nav_link"> <i class='fa fa-chalkboard-teacher nav_icon'></i> <span class="nav_name">Faculty</span> </a>
-                    <a href="<?php echo base_url('AdminController/admin'); ?>" class="nav_link"> <i class='fas fa-users-cog nav_icon'></i> <span class="nav_name">Admin</span> </a>
-                    <a href="<?php echo base_url('AdminController/class'); ?>" class="nav_link"> <i class='fa fa-chalkboard nav_icon'></i> <span class="nav_name">Class</span> </a>
-                    <a href="<?php echo base_url('AdminController/course'); ?>" class="nav_link"> <i class='fa fa-book-open nav_icon'></i> <span class="nav_name">Course</span> </a>
-                    <a href="<?php echo base_url('AdminController/section'); ?>" class="nav_link"> <i class='fa fa-chalkboard nav_icon'></i> <span class="nav_name">Section</span> </a>
-                    <a href="<?php echo base_url('AdminController/admission'); ?>" class="nav_link"> <i class='fa fa-university nav_icon'></i> <span class="nav_name">Admission</span> </a>
-                    <a href="<?php echo base_url('AdminController/announcement'); ?>" class="nav_link"> <i class='fa fa-bullhorn nav_icon'></i> <span class="nav_name">Announcement</span> </a>
-                    <a href="<?php echo base_url('AdminController/changePassword'); ?>" class="nav_link"> <i class='fa fa-key nav_icon'></i> <span class="nav_name">Change Password</span> </a>
+                    <a href="<?php echo base_url('Admin/dashboard'); ?>" class="nav_link pt-3"> <i class='fa fa-th-large nav_icon'></i> <span class="nav_name">Dashboard</span> </a>
+                    <a href="<?php echo base_url('Admin/students'); ?>" class="nav_link"> <i class='fa fa-graduation-cap nav_icon'></i> <span class="nav_name">Students</span> </a>
+                    <a href="<?php echo base_url('Admin/faculty'); ?>" class="nav_link"> <i class='fa fa-chalkboard-teacher nav_icon'></i> <span class="nav_name">Faculty</span> </a>
+                    <a href="<?php echo base_url('Admin/admin'); ?>" class="nav_link"> <i class='fas fa-users-cog nav_icon'></i> <span class="nav_name">Admin</span> </a>
+                    <a href="<?php echo base_url('Admin/class'); ?>" class="nav_link"> <i class='fa fa-chalkboard nav_icon'></i> <span class="nav_name">Class</span> </a>
+                    <a href="<?php echo base_url('Admin/course'); ?>" class="nav_link"> <i class='fa fa-book-open nav_icon'></i> <span class="nav_name">Course</span> </a>
+                    <a href="<?php echo base_url('Admin/section'); ?>" class="nav_link"> <i class='fa fa-chalkboard nav_icon'></i> <span class="nav_name">Section</span> </a>
+                    <a href="<?php echo base_url('Admin/admission'); ?>" class="nav_link"> <i class='fa fa-university nav_icon'></i> <span class="nav_name">Admission</span> </a>
+                    <a href="<?php echo base_url('Admin/announcement'); ?>" class="nav_link"> <i class='fa fa-bullhorn nav_icon'></i> <span class="nav_name">Announcement</span> </a>
+                    <a href="<?php echo base_url('Admin/changePassword'); ?>" class="nav_link"> <i class='fa fa-key nav_icon'></i> <span class="nav_name">Change Password</span> </a>
                 </div>
             </div>
             <a href="<?php echo base_url('homepage'); ?>" class="nav_link" id="logout"> <i class='fa fa-sign-out-alt nav_icon'></i> <span class="nav_name">LogOut</span> </a>

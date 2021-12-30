@@ -53,3 +53,18 @@ $route['default_controller'] = 'Homepage';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+//Admin Routes
+$route['Admin/dashboard'] = 'AdminController/dashboard';
+$route['Admin/students'] = 'AdminController/students';
+$route['Admin/faculty'] = 'AdminController/faculty';
+$route['Admin/admin'] = 'AdminController/admin';
+$route['Admin/class'] = 'AdminController/class';
+$route['Admin/course'] = 'AdminController/course';
+$route['Admin/section'] = 'AdminController/section';
+$route['Admin/admission'] = 'AdminController/admission';
+$route['Admin/announcement'] = 'AdminController/announcement';
+$route['Admin/changePassword'] = 'AdminController/changePassword';
+
+//Student Routes
+
+//Faculty Routes

@@ -8,7 +8,7 @@ class eventsController extends CI_Controller {
     }
     public function create($id){
         $this->eventsModel->createData($id);
-        redirect("admincontroller/announcement");
+        redirect("Admin/announcement");
     }
     public function view(){
         $eventData = $this->input->post('eventData');
@@ -82,14 +82,14 @@ class eventsController extends CI_Controller {
 
     public function updateData($id){
         $data['row'] = $this->eventsModel->updateData($id);
-        redirect("admincontroller/announcement");
+        redirect("Admin/announcement");
     }
     public function deactivate($eaID){
         $this->eventsModel->deactivateData($eaID);
-        redirect("admincontroller/announcement");
+        redirect("Admin/announcement");
     }
     public function activate($eaID){
         $this->eventsModel->activateData($eaID);
-        redirect("admincontroller/announcement");
+        redirect("Admin/announcement");
     }
 }

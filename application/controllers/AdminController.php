@@ -8,6 +8,8 @@ class AdminController extends CI_Controller {
 		parent::__construct();
 		$this->load->model('AdminModel');
 		$this->load->model('eventsModel');
+		$this->load->model('teacherModel');
+		$this->load->model('courseModel');
 	}
 
 	public function login(){
@@ -21,7 +23,7 @@ class AdminController extends CI_Controller {
 						'adminNumber' =>  $data->adminNumber
 					];
 					$this->session->set_userdata('auth_admin',$auth_userdetails);
-					redirect('AdminController/dashboard');
+					redirect('Admin/dashboard');
 				}
 				else{
 					$this->session->set_flashdata('status','Invalid Email or Password'); //Palitan ng error message, deactivated yung account
@@ -59,17 +61,20 @@ class AdminController extends CI_Controller {
 
 	public function course()
 	{
-        $this->load->view('Admin_Panel/course');
+		$data['course'] = $this->courseModel->viewData();
+		$this->load->view('Admin_Panel/course',$data);
 	}
 
 	public function dashboard()
-	{
-		$this->load->view('Admin_Panel/dashboard');
+	{	
+		$data['teacher'] = $this->teacherModel->viewData();
+		$this->load->view('Admin_Panel/dashboard',$data);
 	}
 	
 	public function faculty()
 	{
-        $this->load->view('Admin_Panel/faculty');
+		$data['teacher'] = $this->teacherModel->viewData();
+        $this->load->view('Admin_Panel/faculty', $data);
 	}
 
 	public function section()

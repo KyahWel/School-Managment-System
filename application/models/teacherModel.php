@@ -7,7 +7,7 @@ class teacherModel extends CI_Model {
 		$this->load->database();
 	}
 
-	public function insertData()
+	public function insertData($id)
 	{	
 		$digits = 4;
 		$year = 21;
@@ -28,7 +28,7 @@ class teacherModel extends CI_Model {
 			'lastname' => $_POST['lastname'],
 			'college' => $_POST['college'],
 			'department' => $_POST['department'],
-			'creatorID' => $_POST['creatorID'],
+			'creatorID' => $id,
 			'status' => 1
 		);
 		$this->db->insert('teacher_accounts',$data);

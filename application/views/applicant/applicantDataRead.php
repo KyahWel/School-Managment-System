@@ -37,7 +37,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     </div>
                 </div>
             </div>
-
+ 
             <!-- Contents -->
             <div class="col d-flex flex-column">
                 <div class="container-fluid" id="steps" style="display: block;">
