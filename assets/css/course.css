@@ -216,7 +216,9 @@ textarea:focus, input:focus{
 .table-wrapper-2{
     background: white;
     border-radius: 25px;
+    border: 0.1px solid rgb(221, 220, 220);
 }
+
 /* Edit Course */
 .modal-header{
     background-color: #800000;
