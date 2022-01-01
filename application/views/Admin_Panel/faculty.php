@@ -303,7 +303,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                         </div>
                     </div>
                     <div class="row">
-                        <div clas s="col-lg-6 col-md-6 mb-1"> <!--Phone Number-->
+                        <div class="col-lg-6 col-md-6 mb-1"> <!--Phone Number-->
                             <input type="text" class="form-control" readonly>
                             <label class="form-label pt-2">Phone Number</label>
                         </div>
