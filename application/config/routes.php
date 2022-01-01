@@ -61,6 +61,7 @@ $route['Admin/admin'] = 'AdminController/admin';
 $route['Admin/class'] = 'AdminController/class';
 $route['Admin/course'] = 'AdminController/course';
 $route['Admin/section'] = 'AdminController/section';
+$route['Admin/subject'] = 'AdminController/subject';
 $route['Admin/admission'] = 'AdminController/admission';
 $route['Admin/announcement'] = 'AdminController/announcement';
 $route['Admin/changePassword'] = 'AdminController/changePassword';

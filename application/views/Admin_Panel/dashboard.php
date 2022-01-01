@@ -30,12 +30,36 @@ include __DIR__ . '/../includes/adminSideBar.php'
                         <p class="text-center text-white p-2">Current Billboard</p>
                     </div>
                     <div class="billboardContent px-3">
-                        <dl>
-                            <dt>
-                                <h5 class="title">Title, When</h5>
-                            </dt>
-                            <dd class="details">Details</dd>
-                        </dl>
+                        <div id="carouselControls" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                 <div class="carousel-item active" >
+                                        <dl class="mx-4">
+                                            <dt>
+                                                <h5 class="title">Announcements will be posted here</h5>
+                                            </dt>
+                                            <dd class="details">di ko alam kung ano lalagay</dd>
+                                        </dl>
+                                    </div>
+                                <?php foreach($announcement as $announcement) {?>
+                                    <div class="carousel-item" >
+                                        <dl class="mx-4">
+                                            <dt>
+                                                <h5 class="title">Title: <?php echo $announcement->title?>, When: <?php echo $announcement->date?>, <?php echo $announcement->time?></h5>
+                                            </dt>
+                                            <dd class="details">Details <br> <?php echo $announcement->details?></dd>
+                                        </dl>
+                                    </div>
+                                <?php } ?> 
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon visually-hidden" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselControls" data-bs-slide="next">
+                                <span class="carousel-control-next-icon visually-hidden" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

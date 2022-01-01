@@ -49,6 +49,7 @@
                     <a href="<?php echo base_url('Admin/admin'); ?>" class="nav_link"> <i class='fas fa-users-cog nav_icon'></i> <span class="nav_name">Admin</span> </a>
                     <a href="<?php echo base_url('Admin/class'); ?>" class="nav_link"> <i class='fa fa-chalkboard nav_icon'></i> <span class="nav_name">Class</span> </a>
                     <a href="<?php echo base_url('Admin/course'); ?>" class="nav_link"> <i class='fa fa-book-open nav_icon'></i> <span class="nav_name">Course</span> </a>
+                    <a href="<?php echo base_url('Admin/subject'); ?>" class="nav_link"> <i class='fa fa-pen nav_icon'></i> <span class="nav_name">Subjects</span> </a>
                     <a href="<?php echo base_url('Admin/section'); ?>" class="nav_link"> <i class='fa fa-chalkboard nav_icon'></i> <span class="nav_name">Section</span> </a>
                     <a href="<?php echo base_url('Admin/admission'); ?>" class="nav_link"> <i class='fa fa-university nav_icon'></i> <span class="nav_name">Admission</span> </a>
                     <a href="<?php echo base_url('Admin/announcement'); ?>" class="nav_link"> <i class='fa fa-bullhorn nav_icon'></i> <span class="nav_name">Announcement</span> </a>

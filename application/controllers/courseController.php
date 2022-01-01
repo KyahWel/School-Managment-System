@@ -42,10 +42,179 @@ class courseController extends CI_Controller {
 					<label>'.$records->college.'</label>
 				</div>
 			</div>    
+			';
+		echo $output;
+	}
+
+	public function viewCourseSubjects()
+	{
+		$courseData = $this->input->post('id');
+        $records = $this->courseModel->getSubjects($courseData);
+		// 1st Year subjects
+		$test='<div class="table-wrapper">
+				<div class="table-title">
+					<div class="row">
+						<div class="col">
+							<h2>List of Subjects for 1st Year</h2>
+						</div>
+					</div>
+				</div>
+				<div class="table-responsive">  
+					<table class="table table-default align-middle table-default table-borderless" id="table-body">
+						<thead>
+							<tr>
+								<th>Subject Code</th>
+								<th>Subject Name</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody>';
+		for ($i=0; $i<count($records); $i++){	
+		if($records[$i]['yearlevel']==1 && $records[$i]['status']==1){
+			$test .='	<tr>
+							<td>'.$records[$i]['subjectCode'].'</td>
+							<td>'.$records[$i]['name'].'</td>
+							<td>'.$records[$i]['units'].'</td> 
+						</tr>';
+			}
+		}
+		$test .='</tbody> </table>	
+				</div> 
+			</div> <br>';
+
+		// 2nd Year subjects
+		$test.='<div class="table-wrapper">
+				<div class="table-title">
+					<div class="row">
+						<div class="col">
+							<h2>List of Subjects for 2nd Year</h2>
+						</div>
+					</div>
+				</div>
+				<div class="table-responsive">  
+					<table class="table table-default align-middle table-default table-borderless" id="table-body">
+						<thead>
+							<tr>
+								<th>Subject Code</th>
+								<th>Subject Name</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody>';
+		for ($i=0; $i<count($records); $i++){	
+		if($records[$i]['yearlevel']==2 && $records[$i]['status']==1){
+			$test .='	<tr>
+							<td>'.$records[$i]['subjectCode'].'</td>
+							<td>'.$records[$i]['name'].'</td>
+							<td>'.$records[$i]['units'].'</td> 
+						</tr>';
+			}
+		}
+		$test .='</tbody> </table>	
+				</div> 
+			</div> <br>';
+		
+		// 3rd Year subjects
+		$test.='<div class="table-wrapper">
+				<div class="table-title">
+					<div class="row">
+						<div class="col">
+							<h2>List of Subjects for 3rd Year</h2>
+						</div>
+					</div>
+				</div>
+				<div class="table-responsive">  
+					<table class="table table-default align-middle table-default table-borderless" id="table-body">
+						<thead>
+							<tr>
+								<th>Subject Code</th>
+								<th>Subject Name</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody>';
+		for ($i=0; $i<count($records); $i++){	
+		if($records[$i]['yearlevel']==3 && $records[$i]['status']==1 ){
+			$test .='	<tr>
+							<td>'.$records[$i]['subjectCode'].'</td>
+							<td>'.$records[$i]['name'].'</td>
+							<td>'.$records[$i]['units'].'</td> 
+						</tr>';
+			}
+		}
+		$test .='</tbody> </table>	
+				</div> 
+			</div> <br>';
+
+		// 4thd Year subjects
+		$test.='<div class="table-wrapper">
+				<div class="table-title">
+					<div class="row">
+						<div class="col">
+							<h2>List of Subjects for 4th Year</h2>
+						</div>
+					</div>
+				</div>
+				<div class="table-responsive">  
+					<table class="table table-default align-middle table-default table-borderless" id="table-body">
+						<thead>
+							<tr>
+								<th>Subject Code</th>
+								<th>Subject Name</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody>';
+		for ($i=0; $i<count($records); $i++){	
+		if($records[$i]['yearlevel']==4 && $records[$i]['status']==1 ){
+			$test .='	<tr>
+							<td>'.$records[$i]['subjectCode'].'</td>
+							<td>'.$records[$i]['name'].'</td>
+							<td>'.$records[$i]['units'].'</td> 
+						</tr>';
+			}
+		}
+		$test .='</tbody> </table>	
+				</div> 
+			</div> <br>';
+
+		// 5th Year subjects
+		$test.='<div class="table-wrapper">
+				<div class="table-title">
+					<div class="row">
+						<div class="col">
+							<h2>List of Subjects for 5th Year</h2>
+						</div>
+					</div>
+				</div>
+				<div class="table-responsive">  
+					<table class="table table-default align-middle table-default table-borderless" id="table-body">
+						<thead>
+							<tr>
+								<th>Subject Code</th>
+								<th>Subject Name</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody>';
+		for ($i=0; $i<count($records); $i++){	
+		if($records[$i]['yearlevel']==5 && $records[$i]['status']==1){
+			$test .='	<tr>
+							<td>'.$records[$i]['subjectCode'].'</td>
+							<td>'.$records[$i]['name'].'</td>
+							<td>'.$records[$i]['units'].'</td> 
+						</tr>';
+			}
+		}
+		$test .='</tbody> </table>	
+				</div> 
+			</div> <br>';
+		// Ending Button 
+		$test .= '<br>
 			<div class="editCourseButton d-flex justify-content-end">
 				<button class="btn btn-default" id="save" type="button" data-bs-dismiss="modal">Exit</button>
 			</div>';
-		echo $output;
+		echo $test;
 	}
 
 	public function editCourse(){
