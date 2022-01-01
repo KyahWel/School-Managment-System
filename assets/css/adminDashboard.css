@@ -16,6 +16,12 @@ body{
     border-radius: 25px 25px 0 0 ;
 }
 
+.active dl{
+  color:black !important;
+  border: none !important;
+
+}
+
 /* calendar css */
 .calendar{
   background:rgb(143, 0, 0);

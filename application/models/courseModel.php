@@ -33,6 +33,12 @@ class courseModel extends CI_Model {
 		return $query->row();
 	}
 
+	public function getSubjects($id)
+	{	
+		$query = $this->db->query('SELECT * FROM subjects_table  WHERE subjects_table.courseID ='.$id);
+		return $query->result_array();
+	}
+
 	public function updateData($id)
 	{
 		$data = array(
