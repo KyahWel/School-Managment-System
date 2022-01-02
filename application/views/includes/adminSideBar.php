@@ -28,7 +28,7 @@
         <div class="btn-group ">
             <button class="btn text-white dropdown-toggle mx-0 px-0" type="button" id="headerAvatarDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
             </button>
-            <ul class="dropdown-menu" aria-labelledby="avatarDropdown" style="background: skyblue; max-width:50px;">
+            <ul class="dropdown-menu" aria-labelledby="avatarDropdown" style="background: lightgray; max-width:50px;">
                 <li><input type="file" class="dropdown-item form-cotrol form-control-sm" placeholder=""></input></li>
             </ul>
         </div>

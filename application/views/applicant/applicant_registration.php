@@ -53,8 +53,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <div class="d-none d-md-inline">
                             <img src="assets/images/applicantAvatar.svg" alt="" class="pt-4 mx-4" style="width: 125px;">
                             <br>
-                            <p class="text-center pt-4 h5">Welcome,</p>
-                            <p class="text-center pt-2 fw-bold h5">Applicant-21-2322 </p>
+                            <p class="text-center pt-4 h5 fw-bold">Welcome, Applicant</p>
+                            <!-- <p class="text-center pt-2 fw-bold h5">Applicant !</p> -->
                             <hr>
                         </div>
                     </div>
@@ -64,10 +64,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <!-- Contents -->
             <div class="col d-flex flex-column">
                 <div class="container-fluid" id="steps" style="display: block;">
-                    <div class="mt-3 applicant-head text-white px-3">
+                    <!-- <div class="mt-3 applicant-head text-white px-3">
                         Appicant ID: <span class="fw-bold"> Applicant-21-2123 </span>
-
-                    </div>
+                    </div> -->
 
                     <!--Information -->
                     <div class=" mt-3 applicant-head text-dark px-3 rounded-3 information ">
