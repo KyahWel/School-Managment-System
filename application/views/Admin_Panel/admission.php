@@ -20,7 +20,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
                 </h2>
                 <div id="addExamSchedule" class="accordion-collapse collapse" aria-labelledby="addExamScheduleHeader" data-bs-parent="#accordion-addExamSchedule">
                     <div class="accordion-body">
-                        <form method="POST" action="<?php echo site_url('ExamController/addExam')?>" class="formExam">
+                        <form method="POST" action="<?php echo site_url('ExamController/addExam') ?>" class="formExam">
                             <div class="row mb-3">
                                 <div class="col-lg-6 col-md-12">
                                     <!--Date-->
@@ -72,7 +72,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
     </div>
 
     <!--Tab Title -->
-    <div class="col-12 align-self-center my-3 " id="viewApplicantEnrolledStudents" style="display:block">
+    <div class="col-12 align-self-center my-3" id="viewApplicantEnrolledStudents" style="display:block">
         <ul class="nav nav-tabs d-flex flex-row justify-content-start" id="viewTab" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="viewSchedButton" data-bs-toggle="tab" data-bs-target="#scheduleTabContent" type="button" role="tab" aria-controls="scheduleTabContent" aria-selected="true">Exam Schedule</button>
@@ -101,36 +101,44 @@ include __DIR__ . '/../includes/adminSideBar.php'
                             </tr>
                         </thead>
                         <tbody>
-                            
-                            <?php foreach($exam as $examrow) {?>
+
+                            <?php foreach ($exam as $examrow) { ?>
                                 <tr>
-                                    <td><?php echo date('m/d/Y', strtotime($examrow->date))?></td>
-                                    <td><?php echo date('h:i:s a', strtotime($examrow->time))?></td>
-                                    <td><?php echo $examrow->building?></td> 
-                                    <td><?php echo $examrow->room_no?></td> 
-                                    <td><?php echo $examrow->floor_no?></td>
-                                    <td><?php echo $examrow->status?></td>
-                                    
+                                    <td><?php echo date('m/d/Y', strtotime($examrow->date)) ?></td>
+                                    <td><?php echo date('h:i:s a', strtotime($examrow->time)) ?></td>
+                                    <td><?php echo $examrow->building ?></td>
+                                    <td><?php echo $examrow->room_no ?></td>
+                                    <td><?php echo $examrow->floor_no ?></td>
+                                    <td><?php echo $examrow->status ?></td>
+
                                     <td>
                                         <div class="action-buttons">
-                                            <?php if ($examrow->status == 1): ?>
-                                            <button type="button" id="edit" data-id='<?php echo $examrow->schedID;?>' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editExamSchedule"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button>
-                                            <button type="button" class="btn" id="status" onclick="location.href='<?php if($examrow->status == 1){echo site_url('examController/deactivate');} else {echo site_url('examController/activate');}?>/<?php echo $examrow->schedID; ?>'">
-                                                Deactivate
-                                            </button>
-                        
-                                            <?php else: ?>
-                                               <button type="button" id="edit" data-id='<?php echo $examrow->schedID;?>' class="btn" disabled style="background-color: gray;"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-                                                <button type="button" id="status" class="btn" onclick="location.href='<?php if($examrow->status == 1){echo site_url('examController/deactivate');} else {echo site_url('examController/activate');}?>/<?php echo $examrow->schedID; ?>'">
-                                                Activate
+                                            <?php if ($examrow->status == 1) : ?>
+                                                <button type="button" id="edit" data-id='<?php echo $examrow->schedID; ?>' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editExamSchedule"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button>
+                                                <button type="button" class="btn" id="status" onclick="location.href='<?php if ($examrow->status == 1) {
+                                                                                                                            echo site_url('examController/deactivate');
+                                                                                                                        } else {
+                                                                                                                            echo site_url('examController/activate');
+                                                                                                                        } ?>/<?php echo $examrow->schedID; ?>'">
+                                                    Deactivate
                                                 </button>
-                                                	
+
+                                            <?php else : ?>
+                                                <button type="button" id="edit" data-id='<?php echo $examrow->schedID; ?>' class="btn" disabled style="background-color: gray;"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
+                                                <button type="button" id="status" class="btn" onclick="location.href='<?php if ($examrow->status == 1) {
+                                                                                                                            echo site_url('examController/deactivate');
+                                                                                                                        } else {
+                                                                                                                            echo site_url('examController/activate');
+                                                                                                                        } ?>/<?php echo $examrow->schedID; ?>'">
+                                                    Activate
+                                                </button>
+
                                             <?php endif ?>
                                         </div>
                                     </td>
                                 </tr>
-                            <?php }?>
-                            
+                            <?php } ?>
+
                         </tbody>
                     </table>
                 </div>
@@ -141,12 +149,12 @@ include __DIR__ . '/../includes/adminSideBar.php'
                 <div class="modal-dialog modal-lg modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h6 class="modal-title p-0" id="editExamHeader">Edit Exam Schedule</h6>
+                            <h6 class="modal-title p-0" id="editExamHeader">Edit Examination Schedule</h6>
                             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <div id="edit_sched">
-                                
+
                             </div>
                         </div>
                     </div>
@@ -160,7 +168,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
                 <form action="" method="post" id="AddApplicants">
                     <!-- Filter and Search -->
                     <div class=" d-flex  align-items-center my-1 p-3">
-                        <div class="px-2 pt-2 text-dark">
+                        <div class="px-0 pt-2 text-dark">
                             <input type="checkbox" name="addAll" id="checkApplicant" onclick="checkedAll.call(this);" /> Select all
                         </div>
                         <div class="ms-auto">
@@ -190,18 +198,19 @@ include __DIR__ . '/../includes/adminSideBar.php'
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach($applicant as $applicantrow) {?>
+                                <?php foreach ($applicant as $applicantrow) { ?>
                                     <tr>
-                                        <td><input type="checkbox" name="addApplicant" class="mx-2"></td>
-                                        <td><?php echo $applicantrow->applicantNumber?></td> 
-                                        <td><?php echo $applicantrow->firstname?> <?php echo $applicantrow->lastname?></td> 
-                                        <td><?php echo $applicantrow->course_chosen?></td>
-                                        <td><?php echo $applicantrow->applicant_result?></td>
+                                        <td><input type="checkbox" name="addApplicant" class="mx-3"></td>
+                                        <td><?php echo $applicantrow->applicantNumber ?></td>
+                                        <td><?php echo $applicantrow->firstname ?> <?php echo $applicantrow->lastname ?></td>
+                                        <td><?php echo $applicantrow->course_chosen ?></td>
+                                        <td><?php echo $applicantrow->applicant_result ?></td>
                                         <td>
+                                            <button type="button" onclick="applicantDetails()" class="btn btn-primary text-white text-uppercase addBtn">View</button>
                                             <button type="button" class="btn btn-primary text-white text-uppercase addBtn">ADD</button>
                                         </td>
                                     </tr>
-                                <?php }?>
+                                <?php } ?>
                             </tbody>
                         </table>
 
@@ -231,7 +240,8 @@ include __DIR__ . '/../includes/adminSideBar.php'
                     </div>
                 </form>
             </div>
-            <!-- Section Tab -->
+
+            <!-- Enrollment Tab -->
             <div class="tab-pane " id="enrollmentTabContent" role="tabpanel" aria-labelledby="Enrollment">
                 <div class=" d-flex justify-content-end my-1">
                     <label class="px-2 pt-1 mb-2">Search ID: </label>
@@ -278,6 +288,109 @@ include __DIR__ . '/../includes/adminSideBar.php'
             </div>
         </div>
     </div>
+
+
+    <!-- View Applicant Details -->
+    <div class=" pt-2 container-fluid mb-4" id='viewApplicantDetails' style="display:none">
+        <div class="mx-2">
+            <button type="button" class="btn btn btn-danger my-3" onclick="enrollment()" style="background:maroon; border:none; font-size:0.8rem">
+                <i class="fa fa-arrow-left"></i> Back</button>
+            <span class="confirmTitle m-2">View Applicant Details </span>
+        </div>
+        <div class="enrollmentDetails mt-3 mb-5" id="details">
+            <div class="tabHeader">
+                <p class="text-center text-white p-2">Applicant ID: TUPM-21APPL-2133</p>
+            </div>
+            <div class="tabDetails px-4">
+
+
+                <h6 class="text-dark fw-bold">PERSONAL INFORMATION</h6>
+                <p class="my-4 "> <b>Course Chosen: </b>Bachelor of Science in Computer Science</p>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <p><b>Name:</b>Lyah Bianca Aquino</p>
+                        <p><b>Suffix:</b> </p>
+                        <p><b>LRN:</b> </p>
+                        <p><b>Gender:</b> </p>
+                        <p><b>Birth Date:</b> </p>
+                        <p><b>Age:</b> </p>
+                        <p><b>Birth Place: </b></p>
+                        <p><b>Contact Number:</b> </p>
+                        <p><b>Landline:</b> </p>
+                        <p><b>Email Address:</b></p>
+
+                    </div>
+                    <div class="col-lg-6">
+                        <p class="text-dark fw-bold pb-2">PERMANENT ADDRESS</p>
+                        <p><b>Unit #:</b> </p>
+                        <p><b>Street: </b> </p>
+                        <p><b>Barangay: </b> </p>
+                        <p><b>City: </b> </p>
+                        <p><b>Zipcode: </b> </p>
+                        <p><b>Province: </b> </p>
+                    </div>
+                </div>
+                <hr>
+                <h6 class="text-dark fw-bold text-uppercase my-4">Educational Attainment: School Last Attended</h6>
+                <p><b>Name of School: </b> </p>
+                <p><b>Program/Track: </b>Accountancy, Business and Management- ABM</p>
+                <p><b>School Address: </b> </p>
+                <p><b>Year Level: </b> </p>
+                <p><b>Year Graduated: </b> </p>
+                <p><b>Category: </b> </p>
+                <p><b>GPA: </b> </p>
+                <hr>
+                <h6 class="text-dark fw-bold text-uppercase my-4">Admission Requirements</h6>
+                <div class="row mb-3">
+                    <div class="col-lg-4 col-md-12 col-sm-12 mb-2">
+                        Medical Clearance <br>
+                        <img src="../assets/images/download.png" alt="Medical Clearance" class="rounded hover-shadow cursor" src="assets/images/download.png" onclick="openModal();currentSlide(1)" style="width: 200px;">
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12 mb-2">
+                        Form 137 <br>
+                        <img src="../assets/images/download.png" alt="Form 137" class="rounded hover-shadow cursor" onclick="openModal();currentSlide(2)" style="width: 200px">
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12 mb-2">
+                        Good Moral <br>
+                        <img src="../assets/images/download.png" alt="Good Moral" class="rounded hover-shadow cursor" onclick="openModal();currentSlide(3)" style="width: 200px;">
+                    </div>
+                </div>
+            </div>
+            <div id="requirementsModal" class="modal">
+                <span class="closeRequirement cursor" onclick="closeModal()">&times;</span>
+                <div class="modal-content">
+                    <div class="mySlides">
+                        <div class="numbertext">Medical Clearance</div>
+                        <img src="../assets/images/download.png" alt="Medical Clearance"  style="width:100%" height="500px">
+                    </div>
+
+                    <div class="mySlides">
+                        <div class="numbertext">Form 137</div>
+                        <img src="../assets/images/download.png" alt="Form 137" style="width:100%" height="500px">
+                    </div>
+
+                    <div class="mySlides">
+                        <div class="numbertext">Good Moral</div>
+                        <img src="../assets/images/download.png" alt="Good Moral" style="width:100%" height="500px">
+                    </div>
+
+
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                    <!-- <div class="caption-container">
+                        <p id="caption"></p>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="p-1"></div>
+    </div>
+
+
+
+
     <!-- Enrollment Details/Confirmation Tab -->
     <div class="height-100 pt-2 container-fluid" id='viewEnrollmentDetails' style="display:none">
         <div class="mx-2">
@@ -372,80 +485,35 @@ include __DIR__ . '/../includes/adminSideBar.php'
             </div>
         </div>
     </div>
+</div>
 
-
-
-    <script type="text/javascript">
-        var modal = document.getElementById("myModal");
-
-        // Get the image and insert it inside the modal - use its "alt" text as a caption
-        var img = document.getElementById("receiptAttachment");
-        var modalImg = document.getElementById("receipt01");
-        var captionText = document.getElementById("caption");
-        img.onclick = function() {
-            modal.style.display = "block";
-            modalImg.src = this.src;
-            captionText.innerHTML = this.alt;
-        }
-
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
-
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        function checkedAll() {
-            // this refers to the clicked checkbox
-            // find all checkboxes inside the checkbox' form
-            var elements = this.form.getElementsByTagName('input');
-            // iterate and change status
-            for (var i = elements.length; i--;) {
-                if (elements[i].type == 'checkbox') {
-                    elements[i].checked = this.checked;
-                }
-            }
-        }
-
-        function lastpage() {
-            document.getElementById('create').style.display = "none";
-            document.getElementById('viewEnrollmentDetails').style.display = "block";
-            document.getElementById('viewApplicantEnrolledStudents').style.display = "none";
-            document.getElementById('tab').style.display = "none";
-
-        }
-
-        function enrollment() {
-            document.getElementById('create').style.display = "block";
-            document.getElementById('viewApplicantEnrolledStudents').style.display = "block";
-            document.getElementById('viewEnrollmentDetails').style.display = "none";
-            document.getElementById('tab').style.display = "block";
-        }
-    </script>
-    <!-- Ajax and Jquery -->
-    <!-- jQuery JS CDN -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> 
-    <!-- jQuery DataTables JS CDN -->
-    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-    <!-- Ajax fetching data -->
-    <script type="text/javascript">
-        $(document).ready(function(){
+<!-- Ajax and Jquery -->
+<!-- jQuery JS CDN -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<!-- jQuery DataTables JS CDN -->
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<!-- Ajax fetching data -->
+<script type="text/javascript">
+    $(document).ready(function() {
         $('#dataTable').DataTable();
-        $('.edit_data').click(function(){
+        $('.edit_data').click(function() {
             var id = $(this).data('id');
             $.ajax({
-            url: "<?php echo site_url('examController/edit');?>",
-            method: "POST",
-            data: {id:id},
-            success: function(data){
-                $('#edit_sched').html(data);
-            }
+                url: "<?php echo site_url('examController/edit'); ?>",
+                method: "POST",
+                data: {
+                    id: id
+                },
+                success: function(data) {
+                    $('#edit_sched').html(data);
+                }
             });
         });
-        });
-    </script>
-    <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
-    </body>
+    });
+</script>
 
-    </html>
+<script src="<?php echo base_url('assets/js/admission.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
+</body>
+
+</html>
