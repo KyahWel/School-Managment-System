@@ -1,77 +1,83 @@
 /* global styles on login */
-body, html {
+
+body,
+html {
     font-family: 'Poppins', sans-serif;
     overflow-x: none;
-    background:  #f4f4f4;
+    background: #f4f4f4;
     height: 100%;
 }
- 
+
 * {
     box-sizing: border-box;
 }
 
-/* header styles */
-/* .bg-img{
-    background: url('/xampp/htdocs/Team-03/assets/images/bg.png') no-repeat center/cover #1f4c69;
-    position: relative;
-    height: 100vh;
-} */
 
-/* img.background{
-    background: no-repeat center/cover #f4f4f4;
-    position: relative;
-    height: 100vh;
-} */
-.navbar{
+/* header styles */
+
+.navbar {
     padding-top: 20px;
 }
-  
-.navbar-light .navbar-nav{
+
+.navbar-light .navbar-nav {
     padding-right: 30px;
 }
- .navbar-light button.navbar-toggler,  .navbar-light button.navbar-toggler:focus{
+
+.navbar-light button.navbar-toggler,
+.navbar-light button.navbar-toggler:focus {
     outline: none;
     border: none;
     font-size: 1rem;
     padding: 3px;
- }
+}
 
-.navbar-light .navbar-brand:hover{
+.navbar-light .navbar-brand:hover {
     color: white;
 }
-.navbar-light .navbar-brand{
-    
+
+.navbar-light .navbar-brand {
     font-weight: 800;
     font-size: 1.1rem;
     letter-spacing: 2px;
-    color:white;
+    color: white;
     padding-left: 15px;
 }
 
-/* a{
+a {
     position: relative;
     text-decoration: none;
-} */
+}
 
 .navbar .navbar-nav .nav-link:hover {
     color: #000000;
-  }
- 
-.active {
-    color: black;
-    font-weight: 600;
 }
 
-.active::before {
-    color: black;
-    font-weight: normal;
+a {
+    position: relative;
+    text-decoration: none;
 }
 
-.nav-item{
+a.active {
+    content: "";
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    position: relative;
+    margin-top: 5px;
+    top: 20%;
+    /* text-decoration: 2px solid underline brown ; */
+    color: black;
+    font-weight: bold;
+}
+
+.nav-item {
     padding-right: 30px;
 }
 
+
 /* form wrapper for student, faculty, admin */
+
 .wrapper {
     position: absolute;
     margin: 0 auto;
@@ -80,16 +86,16 @@ body, html {
     top: 55%;
     right: -7%;
     transform: translate(-50%, -50%);
-    padding:2rem;
-    
-
+    padding: 2rem;
 }
+
 .input-group-addon {
     position: absolute;
     padding: 8px 12px;
     font-size: 0.8rem;
 }
-h3{
+
+h3 {
     font-family: 'Roboto', sans-serif;
     text-align: center;
     font-size: 1.8rem;
@@ -97,10 +103,12 @@ h3{
     color: black;
     padding-bottom: 2rem;
 }
-h3.applicant{
+
+h3.applicant {
     font-size: 1.7rem;
 }
-.errormsg{
+
+.errormsg {
     color: red;
     padding-bottom: 0;
     margin-bottom: 0;
@@ -109,26 +117,30 @@ h3.applicant{
     letter-spacing: 0.5px;
     font-weight: 500;
 }
-hr{
+
+hr {
     background-color: black;
     opacity: 1;
     margin-top: 2px;
 }
-form{
+
+form {
     font-family: 'Roboto', sans-serif;
 }
-label{
+
+label {
     font-weight: 500;
     font-size: 15px;
     line-height: 35px;
     color: black;
 }
 
-.wrapper p{
+.wrapper p {
     font-size: 0.9rem;
     margin-top: 10px;
 }
-.btn-default{
+
+.btn-default {
     background: #B20000;
     width: 80px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
@@ -139,32 +151,30 @@ label{
     color: white;
 }
 
-.btn-default:hover{
+.btn-default:hover {
     background-color: #F2BD53;
     opacity: 1;
     color: black;
     font-weight: 500;
 }
 
- .btn-default:focus {
+.btn-default:focus {
     padding: 0;
     margin: 0;
     opacity: 1;
     box-shadow: none;
 }
 
-.wrapper p.text-left{
+.wrapper p.text-left {
     color: blue;
-   
 }
 
-.wrapper p.text-left:hover{
+.wrapper p.text-left:hover {
     transform: none;
     font-weight: 300;
 }
 
-
-.text-left1:hover{
+.text-left1:hover {
     text-shadow: 0.2px 0.2px black;
 }
 
@@ -172,7 +182,7 @@ label{
     outline: none;
 }
 
-.wrapper .apply{
+.wrapper .apply {
     width: 100%;
     padding: 6px;
     margin-top: 2rem;
@@ -182,108 +192,105 @@ label{
     box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.25);
 }
 
-.wrapper .apply:hover{
+.wrapper .apply:hover {
     background-color: #f39303;
 }
 
-form .form-control:focus{
+form .form-control:focus {
     border-color: #ced4da;
     box-shadow: none;
 }
-.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+
+.form-control::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
     font-size: 0.8rem;
     font-family: 'Playfair', sans-serif;
 }
 
-.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+.form-control:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
     font-size: 0.8rem;
     font-family: 'Playfair', sans-serif;
-
 }
 
-.form-control::-ms-input-placeholder { /* Microsoft Edge */
+.form-control::-ms-input-placeholder {
+    /* Microsoft Edge */
     font-size: 0.8rem;
     font-family: 'Playfair', sans-serif;
-
-
 }
 
-input[type=text], input[type=password]{
+input[type=text],
+input[type=password] {
     color: black;
     font-size: 0.9rem;
     padding-left: 35px;
 }
 
-@media screen and (max-width: 1024px){
-    .navbar-light{
-        background:#B20000;
+@media screen and (max-width: 1024px) {
+    .navbar-light {
+        background: #B20000;
         box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.25);
         border-bottom: 1px solid white;
     }
-    .navbar-light .navbar-nav .nav-link{
+    .navbar-light .navbar-nav .nav-link {
         color: white;
-
     }
-    .navbar-light img{
+    .navbar-light img {
         width: 40px;
     }
-    .navbar-light .navbar-brand{
+    .navbar-light .navbar-brand {
         font-size: .8rem;
         padding-left: 0;
         color: white;
     }
- 
-    .navbar{
+    .navbar {
         padding-top: 5px;
     }
     .wrapper {
         left: 50%;
         top: 50%;
         right: 0%;
-       
     }
-
 }
 
-@media screen and (max-width: 570px){   
-    .wrapper{
-        width:350px;
+@media screen and (max-width: 570px) {
+    .wrapper {
+        width: 350px;
         padding-bottom: 5px;
     }
-    .wrapper p{
-        font-size: 0.7rem;    
-    }
-    .wrapper .apply{
+    .wrapper p {
         font-size: 0.7rem;
     }
-    h3{
+    .wrapper .apply {
+        font-size: 0.7rem;
+    }
+    h3 {
         font-size: 1.4rem;
-    }   
+    }
 }
 
-@media screen and (max-width: 375px){
-    .navbar-light img{
+@media screen and (max-width: 375px) {
+    .navbar-light img {
         width: 30px;
     }
-    .navbar-light .container-fluid{
+    .navbar-light .container-fluid {
         margin-left: 0;
     }
     .wrapper {
         left: 50%;
         top: 51%;
-
         width: fit-content;
     }
-   
-    label,h5{
+    label,
+    h5 {
         font-size: 0.8rem;
     }
-    h3{
+    h3 {
         font-size: 1rem;
     }
 }
 
-@media screen and (max-width: 280px){
+@media screen and (max-width: 280px) {
     .wrapper {
         width: 200px;
         margin: 1rem;
