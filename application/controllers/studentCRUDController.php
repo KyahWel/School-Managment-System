@@ -8,11 +8,6 @@ class studentCRUDController extends CI_Controller {
 		parent::__construct();
 		$this->load->model('studentModel');
 	}
-	public function index()
-	{	
-		$data['student'] = $this->studentModel->viewData();
-		$this->load->view('student_mainView', $data);
-	}
 
 	public function addStudent()
 	{
@@ -20,7 +15,7 @@ class studentCRUDController extends CI_Controller {
 
 		if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['applicantID']) && isset($_POST['courseID'])&& isset($_POST['type'])&& isset($_POST['creatorID'])){
 			$this->studentModel->insertData();
-			redirect('studentController');
+			redirect('Admin/students');
 		}
 	}
 	public function viewStudent($id)
@@ -37,19 +32,19 @@ class studentCRUDController extends CI_Controller {
 	public function updateStudent($id)
 	{	
 		$data['row'] = $this->studentModel->updateData($id);
-		redirect('studentcontroller');
+		redirect('Admin/students');
 	}
 
-	public function deactivateData($id)
+	public function deactivate($id)
 	{	
 		$data['row'] = $this->studentModel->deactivateData($id);
-		redirect('studentcontroller');
+		redirect('Admin/students');
 	}
 
-	public function reactivateData($id)
+	public function activate($id)
 	{	
 		$data['row'] = $this->studentModel->reactivateData($id);
-		redirect('studentcontroller');
+		redirect('Admin/students');
 	}
 
 	

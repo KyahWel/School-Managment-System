@@ -20,7 +20,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
                 </h2>
                 <div id="addExamSchedule" class="accordion-collapse collapse" aria-labelledby="addExamScheduleHeader" data-bs-parent="#accordion-addExamSchedule">
                     <div class="accordion-body">
-                        <form method="POST" action="#" class="formExam">
+                        <form method="POST" action="<?php echo site_url('ExamController/addExam')?>" class="formExam">
                             <div class="row mb-3">
                                 <div class="col-lg-6 col-md-12">
                                     <!--Date-->
@@ -96,84 +96,57 @@ include __DIR__ . '/../includes/adminSideBar.php'
                                 <th>Building</th>
                                 <th>Room Number</th>
                                 <th>Floor Number</th>
-                                <th></th>
+                                <th>Status</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>2021-12-09 </td>
-                                <td>16:00:00</td>
-                                <td>College of Engineering</td>
-                                <td>COE-321</td>
-                                <td>3</td>
-                                <td>
-                                    <div class="action-buttons">
-                                        <button type="button" id="editSched" class="btn view_data" data-bs-toggle="modal" data-bs-target="#editExamSchedule">
-                                            <i class="fas fa-pen" data-bs-toggle="tooltip" title="View"></i> Edit
-                                        </button>
-                                        <button type="button" id="deactSched" class="btn edit_data">
-                                            Deactivate
-                                        </button>
-                                </td>
-                            </tr>
+                            
+                            <?php foreach($exam as $examrow) {?>
+                                <tr>
+                                    <td><?php echo date('m/d/Y', strtotime($examrow->date))?></td>
+                                    <td><?php echo date('h:i:s a', strtotime($examrow->time))?></td>
+                                    <td><?php echo $examrow->building?></td> 
+                                    <td><?php echo $examrow->room_no?></td> 
+                                    <td><?php echo $examrow->floor_no?></td>
+                                    <td><?php echo $examrow->status?></td>
+                                    
+                                    <td>
+                                        <div class="action-buttons">
+                                            <?php if ($examrow->status == 1): ?>
+                                            <button type="button" id="edit" data-id='<?php echo $examrow->schedID;?>' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editExamSchedule"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button>
+                                            <button type="button" class="btn" id="status" onclick="location.href='<?php if($examrow->status == 1){echo site_url('examController/deactivate');} else {echo site_url('examController/activate');}?>/<?php echo $examrow->schedID; ?>'">
+                                                Deactivate
+                                            </button>
+                        
+                                            <?php else: ?>
+                                               <button type="button" id="edit" data-id='<?php echo $examrow->schedID;?>' class="btn" disabled style="background-color: gray;"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
+                                                <button type="button" id="status" class="btn" onclick="location.href='<?php if($examrow->status == 1){echo site_url('examController/deactivate');} else {echo site_url('examController/activate');}?>/<?php echo $examrow->schedID; ?>'">
+                                                Activate
+                                                </button>
+                                                	
+                                            <?php endif ?>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <?php }?>
+                            
                         </tbody>
                     </table>
                 </div>
             </div>
 
             <!--Edit Exam Schedule-->
-            <div class="modal fade" id="editExamSchedule" tabindex="-1" aria-labelledby="editAnnouncementHeader" aria-hidden="true">
+            <div class="modal fade" id="editExamSchedule" tabindex="-1" aria-labelledby="editExamHeader" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h6 class="modal-title p-0" id="editAnnouncementHeader">Edit Announcement</h6>
+                            <h6 class="modal-title p-0" id="editExamHeader">Edit Exam Schedule</h6>
                             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <div id="edit_event">
-                                <div class="row mb-3">
-                                    <div class="col-lg-6 col-md-12">
-                                        <!--Date-->
-                                        <label class="form-label">Date</label>
-                                        <input type="date" class="form-control" name="date">
-                                    </div>
-                                    <div class="col-lg-6 col-md-12">
-                                        <!--Time-->
-                                        <label class="form-label">Time</label>
-                                        <input type="time" class="form-control" name="time">
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-lg-6 col-md-12">
-                                        <!--Building-->
-                                        <label class="form-label">Building</label>
-                                        <select class="form-select" name="building">
-                                            <option value="" disabled selected hidden>--Please Select--</option>
-                                            <option value="College of Science">College of Science</option>
-                                            <option value="College of Engineering">College of Engineering</option>
-                                            <option value="College of Industrial Education">College of Industrial Education</option>
-                                            <option value="College of Architecture and Fine Arts">College of Architecture and Fine Arts</option>
-                                            <option value="College of Liberal Arts">College of Liberal Arts</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12">
-                                        <!--Time-->
-                                        <label class="form-label">Room Number</label>
-                                        <input type="text" class="form-control" name="room_no">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-12">
-                                        <!--Time-->
-                                        <label class="form-label">Floor Number</label>
-                                        <input type="text" class="form-control" name="floor_no">
-                                    </div>
-                                </div>
-                                <div class="addExamScheduleButton mt-4 d-flex justify-content-end">
-                                    <!--Buttons-->
-                                    <button class="btn btn-default" id="examEditSave" type="submit" name="submit" value="save">Save</button>
-                                    <button class="btn btn-default" id="examEditCancel" type="reset" value="cancel">Cancel</button>
-                                </div>
+                            <div id="edit_sched">
+                                
                             </div>
                         </div>
                     </div>
@@ -217,26 +190,18 @@ include __DIR__ . '/../includes/adminSideBar.php'
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td><input type="checkbox" name="addApplicant" class="mx-2">1</td>
-                                    <td>TUPM-APPL21-1234</td>
-                                    <td>Lida Cruz</td>
-                                    <td>BS-Computer Science</td>
-                                    <td>PASSED</td>
-                                    <td>
-                                        <button type="button" class="btn btn-primary text-white text-uppercase addBtn">ADD</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" name="addApplicant" class="mx-2"> 2</td>
-                                    <td>TUPM-APPL21-1234</td>
-                                    <td>Lyah Bianca Aquino</td>
-                                    <td>BS-Computer Science</td>
-                                    <td>PASSED</td>
-                                    <td>
-                                        <button type="button" class="btn btn-primary text-white text-uppercase addBtn">ADD</button>
-                                    </td>
-                                </tr>
+                                <?php foreach($applicant as $applicantrow) {?>
+                                    <tr>
+                                        <td><input type="checkbox" name="addApplicant" class="mx-2"></td>
+                                        <td><?php echo $applicantrow->applicantNumber?></td> 
+                                        <td><?php echo $applicantrow->firstname?> <?php echo $applicantrow->lastname?></td> 
+                                        <td><?php echo $applicantrow->course_chosen?></td>
+                                        <td><?php echo $applicantrow->applicant_result?></td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary text-white text-uppercase addBtn">ADD</button>
+                                        </td>
+                                    </tr>
+                                <?php }?>
                             </tbody>
                         </table>
 
@@ -458,7 +423,28 @@ include __DIR__ . '/../includes/adminSideBar.php'
             document.getElementById('tab').style.display = "block";
         }
     </script>
-
+    <!-- Ajax and Jquery -->
+    <!-- jQuery JS CDN -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> 
+    <!-- jQuery DataTables JS CDN -->
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <!-- Ajax fetching data -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+        $('#dataTable').DataTable();
+        $('.edit_data').click(function(){
+            var id = $(this).data('id');
+            $.ajax({
+            url: "<?php echo site_url('examController/edit');?>",
+            method: "POST",
+            data: {id:id},
+            success: function(data){
+                $('#edit_sched').html(data);
+            }
+            });
+        });
+        });
+    </script>
     <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
     </body>
 
