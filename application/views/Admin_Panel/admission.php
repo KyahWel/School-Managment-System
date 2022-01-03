@@ -357,9 +357,9 @@ include __DIR__ . '/../includes/adminSideBar.php'
                     </div>
                 </div>
             </div>
-            <div id="requirementsModal" class="modal">
+            <div id="requirementsModal" class="modal reqModal">
                 <span class="closeRequirement cursor" onclick="closeModal()">&times;</span>
-                <div class="modal-content">
+                <div class="modal-Requirementscontent">
                     <div class="mySlides">
                         <div class="numbertext">Medical Clearance</div>
                         <img src="../assets/images/download.png" alt="Medical Clearance"  style="width:100%" height="500px">
@@ -387,9 +387,6 @@ include __DIR__ . '/../includes/adminSideBar.php'
         </div>
         <div class="p-1"></div>
     </div>
-
-
-
 
     <!-- Enrollment Details/Confirmation Tab -->
     <div class="height-100 pt-2 container-fluid" id='viewEnrollmentDetails' style="display:none">
