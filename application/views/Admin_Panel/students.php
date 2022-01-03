@@ -108,7 +108,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                                         </div>
                                     </td>
                                 </tr>    
-                             <?php } ?> 
+                             <?php } ?>
                         </tbody>
                     </table>	
                 </div>
@@ -163,11 +163,12 @@ include __DIR__.'/../includes/adminSideBar.php'
         </div>
     </div>
 
+                                    
     <!--View Student-->
     <div class="container my-3" id='viewStudent' style="display: none;">     
         <div class="viewStudentTitle">
-            <button class="btn btn-default btn-sm" id="back-button" onclick="mainStudent()">Back</button><br>
-            <h3><i>Student Profile</i></h3>
+            <button class="btn btn-default btn-sm" id="back-button" onclick="mainStudent()"><i class="fas fa-angle-left"></i> Back</button><br>
+            <h3><i>Student Profile</i></h3><br>
         </div>
 
         <!-- View Student Info -->
@@ -177,25 +178,219 @@ include __DIR__.'/../includes/adminSideBar.php'
             </div>
             <div class="table-responsive">
                 <table id="viewStudentInformation">
-                    <tr>
+                    <tr>    
                         <td>
-                            <b>Email:</b><br>
-                            <b>Username:</b><br>
-                            <b>Student ID:</b><br>
-                            <b>Course:</b><br>
-                            <b>Section:</b><br>
-                        </td>
-                        <td>
-                            jina.sanpedro@tup.edu.ph<br>
-                            jinasanpedro01<br>
-                            Stud001-2001<br>
-                            BSCS-NS<br>
-                            3A<br>
+                            <b>Email:</b> jina.sanpedro@tup.edu.ph<br>
+                            <b>Username:</b> jinasanpedro01<br>
+                            <b>Student ID:</b> Stud001-2001<br>
+                            <b>Course:</b> BSCS-NS<br>
+                            <b>Section:</b> 3A<br>
                         </td>
                     </tr>
                 </table>
             </div>
         </div>
+        <!--Tabs-->
+        <div class="col-12 align-self-center my-3" id="viewStudentTable">
+            <ul class="nav nav-tabs d-flex flex-row justify-content-start" id="viewStudentTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="viewStudentInfoTab" data-bs-toggle="tab" data-bs-target="#StudentInfo" type="button" role="tab" aria-controls="StudentInfo" aria-selected="true">Personal Information</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="viewStudentSchedTab" data-bs-toggle="tab" data-bs-target="#StudentSched" type="button" role="tab" aria-controls="StudentSched" aria-selected="false">Schedule</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="viewStudentEducTab" data-bs-toggle="tab" data-bs-target="#StudentEduc" type="button" role="tab" aria-controls="StudentEduc" aria-selected="false">Educational Attainment</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="viewStudentReqTab" data-bs-toggle="tab" data-bs-target="#StudentReq" type="button" role="tab" aria-controls="StudentReq" aria-selected="false">Requirements</button>
+                </li>
+            </ul>
+            <div class="tab-content p-3" id="viewStudentTabContent">
+                <!--Personal Information Tab-->
+                <div class="tab-pane show active my-3" id="StudentInfo" role="tabpanel" aria-labelledby="viewStudentInfoTab">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 mb-1"> <!--First Name-->
+                            <input type="text" name='firstname' class="form-control" readonly>
+                            <label class="form-label pt-2">First Name</label>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-1"> <!--Middle Name-->
+                            <input type="text" name='middlename' class="form-control" readonly>
+                            <label class="form-label pt-2">Middle Name</label>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-1"> <!--Last Name-->
+                            <input type="text" name='lastname' class="form-control" readonly>
+                            <label class="form-label pt-2">Last Name</label>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-1"> <!--Suffix-->
+                            <input type="text" name='suffix' class="form-control" readonly>
+                            <label class="form-label pt-2">Suffix</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 mb-1"> <!--LRN-->
+                            <input type="text" name='lrn' class="form-control" readonly>
+                            <label class="form-label pt-2">LRN Number</label>
+                        </div>
+                        
+                        <label class="form-label col-lg-2 col-md-12 pt-1">Gender:</label><!--Gender-->
+                        <div class="col-lg-3 col-md-12 pt-1">
+                            <div class="form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" value="Male" readonly>
+                                <label class="form-check-label" for="gender"> Male </label>
+                            </div>
+                            <div class="form-check-inline mb-3">
+                                <input class="form-check-input" type="radio" name="gender" value="Female" readonly>
+                                <label class="form-check-label" for="gender"> Female </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-5 col-md-6 mb-1"> <!--Birthdate-->
+                            <input type="date" name='birthday' class="form-control" readonly>
+                            <label class="form-label pt-2">Birth Date</label>
+                        </div>
+                        <div class="col-lg-2 col-md-6 mb-1"> <!--Age-->
+                            <input type="text" name='age' class="form-control" readonly>
+                            <label class="form-label pt-2">Age</label>
+                        </div>
+                        <div class="col-lg-5 col-md-6 mb-1"> <!--Birthplace-->
+                            <input type="text" name='birthplace' class="form-control" readonly>
+                            <label class="form-label pt-2">Birth Place</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 mb-1"> <!--Contact Number-->
+                            <input type="tel" name='contact' class="form-control" readonly>
+                            <label class="form-label pt-2">Contact Number</label>
+                        </div>
+                        <div class="col-lg-4 col-md-6 mb-1"> <!--Landline-->
+                            <input type="tel" name='landline' class="form-control" readonly>
+                            <label class="form-label pt-2">Landline Number</label>
+                        </div>
+                        <div class="col-lg-4 col-md-6 mb-1"> <!--Email-->
+                            <input type="text" name='email' class="form-control" readonly>
+                            <label class="form-label pt-2">Email Address</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Schedule Tab-->
+                <div class="tab-pane" id="StudentSched" role="tabpanel" aria-labelledby="viewStudentSchedTab"> 
+                    <div class="table-responsive">  
+                        <table class="table align-middle table-striped table-borderless table-hover" id="table-body"> <!--Table Body-->
+                            <thead>
+                                <tr>
+                                    <th>Subject Code</th>
+                                    <th>Subject Name</th>
+                                    <th>Teacher</th>
+                                    <th>Day</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>     
+                                <tr>
+                                    <td>DM001</td> 
+                                    <td>Discrete Mathematics</td>
+                                    <td>Salvador John</td>
+                                    <td>Mon</td>
+                                    <td>10:00-13:00</td>
+                                </tr>
+                                <tr>
+                                    <td>CSB001</td> 
+                                    <td>CS Basics</td>
+                                    <td>Castro Dexter</td>
+                                    <td>Fri</td>
+                                    <td>7:00-10:00</td>
+                                </tr>
+                                <tr>
+                                    <td>DS001</td> 
+                                    <td>Data Structures</td>
+                                    <td>Reyes Mary</td>
+                                    <td>Tue</td>
+                                    <td>11:00-14:00</td>
+                                </tr>
+                                <tr>
+                                    <td>SP001</td> 
+                                    <td>System Programming</td>
+                                    <td>Salvador Jeff</td>
+                                    <td>Fri</td>
+                                    <td>10:00-13:00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!--Educational Attainment Tab-->
+                <div class="tab-pane" id="StudentEduc" role="tabpanel" aria-labelledby="viewStudentEducTab">
+                    <p class="fw-bold">SCHOOL LAST ATTENDED</p>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 mb-1"> <!--Name of School-->
+                            <input type="text" name='schoolname' class="form-control" readonly>
+                            <label class="form-label pt-2">Name of School</label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 mb-1"> <!--Track-->
+                            <input type="text" name='track' class="form-control" readonly>
+                            <label class="form-label pt-2">Program/Track</label>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-6 mb-1"> <!--School Address-->
+                        <input type="text" name='schooladdress' class="form-control" readonly>
+                        <label class="form-label pt-2">School Address</label>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 mb-1"> <!--Year Level-->
+                            <input type="text" name='yrlevel' class="form-control" readonly>
+                            <label class="form-label pt-2">Year Level</label>
+                        </div>
+                        <div class="col-lg-6 col-md-6 mb-1"> <!--Year Graduated-->
+                            <input type="date" name='yrgrad' class="form-control" readonly>
+                            <label class="form-label pt-2">Year Graduated</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="form-label col-lg-2 col-md-12 pt-1">Category:</label><!--Category-->
+                        <div class="col-lg-4 col-md-12 pt-1">
+                            <div class="form-check-inline">
+                                <input class="form-check-input" type="radio" name="category" value="nc" readonly>
+                                <label class="form-check-label" for="category"> K-12 </label>
+                            </div>
+                            <div class="form-check-inline mb-3">
+                                <input class="form-check-input" type="radio" name="category" value="oc" readonly>
+                                <label class="form-check-label" for="category"> Old Curriculum </label>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 mb-1"> <!--GPA-->
+                            <input type="text" name='gpa' class="form-control" readonly>
+                            <label class="form-label pt-2">GPA</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Requirements Tab-->
+                <div class="tab-pane" id="StudentReq" role="tabpanel" aria-labelledby="viewStudentReqTab"><br>   
+                    <div class="row">
+                        <label class="form-label col-lg-2 col-md-12 pt-1">Medical Record:</label>
+                        <div class="col-lg-7 mb-3">
+                            <input name="medical_record" class="form-control form-control-sm" type="file" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="form-label col-lg-2 col-md-12 pt-1">Form 137:</label>
+                        <div class="col-lg-7 mb-3">
+                            <input name="form_137" class="form-control form-control-sm" type="file" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="form-label col-lg-2 col-md-12 pt-1">Good Moral:</label>
+                        <div class="col-lg-7 mb-3">
+                            <input name="good_moral" class="form-control form-control-sm" type="file" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>  
     </div>
 
 

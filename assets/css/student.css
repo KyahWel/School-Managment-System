@@ -191,8 +191,6 @@ tr {
     padding: 15px 18px;
     border-radius: 50%;
 }
-
-/*View Page Details */
 #viewStudentInformation td{
     color: black;
     overflow: hidden;
@@ -200,9 +198,6 @@ tr {
     white-space: nowrap;
     padding: 15px 5px;
 }
-
-/* Professor View Page Tab-Header */
-
 ul#viewStudentTab.nav{
     background-color: #800000;
     border-bottom: none;
@@ -218,20 +213,20 @@ ul#viewStudentTab.nav{
     border-color: white;
     font-weight: 200;
 }
-button#viewStudentInformationTab.nav-link.active::before,
-button#viewStudentScheduleTab.nav-link.active::before,
+button#viewStudentInfoTab.nav-link.active::before,
+button#viewStudentSchedTab.nav-link.active::before,
 button#viewStudentEducTab.nav-link.active::before,
 button#viewStudentReqTab.nav-link.active::before{
     background: none;
 }
-div#StudentInformation.tab-pane.active.show::before,
-div#StudentSchedule.tab-pane.active::before,
+div#StudentInfo.tab-pane.active.show::before,
+div#StudentSched.tab-pane.active::before,
 div#StudentEduc.tab-pane.active::before,
 div#StudentReq.tab-pane.active::before{
     background: none;
 }
 
-/*View Page Tab-Content */
+/*View Tab-Content */
 div#viewStudentTabContent.tab-content{
     background: white;
     border-bottom-left-radius: 25px;
@@ -241,7 +236,7 @@ div#viewStudentTabContent.tab-content{
     color: rgb(95, 95, 95);
     font-weight: 200;
 }
-#StudentSchedule #table-body td,
+#StudentSched #table-body td,
 #StudentEduc #table-body td,
 #StudentReq #table-body td{
     font-weight: 200;
