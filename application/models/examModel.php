@@ -42,7 +42,8 @@ class examModel extends CI_Model {
 			'date' => $_POST['date'],
 			'time' => $_POST['time'],
 			'building' => $_POST['building'],
-			'room_no' => $_POST['room_no']
+			'room_no' => $_POST['room_no'],
+			'floor_no' => $_POST['floor_no']
 		);
 		$this->db->where('schedID',$id);
 		$this->db->update('exam_schedule',$data);

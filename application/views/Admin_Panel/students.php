@@ -73,218 +73,42 @@ include __DIR__.'/../includes/adminSideBar.php'
 			                    <th>Last Name</th>
 			                    <th>Course</th>
                                 <th>Section</th>
+                                <th>Status</th>
                                 <th>Action</th>
 		                    </tr>
                         </thead>
                         <tbody class="tbody">
-                            <tr>
-                                <td>Stud001-2001</td>
-                                <td>Jina</td>
-                                <td>San Pedro</td>
-                                <td>BSCS-NS</td> 
-                                <td>3A</td>
-                                <td>
-                                <div class="action-buttons">
-                                    <li><button type="button" id="view" class="btn" onclick="viewStudent()"><i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                    <li><button type="button" id="edit" class="btn" data-bs-toggle="modal" data-bs-target="#editStudent"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-                                    <li>
-                                        <div id="status">Activate</div>
-                                    </li>
-                                </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Stud002-2001</td>
-                                <td>Lida</td>
-                                <td>Cruz</td>
-                                <td>BSCS-NS</td> 
-                                <td>3A</td>
-                                <td>
-                                <div class="action-buttons">
-                                    <li><button type="button" id="view" class="btn" onclick="viewStudent()"><i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                    <li><button type="button" id="edit" class="btn" data-bs-toggle="modal" data-bs-target="#editStudent"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-                                    <li>
-                                        <div id="status">Activate</div>
-                                    </li>
-                                </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Stud003-2001</td>
-                                <td>Lida</td>
-                                <td>Cruz</td>
-                                <td>BSCS-NS</td> 
-                                <td>3A</td>
-                                <td>
-                                <div class="action-buttons">
-                                    <li><button type="button" id="view" class="btn" onclick="viewStudent()"><i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                    <li><button type="button" id="edit" class="btn" data-bs-toggle="modal" data-bs-target="#editStudent"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-                                    <li>
-                                        <div id="status">Activate</div>
-                                    </li>
-                                </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Stud004-2001</td>
-                                <td>Lida</td>
-                                <td>Cruz</td>
-                                <td>BSCS-NS</td> 
-                                <td>3A</td>
-                                <td>
-                                <div class="action-buttons">
-                                    <li><button type="button" id="view" class="btn" onclick="viewStudent()"><i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                    <li><button type="button" id="edit" class="btn" data-bs-toggle="modal" data-bs-target="#editStudent"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-                                    <li>
-                                        <div id="status">Activate</div>
-                                    </li>
-                                </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Stud005-2001</td>
-                                <td>Lida</td>
-                                <td>Cruz</td>
-                                <td>BSCS-NS</td> 
-                                <td>3A</td>
-                                <td>
-                                <div class="action-buttons">
-                                    <li><button type="button" id="view" class="btn" onclick="viewStudent()"><i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                    <li><button type="button" id="edit" class="btn" data-bs-toggle="modal" data-bs-target="#editStudent"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-                                    <li>
-                                        <div id="status">Activate</div>
-                                    </li>
-                                </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Stud006-2001</td>
-                                <td>Lida</td>
-                                <td>Cruz</td>
-                                <td>BSCS-NS</td> 
-                                <td>3A</td>
-                                <td>
-                                <div class="action-buttons">
-                                    <li><button type="button" id="view" class="btn" onclick="viewStudent()"><i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                    <li><button type="button" id="edit" class="btn" data-bs-toggle="modal" data-bs-target="#editStudent"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-                                    <li>
-                                        <div id="status">Activate</div>
-                                    </li>
-                                </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Stud007-2001</td>
-                                <td>Lida</td>
-                                <td>Cruz</td>
-                                <td>BSCS-NS</td> 
-                                <td>3A</td>
-                                <td>
-                                <div class="action-buttons">
-                                    <li><button type="button" id="view" class="btn" onclick="viewStudent()"><i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                    <li><button type="button" id="edit" class="btn" data-bs-toggle="modal" data-bs-target="#editStudent"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-                                    <li>
-                                        <div id="status">Activate</div>
-                                    </li>
-                                </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Stud008-2001</td>
-                                <td>Lida</td>
-                                <td>Cruz</td>
-                                <td>BSCS-NS</td> 
-                                <td>3A</td>
-                                <td>
-                                <div class="action-buttons">
-                                    <li><button type="button" id="view" class="btn" onclick="viewStudent()"><i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                    <li><button type="button" id="edit" class="btn" data-bs-toggle="modal" data-bs-target="#editStudent"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-                                    <li>
-                                        <div id="status">Activate</div>
-                                    </li>
-                                </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Stud009-2001</td>
-                                <td>Lida</td>
-                                <td>Cruz</td>
-                                <td>BSCS-NS</td> 
-                                <td>3A</td>
-                                <td>
-                                <div class="action-buttons">
-                                    <li><button type="button" id="view" class="btn" onclick="viewStudent()"><i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                    <li><button type="button" id="edit" class="btn" data-bs-toggle="modal" data-bs-target="#editStudent"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-                                    <li>
-                                        <div id="status">Activate</div>
-                                    </li>
-                                </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Stud001-2002</td>
-                                <td>Lida</td>
-                                <td>Cruz</td>
-                                <td>BSCS-NS</td> 
-                                <td>2A</td>
-                                <td>
-                                <div class="action-buttons">
-                                    <li><button type="button" id="view" class="btn" onclick="viewStudent()"><i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                    <li><button type="button" id="edit" class="btn" data-bs-toggle="modal" data-bs-target="#editStudent"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-                                    <li>
-                                        <div id="status">Activate</div>
-                                    </li>
-                                </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Stud002-2002</td>
-                                <td>Lida</td>
-                                <td>Cruz</td>
-                                <td>BSCS-NS</td> 
-                                <td>2A</td>
-                                <td>
-                                <div class="action-buttons">
-                                    <li><button type="button" id="view" class="btn" onclick="viewStudent()"><i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                    <li><button type="button" id="edit" class="btn" data-bs-toggle="modal" data-bs-target="#editStudent"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-                                    <li>
-                                        <div id="status">Activate</div>
-                                    </li>
-                                </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Stud003-2002</td>
-                                <td>Lida</td>
-                                <td>Cruz</td>
-                                <td>BSCS-NS</td> 
-                                <td>2A</td>
-                                <td>
-                                <div class="action-buttons">
-                                    <li><button type="button" id="view" class="btn" onclick="viewStudent()"><i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                    <li><button type="button" id="edit" class="btn" data-bs-toggle="modal" data-bs-target="#editStudent"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-                                    <li>
-                                        <div id="status">Activate</div>
-                                    </li>
-                                </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Stud004-2002</td>
-                                <td>Lida</td>
-                                <td>Cruz</td>
-                                <td>BSCS-NS</td> 
-                                <td>2A</td>
-                                <td>
-                                <div class="action-buttons">
-                                    <li><button type="button" id="view" class="btn" onclick="viewStudent()"><i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                    <li><button type="button" id="edit" class="btn" data-bs-toggle="modal" data-bs-target="#editStudent"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-                                    <li>
-                                        <div id="status">Activate</div>
-                                    </li>
-                                </div>
-                                </td>
-                            </tr>
+                            <?php foreach($student as $studentrow) {?>
+                                <tr>
+                                    <td><?php echo $studentrow->studentNumber?></td> 
+                                    <td><?php echo $studentrow->firstname;?></td>
+                                    <td><?php echo $studentrow->lastname?></td>
+                                    <td><?php echo $studentrow->course_chosen;?></td>
+                                    <td> </td>
+                                    <td><?php echo $studentrow->status;?></td>
+                                    <td>
+                                        <div class="action-buttons">
+                                            <?php if ($studentrow->status == 1): ?>
+                                                <li><button type="button" id="view" data-id='<?php echo $studentrow->studentID;?>' class="btn view_data" onclick="viewStudent()"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
+                                                <li><button type="button" id="edit" data-id='<?php echo $studentrow->studentID;?>' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editProfessor"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
+                                                <li>
+                                                <li><button type="button"  class="btn" id="status" onclick="location.href='<?php if($studentrow->status == 1){echo site_url('studentCRUDController/deactivate');} else {echo site_url('studentCRUDController/activate');}?>/<?php echo $studentrow->studentID; ?>'">
+                                                Deactivate
+                                                </button>
+                                                </li>
+                                            <?php else: ?>
+                                                <li><button type="button" id="view" data-id='<?php echo $studentrow->studentID;?>' class="btn" disabled style="background-color: gray;"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
+                                                <li><button type="button" id="edit" data-id='<?php echo $studentrow->studentID;?>' class="btn" disabled style="background-color: gray;"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
+                                                <li>
+                                                <li><button type="button"  class="btn"  id="status" onclick="location.href='<?php if($studentrow->status == 1){echo site_url('studentCRUDController/deactivate');} else {echo site_url('studentCRUDController/activate');}?>/<?php echo $studentrow->studentID; ?>'">
+                                                Activate
+                                                </button>
+                                                </li>	
+                                            <?php endif ?>
+                                        </div>
+                                    </td>
+                                </tr>    
+                             <?php } ?> 
                         </tbody>
                     </table>	
                 </div>

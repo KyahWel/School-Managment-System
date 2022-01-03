@@ -30,7 +30,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
                         <p class="text-center text-white p-2">Current Billboard</p>
                     </div>
                     <div class="billboardContent px-3">
-                        <div id="carouselControls" class="carousel slide" data-bs-ride="carousel">
+                        <div id="carouselControls" class="carousel carousel-dark slide " data-bs-ride="carousel">                     
                             <div class="carousel-inner">
                                  <div class="carousel-item active" >
                                         <dl class="mx-4">
@@ -41,22 +41,25 @@ include __DIR__ . '/../includes/adminSideBar.php'
                                         </dl>
                                     </div>
                                 <?php foreach($announcement as $announcement) {?>
-                                    <div class="carousel-item" >
-                                        <dl class="mx-4">
-                                            <dt>
-                                                <h5 class="title">Title: <?php echo $announcement->title?>, When: <?php echo $announcement->date?>, <?php echo $announcement->time?></h5>
-                                            </dt>
-                                            <dd class="details">Details <br> <?php echo $announcement->details?></dd>
-                                        </dl>
-                                    </div>
+                                    <?php if ($announcement->status == 1): ?>
+                                        <div class="carousel-item" >
+                                            <dl class="mx-4">
+                                                <dt>
+                                                    <h5 class="title">Title: <?php echo $announcement->title?>, When: <?php echo $announcement->date?>, <?php echo $announcement->time?></h5>
+                                                </dt>
+                                                <dd class="details">Details <br> <?php echo $announcement->details?></dd>
+                                            </dl>
+                                     </div>
+                                    <?php endif ?>
                                 <?php } ?> 
+                                 
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon visually-hidden" aria-hidden="true"></span>
+                                <span class="carousel-control-prev-icon " aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
                             <button class="carousel-control-next" type="button" data-bs-target="#carouselControls" data-bs-slide="next">
-                                <span class="carousel-control-next-icon visually-hidden" aria-hidden="true"></span>
+                                <span class="carousel-control-next-icon " aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
@@ -97,20 +100,15 @@ include __DIR__ . '/../includes/adminSideBar.php'
                                 </tr>
                             </thead>
                             <tbody>
+                             <?php foreach($student as $studentrow) {?>
                                 <tr>
-                                    <td>Stud001-2001</td>
-                                    <td>Rivera</td>
-                                    <td>Wally</td>
-                                    <td>BSCS-3A-NS</td>
-                                    <td>Regular</td>
-                                </tr>
-                                <tr>
-                                    <td>Stud002-2001</td>
-                                    <td>Castro</td>
-                                    <td>Dexter</td>
-                                    <td>BSCS-3A-NS</td>
-                                    <td>Regular</td>
-                                </tr>
+                                    <td><?php echo $studentrow->studentNumber?></td> 
+                                    <td><?php echo $studentrow->firstname;?></td>
+                                    <td><?php echo $studentrow->lastname?></td>
+                                    <td> </td>
+                                    <td><?php echo $studentrow->status;?></td>
+                                </tr> 
+                             <?php } ?> 
                             </tbody>
                         </table>
                     </div>

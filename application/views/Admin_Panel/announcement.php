@@ -93,8 +93,8 @@ include __DIR__.'/../includes/adminSideBar.php'
             <?php foreach($result as $row) {?>
               <tr>
                 <td><?php echo $row->title; ?></td> 
-                <td><?php echo $row->date; ?></td>
-                <td><?php echo $row->time; ?></td> 
+                <td><?php echo date('m/d/Y', strtotime($row->date))?></td>
+                <td><?php echo date('h:i:s a', strtotime($row->time))?></td>
                 <td><?php echo $row->details; ?></td> 
                 <td><?php echo $row->status; ?></td> 
                 <td>

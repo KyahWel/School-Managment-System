@@ -10,7 +10,7 @@ class studentModel extends CI_Model {
 	public function insertData()
 	{	
 		$digits = 4;
-		$year = 19;
+		$year = 21;
 		do{
 			$holder = "TUPM-".$year."-".rand(pow(10, $digits-1), pow(10, $digits)-1);
 			$this->db->select('*');
@@ -34,7 +34,7 @@ class studentModel extends CI_Model {
 
 	public function viewData()
 	{
-		$query = $this->db->query('SELECT * FROM student_accounts RIGHT JOIN applicant_accounts ON student_accounts.applicantID = applicant_accounts.applicantID');
+		$query = $this->db->query('SELECT * FROM student_accounts LEFT JOIN applicant_accounts ON student_accounts.applicantID = applicant_accounts.applicantID');
 		return $query->result();
 	}
 

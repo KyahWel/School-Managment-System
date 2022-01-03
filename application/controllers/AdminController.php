@@ -11,6 +11,9 @@ class AdminController extends CI_Controller {
 		$this->load->model('teacherModel');
 		$this->load->model('courseModel');
 		$this->load->model('subjectModel');
+		$this->load->model('studentModel');
+		$this->load->model('examModel');
+		$this->load->model('applicantModel');
 	}
 
 	public function login(){
@@ -46,7 +49,9 @@ class AdminController extends CI_Controller {
 
 	public function admission()
 	{
-        $this->load->view('Admin_Panel/admission');
+		$data['exam'] = $this->examModel->viewData();
+		$data['applicant'] = $this->applicantModel->viewData();
+        $this->load->view('Admin_Panel/admission',$data);
 	}
 
 	public function announcement()
@@ -70,6 +75,7 @@ class AdminController extends CI_Controller {
 	{	
 		$data['announcement'] = $this->eventsModel->getAllData();
 		$data['teacher'] = $this->teacherModel->viewData();
+		$data['student'] = $this->studentModel->viewData();
 		$this->load->view('Admin_Panel/dashboard',$data);
 	}
 	
@@ -94,7 +100,8 @@ class AdminController extends CI_Controller {
 
 	public function students()
 	{
-        $this->load->view('Admin_Panel/students');
+		$data['student'] = $this->studentModel->viewData();
+        $this->load->view('Admin_Panel/students',$data);
 	}
 
 	public function changePassword()
