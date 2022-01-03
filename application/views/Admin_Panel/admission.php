@@ -9,28 +9,190 @@ include __DIR__ . '/../includes/adminSideBar.php'
 <div class="height-100 pt-2 container-fluid pb-3">
     <h3 class="pt-3" id="tab" style="display:block">Admission</h3>
 
+    <!--Add exam Schedule-->
+    <div class="col-12 align-self-center" id="create" style="display: block;">
+        <div class="accordion accordion-flush" id="accordion-addExamSchedule">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#addExamSchedule" aria-expanded="false" aria-controls="addExamSchedule">
+                        Add Exam Schedule
+                    </button>
+                </h2>
+                <div id="addExamSchedule" class="accordion-collapse collapse" aria-labelledby="addExamScheduleHeader" data-bs-parent="#accordion-addExamSchedule">
+                    <div class="accordion-body">
+                        <form method="POST" action="#" class="formExam">
+                            <div class="row mb-3">
+                                <div class="col-lg-6 col-md-12">
+                                    <!--Date-->
+                                    <label class="form-label">Date</label>
+                                    <input type="date" class="form-control" name="date">
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <!--Time-->
+                                    <label class="form-label">Time</label>
+                                    <input type="time" class="form-control" name="time">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-lg-6 col-md-12">
+                                    <!--Building-->
+                                    <label class="form-label">Building</label>
+                                    <select class="form-select" name="building">
+                                        <option value="" disabled selected hidden>--Please Select--</option>
+                                        <option value="College of Science">College of Science</option>
+                                        <option value="College of Engineering">College of Engineering</option>
+                                        <option value="College of Industrial Education">College of Industrial Education</option>
+                                        <option value="College of Architecture and Fine Arts">College of Architecture and Fine Arts</option>
+                                        <option value="College of Liberal Arts">College of Liberal Arts</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-6 col-md-12">
+                                    <!--Time-->
+                                    <label class="form-label">Room Number</label>
+                                    <input type="text" class="form-control" name="room_no">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-12">
+                                    <!--Time-->
+                                    <label class="form-label">Floor Number</label>
+                                    <input type="text" class="form-control" name="floor_no">
+                                </div>
+                            </div>
+                            <div class="addExamScheduleButton d-flex justify-content-end">
+                                <!--Buttons-->
+                                <button class="btn btn-default" id="examSave" type="submit" name="submit" value="save">Save</button>
+                                <button class="btn btn-default" id="examCancel" type="reset" value="cancel">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!--Tab Title -->
-    <div class="col-12 align-self-center my-" id="viewApplicantEnrolledStudents" style="display:block">
+    <div class="col-12 align-self-center my-3 " id="viewApplicantEnrolledStudents" style="display:block">
         <ul class="nav nav-tabs d-flex flex-row justify-content-start" id="viewTab" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link student active" id="viewApplicantButton" data-bs-toggle="tab" data-bs-target="#applicantTabContent" type="button" role="tab" aria-controls="applicantTabContent" aria-selected="true">Applicant</button>
+                <button class="nav-link active" id="viewSchedButton" data-bs-toggle="tab" data-bs-target="#scheduleTabContent" type="button" role="tab" aria-controls="scheduleTabContent" aria-selected="true">Exam Schedule</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link faculty" id="viewEnrollmenttButton" data-bs-toggle="tab" data-bs-target="#enrollmentTabContent" type="button" role="tab" aria-controls="enrollmentTabContent" aria-selected="false">Enrollment</button>
+                <button class="nav-link" id="viewApplicantButton" data-bs-toggle="tab" data-bs-target="#applicantTabContent" type="button" role="tab" aria-controls="applicantTabContent" aria-selected="true">Applicant</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="viewEnrollmenttButton" data-bs-toggle="tab" data-bs-target="#enrollmentTabContent" type="button" role="tab" aria-controls="enrollmentTabContent" aria-selected="false">Enrollment</button>
             </li>
         </ul>
-        <form action="" method="post" id="AddApplicants">
-            <!-- Applicant List -->
-            <div class="tab-content p-3" id="viewApplTab">
-                <div class="tab-pane show active" id="applicantTabContent" role="tabpanel" aria-labelledby="Applicants">
+        <div class="tab-content ">
+            <!-- Information Tab -->
+            <div class="tab-pane show active pt-3" id="scheduleTabContent" role="tabpanel" aria-labelledby="scheduleTab Content">
+                <div class="table-responsive">
+                    <table class=" table align-middle  table-striped table-borderless table-hover" id="table-bodySched">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Building</th>
+                                <th>Room Number</th>
+                                <th>Floor Number</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2021-12-09 </td>
+                                <td>16:00:00</td>
+                                <td>College of Engineering</td>
+                                <td>COE-321</td>
+                                <td>3</td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button type="button" id="editSched" class="btn view_data" data-bs-toggle="modal" data-bs-target="#editExamSchedule">
+                                            <i class="fas fa-pen" data-bs-toggle="tooltip" title="View"></i> Edit
+                                        </button>
+                                        <button type="button" id="deactSched" class="btn edit_data">
+                                            Deactivate
+                                        </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!--Edit Exam Schedule-->
+            <div class="modal fade" id="editExamSchedule" tabindex="-1" aria-labelledby="editAnnouncementHeader" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h6 class="modal-title p-0" id="editAnnouncementHeader">Edit Announcement</h6>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="edit_event">
+                                <div class="row mb-3">
+                                    <div class="col-lg-6 col-md-12">
+                                        <!--Date-->
+                                        <label class="form-label">Date</label>
+                                        <input type="date" class="form-control" name="date">
+                                    </div>
+                                    <div class="col-lg-6 col-md-12">
+                                        <!--Time-->
+                                        <label class="form-label">Time</label>
+                                        <input type="time" class="form-control" name="time">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-lg-6 col-md-12">
+                                        <!--Building-->
+                                        <label class="form-label">Building</label>
+                                        <select class="form-select" name="building">
+                                            <option value="" disabled selected hidden>--Please Select--</option>
+                                            <option value="College of Science">College of Science</option>
+                                            <option value="College of Engineering">College of Engineering</option>
+                                            <option value="College of Industrial Education">College of Industrial Education</option>
+                                            <option value="College of Architecture and Fine Arts">College of Architecture and Fine Arts</option>
+                                            <option value="College of Liberal Arts">College of Liberal Arts</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12">
+                                        <!--Time-->
+                                        <label class="form-label">Room Number</label>
+                                        <input type="text" class="form-control" name="room_no">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-12">
+                                        <!--Time-->
+                                        <label class="form-label">Floor Number</label>
+                                        <input type="text" class="form-control" name="floor_no">
+                                    </div>
+                                </div>
+                                <div class="addExamScheduleButton mt-4 d-flex justify-content-end">
+                                    <!--Buttons-->
+                                    <button class="btn btn-default" id="examEditSave" type="submit" name="submit" value="save">Save</button>
+                                    <button class="btn btn-default" id="examEditCancel" type="reset" value="cancel">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Applicant Tab -->
+            <div class="tab-pane" id="applicantTabContent" role="tabpanel" aria-labelledby="Applicants">
+                <form action="" method="post" id="AddApplicants">
                     <!-- Filter and Search -->
-                    <div class=" d-flex  align-items-center my-1">
+                    <div class=" d-flex  align-items-center my-1 p-3">
                         <div class="px-2 pt-2 text-dark">
                             <input type="checkbox" name="addAll" id="checkApplicant" onclick="checkedAll.call(this);" /> Select all
                         </div>
                         <div class="ms-auto">
-                            <label class="mb-2">Filter by:</label>
-                            <select name="stats"required placeholder="status">
+                            <label class="mb-2 text-dark">Filter by:</label>
+                            <select name="stats" class="select" placeholder="status">
                                 <option value="" disabled selected hidden>Status</option>
                                 <option name="stats" value="Passed">Passed</option>
                                 <option name="stats" value="Failed">Failed</option>
@@ -78,7 +240,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
                             </tbody>
                         </table>
 
-                        <div class=" d-flex justify-content-end my-3">
+                        <div class=" d-flex justify-content-end my-3 p-3">
                             <button type="button" class="btn btn-primary btn-sm text-uppercase addALL px-3 " id="addAll" data-bs-toggle="modal" data-bs-target="#addApplicant">
                                 <i class="fas fa-plus fa-sm" title="Add All"></i> ADD ALL</button>
                         </div>
@@ -102,203 +264,202 @@ include __DIR__ . '/../includes/adminSideBar.php'
                             </div>
                         </div>
                     </div>
+                </form>
+            </div>
+            <!-- Section Tab -->
+            <div class="tab-pane " id="enrollmentTabContent" role="tabpanel" aria-labelledby="Enrollment">
+                <div class=" d-flex justify-content-end my-1">
+                    <label class="px-2 pt-1 mb-2">Search ID: </label>
+                    <input type="text" id="searchStudentID" name="searchStudentID" placeholder="Search Student ID">
+                    <button type="button" class="btn btn-sm mx-1 searchBG" id="searchStudentIDIcon"><i class="fas fa-search"></i></button>
                 </div>
-        </form>
-
-        <!-- Enrollment List -->
-        <div class="tab-pane show" id="enrollmentTabContent" role="tabpanel" aria-labelledby="Enrollment">
-            <div class=" d-flex justify-content-end my-1">
-                <label class="px-2 pt-1 mb-2">Search ID: </label>
-                <input type="text" id="searchStudentID" name="searchStudentID" placeholder="Search Student ID">
-                <button type="button" class="btn btn-sm mx-1 searchBG" id="searchStudentIDIcon"><i class="fas fa-search"></i></button>
+                <div class="table-responsive">
+                    <table class="table align-middle table-striped table-borderless table-hover" id="table-bodyEnroll">
+                        <!--Table Body-->
+                        <thead>
+                            <tr>
+                                <th>Student ID</th>
+                                <th style="width: 200px;">Name</th>
+                                <th>College</th>
+                                <th>Course</th>
+                                <th>Year Level</th>
+                                <th> </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>TUPM-STUDENT-1234</td>
+                                <td>Lida Cruz</td>
+                                <td>COS</td>
+                                <td>BS-Computer Science</td>
+                                <td>Third</td>
+                                <td>
+                                    <button type="button" onclick="lastpage()" class="btn btn-primary text-white text-uppercase confirmBtn">Confirm Enrollment</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>TUPM-STUDENT-1234</td>
+                                <td>Lida Cruz</td>
+                                <td>COS</td>
+                                <td>BS-Computer Science</td>
+                                <td>Third</td>
+                                <td>
+                                    <button type="button" onclick="lastpage()" class="btn btn-primary text-white text-uppercase confirmBtn">Confirm Enrollment</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
+        </div>
+    </div>
+    <!-- Enrollment Details/Confirmation Tab -->
+    <div class="height-100 pt-2 container-fluid" id='viewEnrollmentDetails' style="display:none">
+        <div class="mx-2">
+            <button type="button" class="btn btn btn-danger my-3" onclick="enrollment()" style="background:maroon; border:none; font-size:0.8rem">
+                <i class="fa fa-arrow-left"></i> Back</button>
+            <span class="confirmTitle m-2">Confirm Enrollment </span>
+        </div>
+
+        <div class="viewStudentContent d-flex align-items-center">
+            <div>
+                <img id="viewStudentAvatar" src="../assets/images/applicantAvatar.svg" alt="Applicant Avatar">
+            </div>
+
             <div class="table-responsive">
-                <table class="table align-middle table-striped table-borderless table-hover" id="table-bodyEnroll">
-                    <!--Table Body-->
-                    <thead>
-                        <tr>
-                            <th>Student ID</th>
-                            <th style="width: 200px;">Name</th>
-                            <th>College</th>
-                            <th>Course</th>
-                            <th>Year Level</th>
-                            <th> </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>TUPM-STUDENT-1234</td>
-                            <td>Lida Cruz</td>
-                            <td>COS</td>
-                            <td>BS-Computer Science</td>
-                            <td>Third</td>
-                            <td>
-                                <button type="button" onclick="lastpage()" class="btn btn-primary text-white text-uppercase confirmBtn">Confirm Enrollment</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>TUPM-STUDENT-1234</td>
-                            <td>Lida Cruz</td>
-                            <td>COS</td>
-                            <td>BS-Computer Science</td>
-                            <td>Third</td>
-                            <td>
-                                <button type="button" onclick="lastpage()" class="btn btn-primary text-white text-uppercase confirmBtn">Confirm Enrollment</button>
-                            </td>
-                        </tr>
-                    </tbody>
+                <table id="viewStudentInformation" class="table-body">
+                    <tr>
+                        <td class="px-3 pt-2">
+                            <p><b>Student ID:</b></p>
+                            <p><b>Name:</b></p>
+                            <p><b>Course:</b></p>
+                            <p><b>Term/Sem:</b></p>
+                        </td>
+                        <td class="pt-2 px-2">
+                            <p>TUPM-STUDENT21-1234</p>
+                            <p>Lida Cruz</p>
+                            <p>BS-Computer Science</p>
+                            <p>1st</p>
+                        </td>
+                    </tr>
                 </table>
             </div>
         </div>
-    </div>
-</div>
 
-<!-- Enrollment Details/Confirmation Tab -->
-<div class="height-100 pt-2 container-fluid" id='viewEnrollmentDetails' style="display:none">
-    <div class="mx-2">
-        <button type="button" class="btn btn btn-danger my-3" onclick="enrollment()" style="background:maroon; border:none; font-size:0.8rem" onclick="requirement()">
-            <i class="fa fa-arrow-left"></i> Back</button>
-        <span class="confirmTitle m-2">Confirm Enrollment </span>
-    </div>
-
-    <div class="viewStudentContent d-flex align-items-center">
-        <div>
-            <img id="viewStudentAvatar" src="../assets/images/applicantAvatar.svg" alt="Applicant Avatar">
-        </div>
-
-        <div class="table-responsive">
-            <table id="viewStudentInformation" class="table-body">
-                <tr>
-                    <td class="px-3 pt-2">
-                        <p><b>Student ID:</b></p>
-                        <p><b>Name:</b></p>
-                        <p><b>Course:</b></p>
-                        <p><b>Term/Sem:</b></p>
-                    </td>
-                    <td class="pt-2 px-2">
-                        <p>TUPM-STUDENT21-1234</p>
-                        <p>Lida Cruz</p>
-                        <p>BS-Computer Science</p>
-                        <p>1st</p>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>
-
-    <div class="enrollmentDetails mt-3 mb-5" id="details">
-        <div class="tabHeader">
-            <p class="text-center text-white p-2">Enrollment Details</p>
-        </div>
-        <div class="tabDetails p-3">
-            <h6 class="fw-bold px-4"> Subjects Enrolled</h6>
-            <div class="table-responsive">
-                <table class="table align-middle table-striped table-borderless table-hover px-2" id="table-bodyDetails">
-                    <!--Table Body-->
-                    <thead>
-                        <tr>
-                            <th>&nbsp;</th>
-                            <th style="width: 250px;">Subject Code</th>
-                            <th>Subject</th>
-                            <th>Units</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>ABC-12</td>
-                            <td>Data Structures and Algorithm</td>
-                            <td>3</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>ABC-13</td>
-                            <td>Data Analytics</td>
-                            <td>3</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>ABC-14</td>
-                            <td>Information Assurance and Security</td>
-                            <td>3</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>ABC-15</td>
-                            <td>Web Development</td>
-                            <td>3</td>
-                        </tr>
-                    </tbody>
-                </table>
+        <div class="enrollmentDetails mt-3 mb-5" id="details">
+            <div class="tabHeader">
+                <p class="text-center text-white p-2">Enrollment Details</p>
             </div>
-            <h6 class="fw-bold px-4"> Attachment Receipt</h6>
-            <img id="receiptAttachment" src="../assets/images/download.png" alt="Receipt Attachment" class="px-3">
+            <div class="tabDetails p-3">
+                <h6 class="fw-bold px-4"> Subjects Enrolled</h6>
+                <div class="table-responsive">
+                    <table class="table align-middle table-striped table-borderless table-hover px-2" id="table-bodyDetails">
+                        <!--Table Body-->
+                        <thead>
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th style="width: 250px;">Subject Code</th>
+                                <th>Subject</th>
+                                <th>Units</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>ABC-12</td>
+                                <td>Data Structures and Algorithm</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>ABC-13</td>
+                                <td>Data Analytics</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>ABC-14</td>
+                                <td>Information Assurance and Security</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>ABC-15</td>
+                                <td>Web Development</td>
+                                <td>3</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h6 class="fw-bold px-4"> Attachment Receipt</h6>
+                <img id="receiptAttachment" src="../assets/images/download.png" alt="Receipt Attachment" class="px-3">
 
-            <!-- Receipt Modal -->
-            <div id="myModal" class="modal modalReceipt">
-            <span class="close">&times;</span>
-                <img class="modal-content modalReceiptContent" id="receipt01">
-                <div id="caption" class="text-center"></div>
-            </div>
+                <!-- Receipt Modal -->
+                <div id="myModal" class="modal modalReceipt">
+                    <span class="close">&times;</span>
+                    <img class="modal-content modalReceiptContent" id="receipt01">
+                    <div id="caption" class="text-center"></div>
+                </div>
 
-            <div class=" d-flex justify-content-end my-3 mx-2">
-                <button type="button" class="btn btn-primary text-uppercase confirmEnrollment px-3" style="padding: 7px;"> Confirm</button>
+                <div class=" d-flex justify-content-end my-3 mx-2">
+                    <button type="button" class="btn btn-primary text-uppercase confirmEnrollment px-3" style="padding: 7px;"> Confirm</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
 
-<script type="text/javascript">
+    <script type="text/javascript">
+        var modal = document.getElementById("myModal");
 
-    var modal = document.getElementById("myModal");
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        var img = document.getElementById("receiptAttachment");
+        var modalImg = document.getElementById("receipt01");
+        var captionText = document.getElementById("caption");
+        img.onclick = function() {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+        }
 
-    // Get the image and insert it inside the modal - use its "alt" text as a caption
-    var img = document.getElementById("receiptAttachment");
-    var modalImg = document.getElementById("receipt01");
-    var captionText = document.getElementById("caption");
-    img.onclick = function() {
-        modal.style.display = "block";
-        modalImg.src = this.src;
-        captionText.innerHTML = this.alt;
-    }
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
 
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
 
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    function checkedAll() {
-        // this refers to the clicked checkbox
-        // find all checkboxes inside the checkbox' form
-        var elements = this.form.getElementsByTagName('input');
-        // iterate and change status
-        for (var i = elements.length; i--;) {
-            if (elements[i].type == 'checkbox') {
-                elements[i].checked = this.checked;
+        function checkedAll() {
+            // this refers to the clicked checkbox
+            // find all checkboxes inside the checkbox' form
+            var elements = this.form.getElementsByTagName('input');
+            // iterate and change status
+            for (var i = elements.length; i--;) {
+                if (elements[i].type == 'checkbox') {
+                    elements[i].checked = this.checked;
+                }
             }
         }
-    }
 
-    function lastpage() {
-        document.getElementById('viewEnrollmentDetails').style.display = "block";
-        document.getElementById('viewApplicantEnrolledStudents').style.display = "none";
-        document.getElementById('tab').style.display = "none";
+        function lastpage() {
+            document.getElementById('create').style.display = "none";
+            document.getElementById('viewEnrollmentDetails').style.display = "block";
+            document.getElementById('viewApplicantEnrolledStudents').style.display = "none";
+            document.getElementById('tab').style.display = "none";
 
-    }
+        }
 
-    function enrollment() {
-        document.getElementById('viewApplicantEnrolledStudents').style.display = "block";
-        document.getElementById('viewEnrollmentDetails').style.display = "none";
-        document.getElementById('tab').style.display = "block";
-    }
-</script>
+        function enrollment() {
+            document.getElementById('create').style.display = "block";
+            document.getElementById('viewApplicantEnrolledStudents').style.display = "block";
+            document.getElementById('viewEnrollmentDetails').style.display = "none";
+            document.getElementById('tab').style.display = "block";
+        }
+    </script>
 
-<script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
-</body>
+    <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
+    </body>
 
-</html>
+    </html>
