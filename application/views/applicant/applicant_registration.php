@@ -64,11 +64,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <!-- Contents -->
             <div class="col d-flex flex-column">
                 <div class="container-fluid" id="steps" style="display: block;">
-                    <!-- <div class="mt-3 applicant-head text-white px-3">
-                        Appicant ID: <span class="fw-bold"> Applicant-21-2123 </span>
-                    </div> -->
 
-                    <!--Information -->
                     <div class=" mt-3 applicant-head text-dark px-3 rounded-3 information ">
                         <div class="d-flex align-items-center">
                             <div class="flex-shrink-0">

@@ -66,7 +66,7 @@ class ExamController extends CI_Controller {
 					<div class="addExamScheduleButton mt-4 d-flex justify-content-end">
 						<!--Buttons-->
 						<button class="btn btn-default" id="examEditSave" type="submit" name="submit" value="save">Save</button>
-						<button class="btn btn-default" id="examEditCancel" type="reset" value="cancel">Cancel</button>
+						<button class="btn btn-default" id="examEditCancel" data-bs-dismiss="modal" value="cancel">Cancel</button>
 					</div>
 				</form>';
 			echo $output;
