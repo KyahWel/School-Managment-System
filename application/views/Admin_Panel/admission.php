@@ -302,9 +302,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
                 <p class="text-center text-white p-2">Applicant ID: TUPM-21APPL-2133</p>
             </div>
             <div class="tabDetails px-4">
-
-
-                <h6 class="text-dark fw-bold">PERSONAL INFORMATION</h6>
+                <h6 class="step fw-bold"> <i class="fa fa-user px-2"></i> PERSONAL INFORMATION</h6>
                 <p class="my-4 "> <b>Course Chosen: </b>Bachelor of Science in Computer Science</p>
                 <hr>
                 <div class="row">
@@ -322,7 +320,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
 
                     </div>
                     <div class="col-lg-6">
-                        <p class="text-dark fw-bold pb-2">PERMANENT ADDRESS</p>
+                        <p class="text-dark fw-bold pb-2"> PERMANENT ADDRESS</p>
                         <p><b>Unit #:</b> </p>
                         <p><b>Street: </b> </p>
                         <p><b>Barangay: </b> </p>
@@ -332,26 +330,26 @@ include __DIR__ . '/../includes/adminSideBar.php'
                     </div>
                 </div>
                 <hr>
-                <h6 class="text-dark fw-bold text-uppercase my-4">Educational Attainment: School Last Attended</h6>
+                <h6 class="step fw-bold text-uppercase py-4"><i class="fa fa-user-graduate px-2"></i>Educational Attainment: School Last Attended</h6>
                 <p><b>Name of School: </b> </p>
                 <p><b>Program/Track: </b>Accountancy, Business and Management- ABM</p>
                 <p><b>School Address: </b> </p>
                 <p><b>Year Level: </b> </p>
                 <p><b>Year Graduated: </b> </p>
                 <p><b>Category: </b> </p>
-                <p><b>GPA: </b> </p>
+                <p class="pb-3"><b>GPA: </b> </p>
                 <hr>
-                <h6 class="text-dark fw-bold text-uppercase my-4">Admission Requirements</h6>
+                <h6 class="step fw-bold text-uppercase py-4"><i class="fas fa-file px-2"></i> Admission Requirements</h6>
                 <div class="row mb-3">
-                    <div class="col-lg-4 col-md-12 col-sm-12 mb-2">
+                    <div class="mb-3">
                         Medical Clearance <br>
                         <img src="../assets/images/download.png" alt="Medical Clearance" class="rounded hover-shadow cursor" src="assets/images/download.png" onclick="openModal();currentSlide(1)" style="width: 200px;">
                     </div>
-                    <div class="col-lg-4 col-md-12 col-sm-12 mb-2">
+                    <div class="mb-3">
                         Form 137 <br>
                         <img src="../assets/images/download.png" alt="Form 137" class="rounded hover-shadow cursor" onclick="openModal();currentSlide(2)" style="width: 200px">
                     </div>
-                    <div class="col-lg-4 col-md-12 col-sm-12 mb-2">
+                    <div class="mb-3">
                         Good Moral <br>
                         <img src="../assets/images/download.png" alt="Good Moral" class="rounded hover-shadow cursor" onclick="openModal();currentSlide(3)" style="width: 200px;">
                     </div>
