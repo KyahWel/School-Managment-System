@@ -267,6 +267,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                         </div>
                     </div>
                 </div>
+                
             </div>
         </div>
 
@@ -274,4 +275,5 @@ include __DIR__.'/../includes/adminSideBar.php'
 
 </div>
 
+<script src="<?php echo base_url('assets/js/section.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
