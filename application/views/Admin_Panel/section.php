@@ -255,6 +255,167 @@ include __DIR__.'/../includes/adminSideBar.php'
                                                 <td>First Year</td>
                                                 <td>Course 1</td>
                                             </tr>
+                                            <tr>
+                                                <td style="text-align: justify"><input type="checkbox" class="mx-2">4</td>
+                                                <td>Stud001-2003</td>
+                                                <td>Sarah Jimenez</td>
+                                                <td>First Year</td>
+                                                <td>Course 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: justify"><input type="checkbox" class="mx-2">5</td>
+                                                <td>Stud001-2003</td>
+                                                <td>Sarah Jimenez</td>
+                                                <td>First Year</td>
+                                                <td>Course 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: justify"><input type="checkbox" class="mx-2">6</td>
+                                                <td>Stud001-2003</td>
+                                                <td>Sarah Jimenez</td>
+                                                <td>First Year</td>
+                                                <td>Course 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: justify"><input type="checkbox" class="mx-2">7</td>
+                                                <td>Stud001-2003</td>
+                                                <td>Sarah Jimenez</td>
+                                                <td>First Year</td>
+                                                <td>Course 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: justify"><input type="checkbox" class="mx-2">8</td>
+                                                <td>Stud001-2003</td>
+                                                <td>Sarah Jimenez</td>
+                                                <td>First Year</td>
+                                                <td>Course 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: justify"><input type="checkbox" class="mx-2">9</td>
+                                                <td>Stud001-2003</td>
+                                                <td>Sarah Jimenez</td>
+                                                <td>First Year</td>
+                                                <td>Course 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: justify"><input type="checkbox" class="mx-2">10</td>
+                                                <td>Stud001-2003</td>
+                                                <td>Sarah Jimenez</td>
+                                                <td>First Year</td>
+                                                <td>Course 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: justify"><input type="checkbox" class="mx-2">11</td>
+                                                <td>Stud001-2003</td>
+                                                <td>Sarah Jimenez</td>
+                                                <td>First Year</td>
+                                                <td>Course 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: justify"><input type="checkbox" class="mx-2">12</td>
+                                                <td>Stud001-2003</td>
+                                                <td>Sarah Jimenez</td>
+                                                <td>First Year</td>
+                                                <td>Course 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: justify"><input type="checkbox" class="mx-2">13</td>
+                                                <td>Stud001-2003</td>
+                                                <td>Sarah Jimenez</td>
+                                                <td>First Year</td>
+                                                <td>Course 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: justify"><input type="checkbox" class="mx-2">14</td>
+                                                <td>Stud001-2003</td>
+                                                <td>Sarah Jimenez</td>
+                                                <td>First Year</td>
+                                                <td>Course 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: justify"><input type="checkbox" class="mx-2">15</td>
+                                                <td>Stud001-2003</td>
+                                                <td>Sarah Jimenez</td>
+                                                <td>First Year</td>
+                                                <td>Course 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: justify"><input type="checkbox" class="mx-2">16</td>
+                                                <td>Stud001-2003</td>
+                                                <td>Sarah Jimenez</td>
+                                                <td>First Year</td>
+                                                <td>Course 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: justify"><input type="checkbox" class="mx-2">17</td>
+                                                <td>Stud001-2003</td>
+                                                <td>Sarah Jimenez</td>
+                                                <td>First Year</td>
+                                                <td>Course 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: justify"><input type="checkbox" class="mx-2">18</td>
+                                                <td>Stud001-2003</td>
+                                                <td>Sarah Jimenez</td>
+                                                <td>First Year</td>
+                                                <td>Course 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: justify"><input type="checkbox" class="mx-2">19</td>
+                                                <td>Stud001-2003</td>
+                                                <td>Sarah Jimenez</td>
+                                                <td>First Year</td>
+                                                <td>Course 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: justify"><input type="checkbox" class="mx-2">20</td>
+                                                <td>Stud001-2003</td>
+                                                <td>Sarah Jimenez</td>
+                                                <td>First Year</td>
+                                                <td>Course 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: justify"><input type="checkbox" class="mx-2">21</td>
+                                                <td>Stud001-2003</td>
+                                                <td>Sarah Jimenez</td>
+                                                <td>First Year</td>
+                                                <td>Course 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: justify"><input type="checkbox" class="mx-2">22</td>
+                                                <td>Stud001-2003</td>
+                                                <td>Sarah Jimenez</td>
+                                                <td>First Year</td>
+                                                <td>Course 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: justify"><input type="checkbox" class="mx-2">23</td>
+                                                <td>Stud001-2003</td>
+                                                <td>Sarah Jimenez</td>
+                                                <td>First Year</td>
+                                                <td>Course 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: justify"><input type="checkbox" class="mx-2">24</td>
+                                                <td>Stud001-2003</td>
+                                                <td>Sarah Jimenez</td>
+                                                <td>First Year</td>
+                                                <td>Course 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: justify"><input type="checkbox" class="mx-2">25</td>
+                                                <td>Stud001-2003</td>
+                                                <td>Sarah Jimenez</td>
+                                                <td>First Year</td>
+                                                <td>Course 1</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="text-align: justify"><input type="checkbox" class="mx-2">26</td>
+                                                <td>Stud001-2003</td>
+                                                <td>Sarah Jimenez</td>
+                                                <td>First Year</td>
+                                                <td>Course 1</td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
