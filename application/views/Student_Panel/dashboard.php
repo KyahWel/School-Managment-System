@@ -4,11 +4,12 @@ include __DIR__ . '/../includes/studentSideBar.php'
 
 <head>
     <link href="<?php echo base_url('assets/css/adminDashboard.css'); ?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url('assets/css/studentDashboard.css'); ?>" rel="stylesheet" type="text/css">
     <title>Dashboard</title>
 </head>
 
 <div class="height-100 pt-2 container-fluid">
-    <h3>Dashboard</h3>
+    <h3 class="fw-bold py-2">Dashboard</h3>
     <div class="row">
         <!-- Date today -->
         <div class="col-lg-4 col-md-6 col-sm-12 mb-2">
@@ -24,85 +25,87 @@ include __DIR__ . '/../includes/studentSideBar.php'
 
         <!-- Billboard -->
         <div class="col-lg-8 col-md-6 col-sm-12 mb-2">
-            <div class="billboard">
-                <div class="billboardTitle">
-                    <p class="text-center text-white p-2">Current Billboard</p>
-                </div>
-                <div class="billboardContent px-3">
-                    <dl>
-                        <dt>
-                            <h5 class="title">Title, When</h5>
-                        </dt>
-                        <dd class="details">Details</dd>
-                    </dl>
+                <div class="billboard">
+                    <div class="billboardTitle">
+                        <p class="text-center text-white p-2">Current Billboard</p>
+                    </div>
+                    <div class="billboardContent align-self-center text-center">
+                        <div id="carouselControls" class="carousel carousel-dark slide px-3 " data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active px-3">
+                                    <h5 class="front text-uppercase">Announcements will be posted here</h5>
+                                    <p class="details"></p>
+                                </div>
+                              <!-- php -->
+
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselControls" data-bs-slide="next">
+                                <span class="carousel-control-next-icon " aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
     </div>
 
 
     <!-- View Professor Table -->
-    <div class="col-12 align-self-center my-3" id="viewProfessorTable">
-        <ul class="nav nav-tabs text-dark d-flex flex-row justify-content-evenly" id="viewProfessorTab" role="tablist">
+    <div class="col-12 align-self-center my-3 pt-3 viewSched">
+        <ul class="nav nav-tabs text-dark d-flex flex-row justify-content-evenly" id="viewScehdule" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="viewProfessorInformationTab" data-bs-toggle="tab" data-bs-target="#ProfessorInformation" type="button" role="tab" aria-controls="ProfessorInformation" aria-selected="true">Mon</button>
+                <button class="nav-link active" id="viewProfessorInformationTab" data-bs-toggle="tab" data-bs-target="#monday" type="button" role="tab" aria-controls="ProfessorInformation" aria-selected="true">Monday</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="viewProfessorSubjectTab" data-bs-toggle="tab" data-bs-target="#ProfessorSubject" type="button" role="tab" aria-controls="ProfessorSubject" aria-selected="false">Tues</button>
+                <button class="nav-link" id="viewProfessorSubjectTab" data-bs-toggle="tab" data-bs-target="#tuesday" type="button" role="tab" aria-controls="ProfessorSubject" aria-selected="false">Tuesday</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="viewProfessorSectionTab" data-bs-toggle="tab" data-bs-target="#ProfessorSection" type="button" role="tab" aria-controls="ProfessorSection" aria-selected="false">Wed</button>
+                <button class="nav-link" id="viewProfessorSectionTab" data-bs-toggle="tab" data-bs-target="#wednesday" type="button" role="tab" aria-controls="ProfessorSection" aria-selected="false">Wednesday</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="viewProfessorSectionTab" data-bs-toggle="tab" data-bs-target="#ProfessorSection" type="button" role="tab" aria-controls="ProfessorSection" aria-selected="false">Thurs</button>
+                <button class="nav-link" id="viewProfessorSectionTab" data-bs-toggle="tab" data-bs-target="#thursday" type="button" role="tab" aria-controls="ProfessorSection" aria-selected="false">Thursday</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="viewProfessorSectionTab" data-bs-toggle="tab" data-bs-target="#ProfessorSection" type="button" role="tab" aria-controls="ProfessorSection" aria-selected="false">Fri</button>
+                <button class="nav-link" id="viewProfessorSectionTab" data-bs-toggle="tab" data-bs-target="#friday" type="button" role="tab" aria-controls="ProfessorSection" aria-selected="false">Friday</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="viewProfessorSectionTab" data-bs-toggle="tab" data-bs-target="#ProfessorSection" type="button" role="tab" aria-controls="ProfessorSection" aria-selected="false">Sat</button>
+                <button class="nav-link" id="viewProfessorSectionTab" data-bs-toggle="tab" data-bs-target="#ProfessorSection" type="button" role="tab" aria-controls="ProfessorSection" aria-selected="false">Saturday</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="viewProfessorSectionTab" data-bs-toggle="tab" data-bs-target="#ProfessorSection" type="button" role="tab" aria-controls="ProfessorSection" aria-selected="false">Sun</button>
+                <button class="nav-link" id="viewProfessorSectionTab" data-bs-toggle="tab" data-bs-target="#ProfessorSection" type="button" role="tab" aria-controls="ProfessorSection" aria-selected="false">Sunday</button>
             </li>
         </ul>
-        <div class="tab-content p-3" id="viewProfessorTabContent">
+        <div class="tab-content p-3" id="viewProfessorTabContent" style="background:transparent"> 
             <!-- Information Tab -->
-            <div class="tab-pane show active my-3" id="ProfessorInformation" role="tabpanel" aria-labelledby="viewProfessorInformationTab">
-                <div class="row">
+            <div class="tab-pane show active my-3" id="monday" role="tabpanel" aria-labelledby="viewProfessorInformationTab" >
+                di pa to tapos
+                <!-- <div class="row">
                     <div class="col-lg-3 col-md-6 mb-1">
-                        <!--Last Name-->
+                       
                         <input type="text" class="form-control" readonly>
                         <label class="form-label pt-2">Last Name</label>
                     </div>
                     <div class="col-lg-3 col-md-6 mb-1">
-                        <!--First Name-->
+                       
                         <input type="text" class="form-control" readonly>
                         <label class="form-label pt-2">First Name</label>
                     </div>
                     <div class="col-lg-3 col-md-6 mb-1">
-                        <!--Middle Name-->
+                    
                         <input type="text" class="form-control" readonly>
                         <label class="form-label pt-2">Middle Name</label>
                     </div>
                     <div class="col-lg-3 col-md-6 mb-1">
-                        <!--Suffix-->
+                       
                         <input type="text" class="form-control" readonly>
                         <label class="form-label pt-2">Suffix</label>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 mb-1">
-                        <!--Phone Number-->
-                        <input type="text" class="form-control" readonly>
-                        <label class="form-label pt-2">Phone Number</label>
-                    </div>
-                    <div class="col-lg-6 col-md-6 mb-1">
-                        <!--Email-->
-                        <input type="text" class="form-control" readonly>
-                        <label class="form-label pt-2">Email</label>
-                    </div>
-                </div>
+                </div> -->
+                
             </div>
             <!-- Subject Tab -->
             <div class="tab-pane" id="ProfessorSubject" role="tabpanel" aria-labelledby="viewProfessorSubjectTab">
