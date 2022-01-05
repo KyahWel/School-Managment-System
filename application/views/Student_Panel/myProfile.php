@@ -362,11 +362,6 @@ include __DIR__ . '/../includes/studentSideBar.php'
                             <i class="fas fa-angle-double-left fa-lg"></i>
                             Previous
                         </button>
-
-                        <button type="button" class="btn btn-warning ms-auto mb-3 text-center" style="width: 7rem;" onclick="final_step()">
-                            Next
-                            <i class="fas fa-angle-double-right fa-lg"></i>
-                        </button>
                     </div>
                 </div>
             </div>
