@@ -149,7 +149,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
                 <div class="modal-dialog modal-lg modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h6 class="modal-title p-0" id="editExamHeader">Edit Examination Schedule</h6>
+                            <h6 class="modal-title p-0 text-white" id="editExamHeader">Edit Examination Schedule</h6>
                             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -167,7 +167,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
             <div class="tab-pane" id="applicantTabContent" role="tabpanel" aria-labelledby="Applicants">
                 <form action="" method="post" id="AddApplicants">
                     <!-- Filter and Search -->
-                    <div class=" d-flex  align-items-center my-1 p-3">
+                    <div class=" d-flex  align-items-center my-1 pt-3 px-3">
                         <div class="px-0 pt-2 text-dark">
                             <input type="checkbox" name="addAll" id="checkApplicant" onclick="checkedAll.call(this);" /> Select all
                         </div>
@@ -243,7 +243,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
 
             <!-- Enrollment Tab -->
             <div class="tab-pane " id="enrollmentTabContent" role="tabpanel" aria-labelledby="Enrollment">
-                <div class=" d-flex justify-content-end my-1">
+                <div class=" d-flex justify-content-end my-1 pt-3 px-3">
                     <label class="px-2 pt-1 mb-2">Search ID: </label>
                     <input type="text" id="searchStudentID" name="searchStudentID" placeholder="Search Student ID">
                     <button type="button" class="btn btn-sm mx-1 searchBG" id="searchStudentIDIcon"><i class="fas fa-search"></i></button>
@@ -341,15 +341,15 @@ include __DIR__ . '/../includes/adminSideBar.php'
                 <hr>
                 <h6 class="step fw-bold text-uppercase py-4"><i class="fas fa-file px-2"></i> Admission Requirements</h6>
                 <div class="row mb-3">
-                    <div class="mb-3">
+                    <div class="mb-3 fw-bold">
                         Medical Clearance <br>
                         <img src="../assets/images/download.png" alt="Medical Clearance" class="rounded hover-shadow cursor" src="assets/images/download.png" onclick="openModal();currentSlide(1)" style="width: 200px;">
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3 fw-bold">
                         Form 137 <br>
                         <img src="../assets/images/download.png" alt="Form 137" class="rounded hover-shadow cursor" onclick="openModal();currentSlide(2)" style="width: 200px">
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3 fw-bold">
                         Good Moral <br>
                         <img src="../assets/images/download.png" alt="Good Moral" class="rounded hover-shadow cursor" onclick="openModal();currentSlide(3)" style="width: 200px;">
                     </div>

@@ -16,14 +16,14 @@
 
 <body oncontextmenu='return false' class="snippet-body body-pd" id="body-pd">
     <header class="header body-pd" id="header">
-        <div class="header_toggle">
+    <div class="header_toggle">
             <i class='fa fa-bars' id="header-toggle"></i>
             <span class="brand"> Technological University of the Philippines</span>
         </div>
         <div class="text-white ms-auto email">
-            TUP-STUD-0000
+            TUPM-STUDENT21-2323
         </div>
-        <!-- <div class="header_img"> <img src="assets/images/avatar.svg" alt=""></div> -->
+        <div class="header_img"> <img src="../assets/images/studentAvatar.svg" alt="">
     </header>
 
     <div class="l-navbar side" id="nav-bar">
@@ -31,9 +31,9 @@
         <nav class="nav">
             <div>
                 <div class="nav_list">
-                    <div class="welcome text-dark pt-3 fw-bold" id="welcome" style="color: steelblue; font-size:1rem">
-                        <i class='fa fa-user nav_icon px-2' style="color:steelblue;"></i>
-                        Hello, Student!
+                    <div class="welcome text-dark pt-3 fw-bold"  style="color: steelblue; font-size:1rem">
+                        <i class='fa fa-user nav_icon ' style="color:steelblue;"></i>
+                        <span class="nav_name">Hello, Student!</span>  
                         <hr>
                     </div>
                     <a href="<?php echo base_url('StudentController/dashboard'); ?>" class="nav_link pt-3"> <i class='fa fa-th-large nav_icon'></i> <span class="nav_name">Dashboard</span> </a>
