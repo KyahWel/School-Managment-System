@@ -14,31 +14,15 @@ class AdminController extends CI_Controller {
 		$this->load->model('studentModel');
 		$this->load->model('examModel');
 		$this->load->model('applicantModel');
-	}
-
-	public function login(){
-		$data = $this->AdminModel->login();
-			if($data != NULL){ 
-				if($data->status == 1){
-					$auth_userdetails = [
-						'adminID' => $data->adminID,
-						'firstname' =>  $data->firstname,
-						'lastname' =>  $data->lastname,
-						'adminNumber' =>  $data->adminNumber
-					];
-					$this->session->set_userdata('auth_admin',$auth_userdetails);
-					redirect('Admin/dashboard');
-				}
-				else{
-					$this->session->set_flashdata('status','Invalid Email or Password'); //Palitan ng error message, deactivated yung account
- 					redirect('Homepage#');
-				}
-			}
-			else{
-				$this->session->set_flashdata('status','Invalid Email or Password'); //Palitan ng error message, invalid email or password
-				redirect('Homepage#');
-			}
+		$this->load->model('Authentication');
 		
+		if ($this->session->userdata('authenticated') != '1'){
+			$this->session->set_flashdata('status','Please logout first'); 
+			if ($this->session->userdata('authenticated') == '2')
+				redirect('Faculty/Dashboard');
+			else
+				redirect('Student/Dashboard');
+		}
 	}
 
 	public function admin()

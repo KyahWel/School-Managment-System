@@ -7,6 +7,15 @@ class FacultyController extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('teacherModel');
+		$this->load->model('eventsModel');
+		$this->load->model('Authentication');
+		if ($this->session->userdata('authenticated') != '2'){
+			$this->session->set_flashdata('status','Please logout first'); 
+			if ($this->session->userdata('authenticated') == '1')
+				redirect('Admin/dashboard');
+			else
+				redirect('Student/dashboard');
+		}
 	}
 
 	public function addFaculty($id)
@@ -111,7 +120,8 @@ class FacultyController extends CI_Controller {
 
 	public function dashboard()
 	{
-		$this->load->view('Faculty_Panel/dashboard');
+		$data['announcement'] = $this->eventsModel->getAllData();
+		$this->load->view('Faculty_Panel/dashboard',$data);
 	}
 
 	public function myProfile()

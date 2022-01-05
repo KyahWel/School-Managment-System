@@ -9,7 +9,21 @@ include __DIR__ . '/../includes/studentSideBar.php'
 </head>
 
 <div class="height-100 pt-2 container-fluid">
-    <h3 class="fw-bold py-2">Dashboard</h3>
+    <!-- If user accessed login page or other pages -->
+    <?php if($this->session->flashdata('status')) : ?>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <?= $this->session->flashdata('status'); ?>
+                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+            </div>
+        <?php elseif($this->session->flashdata('success')): ?>
+        <!-- Successfull change password alert -->
+            <div class="alert alert-success alert-dismissible fade show">
+                <?= $this->session->flashdata('success'); ?>
+                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+            </div>
+    <?php endif; ?>
+    
+    <h3>Dashboard</h3>
     <div class="row">
         <!-- Date today -->
         <div class="col-lg-4 col-md-6 col-sm-12 mb-2">
@@ -36,7 +50,14 @@ include __DIR__ . '/../includes/studentSideBar.php'
                                     <h5 class="front text-uppercase">Announcements will be posted here</h5>
                                     <p class="details"></p>
                                 </div>
-                              <!-- php -->
+                                <?php foreach ($announcement as $announcement) { ?>
+                                    <?php if ($announcement->status == 1) : ?>
+                                        <div class="carousel-item px-5">
+                                            <h5 class="title">Title: <?php echo $announcement->title ?>, <?php echo $announcement->date ?>, <?php echo $announcement->time ?></h5>
+                                            <p class="details px-5">Details <br> <?php echo $announcement->details ?></p>
+                                        </div>
+                                    <?php endif ?>
+                                <?php } ?>
 
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
@@ -50,7 +71,6 @@ include __DIR__ . '/../includes/studentSideBar.php'
                         </div>
                     </div>
                 </div>
-            </div>
     </div>
 
 

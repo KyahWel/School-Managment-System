@@ -11,6 +11,7 @@
     <link href="<?php echo base_url('assets/css/sideBarMAIN.css'); ?>" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url('assets/css/admintabsMAIN.css'); ?>" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url('assets/css/changePassword.css'); ?>" rel="stylesheet" type="text/css">
+    <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 </head>
 
 <body oncontextmenu='return false' class="snippet-body body-pd" id="body-pd">
@@ -20,7 +21,7 @@
             <span class="brand"> Technological University of the Philippines</span>
         </div>
         <div class="text-white ms-auto email">
-            <?= $this->session->userdata('auth_admin')['adminNumber'] ?>
+            <?= $this->session->userdata('auth_user')['adminNumber'] ?>
         </div>
         <div class="header_img"> <img src="../assets/images/avatar.svg" alt="">
 
@@ -40,7 +41,7 @@
             <div>
                 <div class="nav_list">
                     <div class="welcome text-dark pt-3 fw-bold" id="welcome" style="color: steelblue; font-size:1rem">
-                        Hello, <?= $this->session->userdata('auth_admin')['firstname'] ?>
+                        Hello, <?= $this->session->userdata('auth_user')['firstname'] ?>
                         <hr>
                     </div>
                     <a href="<?php echo base_url('Admin/dashboard'); ?>" class="nav_link pt-3"> <i class='fa fa-th-large nav_icon'></i> <span class="nav_name">Dashboard</span> </a>
@@ -56,7 +57,7 @@
                     <a href="<?php echo base_url('Admin/changePassword'); ?>" class="nav_link"> <i class='fa fa-key nav_icon'></i> <span class="nav_name">Change Password</span> </a>
                 </div>
             </div>
-            <a href="<?php echo base_url('homepage'); ?>" class="nav_link" id="logout"> <i class='fa fa-sign-out-alt nav_icon'></i> <span class="nav_name">LogOut</span> </a>
+            <a href="<?php echo base_url('Logout'); ?>" class="nav_link" id="logout"> <i class='fa fa-sign-out-alt nav_icon'></i> <span class="nav_name">LogOut</span> </a>
         </nav>
     </div>
 

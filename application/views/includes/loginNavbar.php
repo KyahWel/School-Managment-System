@@ -2,7 +2,7 @@
 
 <nav class="navbar fixed-top navbar-expand-md navbar-light">
         <div class="container-fluid">
-            <a href="login.html" class="navbar-brand">
+            <a href="<?php echo base_url('Login'); ?>" class="navbar-brand">
                 <!-- Logo Image -->
                 <img src="../assets/images/logo.png" width="55" alt="" class="d-inline-block align-middle mr-2">
                 <!-- Logo Text -->
@@ -17,7 +17,7 @@
             <div class="collapse navbar-collapse " id="navbarCollapse">
                 <ul class="navbar-nav ms-auto" id="navs">
                     <li class="nav-item">
-                        <a class="nav-link " href="<?php echo base_url('Login/home'); ?>">HOME</a>
+                        <a class="nav-link " href="<?php echo base_url('Login'); ?>">HOME</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url('Login/student'); ?>">STUDENTS</a>

@@ -9,10 +9,11 @@
   <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
   <link href="<?php echo base_url('assets/css/mainLogin.css'); ?>" rel="stylesheet" type="text/css">
   <link href="<?php echo base_url('assets/css/home.css'); ?>" rel="stylesheet" type="text/css">
+  <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
   <title>ERS | Technological University of the Philippines</title>
   <style>
     .background {
-      background: url(../assets/images/bg.png) no-repeat center/cover #f4f4f4;
+      background: url(assets/images/bg.png) no-repeat center/cover #f4f4f4;
       position: relative;
       height: 100vh;
     }
@@ -28,9 +29,9 @@
 <body>
   <nav class="navbar fixed-top navbar-expand-md navbar-light">
     <div class="container-fluid">
-      <a href="login.html" class="navbar-brand">
+      <a href="<?php echo base_url('Login'); ?>" class="navbar-brand">
         <!-- Logo Image -->
-        <img src="../assets/images/logo.png" width="55" alt="" class="d-inline-block align-middle mr-2">
+        <img src="assets/images/logo.png" width="55" alt="" class="d-inline-block align-middle mr-2">
         <!-- Logo Text -->
         <span class="font-weight-bold">Technological University of the Philippines</span>
       </a>
@@ -40,6 +41,15 @@
   <div class="background">
     <!-- HOME PAGE -->
     <div class="wrapper-button" id="Home" style="display: block;">
+    
+    <!-- Invalid username or password -->
+     <?php if($this->session->flashdata('status')) : ?>
+      <div class="alert alert-success alert-dismissible fade show">
+        <?= $this->session->flashdata('status'); ?>
+        <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+      </div>
+      <?php endif; ?>
+
       <h1>Access Modules</h1>
       <a href="<?php echo base_url('Login/student'); ?>">
         <button class="btn login-btn ">Students</button>
