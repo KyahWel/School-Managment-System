@@ -8,6 +8,7 @@ class Login extends CI_Controller {
         $this->load->model('AdminModel');
 		$this->load->model('studentModel');
 		$this->load->model('teacherModel');
+		$this->load->model('applicantModel');
 		if ($this->session->has_userdata('authenticated')){
 			$this->session->set_flashdata('status','Please logout first'); 
 			if ($this->session->userdata('authenticated') == '1')
@@ -37,6 +38,11 @@ class Login extends CI_Controller {
 	public function admin()
 	{
         $this->load->view('Login/admin');
+	}
+
+	public function applicant()
+	{
+        $this->load->view('Login/applicant');
 	}
 
 	public function admin_login(){
@@ -116,7 +122,7 @@ class Login extends CI_Controller {
 			}
 			else{
 				$this->session->set_flashdata('status','Invalid Username or Password'); 
-				//redirect('Login/student');
+				redirect('Login/student');
 			}
 	}
 
@@ -141,6 +147,53 @@ class Login extends CI_Controller {
 				redirect('Login/faculty');
 			}
 	}
-	
+
+	public function applicant_login(){
+		$data = $this->applicantModel->login();
+		if($data != NULL){ 
+			$this->session->set_userdata('authenticated',"4");
+			$auth_userdetails = [
+				'applicantID' => $data->applicantID,
+				'applicantNumber' => $data->applicantNumber,
+				'firstname' => $data->firstname,
+				'middlename' => $data->middlename,
+				'lastname' => $data->lastname,
+				'extname' => $data->extname,
+				'course' => $data->course_chosen,
+				'LRN' => $data->LRN,
+				'gender' => $data->gender,
+				'age' => $data->age,
+				'birthday' => $data->birthday,
+				'birthplace' => $data->birthplace,
+				'contactnum' => $data->contactnum,
+				'firstname' => $data->firstname,
+				'landline' => $data->landline,
+				'email' => $data->email,
+				'unit' => $data->unit,
+				'street' => $data->street,
+				'barangay' => $data->barangay,
+				'city' => $data->city,
+				'province' => $data->province,
+				'zipcode' => $data->zipcode,
+				'school' => $data->last_school_attended,
+				'track' => $data->track,
+				'school_address' => $data->school_address,
+				'yearlevel' => $data->year_level,
+				'yeargraduated' => $data->year_graduated,
+				'category' => $data->category,
+				'gpa' => $data->gpa,
+				'form137' => $data->form_137,
+				'medical_record' => $data->medical_record,
+				'goodmoral' => $data->good_moral
+			];
+			$this->session->set_userdata('auth_user',$auth_userdetails);
+			$this->session->set_userdata('authenticated',"4");
+			redirect('Applicant/'.$data->applicantID);
+		}
+		else{
+			$this->session->set_flashdata('status','Applicant number not found'); 
+			redirect('Login/applicant');
+		}
+	}
 	
 }

@@ -144,11 +144,11 @@ class applicantModel extends CI_Model {
 		$this->db->from('applicant_accounts');
 		$this->db->where($data);
 		$query=$this->db->get();
-		if($query->num_rows()==0)
-			return NULL;
-		else 
+		if($query->num_rows()!=0)
 			return $query->row();
-	}
+		else 
+			return NULL;
+	}	
 
 
 }

@@ -20,8 +20,8 @@ class studentModel extends CI_Model {
 		}while($query->num_rows()>0);
 		$data = array(
 			'studentID' => NULL,
-			'username' => $_POST['username'],
-			'password' => $_POST['password'],
+			'username' => $holder,
+			'password' => password_hash($_POST['password'],PASSWORD_DEFAULT),
 			'studentNumber' => $holder,
 			'applicantID' => $_POST['applicantID'],
 			'type' => $_POST['type'],

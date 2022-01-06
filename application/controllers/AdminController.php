@@ -20,8 +20,10 @@ class AdminController extends CI_Controller {
 			$this->session->set_flashdata('status','Please logout first'); 
 			if ($this->session->userdata('authenticated') == '2')
 				redirect('Faculty/Dashboard');
-			else
+			elseif ($this->session->userdata('authenticated') == '3')
 				redirect('Student/Dashboard');
+			else 
+				redirect('Applicant/'.$this->session->userdata('auth_user')['applicantID']);
 		}
 	}
 

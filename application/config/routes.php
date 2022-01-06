@@ -57,6 +57,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['Login/Students'] = 'Login/students';
 $route['Login/Faculty'] = 'Login/faculty';
 $route['Login/Admin'] = 'Login/admin';
+$route['Login/Applicant'] = 'Login/applicant';
 
 //Admin Routes
 $route['Admin/dashboard'] = 'AdminController/dashboard';
@@ -80,3 +81,7 @@ $route['Student/Drop_Subject'] = 'studentController/dropSubject';
 $route['Student/changePassword'] = 'studentController/changePassword';
 
 //Faculty Routes
+$route['Faculty/Dashboard'] = 'facultyController/dashboard';
+
+//Applicant Routes
+$route['Applicant/(:any)'] = 'applicantController/viewApplicant/$1';

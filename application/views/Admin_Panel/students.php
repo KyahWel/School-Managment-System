@@ -92,7 +92,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                                                 <li><button type="button" id="view" data-id='<?php echo $studentrow->studentID;?>' class="btn view_data" onclick="viewStudent()"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
                                                 <li><button type="button" id="edit" data-id='<?php echo $studentrow->studentID;?>' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editProfessor"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
                                                 <li>
-                                                <li><button type="button"  class="btn" id="status" onclick="location.href='<?php if($studentrow->status == 1){echo site_url('studentCRUDController/deactivate');} else {echo site_url('studentCRUDController/activate');}?>/<?php echo $studentrow->studentID; ?>'">
+                                                <li><button type="button"  class="btn" id="status" onclick="location.href='<?php if($studentrow->status == 1){echo site_url('studentControllerFunctions/deactivate');} else {echo site_url('studentControllerFunctions/activate');}?>/<?php echo $studentrow->studentID; ?>'">
                                                 Deactivate
                                                 </button>
                                                 </li>
@@ -100,7 +100,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                                                 <li><button type="button" id="view" data-id='<?php echo $studentrow->studentID;?>' class="btn" disabled style="background-color: gray;"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
                                                 <li><button type="button" id="edit" data-id='<?php echo $studentrow->studentID;?>' class="btn" disabled style="background-color: gray;"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
                                                 <li>
-                                                <li><button type="button"  class="btn"  id="status" onclick="location.href='<?php if($studentrow->status == 1){echo site_url('studentCRUDController/deactivate');} else {echo site_url('studentCRUDController/activate');}?>/<?php echo $studentrow->studentID; ?>'">
+                                                <li><button type="button"  class="btn"  id="status" onclick="location.href='<?php if($studentrow->status == 1){echo site_url('studentControllerFunctions/deactivate');} else {echo site_url('studentControllerFunctions/activate');}?>/<?php echo $studentrow->studentID; ?>'">
                                                 Activate
                                                 </button>
                                                 </li>	
@@ -191,7 +191,7 @@ include __DIR__.'/../includes/adminSideBar.php'
       $('.view_data').click(function(){
          var id = $(this).data('id');
          $.ajax({
-          url: "<?php echo site_url('studentController/view');?>",
+          url: "<?php echo site_url('studentControllerFunctions/view');?>",
           method: "POST",
           data: {id:id},
           success: function(data){
