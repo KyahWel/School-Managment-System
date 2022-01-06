@@ -31,11 +31,11 @@ include __DIR__.'/../includes/adminSideBar.php'
 
                     <div id="addProfessor" class="accordion-collapse collapse" aria-labelledby="addProfessorHeader" data-bs-parent="#accordion-addProfessor">
                         <div class="accordion-body">
-                            <form method="POST" action="<?php echo site_url('FacultyController/addFaculty')?>/<?= $this->session->userdata('auth_admin')['adminID']?>" id="addProfessorForm">
+                            <form method="POST" action="<?php echo site_url('FacultyController/addFaculty')?>/<?= $this->session->userdata('auth_user')['adminID']?>" id="addProfessorForm">
                                 <div class="row mb-3">
                                     <div class="col"> <!--Creator ID-->
                                         <label class="form-label">Creator ID</label>
-                                        <input type="text" class="form-control" name="creatorID" disabled value="<?= $this->session->userdata('auth_admin')['adminID']?>">
+                                        <input type="text" class="form-control" name="creatorID" disabled value="<?= $this->session->userdata('auth_user')['adminID']?>">
                                     </div>
                                 </div>
                                 <div class="row mb-3">

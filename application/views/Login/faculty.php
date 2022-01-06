@@ -9,6 +9,7 @@
   <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
   <link href="<?php echo base_url('assets/css/mainLogin.css'); ?>" rel="stylesheet" type="text/css">
   <link href="<?php echo base_url('assets/css/home.css'); ?>" rel="stylesheet" type="text/css">
+  <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
   <title>ERS | Faculty Login</title>
   <style>
     .background {
@@ -32,12 +33,17 @@
   <div class="background">
     <!-- FACULTY ACCESS MODULE -->
     <div class="wrapper">
+
+       <!-- Invalid username or password -->
+       <?php if($this->session->flashdata('status')) : ?>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <?= $this->session->flashdata('status'); ?>
+                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+            </div>
+        <?php endif; ?>
+
       <h3><strong>Faculty Access Module</strong></h3>
-      <form action="#" method="POST">
-
-        <!-- Invalid username or password -->
-        <div class="errormsg" id="invalid"></div>
-
+      <form action="<?php echo site_url('Login/faculty_login') ?>" method="POST">
         <hr>
         <!-- Username -->
         <div class="form-group mb-4">

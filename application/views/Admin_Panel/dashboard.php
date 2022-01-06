@@ -9,6 +9,20 @@ include __DIR__ . '/../includes/adminSideBar.php'
 
 <body>
     <div class="height-100 pt-2 container-fluid">
+        <!-- If user accessed login page or other pages -->
+        <?php if($this->session->flashdata('status')) : ?>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <?= $this->session->flashdata('status'); ?>
+                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+            </div>
+        <?php elseif($this->session->flashdata('success')): ?>
+        <!-- Successfull change password alert -->
+            <div class="alert alert-success alert-dismissible fade show">
+                <?= $this->session->flashdata('success'); ?>
+                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+            </div>
+        <?php endif; ?>
+
         <h3 class="mt-2">Dashboard</h3>
         <div class="row">
             <!-- Date today -->

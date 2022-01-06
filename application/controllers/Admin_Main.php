@@ -13,7 +13,6 @@ class Admin_Main extends CI_Controller {
 	{
 		if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['firstname']) && isset($_POST['lastname'])){
 			$this->AdminModel->insertData();
-			redirect("Admin/admin");
 		}
 	}
 	public function viewAdmin()
@@ -103,12 +102,6 @@ class Admin_Main extends CI_Controller {
 
 	public function changePass($id)
 	{	
-		if($id != 1){
-			$this->AdminModel->changePassword($id);
-			
-		}
-		
-		redirect("Admin/dashboard");
-		//Create error page
+		$this->AdminModel->changePassword($id);
 	}
 }

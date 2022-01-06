@@ -76,4 +76,19 @@ class teacherModel extends CI_Model {
 		$this->db->update('teacher_accounts',$data);
 	}
 
+	public function login(){
+		$data = array(
+			'username' => $_POST['username'],
+			'password' => $_POST['password']
+		);
+		
+		$this->db->select('*');
+		$this->db->from('teacher_accounts');
+		$this->db->where($data);
+		$query=$this->db->get();
+		if($query->num_rows()!=0)
+			return $query->row();
+		else 
+			return NULL;
+	}
 }

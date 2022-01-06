@@ -9,6 +9,7 @@
     <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/css/mainLogin.css'); ?>" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url('assets/css/home.css'); ?>" rel="stylesheet" type="text/css">
+    <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
     <title>ERS | Student Login</title>
     <style>
         .background {
@@ -32,20 +33,17 @@ include __DIR__.'/../includes/loginNavbar.php'
 <div class="background">
     <!-- STUDENTS ACCESS -->
     <div class="wrapper">
+
+        <!-- Invalid username or password -->
+        <?php if($this->session->flashdata('status')) : ?>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <?= $this->session->flashdata('status'); ?>
+                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+            </div>
+        <?php endif; ?>
+
         <h3><strong>Student Access Module</strong></h3>
-        <form action="#" method="POST">
-
-            <!-- Invalid username or password -->
-            <div class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
-  <div class="d-flex">
-    <div class="toast-body">
-      Hello, world! This is a toast message.
-    </div>
-    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-  </div>
-</div>
-
-            <hr>
+        <form action="<?php echo site_url('Login/student_login') ?>" method="POST">
             <!-- Username -->
             <div class="form-group mb-4">
                 <label for="username">Student Number</label>
