@@ -9,8 +9,8 @@ include __DIR__ . '/../includes/studentSideBar.php'
 
 <div class="height-100 pt-2 container-fluid">
     <div class="container my-3" id="mainGrades" style="display: block;">    
-        <div class="GradesTab my-3">
-            <h3>Grades</h3>
+        <div class="GradesTab pt-2">
+            <h3>View Grades</h3>
         </div>
         <div class="container-fluid " id="steps" style="display: block;">
             <div class=" mt-3 applicant-head text-dark px-3 rounded-3 information alert alert-danger">
@@ -77,13 +77,13 @@ include __DIR__ . '/../includes/studentSideBar.php'
                     <table class="table table-default align-middle table-striped table-borderless table-hover" id="table-body">
                         <thead>
                             <tr>
-			                    <th>Subject Code</th>
-			                    <th>Subject Name</th>
-			                    <th>Teacher</th>
-			                    <th>Units</th>
-                                <th>Section</th>
-                                <th>Average</th>
-                                <th>Remarks</th>
+			                    <th class="py-3">Subject Code</th>
+			                    <th class="py-3">Subject Name</th>
+			                    <th class="py-3">Teacher</th>
+			                    <th class="py-3">Units</th>
+                                <th class="py-3">Section</th>
+                                <th class="py-3">Average</th>
+                                <th class="py-3">Remarks</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -170,11 +170,12 @@ include __DIR__ . '/../includes/studentSideBar.php'
                             </tr> 
                         </tbody>
                     </table>	
-                    <div class="col-12 mb-1 text-end px-5 fw-bold text-decoration-underline">GPA: 1.38</div>
+                    <div class="col-12 mb-1 text-end px-5 py-3 fw-bold text-decoration-underline" style="font-size: 1rem;">GPA: 1.38</div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="py-2"></div>
 </div>
 
 <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
