@@ -31,53 +31,45 @@
 include __DIR__.'/../includes/loginNavbar.php'
 ?>
 <div class="background">
-    <!-- STUDENTS ACCESS -->
-    <div class="wrapper">
-
-        <!-- Invalid username or password -->
+ 
+    <!-- APPLICANT LOGIN ACCESS MODULE -->
+    <div class="wrapper" id="applicantLogin">
+             
         <?php if($this->session->flashdata('status')) : ?>
             <div class="alert alert-danger alert-dismissible fade show">
                 <?= $this->session->flashdata('status'); ?>
                 <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
             </div>
+        <?php elseif($this->session->flashdata('success')): ?>
+        <!-- Successfull change password alert -->
+            <div class="alert alert-success alert-dismissible fade show">
+                <?= $this->session->flashdata('success'); ?>
+                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+            </div>
         <?php endif; ?>
 
-        <h3><strong>Student Access Module</strong></h3>
-        <form action="<?php echo site_url('Login/student_login') ?>" method="POST">
+        <h3 class="applicant"> <strong>Applicant Access Module</strong></h3>
+        <form action="applicant_login" method="POST">
+            <hr>
+
             <!-- Username -->
             <div class="form-group mb-4">
-                <label for="username">Student Number</label>
+                <label for="username">Applicant Number</label>
                 <div class="input-group-addon">
                     <i class="fa fa-user"></i>
                 </div>
-                <input type="text" class="form-control" id="username" name="username" placeholder="Student Number" required>
-            </div>
-
-            <!-- Password -->
-            <div class="form-group mb-4">
-                <label for="password">Password</label>
-                <div class="input-group-addon">
-                    <i class="fa fa-key"></i>
-                </div>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                <input type="text" class="form-control" name="username" placeholder="Applicant Number" required>
             </div>
 
             <!-- clear entries and login button -->
-            <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-toolbar justify-content-between mb-5" role="toolbar" aria-label="Toolbar with button groups">
                 <input type="reset" class="btn btn-default" name="reset" value="Clear entries"></input>
-
-                <input type="submit" class="btn btn-default " value="Login">
+                <input type="submit" class="btn btn-default " name="login" value="Login"></input>
             </div>
 
-
-            <p class="text-left">
-                <a href="#!">Forgot password?</a><br>
-            </p>
-
-            <p class="text-left1">
-                Applicant?
-                <a href="applicant" onclick="applicantLogin()">Click here!</a><br>
-            </p>
+            <!--<p class= "notice">
+             </p> -->
+            <button type="button" class="btn btn-default apply" name="apply" onclick="location.href='<?php echo site_url('applicantRegistration') ?>'">APPLY</button>
         </form>
     </div>
 </div>

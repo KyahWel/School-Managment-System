@@ -38,7 +38,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                        <button type="reset" class="btn btn-primary">Yes</button>
+                        <button type="reset" class="btn btn-primary" onclick="location.href='<?php echo site_url('Login/applicant'); ?>'">Yes</button>
                     </div>
                 </div>
             </div>

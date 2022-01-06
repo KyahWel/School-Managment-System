@@ -28,7 +28,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                     </div>
 
                     <!-- Password input-->
-                    <form class="px-4 " method="POST" action="../studentController/changePass/<?= $this->session->userdata('auth_user')['studentID']?>">
+                    <form class="px-4 " method="POST" action="../studentControllerFunctions/changePass/<?= $this->session->userdata('auth_user')['studentID']?>">
                         <div class="form-group row mb-2 px-1">
                             <label for="oldpassword" class="form-label col-lg-3 col-md-4 col-sm-12 pt-1 fw-bold">Old Password:</label>
                             <div class="col-lg-5 col-md-8 col-sm-12">

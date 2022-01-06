@@ -13,8 +13,10 @@ class FacultyController extends CI_Controller {
 			$this->session->set_flashdata('status','Please logout first'); 
 			if ($this->session->userdata('authenticated') == '1')
 				redirect('Admin/dashboard');
-			else
+			elseif ($this->session->userdata('authenticated') == '3')
 				redirect('Student/dashboard');
+			else
+				redirect('Applicant/'.$this->session->userdata('auth_user')['applicantID']);
 		}
 	}
 

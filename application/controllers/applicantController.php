@@ -7,28 +7,16 @@ class applicantController extends CI_Controller {
 		parent::__construct();
 		$this->load->model('applicantModel');
 		$this->load->model('courseModel');
-		
-		$this->load->helper(array('form', 'url','file'));
-	}
-
-	public function applicantData(){
-		$data['applicant'] = $this->applicantModel->login();
-		if($data != NULL){ 
-			$this->load->view('/applicant/applicantDataRead',$data);
+		$this->load->model('Authentication');
+		if ($this->session->userdata('authenticated') != '4'){
+			$this->session->set_flashdata('status','Please logout first'); 
+			if ($this->session->userdata('authenticated') == '1')
+				redirect('Admin/dashboard');
+			elseif  ($this->session->userdata('authenticated') == '2')
+				redirect('Faculty/Dashboard');
+			else
+				redirect('Student/Dashboard');
 		}
-		else{
-			redirect('Homepage#');
-		}
-	}
-
-	public function index()
-	{
-		$data['course'] = $this->courseModel->viewData();
-		$this->load->view('applicant/applicant_registration',$data);
-		if(isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_FILES['medical_record']) && isset($_FILES['form_137']) && isset($_FILES['good_moral'])){
-			$this->applicantModel->insertData();
-			redirect('Homepage/registration_final_step');
-		}	
 	}
 
 	public function viewAllApplicant(){
@@ -39,7 +27,7 @@ class applicantController extends CI_Controller {
 	public function viewApplicant($id)
 	{
 		$data['applicant'] = $this->applicantModel->getData($id);
-		$this->load->view('/applicant/applicant_data',$data);
+		$this->load->view('/applicant/applicantDataRead',$data);
 	}
 
 
@@ -55,13 +43,5 @@ class applicantController extends CI_Controller {
 		$this->load->view('/applicant/applicant_data',$data);
 	}
 
-	public function addApplicant()
-	{	
-		$data['course'] = $this->courseModel->viewData();
-		$this->load->view('applicant_registration',$data);
-		if(isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_FILES['medical_record']) && isset($_FILES['form_137']) && isset($_FILES['good_moral'])){
-			$this->applicantModel->insertData();
-			redirect('Welcome');
-	}
-}
+
 }
