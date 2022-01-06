@@ -11,13 +11,6 @@
     border: 1px solid grey;
 }
 
-@media only screen and (max-width: 768px) {
-    .profile-pic-div {
-        height: 140px;
-        width: 200px;
-    }
-}
-
 #photo {
     height: 100%;
     width: 100%;
@@ -46,7 +39,7 @@
 }
 
 .table-body td {
-    max-width: 350px;
+    max-width: 200px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

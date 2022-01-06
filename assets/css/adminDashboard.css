@@ -17,7 +17,7 @@ body {
 }
 
 .billboard .billboardTitle {
-    background: linear-gradient(to right, #ffd89b 0%, #19547b 100%);
+    background: maroon;
     border-radius: 25px 25px 0 0;
 }
 
@@ -50,9 +50,9 @@ h5.front {
 /* calendar css */
 
 .calendar {
-    background: maroon;
+    background: rgb(143, 0, 0);
     height: 200px;
-    border-radius: 15px;
+    border-radius: 25px;
     border: 0.1px solid rgb(221, 220, 220);
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
     margin: 0 10px;

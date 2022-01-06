@@ -21,78 +21,7 @@
 .nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active {
     color: white;
-    background: #d66d75;
+    background: #D54C4C;
     border-color: white;
     font-weight: 200;
-}
-
-.box-wrapper {
-    display: block;
-    position: relative;
-    z-index: 1;
-    border: 2px solid #7f9cb1;
-    background: linear-gradient(to right, #ddd6f3 0%, #faaca8 100%);
-    overflow: hidden;
-    border-radius: 6px;
-    /*hidden the content inside*/
-}
-
-.box-wrapper1 {
-    display: block;
-    position: relative;
-    z-index: 1;
-    border: 2px solid #7f9cb1;
-    border-radius: 6px;
-    background: linear-gradient(to left, #ee9ca7 0%, #ffdde1 100%);
-    overflow: hidden;
-    /*hidden the content inside*/
-}
-
-.box-wrapper3 {
-    display: block;
-    position: relative;
-    z-index: 1;
-    border: 2px solid #7f9cb1;
-    border-radius: 6px;
-    background: linear-gradient(to right, #E8CBC0 0%, #636FA4 100%);
-    overflow: hidden;
-    color: black;
-    letter-spacing: 1px;
-    font-weight: 600;
-    /*hidden the content inside*/
-}
-
-.box-wrapper4 {
-    display: block;
-    position: relative;
-    z-index: 1;
-    border: 2px solid #7f9cb1;
-    border-radius: 6px;
-    background: linear-gradient(to right, #91EAE4 0%, #86A8E7 100%);
-    overflow: hidden;
-    color: white;
-    /*hidden the content inside*/
-}
-
-.tab-content {
-    background-color: white;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
-    height: fit-content;
-    border: 0.1px solid rgb(221, 220, 220);
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
-}
-
-.box-wrapper:hover .box-content {
-    top: 0;
-    /*bring the content back*/
-}
-
-.viewSched .timetable-item {
-    border: 1px solid #d8e3eb;
-    padding: 15px;
-    margin-top: 20px;
-    position: relative;
-    display: block;
-    overflow: none;
 }
