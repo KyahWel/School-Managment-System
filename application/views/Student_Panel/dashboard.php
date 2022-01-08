@@ -23,7 +23,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
         </div>
     <?php endif; ?>
 
-    <h3>Dashboard</h3>
+    <h3 class="py-32">Dashboard</h3>
     <div class="row">
         <!-- Date today -->
         <div class="col-lg-4 col-md-6 col-sm-12 mb-2">
@@ -112,7 +112,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <div class="box-wrapper1 p-4" href="#">
+                            <div class="box-wrapper p-4" href="#">
                                 <div class="timetable-item-time">4:00pm - 5:00pm</div>
                                 <div class="timetable-item-name">Contemporary Dance</div>
                                 <div class="box-content1">
@@ -130,7 +130,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <div class="box-wrapper1 p-4" href="#">
+                            <div class="box-wrapper p-4" href="#">
                                 <div class="timetable-item-time">4:00pm - 5:00pm</div>
                                 <div class="timetable-item-name">Contemporary Dance</div>
                                 <div class="box-content">
@@ -141,10 +141,10 @@ include __DIR__ . '/../includes/studentSideBar.php'
                 </div>
 
                 <!-- Tuesday -->
-                <div class="tab-pane" id="tuesday" role="tabpanel" aria-labelledby="Tuesday">
+                <div class="tab-pane " id="tuesday" role="tabpanel" aria-labelledby="Tuesday">
                     <div class="row mb-3">
                         <div class="col-lg-6">
-                            <div class="box-wrapper3 p-4" href="#">
+                            <div class="box-wrapper p-4" href="#">
                                 <div class="timetable-item-time">8:00am - 12:00pm</div>
                                 <div class="timetable-item-name">Software Engineering</div>
                                 <div class="box-content">
@@ -152,7 +152,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <div class="box-wrapper3 p-4" href="#">
+                            <div class="box-wrapper p-4" href="#">
                                 <div class="timetable-item-time">4:00pm - 5:00pm</div>
                                 <div class="timetable-item-name">Contemporary Dance</div>
                                 <div class="box-content1">
@@ -162,7 +162,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                     </div>
                     <div class="row">
                         <div class="col-lg-6 mb-3">
-                            <div class="box-wrapper3 p-4" href="#">
+                            <div class="box-wrapper p-4" href="#">
                                 <div class="timetable-item-time">8:00am - 12:00pm</div>
                                 <div class="timetable-item-name">Software Engineering</div>
                                 <div class="box-content">
@@ -170,7 +170,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <div class="box-wrapper3 p-4" href="#">
+                            <div class="box-wrapper p-4" href="#">
                                 <div class="timetable-item-time">4:00pm - 5:00pm</div>
                                 <div class="timetable-item-name">Contemporary Dance</div>
                                 <div class="box-content">
@@ -192,7 +192,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <div class="box-wrapper1 p-4" href="#">
+                            <div class="box-wrapper p-4" href="#">
                                 <div class="timetable-item-time">4:00pm - 5:00pm</div>
                                 <div class="timetable-item-name">Contemporary Dance</div>
                                 <div class="box-content1">
@@ -210,7 +210,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <div class="box-wrapper1 p-4" href="#">
+                            <div class="box-wrapper p-4" href="#">
                                 <div class="timetable-item-time">4:00pm - 5:00pm</div>
                                 <div class="timetable-item-name">Contemporary Dance</div>
                                 <div class="box-content">
@@ -223,7 +223,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                 <div class="tab-pane" id="thursday" role="tabpanel" aria-labelledby="Thursday">
                 <div class="row mb-3">
                         <div class="col-lg-6">
-                            <div class="box-wrapper3 p-4" href="#">
+                            <div class="box-wrapper p-4" href="#">
                                 <div class="timetable-item-time">8:00am - 12:00pm</div>
                                 <div class="timetable-item-name">Software Engineering</div>
                                 <div class="box-content">
@@ -231,7 +231,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <div class="box-wrapper3 p-4" href="#">
+                            <div class="box-wrapper p-4" href="#">
                                 <div class="timetable-item-time">4:00pm - 5:00pm</div>
                                 <div class="timetable-item-name">Contemporary Dance</div>
                                 <div class="box-content1">
@@ -241,7 +241,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                     </div>
                     <div class="row">
                         <div class="col-lg-6 mb-3">
-                            <div class="box-wrapper3 p-4" href="#">
+                            <div class="box-wrapper p-4" href="#">
                                 <div class="timetable-item-time">8:00am - 12:00pm</div>
                                 <div class="timetable-item-name">Software Engineering</div>
                                 <div class="box-content">
@@ -249,7 +249,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <div class="box-wrapper3 p-4" href="#">
+                            <div class="box-wrapper p-4" href="#">
                                 <div class="timetable-item-time">4:00pm - 5:00pm</div>
                                 <div class="timetable-item-name">Contemporary Dance</div>
                                 <div class="box-content">
@@ -270,7 +270,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <div class="box-wrapper1 p-4" href="#">
+                            <div class="box-wrapper p-4" href="#">
                                 <div class="timetable-item-time">4:00pm - 5:00pm</div>
                                 <div class="timetable-item-name">Contemporary Dance</div>
                                 <div class="box-content1">
@@ -288,7 +288,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <div class="box-wrapper1 p-4" href="#">
+                            <div class="box-wrapper p-4" href="#">
                                 <div class="timetable-item-time">4:00pm - 5:00pm</div>
                                 <div class="timetable-item-name">Contemporary Dance</div>
                                 <div class="box-content">
@@ -301,7 +301,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                 <div class="tab-pane" id="saturday" role="tabpanel" aria-labelledby="Saturday">
                 <div class="row mb-3">
                         <div class="col-lg-6">
-                            <div class="box-wrapper3 p-4" href="#">
+                            <div class="box-wrapper p-4" href="#">
                                 <div class="timetable-item-time">8:00am - 12:00pm</div>
                                 <div class="timetable-item-name">Software Engineering</div>
                                 <div class="box-content">
@@ -309,7 +309,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <div class="box-wrapper3 p-4" href="#">
+                            <div class="box-wrapper p-4" href="#">
                                 <div class="timetable-item-time">4:00pm - 5:00pm</div>
                                 <div class="timetable-item-name">Contemporary Dance</div>
                                 <div class="box-content1">
@@ -319,7 +319,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                     </div>
                     <div class="row">
                         <div class="col-lg-6 mb-3">
-                            <div class="box-wrapper3 p-4" href="#">
+                            <div class="box-wrapper p-4" href="#">
                                 <div class="timetable-item-time">8:00am - 12:00pm</div>
                                 <div class="timetable-item-name">Software Engineering</div>
                                 <div class="box-content">
@@ -327,7 +327,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <div class="box-wrapper3 p-4" href="#">
+                            <div class="box-wrapper p-4" href="#">
                                 <div class="timetable-item-time">4:00pm - 5:00pm</div>
                                 <div class="timetable-item-name">Contemporary Dance</div>
                                 <div class="box-content">
@@ -349,7 +349,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <div class="box-wrapper1 p-4" href="#">
+                            <div class="box-wrapper p-4" href="#">
                                 <div class="timetable-item-time">4:00pm - 5:00pm</div>
                                 <div class="timetable-item-name">Contemporary Dance</div>
                                 <div class="box-content1">
@@ -367,7 +367,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <div class="box-wrapper1 p-4" href="#">
+                            <div class="box-wrapper p-4" href="#">
                                 <div class="timetable-item-time">4:00pm - 5:00pm</div>
                                 <div class="timetable-item-name">Contemporary Dance</div>
                                 <div class="box-content">

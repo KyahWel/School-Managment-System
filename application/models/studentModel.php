@@ -75,6 +75,8 @@ class studentModel extends CI_Model {
 	public function login(){
 		$data = array(
 			'username' => $_POST['username']
+			// ,
+			// 'password' => $_POST['password']
 		);	
 		$this->db->select('*');
 		$this->db->from('student_accounts');
@@ -82,6 +84,8 @@ class studentModel extends CI_Model {
 		$this->db->where($data);
 		$query= $this->db->get();
 		if($query->num_rows()!=0){
+			// return $query->row();
+
 			$row = $query->row();
 			if(password_verify($_POST['password'],$row->password))
 				return $query->row();
