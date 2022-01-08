@@ -57,7 +57,7 @@
                                 <!--  DONE button-->
                             <div class="pt-4 mb-3"></div>
                             <div class="d-flex  align-items-end">
-                                <input type="button" value="DONE" class="btn finishedButton btn-default text-white ms-auto my-3 mx-2 px-4" onclick="location.href='<?php echo site_url('Homepage')?>'">
+                                <input type="button" value="DONE" class="btn finishedButton btn-default text-white ms-auto my-3 mx-2 px-4" onclick="location.href='<?php echo site_url('Login/applicant')?>'">
                             </div>
                         </div>
                         <!--Contents-->

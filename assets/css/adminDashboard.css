@@ -1,116 +1,181 @@
-body{
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.9rem;
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
 }
-.billboard{
+
+.billboard {
     background: white;
     border-radius: 25px;
     border: 0.1px solid rgb(221, 220, 220);
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
     height: 200px;
+}
+
+.carousel-item {
+    height: 125px;
     overflow-y: auto;
 }
 
-.billboardTitle{
-  background:maroon;
-    border-radius: 25px 25px 0 0 ;
+.billboard .billboardTitle {
+    /* background: linear-gradient(to right, #ffd89b 0%, #19547b 100%); */
+    background: maroon;
+    border-radius: 25px 25px 0 0;
 }
+
+.carousel-item.active::before {
+    background-color: transparent;
+}
+
+h5.front {
+    color: maroon;
+    font-family: 'Montserrat';
+    padding-top: 52px;
+    overflow-y: none;
+}
+
+.carousel p {
+    color: black !important;
+    font-weight: 200;
+}
+
+.carousel-inner>.item {
+    position: relative;
+    display: none;
+    -webkit-transition: 0.8s ease-in-out left;
+    -moz-transition: 0.8s ease-in-out left;
+    -o-transition: 0.8s ease-in-out left;
+    transition: 0.8s ease-in-out left;
+}
+
 
 /* calendar css */
-.calendar{
-  background:rgb(143, 0, 0);
-  height: 200px;
-  border-radius: 25px;
-  border: 0.1px solid rgb(221, 220, 220);
+
+.calendar {
+    background: maroon;
+    height: 200px;
+    border-radius: 15px;
+    border: 0.1px solid rgb(221, 220, 220);
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
-  margin: 0 10px;
-  color: whitesmoke;
-}
-#search{
-  color: white;
-  background-color: #800000;
-  padding: .1rem .5rem;
-}
-#search i{
-  font-size: 10px;
+    margin: 0 10px;
+    color: whitesmoke;
 }
 
-.calendar .month h1{
-text-align: center;
-margin: auto 0;
-letter-spacing: 2px;
-text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.741);
+#search {
+    color: white;
+    background-color: #800000;
+    padding: .1rem .5rem;
 }
-.calendar .day{
-  letter-spacing: 2px;
-  text-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.741);
+
+#search i {
+    font-size: 10px;
 }
+
+.calendar .month h1 {
+    text-align: center;
+    margin: auto 0;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.741);
+}
+
+.calendar .day {
+    letter-spacing: 2px;
+    text-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.741);
+}
+
 
 /* View information tab */
 
-#viewProfessorInformation td{
-  color: black;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  padding: 15px 5px;
+#viewProfessorInformation td {
+    color: black;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 15px 5px;
 }
 
-/* Professor View Page Tab-Header */
-#viewInfoDashboard{
-  border: 0.1px solid rgb(221, 220, 220);
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
-  border-radius: 25px;
-}
-ul#viewInfoTab.nav{
-  background-color:maroon;
-  border-bottom: none;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-}
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link{
-  color: white;
-}
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .student.active{
-  color: #800000;
-  background-color: white;
-  border-color: white;
-  font-weight: 200;
-  border-top-left-radius: 25px;
-
+#viewInfoDashboard {
+    border: 0.1px solid rgb(221, 220, 220);
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
 }
 
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .faculty.Button.active{
-  color: #800000;
-  background-color: white;
-  border-color: white;
-  font-weight: 200;
-  border-radius: 0;
+ul#viewInfoTab.nav {
+    background-color: maroon;
+    border-bottom: none;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link {
+    color: white;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .student.active {
+    color: #800000;
+    background-color: white;
+    border-color: white;
+    font-weight: 200;
+    border-top-left-radius: 25px;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .faculty.Button.active {
+    color: #800000;
+    background-color: white;
+    border-color: white;
+    font-weight: 200;
+    border-radius: 0;
+}
+
+#studentsTabContent #table-bodyEnroll td,
+#facultyTabContent #table-bodyAppl td {
+    font-weight: 200;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 26px;
+}
+
+#studentsTabContent #table-bodyEnroll tr,
+#facultyTabContent #table-bodyAppl tr {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
 }
 
 button#viewStudentButton.nav-link.active::before,
-button#viewFacultytButton.nav-link.active::before{
-  background: none;
+button#viewFacultytButton.nav-link.active::before {
+    background: none;
 }
+
 div#viewStudentButton.tab-pane.active.show::before,
-div#viewFacultytButton.tab-pane.active::before{
-  background: none;
+div#viewFacultytButton.tab-pane.active::before {
+    background: none;
 }
+
 
 /* Information Content */
 
-.tab-content{
-  background-color: white;
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
-  
+.tab-content {
+    background-color: white;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
 }
 
 #studentsTabContent #table-body td,
-#facultyTabContent #table-body td{
-  font-weight: 200;
+#facultyTabContent #table-body td {
+    font-weight: 200;
+    color: black;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 5px 5px;
 }
 
-#table-body{
-  font-size: 0.9rem;
+#table-body {
+    font-size: 0.9rem;
 }

@@ -11,6 +11,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/css/applicant.css'); ?>" rel="stylesheet" type="text/css">
+    <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
     <title>Applicant Data</title>
 </head>
 
@@ -19,7 +20,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <div class="brand py-2">
             Technological University of the Philippines
         </div>
-        <a href="<?php echo base_url('homepage'); ?>" class="nav_link btn btn-outline-light logout mx-2 fw-bold" id="logout"><span class="nav_name">Logout</span> </a>
+        <a href="<?php echo base_url('Logout'); ?>" class="nav_link btn btn-outline-light logout mx-2 fw-bold" id="logout"><span class="nav_name">Logout</span> </a>
 
     </div>
     <div class="container-fluid">
@@ -37,10 +38,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     </div>
                 </div>
             </div>
-
+ 
             <!-- Contents -->
             <div class="col d-flex flex-column">
+                
                 <div class="container-fluid" id="steps" style="display: block;">
+                    <?php if($this->session->flashdata('status')) : ?>
+                        <br>
+                        <div class="alert alert-danger alert-dismissible fade show">
+                            <?= $this->session->flashdata('status'); ?>
+                            <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+                        </div>
+                    <?php endif; ?>
                     <div class="mt-3 applicant-head text-white px-3">
                         Appicant ID: <span class="fw-bold"><?php echo $applicant->applicantNumber?></span>
                         <!--APPLICANT NUMBER READ -->

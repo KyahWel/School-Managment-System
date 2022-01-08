@@ -13,7 +13,6 @@ class Admin_Main extends CI_Controller {
 	{
 		if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['firstname']) && isset($_POST['lastname'])){
 			$this->AdminModel->insertData();
-			redirect("admincontroller/admin");
 		}
 	}
 	public function viewAdmin()
@@ -26,7 +25,7 @@ class Admin_Main extends CI_Controller {
 					<label>ID: </label>
 					<label>'.$records->adminID.'</label>
 				</div>
-				<div class="col-6">
+				<div class="col-12">
 					<label>Admin Number: </label>
 					<label>'.$records->adminNumber.'</label>
 				</div>
@@ -36,8 +35,8 @@ class Admin_Main extends CI_Controller {
 					<label>Username: </label>
 					<label>'.$records->username.'</label>
 				</div>
-				<div class="col-6">
-					<label>Password: </label>
+				<div class="col-12">
+					<label>Password(hashed): </label>
 					<label>'.$records->password.'</label>
 				</div>
 			</div>
@@ -46,7 +45,7 @@ class Admin_Main extends CI_Controller {
 					<label>Firstname: </label>
 					<label>'.$records->firstname.'</label>
 				</div>
-				<div class="col-6">
+				<div class="col-12">
 					<label>Lastname: </label>
 					<label>'.$records->lastname.'</label>
 				</div>
@@ -74,10 +73,6 @@ class Admin_Main extends CI_Controller {
 					<label class="form-label">Username:</label>
 					<input type="text" class="form-control" name="username" value="'.$records->username.'">
 				</div>
-				<div class="col-6">
-					<label class="form-label">Password:</label>
-					<input type="text" class="form-control" name ="password" value="'.$records->password.'">
-				</div>
 			</div>
 			<div class="editAdminButton d-flex justify-content-end">
 				<button class="btn btn-default" id="save" type="submit" value="save">Save Changes</button>
@@ -90,24 +85,23 @@ class Admin_Main extends CI_Controller {
 	public function updateAdmin($id)
 	{	
 		$data['row'] = $this->AdminModel->updateData($id);
-		redirect("admincontroller/admin");
+		redirect("Admin/admin");
 	}
 
 	public function deactivate($id)
 	{	
 		$data['row'] = $this->AdminModel->deactivateData($id);
-		redirect("admincontroller/admin");
+		redirect("Admin/admin");
 	}
 
 	public function activate($id)
 	{	
 		$data['row'] = $this->AdminModel->reactivateData($id);
-		redirect("admincontroller/admin");
+		redirect("Admin/admin");
 	}
 
 	public function changePass($id)
 	{	
 		$this->AdminModel->changePassword($id);
-		redirect("admincontroller/dashboard");
 	}
 }

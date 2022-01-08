@@ -7,7 +7,7 @@ class teacherModel extends CI_Model {
 		$this->load->database();
 	}
 
-	public function insertData()
+	public function insertData($id)
 	{	
 		$digits = 4;
 		$year = 21;
@@ -28,7 +28,7 @@ class teacherModel extends CI_Model {
 			'lastname' => $_POST['lastname'],
 			'college' => $_POST['college'],
 			'department' => $_POST['department'],
-			'creatorID' => $_POST['creatorID'],
+			'creatorID' => $id,
 			'status' => 1
 		);
 		$this->db->insert('teacher_accounts',$data);
@@ -76,4 +76,19 @@ class teacherModel extends CI_Model {
 		$this->db->update('teacher_accounts',$data);
 	}
 
+	public function login(){
+		$data = array(
+			'username' => $_POST['username'],
+			'password' => $_POST['password']
+		);
+		
+		$this->db->select('*');
+		$this->db->from('teacher_accounts');
+		$this->db->where($data);
+		$query=$this->db->get();
+		if($query->num_rows()!=0)
+			return $query->row();
+		else 
+			return NULL;
+	}
 }

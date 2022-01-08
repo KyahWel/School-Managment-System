@@ -49,7 +49,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'Homepage';
+$route['default_controller'] = 'Login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+//Login Routes
+$route['Login/Students'] = 'Login/students';
+$route['Login/Faculty'] = 'Login/faculty';
+$route['Login/Admin'] = 'Login/admin';
+$route['Login/Applicant'] = 'Login/applicant';
+
+//Admin Routes
+$route['Admin/dashboard'] = 'AdminController/dashboard';
+$route['Admin/students'] = 'AdminController/students';
+$route['Admin/faculty'] = 'AdminController/faculty';
+$route['Admin/admin'] = 'AdminController/admin';
+$route['Admin/class'] = 'AdminController/class';
+$route['Admin/course'] = 'AdminController/course';
+$route['Admin/section'] = 'AdminController/section';
+$route['Admin/subject'] = 'AdminController/subject';
+$route['Admin/admission'] = 'AdminController/admission';
+$route['Admin/announcement'] = 'AdminController/announcement';
+$route['Admin/changePassword'] = 'AdminController/changePassword';
+
+//Student Routes
+$route['Student/Dashboard'] = 'studentController/dashboard';
+$route['Student/Profile'] = 'studentController/myProfile';
+$route['Student/Enrollment'] = 'studentController/enrollment';
+$route['Student/Grades'] = 'studentController/grades';
+$route['Student/Drop_Subject'] = 'studentController/dropSubject';
+$route['Student/changePassword'] = 'studentController/changePassword';
+
+//Faculty Routes
+$route['Faculty/Dashboard'] = 'facultyController/dashboard';
+
+//Applicant Routes
+$route['Applicant/(:any)'] = 'applicantController/viewApplicant/$1';

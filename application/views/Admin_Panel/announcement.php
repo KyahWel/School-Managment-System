@@ -27,7 +27,7 @@ include __DIR__.'/../includes/adminSideBar.php'
           </h2>
           <div id="addAnnouncement" class="accordion-collapse collapse" aria-labelledby="addAnnouncementHeader" data-bs-parent="#accordion-addAnnouncement">
             <div class="accordion-body">
-              <form method="POST" action="<?php echo site_url('eventsController/create/')?><?= $this->session->userdata('auth_admin')['adminID']?>" id="addAnnouncementForm">
+              <form method="POST" action="<?php echo site_url('eventsController/create/')?><?= $this->session->userdata('auth_user')['adminID']?>" id="addAnnouncementForm">
                 <div class="row mb-3">
                   <div class="col-6"> <!--Title-->
                       <label class="form-label">Title</label>
@@ -35,7 +35,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                   </div>
                   <div class="col-6"> <!--Creator ID-->
                       <label class="form-label">Creator ID</label>
-                      <input type="text" class="form-control" name="creatorID" disabled value='<?= $this->session->userdata('auth_admin')['adminID']?>';>
+                      <input type="text" class="form-control" name="creatorID" disabled value='<?= $this->session->userdata('auth_user')['adminID']?>';>
                   </div>
                 </div>
                 <div class="row mb-3">
@@ -93,8 +93,8 @@ include __DIR__.'/../includes/adminSideBar.php'
             <?php foreach($result as $row) {?>
               <tr>
                 <td><?php echo $row->title; ?></td> 
-                <td><?php echo $row->date; ?></td>
-                <td><?php echo $row->time; ?></td> 
+                <td><?php echo date('m/d/Y', strtotime($row->date))?></td>
+                <td><?php echo date('h:i:s a', strtotime($row->time))?></td>
                 <td><?php echo $row->details; ?></td> 
                 <td><?php echo $row->status; ?></td> 
                 <td>

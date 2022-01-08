@@ -1,0 +1,153 @@
+body{
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+}
+
+/* Title Page */
+
+.SectionTab h3{
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+/* Table Responsiveness */
+
+.table-wrapper{
+    background: white;
+    border-radius: 25px;
+    border: 0.1px solid rgb(221, 220, 220);
+}
+.table-title{
+    background-color: #800000;
+    color: white;
+    text-align: center;
+    border-radius: 25px 25px 0 0;
+}
+.table-title h2{
+    font-size: inherit;
+    margin: 12px 12px 12px 20px;
+    text-align: start;
+}
+#table-body thead{
+    text-align: center;
+}
+#table-body tbody{
+    text-align: center;
+
+}
+#table-body tr{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#table-body td{
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Form Responsiveness */
+
+label.form-label{
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+.form-label{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.form-control{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.form-control:focus{
+    box-shadow: none;
+    border-color: #800000;
+}
+.form-control::placeholder{ /* Chrome, Firefox, Opera, Safari 10.1+ */
+    font-size: 0.8rem;
+}
+.form-control:-ms-input-placeholder{ /* Internet Explorer 10-11 */
+    font-size: 0.8rem;
+}
+.form-control::-ms-input-placeholder{ /* Microsoft Edge */
+    font-size: 0.8rem;
+}
+input[type=text], input[type=date], input[type=time], textarea{
+    color: black;
+    font-size: 0.8rem;
+}
+
+/* Modal */
+
+.modal-header{
+    background-color: #800000;
+    color: white;
+}
+
+/* Add Section Buttons */
+
+#addSectionButton{
+    align-items: center;
+    text-align: center;
+    margin-top: 25px;
+}
+#add, #edit, #delete{
+    color: white;
+    background-color: #800000;
+    
+}
+#add i, #edit i, #delete i{
+    font-size: 15px;
+}
+
+/* Save and Cancel Button */
+
+#save{
+    background-color: #800000;
+    border-color: transparent;
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    margin-right: 8px;
+}
+#cancel{
+    background-color: #aaaaaa;
+    border-color: transparent;
+    color: black;
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+#save:hover{
+    background-color: white;
+    border-color: #800000;
+    color: #800000;
+    font-size: 0.8rem;
+}
+#cancel:hover{
+    background-color: white;
+    border-color: #800000;
+    color: #800000;
+    font-size: 0.8rem;
+}
+.btn:focus{
+    box-shadow: none;
+}
+
+/* Filter */
+
+#filterAndSearch{
+    text-align: right;
+}
+select:invalid{
+    color: gray;
+}
+option{
+    color: black;
+}
+select:active{
+    box-shadow: none;
+}

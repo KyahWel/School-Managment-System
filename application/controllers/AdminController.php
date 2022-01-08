@@ -8,31 +8,23 @@ class AdminController extends CI_Controller {
 		parent::__construct();
 		$this->load->model('AdminModel');
 		$this->load->model('eventsModel');
-	}
-
-	public function login(){
-		$data = $this->AdminModel->login();
-			if($data != NULL){ 
-				if($data->status == 1){
-					$auth_userdetails = [
-						'adminID' => $data->adminID,
-						'firstname' =>  $data->firstname,
-						'lastname' =>  $data->lastname,
-						'adminNumber' =>  $data->adminNumber
-					];
-					$this->session->set_userdata('auth_admin',$auth_userdetails);
-					redirect('adminController/dashboard');
-				}
-				else{
-					$this->session->set_flashdata('status','Invalid Email or Password'); //Palitan ng error message, deactivated yung account
-					redirect('Homepage#');
-				}
-			}
-			else{
-				$this->session->set_flashdata('status','Invalid Email or Password'); //Palitan ng error message, invalid email or password
-				redirect('Homepage#');
-			}
+		$this->load->model('teacherModel');
+		$this->load->model('courseModel');
+		$this->load->model('subjectModel');
+		$this->load->model('studentModel');
+		$this->load->model('examModel');
+		$this->load->model('applicantModel');
+		$this->load->model('Authentication');
 		
+		if ($this->session->userdata('authenticated') != '1'){
+			$this->session->set_flashdata('status','Please logout first'); 
+			if ($this->session->userdata('authenticated') == '2')
+				redirect('Faculty/Dashboard');
+			elseif ($this->session->userdata('authenticated') == '3')
+				redirect('Student/Dashboard');
+			else 
+				redirect('Applicant/'.$this->session->userdata('auth_user')['applicantID']);
+		}
 	}
 
 	public function admin()
@@ -43,7 +35,9 @@ class AdminController extends CI_Controller {
 
 	public function admission()
 	{
-        $this->load->view('Admin_Panel/admission');
+		$data['exam'] = $this->examModel->viewData();
+		$data['applicant'] = $this->applicantModel->viewData();
+        $this->load->view('Admin_Panel/admission',$data);
 	}
 
 	public function announcement()
@@ -59,27 +53,41 @@ class AdminController extends CI_Controller {
 
 	public function course()
 	{
-        $this->load->view('Admin_Panel/course');
+		$data['course'] = $this->courseModel->viewData();
+		$this->load->view('Admin_Panel/course',$data);
 	}
 
 	public function dashboard()
-	{
-		$this->load->view('Admin_Panel/dashboard');
+	{	
+		$data['announcement'] = $this->eventsModel->getAllData();
+		$data['teacher'] = $this->teacherModel->viewData();
+		$data['student'] = $this->studentModel->viewData();
+		$this->load->view('Admin_Panel/dashboard',$data);
 	}
 	
 	public function faculty()
 	{
-        $this->load->view('Admin_Panel/faculty');
+		$data['teacher'] = $this->teacherModel->viewData();
+        $this->load->view('Admin_Panel/faculty', $data);
 	}
 
 	public function section()
 	{
-        $this->load->view('Admin_Panel/section');
+		$data['course'] = $this->courseModel->viewData();
+		$this->load->view('Admin_Panel/section',$data);
+	}
+
+	public function subject()
+	{	
+		$data['subject'] = $this->subjectModel->viewData();
+		$data['course'] = $this->courseModel->viewData();
+        $this->load->view('Admin_Panel/subjects',$data);
 	}
 
 	public function students()
 	{
-        $this->load->view('Admin_Panel/students');
+		$data['student'] = $this->studentModel->viewData();
+        $this->load->view('Admin_Panel/students',$data);
 	}
 
 	public function changePassword()

@@ -21,7 +21,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                 </h2>
                 <div id="addCourse" class="accordion-collapse collapse" aria-labelledby="addCourseHeader" data-bs-parent="#accordion-addCourse">
                     <div class="accordion-body">
-                        <form method="POST" action="<?php echo site_url('admin_main/addcourse') ?>" id="addCourseForm">
+                        <form method="POST" action="<?php echo site_url('courseController/addcourse') ?>" id="addCourseForm">
                             <div class="row mb-3">
                                 <div class="col-6">
                                     <label class="form-label">Enter Degree: </label>
@@ -56,8 +56,8 @@ include __DIR__.'/../includes/adminSideBar.php'
             </div>
         </div>
 
-        <!-- Filter and Search -->
-        <div class="col-12 align-self-center my-3" id="filterAndSearch">
+        <!--Search -->
+        <div class="col-12 align-self-center my-3" id="filter">
             <label>Filter by:</label>
             <select required>
                 <option value="" disabled selected hidden>College</option>
@@ -73,7 +73,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                 <option value="IT">Information Technology</option>
                 <option value="IS">Information System</option>
             </select>
-            <input type="text" id="searchFacultyID" name="searchFacultyID" placeholder="Search Course ID">
+            <input type="text" id="searchCourseID" name="searchCourseID" placeholder="Search Course ID">
             <button type="button" class="btn btn-sm" id="search"><i class="fas fa-search" data-bs-toggle="tooltip" title="Search"></i></button>
         </div>  
 
@@ -91,7 +91,6 @@ include __DIR__.'/../includes/adminSideBar.php'
                     <table class="table table-default align-middle table-striped table-borderless table-hover" id="table-body">
                         <thead>
                             <tr>
-                                <th>Course ID</th>
 			                    <th>Degree</th>
 			                    <th>Major</th>
 			                    <th>College</th>
@@ -100,23 +99,37 @@ include __DIR__.'/../includes/adminSideBar.php'
                             </tr>
                         </thead>
                         <tbody>
+                        <?php foreach($course as $courserow) {?>
                             <tr>
-                                <td>Course1</td>
-                                <td>Bachelor of Science</td>
-                                <td>Computer Science</td>
-                                <td>College of Science</td> 
-                                <td>1</td>
+                                <td><?php echo $courserow->degree?></td>
+                                <td><?php echo $courserow->major?></td>
+                                <td><?php echo $courserow->college?></td> 
+                                <td><?php echo $courserow->status?></td>
                                 <td>
                                 <div class="action-buttons">
-                                    <li><button type="button" id="view" class="btn" data-bs-toggle="modal" data-bs-target="#viewCourse"><i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                    <li><button type="button" id="edit" class="btn" data-bs-toggle="modal" data-bs-target="#editCourse"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
+                                    <?php if ($courserow->status == 1): ?>
+                                    <li><button type="button" id="view" data-id='<?php echo $courserow->courseID;?>' class="btn view_data viewsubject_data" data-bs-toggle="modal" data-bs-target="#viewCourse"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
+                                    <li><button type="button" id="edit" data-id='<?php echo $courserow->courseID;?>' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editCourse"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
                                     <li>
-                                        <div id="status">Activate</div>
+                                    <li><button type="button" class="btn" id="status" onclick="location.href='<?php if($courserow->status == 1){echo site_url('courseController/deactivate');} else {echo site_url('courseController/activate');}?>/<?php echo $courserow->courseID; ?>'">
+                                        Deactivate
+                                    </button>
                                     </li>
+                                    <?php else: ?>
+                                        <li><button type="button" id="view" data-id='<?php echo $courserow->courseID;?>' class="btn" disabled style="background-color: gray;"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
+                                        <li><button type="button" id="edit" data-id='<?php echo $courserow->courseID;?>' class="btn" disabled style="background-color: gray;"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
+                                        <li>
+                                        <li><button type="button" id="status" class="btn" onclick="location.href='<?php if($courserow->status == 1){echo site_url('courseController/deactivate');} else {echo site_url('courseController/activate');}?>/<?php echo $courserow->courseID; ?>'">
+                                        Activate
+                                        </button>
+                                        </li>	
+                                    <?php endif ?>
                                 </div>
                                 </td>
                             </tr>
+                        <?php }?>
                         </tbody>
+                       
                     </table>	
                 </div>
             </div>
@@ -124,42 +137,20 @@ include __DIR__.'/../includes/adminSideBar.php'
 
         <!--Course View-->
         <div class="modal fade" id="viewCourse" tabindex="-1" aria-labelledby="viewCourseHeader" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="viewCourseHeader">View Course</h5>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
+                    </div> 
                     <div class="modal-body">
-                            <div class="row mb-3">
-                                <div class="col-6">
-                                    <label class="form-label">Course ID:</label>
-                                    <label>Course1</label>
-                                </div>
-                                <div class="col-6"> 
-                                    <label class="form-label">Degree:</label>
-                                    <label>Bachelor of Science</label>
-                                </div>
-                            </div> 
-                            <div class="row mb-3">
-                                <div class="col-6">
-                                    <label class="form-label">Major:</label>
-                                    <label>Computer Science</label>
-                                </div>
-                                <div class="col-6">
-                                    <label class="form-label">College:</label>
-                                    <label>College of Science</label>
-                                </div>
-                            </div>    
-                            <div class="row mb-3">
-                                <div class="col">
-                                    <label class="form-label">Status:</label>
-                                    <label>1</label>
-                                </div>   
+                            <div id="view_course">
+                                
                             </div>
-                        <div class="editCourseButton d-flex justify-content-end">
-                            <button class="btn btn-default" id="save" type="button" data-bs-dismiss="modal">Exit</button>
-                        </div>                                                                         
+    
+                            <div id="view_coursesubjects">
+
+                            </div>                                              
                     </div>
                 </div>
             </div>
@@ -167,7 +158,7 @@ include __DIR__.'/../includes/adminSideBar.php'
 
         <!--Edit Course-->
         <div class="modal fade" id="editCourse" tabindex="-1" aria-labelledby="editCourseHeader" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="editCourseHeader">Edit Course</h5>
@@ -175,33 +166,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                     </div>
                     <div class="modal-body">
                         <div id="edit_course">
-                        <form method="POST" action="" id="editCourseForm">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <label class="form-label">Degree:</label>
-                                    <input type="text" class="form-control" name="degree">
-                                </div>
-                                <div class="col-sm-12"> 
-                                    <label class="form-label">Major:</label>
-                                    <input type="text" class="form-control" name="major">
-                                </div>
-                                <div class="col-sm-12">
-                                    <label class="form-label">College:</label>
-                                    <select name="college" class="form-control" required id="collegeSelect">
-			                            <option value="" disabled selected hidden>Please Select</option>
-			                            <option value="College of Science">College of Science</option>
-			                            <option value="College of Engineering">College of Engineering</option>
-			                            <option value="College of Industrial Education">College of Industrial Education</option>
-			                            <option value="College of Architecture and Fine Arts">College of Architecture and Fine Arts</option>
-			                            <option value="College of Liberal Arts">College of Liberal Arts</option>
-		                            </select>
-                                </div>
-                            </div><br>
-                            <div class="editCourseButton d-flex justify-content-end">
-                                <button class="btn btn-default" id="save" type="submit" value="save">Save</button>
-                                <button class="btn btn-default" id="cancel" type="submit" value="cancel">Cancel</button>
-                            </div>  
-                        </form>
+                    
                         </div>  
                     </div>
                 </div>
@@ -210,6 +175,50 @@ include __DIR__.'/../includes/adminSideBar.php'
     </div>
 </div>
 <script src="<?php echo base_url('assets/js/course.js'); ?>"></script>
+<!-- jQuery JS CDN -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> 
+ <!-- jQuery DataTables JS CDN -->
+ <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+ <!-- Ajax fetching data -->
+ <script type="text/javascript">
+    $(document).ready(function(){
+      $('#dataTable').DataTable();
+      $('.view_data').click(function(){
+        var id = $(this).data('id');
+        $.ajax({
+          url: "<?php echo site_url('courseController/viewCourse');?>",
+          method: "POST",
+          data: {id:id},
+          success: function(data){
+            $('#view_course').html(data);
+          }
+        });
+      });
+      $('.edit_data').click(function(){
+        var id = $(this).data('id');
+        $.ajax({
+          url: "<?php echo site_url('courseController/editCourse');?>",
+          method: "POST",
+          data: {id:id},
+          success: function(data){
+            $('#edit_course').html(data);
+          }
+        });
+      }); 
+      $('.viewsubject_data').click(function(){
+        var id = $(this).data('id');
+        $.ajax({
+                url: "<?php echo site_url('courseController/viewCoursesubjects');?>",
+                method: "POST",
+                data: {id:id},
+                success: function(data){
+                $('#view_coursesubjects').html(data);
+            }
+        });
+      });
+     
+    });
+</script>
 <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 </body>
 

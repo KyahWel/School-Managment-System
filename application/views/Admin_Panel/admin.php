@@ -39,7 +39,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                                 </div>
                                 <div class="col-6">
                                     <label class="form-label">Password:</label>
-                                    <input type="text" name ="password" class="form-control">
+                                    <input type="password" name ="password" class="form-control">
                                 </div>        
                             </div>
                             <div class="addAdminButton d-flex justify-content-end">
@@ -105,14 +105,14 @@ include __DIR__.'/../includes/adminSideBar.php'
                                                 <li><button type="button" class="btn"  disabled style="background-color: gray;"> Deactivate </button>
                                             <?php else: ?>
                                                 <li><button type="button" id="edit" data-id='<?php echo $row->adminID;?>' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editAdmin"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-                                                <li><button type="button" class="btn"  onclick="location.href='<?php echo site_url('admin_main/deactivate')?>/<?php echo $row->adminID; ?>'">
+                                                <li><button type="button" class="btn" id="status" onclick="location.href='<?php echo site_url('admin_main/deactivate')?>/<?php echo $row->adminID; ?>'">
                                                  Deactivate
                                                 </button>
                                             <?php endif ?>               
                                         <?php else: ?>
                                             <li><button type="button" id="view" data-id='<?php echo $row->adminID;?>' class="btn" disabled style="background-color: gray;"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
                                             <li><button type="button" id="edit" data-id='<?php echo $row->adminID;?>' class="btn" disabled style="background-color: gray;"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-                                            <li><button type="button" class="btn" onclick="location.href='<?php echo site_url('admin_main/activate')?>/<?php echo $row->adminID; ?>'">
+                                            <li><button type="button" class="btn" id="status" onclick="location.href='<?php echo site_url('admin_main/activate')?>/<?php echo $row->adminID; ?>'">
                                                 Activate
                                             </button>
                                             </li>	
@@ -199,7 +199,6 @@ include __DIR__.'/../includes/adminSideBar.php'
       });
     });
 </script>
-<script src="<?php echo base_url('assets/js/admin.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 </body>
 

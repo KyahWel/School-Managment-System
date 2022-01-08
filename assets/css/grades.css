@@ -1,0 +1,95 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+}
+/*Grades Tab*/
+.GradesTab h3{
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+#back-button .btn{
+    background-color: #800000;
+    color: white;
+    border-color: transparent;
+    margin-bottom: 20px;
+}
+.btn:focus{
+    box-shadow: none;
+}
+#back-button a:hover{
+    background-color: white;
+    border-color: #800000;
+    color: #800000;
+}
+
+/*Grades List*/
+.table-wrapper{
+    background: white;
+    border-radius: 10px;
+    border: 0.1px solid rgb(221, 220, 220);
+}
+.table-title{
+    background-color: #800000;
+    color: white;
+    text-align: center;
+    border-radius: 10px 10px 0 0 ;
+}
+.table-title h2{
+    font-size: inherit;
+    margin: 15px;
+}
+#table-body thead{
+    text-align: center;
+}
+#table-body tbody{
+    text-align: center;
+}
+
+
+.applicant-head {
+    padding: 8px;
+    transition: .5s;
+    letter-spacing: 1px;
+    -moz-transition: .5s;
+    -webkit-transition: .5s;
+    -o-transition: .5s;
+}
+.information {
+    font-size: 0.75rem;
+    padding: 15px;
+    width: 100%;
+}
+.information i.fa {
+    font-size: 2.2rem;
+}
+.information p {
+    padding-bottom: 0;
+    padding-left: 3rem;
+    margin-bottom: 0.3rem;
+}
+
+/* Filter and Search */
+
+#filter{
+    text-align: right;
+}
+select:invalid{
+    color: gray;
+}
+option{
+    color: black;
+}
+select:active{
+    box-shadow: none;
+}
+textarea:focus, input:focus{
+    outline: none;
+}
+#search{
+    color: white;
+    background-color: #800000;
+    padding: .1rem .5rem;
+}
+#search i{
+    font-size: 10px;
+}

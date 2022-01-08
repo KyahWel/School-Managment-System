@@ -12,34 +12,40 @@ include __DIR__ . '/../includes/adminSideBar.php'
         <!--ChangePassword Box-->
         <div class="col-12 align-self-center pt-3" id="cp">
             <div class="table-wrapper">
+                
                 <div class="Changepassword-header">
                     <p class="px-4 py-2">Change Password</p>
                 </div>
-
+                <?php if($this->session->flashdata('status')) : ?>
+                    <div class="alert alert-danger alert-dismissible fade show">
+                        <?= $this->session->flashdata('status'); ?>
+                        <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+                    </div>
+                <?php endif; ?>
                 <div class="passContents">
                     <div class="alert pt-3 px-4" style="color: #00336D;">
                         Note! Password length must be minimum of 8 and maximum of 15 characters.
                     </div>
 
                     <!-- Password input-->
-                    <form class="px-4 " method="POST" action="../admin_Main/changePass/<?= $this->session->userdata('auth_admin')['adminID']?>">
+                    <form class="px-4 " method="POST" action="../admin_Main/changePass/<?= $this->session->userdata('auth_user')['adminID']?>">
                         <div class="form-group row mb-2 px-1">
-                            <label for="oldpassword" class="form-label col-lg-3 col-md-12 col-sm-12 pt-1 fw-bold">Old Password:</label>
-                            <div class="col-lg-6 col-md-12 col-sm-12">
+                            <label for="oldpassword" class="form-label col-lg-3 col-md-4 col-sm-12 pt-1 fw-bold">Old Password:</label>
+                            <div class="col-lg-5 col-md-8 col-sm-12">
                                 <input type="password" name="oldpass" class="form-control form-control-sm" id="oldpassword" placeholder="Old password" required><br />
                             </div>
                         </div>
 
                         <div class="form-group row mb-2  px-1">
-                            <label for="newpassword" class="form-label col-lg-3 col-md-12 col-sm-12 pt-1 fw-bold">New Password:</label>
-                            <div class="col-lg-6 col-md-12 col-sm-12">
+                            <label for="newpassword" class="form-label col-lg-3 col-md-4 col-sm-12 pt-1 fw-bold">New Password:</label>
+                            <div class="col-lg-5 col-md-8 col-sm-12">
                                 <input type="password" name="newpass" class="form-control form-control-sm" id="newpassword" placeholder="New password" required minlength="8" maxlength="15"><br />
                             </div>
                         </div>
 
                         <div class="form-group row mb-2  px-1">
-                            <label for="confirmpassword" class="form-label col-lg-3 col-md-12 col-sm-12 pt-1 fw-bold">Confirm New Password:</label>
-                            <div class="col-lg-6 col-md-12 col-sm-12">
+                            <label for="confirmpassword" class="form-label col-lg-3 col-md-4 col-sm-12 pt-1 fw-bold">Confirm New Password:</label>
+                            <div class="col-lg-5 col-md-8 col-sm-12">
                                 <input type="password" name="confirmpass" class="form-control form-control-sm" id="confirmpassword" placeholder="Confirm Password" required minlength="8" maxlength="15"><br />
                             </div>
                         </div>

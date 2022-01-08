@@ -12,18 +12,19 @@
     <link href="<?php echo base_url('assets/css/admintabsMAIN.css'); ?>" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url('assets/css/changePassword.css'); ?>" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url('assets/css/dataTables.bootstrap.min.css'); ?>" rel="stylesheet">
+    <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 </head>
 
 <body oncontextmenu='return false' class="snippet-body body-pd" id="body-pd">
     <header class="header body-pd" id="header">
-        <div class="header_toggle">
+    <div class="header_toggle">
             <i class='fa fa-bars' id="header-toggle"></i>
             <span class="brand"> Technological University of the Philippines</span>
         </div>
         <div class="text-white ms-auto email">
-            TUP-STUD-0000
+            <?= $this->session->userdata('auth_user')['studentNumber']?>
         </div>
-        <!-- <div class="header_img"> <img src="assets/images/avatar.svg" alt=""></div> -->
+        <div class="header_img"> <img src="../assets/images/studentAvatar.svg" alt="">
     </header>
 
     <div class="l-navbar side" id="nav-bar">
@@ -31,20 +32,20 @@
         <nav class="nav">
             <div>
                 <div class="nav_list">
-                    <div class="welcome text-dark pt-3 fw-bold" id="welcome" style="color: steelblue; font-size:1rem">
-                        <i class='fa fa-user nav_icon px-2' style="color:steelblue;"></i>
-                        Hello, Student!
+                    <div class="welcome text-dark pt-3 fw-bold"  style="color: steelblue; font-size:1rem">
+                        <i class='fa fa-user nav_icon ' style="color:steelblue;"></i>
+                        <span class="nav_name">Hello, <?= $this->session->userdata('auth_user')['firstname']?>!</span>  
                         <hr>
                     </div>
-                    <a href="<?php echo base_url('StudentController/dashboard'); ?>" class="nav_link pt-3"> <i class='fa fa-th-large nav_icon'></i> <span class="nav_name">Dashboard</span> </a>
-                    <a href="<?php echo base_url('StudentController/myProfile'); ?>" class="nav_link"> <i class='fa fa-user nav_icon'></i> <span class="nav_name">My Profile</span> </a>
-                    <a href="<?php echo base_url('StudentController/enrollment'); ?>" class="nav_link"> <i class=' fa fa-paste nav_icon'></i> <span class="nav_name">Enrollment</span> </a>
-                    <a href="<?php echo base_url('StudentController/grades'); ?>" class="nav_link"> <i class='fa fa-file-alt nav_icon'></i> <span class="nav_name">Grades</span> </a>
-                    <a href="<?php echo base_url('StudentController/dropSubject'); ?>" class="nav_link"> <i class='fa fa-minus-square nav_icon'></i> <span class="nav_name">Drop Subject</span> </a>
-                    <a href="<?php echo base_url('StudentController/changePassword'); ?>" class="nav_link"> <i class='fa fa-key nav_icon'></i> <span class="nav_name">Change Password</span> </a>
+                    <a href="<?php echo base_url('Student/Dashboard'); ?>" class="nav_link pt-3"> <i class='fa fa-th-large nav_icon'></i> <span class="nav_name">Dashboard</span> </a>
+                    <a href="<?php echo base_url('Student/Profile');?>" class="nav_link"> <i class='fa fa-user nav_icon'></i> <span class="nav_name">My Profile</span> </a>
+                    <a href="<?php echo base_url('Student/Enrollment'); ?>" class="nav_link"> <i class=' fa fa-paste nav_icon'></i> <span class="nav_name">Enrollment</span> </a>
+                    <a href="<?php echo base_url('Student/Grades'); ?>" class="nav_link"> <i class='fa fa-file-alt nav_icon'></i> <span class="nav_name">Grades</span> </a>
+                    <a href="<?php echo base_url('Student/Drop_Subject'); ?>" class="nav_link"> <i class='fa fa-minus-square nav_icon'></i> <span class="nav_name">Drop Subject</span> </a>
+                    <a href="<?php echo base_url('Student/changePassword'); ?>" class="nav_link"> <i class='fa fa-key nav_icon'></i> <span class="nav_name">Change Password</span> </a>
                 </div>
             </div>
-            <a href="<?php echo base_url('homepage'); ?>" class="nav_link" id="logout"> <i class='fa fa-sign-out-alt nav_icon'></i> <span class="nav_name">LogOut</span> </a>
+            <a href="<?php echo base_url('Logout'); ?>" class="nav_link" id="logout"> <i class='fa fa-sign-out-alt nav_icon'></i> <span class="nav_name">LogOut</span> </a>
         </nav>
     </div>
 

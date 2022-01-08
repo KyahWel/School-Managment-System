@@ -33,14 +33,18 @@ class courseModel extends CI_Model {
 		return $query->row();
 	}
 
+	public function getSubjects($id)
+	{	
+		$query = $this->db->query('SELECT * FROM subjects_table  WHERE subjects_table.courseID ='.$id);
+		return $query->result_array();
+	}
+
 	public function updateData($id)
 	{
 		$data = array(
-			'username' => $_POST['username'],
-			'password' => $_POST['password'],
-			'course' => $_POST['course'],
-			'college' => $_POST['college']
-
+			'degree' => $_POST['degree'],
+			'major' => $_POST['major'],
+			'college' => $_POST['college'],
 		);
 		$this->db->where('courseID',$id);
 		$this->db->update('course_table',$data);

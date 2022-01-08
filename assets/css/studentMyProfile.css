@@ -1,0 +1,136 @@
+#file {
+    display: none;
+}
+
+.profile-pic-div {
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid grey;
+}
+
+@media only screen and (max-width: 768px) {
+    .profile-pic-div {
+        height: 140px;
+        width: 200px;
+    }
+}
+
+#photo {
+    height: 100%;
+    width: 100%;
+}
+
+#uploadBtn {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    color: wheat;
+    line-height: 30px;
+    font-family: sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    display: none;
+}
+
+.table-body tr {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.table-body td {
+    max-width: 350px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.applicant-head {
+    padding: 8px;
+    background: maroon;
+    transition: .5s;
+    letter-spacing: 1px;
+    -moz-transition: .5s;
+    -webkit-transition: .5s;
+    -o-transition: .5s;
+}
+
+.information {
+    background: #93D9F6;
+    font-size: 0.75rem;
+    padding: 15px;
+    width: 80%;
+}
+
+.information i.fa {
+    font-size: 2.2rem;
+}
+
+.information p {
+    padding-bottom: 0;
+    padding-left: 3rem;
+    margin-bottom: 0.3rem;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #800000;
+}
+
+
+/* personal info */
+
+.Wrapper {
+    background: white;
+    border-radius: 25px;
+    border: 0.1px solid rgb(221, 220, 220);
+    margin-bottom: 2rem;
+    transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -webkit-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+}
+
+.tabTitle {
+    background: maroon;
+    border-radius: 25px 25px 0 0;
+    letter-spacing: 0.8px;
+}
+
+.tabTitle p,
+.Contents {
+    padding: 10px 35px;
+}
+
+.Contents {
+    border-radius: 0 0 25px 25px;
+}
+
+label {
+    font-weight: 500;
+}
+
+
+/* step buttons */
+
+.stepButtons .btn-warning {
+    background: #F2BD53;
+    align-content: flex-end;
+    place-items: right;
+    align-self: flex-end;
+    text-align: left;
+    color: maroon;
+    font-weight: 500;
+    font-size: small;
+}
+
+.stepButtons .btn-warning:hover {
+    background: #faba39;
+}

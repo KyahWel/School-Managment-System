@@ -1,0 +1,276 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+}
+/*Student Tab*/
+.StudentTab h3{
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+#back-button .btn{
+    background-color: #800000;
+    color: white;
+    border-color: transparent;
+    margin-bottom: 20px;
+}
+.btn:focus{
+    box-shadow: none;
+}
+#back-button a:hover{
+    background-color: white;
+    border-color: #800000;
+    color: #800000;
+}
+
+/* Filter and Search */
+
+#filter{
+    text-align: right;
+}
+select:invalid{
+    color: gray;
+}
+option{
+    color: black;
+}
+select:active{
+    box-shadow: none;
+}
+textarea:focus, input:focus{
+    outline: none;
+}
+#search{
+    color: white;
+    background-color: #800000;
+    padding: .1rem .5rem;
+}
+#search i{
+    font-size: 10px;
+}
+/* Button */
+#save{
+    background-color: #800000;
+    border-color: transparent;
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    margin-right: 8px;
+}
+#cancel{
+    background-color: #aaaaaa;
+    border-color: transparent;
+    color: black;
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+#save:hover{
+    background-color: white;
+    border-color: #800000;
+    color: #800000;
+    font-size: 0.8rem;
+}
+#cancel:hover{
+    background-color: white;
+    border-color: #800000;
+    color: #800000;
+    font-size: 0.8rem;
+}
+
+/*Student List*/
+.table-wrapper{
+    background: white;
+    border-radius: 25px;
+    border: 0.1px solid rgb(221, 220, 220);
+}
+.table-title{
+    background-color: #800000;
+    color: white;
+    text-align: center;
+    border-radius: 25px 25px 0 0 ;
+}
+.table-title h2{
+    font-size: inherit;
+    margin: 15px;
+}
+#table-body thead{
+    text-align: center;
+}
+#table-body tbody{
+    text-align: center;
+}
+.table{
+    display: flex;
+    flex-flow: column;
+}
+.thead {
+    flex: 0 0 auto;
+}
+.tbody {
+    flex: 1 1 auto;
+    display: block;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+
+/* Action Button */
+#table-body tbody .action-buttons li{
+    list-style-type: none;
+    display: inline-block;
+}
+#table-body tbody .action-buttons li button{
+    color: white;
+    background-color:maroon;
+    font-size: 0.55rem;
+    padding: 3px 5px;
+    opacity: 0.93;
+    margin-top: 2.5px;
+}
+#table-body tbody .action-buttons li #status{ 
+    color: white;
+    background-color:maroon;
+    font-size: 0.53rem;
+    opacity: 0.93;
+    padding: 4.2px 7px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+#table-body tbody .action-buttons li button:hover, #table-body tbody .action-buttons li #status:hover{
+    opacity: 1;
+}
+#table-body tbody .action-buttons li button:focus{
+    box-shadow: none;
+}
+
+/* Back Button */
+
+#back-button{
+    background-color: #800000;
+    color: white;
+    border-color: transparent;
+    margin: 0px 10px 10px 0px; /*align button and title*/
+}
+#back-button:hover{
+    background-color: white;
+    border-color: #800000;
+    color: #800000;
+}
+.btn:focus{
+    box-shadow: none;
+}
+
+/* Edit Student*/
+#studentSelect:hover{
+    box-shadow: none;
+    border-color: #3d3b3b;
+}
+#studentSelect{
+    box-shadow: none;
+    background-color: rgb(223, 222, 222);
+}
+
+/* View Student*/
+.viewStudentTitle h3{
+    font-size: 1.5rem;
+    font-weight: 800;
+    display: inline;
+}
+
+/* Avatar */
+#viewStudentAvatar .btn{
+    padding: 3px 13px 3px 3px;
+}
+#viewStudentAvatar i{
+    color: white;
+    background-color: #800000;
+    font-size: 50px;
+    padding: 15px 18px;
+    border-radius: 50%;
+}
+#viewStudentInformation td{
+    color: black;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 15px 5px;
+}
+ul#viewStudentTab.nav{
+    background-color: #800000;
+    border-bottom: none;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link{
+    color: white;
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+    color: #800000;
+    background-color: white;
+    border-color: white;
+    font-weight: 200;
+}
+button#viewStudentInfoTab.nav-link.active::before,
+button#viewStudentSchedTab.nav-link.active::before,
+button#viewStudentEducTab.nav-link.active::before,
+button#viewStudentReqTab.nav-link.active::before{
+    background: none;
+}
+div#StudentInfo.tab-pane.active.show::before,
+div#StudentSched.tab-pane.active::before,
+div#StudentEduc.tab-pane.active::before,
+div#StudentReq.tab-pane.active::before{
+    background: none;
+}
+
+/*View Tab-Content */
+div#viewStudentTabContent.tab-content{
+    background: white;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+#viewStudentTabContent label{
+    color: rgb(95, 95, 95);
+    font-weight: 200;
+}
+#StudentSched #table-body td,
+#StudentEduc #table-body td,
+#StudentReq #table-body td{
+    font-weight: 200;
+}
+.form-control:disabled, .form-control[readonly] {
+    background-color: white;
+    opacity: 1;
+}
+
+/* Form */
+.form-label{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.form-control{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.form-control:focus{
+    box-shadow: none;
+    border-color: #800000;
+}
+.form-control::placeholder{ /* Chrome, Firefox, Opera, Safari 10.1+ */
+    font-size: 0.8rem;
+}
+.form-control:-ms-input-placeholder{ /* Internet Explorer 10-11 */
+    font-size: 0.8rem;
+}
+.form-control::-ms-input-placeholder{ /* Microsoft Edge */
+    font-size: 0.8rem;
+}
+input[type=text], input[type=date], input[type=time], textarea{
+    color: black;
+    font-size: 0.8rem;
+}

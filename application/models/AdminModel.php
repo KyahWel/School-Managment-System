@@ -15,19 +15,29 @@ class AdminModel extends CI_Model {
 			$this->db->from('admin_accounts');
 			$this->db->where('adminNumber',$holder);
 			$query=$this->db->get();
-		}while($query->num_rows()>0);
-			
-		$data = array(
-			'adminID' => NULL,
-			'adminNumber' => $holder,
-			'username' => $_POST['username'],
-			'password' => $_POST['password'],
-			'firstname' => $_POST['firstname'],
-			'lastname' => $_POST['lastname'],
-			'status' => 1
-		);
-		$this->db->insert('admin_accounts',$data);
-		unset($_POST);
+		} while($query->num_rows()>0);
+		$this->db->select('*');
+		$this->db->from('admin_accounts');
+		$this->db->where('username',$_POST['username']);
+		$query=$this->db->get();	
+		if($query->num_rows()==0){
+			$data = array(
+				'adminID' => NULL,
+				'adminNumber' => $holder,
+				'username' => $_POST['username'],
+				'password' => password_hash($_POST['password'],PASSWORD_DEFAULT),
+				'firstname' => $_POST['firstname'],
+				'lastname' => $_POST['lastname'],
+				'status' => 1
+			);
+			$this->db->insert('admin_accounts',$data);
+			unset($_POST);
+			$this->session->set_flashdata('success','Added admin account successfully'); 
+			redirect('Admin/dashboard');	
+		}else{
+			$this->session->set_flashdata('status','User already exists'); 
+			redirect('Admin/dashboard');
+		}
 	}
 
 	public function viewData() #Read
@@ -46,7 +56,6 @@ class AdminModel extends CI_Model {
 	{
 		$data = array(
 			'username' => $_POST['username'],
-			'password' => $_POST['password'],
 			'firstname' => $_POST['firstname'],
 			'lastname' => $_POST['lastname']
 		);
@@ -73,44 +82,70 @@ class AdminModel extends CI_Model {
 	public function login(){
 		$data = array(
 			'username' => $_POST['username'],
-			'password' => $_POST['password']
-		);
-		
-		$this->db->select('*');
-		$this->db->from('admin_accounts');
-		$this->db->where($data);
-		$query=$this->db->get();
-		if($query->num_rows()!=0)
-			return $query->row();
-		else 
-			return NULL;
-	}
-
-	public function changePassword($id) #Changepassword
-	{	
-		$data = array(
-			'adminID' => $id,
-			'password' => $_POST['oldpass']
 		);
 		$this->db->select('*');
 		$this->db->from('admin_accounts');
 		$this->db->where($data);
 		$query=$this->db->get();
 		if($query->num_rows()!=0){
-			$newPassword = $_POST['newpass'];
-			$confirmPassword = $_POST['confirmpass'];
-			if($newPassword==$confirmPassword){
-				$newdata = array(
-					'password' => $newPassword,
-				);
-				$this->db->where('adminID',$id);
-				$this->db->update('admin_accounts',$newdata);
+			if($_POST['username'] == 'admin'){
+				return $query->row();
 			}
-			else
-				return NULL;
-		}
+			else{
+				$row = $query->row();
+				if(password_verify($_POST['password'],$row->password))
+					return $query->row();
+				else
+					return NULL;
+			}
+		}	
 		else 
 			return NULL;
+	}
+
+	public function changePassword($id) #Changepassword
+	{	
+		if ($this->session->userdata('auth_user')['adminID'] == '1'){
+			$this->session->set_flashdata('status','Error Cannot change the password of main admin'); 
+			redirect('Admin/changePassword');	
+		}
+		else{
+			$data = array(
+				'adminID' => $id,
+				'password' => $_POST['oldpass']
+			);
+			$this->db->select('*');
+			$this->db->from('admin_accounts');
+			$this->db->where($data);
+			$query=$this->db->get();
+			if($query->num_rows()!=0){
+				$newPassword = $_POST['newpass'];
+				$confirmPassword = $_POST['confirmpass'];
+				if($newPassword==$data['password']){
+					$this->session->set_flashdata('status','Old and New passwords are the same'); 
+					redirect('Admin/changePassword');
+				}
+				else{
+					if($newPassword==$confirmPassword){
+						$newdata = array(
+							'password' => password_hash($newPassword,PASSWORD_DEFAULT)
+						);
+						$this->db->where('adminID',$id);
+						$this->db->update('admin_accounts',$newdata);
+						$this->session->set_flashdata('success','Password changed successfully'); 
+						redirect('Admin/dashboard');
+					}
+					else
+						$this->session->set_flashdata('status','Passwords do not match, Please try again'); 
+						redirect('Admin/changePassword');	
+				}
+			}
+			else{
+				$this->session->set_flashdata('status','Incorrect Old Password'); 
+				redirect('Admin/changePassword');	
+			} 	
+		}	
 		
 	}
+	
 }
