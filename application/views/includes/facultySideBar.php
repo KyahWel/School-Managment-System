@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,7 +22,7 @@
         <div class="text-white ms-auto email">
             TUP-PROF-0000
         </div>
-        <div class="header_img"> <img src="../assets/images/avatar.svg" alt=""></div>
+        <div class="header_img"> <img src="../assets/images/facultyAvatar.png" alt=""></div>
     </header>
 
     <div class="l-navbar side" id="nav-bar">

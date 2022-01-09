@@ -50,6 +50,8 @@ a {
 .l-navbar .welcome {
     margin: 0 auto;
     text-align: center;
+    color: steelblue; 
+    font-size:1rem;
 }
 
 .l-navbar i {
@@ -218,6 +220,7 @@ a:hover {
     .l-navbar {
         left: 0;
         padding: 1rem 0.8rem 0 0;
+
     }
     .side {
         width: calc(var(--nav-width) + 156px);

@@ -40,7 +40,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
     <div class="row height-sm-100 contents">
         <form action="#">
             <!-- Personal Information -->
-            <div id='personalInfo' class=" container-fluid pt-3" style="display: block;">
+            <div id='personalInfo' class="pt-3" style="display: block;">
                 <div class="Wrapper">
                     <div class="tabTitle">
                         <p class="text-white"><i class="fa fa-user"></i> <span class="px-2"> Personal Information </span></p>
@@ -105,9 +105,6 @@ include __DIR__ . '/../includes/studentSideBar.php'
                                     </div>
                                 <?php endif ?>
                             </div>
-
-
-
                         </div>
 
                         <!-- Birthdate and Age-->
@@ -142,7 +139,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
 
                             <label class="form-label col-lg-2 col-md-12 pt-1">Landline:</label>
                             <div class="col-lg-3 col-md-12">
-                                <input type="tel" name='landline' id="land" disabled="true" value="<?= $this->session->userdata('auth_user')['landline'] ?>" class="form-control form-control-sm" aria-label="Landline">
+                                <input type="tel" name='landline' id="land" disabled="true" value="<?= $this->session->userdata('auth_user')['landline'] ?>" class="form-control form-control-sm" aria-label="Landline" required>
                             </div>
                         </div>
 
@@ -150,7 +147,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                         <div class="row mt-2 small">
                             <label class="form-label col-lg-2 pt-1">Email Address:</label>
                             <div class="col-lg-4">
-                                <input type="email" name='email' id="emailaddress" disabled="true"value="<?= $this->session->userdata('auth_user')['email'] ?>" class="form-control form-control-sm" aria-label="Email Address">
+                                <input type="email" name='email' id="emailaddress" disabled="true"value="<?= $this->session->userdata('auth_user')['email'] ?>" class="form-control form-control-sm" aria-label="Email Address" required>
                             </div>
                             <hr class="mt-4 mb-3">
                         </div>
@@ -162,13 +159,13 @@ include __DIR__ . '/../includes/studentSideBar.php'
                         <div class="row mt-2 small">
                             <label class="form-label col-lg-2 col-md-12  pt-1">Unit #:</label>
                             <div class="col-lg-3 col-md-12">
-                                <input type="text" name='unit' id="Unit" disabled="true"value="<?= $this->session->userdata('auth_user')['unit'] ?>" class="form-control form-control-sm" aria-label="Unit Number">
+                                <input type="text" name='unit' id="Unit" disabled="true"value="<?= $this->session->userdata('auth_user')['unit'] ?>" class="form-control form-control-sm" aria-label="Unit Number" required>
                             </div>
                             <div class="col-lg-2 col-md-none"> </div>
 
                             <label class="form-label col-lg-2 col-md-12 pt-1">Street:</label>
                             <div class="col-lg-3 col-md-12">
-                                <input type="text" name='street' id="st" disabled="true" class="form-control form-control-sm" value="<?= $this->session->userdata('auth_user')['street'] ?>" aria-label="Street">
+                                <input type="text" name='street' id="st" disabled="true" class="form-control form-control-sm" value="<?= $this->session->userdata('auth_user')['street'] ?>" aria-label="Street" required>
                             </div>
                         </div>
 
@@ -176,13 +173,13 @@ include __DIR__ . '/../includes/studentSideBar.php'
                         <div class="row mt-2 small">
                             <label class="form-label col-lg-2 col-md-12  pt-1">Barangay:</label>
                             <div class="col-lg-3 col-md-12">
-                                <input type="text" name='barangay' id="brgy" disabled="true"value="<?= $this->session->userdata('auth_user')['barangay'] ?>" class="form-control form-control-sm" aria-label="Barangay">
+                                <input type="text" name='barangay' id="brgy" disabled="true"value="<?= $this->session->userdata('auth_user')['barangay'] ?>" class="form-control form-control-sm" aria-label="Barangay" required>
                             </div>
                             <div class="col-lg-2 col-md-none"> </div>
 
                             <label class="form-label col-lg-2 col-md-12 pt-1">City:</label>
                             <div class="col-lg-3 col-md-12">
-                                <input type="text" name='city' id="City" disabled="true" class="form-control form-control-sm" value="<?= $this->session->userdata('auth_user')['city'] ?>" aria-label="City">
+                                <input type="text" name='city' id="City" disabled="true" class="form-control form-control-sm" value="<?= $this->session->userdata('auth_user')['city'] ?>" aria-label="City" required>
                             </div>
                         </div>
 
@@ -191,13 +188,13 @@ include __DIR__ . '/../includes/studentSideBar.php'
 
                             <label class="form-label col-lg-2 col-md-6 pt-1">Zipcode:</label>
                             <div class="col-lg-3 col-md-6">
-                                <input type="text" name='zipcode' id="zip" disabled="true" value="<?= $this->session->userdata('auth_user')['zipcode'] ?>" class="form-control form-control-sm" aria-label="Zipcode">
+                                <input type="text" name='zipcode' id="zip" disabled="true" value="<?= $this->session->userdata('auth_user')['zipcode'] ?>" class="form-control form-control-sm" aria-label="Zipcode" required>
                             </div>
                             <div class="col-lg-2 col-md-none"> </div>
 
                             <label class="form-label col-lg-2 col-md-6 pt-1">Province:</label>
                             <div class="col-lg-3 col-md-6">
-                                <input type="text" name='province' id="prov" disabled="true" value="<?= $this->session->userdata('auth_user')['province'] ?>" class="form-control form-control-sm" aria-label="Province">
+                                <input type="text" name='province' id="prov" disabled="true" value="<?= $this->session->userdata('auth_user')['province'] ?>" class="form-control form-control-sm" aria-label="Province" required>
                             </div>
                         </div>
                         </fieldset>
@@ -229,7 +226,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
 
 
             <!-- Educational Attainment -->
-            <div id='educationalattainment' class="container-fluid pt-3" style="display: none;">
+            <div id='educationalattainment' class="pt-3" style="display: none;">
                 <div class="Wrapper">
                     <div class="tabTitle">
                         <p class="text-white"><i class="fa fa-user-graduate"></i> <span class="px-2"> Educational Attainment </span></p>
@@ -340,7 +337,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
 
 
         <!-- Requirements -->
-        <div id='requirement' class="container-fluid pt-3 " style="display: none;">
+        <div id='requirement' class=" pt-3 " style="display: none;">
             <div class="Wrapper">
                 <div class="tabTitle">
                     <p class="text-white"><i class="fas fa-file"></i> <span class="px-2">Requirements </span></p>
@@ -402,7 +399,6 @@ include __DIR__ . '/../includes/studentSideBar.php'
         </div>
     </div>
 </div>
-
 <script type="text/javascript">
     function personalInfo() {
         document.getElementById('personalInfo').style.display = "block";
@@ -478,8 +474,8 @@ include __DIR__ . '/../includes/studentSideBar.php'
     }
 
 </script>
-<script src="<?php echo base_url('assets/js/admission.js'); ?>"></script>
+<!-- 
+<script src="<?php echo base_url('assets/js/admission.js'); ?>"></script> -->
 <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 </body>
-
 </html>
