@@ -64,6 +64,97 @@ include __DIR__ . '/../includes/facultySideBar.php'
                 </div>
             </div>
         </div>
+    <!--Schedule-->
+    <div class="col-12 align-self-center" id="schedule">
+            <div class="table-wrapper">
+                <div class="table-title">
+                    <div class="row">
+                        <div class="col">
+                            <h2>Schedule</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">  
+                    <table class="table table-fixed align-middle table-striped table-borderless table-hover" style="height: 250px;" id="table-body">
+                        <thead class ="thead">
+                            <tr>
+			                    <th>Subject Code</th>
+			                    <th>Subject Name </th>
+                                <th>Section</th>
+                                <th>Day</th>
+                                <th>Time</th>
+		                    </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Math001</td>
+                                <td>Mathematics 1</td>
+                                <td>BSCS-NS-1A</td>
+                                <td>Mon</td>
+                                <td>7:00-9:00</td>
+                            </tr>
+                            <tr>
+                                <td>Math002</td>
+                                <td>Mathematics 2</td>
+                                <td>BSCS-2A</td>
+                                <td>Wed</td>
+                                <td>7:00-9:00</td>
+                            </tr>
+                            <tr>
+                                <td>Math003</td>
+                                <td>Mathematics 3</td>
+                                <td>BSCS-NS-3A</td>
+                                <td>Thur</td>
+                                <td>7:00-9:00</td>
+                            </tr>
+                            <tr>
+                                <td>Math004</td>
+                                <td>Mathematics 4</td>
+                                <td>BSCS-4A</td>
+                                <td>Fri</td>
+                                <td>7:00-9:00</td>
+                            </tr>
+                            <tr>
+                                <td>Math001</td>
+                                <td>Mathematics 1</td>
+                                <td>BSCS-1A</td>
+                                <td>Mon</td>
+                                <td>7:00-9:00</td>
+                            </tr>
+                            <tr>
+                                <td>Math002</td>
+                                <td>Mathematics 2</td>
+                                <td>BSCS-NS-2A</td>
+                                <td>Tue</td>
+                                <td>7:00-9:00</td>
+                            </tr>
+                            <tr>
+                                <td>Math003</td>
+                                <td>Mathematics 3</td>
+                                <td>BSCS-NS-3A</td>
+                                <td>Wed</td>
+                                <td>7:00-9:00</td>
+                            </tr>
+                            <tr>
+                                <td>Math004</td>
+                                <td>Mathematics 4</td>
+                                <td>BSCS-4A</td>
+                                <td>Fri</td>
+                                <td>7:00-9:00</td>
+                            </tr>
+                            <tr>
+                                <td>Math001</td>
+                                <td>Mathematics 1</td>
+                                <td>BSCS-NS-1A</td>
+                                <td>Mon</td>
+                                <td>7:00-9:00</td>
+                            </tr> 
+                        </tbody>
+                    </table>	
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 <script src="<?php echo base_url('assets/js/calendar.js'); ?>"></script>
