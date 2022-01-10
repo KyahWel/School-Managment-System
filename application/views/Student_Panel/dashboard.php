@@ -71,10 +71,8 @@ include __DIR__ . '/../includes/studentSideBar.php'
                                     </div>
                                 <?php endif ?>
                             <?php } ?>
+                            
                             <!-- View Details Announcement Modal -->
-
-
-                            <!-- Modal -->
                             <div class="modal fade" id="viewAnnouncementDetails" tabindex="-1" aria-modal="true" aria-labelledby="View Announcement" aria-hidden="true">
                                 <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                                     <div class="modal-content">

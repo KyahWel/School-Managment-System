@@ -2,8 +2,9 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat'>
+    <link rel="shortcut icon" href="#" />
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
@@ -22,7 +23,7 @@
         <div class="text-white ms-auto email">
             TUP-PROF-0000
         </div>
-        <div class="header_img"> <img src="../assets/images/facultyAvatar.png" alt=""></div>
+        <div class="header_img"> <img src="../assets/images/facultyAvatar.png" alt="Faculty Avatar"></div>
     </header>
 
     <div class="l-navbar side" id="nav-bar">
@@ -30,8 +31,8 @@
         <nav class="nav">
             <div>
                 <div class="nav_list">
-                    <div class="welcome text-dark pt-3 fw-bold" id="welcome" style="color: steelblue; font-size:1rem">
-                        <i class='fa fa-user nav_icon px-2' style="color:steelblue;"></i>
+                    <div class="welcome text-dark pt-3 fw-bold" id="welcome">
+                        <i class='fa fa-user nav_icon px-2'></i>
                         Hello, Teacher!
                         <hr>
                     </div>

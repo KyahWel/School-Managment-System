@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat'>
+    <link rel="shortcut icon" href="#" />
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/css/sideBarMAIN.css'); ?>" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url('assets/css/admintabsMAIN.css'); ?>" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url('assets/css/changePassword.css'); ?>" rel="stylesheet" type="text/css">
-    <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
+
 </head>
 
 <body oncontextmenu='return false' class="snippet-body body-pd" id="body-pd">
@@ -27,10 +27,12 @@
 
         </div>
         <div class="btn-group ">
-            <button class="btn text-white dropdown-toggle mx-0 px-0" type="button" id="headerAvatarDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+            <button class="btn text-white dropdown-toggle mx-0 px-0" title="headAvatar" type="button" id="headerAvatarDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
             </button>
-            <ul class="dropdown-menu" aria-labelledby="avatarDropdown" style="background: lightgray; max-width:50px;">
-                <li><input type="file" class="dropdown-item form-cotrol form-control-sm" placeholder=""></input></li>
+            <ul class="dropdown-menu" aria-labelledby="avatarDropdown">
+                <li>
+                    <input type="file" class="dropdown-item form-cotrol form-control-sm" aria-label="choose file"></input>
+                </li>
             </ul>
         </div>
     </header>
@@ -40,7 +42,7 @@
         <nav class="nav">
             <div>
                 <div class="nav_list">
-                    <div class="welcome text-dark pt-3 fw-bold" id="welcome" style="color: steelblue; font-size:1rem">
+                    <div class="welcome text-dark pt-3 fw-bold">
                         Hello, <?= $this->session->userdata('auth_user')['firstname'] ?>
                         <hr>
                     </div>
