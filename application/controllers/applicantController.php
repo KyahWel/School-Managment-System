@@ -6,6 +6,7 @@ class applicantController extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('applicantModel');
+		$this->load->model('pdfGeneratorModel');
 		$this->load->model('courseModel');
 		$this->load->model('Authentication');
 		if ($this->session->userdata('authenticated') != '4'){
@@ -43,5 +44,9 @@ class applicantController extends CI_Controller {
 		$this->load->view('/applicant/applicant_data',$data);
 	}
 
+	public function downloadTestPermit($id)
+	{
+		$this->pdfGeneratorModel->generateTestPermit($id);
+	}
 
 }
