@@ -179,3 +179,44 @@ div#viewFacultytButton.tab-pane.active::before {
 #table-body {
     font-size: 0.9rem;
 }
+
+/*Schedule*/
+.table-wrapper{
+    background: white;
+    border-radius: 25px;
+    border: 0.1px solid rgb(221, 220, 220);
+}
+.table-title{
+    background-color: #800000;
+    color: white;
+    text-align: center;
+    border-radius: 25px 25px 0 0 ;
+}
+.table-title h2{
+    font-size: inherit;
+    margin: 15px;
+}
+#table-body thead{
+    text-align: center;
+}
+#table-body tbody{
+    text-align: center;
+}
+.table{
+    display: flex;
+    flex-flow: column;
+}
+.thead {
+    flex: 0 0 auto;
+}
+.tbody {
+    flex: 1 1 auto;
+    display: block;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
