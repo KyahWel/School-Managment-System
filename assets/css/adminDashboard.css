@@ -15,11 +15,51 @@ body {
     height: 125px;
     overflow-y: auto;
 }
-
+ 
 .billboard .billboardTitle {
     /* background: linear-gradient(to right, #ffd89b 0%, #19547b 100%); */
     background: maroon;
     border-radius: 25px 25px 0 0;
+}
+
+
+.billboard button.viewAnnounceDeets{
+    background: #F2BD53;
+    border: 1px solid #dfa32b;
+    border-radius: 0.3rem;
+    color: black;
+    opacity: 0.8;
+}
+.billboard button.viewAnnounceDeets:hover{
+    opacity: 1;
+}
+.billboard button.viewAnnounceDeets:focus{
+    outline: none;
+    box-shadow: none;
+}
+h5.details{
+    background: rgb(242, 188, 196);
+    border: 1px solid rgb(221, 147, 158);
+    border-radius: 0.3rem;
+    font-size: 0.9rem;
+    padding: 5px 10px;
+}
+
+/* View announcement modal */
+
+.modal-body{
+    text-align: left;
+    font-size: 1rem;
+}
+
+.modal button.btn-secondary{
+    background-color: lightgray;
+    color: black;
+
+}
+.modal button.btn-secondary:hover{
+    background-color: transparent;
+    border:  1px solid gray;
 }
 
 .carousel-item.active::before {
@@ -28,9 +68,10 @@ body {
 
 h5.front {
     color: maroon;
-    font-family: 'Montserrat';
     padding-top: 52px;
     overflow-y: none;
+    letter-spacing: 1px;
+
 }
 
 .carousel p {
@@ -60,13 +101,12 @@ h5.front {
     color: whitesmoke;
 }
 
-#search {
+#searchStudID, #searchFacID {
     color: white;
     background-color: #800000;
     padding: .1rem .5rem;
 }
-
-#search i {
+#searchStudID i, #searchFacID i {
     font-size: 10px;
 }
 
@@ -166,8 +206,8 @@ div#viewFacultytButton.tab-pane.active::before {
     border-bottom-right-radius: 25px;
 }
 
-#studentsTabContent #table-body td,
-#facultyTabContent #table-body td {
+#studentsTabContent #table-bodyStud td,
+#facultyTabContent #table-bodyFac td {
     font-weight: 200;
     color: black;
     overflow: hidden;
@@ -178,6 +218,19 @@ div#viewFacultytButton.tab-pane.active::before {
 
 #table-body {
     font-size: 0.9rem;
+}
+
+#table-bodyStudody tr, #table-bodyFac tr {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#table-bodyStudody td, #table-bodyFac td {
+    max-width: 400px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 /*Schedule*/
