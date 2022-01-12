@@ -9,6 +9,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
 </head>
 
 <div class="height-100 pt-2 container-fluid">
+    
     <h3 class="fw-bold my-3">My Profile</h3>
     <div class="viewStudentContent d-flex align-items-center">
         <div class=" profile-pic-div">
@@ -347,7 +348,11 @@ include __DIR__ . '/../includes/studentSideBar.php'
                     <div class="row mb-3">
                         <div class="mb-3 fw-bold">
                             Medical Clearance <br>
+<<<<<<< Updated upstream
                             <img src="../application\uploads\<?= $this->session->userdata('auth_user')['medical_record']?>" alt="Medical Clearance" class="rounded hover-shadow cursor" src="assets/images/download.png" onclick="openModal();currentSlide(1)" style="width: 200px;">
+=======
+                            <img src="../<?= $this->session->userdata('auth_user')['medical_record']?>" alt="Medical Clearance" class="rounded hover-shadow cursor" src="assets/images/download.png" onclick="openModal();currentSlide(1)" style="width: 200px;">
+>>>>>>> Stashed changes
                         </div>
                         <div class="mb-3 fw-bold">
                             Form 137 <br>
@@ -364,17 +369,29 @@ include __DIR__ . '/../includes/studentSideBar.php'
                         <div class="modal-Requirementscontent">
                             <div class="mySlides">
                                 <div class="numbertext">Medical Clearance</div>
+<<<<<<< Updated upstream
                                 <img src="../application\uploads\<?= $this->session->userdata('auth_user')['medical_record']?>" alt="Medical Clearance" style="width:100%" height="500px">
+=======
+                                <img src="uploads/<?= $this->session->userdata('auth_user')['medical_record']?>" alt="Medical Clearance" style="width:100%" height="500px">
+>>>>>>> Stashed changes
                             </div>
 
                             <div class="mySlides">
                                 <div class="numbertext">Form 137</div>
+<<<<<<< Updated upstream
                                 <img src="../application\uploads\<?= $this->session->userdata('auth_user')['form137']?>" alt="Form 137" style="width:100%" height="500px">
+=======
+                                <img src="../../application/uploads/<?= $this->session->userdata('auth_user')['form137']?>" alt="Form 137" style="width:100%" height="500px">
+>>>>>>> Stashed changes
                             </div>
 
                             <div class="mySlides">
                                 <div class="numbertext">Good Moral</div>
+<<<<<<< Updated upstream
                                 <img src="../application\uploads\<?= $this->session->userdata('auth_user')['goodmoral']?>" alt="Good Moral" style="width:100%" height="500px">
+=======
+                                <img src="uploads/<?= $this->session->userdata('auth_user')['goodmoral']?>" alt="Good Moral" style="width:100%" height="500px">
+>>>>>>> Stashed changes
                             </div>
                             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                             <a class="next" onclick="plusSlides(1)">&#10095;</a>

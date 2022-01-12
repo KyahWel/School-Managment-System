@@ -14,6 +14,7 @@ class subjectModel extends CI_Model {
 			'subjectID' => NULL,
 			'courseID' => $_POST['courseID'],
 			'yearlevel' => $_POST['yearlevel'],
+			'semester' => $_POST['semester'],
 			'subjectCode' => $_POST['subjectCode'],
 			'name' => $_POST['name'],
 			'units' => $_POST['units'],
