@@ -13,7 +13,7 @@ include __DIR__ . '/../includes/facultySideBar.php'
         <!-- Page Title -->
         <div class="myProfile my-3">
             <h3 mx-0>My Profile</h3>
-            <div class=" d-flex align-items-center">
+            <div class="d-flex align-items-center my-2">
                 <div class=" profile-pic-div">
                     <img src="../assets/images/facultyAvatar.png" alt="Student Avatar" id="facultyPhoto">
                     <input type="file" id="facultyFile">
@@ -24,18 +24,18 @@ include __DIR__ . '/../includes/facultySideBar.php'
                 <div class="table-responsive mx-3">
                     <table id="myProfileDetails" class="table-body">
                         <tr>
-                            <td class="px-3 pt-2">
+                            <td class="py-3">
                                 <p><b>Faculty ID:</b></p>
                                 <p><b>Name:</b></p>
                                 <p><b>Department:</b></p>
-                                <p><b>Email::</b></p>
+                                <p class="mb-0"><b>Email:</b></p>
 
                             </td>
-                            <td class="pt-2 px-2">
-                                <p><?php echo $prof->teacherNumber?> </p>
+                            <td class="py-3">
+                                <p><?php echo $prof->teacherNumber?></p>
                                 <p><?php echo $prof->firstname?> <?php echo $prof->lastname?></p>
-                                <p><?php echo $prof->department?> </p>
-                                <p><?php echo $prof->email?> </p>
+                                <p><?php echo $prof->department?></p>
+                                <p class="mb-0"><?php echo $prof->email?></p>
                             </td>
                         </tr>
                     </table>
@@ -60,35 +60,35 @@ include __DIR__ . '/../includes/facultySideBar.php'
                         <div class="row">
                             <div class="col-lg-3 col-md-6 mb-1">
                                 <!--Last Name-->
-                                <input type="text" class="form-control" readonly value="<?php echo $prof->lastname?>">
-                                <label class="form-label pt-2">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" readonly value="<?php echo $prof->lastname?>">
+                                <label for="lastName" class="form-label pt-2">Last Name</label>
                             </div>
                             <div class="col-lg-3 col-md-6 mb-1">
                                 <!--First Name-->
-                                <input type="text" class="form-control" readonly value="<?php echo $prof->firstname?>">
-                                <label class="form-label pt-2">First Name</label>
+                                <input type="text" class="form-control" id="firstName" readonly value="<?php echo $prof->firstname?>">
+                                <label for="firstName" class="form-label pt-2">First Name</label>
                             </div>
                             <div class="col-lg-3 col-md-6 mb-1">
                                 <!--Middle Name-->
-                                <input type="text" class="form-control" readonly  value="<?php echo $prof->middlename?>">
-                                <label class="form-label pt-2">Middle Name</label>
+                                <input type="text" class="form-control" id="middleName" readonly  value="<?php echo $prof->middlename?>">
+                                <label for="middleName" class="form-label pt-2">Middle Name</label>
                             </div>
                             <div class="col-lg-3 col-md-6 mb-1">
                                 <!--Suffix-->
-                                <input type="text" class="form-control" readonly  value="<?php echo $prof->extname?>">
-                                <label class="form-label pt-2">Suffix</label>
+                                <input type="text" class="form-control" id="suffix" readonly  value="<?php echo $prof->extname?>">
+                                <label for="suffix" class="form-label pt-2">Suffix</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-6 col-md-6 mb-1">
                                 <!--Phone Number-->
-                                <input type="text" class="form-control" readonly  value="<?php echo $prof->phonenum?>">
-                                <label class="form-label pt-2">Phone Number</label>
+                                <input type="text" class="form-control" id="phoneNumber" readonly  value="<?php echo $prof->phonenum?>">
+                                <label for="phoneNumber" class="form-label pt-2">Phone Number</label>
                             </div>
                             <div class="col-lg-6 col-md-6 mb-1">
                                 <!--Email-->
-                                <input type="text" class="form-control" readonly  value="<?php echo $prof->email?>">
-                                <label class="form-label pt-2">Email</label>
+                                <input type="text" class="form-control" id="email" readonly  value="<?php echo $prof->email?>">
+                                <label for="email" class="form-label pt-2">Email</label>
                             </div>
                         </div>
                     </form>
@@ -101,7 +101,7 @@ include __DIR__ . '/../includes/facultySideBar.php'
             </div>
 
             <!-- Edit Modal -->
-            <div class="modal fade" id="editPersonalInformation" tabindex="-1" aria-labelledby="editPersonalInformationHeader" aria-hidden="true">
+            <div class="modal fade" id="editPersonalInformation" tabindex="-1" aria-modal="true" aria-labelledby="editPersonalInformationHeader" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -113,35 +113,35 @@ include __DIR__ . '/../includes/facultySideBar.php'
                                 <div class="row">
                                     <div class="col-lg-3 col-md-6 mb-1">
                                         <!--Last Name-->
-                                        <input type="text" class="form-control" name="lastname" value="<?php echo $prof->lastname?>">
-                                        <label class="form-label pt-2">Last Name</label>
+                                        <input type="text" class="form-control" id="edit-lastName" name="lastname" value="<?php echo $prof->lastname?>">
+                                        <label for="edit-lastName" class="form-label pt-2">Last Name</label>
                                     </div>
                                     <div class="col-lg-3 col-md-6 mb-1">
                                         <!--First Name-->
-                                        <input type="text" class="form-control" name="firstname" value="<?php echo $prof->firstname?>">
-                                        <label class="form-label pt-2">First Name</label>
+                                        <input type="text" class="form-control" id="edit-firstName" name="firstname" value="<?php echo $prof->firstname?>">
+                                        <label for="edit-firstName" class="form-label pt-2">First Name</label>
                                     </div>
                                     <div class="col-lg-3 col-md-6 mb-1">
                                         <!--Middle Name-->
-                                        <input type="text" class="form-control" name="middlename" value="<?php echo $prof->middlename?>">
-                                        <label class="form-label pt-2">Middle Name</label>
+                                        <input type="text" class="form-control" id="edit-middleName" name="middlename" value="<?php echo $prof->middlename?>">
+                                        <label for="edit-middleName" class="form-label pt-2">Middle Name</label>
                                     </div>
                                     <div class="col-lg-3 col-md-6 mb-1">
                                         <!--Suffix-->
-                                        <input type="text" class="form-control" name="extname" value="<?php echo $prof->extname?>">
-                                        <label class="form-label pt-2">Suffix</label>
+                                        <input type="text" class="form-control" id="edit-suffix" name="extname" value="<?php echo $prof->extname?>">
+                                        <label for="edit-suffix" class="form-label pt-2">Suffix</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 mb-1">
                                         <!--Phone Number-->
-                                        <input type="text" class="form-control" name="phonenum" value="<?php echo $prof->phonenum?>">
-                                        <label class="form-label pt-2">Phone Number</label>
+                                        <input type="text" class="form-control" id="edit-phoneNumber" name="phonenum" value="<?php echo $prof->phonenum?>">
+                                        <label for="edit-phoneNumber" class="form-label pt-2">Phone Number</label>
                                     </div>
                                     <div class="col-lg-6 col-md-6 mb-1">
                                         <!--Email-->
-                                        <input type="text" class="form-control" name="email" value="<?php echo $prof->email?>">
-                                        <label class="form-label pt-2">Email</label>
+                                        <input type="text" class="form-control" id="edit-email" name="email" value="<?php echo $prof->email?>">
+                                        <label for="edit-email" class="form-label pt-2">Email</label>
                                     </div>
                                 </div>
                                 <div class="editPersonalInformationButton d-flex justify-content-end">
