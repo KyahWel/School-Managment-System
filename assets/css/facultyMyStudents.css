@@ -137,6 +137,10 @@ textarea:focus, input:focus{
     color: white;
 }
 
+label{
+    font-weight: bold;
+}
+
 /* Form Responsiveness */
 
 label.form-control{
