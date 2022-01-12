@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 
 <head>
     <meta charset="UTF-8">
@@ -24,7 +25,7 @@
         <div class="text-white ms-auto email">
             <?= $this->session->userdata('auth_user')['teacherNumber'] ?>
         </div>
-        <div class="header_img"> <img src="../assets/images/facultyAvatar.png" alt="Faculty Avatar"></div>
+        <div class="header_img"> <img src="../assets/images/avatar.svg" alt=""></div>
     </header>
 
     <div class="l-navbar side" id="nav-bar">

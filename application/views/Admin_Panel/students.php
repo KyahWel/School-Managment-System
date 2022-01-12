@@ -56,14 +56,14 @@ include __DIR__.'/../includes/adminSideBar.php'
 
     <!--Student List-->
     <div class="col-12 align-self-center" id="studentInformation">
-            <div class="table-wrapper">
-                <div class="table-title">
-                    <div class="row">
-                        <div class="col">
-                            <h2>Student Information</h2>
-                        </div>
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col">
+                        <h2>Student Information</h2>
                     </div>
                 </div>
+            </div>
                 <div class="table-responsive">  
                     <table class="table table-fixed align-middle table-striped table-borderless table-hover" style="height: 400px;" id="table-body">
                         <thead class ="thead">

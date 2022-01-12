@@ -12,3 +12,9 @@ let day = days[d.getDay()];
 const dateStr = day + " " + month + " " + date + ", " + year;
 document.getElementById("getMonth").innerHTML = monthFull;
 document.getElementById("today").innerHTML = dateStr;
+
+$('.carousel').bcSwipe({ threshold: 50 });
+
+$(document).ready(function() {
+    jQuery.fn.carousel.Constructor.TRANSITION_DURATION = 8000 // 6 seconds
+});
