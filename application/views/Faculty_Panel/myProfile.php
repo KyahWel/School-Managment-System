@@ -32,11 +32,10 @@ include __DIR__ . '/../includes/facultySideBar.php'
 
                             </td>
                             <td class="pt-2 px-2">
-                                <p>1234567890</p>
-                                <p>Lida Cruz</p>
-                                <p>Mathematics Department</p>
-                                <p>lida.garcia@gmail.com</p>
-
+                                <p><?php echo $prof->teacherNumber?> </p>
+                                <p><?php echo $prof->firstname?> <?php echo $prof->lastname?></p>
+                                <p><?php echo $prof->department?> </p>
+                                <p><?php echo $prof->email?> </p>
                             </td>
                         </tr>
                     </table>
@@ -61,34 +60,34 @@ include __DIR__ . '/../includes/facultySideBar.php'
                         <div class="row">
                             <div class="col-lg-3 col-md-6 mb-1">
                                 <!--Last Name-->
-                                <input type="text" class="form-control" readonly>
+                                <input type="text" class="form-control" readonly value="<?php echo $prof->lastname?>">
                                 <label class="form-label pt-2">Last Name</label>
                             </div>
                             <div class="col-lg-3 col-md-6 mb-1">
                                 <!--First Name-->
-                                <input type="text" class="form-control" readonly>
+                                <input type="text" class="form-control" readonly value="<?php echo $prof->firstname?>">
                                 <label class="form-label pt-2">First Name</label>
                             </div>
                             <div class="col-lg-3 col-md-6 mb-1">
                                 <!--Middle Name-->
-                                <input type="text" class="form-control" readonly>
+                                <input type="text" class="form-control" readonly  value="<?php echo $prof->middlename?>">
                                 <label class="form-label pt-2">Middle Name</label>
                             </div>
                             <div class="col-lg-3 col-md-6 mb-1">
                                 <!--Suffix-->
-                                <input type="text" class="form-control" readonly>
+                                <input type="text" class="form-control" readonly  value="<?php echo $prof->extname?>">
                                 <label class="form-label pt-2">Suffix</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-6 col-md-6 mb-1">
                                 <!--Phone Number-->
-                                <input type="text" class="form-control" readonly>
+                                <input type="text" class="form-control" readonly  value="<?php echo $prof->phonenum?>">
                                 <label class="form-label pt-2">Phone Number</label>
                             </div>
                             <div class="col-lg-6 col-md-6 mb-1">
                                 <!--Email-->
-                                <input type="text" class="form-control" readonly>
+                                <input type="text" class="form-control" readonly  value="<?php echo $prof->email?>">
                                 <label class="form-label pt-2">Email</label>
                             </div>
                         </div>
@@ -110,38 +109,38 @@ include __DIR__ . '/../includes/facultySideBar.php'
                             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form class="container my-3" action="">
+                            <form class="container my-3" method="POST" action="<?php echo site_url('FacultyControllerFunctions/updateTeacher/')?><?= $this->session->userdata('auth_user')['teacherID']?>">
                                 <div class="row">
                                     <div class="col-lg-3 col-md-6 mb-1">
                                         <!--Last Name-->
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" name="lastname" value="<?php echo $prof->lastname?>">
                                         <label class="form-label pt-2">Last Name</label>
                                     </div>
                                     <div class="col-lg-3 col-md-6 mb-1">
                                         <!--First Name-->
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" name="firstname" value="<?php echo $prof->firstname?>">
                                         <label class="form-label pt-2">First Name</label>
                                     </div>
                                     <div class="col-lg-3 col-md-6 mb-1">
                                         <!--Middle Name-->
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" name="middlename" value="<?php echo $prof->middlename?>">
                                         <label class="form-label pt-2">Middle Name</label>
                                     </div>
                                     <div class="col-lg-3 col-md-6 mb-1">
                                         <!--Suffix-->
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" name="extname" value="<?php echo $prof->extname?>">
                                         <label class="form-label pt-2">Suffix</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 mb-1">
                                         <!--Phone Number-->
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" name="phonenum" value="<?php echo $prof->phonenum?>">
                                         <label class="form-label pt-2">Phone Number</label>
                                     </div>
                                     <div class="col-lg-6 col-md-6 mb-1">
                                         <!--Email-->
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" name="email" value="<?php echo $prof->email?>">
                                         <label class="form-label pt-2">Email</label>
                                     </div>
                                 </div>

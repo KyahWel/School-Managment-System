@@ -73,7 +73,6 @@ include __DIR__.'/../includes/adminSideBar.php'
 			                    <th>Last Name</th>
 			                    <th>Course</th>
                                 <th>Section</th>
-                                <th>Status</th>
                                 <th>Action</th>
 		                    </tr>
                         </thead>
@@ -85,7 +84,6 @@ include __DIR__.'/../includes/adminSideBar.php'
                                     <td><?php echo $studentrow->lastname?></td>
                                     <td><?php echo $studentrow->course_chosen;?></td>
                                     <td> </td>
-                                    <td><?php echo $studentrow->status;?></td>
                                     <td>
                                         <div class="action-buttons">
                                             <?php if ($studentrow->status == 1): ?>

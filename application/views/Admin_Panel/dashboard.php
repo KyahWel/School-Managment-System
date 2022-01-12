@@ -11,15 +11,20 @@ include __DIR__ . '/../includes/adminSideBar.php'
 <body>
     <div class="height-100 pt-2 container-fluid">
         <!-- If user accessed login page or other pages -->
-        <?php if($this->session->flashdata('status')) : ?>
+        <?php if($this->session->flashdata('adminError')) : ?>
             <div class="alert alert-danger alert-dismissible fade show">
-                <?= $this->session->flashdata('status'); ?>
+                <?= $this->session->flashdata('adminError'); ?>
                 <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
             </div>
-        <?php elseif($this->session->flashdata('success')): ?>
+        <?php elseif($this->session->flashdata('successAdmin')): ?>
         <!-- Successfull change password alert -->
             <div class="alert alert-success alert-dismissible fade show">
-                <?= $this->session->flashdata('success'); ?>
+                <?= $this->session->flashdata('successAdmin'); ?>
+                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+            </div>
+        <?php elseif($this->session->flashdata('logout')): ?>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <?= $this->session->flashdata('logout'); ?>
                 <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
             </div>
         <?php endif; ?>

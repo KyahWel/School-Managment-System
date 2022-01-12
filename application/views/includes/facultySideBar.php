@@ -12,6 +12,7 @@
     <link href="<?php echo base_url('assets/css/admintabsMAIN.css'); ?>" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url('assets/css/changePassword.css'); ?>" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url('assets/css/dataTables.bootstrap.min.css'); ?>" rel="stylesheet">
+    <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 </head>
 
 <body oncontextmenu='return false' class="snippet-body body-pd" id="body-pd">
@@ -21,7 +22,7 @@
             <span class="brand"> Technological University of the Philippines</span>
         </div>
         <div class="text-white ms-auto email">
-            TUP-PROF-0000
+            <?= $this->session->userdata('auth_user')['teacherNumber'] ?>
         </div>
         <div class="header_img"> <img src="../assets/images/facultyAvatar.png" alt="Faculty Avatar"></div>
     </header>
@@ -33,13 +34,13 @@
                 <div class="nav_list">
                     <div class="welcome text-dark pt-3 fw-bold" id="welcome">
                         <i class='fa fa-user nav_icon px-2'></i>
-                        Hello, Teacher!
+                        Hello, Prof <?= $this->session->userdata('auth_user')['lastname'] ?>!
                         <hr>
                     </div>
-                    <a href="<?php echo base_url('FacultyController/dashboard'); ?>" class="nav_link pt-3"> <i class='fa fa-th-large nav_icon'></i> <span class="nav_name">Dashboard</span> </a>
-                    <a href="<?php echo base_url('FacultyController/myProfile'); ?>" class="nav_link"> <i class='fa fa-user nav_icon'></i> <span class="nav_name">My Profile</span> </a>
-                    <a href="<?php echo base_url('FacultyController/myStudents'); ?>" class="nav_link"> <i class='fa fa-user-graduate nav_icon'></i> <span class="nav_name">My Students</span> </a>
-                    <a href="<?php echo base_url('FacultyController/changePassword'); ?>" class="nav_link"> <i class='fa fa-key nav_icon'></i> <span class="nav_name">Change Password</span> </a>
+                    <a href="<?php echo base_url('Faculty/dashboard'); ?>" class="nav_link pt-3"> <i class='fa fa-th-large nav_icon'></i> <span class="nav_name">Dashboard</span> </a>
+                    <a href="<?php echo base_url('Faculty/profile'); ?>" class="nav_link"> <i class='fa fa-user nav_icon'></i> <span class="nav_name">My Profile</span> </a>
+                    <a href="<?php echo base_url('Faculty/students'); ?>" class="nav_link"> <i class='fa fa-user-graduate nav_icon'></i> <span class="nav_name">My Students</span> </a>
+                    <a href="<?php echo base_url('Faculty/changePassword'); ?>" class="nav_link"> <i class='fa fa-key nav_icon'></i> <span class="nav_name">Change Password</span> </a>
                 </div>
             </div>
             <a href="<?php echo base_url('Logout'); ?>" class="nav_link" id="logout"> <i class='fa fa-sign-out-alt nav_icon'></i> <span class="nav_name">LogOut</span> </a>

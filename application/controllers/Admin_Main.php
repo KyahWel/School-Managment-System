@@ -7,6 +7,7 @@ class Admin_Main extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('AdminModel');
+		$this->load->model('studentModel');
 	}
 
 	public function addAdmin()
@@ -80,6 +81,20 @@ class Admin_Main extends CI_Controller {
 			</div>                    
 		</form>';
 		echo $output;
+	}
+
+	public function viewApplicant(){
+		$applicantData = $this->input->post('id');
+        $records = $this->AdminModel->getData($applicantData); 
+	}
+
+	public function addApplicants(){
+		$applicantID = $this->input->post('applicantID');
+		$lastname = $this->input->post('lastname');
+		for($i=0;$i<sizeof($applicantID);$i++){
+			$this->studentModel->insertData($applicantID[$i],$lastname[$i]);
+		}
+		redirect("Admin/dashboard");
 	}
 
 	public function updateAdmin($id)

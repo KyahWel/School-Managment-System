@@ -43,9 +43,9 @@
     <div class="wrapper-button" id="Home" style="display: block;">
     
     <!-- Invalid username or password -->
-     <?php if($this->session->flashdata('status')) : ?>
+     <?php if($this->session->flashdata('login')) : ?>
       <div class="alert alert-success alert-dismissible fade show">
-        <?= $this->session->flashdata('status'); ?>
+        <?= $this->session->flashdata('login'); ?>
         <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
       </div>
       <?php endif; ?>

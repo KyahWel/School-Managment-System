@@ -10,11 +10,16 @@ include __DIR__ . '/../includes/facultySideBar.php'
 
 <div class="height-100 pt-2 container-fluid">
     <!-- If user accessed login page or other pages -->
-    <?php if($this->session->flashdata('status')) : ?>
-        <div class="alert alert-success">
-            <?= $this->session->flashdata('status'); ?>
+    <?php if($this->session->flashdata('successFaculty')) : ?>
+        <div class="alert alert-success alert-dismissible fade show">
+            <?= $this->session->flashdata('successFaculty'); ?>
         </div>
-        <?php endif; ?>
+    <?php elseif($this->session->flashdata('logout')): ?>
+        <div class="alert alert-danger alert-dismissible fade show">
+            <?= $this->session->flashdata('logout'); ?>
+             <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+        </div>
+    <?php endif; ?>
     <h3>Dashboard</h3>
     <div class="row"> 
             <!-- Date today -->

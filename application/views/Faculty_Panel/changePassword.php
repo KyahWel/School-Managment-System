@@ -11,7 +11,14 @@ include __DIR__ . '/../includes/facultySideBar.php'
 
         <!--ChangePassword Box-->
         <div class="col-12 align-self-center pt-3" id="cp">
+                <?php if($this->session->flashdata('facultyError')) : ?>
+                        <div class="alert alert-danger alert-dismissible fade show">
+                            <?= $this->session->flashdata('facultyError'); ?>
+                            <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+                        </div>
+                <?php endif; ?>
             <div class="table-wrapper">
+                
                 <div class="Changepassword-header">
                     <p class="px-4 py-2">Change Password</p>
                 </div>
@@ -22,7 +29,7 @@ include __DIR__ . '/../includes/facultySideBar.php'
                     </div>
 
                     <!-- Password input-->
-                    <form class="px-4 " method="POST" action="">
+                    <form class="px-4 " method="POST" action="../facultyControllerFunctions/changePass/<?= $this->session->userdata('auth_user')['teacherID']?>">
                         <div class="form-group row mb-2 px-1">
                             <label for="oldpassword" class="form-label col-lg-3 col-md-4 col-sm-12 pt-1 fw-bold">Old Password:</label>
                             <div class="col-lg-5 col-md-8 col-sm-12">

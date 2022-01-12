@@ -161,16 +161,10 @@ include __DIR__ . '/../includes/adminSideBar.php'
                 </div>
             </div>
 
-
-
             <!-- Applicant Tab -->
             <div class="tab-pane" id="applicantTabContent" role="tabpanel" aria-labelledby="Applicants">
-                <form action="" method="post" id="AddApplicants">
                     <!-- Filter and Search -->
                     <div class=" d-flex  align-items-center my-1 pt-3 px-3">
-                        <div class="px-0 pt-2 text-dark">
-                            <input type="checkbox" name="addAll" id="checkApplicant" onclick="checkedAll.call(this);" /> Select all
-                        </div>
                         <div class="ms-auto">
                             <label class="mb-2 text-dark">Filter by:</label>
                             <select name="stats" class="select" placeholder="status">
@@ -199,46 +193,63 @@ include __DIR__ . '/../includes/adminSideBar.php'
                             </thead>
                             <tbody>
                                 <?php foreach ($applicant as $applicantrow) { ?>
-                                    <tr>
-                                        <td><input type="checkbox" name="addApplicant" class="mx-3"></td>
-                                        <td><?php echo $applicantrow->applicantNumber ?></td>
-                                        <td><?php echo $applicantrow->firstname ?> <?php echo $applicantrow->lastname ?></td>
-                                        <td><?php echo $applicantrow->course_chosen ?></td>
-                                        <td><?php echo $applicantrow->applicant_result ?></td>
-                                        <td>
-                                            <button type="button" onclick="applicantDetails()" class="btn btn-primary text-white text-uppercase addBtn">View</button>
-                                            <button type="button" class="btn btn-primary text-white text-uppercase addBtn">ADD</button>
-                                        </td>
-                                    </tr>
+                                    <?php if($applicantrow->applicant_result != "Student"): ?>
+                                        <tr>
+                                            <td> </td>
+                                            <td><?php echo $applicantrow->applicantNumber ?></td>
+                                            <td><?php echo $applicantrow->firstname ?> <?php echo $applicantrow->lastname ?></td>
+                                            <td><?php echo $applicantrow->course_chosen ?></td>
+                                            <td><?php echo $applicantrow->applicant_result ?></td>
+                                            <td>
+                                                <button type="button" onclick="applicantDetails()" class="btn btn-primary text-white text-uppercase addBtn">View</button>
+                                                <?php if ($applicantrow->applicant_result == "Passed"): ?>
+                                                    <button type="button" class="btn btn-primary text-white text-uppercase addBtn">ADD</button>
+                                                <?php else: ?>
+                                                    <button type="button" disabled style="background-color: gray;" class="btn btn-primary text-white text-uppercase addBtn">ADD</button>
+                                                <?php endif?>
+                                            </td>
+                                        </tr>
+                                    <?php endif ?>
                                 <?php } ?>
                             </tbody>
                         </table>
 
                         <div class=" d-flex justify-content-end my-3 p-3">
                             <button type="button" class="btn btn-primary btn-sm text-uppercase addALL px-3 " id="addAll" data-bs-toggle="modal" data-bs-target="#addApplicant">
-                                <i class="fas fa-plus fa-sm" title="Add All"></i> ADD ALL</button>
+                                <i class="fas fa-plus fa-sm" title="Add All"></i> ADD ALL PASSED APPLICANTS</button>
                         </div>
 
                         <!-- Add All PASSED Applicants Pop up Dialog-->
                         <div class="modal fade" id="addApplicant" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="cancelApplicationLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h6 class="modal-title text-white" id="cancelApplicationLabel">Add Applicant</h6>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body text-dark">
-                                        Are you sure you want to add kung ilang selected applicants?
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                                        <button type="submit" class="btn btn-primary">Yes</button>
-                                    </div>
+                                    <form method="POST" action="<?php echo site_url('Admin_Main/addApplicants/')?>">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title text-white" id="cancelApplicationLabel">Add Applicant</h6>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body text-dark">
+                                            Are you sure you want to add the following applicants?
+                                            <ul>
+                                            <?php foreach ($applicant as $applicantrow) { ?>
+                                                <?php if ($applicantrow->applicant_result == "Passed"): ?>
+                                                    <br>
+                                                    <li><?php echo $applicantrow->firstname?> <?php echo $applicantrow->lastname?> (<?php echo $applicantrow->applicantNumber?>)</li>
+                                                    <input type="text" hidden class="form-control" name="applicantID[]" value="<?php echo $applicantrow->applicantID?>">
+                                                    <input type="text" hidden class="form-control" name="lastname[]" value="<?php echo $applicantrow->lastname?>">
+                                                <?php endif?>
+                                            <?php } ?>
+                                            </ul>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                            <button type="submit" class="btn btn-primary">Yes</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </form>
             </div>
 
             <!-- Enrollment Tab -->

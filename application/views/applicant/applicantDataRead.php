@@ -43,10 +43,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <div class="col d-flex flex-column">
                 
                 <div class="container-fluid" id="steps" style="display: block;">
-                    <?php if($this->session->flashdata('status')) : ?>
+                    <?php if($this->session->flashdata('logout')) : ?>
                         <br>
                         <div class="alert alert-danger alert-dismissible fade show">
-                            <?= $this->session->flashdata('status'); ?>
+                            <?= $this->session->flashdata('logout'); ?>
                             <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
                         </div>
                     <?php endif; ?>

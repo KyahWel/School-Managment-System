@@ -17,13 +17,16 @@ class AdminController extends CI_Controller {
 		$this->load->model('Authentication');
 		
 		if ($this->session->userdata('authenticated') != '1'){
-			$this->session->set_flashdata('status','Please logout first'); 
-			if ($this->session->userdata('authenticated') == '2')
-				redirect('Faculty/Dashboard');
-			elseif ($this->session->userdata('authenticated') == '3')
+			$this->session->set_flashdata('logout','Please logout first'); 
+			if ($this->session->userdata('authenticated') == '2'){
+				redirect('Faculty/dashboard');
+			}
+			elseif ($this->session->userdata('authenticated') == '3'){
 				redirect('Student/Dashboard');
-			else 
+			}
+			else {
 				redirect('Applicant/'.$this->session->userdata('auth_user')['applicantID']);
+			}	
 		}
 	}
 

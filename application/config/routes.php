@@ -81,7 +81,10 @@ $route['Student/Drop_Subject'] = 'studentController/dropSubject';
 $route['Student/changePassword'] = 'studentController/changePassword';
 
 //Faculty Routes
-$route['Faculty/Dashboard'] = 'facultyController/dashboard';
+$route['Faculty/dashboard'] = 'FacultyController/dashboard';
+$route['Faculty/profile'] = 'FacultyController/myProfile';
+$route['Faculty/students'] = 'FacultyController/myStudents';
+$route['Faculty/changePassword'] = 'FacultyController/changePassword';
 
 //Applicant Routes
 $route['Applicant/(:any)'] = 'applicantController/viewApplicant/$1';
