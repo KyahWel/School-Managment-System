@@ -33,9 +33,9 @@ include __DIR__.'/../includes/adminSideBar.php'
                                 </div>        
                             </div> 
                             <div class="row mb-3">
-                                <div class="col-6 align-self-center my-3">
+                                <div class="col-12 align-self-center my-3">
                                     <label class="form-label">College: </label>
-                                    <select name="college" class="form-control" required id="collegeSelect">
+                                    <select name="college" required id="collegeSelect">
 			                            <option value="" disabled selected hidden>Please Select</option>
 			                            <option value="College of Science">College of Science</option>
 			                            <option value="College of Engineering">College of Engineering</option>

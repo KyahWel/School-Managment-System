@@ -97,12 +97,13 @@ body {
 .form-control::-ms-input-placeholder { /* Microsoft Edge */
     font-size: 0.8rem;
 }
-#collegeSelect:focus{
+#collegeSelect:hover{
     box-shadow: none;
-    border-color: #800000;
+    border-color: #3d3b3b;
 }
 #collegeSelect{
     box-shadow: none;
+    background-color: rgb(223, 222, 222);
 }
 input[type=text], textarea{
     color: black;
