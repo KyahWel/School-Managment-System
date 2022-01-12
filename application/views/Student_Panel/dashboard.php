@@ -38,7 +38,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
     <h3 class="py-32">Dashboard</h3>
     <div class="row">
         <!-- Date today -->
-        <div class="col-lg-4 col-md-6 col-sm-12 mb-2">
+        <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
             <div class="calendar py-5">
                 <div class="month pt-4">
                     <h1 id="getMonth"></h1>
@@ -50,7 +50,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
         </div>
 
         <!-- Billboard -->
-        <div class="col-lg-8 col-md-6 col-sm-12 mb-2">
+        <div class="col-lg-8 col-md-6 col-sm-12 mb-3">
             <div class="billboard">
                 <div class="billboardTitle">
                     <p class="text-center text-white p-2">Current Billboard</p>
@@ -163,7 +163,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                                 <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 8:00am - 12:00pm</h5>
                                 <hr>
                                 <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
                                         <div class="timetable-item-subtitle">Subject</div>
                                         <h6 class=" timetable-item-subj my-1 px-3 py-2">Software Engineering</h6>
                                     </div>

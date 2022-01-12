@@ -11,10 +11,6 @@ body{
     margin-bottom: 0;
 }
 /* Change profile picture */
-#facultyFile {
-    display: none;
-}
-
 .profile-pic-div {
     height: 140px;
     width: 140px;
@@ -24,35 +20,20 @@ body{
     border: 1px solid grey;
 }
 
+#facultyPhoto{
+    height: 100%;
+    width: 100%;
+}
+
 @media only screen and (max-width: 768px) {
     .profile-pic-div {
         height: 140px;
         width: 200px;
     }
 }
-
-#facultyPhoto {
-    height: 100%;
-    width: 100%;
+.info, .info1{
+    font-size: 1rem;
 }
-
-#uploadBtnFaculty {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    background: rgba(0, 0, 0, 0.7);
-    color: wheat;
-    line-height: 30px;
-    font-family: sans-serif;
-    font-size: 12px;
-    cursor: pointer;
-    display: none;
-}
-
-
 /* My Profile Details */
 
 #myProfileDetails td{
@@ -77,7 +58,7 @@ body{
     border-radius: 25px 25px 0 0;
 }
 .table-title h2{
-    font-size: inherit;
+    font-size: 1rem;
     margin: 12px 12px 12px 22px;
     text-align: start;
 }
@@ -114,27 +95,29 @@ label.form-label{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: 1rem;
 }
 .form-control:focus{
     box-shadow: none;
     border-color: #800000;
 }
 .form-control::placeholder{ /* Chrome, Firefox, Opera, Safari 10.1+ */
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 .form-control:-ms-input-placeholder{ /* Internet Explorer 10-11 */
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 .form-control::-ms-input-placeholder{ /* Microsoft Edge */
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 input[type=text], input[type=date], input[type=time], textarea{
     color: black;
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 .form-control:disabled, .form-control[readonly]{
     background-color: white;
     opacity: 1;
+    font-size: 1rem;
 }
 
 /* ... */
@@ -196,4 +179,8 @@ input[type=text], input[type=date], input[type=time], textarea{
 .modal-header{
     background-color: #800000;
     color: white;
+}
+
+.modal-content{
+    font-size: 1rem;
 }

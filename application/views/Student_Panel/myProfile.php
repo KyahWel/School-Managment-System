@@ -14,8 +14,6 @@ include __DIR__ . '/../includes/studentSideBar.php'
     <div class="viewStudentContent d-flex align-items-center">
         <div class=" profile-pic-div">
             <img src="../assets/images/studentAvatar.svg" alt="Student Avatar" id="photo">
-            <input type="file" id="file">
-            <label for="file" id="uploadBtn">Choose Photo</label>
         </div>
 
         <div class="table-responsive mx-3">
@@ -46,7 +44,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                         <p class="text-white"><i class="fa fa-user"></i> <span class="px-2"> Personal Information </span></p>
                     </div>
                     <div class="Contents">
-                        <div class="mb-3 row">
+                        <div class="mb-3 row asterisk">
                             <label for="courses" class="col-2 form-label small pt-2">Course: </label>
                             <div class="col-lg-7 col-md-10 col-sm-12">
                                 <select class="form-select form-select-sm" id="courses" name="course_chosen" value="bscs" aria-label="Select Course" disabled>
@@ -58,7 +56,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                         </div>
 
                         <!-- Name Input-->
-                        <div class="row mt-0">
+                        <div class="row mt-0 asterisk">
                             <div class="col-lg-3 col-md-6 py-1">
                                 <label class="form-label small">First Name</label>
                                 <input type="text" name="firstname" value="<?php echo $student->firstname?>" class="form-control form-control-sm" aria-label="First name" readonly>
@@ -72,13 +70,13 @@ include __DIR__ . '/../includes/studentSideBar.php'
                                 <input type="text" name="lastname" value="<?php echo $student->lastname?>" class="form-control form-control-sm" aria-label="Surname" readonly>
                             </div>
                             <div class="col-lg-3 col-md-6 py-1">
-                                <labe class="form-label small">Suffix</label>
+                                <labe class="small">Suffix</label>
                                     <input type="text" name='extname' value="<?php echo $student->extname?>" class="form-control form-control-sm" aria-label="Extension Name" readonly>
                             </div>
                         </div>
 
                         <!-- LRN and Gender-->
-                        <div class="row mt-2 small">
+                        <div class="row mt-2 small asterisk">
                             <label class="form-label col-lg-2 col-md-12 pt-1">LRN:</label>
                             <div class="col-lg-3 col-md-12">
                                 <input type="text" name="LRN" value="<?php echo $student->LRN?>" class="form-control form-control-sm" minlength="12" aria-label="LRN" readonly>
@@ -108,7 +106,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                         </div>
 
                         <!-- Birthdate and Age-->
-                        <div class="row mt-2 small">
+                        <div class="row mt-2 small asterisk">
                             <label class="form-label col-lg-2 col-md-12 pt-1">Birth Date:</label>
                             <div class="col-lg-3 col-md-12">
                                 <input type="date" name='birthday' value="<?php echo $student->birthday?>" class="form-control form-control-sm" aria-label="Birthdate" readonly>
@@ -122,7 +120,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                         </div>
 
                         <!-- Birthplace-->
-                        <div class="row mt-2 small">
+                        <div class="row mt-2 small asterisk">
                             <label class="form-label col-lg-2 pt-1">Birth Place:</label>
                             <div class="col-lg-3">
                                 <input type="text" name='birthplace' value="<?php echo $student->birthplace?>" class="form-control form-control-sm" aria-label="Birthpalace" readonly>
@@ -130,7 +128,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                         </div>
 
                         <!-- Contact Number and Landline-->
-                        <div class="row mt-2 small">
+                        <div class="row mt-2 small asterisk">
                             <label class="form-label col-lg-2 col-md-12 pt-1">Contact Number:</label>
                             <div class="col-lg-3 col-md-12">
                                 <input type="tel" name='contactnum' id="connum" disabled="true" value="<?php echo $student->contactnum?>" class="form-control form-control-sm" aria-label="Contact Number">
@@ -144,7 +142,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                         </div>
 
                         <!-- Email Address-->
-                        <div class="row mt-2 small">
+                        <div class="row mt-2 small asterisk">
                             <label class="form-label col-lg-2 pt-1">Email Address:</label>
                             <div class="col-lg-4">
                                 <input type="email" name='email' id="emailaddress" disabled="true"value="<?php echo $student->email?>" class="form-control form-control-sm" aria-label="Email Address" required>
@@ -156,7 +154,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                         <p class="fw-bold">PERMANENT ADDRESS</p>
 
                         <!--Unit and Street-->
-                        <div class="row mt-2 small">
+                        <div class="row mt-2 small asterisk">
                             <label class="form-label col-lg-2 col-md-12  pt-1">Unit #:</label>
                             <div class="col-lg-3 col-md-12">
                                 <input type="text" name='unit' id="Unit" disabled="true"value="<?php echo $student->unit?>" class="form-control form-control-sm" aria-label="Unit Number" required>
@@ -170,7 +168,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                         </div>
 
                         <!-- Barangay and City-->
-                        <div class="row mt-2 small">
+                        <div class="row mt-2 small asterisk">
                             <label class="form-label col-lg-2 col-md-12  pt-1">Barangay:</label>
                             <div class="col-lg-3 col-md-12">
                                 <input type="text" name='barangay' id="brgy" disabled="true"value="<?php echo $student->barangay?>" class="form-control form-control-sm" aria-label="Barangay" required>
@@ -184,7 +182,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                         </div>
 
                         <!-- Zipcode and Province-->
-                        <div class="row mt-2 small">
+                        <div class="row mt-2 small asterisk">
 
                             <label class="form-label col-lg-2 col-md-6 pt-1">Zipcode:</label>
                             <div class="col-lg-3 col-md-6">
@@ -236,7 +234,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                             <p class="fw-bold">SCHOOL LAST ATTENDED</p>
 
                             <!--Name of School and Track-->
-                            <div class="row mt-2 small">
+                            <div class="row mt-2 small asterisk">
                                 <label class="form-label col-lg-2 col-md-12 pt-1">Name of School:</label>
                                 <div class="col-lg-4 col-md-12">
                                     <input type="text" name="school" value="<?php echo $student->last_school_attended?>" class="form-control form-control-sm" aria-label="Name of School" readonly>
@@ -252,7 +250,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                             </div>
 
                             <!-- School Adress-->
-                            <div class="row mt-2 small">
+                            <div class="row mt-2 small asterisk">
                                 <div class="col-lg-2">
                                     <label class="form-label pt-1">School Address:</label>
                                 </div>
@@ -278,7 +276,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                             </div>
 
                             <!-- Category-->
-                            <div class="row mt-2 small">
+                            <div class="row mt-2 small asterisk">
                                 <label class="form-label col-lg-2 col-md-12  pt-1">Category:</label>
                                 <?php if ($student->category == 'K-12') : ?>
                                     <div class="col-lg-3 col-md-12 pt-1">
@@ -335,7 +333,6 @@ include __DIR__ . '/../includes/studentSideBar.php'
             <!-- educational attainment div -->
         
 
-
         <!-- Requirements -->
         <div id='requirement' class=" pt-3 " style="display: none;">
             <div class="Wrapper">
@@ -348,11 +345,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                     <div class="row mb-3">
                         <div class="mb-3 fw-bold">
                             Medical Clearance <br>
-<<<<<<< Updated upstream
                             <img src="../application\uploads\<?= $this->session->userdata('auth_user')['medical_record']?>" alt="Medical Clearance" class="rounded hover-shadow cursor" src="assets/images/download.png" onclick="openModal();currentSlide(1)" style="width: 200px;">
-=======
-                            <img src="../<?= $this->session->userdata('auth_user')['medical_record']?>" alt="Medical Clearance" class="rounded hover-shadow cursor" src="assets/images/download.png" onclick="openModal();currentSlide(1)" style="width: 200px;">
->>>>>>> Stashed changes
                         </div>
                         <div class="mb-3 fw-bold">
                             Form 137 <br>
@@ -369,29 +362,17 @@ include __DIR__ . '/../includes/studentSideBar.php'
                         <div class="modal-Requirementscontent">
                             <div class="mySlides">
                                 <div class="numbertext">Medical Clearance</div>
-<<<<<<< Updated upstream
                                 <img src="../application\uploads\<?= $this->session->userdata('auth_user')['medical_record']?>" alt="Medical Clearance" style="width:100%" height="500px">
-=======
-                                <img src="uploads/<?= $this->session->userdata('auth_user')['medical_record']?>" alt="Medical Clearance" style="width:100%" height="500px">
->>>>>>> Stashed changes
                             </div>
 
                             <div class="mySlides">
                                 <div class="numbertext">Form 137</div>
-<<<<<<< Updated upstream
                                 <img src="../application\uploads\<?= $this->session->userdata('auth_user')['form137']?>" alt="Form 137" style="width:100%" height="500px">
-=======
-                                <img src="../../application/uploads/<?= $this->session->userdata('auth_user')['form137']?>" alt="Form 137" style="width:100%" height="500px">
->>>>>>> Stashed changes
                             </div>
 
                             <div class="mySlides">
                                 <div class="numbertext">Good Moral</div>
-<<<<<<< Updated upstream
                                 <img src="../application\uploads\<?= $this->session->userdata('auth_user')['goodmoral']?>" alt="Good Moral" style="width:100%" height="500px">
-=======
-                                <img src="uploads/<?= $this->session->userdata('auth_user')['goodmoral']?>" alt="Good Moral" style="width:100%" height="500px">
->>>>>>> Stashed changes
                             </div>
                             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                             <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -436,43 +417,6 @@ include __DIR__ . '/../includes/studentSideBar.php'
         document.getElementById('requirement').style.display = "block";
         document.getElementById('final_step').style.display = "none";
     }
-
-    const imgDiv = document.querySelector('.profile-pic-div');
-    const avatar = document.querySelector('#photo');
-    const file = document.querySelector('#file');
-    const uploadBtn = document.querySelector('#uploadBtn');
-
-    //if user hover on img div 
-
-    imgDiv.addEventListener('mouseenter', function() {
-        uploadBtn.style.display = "block";
-    });
-
-    //if we hover out from img div
-
-    imgDiv.addEventListener('mouseleave', function() {
-        uploadBtn.style.display = "none";
-    });
-
-    //lets work for image showing functionality when we choose an image to upload
-
-    //when we choose a foto to upload
-
-    file.addEventListener('change', function() {
-        //this refers to file
-        const choosedFile = this.files[0];
-
-        if (choosedFile) {
-
-            const reader = new FileReader(); //FileReader is a predefined function of JS
-
-            reader.addEventListener('load', function() {
-                avatar.setAttribute('src', reader.result);
-            });
-
-            reader.readAsDataURL(choosedFile);
-        }
-    });
     function switchEdit() {
          document.getElementById("prov").disabled=false;
          document.getElementById("zip").disabled=false;;
@@ -490,8 +434,8 @@ include __DIR__ . '/../includes/studentSideBar.php'
     }
 
 </script>
-<!-- 
-<script src="<?php echo base_url('assets/js/admission.js'); ?>"></script> -->
+
+<script src="<?php echo base_url('assets/js/admission.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 </body>
 </html>
