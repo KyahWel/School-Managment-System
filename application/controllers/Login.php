@@ -10,13 +10,15 @@ class Login extends CI_Controller {
 		$this->load->model('teacherModel');
 		$this->load->model('applicantModel');
 		if ($this->session->has_userdata('authenticated')){
-			$this->session->set_flashdata('status','Please logout first'); 
+			$this->session->set_flashdata('logout','Please logout first'); 
 			if ($this->session->userdata('authenticated') == '1')
 				redirect('Admin/dashboard');
 			elseif ($this->session->userdata('authenticated') == '2')
 				redirect('Faculty/dashboard');
 			elseif ($this->session->userdata('authenticated') == '3')
-				redirect('Student/dashboard');
+				redirect('Student/Dashboard');
+			elseif ($this->session->userdata('authenticated') == '4')
+				redirect('Applicant/'.$this->session->userdata('auth_user')['applicantID']);
 		}
     }
 
@@ -51,6 +53,7 @@ class Login extends CI_Controller {
 				if($data->status == 1){
 					$auth_userdetails = [
 						'adminID' => $data->adminID,
+						'password'=> $data->password,
 						'firstname' =>  $data->firstname,
 						'lastname' =>  $data->lastname,
 						'adminNumber' =>  $data->adminNumber
@@ -61,12 +64,12 @@ class Login extends CI_Controller {
 					redirect('Admin/dashboard');
 				}
 				else{
-					$this->session->set_flashdata('status','Account is deactivated'); 
+					$this->session->set_flashdata('loginerror','Account is deactivated'); 
  					redirect('Login/admin');
 				}
 			}
 			else{
-				$this->session->set_flashdata('status','Invalid Username or Password'); 
+				$this->session->set_flashdata('loginerror','Invalid Username or Password'); 
 				redirect('Login/admin');
 			}
 	}
@@ -76,8 +79,10 @@ class Login extends CI_Controller {
 			if($data != NULL){  
 				if($data->status == 1){
 					$auth_userdetails = [
+						'applicantID' => $data->applicantID,
 						'studentID' => $data->studentID,
 						'username' => $data->username,
+						'password'=> $data->password,
 						'studentNumber' => $data->studentNumber,
 						'firstname' => $data->firstname,
 						'middlename' => $data->middlename,
@@ -112,16 +117,17 @@ class Login extends CI_Controller {
 					];
 					$this->session->set_userdata('auth_user',$auth_userdetails);
 					$this->session->set_userdata('authenticated',"3");
-					$this->session->set_flashdata('success','');
+					$this->session->set_flashdata('adminError','');
+					$this->session->set_flashdata('successAdmin','');
 					redirect('Student/Dashboard');
 				}
 				else{
-					$this->session->set_flashdata('status','Account is deactivated');
+					$this->session->set_flashdata('loginerror','Account is deactivated');
  					redirect('Login/student');
 				}
 			}
 			else{
-				$this->session->set_flashdata('status','Invalid Username or Password'); 
+				$this->session->set_flashdata('loginerror','Invalid Username or Password'); 
 				redirect('Login/student');
 			}
 	}
@@ -131,19 +137,30 @@ class Login extends CI_Controller {
 			if($data != NULL){  
 				if($data->status == 1){
 					$auth_userdetails = [
-						
+						'teacherID' => $data->teacherID,
+						'password' => $data->password,
+						'teacherNumber' => $data->teacherNumber,
+						'firstname' => $data->firstname,
+						'middlename' => $data->middlename,
+						'lastname' => $data->lastname,
+						'extname' => $data->extname,
+						'phonenum' => $data->phonenum,
+						'email' => $data->email,
+						'college' => $data->college,
+						'department' => $data->department,
+
 					];
 					$this->session->set_userdata('auth_user',$auth_userdetails);
 					$this->session->set_userdata('authenticated',"2");
-					redirect('FacultyController/dashboard');
+					redirect('Faculty/dashboard');
 				}
 				else{
-					$this->session->set_flashdata('status','Account is deactivated');  
+					$this->session->set_flashdata('loginerror','Account is deactivated');  
  					redirect('Login/faculty');
 				}
 			}
 			else{
-				$this->session->set_flashdata('status','Invalid Username or Password'); 
+				$this->session->set_flashdata('loginerror','Invalid Username or Password'); 
 				redirect('Login/faculty');
 			}
 	}
@@ -191,7 +208,7 @@ class Login extends CI_Controller {
 			redirect('Applicant/'.$data->applicantID);
 		}
 		else{
-			$this->session->set_flashdata('status','Applicant number not found'); 
+			$this->session->set_flashdata('loginerror','Applicant account not found'); 
 			redirect('Login/applicant');
 		}
 	}

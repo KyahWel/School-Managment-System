@@ -6,14 +6,15 @@ class applicantController extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('applicantModel');
+		$this->load->model('pdfGeneratorModel');
 		$this->load->model('courseModel');
 		$this->load->model('Authentication');
 		if ($this->session->userdata('authenticated') != '4'){
-			$this->session->set_flashdata('status','Please logout first'); 
+			$this->session->set_flashdata('logout','Please logout first'); 
 			if ($this->session->userdata('authenticated') == '1')
 				redirect('Admin/dashboard');
 			elseif  ($this->session->userdata('authenticated') == '2')
-				redirect('Faculty/Dashboard');
+				redirect('Faculty/dashboard');
 			else
 				redirect('Student/Dashboard');
 		}
@@ -43,5 +44,9 @@ class applicantController extends CI_Controller {
 		$this->load->view('/applicant/applicant_data',$data);
 	}
 
+	public function downloadTestPermit($id)
+	{
+		$this->pdfGeneratorModel->generateTestPermit($id);
+	}
 
 }

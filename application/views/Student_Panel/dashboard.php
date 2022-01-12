@@ -10,16 +10,27 @@ include __DIR__ . '/../includes/studentSideBar.php'
 
 <div class="height-100 pt-2 container-fluid">
     <!-- If user accessed login page or other pages -->
-    <?php if ($this->session->flashdata('status')) : ?>
+    <?php if ($this->session->flashdata('studentError')) : ?>
         <div class="alert alert-danger alert-dismissible fade show">
             <?= $this->session->flashdata('status'); ?>
             <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
         </div>
-    <?php elseif ($this->session->flashdata('success')) : ?>
+    <?php elseif ($this->session->flashdata('successStudent')) : ?>
         <!-- Successfull change password alert -->
         <div class="alert alert-success alert-dismissible fade show">
             <?= $this->session->flashdata('success'); ?>
             <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+        </div>
+    <?php elseif ($this->session->flashdata('successUpdate')) : ?>
+        <!-- Successfull change password alert -->
+        <div class="alert alert-success alert-dismissible fade show">
+            <?= $this->session->flashdata('successUpdate'); ?>
+            <button type="button" class="btn-close close" title="close" data-bs-dismiss="alert"></button>
+        </div>
+    <?php elseif($this->session->flashdata('logout')): ?>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <?= $this->session->flashdata('logout'); ?>
+                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
         </div>
     <?php endif; ?>
 
@@ -58,7 +69,6 @@ include __DIR__ . '/../includes/studentSideBar.php'
                                     </div>
                                 <?php endif ?>
                             <?php } ?>
-
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>

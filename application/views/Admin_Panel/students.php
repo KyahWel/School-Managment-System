@@ -56,14 +56,14 @@ include __DIR__.'/../includes/adminSideBar.php'
 
     <!--Student List-->
     <div class="col-12 align-self-center" id="studentInformation">
-            <div class="table-wrapper">
-                <div class="table-title">
-                    <div class="row">
-                        <div class="col">
-                            <h2>Student Information</h2>
-                        </div>
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col">
+                        <h2>Student Information</h2>
                     </div>
                 </div>
+            </div>
                 <div class="table-responsive">  
                     <table class="table table-fixed align-middle table-striped table-borderless table-hover" style="height: 400px;" id="table-body">
                         <thead class ="thead">
@@ -73,7 +73,6 @@ include __DIR__.'/../includes/adminSideBar.php'
 			                    <th>Last Name</th>
 			                    <th>Course</th>
                                 <th>Section</th>
-                                <th>Status</th>
                                 <th>Action</th>
 		                    </tr>
                         </thead>
@@ -85,7 +84,6 @@ include __DIR__.'/../includes/adminSideBar.php'
                                     <td><?php echo $studentrow->lastname?></td>
                                     <td><?php echo $studentrow->course_chosen;?></td>
                                     <td> </td>
-                                    <td><?php echo $studentrow->status;?></td>
                                     <td>
                                         <div class="action-buttons">
                                             <?php if ($studentrow->status == 1): ?>

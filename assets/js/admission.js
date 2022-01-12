@@ -19,19 +19,6 @@ span.onclick = function() {
     modal.style.display = "none";
 }
 
-// Select All Checkbox
-function checkedAll() {
-    // this refers to the clicked checkbox
-    // find all checkboxes inside the checkbox' form
-    var elements = this.form.getElementsByTagName('input');
-    // iterate and change status
-    for (var i = elements.length; i--;) {
-        if (elements[i].type == 'checkbox') {
-            elements[i].checked = this.checked;
-        }
-    }
-}
-
 // Requirements modal
 function openModal() {
     document.getElementById("requirementsModal").style.display = "block";

@@ -32,10 +32,10 @@ class AdminModel extends CI_Model {
 			);
 			$this->db->insert('admin_accounts',$data);
 			unset($_POST);
-			$this->session->set_flashdata('success','Added admin account successfully'); 
+			$this->session->set_flashdata('successAdmin','Added admin account successfully'); 
 			redirect('Admin/dashboard');	
 		}else{
-			$this->session->set_flashdata('status','User already exists'); 
+			$this->session->set_flashdata('adminError','User already exists'); 
 			redirect('Admin/dashboard');
 		}
 	}
@@ -87,17 +87,12 @@ class AdminModel extends CI_Model {
 		$this->db->from('admin_accounts');
 		$this->db->where($data);
 		$query=$this->db->get();
-		if($query->num_rows()!=0){
-			if($_POST['username'] == 'admin'){
+		if($query->num_rows()!=0){	
+			$row = $query->row();
+			if(password_verify($_POST['password'],$row->password))
 				return $query->row();
-			}
-			else{
-				$row = $query->row();
-				if(password_verify($_POST['password'],$row->password))
-					return $query->row();
-				else
-					return NULL;
-			}
+			else
+				return NULL;
 		}	
 		else 
 			return NULL;
@@ -106,23 +101,15 @@ class AdminModel extends CI_Model {
 	public function changePassword($id) #Changepassword
 	{	
 		if ($this->session->userdata('auth_user')['adminID'] == '1'){
-			$this->session->set_flashdata('status','Error Cannot change the password of main admin'); 
+			$this->session->set_flashdata('adminError','Error Cannot change the password of main admin'); 
 			redirect('Admin/changePassword');	
 		}
 		else{
-			$data = array(
-				'adminID' => $id,
-				'password' => $_POST['oldpass']
-			);
-			$this->db->select('*');
-			$this->db->from('admin_accounts');
-			$this->db->where($data);
-			$query=$this->db->get();
-			if($query->num_rows()!=0){
+			if(password_verify($_POST['oldpass'],$this->session->userdata('auth_user')['password'])){
 				$newPassword = $_POST['newpass'];
 				$confirmPassword = $_POST['confirmpass'];
-				if($newPassword==$data['password']){
-					$this->session->set_flashdata('status','Old and New passwords are the same'); 
+				if($newPassword==$this->session->userdata('auth_user')['password']){
+					$this->session->set_flashdata('adminError','Old and New passwords are the same'); 
 					redirect('Admin/changePassword');
 				}
 				else{
@@ -132,16 +119,16 @@ class AdminModel extends CI_Model {
 						);
 						$this->db->where('adminID',$id);
 						$this->db->update('admin_accounts',$newdata);
-						$this->session->set_flashdata('success','Password changed successfully'); 
+						$this->session->set_flashdata('successAdmin','Password changed successfully'); 
 						redirect('Admin/dashboard');
 					}
 					else
-						$this->session->set_flashdata('status','Passwords do not match, Please try again'); 
+						$this->session->set_flashdata('adminError','Passwords do not match, Please try again'); 
 						redirect('Admin/changePassword');	
 				}
 			}
 			else{
-				$this->session->set_flashdata('status','Incorrect Old Password'); 
+				$this->session->set_flashdata('adminError','Incorrect Old Password'); 
 				redirect('Admin/changePassword');	
 			} 	
 		}	
