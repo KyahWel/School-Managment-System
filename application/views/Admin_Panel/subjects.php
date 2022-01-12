@@ -25,7 +25,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                             <div class="row mb-3">
                                 <div class="col-12 align-self-center my-3">
                                     <label class="form-label">Select Course: </label>
-                                    <select name="courseID" required id="collegeSelect">
+                                    <select name="courseID" required>
 			                            <option value="" disabled selected hidden>Please Select</option>
                                         <?php foreach($course as $courserow) {?>
 			                                <option value="<?php echo $courserow->courseID?>"><?php echo $courserow->degree?> in <?php echo $courserow->major?></option>
@@ -41,6 +41,14 @@ include __DIR__.'/../includes/adminSideBar.php'
                                         <option value="3" >3rd Year</option>
                                         <option value="4" >4th Year</option>
                                         <option value="5" >5th Year</option>
+                                    </select>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label">Semester: </label>
+                                    <select name="semester" required >
+                                        <option value="" disabled selected hidden>Please Select</option>
+                                        <option value="1" >1st Semester</option>
+                                        <option value="2" >2nd Semester</option>
                                     </select>
                                 </div>
                             </div>
@@ -110,6 +118,7 @@ include __DIR__.'/../includes/adminSideBar.php'
 			                    <th>Subject Code</th>
 			                    <th>Name</th>
 			                    <th>Units</th>
+                                <th>Semester</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -118,21 +127,18 @@ include __DIR__.'/../includes/adminSideBar.php'
                             <tr>
                                 <td><?php echo $subjectrow->subjectCode?></td>
                                 <td><?php echo $subjectrow->name?></td>
-                                <td><?php echo $subjectrow->units?></td>    
+                                <td><?php echo $subjectrow->units?></td>
+                                <td><?php echo $subjectrow->semester?></td>       
                                 <td>
                                 <div class="action-buttons">
                                     <?php if ($subjectrow->status == 1): ?>
-                                    <li><button type="button" id="view" data-id='<?php echo $subjectrow->subjectID;?>' class="btn view_data" data-bs-toggle="modal" data-bs-target="#viewsubject"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
                                     <li><button type="button" id="edit" data-id='<?php echo $subjectrow->subjectID;?>' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editsubject"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-                                    <li>
                                     <li><button type="button" class="btn" id="status" onclick="location.href='<?php if($subjectrow->status == 1){echo site_url('subjectController/deactivate');} else {echo site_url('subjectController/activate');}?>/<?php echo $subjectrow->subjectID; ?>'">
                                         Deactivate
                                     </button>
                                     </li>
                                     <?php else: ?>
-                                        <li><button type="button" id="view" data-id='<?php echo $subjectrow->subjectID;?>' class="btn" disabled style="background-color: gray;"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
                                         <li><button type="button" id="edit" data-id='<?php echo $subjectrow->subjectID;?>' class="btn" disabled style="background-color: gray;"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-                                        <li>
                                         <li><button type="button" id="status" class="btn" onclick="location.href='<?php if($subjectrow->status == 1){echo site_url('subjectController/deactivate');} else {echo site_url('subjectController/activate');}?>/<?php echo $subjectrow->subjectID; ?>'">
                                         Activate
                                         </button>

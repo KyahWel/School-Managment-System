@@ -236,8 +236,7 @@ class StudentControllerFunctions extends CI_Controller {
 
 	public function updateData($id){
 		$this->studentModel->updateData($id);
-		$this->session->set_flashdata('successUpdate','Updated profile successfully!!'); 
-		redirect('Student/Dashboard');
+		redirect('Student/Profile');
 	}
 
 	public function deactivate($id)

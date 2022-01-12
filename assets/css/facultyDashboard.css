@@ -1,0 +1,62 @@
+.viewSched ul#viewSchedule {
+    border-bottom: 2px solid black;
+}
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link {
+    color: black;
+    padding: 10px 44px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link:hover {
+    color: white;
+    background: maroon;
+    border-color: white;
+    font-weight: 200;
+    opacity: 0.5;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+    color: white;
+    background: maroon;
+    border-color: white;
+    font-weight: 200;
+}
+
+.box-wrapper {
+    display: block;
+    position: relative;
+    z-index: 1;
+    border: 2px solid #c2c2c2;
+    /* background: linear-gradient(to right, #ddd6f3 0%, #faaca8 100%); */
+    background: transparent;
+    overflow: hidden;
+    border-radius: 6px;
+    color: black;
+    /*hidden the content inside*/
+}
+
+.tab-content {
+    background-color: transparent;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    height: 260px;
+    border: 0.1px solid rgb(221, 220, 220);
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.box-wrapper:hover .box-content {
+    top: 0;
+    /*bring the content back*/
+}
+
+.viewSched .timetable-item {
+    border: 1px solid #d8e3eb;
+    padding: 15px;
+    margin-top: 20px;
+    position: relative;
+    display: block;
+    overflow: none;
+}

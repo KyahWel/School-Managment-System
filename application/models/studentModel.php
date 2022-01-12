@@ -10,7 +10,7 @@ class studentModel extends CI_Model {
 	public function insertData($applicantID,$lastname)
 	{	
 		$digits = 4;
-		$year = 21;
+		$year = 22;
 		do{
 			$holder = "TUPM-".$year."-".rand(pow(10, $digits-1), pow(10, $digits)-1);
 			$this->db->select('*');

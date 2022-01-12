@@ -23,7 +23,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
             <button type="button" class="btn-close close" title="close" data-bs-dismiss="alert"></button>
         </div>
     <?php elseif ($this->session->flashdata('successUpdate')) : ?>
-        <!-- Successfull change password alert -->
+        <!-- Successfull succes profile update -->
         <div class="alert alert-success alert-dismissible fade show">
             <?= $this->session->flashdata('successUpdate'); ?>
             <button type="button" class="btn-close close" title="close" data-bs-dismiss="alert"></button>

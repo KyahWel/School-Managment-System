@@ -47,7 +47,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <br>
                         <div class="alert alert-danger alert-dismissible fade show">
                             <?= $this->session->flashdata('logout'); ?>
-                            <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+git                             <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
                         </div>
                     <?php endif; ?>
                     <div class="mt-3 applicant-head text-white px-3">
