@@ -85,10 +85,11 @@ class StudentControllerFunctions extends CI_Controller {
 							<label class="form-label pt-2">LRN Number</label>
 						</div>
 						
-						<label class="form-label col-lg-2 col-md-12 pt-1">Gender:</label><!--Gender-->
-						<div class="col-lg-3 col-md-12 pt-1">
+						<label class="form-label col-lg-2 col-md-12 pt-1">Gender:</label><!--Gender-->';
+		 	if($records->gender == "Male"){
+			$output.='<div class="col-lg-3 col-md-12 pt-1">
 							<div class="form-check-inline">
-								<input class="form-check-input" type="radio" name="gender" value="Male" readonly>
+								<input class="form-check-input" type="radio" name="gender" checked value="Male" readonly>
 								<label class="form-check-label" for="gender"> Male </label>
 							</div>
 							<div class="form-check-inline mb-3">
@@ -96,8 +97,22 @@ class StudentControllerFunctions extends CI_Controller {
 								<label class="form-check-label" for="gender"> Female </label>
 							</div>
 						</div>
+					</div>';
+			 }
+			 else{
+				$output.='<div class="col-lg-3 col-md-12 pt-1">
+						<div class="form-check-inline">
+							<input class="form-check-input" type="radio" name="gender" checked value="Male" readonly>
+							<label class="form-check-label" for="gender"> Male </label>
+						</div>
+						<div class="form-check-inline mb-3">
+							<input class="form-check-input" type="radio" name="gender" checked value="Female" readonly>
+							<label class="form-check-label" for="gender"> Female </label>
+						</div>
 					</div>
-					<div class="row">
+				</div>';
+			 }
+			$output.='<div class="row">
 						<div class="col-lg-5 col-md-6 mb-1"> <!--Birthdate-->
 							<input type="date" name="birthday" class="form-control" value="'.$records->birthday.'" readonly >
 							<label class="form-label pt-2">Birth Date</label>
@@ -182,25 +197,47 @@ class StudentControllerFunctions extends CI_Controller {
 					</div>
 					<div class="row">
 						<label class="form-label col-lg-2 col-md-12 pt-1">Category:</label><!--Category-->
-						<div class="col-lg-4 col-md-12 pt-1">
+						';
+			if($records->category=="K-12"){
+				$output.='<div class="col-lg-4 col-md-12 pt-1">
 							<div class="form-check-inline">
-								<input class="form-check-input" type="radio" name="category" value="nc" readonly>
+								<input class="form-check-input" type="radio" name="category" checked value="nc" readonly>
 								<label class="form-check-label" for="category"> K-12 </label>
 							</div>
 							<div class="form-check-inline mb-3">
 								<input class="form-check-input" type="radio" name="category" value="oc" readonly>
 								<label class="form-check-label" for="category"> Old Curriculum </label>
 							</div>
-						</div>
+						</div>';
+			}
+			else{
+				$output.='<div class="col-lg-4 col-md-12 pt-1">
+							<div class="form-check-inline">
+								<input class="form-check-input" type="radio" name="category" value="nc" readonly>
+								<label class="form-check-label" for="category"> K-12 </label>
+							</div>
+							<div class="form-check-inline mb-3">
+								<input class="form-check-input" type="radio" name="category" checked value="oc" readonly>
+								<label class="form-check-label" for="category"> Old Curriculum </label>
+							</div>
+						</div>';
+			}
+			$output.='
 						<div class="col-lg-6 col-md-6 mb-1"> <!--GPA-->
 							<input type="text" name="gpa" class="form-control" value="'.$records->gpa.'" readonly>
 							<label class="form-label pt-2">GPA</label>
 						</div>
-					</div>
+						</div>
 				</div>
 			</div>
 			</div>';
 	echo $output;
+	}
+
+	public function updateData($id){
+		$this->studentModel->updateData($id);
+		$this->session->set_flashdata('successUpdate','Updated profile successfully!!'); 
+		redirect('Student/Dashboard');
 	}
 
 	public function deactivate($id)

@@ -6,8 +6,8 @@ class eventsController extends CI_Controller {
         parent:: __construct();
         $this->load->model('eventsModel');
     }
-    public function create($id){
-        $this->eventsModel->createData($id);
+    public function create(){
+        $this->eventsModel->createData();
         redirect("Admin/announcement");
     }
     public function view(){

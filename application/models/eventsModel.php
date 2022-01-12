@@ -8,13 +8,13 @@ class eventsModel extends CI_Model {
 		$this->load->database();
 	}
 
-    function createData($id) {
+    function createData() {
         $data = array (
             'title' => $this->input->post('title'),
             'details' => $this->input->post('details'),
             'date' => $this->input->post('date'),
             'time' => $this->input->post('time'),
-            'creatorID' => $id,
+            'creatorID' => $this->session->userdata('auth_user')['adminID'],
             'status' => 1
         );
         $this->db->insert('events_announcements',$data);

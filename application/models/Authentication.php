@@ -5,7 +5,7 @@ class Authentication extends CI_Model {
 	public function __construct(){	
 		parent::__construct();
 		if (!$this->session->has_userdata('authenticated')){
-			$this->session->set_flashdata('status','Please Login First');
+			$this->session->set_flashdata('login','Please Login First');
 			redirect('Login');
 		}
 	}

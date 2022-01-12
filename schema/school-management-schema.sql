@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 03, 2022 at 03:01 AM
+-- Generation Time: Jan 12, 2022 at 12:03 AM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -37,18 +37,15 @@ CREATE TABLE IF NOT EXISTS `admin_accounts` (
   `lastname` varchar(255) NOT NULL,
   `status` int(1) NOT NULL,
   PRIMARY KEY (`adminID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `admin_accounts`
 --
 
 INSERT INTO `admin_accounts` (`adminID`, `adminNumber`, `username`, `password`, `firstname`, `lastname`, `status`) VALUES
-(1, 'TUP-ADMIN-0000', 'admin', 'admin', 'admin', ' ', 1),
-(2, 'TUP-ADMIN-7953', 'admin', '000000', 'William Cris', 'Hod', 1),
-(3, 'TUP-ADMIN-3983', 'test', 'pogiako01', 'Vann Chezter', 'Lizan', 0),
-(4, 'TUP-ADMIN-5541', 'Minatozaki', '123456', 'admin-01', 'Hod', 0),
-(5, 'TUP-ADMIN-6403', 'boodooby', '12345678', 'Hirai', 'Momo', 1);
+(1, 'TUP-ADMIN-0000', 'admin', '$2y$10$cFxtHgNDDa21QJU/uEQXlOp3j5iREQTk/SDFMpwn2iJAczXNQUv1K', 'admin', '', 1),
+(2, 'TUP-ADMIN-5525', 'admin-01', '$2y$10$H4GOzj1LQtLLeFZu7EByMe0aPMW92JTq59Kj51JsgQlfIhV6c/4Dq', 'William Cris', 'Hod', 1);
 
 -- --------------------------------------------------------
 
@@ -91,16 +88,21 @@ CREATE TABLE IF NOT EXISTS `applicant_accounts` (
   `good_moral` varchar(255) NOT NULL,
   `applicant_result` varchar(255) NOT NULL,
   PRIMARY KEY (`applicantID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `applicant_accounts`
 --
 
 INSERT INTO `applicant_accounts` (`applicantID`, `applicantNumber`, `course_chosen`, `firstname`, `middlename`, `lastname`, `extname`, `LRN`, `gender`, `age`, `birthday`, `birthplace`, `contactnum`, `landline`, `email`, `unit`, `street`, `barangay`, `city`, `province`, `zipcode`, `last_school_attended`, `track`, `school_address`, `year_level`, `year_graduated`, `category`, `gpa`, `medical_record`, `form_137`, `good_moral`, `applicant_result`) VALUES
-(1, 'TUPM-APPL21-9231', 'Bachelor of Science in Computer Science', 'William Cris', 'Entero', 'Hod', ' ', 123456, 'Male', 20, '2001-03-20', 'Metro Manila', '09270287483', '717-1426', 'williamcris18@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', 'TVL', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-N4SsLOvQ.jpg', 'F137-N4SsLOvQ.jpg', 'GM-N4SsLOvQ.jpg', 'Passed'),
-(2, 'TUPM-APPL21-1268', 'Bachelor of Science in Information Technology', 'William Cris', 'Entero', 'Hod', ' ', 123456, 'Male', 20, '2001-03-02', 'Metro Manila', '09270287483', '717-1426', 'williamcris18@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', 'TVL', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-6QU1ZlHJ.jpg', 'F137-6QU1ZlHJ.jpg', 'GM-6QU1ZlHJ.jpg', 'Undefined'),
-(3, 'TUPM-APPL21-8586', 'Bachelor of Science in Information Technology', 'William Cris', 'Entero', 'Hod', ' ', 123456, 'Male', 21, '2021-12-03', 'Metro Manila', '09270287483', '717-1426', 'williamcris18@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', 'TVL', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-Cqsb5y2Q.jpg', 'F137-Cqsb5y2Q.jpg', 'GM-Cqsb5y2Q.jpg', 'Applied');
+(1, 'TUPM-APPL21-9231', 'Bachelor of Science in Computer Science', 'William Cris', 'Entero', 'Hod', ' ', 123456, 'Male', 20, '2001-03-20', 'Metro Manila', '09270287483', '8-7000', 'williamcris18@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', 'TVL', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-N4SsLOvQ.jpg', 'F137-N4SsLOvQ.jpg', 'GM-N4SsLOvQ.jpg', 'Student'),
+(2, 'TUPM-APPL21-1268', 'Bachelor of Science in Information Technology', 'William Cris', 'Entero', 'Hod', ' ', 123456, 'Male', 20, '2001-03-02', 'Metro Manila', '09270287483', '717-1426', 'williamcris18@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', 'TVL', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-6QU1ZlHJ.jpg', 'F137-6QU1ZlHJ.jpg', 'GM-6QU1ZlHJ.jpg', 'Applied'),
+(3, 'TUPM-APPL21-8586', 'Bachelor of Science in Information Technology', 'William Cris', 'Entero', 'Hod', ' ', 123456, 'Male', 21, '2021-12-03', 'Metro Manila', '09270287483', '717-1426', 'williamcris18@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', 'TVL', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-Cqsb5y2Q.jpg', 'F137-Cqsb5y2Q.jpg', 'GM-Cqsb5y2Q.jpg', 'Applied'),
+(4, 'TUPM-APPL21-9470', 'Bachelor of Science in Computer Engineering', 'Paolo', 'Lovidioro ', 'Gonzales', ' ', 123456, 'Male', 21, '2008-02-11', 'Metro Manila', '09270287483', '717-1426', 'test@gmail.com', '151', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', '', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'Old Curriculum', 93, 'MR-X1UB6dvZ.jpg', 'F137-X1UB6dvZ.jpg', 'GM-X1UB6dvZ.jpg', 'Student'),
+(5, 'TUPM-APPL21-4232', 'Bachelor of Science in Computer Engineering', 'Paolo', 'Lovidioro ', 'Gonzales', ' ', 123456, 'Male', 21, '2008-02-11', 'Metro Manila', '09270287483', '717-1426', 'test@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', '', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'Old Curriculum', 93, 'MR-Btoce4YQ.jpg', 'F137-Btoce4YQ.jpg', 'GM-Btoce4YQ.jpg', 'Applied'),
+(6, 'TUPM-APPL21-9910', 'Bachelor of Engineering in Mechanical Engineering', 'Gabrielle', 'MaColl', 'Demo', ' ', 123456, 'Male', 21, '2000-11-19', 'Metro Manila', '09270287483', '717-1426', 'test@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', '', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-mOkT4oBt.jpg', 'F137-mOkT4oBt.jpg', 'GM-mOkT4oBt.jpg', 'Applied'),
+(7, 'TUPM-APPL21-5533', 'Bachelor of Science in Mathematics', 'Minatozaki', 'Sana', 'Hod', ' ', 123456, 'Female', 21, '2022-01-12', 'Metro Manila', '09270287483', '717-1426', 'williamcrshod@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', '', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-TMZcOJ2W.jpg', 'F137-TMZcOJ2W.jpg', 'GM-TMZcOJ2W.jpg', 'Applied'),
+(8, 'TUPM-APPL21-5545', 'Bachelor of Science in Mathematics', 'Minatozaki', 'Sana', 'Hod', ' ', 123456, 'Female', 21, '2022-01-12', 'Metro Manila', '09270287483', '717-1426', 'williamcrshod@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', '', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-A5tn1gGr.jpg', 'F137-A5tn1gGr.jpg', 'GM-A5tn1gGr.jpg', 'Student');
 
 -- --------------------------------------------------------
 
@@ -138,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `course_table` (
   `college` varchar(255) NOT NULL,
   `status` int(1) NOT NULL,
   PRIMARY KEY (`courseID`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `course_table`
@@ -150,7 +152,8 @@ INSERT INTO `course_table` (`courseID`, `degree`, `major`, `college`, `status`) 
 (3, 'Bachelor of Science', 'Information System', 'College of Engineering', 1),
 (4, 'Bachelor of Science', 'Computer Engineering', 'College of Science', 1),
 (5, 'Bachelor of Engineering', 'Mechanical Engineering', 'College of Engineering', 1),
-(6, 'Bachelor of Science', 'Architecture', 'College of Architecture and Fine Arts', 1);
+(6, 'Bachelor of Science', 'Architecture', 'College of Architecture and Fine Arts', 1),
+(7, 'Bachelor of Science', 'Mathematics', 'College of Science', 1);
 
 -- --------------------------------------------------------
 
@@ -205,22 +208,22 @@ CREATE TABLE IF NOT EXISTS `events_announcements` (
   `status` int(1) NOT NULL,
   PRIMARY KEY (`eaID`),
   KEY `EA_Admin` (`creatorID`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `events_announcements`
 --
 
 INSERT INTO `events_announcements` (`eaID`, `title`, `details`, `time`, `date`, `creatorID`, `status`) VALUES
-(1, 'Test Announcement 1', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam culpa dolores mollitia repellat quod numquam minima laborum excepturi facere magni ipsa doloremque odit cum sapiente maxime, alias dolor laboriosam repellendus?', '00:00:00', '2021-12-25', 1, 1),
-(2, 'testing ulet', 'kskskksks', '00:00:00', '2022-01-01', 1, 0),
+(1, 'Test Announcement 1', 'test', '00:00:00', '2021-12-25', 1, 1),
+(2, 'testing ulet', 'kskskksks', '00:00:00', '2022-01-01', 1, 1),
 (4, 'test', 'test', '19:03:00', '2021-12-01', 1, 0),
 (5, 'test', 'test', '21:58:00', '2021-12-15', 1, 1),
 (6, 'test', 'test', '00:19:00', '2021-12-01', 1, 0),
-(7, 'testing last', 'PAG ETO GUMANA BIBILI AKO NG PHOTOCARD ULET, DALAWA NA, TATLO NA POTA', '02:35:00', '2021-12-16', 1, 0),
+(7, 'testing last', 'PAG ETO GUMANA BIBILI AKO NG PHOTOCARD ULET', '02:35:00', '2021-12-16', 1, 0),
 (8, 'last test', 'minjeong cutie', '05:17:00', '2021-12-03', 1, 0),
-(9, 'minjeong', 'minjeong cutie', '02:47:00', '2021-12-18', 1, 1),
-(10, 'test william admin', 'test', '03:36:00', '2021-12-03', 2, 1);
+(10, 'test william admin', 'test', '03:36:00', '2021-12-03', 2, 1),
+(11, 'testing add', 'testing chuchu', '18:10:00', '2022-01-05', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -254,14 +257,15 @@ CREATE TABLE IF NOT EXISTS `exam_schedule` (
   `floor_no` int(255) NOT NULL,
   `status` int(1) NOT NULL,
   PRIMARY KEY (`schedID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `exam_schedule`
 --
 
 INSERT INTO `exam_schedule` (`schedID`, `date`, `time`, `building`, `room_no`, `floor_no`, `status`) VALUES
-(1, '2021-12-09', '16:00:00', 'College of Engineering', 'COE-153', 3, 1);
+(0, '2022-02-05', '15:13:00', 'College of Science', 'COS-153', 2, 1),
+(2, '2022-01-07', '02:14:00', 'College of Industrial Education', 'CIE-314', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -282,15 +286,16 @@ CREATE TABLE IF NOT EXISTS `student_accounts` (
   PRIMARY KEY (`studentID`),
   KEY `studentDetails` (`applicantID`),
   KEY `studentAdmin` (`creatorID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `student_accounts`
 --
 
 INSERT INTO `student_accounts` (`studentID`, `applicantID`, `studentNumber`, `username`, `password`, `type`, `status`, `creatorID`) VALUES
-(1, 1, 'TUPM-21-2912', 'TUPM-21-2912', 'HOD', 'Ewan', '1', 1),
-(2, 2, 'TUPM-21-3160', 'TUPM-21-3160', 'HOD', 'Ewan', '1', 3);
+(1, 1, 'TUPM-21-8437', 'TUPM-21-8437', '$2y$10$WoB3vqSF/S.dxlNe0.RUFOcZI/0kc5sp.KovxWOS.Qh4vVbExhxaW', 'ewan', '1', 1),
+(2, 4, 'TUPM-21-9297', 'TUPM-21-9297', '$2y$10$Ivt4xeO3S86hO4XRyE6wTOorhTBREyfZNQ/VIGa8k4FhnLeG9zJlu', 'ewan', '1', 1),
+(3, 8, 'TUPM-21-7805', 'TUPM-21-7805', '$2y$10$QVYvZKqiZtDMbVHorKoYc.M7doOcHzrih84cu9HEPkCKQ1XYejN/C', 'ewan', '1', 1);
 
 -- --------------------------------------------------------
 
@@ -328,7 +333,7 @@ CREATE TABLE IF NOT EXISTS `subjects_table` (
   `status` int(255) NOT NULL,
   PRIMARY KEY (`subjectID`),
   KEY `course` (`courseID`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `subjects_table`
@@ -342,7 +347,8 @@ INSERT INTO `subjects_table` (`subjectID`, `courseID`, `subjectCode`, `name`, `u
 (5, 2, 'CC-999', 'Automata and Formal Language', 5, 4, 1),
 (6, 6, 'AA - 201', 'Ewan try lang', 5, 2, 0),
 (7, 6, 'AA - 201', 'Ewan try lang', 5, 2, 1),
-(8, 1, 'test', 'testing', 1, 1, 1);
+(8, 1, 'test', 'testing', 1, 1, 1),
+(9, 7, 'MM -001', 'Basic Algebra', 4, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -375,7 +381,7 @@ CREATE TABLE IF NOT EXISTS `teacher_accounts` (
 --
 
 INSERT INTO `teacher_accounts` (`teacherID`, `teacherNumber`, `username`, `password`, `firstname`, `middlename`, `lastname`, `extname`, `phonenum`, `email`, `college`, `department`, `status`, `creatorID`) VALUES
-(1, 'PROF-TUPM-21-1899', 'test', '123456', 'William Cris', '', 'Hod', '', '', '', 'Science', 'Computer', 0, 1);
+(1, 'PROF-TUPM-21-5056', 'PROF-TUPM-21-5056', '$2y$10$81UKH4jgh9JzphudFhIlc.UCpyx1vBpylKEaZxYP0FvycdQiZZXXa', 'William Cris', 'Entero', 'Hod', ' ', '09270287483', 'williamcris18@gmail.com', 'Science', 'Computer', 1, 1);
 
 --
 -- Constraints for dumped tables

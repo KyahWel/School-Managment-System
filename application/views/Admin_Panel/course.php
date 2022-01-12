@@ -94,7 +94,6 @@ include __DIR__.'/../includes/adminSideBar.php'
 			                    <th>Degree</th>
 			                    <th>Major</th>
 			                    <th>College</th>
-			                    <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -104,7 +103,6 @@ include __DIR__.'/../includes/adminSideBar.php'
                                 <td><?php echo $courserow->degree?></td>
                                 <td><?php echo $courserow->major?></td>
                                 <td><?php echo $courserow->college?></td> 
-                                <td><?php echo $courserow->status?></td>
                                 <td>
                                 <div class="action-buttons">
                                     <?php if ($courserow->status == 1): ?>

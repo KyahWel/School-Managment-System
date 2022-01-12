@@ -65,7 +65,7 @@ class courseController extends CI_Controller {
 							<tr>
 								<th>Subject Code</th>
 								<th>Subject Name</th>
-								<th>Status</th>
+								<th>Units</th>
 							</tr>
 						</thead>
 						<tbody>';
@@ -97,7 +97,7 @@ class courseController extends CI_Controller {
 							<tr>
 								<th>Subject Code</th>
 								<th>Subject Name</th>
-								<th>Status</th>
+								<th>Units</th>
 							</tr>
 						</thead>
 						<tbody>';
@@ -129,7 +129,7 @@ class courseController extends CI_Controller {
 							<tr>
 								<th>Subject Code</th>
 								<th>Subject Name</th>
-								<th>Status</th>
+								<th>Units</th>
 							</tr>
 						</thead>
 						<tbody>';
@@ -161,7 +161,7 @@ class courseController extends CI_Controller {
 							<tr>
 								<th>Subject Code</th>
 								<th>Subject Name</th>
-								<th>Status</th>
+								<th>Units</th>
 							</tr>
 						</thead>
 						<tbody>';
@@ -193,7 +193,7 @@ class courseController extends CI_Controller {
 							<tr>
 								<th>Subject Code</th>
 								<th>Subject Name</th>
-								<th>Status</th>
+								<th>Units</th>
 							</tr>
 						</thead>
 						<tbody>';

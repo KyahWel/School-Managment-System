@@ -110,7 +110,6 @@ include __DIR__.'/../includes/adminSideBar.php'
 			                    <th>Subject Code</th>
 			                    <th>Name</th>
 			                    <th>Units</th>
-			                    <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -119,8 +118,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                             <tr>
                                 <td><?php echo $subjectrow->subjectCode?></td>
                                 <td><?php echo $subjectrow->name?></td>
-                                <td><?php echo $subjectrow->units?></td> 
-                                <td><?php echo $subjectrow->status?></td>
+                                <td><?php echo $subjectrow->units?></td>    
                                 <td>
                                 <div class="action-buttons">
                                     <?php if ($subjectrow->status == 1): ?>

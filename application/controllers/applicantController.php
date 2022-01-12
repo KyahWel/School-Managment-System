@@ -10,11 +10,11 @@ class applicantController extends CI_Controller {
 		$this->load->model('courseModel');
 		$this->load->model('Authentication');
 		if ($this->session->userdata('authenticated') != '4'){
-			$this->session->set_flashdata('status','Please logout first'); 
+			$this->session->set_flashdata('logout','Please logout first'); 
 			if ($this->session->userdata('authenticated') == '1')
 				redirect('Admin/dashboard');
 			elseif  ($this->session->userdata('authenticated') == '2')
-				redirect('Faculty/Dashboard');
+				redirect('Faculty/dashboard');
 			else
 				redirect('Student/Dashboard');
 		}
