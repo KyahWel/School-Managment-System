@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat'>
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
@@ -32,8 +32,8 @@
         <nav class="nav">
             <div>
                 <div class="nav_list">
-                    <div class="welcome text-dark pt-3 fw-bold"  style="color: steelblue; font-size:1rem">
-                        <i class='fa fa-user nav_icon ' style="color:steelblue;"></i>
+                    <div class="welcome text-dark pt-3 fw-bold">
+                        <i class='fa fa-user nav_icon '></i>
                         <span class="nav_name">Hello, <?= $this->session->userdata('auth_user')['firstname']?>!</span>  
                         <hr>
                     </div>

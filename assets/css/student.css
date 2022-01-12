@@ -98,12 +98,6 @@ textarea:focus, input:focus{
 #table-body tbody{
     text-align: center;
 }
-#table-body thead th{
-    padding-inline-end: 30px;
-}
-#table-body tbody td{
-    padding-inline-end: 30px;
-}
 .table{
     display: flex;
     flex-flow: column;
@@ -124,9 +118,6 @@ tr {
 }
 
 /* Action Button */
-#table-body tbody .action-buttons{
-    margin-inline-end: 85px;
-}
 #table-body tbody .action-buttons li{
     list-style-type: none;
     display: inline-block;
@@ -135,7 +126,7 @@ tr {
     color: white;
     background-color:maroon;
     font-size: 0.55rem;
-    padding: 3px 2px;
+    padding: 3px 5px;
     opacity: 0.93;
     margin-top: 2.5px;
 }
@@ -144,7 +135,7 @@ tr {
     background-color:maroon;
     font-size: 0.53rem;
     opacity: 0.93;
-    padding: 4.2px 2px;
+    padding: 4.2px 7px;
     border-radius: 3px;
     cursor: pointer;
 }
