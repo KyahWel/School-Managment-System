@@ -186,7 +186,7 @@ input[type=text], input[type=date], input[type=time], textarea{
     border-color: transparent;
     color: white;
     text-decoration: none;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     margin: 0px 8px;
 }
 #saveInput:hover,
@@ -194,7 +194,7 @@ input[type=text], input[type=date], input[type=time], textarea{
     background-color: white;
     border-color: #800000;
     color: #800000;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 #cancelInput,
 #cancel{
@@ -202,7 +202,7 @@ input[type=text], input[type=date], input[type=time], textarea{
     border-color: transparent;
     color: black;
     text-decoration: none;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     margin: 0px;
 }
 #cancelInput:hover,
@@ -210,6 +210,6 @@ input[type=text], input[type=date], input[type=time], textarea{
     background-color: white;
     border-color: #800000;
     color: #800000;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 
