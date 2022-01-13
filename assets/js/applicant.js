@@ -29,6 +29,32 @@ function final_step() {
     document.getElementById('steps').style.display = "none";
     document.getElementById('final_step').style.display = "block";
 }
+function validateForm() {
+  // This function deals with validation of the form fields
+  var x, y, i, valid = true;
+  x = document.getElementById('personalInfo');
+  y = x.getElementsByTagName("input");
+  // A loop that checks every input field in the current tab:
+  for (i = 0; i < y.length; i++) {
+    // If a field is empty...
+    if (y[i].value == "") {
+      if (!form.checkValidity()) {
+        Event.preventDefault()
+        Event.stopPropagation()
+        alert("Please fill in all the required fields.");
+      }
+
+      form.classList.add('was-validated')
+      personalInfo();
+    }
+    }
+  }
+  // // If the valid status is true, mark the step as finished and valid:
+  // if (valid) {
+  //   document.getElementsByClassName("step")[currentTab].className += "finish";
+  // }
+  // return valid; // return the valid status
+
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {

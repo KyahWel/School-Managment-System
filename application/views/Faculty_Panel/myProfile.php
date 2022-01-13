@@ -14,10 +14,9 @@ include __DIR__ . '/../includes/facultySideBar.php'
         <div class="myProfile my-3">
             <h3 mx-0>My Profile</h3>
             <div class="d-flex align-items-center my-2">
+
                 <div class=" profile-pic-div">
                     <img src="../assets/images/facultyAvatar.png" alt="Student Avatar" id="facultyPhoto">
-                    <input type="file" id="facultyFile">
-                    <label for="file" id="uploadBtnFaculty">Choose Photo</label>
                 </div>
 
                 <!-- My Profile Details -->
@@ -28,6 +27,7 @@ include __DIR__ . '/../includes/facultySideBar.php'
                                 <p><b>Faculty ID:</b></p>
                                 <p><b>Name:</b></p>
                                 <p><b>Department:</b></p>
+
                                 <p class="mb-0"><b>Email:</b></p>
 
                             </td>
@@ -45,7 +45,6 @@ include __DIR__ . '/../includes/facultySideBar.php'
 
             <!-- Personal Information -->
             <div class="table-wrapper">
-
                 <!--Table Header-->
                 <div class="table-title">
                     <div class="row">
@@ -55,9 +54,9 @@ include __DIR__ . '/../includes/facultySideBar.php'
                     </div>
                 </div>
 
-                <div class="container my-3">
+                <div class="container info my-3">
                     <form class="container mt-4" action="">
-                        <div class="row">
+                        <div class="row mb-3">
                             <div class="col-lg-3 col-md-6 mb-1">
                                 <!--Last Name-->
                                 <input type="text" class="form-control" id="lastName" readonly value="<?php echo $prof->lastname?>">
@@ -110,7 +109,7 @@ include __DIR__ . '/../includes/facultySideBar.php'
                         </div>
                         <div class="modal-body">
                             <form class="container my-3" method="POST" action="<?php echo site_url('FacultyControllerFunctions/updateTeacher/')?><?= $this->session->userdata('auth_user')['teacherID']?>">
-                                <div class="row">
+                                <div class="row mb-3">
                                     <div class="col-lg-3 col-md-6 mb-1">
                                         <!--Last Name-->
                                         <input type="text" class="form-control" id="edit-lastName" name="lastname" value="<?php echo $prof->lastname?>">
@@ -159,44 +158,6 @@ include __DIR__ . '/../includes/facultySideBar.php'
 
     </div>
 </div>
-<script type="text/javascript">
-    const imgDiv = document.querySelector('.profile-pic-div');
-    const avatar = document.querySelector('#facultyPhoto');
-    const file = document.querySelector('#facultyFile');
-    const uploadBtn = document.querySelector('#uploadBtnFaculty');
-
-    //if user hover on img div 
-
-    imgDiv.addEventListener('mouseenter', function() {
-        uploadBtnFaculty.style.display = "block";
-    });
-
-    //if we hover out from img div
-
-    imgDiv.addEventListener('mouseleave', function() {
-        uploadBtnFaculty.style.display = "none";
-    });
-
-    //lets work for image showing functionality when we choose an image to upload
-
-    //when we choose a foto to upload
-
-    facultyFile.addEventListener('change', function() {
-        //this refers to file
-        const choosedFile = this.files[0];
-
-        if (choosedFile) {
-
-            const reader = new FileReader(); //FileReader is a predefined function of JS
-
-            reader.addEventListener('load', function() {
-                avatar.setAttribute('src', reader.result);
-            });
-
-            reader.readAsDataURL(choosedFile);
-        }
-    });
-</script>
 <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 </body>
 

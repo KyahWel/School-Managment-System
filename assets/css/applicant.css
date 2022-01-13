@@ -20,7 +20,23 @@ body {
         height: 0;
     }
 }
+span.spare{
+    display: none;
+}
 
+#personalInfo span.spare1, #educationalattainment span.spare1, #requirement span.spare1 {
+    display: none;
+}
+@media (max-width: 834px) and (min-width:806px){
+    #personalInfo span.spare1, #educationalattainment span.spare1, #requirement span.spare{
+        display: block;
+    }
+}
+@media (max-width: 834px){
+    #personalInfo span.spare, #educationalattainment span.spare, #requirement span.spare{
+        display: block;
+    }
+}
 .header {
     background: maroon;
     transition: .5s;
@@ -80,10 +96,13 @@ button.cancel:focus {
     -webkit-transition: .5s;
     -o-transition: .5s;
 }
+img.applicantAvatar{
+    width: 125px;
+}
 
 .information {
     background: #93D9F6;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     padding: 15px;
     width: 80%;
 }
@@ -113,6 +132,7 @@ ul {
     list-style: none;
     align-items: center;
     justify-content: space-between;
+    letter-spacing: 1px;
     counter-reset: step;
 }
 
@@ -141,7 +161,7 @@ li:before {
 }
 
 li.active {
-    color: #F2BD53;
+    color: #d3961d;
     font-weight: bold;
 }
 
@@ -176,7 +196,9 @@ li.active:before {
 
 
 /* personal info */
-
+#personalInfo, #steps{
+    display: block;
+}
 .Wrapper {
     background: white;
     border-radius: 25px;
@@ -226,6 +248,10 @@ label {
 }
 
 
+/* common styles */
+#educationalattainment, #requirement{
+    display: none;
+}
 /* final procedure */
 
 #final_step .Wrapper .Contents p.note1 {
@@ -310,3 +336,9 @@ label {
         height: 100%;
     }
 }
+
+.row.asterisk .form-label:after {
+    content:" *";
+    color:red;
+    font-size: 1rem;
+  }
