@@ -7,25 +7,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="#" />
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat'>
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/css/applicant.css'); ?>" rel="stylesheet" type="text/css">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity=
-"sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous">
-    </script>
-      
-    <script src=
-"https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-        integrity=
-"sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-        crossorigin="anonymous">
-    </script>
     <title>Applicant Registration</title>
-
 </head>
 
 <body>
@@ -48,8 +36,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         Are you sure you want to cancel your application?
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
                         <button type="reset" class="btn btn-primary" onclick="location.href='<?php echo site_url('Login/applicant'); ?>'">Yes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
                     </div>
                 </div>
             </div>
@@ -100,7 +88,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <li class="active">Personal Information <span class="spare1"> <br></span></li>
                                         <li>Education Attainment</li>
                                         <li>Requirements <span class="spare"> <br></span></li>
-                                        <li>Review All <span class="spare"> <br></span></li>
                                     </ul>
                                 </div>
                                 <div class="Wrapper">
@@ -108,7 +95,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <p class="text-white"><i class="fa fa-user"></i> <span class="px-2"> Personal Information </span></p>
                                     </div>
                                     <div class="Contents">
-
+                                        <p class="fw-bold">COURSE PREFERENCE</p>
                                         <div class="mb-3 row">
                                             <label for="courses" class="col-2 form-label small pt-2">Course: </label>
                                             <div class="col-lg-7 col-md-10 col-sm-12">
@@ -135,8 +122,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                 </div>
                                             </div>
                                             <div class="col-lg-3 col-md-6 py-1">
-                                                <label class="form-label small">Middle Name</label>
-                                                <input type="text" name='middlename' id="midname" class="form-control form-control-sm" aria-label="Last name" required>
+                                                <label class="small">Middle Name</label>
+                                                <input type="text" name='middlename' id="midname" class="form-control form-control-sm" aria-label="Last name">
                                                 <div class="invalid-feedback">
                                                     Please input your middle name.
                                                 </div>
@@ -149,8 +136,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                 </div>
                                             </div>
                                             <div class="col-lg-3 col-md-6 py-1">
-                                                <label class="form-label small">Suffix</label>
-                                                <input type="text" name='extname' id="suffix" class="form-control form-control-sm" aria-label="Extension Name" required>
+                                                <label class="small">Suffix</label>
+                                                <input type="text" name='extname' id="suffix" class="form-control form-control-sm" aria-label="Extension Name">
                                                 <div class="invalid-feedback">
                                                     Please input your extension name.
                                                 </div>
@@ -161,7 +148,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12 pt-1">LRN:</label>
                                             <div class="col-lg-3 col-md-12">
-                                                <input type="text" name="LRN" id="lrn" class="form-control form-control-sm" minlength="10" aria-label="LRN" required>
+                                                <input type="text" name="LRN" id="lrn" class="form-control form-control-sm" minlength="12" aria-label="LRN" required>
                                                 <div class="invalid-feedback">
                                                     Please input your LRN.
                                                 </div>
@@ -240,7 +227,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                             <div class="col-lg-4">
                                                 <input type="email" name='email' id="email1" class="form-control form-control-sm" aria-label="Email Address" required>
                                                 <div class="invalid-feedback">
-                                                    Please input you valid email address.
+                                                    Please input your valid email address.
                                                 </div>
                                             </div>
                                             <hr class="mt-4 mb-3">
@@ -361,14 +348,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                                             <label class="form-label col-lg-2 col-md-12 pt-1">Program/Track:</label>
                                             <div class="col-lg-3 col-md-12">
-                                                <select class="form-select form-select-sm" name="track" aria-label="Program Track" required>
-                                                    <option selected disabled></option>
-                                                    <option value="">ABM</option>
-                                                    <option value="">HUMSS</option>
-                                                    <option value="">STEM</option>
-                                                    <option value="">ICT</option>
-                                                    <option value="">GAS</option>
-                                                    <option value="">N/A</option>
+                                                <select class="form-select form-select-sm" id="program1" name="track" aria-label="Program Track" required>
+                                                    <option selected hidden disabled></option>
+                                                    <option>ABM</option>
+                                                    <option>HUMSS</option>
+                                                    <option>STEM</option>
+                                                    <option>ICT</option>
+                                                    <option>GAS</option>
+                                                    <option>N/A</option>
                                                 </select>
                                                 <div class="invalid-feedback">
                                                     Please select your track.
@@ -548,7 +535,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <!--Requirements Wrapper-->
                             </div>
                             <!-- requirements div -->
-                        </form>
+                       
                     </div>
                 </div>
             </div>
@@ -569,79 +556,25 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <div class="modal fade" id="confirmationPage" data-bs-backdrop="static" aria-modal="true" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
             <div class="modal-content">
-                <div class="modal-header text-center text-uppercase">
-                    <h5 class="modal-title">Confirmation Page</h5>
+                <div class="modal-header">
+                    <h5 class="modal-title confirmtitle">Confirmation Page</h5>
                 </div>
                 <div class="modal-body">
-      
+
                 </div>
                 <div class="modal-footer d-flex justify-content-middle">
-                    <button type="button" class="btn btn-warning text-uppercase">CONFIRM</button>
-                    <button type="button" class="btn btn-secondary text-uppercase" data-bs-dismiss="modal">CLOSE</button>
+                    <button type="submit" class="btn btn-warning text-uppercase">CONFIRM</button>
+                    <button type="button" class="btn btn-secondary text-uppercase" data-bs-dismiss="modal">CANCEL</button>
                 </div>
+                </form>
             </div>
         </div>
     </div>
     </div>
 
-    <script type="text/javascript">
-
-    $('#confirmationPage').on('shown.bs.modal', function (e) {
-    var fname = $("#fname").val(); 
-    var midname = $("#midname").val(); 
-    var surname = $("#surname").val(); 
-    var suffix = $("#suffix").val(); 
-    var lrn = $("#lrn").val(); 
-    var birthdate = $("#birthdate").val(); 
-    var age1 = $("#age1").val(); 
-    var birthplace1 = $("#birthplace1").val(); 
-    var landline1 = $("#landline1").val(); 
-    var email1 = $("#email1").val(); 
-    var unit1 = $("#unit1").val(); 
-    var street1 = $("#street1").val(); 
-    var brgy = $("#brgy").val(); 
-    var city1 = $("#city1").val(); 
-    var zip = $("#zip").val(); 
-    var nameschool = $("#nameschool").val(); 
-    var schooladdress = $("#schooladdress").val(); 
-    var yearlvl = $("#yearlvl").val(); 
-    var yeargrad = $("#yeargrad").val(); 
-    var gpa1 = $("#gpa1").val(); 
-    var medical = $("#medical").val(); 
-    var form137 = $("#form137").val(); 
-    var goodmoral = $("#goodmoral").val(); 
-
-    $(".modal-body").html(
-        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Name:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+fname+' '+midname+' '+surname+' '+suffix+' </div> </div>' +
-        '<div class="row"> <label class="form-label col-lg-3 col-md-3">LRN:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+lrn+'</div></div>' +
-        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Birth Date:</label><div class=""col-lg-9 col-md-9 fw-bold text-uppercase"> '+birthdate+'</div></div>' +
-        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Age:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+age1+'</div>' +
-        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Birthplace:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+birthplace1+'</div></div>' +
-        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Landline:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+landline1+'</div></div>' +
-        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Email:</label><div class="col-lg-9 col-md-9 fw-bold"> '+email1+'</div></div>' +
-        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Unit:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+unit1+'</div></div>' +
-        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Street:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+street1+'</div></div>' +
-        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Barangay:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+brgy+'</div></div>' +
-        '<div class="row"> <label class="form-label col-lg-3 col-md-3">City:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+city1+'</div></div>' +
-        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Zipcode:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+zip+'</div></div>' +
-        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Name of School:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+nameschool+'</div></div>' +
-        '<div class="row"> <label class="form-label col-lg-3 col-md-3">School Address:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+schooladdress+'</div></div>' +
-        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Year Level: </label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+yearlvl+'</div></div>' +
-        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Year Graduated: </label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+yeargrad+'</div></div>' +
-        '<div class="row"> <label class="form-label col-lg-3 col-md-3">GPA: </label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+gpa1+'</div></div>' +
-        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Medical Record:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+medical+'</div></div>' +
-        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Form 137:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+form137+'</div></div>' +
-        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Good Moral:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+goodmoral+'</div></div>' 
-        );     }); 
-
-    </script>
+    <script src="<?php echo base_url('assets/js/jquery-3.5.1.slim.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/applicant.js'); ?>"></script>
-
-    <script>
-
-
-    </script>
 </body>
 
 </html>
