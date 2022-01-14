@@ -161,16 +161,10 @@ include __DIR__ . '/../includes/adminSideBar.php'
                 </div>
             </div>
 
-
-
             <!-- Applicant Tab -->
             <div class="tab-pane" id="applicantTabContent" role="tabpanel" aria-labelledby="Applicants">
-                <form action="" method="post" id="AddApplicants">
                     <!-- Filter and Search -->
                     <div class=" d-flex  align-items-center my-1 pt-3 px-3">
-                        <div class="px-0 pt-2 text-dark">
-                            <input type="checkbox" name="addAll" id="checkApplicant" onclick="checkedAll.call(this);" /> Select all
-                        </div>
                         <div class="ms-auto">
                             <label class="mb-2 text-dark">Filter by:</label>
                             <select name="stats" class="select" placeholder="status">
@@ -199,46 +193,63 @@ include __DIR__ . '/../includes/adminSideBar.php'
                             </thead>
                             <tbody>
                                 <?php foreach ($applicant as $applicantrow) { ?>
-                                    <tr>
-                                        <td><input type="checkbox" name="addApplicant" class="mx-3"></td>
-                                        <td><?php echo $applicantrow->applicantNumber ?></td>
-                                        <td><?php echo $applicantrow->firstname ?> <?php echo $applicantrow->lastname ?></td>
-                                        <td><?php echo $applicantrow->course_chosen ?></td>
-                                        <td><?php echo $applicantrow->applicant_result ?></td>
-                                        <td>
-                                            <button type="button" onclick="applicantDetails()" class="btn btn-primary text-white text-uppercase addBtn">View</button>
-                                            <button type="button" class="btn btn-primary text-white text-uppercase addBtn">ADD</button>
-                                        </td>
-                                    </tr>
+                                    <?php if($applicantrow->applicant_result != "Student"): ?>
+                                        <tr>
+                                            <td> </td>
+                                            <td><?php echo $applicantrow->applicantNumber ?></td>
+                                            <td><?php echo $applicantrow->firstname ?> <?php echo $applicantrow->lastname ?></td>
+                                            <td><?php echo $applicantrow->course_chosen ?></td>
+                                            <td><?php echo $applicantrow->applicant_result ?></td>
+                                            <td>
+                                                <button type="button" onclick="applicantDetails()" data-id='<?php echo $applicantrow->applicantID;?>' class="btn btn-primary viewApplicant text-white text-uppercase addBtn">View</button>
+                                                <?php if ($applicantrow->applicant_result == "Passed"): ?>
+                                                    <button type="button" class="btn btn-primary text-white text-uppercase addBtn">ADD</button>
+                                                <?php else: ?>
+                                                    <button type="button" disabled style="background-color: gray;" class="btn btn-primary text-white text-uppercase addBtn">ADD</button>
+                                                <?php endif?>
+                                            </td>
+                                        </tr>
+                                    <?php endif ?>
                                 <?php } ?>
                             </tbody>
                         </table>
 
                         <div class=" d-flex justify-content-end my-3 p-3">
                             <button type="button" class="btn btn-primary btn-sm text-uppercase addALL px-3 " id="addAll" data-bs-toggle="modal" data-bs-target="#addApplicant">
-                                <i class="fas fa-plus fa-sm" title="Add All"></i> ADD ALL</button>
+                                <i class="fas fa-plus fa-sm" title="Add All"></i> ADD ALL PASSED APPLICANTS</button>
                         </div>
 
                         <!-- Add All PASSED Applicants Pop up Dialog-->
                         <div class="modal fade" id="addApplicant" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="cancelApplicationLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h6 class="modal-title text-white" id="cancelApplicationLabel">Add Applicant</h6>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body text-dark">
-                                        Are you sure you want to add kung ilang selected applicants?
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                                        <button type="submit" class="btn btn-primary">Yes</button>
-                                    </div>
+                                    <form method="POST" action="<?php echo site_url('Admin_Main/addApplicants/')?>">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title text-white" id="cancelApplicationLabel">Add Applicant</h6>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body text-dark">
+                                            Are you sure you want to add the following applicants?
+                                            <ul>
+                                            <?php foreach ($applicant as $applicantrow) { ?>
+                                                <?php if ($applicantrow->applicant_result == "Passed"): ?>
+                                                    <br>
+                                                    <li><?php echo $applicantrow->firstname?> <?php echo $applicantrow->lastname?> (<?php echo $applicantrow->applicantNumber?>)</li>
+                                                    <input type="text" hidden class="form-control" name="applicantID[]" value="<?php echo $applicantrow->applicantID?>">
+                                                    <input type="text" hidden class="form-control" name="lastname[]" value="<?php echo $applicantrow->lastname?>">
+                                                <?php endif?>
+                                            <?php } ?>
+                                            </ul>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                            <button type="submit" class="btn btn-primary">Yes</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </form>
             </div>
 
             <!-- Enrollment Tab -->
@@ -297,91 +308,8 @@ include __DIR__ . '/../includes/adminSideBar.php'
                 <i class="fa fa-arrow-left"></i> Back</button>
             <span class="confirmTitle m-2">View Applicant Details </span>
         </div>
-        <div class="enrollmentDetails mt-3 mb-5" id="details">
-            <div class="tabHeader">
-                <p class="text-center text-white p-2">Applicant ID: TUPM-21APPL-2133</p>
-            </div>
-            <div class="tabDetails px-4">
-                <h6 class="step fw-bold"> <i class="fa fa-user px-2"></i> PERSONAL INFORMATION</h6>
-                <p class="my-4 "> <b>Course Chosen: </b>Bachelor of Science in Computer Science</p>
-                <hr>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <p><b>Name:</b>Lyah Bianca Aquino</p>
-                        <p><b>Suffix:</b> </p>
-                        <p><b>LRN:</b> </p>
-                        <p><b>Gender:</b> </p>
-                        <p><b>Birth Date:</b> </p>
-                        <p><b>Age:</b> </p>
-                        <p><b>Birth Place: </b></p>
-                        <p><b>Contact Number:</b> </p>
-                        <p><b>Landline:</b> </p>
-                        <p><b>Email Address:</b></p>
-
-                    </div>
-                    <div class="col-lg-6">
-                        <p class="text-dark fw-bold pb-2"> PERMANENT ADDRESS</p>
-                        <p><b>Unit #:</b> </p>
-                        <p><b>Street: </b> </p>
-                        <p><b>Barangay: </b> </p>
-                        <p><b>City: </b> </p>
-                        <p><b>Zipcode: </b> </p>
-                        <p><b>Province: </b> </p>
-                    </div>
-                </div>
-                <hr>
-                <h6 class="step fw-bold text-uppercase py-4"><i class="fa fa-user-graduate px-2"></i>Educational Attainment: School Last Attended</h6>
-                <p><b>Name of School: </b> </p>
-                <p><b>Program/Track: </b>Accountancy, Business and Management- ABM</p>
-                <p><b>School Address: </b> </p>
-                <p><b>Year Level: </b> </p>
-                <p><b>Year Graduated: </b> </p>
-                <p><b>Category: </b> </p>
-                <p class="pb-3"><b>GPA: </b> </p>
-                <hr>
-                <h6 class="step fw-bold text-uppercase py-4"><i class="fas fa-file px-2"></i> Admission Requirements</h6>
-                <div class="row mb-3">
-                    <div class="mb-3 fw-bold">
-                        Medical Clearance <br>
-                        <img src="../assets/images/download.png" alt="Medical Clearance" class="rounded hover-shadow cursor" src="assets/images/download.png" onclick="openModal();currentSlide(1)" style="width: 200px;">
-                    </div>
-                    <div class="mb-3 fw-bold">
-                        Form 137 <br>
-                        <img src="../assets/images/download.png" alt="Form 137" class="rounded hover-shadow cursor" onclick="openModal();currentSlide(2)" style="width: 200px">
-                    </div>
-                    <div class="mb-3 fw-bold">
-                        Good Moral <br>
-                        <img src="../assets/images/download.png" alt="Good Moral" class="rounded hover-shadow cursor" onclick="openModal();currentSlide(3)" style="width: 200px;">
-                    </div>
-                </div>
-            </div>
-            <div id="requirementsModal" class="modal reqModal">
-                <span class="closeRequirement cursor" onclick="closeModal()">&times;</span>
-                <div class="modal-Requirementscontent">
-                    <div class="mySlides">
-                        <div class="numbertext">Medical Clearance</div>
-                        <img src="../assets/images/download.png" alt="Medical Clearance"  style="width:100%" height="500px">
-                    </div>
-
-                    <div class="mySlides">
-                        <div class="numbertext">Form 137</div>
-                        <img src="../assets/images/download.png" alt="Form 137" style="width:100%" height="500px">
-                    </div>
-
-                    <div class="mySlides">
-                        <div class="numbertext">Good Moral</div>
-                        <img src="../assets/images/download.png" alt="Good Moral" style="width:100%" height="500px">
-                    </div>
-
-
-                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-                    <!-- <div class="caption-container">
-                        <p id="caption"></p>
-                    </div> -->
-                </div>
-            </div>
+        <div id="applicantData">
+            
         </div>
         <div class="p-1"></div>
     </div>
@@ -501,6 +429,18 @@ include __DIR__ . '/../includes/adminSideBar.php'
                 },
                 success: function(data) {
                     $('#edit_sched').html(data);
+                }
+            });
+        });
+
+        $('.viewApplicant').click(function() {
+            var id = $(this).data('id');
+            $.ajax({
+                url: "<?php echo site_url('Admin_Main/viewApplicant'); ?>",
+                method: "POST",
+                data: {id:id},
+                success: function(data) {
+                    $('#applicantData').html(data);
                 }
             });
         });

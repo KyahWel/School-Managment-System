@@ -10,7 +10,7 @@ class applicantModel extends CI_Model {
 	{	
 		$this->load->library('upload');
 		$digits = 4;
-		$year = 21;
+		$year = 22;
 		do{
 			$holder = "TUPM-APPL".$year."-".rand(pow(10, $digits-1), pow(10, $digits)-1);
 			$this->db->select('*');

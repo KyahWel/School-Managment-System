@@ -14,8 +14,10 @@ class subjectModel extends CI_Model {
 			'subjectID' => NULL,
 			'courseID' => $_POST['courseID'],
 			'yearlevel' => $_POST['yearlevel'],
+			'semester' => $_POST['semester'],
 			'subjectCode' => $_POST['subjectCode'],
 			'name' => $_POST['name'],
+			'college' => $_POST['college'],
 			'units' => $_POST['units'],
 			'status' => 1
 		);
@@ -33,6 +35,19 @@ class subjectModel extends CI_Model {
 	{	
 		$query = $this->db->query('SELECT * FROM subjects_table  WHERE subjects_table.subjectID ='.$id);
 		return $query->row();
+	}
+
+	public function getCourseLinked($courseID,$yearlevel,$semester)
+	{	$data = array(
+		'courseID' => $courseID,
+		'yearlevel' => $yearlevel,
+		'semester' => $semester
+		);	
+		$this->db->select('*');
+		$this->db->from('subjects_table');
+		$this->db->where($data);
+		$query = $this->db->get();
+		return $query->result_array();
 	}
 
 	public function updateData($id)

@@ -92,6 +92,16 @@ input[type=text], input[type=date], input[type=time], textarea{
     font-size: 0.8rem;
     margin-right: 8px;
 }
+
+#load{
+    background-color: #800000;
+    border-color: transparent;
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    margin-right: 8px;
+}
+
 #cancel{
     background-color: #aaaaaa;
     border-color: transparent;
@@ -99,6 +109,8 @@ input[type=text], input[type=date], input[type=time], textarea{
     text-decoration: none;
     font-size: 0.8rem;
 }
+
+
 #save:hover{
     background-color: white;
     border-color: #800000;

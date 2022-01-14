@@ -39,9 +39,9 @@ include __DIR__.'/../includes/loginNavbar.php'
   <div class="wrapper">
 
      <!-- Invalid username or password -->
-     <?php if($this->session->flashdata('status')) : ?>
+     <?php if($this->session->flashdata('loginerror')) : ?>
             <div class="alert alert-danger alert-dismissible fade show">
-                <?= $this->session->flashdata('status'); ?>
+                <?= $this->session->flashdata('loginerror'); ?>
                 <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
             </div>
        <?php endif; ?>

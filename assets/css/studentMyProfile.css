@@ -134,3 +134,13 @@ label {
 .stepButtons .btn-warning:hover {
     background: #faba39;
 }
+
+.contents{
+    font-size: 1rem;
+}
+.row.asterisk .form-label:after {
+    content:" *";
+    color:red;
+    font-size: 1rem;
+  }
+

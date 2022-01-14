@@ -43,10 +43,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <div class="col d-flex flex-column">
                 
                 <div class="container-fluid" id="steps" style="display: block;">
-                    <?php if($this->session->flashdata('status')) : ?>
+                    <?php if($this->session->flashdata('logout')) : ?>
                         <br>
                         <div class="alert alert-danger alert-dismissible fade show">
-                            <?= $this->session->flashdata('status'); ?>
+                            <?= $this->session->flashdata('logout'); ?>
                             <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
                         </div>
                     <?php endif; ?>
@@ -427,8 +427,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                     a.) Test Permit <br>
                                     b.) 2 Sharpened pencil with eraser</p>
                                 <p class="note3 pt-2 fw-bold"> Kindly check your email for the test permit or download it here.</p>
-
-                                <button type="button" class="btn btn-warning download mb-2"> Download Test Permit </button>
+                                
+                                <button type="button" class="btn btn-warning download mb-2" onclick="location.href='<?php echo site_url('applicantcontroller/downloadTestPermit/'.$applicant->applicantID)?>'">Download Test Permit </button>
+                                
 
                                 <p class="note4 pt-3 fw-bold"> Note: Please come one hour before the time.</p>
                         </div>

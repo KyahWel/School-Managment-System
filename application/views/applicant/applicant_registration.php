@@ -81,14 +81,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                 <div class="row height-sm-100 contents">
                     <div class="col">
-                        <form method='POST' class="needs-validation" novalidate enctype="multipart/form-data" name="applicantform">
+                        <form method='POST' class="needs-validation" novalidate enctype="multipart/form-data" name="applicantform" id="applicantForm">
                             <!-- Personal Information -->
                             <div id='personalInfo' class=" container pt-3" style="display: block;">
                                 <div class="step_progressbar">
                                     <ul>
-                                        <li class="active">Personal Information</li>
+                                        <li class="active">Personal Information  <span class="spare1"> <br></span></li>
                                         <li>Education Attainment</li>
-                                        <li>Requirements</li>
+                                        <li>Requirements <span class="spare"> <br></span></li>
+                                        <li>Review All <span class="spare"> <br></span></li>
                                     </ul>
                                </div>
                                 <div class="Wrapper">
@@ -114,7 +115,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         </div>
 
                                         <!-- Name Input-->
-                                        <div class="row mt-0">
+                                        <div class="row mt-0 asterisk">
                                             <div class="col-lg-3 col-md-6 py-1">
                                                 <label class="form-label small">First Name</label>
                                                 <input type="text" name="firstname" class="form-control form-control-sm" aria-label="First name" required>
@@ -146,7 +147,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         </div>
 
                                         <!-- LRN and Gender-->
-                                        <div class="row mt-2 small">
+                                        <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12 pt-1">LRN:</label>
                                             <div class="col-lg-3 col-md-12">
                                                 <input type="text" name="LRN" class="form-control form-control-sm" minlength="10" aria-label="LRN" required>
@@ -172,7 +173,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         </div>
 
                                         <!-- Birthdate and Age-->
-                                        <div class="row mt-2 small">
+                                        <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12 pt-1">Birth Date:</label>
                                             <div class="col-lg-3 col-md-12">
                                                 <input type="date" name='birthday' class="form-control form-control-sm" aria-label="Birthdate" required>
@@ -192,7 +193,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         </div>
 
                                         <!-- Birthplace-->
-                                        <div class="row mt-2 small">
+                                        <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 pt-1">Birth Place:</label>
                                             <div class="col-lg-3">
                                                 <input type="text" name='birthplace' class="form-control form-control-sm" aria-label="Birthpalace" required>
@@ -203,7 +204,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         </div>
 
                                         <!-- Contact Number and Landline-->
-                                        <div class="row mt-2 small">
+                                        <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12 pt-1">Contact Number:</label>
                                             <div class="col-lg-3 col-md-12">
                                                 <input type="tel" name='contactnum' class="form-control form-control-sm" aria-label="Contact Number" required>
@@ -223,12 +224,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         </div>
 
                                         <!-- Email Address-->
-                                        <div class="row mt-2 small">
+                                        <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 pt-1">Email Address:</label>
                                             <div class="col-lg-4">
                                                 <input type="email" name='email' class="form-control form-control-sm" aria-label="Email Address" required>
                                                 <div class="invalid-feedback">
-                                                    Please input your <strong>valid</strong> email address.
+                                                    Please input you valid email address.
                                                 </div>
                                             </div>
                                             <hr class="mt-4 mb-3">
@@ -238,7 +239,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <p class="fw-bold">PERMANENT ADDRESS</p>
 
                                         <!--Unit and Street-->
-                                        <div class="row mt-2 small">
+                                        <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12  pt-1">Unit #:</label>
                                             <div class="col-lg-3 col-md-12">
                                                 <input type="text" name='unit' class="form-control form-control-sm" aria-label="Unit Number" required>
@@ -258,7 +259,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         </div>
 
                                         <!-- Barangay and City-->
-                                        <div class="row mt-2 small">
+                                        <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12  pt-1">Barangay:</label>
                                             <div class="col-lg-3 col-md-12">
                                                 <input type="text" name='barangay' class="form-control form-control-sm" aria-label="Barangay" required>
@@ -278,7 +279,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         </div>
 
                                         <!-- Zipcode and Province-->
-                                        <div class="row mt-2 small">
+                                        <div class="row mt-2 small asterisk">
 
                                             <label class="form-label col-lg-2 col-md-6 pt-1">Zipcode:</label>
                                             <div class="col-lg-3 col-md-6">
@@ -337,7 +338,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <p class="fw-bold">SCHOOL LAST ATTENDED</p>
 
                                         <!--Name of School and Track-->
-                                        <div class="row mt-2 small">
+                                        <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12 pt-1">Name of School:</label>
                                             <div class="col-lg-4 col-md-12">
                                                 <input type="text" name="school" class="form-control form-control-sm" aria-label="Name of School" required>
@@ -365,7 +366,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         </div>
 
                                         <!-- School Adress-->
-                                        <div class="row mt-2 small">
+                                        <div class="row mt-2 small asterisk">
                                             <div class="col-lg-2">
                                                 <label class="form-label pt-1">School Address:</label>
                                             </div>
@@ -378,7 +379,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         </div>
 
                                         <!-- Year Level and Graduated-->
-                                        <div class="row mt-2 small">
+                                        <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12  pt-1">Year Level:</label>
                                             <div class="col-lg-3 col-md-12">
                                                 <input type="text" name="year_level" class="form-control form-control-sm" aria-label="Year level" required>
@@ -400,7 +401,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         </div>
 
                                         <!-- Category-->
-                                        <div class="row mt-2 small">
+                                        <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12  pt-1">Category:</label>
                                             <div class="col-lg-4 col-md-12 pt-1">
                                                 <div class="form-check-inline">
@@ -417,7 +418,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         </div>
 
                                         <!-- GPA-->
-                                        <div class="row mt-2 small">
+                                        <div class="row mt-2 small asterisk">
                                             <div class="col-lg-2">
                                                 <label class="form-label pt-1">GPA:</label>
                                             </div>
@@ -482,7 +483,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <p class="fw-bold">ADMISSION REQUIREMENTS</p>
 
                                         <!--Medical Record-->
-                                        <div class="row mt-4 small">
+                                        <div class="row mt-4 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12 pt-1">Medical Record:</label>
                                             <div class="col-lg-7 mb-3">
                                                 <input name="medical_record" class="form-control form-control-sm" type="file" aria-label="Medical Record" required>
@@ -490,7 +491,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         </div>
 
                                         <!--Form 137-->
-                                        <div class="row mt-2 small">
+                                        <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12 pt-1">Form 137:</label>
                                             <div class="col-lg-7 mb-3">
                                                 <input name="form_137" class="form-control form-control-sm" type="file" aria-label="Form 137" required>
@@ -498,7 +499,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         </div>
 
                                         <!--Good Moral-->
-                                        <div class="row mt-2 small">
+                                        <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12 pt-1">Good Moral:</label>
                                             <div class="col-lg-7 mb-3">
                                                 <input name="good_moral" class="form-control form-control-sm" type="file" aria-label="Good Moral" required>
@@ -542,8 +543,21 @@ defined('BASEPATH') or exit('No direct script access allowed');
         </div>
     </div>
 
+    <template id="fieldFeedbackTemplate">
+        <div id="error-message">
+        <small class="text-danger">
+            <!-- Add error message here using selector-->
+        </small>
+        </div>
+    </template>
+
     <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/applicant.js'); ?>"></script>
+
+    <script>
+        
+
+    </script>
 </body>
 
 </html>

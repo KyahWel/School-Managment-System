@@ -10,13 +10,16 @@ class StudentController extends CI_Controller {
 		$this->load->model('eventsModel');
 		$this->load->model('Authentication');
 		if ($this->session->userdata('authenticated') != '3'){
-			$this->session->set_flashdata('status','Please logout first'); 
-			if ($this->session->userdata('authenticated') == '1')
+			$this->session->set_flashdata('logout','Please logout first'); 
+			if ($this->session->userdata('authenticated') == '1') {
 				redirect('Admin/dashboard');
-			elseif ($this->session->userdata('authenticated') == '2')
+			}	
+			elseif ($this->session->userdata('authenticated') == '2') {
 				redirect('Faculty/dashboard');
-			else
+			}
+			else {	
 				redirect('Applicant/'.$this->session->userdata('auth_user')['applicantID']);
+			}
 		}
 	}
 
@@ -28,10 +31,10 @@ class StudentController extends CI_Controller {
 
 	public function myprofile()
 	{
-        $this->load->view('Student_Panel/myProfile');
+		$data['student'] =  $this->studentModel->getData($this->session->userdata('auth_user')['studentID']);
+        $this->load->view('Student_Panel/myProfile',$data);
 	}
 
-	
 	public function enrollment()
 	{
         $this->load->view('Student_Panel/enrollment');

@@ -4,21 +4,27 @@ include __DIR__ . '/../includes/adminSideBar.php'
 
 <head>
     <link href="<?php echo base_url('assets/css/adminDashboard.css'); ?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url('assets/css/announcement.css'); ?>" rel="stylesheet" type="text/css">
     <title>Admin | Dashboard </title>
 </head>
 
 <body>
     <div class="height-100 pt-2 container-fluid">
         <!-- If user accessed login page or other pages -->
-        <?php if($this->session->flashdata('status')) : ?>
+        <?php if($this->session->flashdata('adminError')) : ?>
             <div class="alert alert-danger alert-dismissible fade show">
-                <?= $this->session->flashdata('status'); ?>
+                <?= $this->session->flashdata('adminError'); ?>
                 <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
             </div>
-        <?php elseif($this->session->flashdata('success')): ?>
+        <?php elseif($this->session->flashdata('successAdmin')): ?>
         <!-- Successfull change password alert -->
             <div class="alert alert-success alert-dismissible fade show">
-                <?= $this->session->flashdata('success'); ?>
+                <?= $this->session->flashdata('successAdmin'); ?>
+                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+            </div>
+        <?php elseif($this->session->flashdata('logout')): ?>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <?= $this->session->flashdata('logout'); ?>
                 <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
             </div>
         <?php endif; ?>
@@ -36,7 +42,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
                     </div>
                 </div>
             </div>
-
+ 
             <!-- Billboard -->
             <div class="col-lg-8 col-md-6 col-sm-12 mb-2">
                 <div class="billboard">
@@ -53,11 +59,43 @@ include __DIR__ . '/../includes/adminSideBar.php'
                                 <?php foreach ($announcement as $announcement) { ?>
                                     <?php if ($announcement->status == 1) : ?>
                                         <div class="carousel-item px-5">
-                                            <h5 class="title">Title: <?php echo $announcement->title ?>, <?php echo $announcement->date ?>, <?php echo $announcement->time ?></h5>
-                                            <p class="details px-5">Details <br> <?php echo $announcement->details ?></p>
+                                        <h5 class="title text-uppercase text-dark"> <?php echo $announcement->title ?>, <?php echo $announcement->date ?>, <?php echo $announcement->time ?></h5>
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h5 class="details mx-3">Details <br></h5>
+                                            </div>
+                                            <div>
+                                                <button type="button" data-id='<?php echo $announcement->eaID ?>' class="btn btn-primary btn-sm mx-3 viewAnnounceDeets view_data" data-bs-toggle="modal" data-bs-target="#viewAnnouncementDetailsAdmin">
+                                                    View Details
+                                                </button>
+                                            </div>
                                         </div>
+                                        <p class="text-dark px-4">
+                                        <?php echo $announcement->details ?>
+                                        </p>
+                                    </div>
                                     <?php endif ?>
                                 <?php } ?>
+
+                                 <!-- View Details Announcement Modal -->
+                            <div class="modal fade" id="viewAnnouncementDetailsAdmin" tabindex="-1" aria-modal="true" aria-labelledby="View Announcement" aria-hidden="true">
+                                <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">View Announement</h5>
+                                            <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body p-4">
+                                            <div id="event_result">
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
@@ -92,12 +130,12 @@ include __DIR__ . '/../includes/adminSideBar.php'
                 <div class=" d-flex justify-content-end my-2" id="studentFilter">
                     <label class="px-2 pt-1">Search ID: </label>
                     <input type="text" name="searchStudentID" placeholder="Search Student ID">
-                    <button type="button" class="btn btn-sm" id="search"><i class="fas fa-search" data-bs-toggle="tooltip" title="Search"></i></button>
+                    <button type="button" class="btn btn-sm" id="searchStudID"><i class="fas fa-search" data-bs-toggle="tooltip" title="Search"></i></button>
                 </div>
                     <div class="table-responsive">
-                        <table class="table align-middle table-striped table-borderless table-hover" id="table-body">
+                        <table class="table align-middle table-striped table-borderless table-hover" id="table-bodyStud">
                             <!--Table Body-->
-                            <thead>
+                            <thead class="text-center">
                                 <tr>
                                     <th>Student ID</th>
                                     <th>Last Name</th>
@@ -106,7 +144,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
                                     <th>Status</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="text-center">
                                 <?php foreach ($student as $studentrow) { ?>
                                     <tr>
                                         <td><?php echo $studentrow->studentNumber ?></td>
@@ -127,12 +165,12 @@ include __DIR__ . '/../includes/adminSideBar.php'
                     <div class=" d-flex justify-content-end my-2" id="facultyFilter">
                         <label class="px-2 pt-1">Search ID: </label>
                         <input type="text" id="searchFacultyID" name="searchFacultyID" placeholder="Search Faculty ID">
-                        <button type="button" class="btn btn-sm" id="search"><i class="fas fa-search" data-bs-toggle="tooltip" title="Search"></i></button>
+                        <button type="button" class="btn btn-sm" id="searchFacID"><i class="fas fa-search" data-bs-toggle="tooltip" title="Search"></i></button>
                     </div>
                     <div class="table-responsive">
-                        <table class="table align-middle table-striped table-borderless table-hover" id="table-body">
+                        <table class="table align-middle table-striped table-borderless table-hover" id="table-bodyFac">
                             <!--Table Body-->
-                            <thead>
+                            <thead class="text-center">
                                 <tr>
                                     <th>Faculty ID</th>
                                     <th>Last Name</th>
@@ -141,8 +179,8 @@ include __DIR__ . '/../includes/adminSideBar.php'
                                     <th>Status</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                            <tbody>
+                    
+                            <tbody class="text-center">
                                 <?php foreach ($teacher as $teacherrow) { ?>
                                     <tr>
                                         <td><?php echo $teacherrow->teacherNumber ?></td>
@@ -161,10 +199,33 @@ include __DIR__ . '/../includes/adminSideBar.php'
             </div>
         </div>
     </div>
+    <div class="py-2">&nbsp;</div>
 
     <script src="<?php echo base_url('assets/js/calendar.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 
+<!-- jQuery JS CDN -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> 
+ <!-- jQuery DataTables JS CDN -->
+ <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+ <!-- Ajax fetching data -->
+ <script type="text/javascript">
+    $(document).ready(function(){
+      $('#dataTable').DataTable();
+      $('.view_data').click(function(){
+        var eventData = $(this).data('id');
+        console.log(eventData);
+        $.ajax({
+          url: "<?php echo site_url('eventsController/viewAnnouncement');?>",
+          method: "POST",
+          data: {eventData:eventData},
+          success: function(data){
+            $('#event_result').html(data);
+          }
+        });
+      });
+    });
+</script>
 </body>
 
 </html>

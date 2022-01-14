@@ -12,18 +12,22 @@ class AdminController extends CI_Controller {
 		$this->load->model('courseModel');
 		$this->load->model('subjectModel');
 		$this->load->model('studentModel');
+		$this->load->model('classModel');
 		$this->load->model('examModel');
 		$this->load->model('applicantModel');
 		$this->load->model('Authentication');
 		
 		if ($this->session->userdata('authenticated') != '1'){
-			$this->session->set_flashdata('status','Please logout first'); 
-			if ($this->session->userdata('authenticated') == '2')
-				redirect('Faculty/Dashboard');
-			elseif ($this->session->userdata('authenticated') == '3')
+			$this->session->set_flashdata('logout','Please logout first'); 
+			if ($this->session->userdata('authenticated') == '2'){
+				redirect('Faculty/dashboard');
+			}
+			elseif ($this->session->userdata('authenticated') == '3'){
 				redirect('Student/Dashboard');
-			else 
+			}
+			else {
 				redirect('Applicant/'.$this->session->userdata('auth_user')['applicantID']);
+			}	
 		}
 	}
 
@@ -47,8 +51,10 @@ class AdminController extends CI_Controller {
 	}
 
 	public function class()
-	{
-        $this->load->view('Admin_Panel/class');
+	{	
+		$data['class'] = $this->classModel->viewClasses();
+		$data['course'] = $this->courseModel->viewData();
+        $this->load->view('Admin_Panel/class',$data);
 	}
 
 	public function course()

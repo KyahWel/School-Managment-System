@@ -8,12 +8,12 @@ include __DIR__ . '/../includes/studentSideBar.php'
 
 <div class="height-100 pt-2 container-fluid">
     <div class="container my-3">
-        <?php if($this->session->flashdata('status')) : ?>
-                    <div class="alert alert-danger alert-dismissible fade show">
-                        <?= $this->session->flashdata('status'); ?>
-                        <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
-                    </div>
-                <?php endif; ?>
+        <?php if($this->session->flashdata('studentError')) : ?>
+                 <div class="alert alert-danger alert-dismissible fade show">
+                    <?= $this->session->flashdata('studentError'); ?>
+                    <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+                 </div>
+        <?php endif; ?>
         <!--ChangePassword Box-->
         <div class="col-12 align-self-center pt-3" id="cp">
             <div class="table-wrapper">

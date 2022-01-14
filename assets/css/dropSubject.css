@@ -1,0 +1,144 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+}
+
+/*Drop Tab*/
+.DropTab h3{
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+#back-button .btn{
+    background-color: #800000;
+    color: white;
+    border-color: transparent;
+    margin-bottom: 20px;
+}
+.btn:focus{
+    box-shadow: none;
+}
+#back-button a:hover{
+    background-color: white;
+    border-color: #800000;
+    color: #800000;
+}
+
+/*Subject List*/
+.table-wrapper{
+    background: white;
+    border-radius: 10px;
+    border: 0.1px solid rgb(221, 220, 220);
+}
+.table-title{
+    background-color: #800000;
+    color: white;
+    text-align: center;
+    border-radius: 10px 10px 0 0 ;
+}
+.table-title h2{
+    font-size: inherit;
+    margin: 15px;
+}
+#table-body thead{
+    text-align: center;
+}
+#table-body tbody{
+    text-align: center;
+}
+
+
+.applicant-head {
+    padding: 8px;
+    transition: .5s;
+    letter-spacing: 1px;
+    -moz-transition: .5s;
+    -webkit-transition: .5s;
+    -o-transition: .5s;
+}
+.information {
+    font-size: 0.75rem;
+    padding: 15px;
+    width: 100%;
+}
+.information i.fa {
+    font-size: 2.2rem;
+}
+.information p {
+    padding-bottom: 0;
+    padding-left: 3rem;
+    margin-bottom: 0.3rem;
+}
+
+/* Action Button */
+#table-body tbody .action-buttons li{
+    list-style-type: none;
+    display: inline-block;
+}
+#table-body tbody .action-buttons li #status{ 
+    color: white;
+    background-color: #F2BD53;
+    font-size: 0.53rem;
+    opacity: 0.93;
+    width: 4rem;
+    padding: 4.2px 7px;
+    border-radius: 3px;
+    cursor: pointer;
+    text-align: center;
+}
+#table-body tbody .action-buttons li button:hover, #table-body tbody .action-buttons li #status:hover{
+    opacity: 1;
+}
+#table-body tbody .action-buttons li button:focus{
+    box-shadow: none;
+}
+
+/* Button */
+#save{
+    background-color: #800000;
+    border-color: transparent;
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    margin-right: 8px;
+}
+#cancel{
+    background-color: #aaaaaa;
+    border-color: transparent;
+    color: black;
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+#save:hover{
+    background-color: white;
+    border-color: #800000;
+    color: #800000;
+    font-size: 0.8rem;
+}
+#cancel:hover{
+    background-color: white;
+    border-color: #800000;
+    color: #800000;
+    font-size: 0.8rem;
+}
+
+/*Enable Maintenance*/
+.lightbox {
+     display: inline;
+     position: fixed;
+     z-index: 99;
+     width: 100%;
+     height: 100%;
+     text-align: center;
+     top: 10;
+     left: 0;
+     background: rgba(0,0,0,0.6);
+}
+.table-wrapper-2{
+    color: #800000;
+    text-align: center;
+    padding-block-start: 16rem;
+    padding-inline-start: 15rem;
+}
+.wrap{
+    background-color: whitesmoke;
+}

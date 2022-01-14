@@ -3,19 +3,25 @@ include __DIR__ . '/../includes/facultySideBar.php'
 ?>
 
 <head>
-<link href="<?php echo base_url('assets/css/adminDashboard.css'); ?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url('assets/css/adminDashboard.css'); ?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url('assets/css/announcement.css'); ?>" rel="stylesheet" type="text/css">
     <title>Dashboard</title>
 </head>
 
 <div class="height-100 pt-2 container-fluid">
     <!-- If user accessed login page or other pages -->
-    <?php if($this->session->flashdata('status')) : ?>
-        <div class="alert alert-success">
-            <?= $this->session->flashdata('status'); ?>
+    <?php if($this->session->flashdata('successFaculty')) : ?>
+        <div class="alert alert-success alert-dismissible fade show">
+            <?= $this->session->flashdata('successFaculty'); ?>
         </div>
-        <?php endif; ?>
+    <?php elseif($this->session->flashdata('logout')): ?>
+        <div class="alert alert-danger alert-dismissible fade show">
+            <?= $this->session->flashdata('logout'); ?>
+             <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+        </div>
+    <?php endif; ?>
     <h3>Dashboard</h3>
-    <div class="row">
+    <div class="row"> 
             <!-- Date today -->
             <div class="col-lg-4 col-md-6 col-sm-12 mb-2">
                 <div class="calendar py-5">
@@ -44,12 +50,42 @@ include __DIR__ . '/../includes/facultySideBar.php'
                                 <?php foreach ($announcement as $announcement) { ?>
                                     <?php if ($announcement->status == 1) : ?>
                                         <div class="carousel-item px-5">
-                                            <h5 class="title">Title: <?php echo $announcement->title ?>, <?php echo $announcement->date ?>, <?php echo $announcement->time ?></h5>
-                                            <p class="details px-5">Details <br> <?php echo $announcement->details ?></p>
+                                        <h5 class="title text-uppercase text-dark"> <?php echo $announcement->title ?>, <?php echo $announcement->date ?>, <?php echo $announcement->time ?></h5>
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <h5 class="details mx-3">Details <br></h5>
+                                            </div>
+                                            <div>
+                                                <button type="button" data-id='<?php echo $announcement->eaID ?>' class="btn btn-primary btn-sm mx-3 viewAnnounceDeets view_data" data-bs-toggle="modal" data-bs-target="#viewAnnouncementDetailsFaculty">
+                                                    View Details
+                                                </button>
+                                            </div>
                                         </div>
+                                        <p class="text-dark px-4">
+                                        <?php echo $announcement->details ?>
+                                        </p>
+                                    </div>
                                     <?php endif ?>
                                 <?php } ?>
+                            </div>
+                            <!-- View Details Announcement Modal -->
+                            <div class="modal fade" id="viewAnnouncementDetailsFaculty" tabindex="-1" aria-modal="true" aria-labelledby="View Announcement" aria-hidden="true">
+                                <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">View Announcement</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body p-4">
+                                            <div id="event_result">
 
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -64,10 +100,123 @@ include __DIR__ . '/../includes/facultySideBar.php'
                 </div>
             </div>
         </div>
+    <!--Schedule-->
+    <div class="col-12 align-self-center" id="schedule">
+            <div class="table-wrapper">
+                <div class="table-title">
+                    <div class="row">
+                        <div class="col">
+                            <h2>Schedule</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">  
+                    <table class="table table-fixed align-middle table-striped table-borderless table-hover" style="height: 250px;" id="table-body">
+                        <thead class ="thead">
+                            <tr>
+			                    <th>Subject Code</th>
+			                    <th>Subject Name </th>
+                                <th>Section</th>
+                                <th>Day</th>
+                                <th>Time</th>
+		                    </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Math001</td>
+                                <td>Mathematics 1</td>
+                                <td>BSCS-NS-1A</td>
+                                <td>Mon</td>
+                                <td>7:00-9:00</td>
+                            </tr>
+                            <tr>
+                                <td>Math002</td>
+                                <td>Mathematics 2</td>
+                                <td>BSCS-2A</td>
+                                <td>Wed</td>
+                                <td>7:00-9:00</td>
+                            </tr>
+                            <tr>
+                                <td>Math003</td>
+                                <td>Mathematics 3</td>
+                                <td>BSCS-NS-3A</td>
+                                <td>Thur</td>
+                                <td>7:00-9:00</td>
+                            </tr>
+                            <tr>
+                                <td>Math004</td>
+                                <td>Mathematics 4</td>
+                                <td>BSCS-4A</td>
+                                <td>Fri</td>
+                                <td>7:00-9:00</td>
+                            </tr>
+                            <tr>
+                                <td>Math001</td>
+                                <td>Mathematics 1</td>
+                                <td>BSCS-1A</td>
+                                <td>Mon</td>
+                                <td>7:00-9:00</td>
+                            </tr>
+                            <tr>
+                                <td>Math002</td>
+                                <td>Mathematics 2</td>
+                                <td>BSCS-NS-2A</td>
+                                <td>Tue</td>
+                                <td>7:00-9:00</td>
+                            </tr>
+                            <tr>
+                                <td>Math003</td>
+                                <td>Mathematics 3</td>
+                                <td>BSCS-NS-3A</td>
+                                <td>Wed</td>
+                                <td>7:00-9:00</td>
+                            </tr>
+                            <tr>
+                                <td>Math004</td>
+                                <td>Mathematics 4</td>
+                                <td>BSCS-4A</td>
+                                <td>Fri</td>
+                                <td>7:00-9:00</td>
+                            </tr>
+                            <tr>
+                                <td>Math001</td>
+                                <td>Mathematics 1</td>
+                                <td>BSCS-NS-1A</td>
+                                <td>Mon</td>
+                                <td>7:00-9:00</td>
+                            </tr> 
+                        </tbody>
+                    </table>	
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 <script src="<?php echo base_url('assets/js/calendar.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
+<!-- jQuery JS CDN -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> 
+ <!-- jQuery DataTables JS CDN -->
+ <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+ <!-- Ajax fetching data -->
+ <script type="text/javascript">
+    $(document).ready(function(){
+      $('#dataTable').DataTable();
+      $('.view_data').click(function(){
+        var eventData = $(this).data('id');
+        console.log(eventData);
+        $.ajax({
+          url: "<?php echo site_url('eventsController/viewAnnouncement');?>",
+          method: "POST",
+          data: {eventData:eventData},
+          success: function(data){
+            $('#event_result').html(data);
+          }
+        });
+      });
+    });
+</script>
 </body>
 
 </html>

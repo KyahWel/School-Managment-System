@@ -10,7 +10,30 @@ body{
     font-weight: 1000;
     margin-bottom: 0;
 }
+/* Change profile picture */
+.profile-pic-div {
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid grey;
+}
 
+#facultyPhoto{
+    height: 100%;
+    width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+    .profile-pic-div {
+        height: 140px;
+        width: 200px;
+    }
+}
+.info, .info1{
+    font-size: 1rem;
+}
 /* My Profile Details */
 
 #myProfileDetails td{
@@ -19,6 +42,7 @@ body{
     text-overflow: ellipsis;
     white-space: nowrap;
     padding: 0px 10px 15px 0px;
+    font-size: 1rem;
 }
 
 /* Table Responsiveness */
@@ -35,7 +59,7 @@ body{
     border-radius: 25px 25px 0 0;
 }
 .table-title h2{
-    font-size: inherit;
+    font-size: 1rem;
     margin: 12px 12px 12px 22px;
     text-align: start;
 }
@@ -72,27 +96,29 @@ label.form-label{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: 1rem;
 }
 .form-control:focus{
     box-shadow: none;
     border-color: #800000;
 }
 .form-control::placeholder{ /* Chrome, Firefox, Opera, Safari 10.1+ */
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 .form-control:-ms-input-placeholder{ /* Internet Explorer 10-11 */
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 .form-control::-ms-input-placeholder{ /* Microsoft Edge */
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 input[type=text], input[type=date], input[type=time], textarea{
     color: black;
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 .form-control:disabled, .form-control[readonly]{
     background-color: white;
     opacity: 1;
+    font-size: 1rem;
 }
 
 /* ... */
@@ -154,4 +180,8 @@ input[type=text], input[type=date], input[type=time], textarea{
 .modal-header{
     background-color: #800000;
     color: white;
+}
+
+.modal-content{
+    font-size: 1rem;
 }

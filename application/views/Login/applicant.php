@@ -35,15 +35,15 @@ include __DIR__.'/../includes/loginNavbar.php'
     <!-- APPLICANT LOGIN ACCESS MODULE -->
     <div class="wrapper" id="applicantLogin">
              
-        <?php if($this->session->flashdata('status')) : ?>
+        <?php if($this->session->flashdata('loginerror')) : ?>
             <div class="alert alert-danger alert-dismissible fade show">
-                <?= $this->session->flashdata('status'); ?>
+                <?= $this->session->flashdata('loginerror'); ?>
                 <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
             </div>
-        <?php elseif($this->session->flashdata('success')): ?>
+        <?php elseif($this->session->flashdata('successApplicant')): ?>
         <!-- Successfull change password alert -->
             <div class="alert alert-success alert-dismissible fade show">
-                <?= $this->session->flashdata('success'); ?>
+                <?= $this->session->flashdata('successApplicant'); ?>
                 <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
             </div>
         <?php endif; ?>
