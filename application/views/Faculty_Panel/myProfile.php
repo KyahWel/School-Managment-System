@@ -12,7 +12,7 @@ include __DIR__ . '/../includes/facultySideBar.php'
     <div class="container my-3">
         <!-- Page Title -->
         <div class="myProfile my-3">
-            <h3 mx-0>My Profile</h3>
+            <h3 class="py-2">My Profile</h3>
             <div class="d-flex align-items-center my-2">
 
                 <div class=" profile-pic-div">
@@ -44,7 +44,7 @@ include __DIR__ . '/../includes/facultySideBar.php'
 
 
             <!-- Personal Information -->
-            <div class="table-wrapper">
+            <div class="table-wrapper mt-3">
                 <!--Table Header-->
                 <div class="table-title">
                     <div class="row">

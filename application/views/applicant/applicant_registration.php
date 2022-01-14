@@ -2,18 +2,17 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="#" />
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat'>
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/css/applicant.css'); ?>" rel="stylesheet" type="text/css">
-    <link href="<?php echo base_url('assets/js/jquery.min.js'); ?>" type="text/javascript">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Applicant Registration</title>
 
 </head>
@@ -27,7 +26,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             Cancel
         </button>
         <!-- Cancel Dialog Box-->
-        <div class="modal fade" id="cancelApplication" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"  aria-modal="true"  aria-labelledby="cancelApplicationLabel" aria-hidden="true">
+        <div class="modal fade" id="cancelApplication" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="cancelApplicationLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -50,11 +49,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <div class="row height-100vh">
             <div class="col-lg-3 col-md-3 col-sm-0 col-xl-2 px-0 bg-default d-flex sticky-top">
                 <div class="d-flex flex-md-column flex-row flex-grow-1 align-items-center text-dark">
-                    <div href="/" class="d-block align-items-center pb-sm-3 text-center text-dark text-decoration-none">
+                    <div href="/" class="d-block align-items-center pb-sm-3 text-dark text-decoration-none">
                         <div class="d-none d-md-inline">
-                            <img src="assets/images/applicantAvatar.svg" class="applicantAvatar  pt-3" alt="" class="pt-4 mx-4">
+                            <img src="assets/images/applicantAvatar.svg" alt="" class="pt-4 mx-4" style="width: 125px;">
                             <br>
-                            <p class="text-center pt-4  px-1 h5 fw-bold">Welcome, Applicant!</p>
+                            <p class="text-center pt-4 h5 fw-bold">Welcome, Applicant</p>
+                            <!-- <p class="text-center pt-2 fw-bold h5">Applicant !</p> -->
                             <hr>
                         </div>
                     </div>
@@ -63,7 +63,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
             <!-- Contents -->
             <div class="col d-flex flex-column">
-                <div class="container-fluid" id="steps">
+                <div class="container-fluid" id="steps" style="display: block;">
 
                     <div class=" mt-3 applicant-head text-dark px-3 rounded-3 information ">
                         <div class="d-flex align-items-center">
@@ -71,7 +71,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <i class="fa fa-info-circle" aria-hidden="true"></i>
                             </div>
                             <div class="flex-grow-1 ms-3">
-                                1. Kindly type <b>'NA'</b> in boxes where there are no possible answers to the information being requested. <br>
+                                1. Kindly type 'NA' in boxes where there are no possible answers to the information being requested. <br>
                                 2. Enter a valid email address to receive the test permit.
                             </div>
                         </div>
@@ -81,14 +81,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                 <div class="row height-sm-100 contents">
                     <div class="col">
-                        <form method='POST' class="needs-validation" novalidate enctype="multipart/form-data" name="applicantform">
+                        <form method='POST' class="needs-validation" novalidate enctype="multipart/form-data" name="applicantform" id="applicantForm">
                             <!-- Personal Information -->
-                            <div id='personalInfo' class=" container pt-3">
+                            <div id='personalInfo' class=" container pt-3" style="display: block;">
                                 <div class="step_progressbar">
                                     <ul>
                                         <li class="active">Personal Information  <span class="spare1"> <br></span></li>
                                         <li>Education Attainment</li>
                                         <li>Requirements <span class="spare"> <br></span></li>
+                                        <li>Review All <span class="spare"> <br></span></li>
                                     </ul>
                                </div>
                                 <div class="Wrapper">
@@ -97,8 +98,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                     </div>
                                     <div class="Contents">
 
-                                        <div class="mb-3 row asterisk">
-                                            <label for="courses" class="col-2 form-label  small pt-2">Course: </label>
+                                        <div class="mb-3 row">
+                                            <label for="courses" class="col-2 form-label small pt-2">Course: </label>
                                             <div class="col-lg-7 col-md-10 col-sm-12">
                                                 <select class="form-select form-select-sm" id="courses" name="course_chosen" aria-label="Select Course" required>
                                                     <option value="" selected>--Please Select--</option>
@@ -137,7 +138,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                 </div>
                                             </div>
                                             <div class="col-lg-3 col-md-6 py-1">
-                                                <label class="small">Suffix</label>
+                                                <label class="form-label small">Suffix</label>
                                                 <input type="text" name='extname' class="form-control form-control-sm" aria-label="Extension Name" required>
                                                 <div class="invalid-feedback">
                                                     Please input your extension name.
@@ -159,12 +160,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                             <label class="form-label col-lg-2 col-md-12 pt-1">Gender:</label>
                                             <div class="col-lg-3 col-md-12 pt-1">
                                                 <div class="form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gender" value="Male" aria-label="Male" required>
+                                                    <input class="form-check-input" type="radio" name="gender" value="Male" required>
                                                     <label class="form-check-label" for="gender"> Male </label>
                                                     <div class="invalid-feedback"> Please select your gender. </div>
                                                 </div>
                                                 <div class="form-check-inline mb-3">
-                                                    <input class="form-check-input" type="radio" name="gender" value="Female"  aria-label="Female" required>
+                                                    <input class="form-check-input" type="radio" name="gender" value="Female" required>
                                                     <label class="form-check-label" for="gender"> Female </label>
                                                     <div class="invalid-feedback"> &nbsp </div>
                                                 </div>
@@ -175,7 +176,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12 pt-1">Birth Date:</label>
                                             <div class="col-lg-3 col-md-12">
-                                                <input type="date" name='birthday' placeholder="yyyy-mm-dd" class="form-control form-control-sm" aria-label="Birthdate" required>
+                                                <input type="date" name='birthday' class="form-control form-control-sm" aria-label="Birthdate" required>
                                                 <div class="invalid-feedback">
                                                     Please input your birthdate.
                                                 </div>
@@ -228,7 +229,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                             <div class="col-lg-4">
                                                 <input type="email" name='email' class="form-control form-control-sm" aria-label="Email Address" required>
                                                 <div class="invalid-feedback">
-                                                    Please input your <strong>valid</strong> email address.
+                                                    Please input you valid email address.
                                                 </div>
                                             </div>
                                             <hr class="mt-4 mb-3">
@@ -279,6 +280,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                                         <!-- Zipcode and Province-->
                                         <div class="row mt-2 small asterisk">
+
                                             <label class="form-label col-lg-2 col-md-6 pt-1">Zipcode:</label>
                                             <div class="col-lg-3 col-md-6">
                                                 <input type="text" name='zipcode' class="form-control form-control-sm" aria-label="Zipcode" required>
@@ -299,7 +301,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                                         <!--  Next Step button-->
                                         <br>
-                                        <div class="d-flex stepButtons ">
+                                        <div class="d-flex stepButtons">
                                             <button type="button" class="btn btn-warning ms-auto mb-2" onclick="educationalAttainment();">
                                                 <div class=" d-flex align-items-center ">
                                                     <div class="flex-shrink-0">
@@ -317,13 +319,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             <!--personalInfoWrapper-->
 
 
+                            <!-- ------------------------------------------------------------------------------------------------------- -->
+
                             <!-- Educational Attainment -->
-                            <div id='educationalattainment' class=" container pt-3">
+                            <div id='educationalattainment' class=" container pt-3" style="display: none;">
                                <div class="step_progressbar">
-                               <ul>
-                                        <li>Personal Information  <span class="spare1"> <br></span></li>
+                                    <ul>
+                                        <li>Personal Information</li>
                                         <li class="active">Education Attainment</li>
-                                        <li>Requirements <span class="spare"> <br></span></li>
+                                        <li>Requirements</li>
                                     </ul>
                                </div>
                                 <div class="Wrapper">         
@@ -342,12 +346,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                     Please input your school name.
                                                 </div>
                                             </div>
-                                            <div class="col-lg-1 col-md-none asterisk"> </div>
+                                            <div class="col-lg-1 col-md-none"> </div>
 
-                                            <label class="form-label col-lg-2 col-md-12 pt-1">Program/Strand:</label>
+                                            <label class="form-label col-lg-2 col-md-12 pt-1">Program/Track:</label>
                                             <div class="col-lg-3 col-md-12">
                                                 <select class="form-select form-select-sm" name="track" aria-label="Program Track" required>
-                                                    <option selected hidden disabled></option>
+                                                    <option selected disabled></option>
                                                     <option value="">ABM</option>
                                                     <option value="">HUMSS</option>
                                                     <option value="">STEM</option>
@@ -355,7 +359,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                     <option value="">GAS</option>
                                                     <option value="">N/A</option>
                                                 </select>
-                                                <div class="invalid-feedback asterisk">
+                                                <div class="invalid-feedback">
                                                     Please select your track.
                                                 </div>
                                             </div>
@@ -401,12 +405,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                             <label class="form-label col-lg-2 col-md-12  pt-1">Category:</label>
                                             <div class="col-lg-4 col-md-12 pt-1">
                                                 <div class="form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="category" value="K-12" aria-label="K-12"  required>
+                                                    <input class="form-check-input" type="radio" name="category" value="K-12" required>
                                                     <label class="form-check-label" for="category"> K-12 </label>
                                                     <div class="invalid-feedback"> Please select your category. </div>
                                                 </div>
                                                 <div class="form-check-inline mb-3">
-                                                    <input class="form-check-input" type="radio" name="category" value="Old Curriculum"  aria-label="Old Curriculum" required>
+                                                    <input class="form-check-input" type="radio" name="category" value="Old Curriculum" required>
                                                     <label class="form-check-label" for="category"> Old Curriculum </label>
                                                     <div class="invalid-feedback"> &nbsp </div>
                                                 </div>
@@ -463,12 +467,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                             <!-- ------------------------------------------------------------------------------------------------------- -->
                             <!-- Requirements -->
-                            <div id='requirement' class=" container pt-3 ">
+                            <div id='requirement' class=" container pt-3 " style="display: none;">
                                <div class="step_progressbar">
-                               <ul>
-                                        <li>Personal Information  <span class="spare1"> <br></span></li>
+                                    <ul>
+                                        <li>Personal Information</li>
                                         <li>Education Attainment</li>
-                                        <li class="active">Requirements <span class="spare"> <br></span></li>
+                                        <li class="active">Requirements</li>
                                     </ul>
                                </div>
                                 <div class="Wrapper">
@@ -539,7 +543,21 @@ defined('BASEPATH') or exit('No direct script access allowed');
         </div>
     </div>
 
+    <template id="fieldFeedbackTemplate">
+        <div id="error-message">
+        <small class="text-danger">
+            <!-- Add error message here using selector-->
+        </small>
+        </div>
+    </template>
+
     <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/applicant.js'); ?>"></script>
+
+    <script>
+        
+
+    </script>
 </body>
+
 </html>

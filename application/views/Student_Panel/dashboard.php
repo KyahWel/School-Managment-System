@@ -35,7 +35,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
         </div>
     <?php endif; ?>
 
-    <h3 class="py-32">Dashboard</h3>
+    <h3 class="my-3 fw-bold">Dashboard</h3>
     <div class="row">
         <!-- Date today -->
         <div class="col-lg-4 col-md-6 col-sm-12 mb-3">

@@ -77,20 +77,20 @@ include __DIR__ . '/../includes/facultySideBar.php'
 
         <button class="btn btn-sm" id="back-button" onclick="mainPage()"><i class="fa fa-arrow-left"></i> Back</button>
 
-        <div class="table-responsive">
+        <div class="table-responsive pt-2">
             <table id="sectionInformation">
                 <tr>
                     <td>
-                        <b>Course:</b><br>
-                        <b>Subject Code:</b><br>
-                        <b>Subject Title:</b><br>
-                        <b>Schedule:</b><br>
+                        <p><b>Course:</b></p>
+                        <p><b>Subject Code:</b><br></p>
+                        <p><b>Subject Title:</b></p>
+                        <p><b>Schedule:</b></p>
                     </td>
-                    <td>
-                        BSCS<br>
-                        Math-01<br>
-                        Mathematics 1<br>
-                        Monday 7:00AM-9:00AM<br>
+                    <td class="text-uppercase">
+                        <p>BSCS</p>
+                        <p>Math-01</p>
+                        <p>Mathematics 1</p>
+                        <p>Monday 7:00AM-9:00AM</p>
                     </td>
                 </tr>
             </table>
@@ -204,7 +204,7 @@ include __DIR__ . '/../includes/facultySideBar.php'
                                 <input type="rating" class="form-control" aria-describedby="equivalentRating" readonly>
                             </div>
                         </div>
-                        <div class="inputGradeButton d-flex justify-content-end">
+                        <div class="inputGradeButton d-flex justify-content-end pt-4">
                             <!--Buttons-->
                             <button class="btn btn-default" id="saveInput" type="submit" value="save">Save</button>
                             <button class="btn btn-default" id="cancelInput" type="button" data-bs-dismiss="modal">Cancel</button>
@@ -291,9 +291,9 @@ include __DIR__ . '/../includes/facultySideBar.php'
                                 <input type="rating" class="form-control" aria-describedby="equivalentRating" readonly>
                             </div>
                         </div>
-                        <div class="editGradeButton d-flex justify-content-end">
+                        <div class="editGradeButton d-flex justify-content-end pt-4">
                             <!--Buttons-->
-                            <button class="btn btn-default" id="save" type="submit" value="save">Comfirm</button>
+                            <button class="btn btn-default" id="save" type="submit" value="save">Confirm</button>
                             <button class="btn btn-default" id="cancel" type="button" data-bs-dismiss="modal">Cancel</button>
                         </div>
                     </form>
