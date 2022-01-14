@@ -10,7 +10,7 @@ include __DIR__.'/../includes/adminSideBar.php'
         <div class="CourseTab my-3">
             <h3>Subject</h3>
         </div>
-        <!--Add Course-->
+        <!--Add Subject-->
         <div class="col-12 align-self-center my-3" id="createCourse">
             <div class="accordion accordion-flush" id="accordion-addCourse">
             <div class="accordion-item">
@@ -23,7 +23,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                     <div class="accordion-body">
                         <form method="POST" action="<?php echo site_url('subjectController/addsubject') ?>" id="addCourseForm">         
                             <div class="row mb-3">
-                                <div class="col-12 align-self-center my-3">
+                                <div class="col-6 align-self-center my-3">
                                     <label class="form-label">Select Course: </label>
                                     <select name="courseID" required>
 			                            <option value="" disabled selected hidden>Please Select</option>
@@ -32,7 +32,10 @@ include __DIR__.'/../includes/adminSideBar.php'
                                         <?php }?>
 		                            </select>
                                 </div>
-                                <div class="col-6">
+                                
+                            </div>
+                            <div class="row mb-3">
+                            <div class="col-4 align-self-center my-3">
                                     <label class="form-label">Year Level: </label>
                                     <select name="yearlevel" required >
                                         <option value="" disabled selected hidden>Please Select</option>
@@ -43,12 +46,23 @@ include __DIR__.'/../includes/adminSideBar.php'
                                         <option value="5" >5th Year</option>
                                     </select>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-4 align-self-center my-3">
                                     <label class="form-label">Semester: </label>
                                     <select name="semester" required >
                                         <option value="" disabled selected hidden>Please Select</option>
                                         <option value="1" >1st Semester</option>
                                         <option value="2" >2nd Semester</option>
+                                    </select>
+                                </div>
+                                <div class="col-4 align-self-center my-3">
+                                    <label class="form-label">College: </label>
+                                    <select name="college" required >
+                                        <option value="" disabled selected hidden>Please Select</option>
+                                        <option value="College of Science">COS</option>
+                                        <option value="College of Engineering">COE</option>
+                                        <option value="College of Industrial Education">CIE</option>
+                                        <option value="College of Architecture and Fine Arts">CAFA</option>
+                                        <option value="College of Liberal Arts">CLA</option>
                                     </select>
                                 </div>
                             </div>
@@ -101,7 +115,7 @@ include __DIR__.'/../includes/adminSideBar.php'
             <button type="button" class="btn btn-sm" id="search"><i class="fas fa-search" data-bs-toggle="tooltip" title="Search"></i></button>
         </div>  
 
-        <!--Course List-->
+        <!--Subject List-->
         <div class="col-12 align-self-center" id="CourseTable">
             <div class="table-wrapper">
                 <div class="table-title">
@@ -119,6 +133,7 @@ include __DIR__.'/../includes/adminSideBar.php'
 			                    <th>Name</th>
 			                    <th>Units</th>
                                 <th>Semester</th>
+                                <th>College</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -128,7 +143,8 @@ include __DIR__.'/../includes/adminSideBar.php'
                                 <td><?php echo $subjectrow->subjectCode?></td>
                                 <td><?php echo $subjectrow->name?></td>
                                 <td><?php echo $subjectrow->units?></td>
-                                <td><?php echo $subjectrow->semester?></td>       
+                                <td><?php echo $subjectrow->semester?></td>  
+                                <td><?php echo $subjectrow->college?></td>       
                                 <td>
                                 <div class="action-buttons">
                                     <?php if ($subjectrow->status == 1): ?>

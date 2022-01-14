@@ -29,221 +29,55 @@ include __DIR__.'/../includes/adminSideBar.php'
 
                 <div id="addClass" class="accordion-collapse collapse" aria-labelledby="addClassHeader" data-bs-parent="#accordion-addClass">
                     <div class="accordion-body">
-                        <form action="">
+                        <form  method="POST" action="<?php echo site_url('classController/addClass')?>">
                             <div class="row mb-3">
                                 <div class="col-6"> <!--Year Level-->
+                                    <label class="form-label">Class Code</label>
+                                    <input type="text" class="form-control" name="classcode" required placeholder="Enter class code"> 
+                                </div>
+                                <div class="col-6"> <!--Year Level-->
                                     <label class="form-label">Year Level</label>
-                                    <select name="yearLevel" class="form-control">
-                                        <option value="" disabled selected hidden></option>
-                                        <option value="yearLevel">First Year</option>
-                                        <option value="yearLevel">Second Year</option>
-                                        <option value="yearLevel">Third Year</option>
-                                        <option value="yearLevel">Fourth Year</option>
+                                    <select name="yearlevel" id="yearlevel" required class="form-control">
+                                        <option value="" disabled selected  hidden>Please Select</option>
+                                        <option value="1">First Year</option>
+                                        <option value="2">Second Year</option>
+                                        <option value="3">Third Year</option>
+                                        <option value="4">Fourth Year</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <div class="col-6"> <!--Course-->
                                 <label class="form-label">Course</label>
-                                <select name="course" class="form-control">
-                                    <option value="" disabled selected hidden></option>
-                                    <option value="course">Course 1</option>
-                                    <option value="course">Course 2</option>
-                                    <option value="course">Course 3</option>
+                                <select name="courseID" class="form-control" required id="courseID">
+                                    <option value="" disabled selected  hidden >Please select</option>
+                                    <?php foreach($course as $courserow) {?>
+			                                <option value="<?php echo $courserow->courseID?>"><?php echo $courserow->degree?> in <?php echo $courserow->major?></option>
+                                    <?php }?>
                                 </select>
                                 </div>
-                                <div class="col-6"> <!--Semester-->
-                                <label class="form-label">Semester</label>
-                                <select name="semester" class="form-control">
-                                    <option value="" disabled selected hidden></option>
-                                    <option value="semester">First Semester</option>
-                                    <option value="semester">Second Semester</option>
-                                </select>
+                                <div class="col-3"> <!--Semester-->
+                                    <label class="form-label">Semester</label>
+                                    <select name="semester" id="semester" required class="form-control">
+                                        <option value="" disabled selected hidden >Please select</option>
+                                        <option value="1">First Semester</option>
+                                        <option value="2">Second Semester</option>
+                                    </select>
                                 </div>
                             </div>
-                            <div class="row mb-3"> <!--Subject-->
-                                <label class="form-label">Subject</label>
-                                <div class="col-sm-3">
-                                    <select name="subject" class="form-control">
-                                        <option value="" disabled selected hidden>Subject</option>
-                                        <option value="subject">Subject 1</option>
-                                        <option value="subject">Subject 2</option>
-                                        <option value="subject">Subject 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-3"> <!-- Professor -->
-                                    <select name="professorName" class="form-control">
-                                        <option value="" disabled selected hidden>Professor</option>
-                                        <option value="professorName">Professor 1</option>
-                                        <option value="professorName">Professor 2</option>
-                                        <option value="professorName">Professor 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-2"> <!-- Day -->
-                                    <select name="daySchedule" class="form-control">
-                                        <option value="" disabled selected hidden>Day</option>
-                                        <option value="daySchedule">Monday</option>
-                                        <option value="daySchedule">Tuesday</option>
-                                        <option value="daySchedule">Wednesday</option>
-                                        <option value="daySchedule">Thursday</option>
-                                        <option value="daySchedule">Friday</option>
-                                        <option value="daySchedule">Saturday</option>
-                                        <option value="daySchedule">Sunday</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-2" id="time"> <!-- Time from -->
-                                    <input type="text" class="form-control" name="timeFrom" placeholder="From">
-                                </div>
-                                <div class="col-sm-2" id="time"> <!--Time to -->
-                                    <input type="text" class="form-control" name="timeTo" placeholder="To">
-                                </div>
+
+                            <!-- Load Subects Button -->
+                            <div class="col-3 mb-3">
+                                    <button type="button" id="load" class="btn loadSubjects">Load Subjects</button>   
                             </div>
-                            <div class="row mb-3"> <!--Subject-->
-                                <div class="col-sm-3">
-                                    <select name="subject" class="form-control">
-                                        <option value="" disabled selected hidden>Subject</option>
-                                        <option value="subject">Subject 1</option>
-                                        <option value="subject">Subject 2</option>
-                                        <option value="subject">Subject 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-3"> <!-- Professor -->
-                                    <select name="professorName" class="form-control">
-                                        <option value="" disabled selected hidden>Professor</option>
-                                        <option value="professorName">Professor 1</option>
-                                        <option value="professorName">Professor 2</option>
-                                        <option value="professorName">Professor 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-2"> <!-- Day -->
-                                    <select name="daySchedule" class="form-control">
-                                        <option value="" disabled selected hidden>Day</option>
-                                        <option value="daySchedule">Monday</option>
-                                        <option value="daySchedule">Tuesday</option>
-                                        <option value="daySchedule">Wednesday</option>
-                                        <option value="daySchedule">Thursday</option>
-                                        <option value="daySchedule">Friday</option>
-                                        <option value="daySchedule">Saturday</option>
-                                        <option value="daySchedule">Sunday</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-2" id="time"> <!-- Time from -->
-                                    <input type="text" class="form-control" name="timeFrom" placeholder="From">
-                                </div>
-                                <div class="col-sm-2" id="time"> <!--Time to -->
-                                    <input type="text" class="form-control" name="timeTo" placeholder="To">
-                                </div>
-                            </div>
-                            <div class="row mb-3"> <!--Subject-->
-                                <div class="col-sm-3">
-                                    <select name="subject" class="form-control">
-                                        <option value="" disabled selected hidden>Subject</option>
-                                        <option value="subject">Subject 1</option>
-                                        <option value="subject">Subject 2</option>
-                                        <option value="subject">Subject 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-3"> <!-- Professor -->
-                                    <select name="professorName" class="form-control">
-                                        <option value="" disabled selected hidden>Professor</option>
-                                        <option value="professorName">Professor 1</option>
-                                        <option value="professorName">Professor 2</option>
-                                        <option value="professorName">Professor 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-2"> <!-- Day -->
-                                    <select name="daySchedule" class="form-control">
-                                        <option value="" disabled selected hidden>Day</option>
-                                        <option value="daySchedule">Monday</option>
-                                        <option value="daySchedule">Tuesday</option>
-                                        <option value="daySchedule">Wednesday</option>
-                                        <option value="daySchedule">Thursday</option>
-                                        <option value="daySchedule">Friday</option>
-                                        <option value="daySchedule">Saturday</option>
-                                        <option value="daySchedule">Sunday</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-2" id="time"> <!-- Time from -->
-                                    <input type="text" class="form-control" name="timeFrom" placeholder="From">
-                                </div>
-                                <div class="col-sm-2" id="time"> <!--Time to -->
-                                    <input type="text" class="form-control" name="timeTo" placeholder="To">
-                                </div>
-                            </div>
-                            <div class="row mb-3"> <!--Subject-->
-                                <div class="col-sm-3">
-                                    <select name="subject" class="form-control">
-                                        <option value="" disabled selected hidden>Subject</option>
-                                        <option value="subject">Subject 1</option>
-                                        <option value="subject">Subject 2</option>
-                                        <option value="subject">Subject 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-3"> <!-- Professor -->
-                                    <select name="professorName" class="form-control">
-                                        <option value="" disabled selected hidden>Professor</option>
-                                        <option value="professorName">Professor 1</option>
-                                        <option value="professorName">Professor 2</option>
-                                        <option value="professorName">Professor 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-2"> <!-- Day -->
-                                    <select name="daySchedule" class="form-control">
-                                        <option value="" disabled selected hidden>Day</option>
-                                        <option value="daySchedule">Monday</option>
-                                        <option value="daySchedule">Tuesday</option>
-                                        <option value="daySchedule">Wednesday</option>
-                                        <option value="daySchedule">Thursday</option>
-                                        <option value="daySchedule">Friday</option>
-                                        <option value="daySchedule">Saturday</option>
-                                        <option value="daySchedule">Sunday</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-2" id="time"> <!-- Time from -->
-                                    <input type="text" class="form-control" name="timeFrom" placeholder="From">
-                                </div>
-                                <div class="col-sm-2" id="time"> <!--Time to -->
-                                    <input type="text" class="form-control" name="timeTo" placeholder="To">
-                                </div>
-                            </div>
-                            <div class="row mb-3"> <!--Subject-->
-                                <div class="col-sm-3">
-                                    <select name="subject" class="form-control">
-                                        <option value="" disabled selected hidden>Subject</option>
-                                        <option value="subject">Subject 1</option>
-                                        <option value="subject">Subject 2</option>
-                                        <option value="subject">Subject 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-3"> <!-- Professor -->
-                                    <select name="professorName" class="form-control">
-                                        <option value="" disabled selected hidden>Professor</option>
-                                        <option value="professorName">Professor 1</option>
-                                        <option value="professorName">Professor 2</option>
-                                        <option value="professorName">Professor 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-2"> <!-- Day -->
-                                    <select name="daySchedule" class="form-control">
-                                        <option value="" disabled selected hidden>Day</option>
-                                        <option value="daySchedule">Monday</option>
-                                        <option value="daySchedule">Tuesday</option>
-                                        <option value="daySchedule">Wednesday</option>
-                                        <option value="daySchedule">Thursday</option>
-                                        <option value="daySchedule">Friday</option>
-                                        <option value="daySchedule">Saturday</option>
-                                        <option value="daySchedule">Sunday</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-2" id="time"> <!-- Time from -->
-                                    <input type="text" class="form-control" name="timeFrom" placeholder="From">
-                                </div>
-                                <div class="col-sm-2" id="time"> <!--Time to -->
-                                    <input type="text" class="form-control" name="timeTo" placeholder="To">
-                                </div>
-                            </div>
+                            
+                            <div id="listSubjects">
+
+                            </div>  
+
+                        
                             <div class="addClassButton d-flex justify-content-end"> <!--Buttons-->
-                                <button class="btn btn-default" id="save" type="submit" value="save">Save</button>
+                                <button ctype="submit" class="btn btn-default" id="save" value="save">Save</button>
                                 <button class="btn btn-default" id="cancel" type="reset" value="cancel">Cancel</button>
                             </div>
                         </form>
@@ -297,6 +131,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                     <table class="table align-middle table-striped table-borderless table-hover" id="table-body">
                         <thead>
                             <tr>
+                                <th>Class Code</th>
                                 <th>Course</th>
                                 <th>Year Level</th>
                                 <th>Semester</th>
@@ -304,20 +139,35 @@ include __DIR__.'/../includes/adminSideBar.php'
                             </tr>
                         </thead>
                         <tbody>     
-                            <tr>
-                                <td>BSCS</td>
-                                <td>First Year</td>
-                                <td>First Semester</td>
-                                <td>
-                                <div class="action-buttons">
-                                    <li><button type="button" id="view" class="btn" data-bs-toggle="modal" data-bs-target="#viewClass"><i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                    <li><button type="button" id="edit" class="btn" data-bs-toggle="modal" data-bs-target="#editClass"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-                                    <li>
-                                        <div id="status">ACTIVATED</div>
-                                    </li>
-                                </div>
-                                </td>
-                            </tr>
+                            <?php foreach($class as $class) {?>
+                                <tr>
+                                    <td><?php echo $class->class_code;?></td>
+                                    <td><?php echo $class->degree;?> in <?php echo $class->major;?></td>
+                                    <td><?php echo $class->yearlevel; ?></td>
+                                    <td><?php echo $class->semester; ?></td>
+                                    <td>
+                                    <div class="action-buttons">
+                                    <?php if ($class->status == 1): ?>
+                                        <li><button type="button" id="view" data-id='<?php echo $class->class_code;?>' class="btn view_data" data-bs-toggle="modal" data-bs-target="#viewClass"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
+                                        <li><button type="button" id="edit" data-id='<?php echo $class->class_code;?>' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editClass"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
+                                        <li>
+                                        <li><button type="button" class="btn"  onclick="location.href='<?php if($class->status == 1){echo site_url('classController/deactivate');} else {echo site_url('classController/activate');}?>/<?php echo $class->class_code; ?>'">
+                                            Deactivate
+                                        </button>
+                                        </li>
+                                    <?php else: ?>
+                                            <li><button type="button" id="view" data-id='<?php echo $class->class_code;?>' class="btn" disabled style="background-color: gray;"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
+                                            <li><button type="button" id="edit" data-id='<?php echo $class->class_code;?>' class="btn" disabled style="background-color: gray;"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
+                                            <li>
+                                            <li><button type="button" id="status" class="btn" onclick="location.href='<?php if($class->status == 1){echo site_url('classController/deactivate');} else {echo site_url('classController/activate');}?>/<?php echo $class->class_code; ?>'">
+                                             Activate
+                                            </button>
+                                            </li>	
+                                    <?php endif ?>
+                                    </div>
+                                    </td> 
+                                </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>
@@ -336,112 +186,8 @@ include __DIR__.'/../includes/adminSideBar.php'
                     </div>
 
                     <div class="modal-body">
-                        <form action="">
-                            <div class="row mb-3">
-                                <div class="col-6"> <!--Year Level-->
-                                    <label class="form-label">Year Level</label>
-                                    <input type="text" class="form-control" placeholder="First Year" readonly>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-6"> <!--Course-->
-                                    <label class="form-label">Course</label>
-                                    <input type="text" class="form-control" placeholder="Course 1" readonly>
-                                </div>
-                                <div class="col-6"> <!--Semester-->
-                                    <label class="form-label">Semester</label>
-                                    <input type="text" class="form-control" placeholder="First Semester" readonly>
-                                </div>
-                            </div>
-                            <div class="row mb-3"> <!--Subject-->
-                                <label class="form-label">Subject</label>
-                                <div class="col-sm-3">
-                                    <input type="text" class="form-control" placeholder="Subject 1" readonly>
-                                </div>
-                                <div class="col-sm-3">
-                                    <input type="text" class="form-control" placeholder="Professor 1" readonly>  
-                                </div>
-                                <div class="col-sm-2">
-                                    <input type="text" class="form-control" placeholder="Monday" readonly>
-                                </div>
-                                <div class="col-sm-2" id="time">
-                                    <input type="text" class="form-control" placeholder="7:00" readonly>
-                                </div>
-                                <div class="col-sm-2" id="time">
-                                    <input type="text" class="form-control" placeholder="9:00" readonly>
-                                </div>
-                            </div>
-                            <div class="row mb-3"> <!--Subject-->
-                                <div class="col-sm-3">
-                                    <input type="text" class="form-control" placeholder="Subject 1" readonly>
-                                </div>
-                                <div class="col-sm-3">
-                                    <input type="text" class="form-control" placeholder="Professor 1" readonly>  
-                                </div>
-                                <div class="col-sm-2">
-                                    <input type="text" class="form-control" placeholder="Monday" readonly>
-                                </div>
-                                <div class="col-sm-2" id="time">
-                                    <input type="text" class="form-control" placeholder="7:00" readonly>
-                                </div>
-                                <div class="col-sm-2" id="time">
-                                    <input type="text" class="form-control" placeholder="9:00" readonly>
-                                </div>
-                            </div>
-                            <div class="row mb-3"> <!--Subject-->
-                                <div class="col-sm-3">
-                                    <input type="text" class="form-control" placeholder="Subject 1" readonly>
-                                </div>
-                                <div class="col-sm-3">
-                                    <input type="text" class="form-control" placeholder="Professor 1" readonly>  
-                                </div>
-                                <div class="col-sm-2">
-                                    <input type="text" class="form-control" placeholder="Monday" readonly>
-                                </div>
-                                <div class="col-sm-2" id="time">
-                                    <input type="text" class="form-control" placeholder="7:00" readonly>
-                                </div>
-                                <div class="col-sm-2" id="time">
-                                    <input type="text" class="form-control" placeholder="9:00" readonly>
-                                </div>
-                            </div>
-                            <div class="row mb-3"> <!--Subject-->
-                                <div class="col-sm-3">
-                                    <input type="text" class="form-control" placeholder="Subject 1" readonly>
-                                </div>
-                                <div class="col-sm-3">
-                                    <input type="text" class="form-control" placeholder="Professor 1" readonly>  
-                                </div>
-                                <div class="col-sm-2">
-                                    <input type="text" class="form-control" placeholder="Monday" readonly>
-                                </div>
-                                <div class="col-sm-2" id="time">
-                                    <input type="text" class="form-control" placeholder="7:00" readonly>
-                                </div>
-                                <div class="col-sm-2" id="time">
-                                    <input type="text" class="form-control" placeholder="9:00" readonly>
-                                </div>
-                            </div>
-                            <div class="row mb-3"> <!--Subject-->
-                                <div class="col-sm-3">
-                                    <input type="text" class="form-control" placeholder="Subject 1" readonly>
-                                </div>
-                                <div class="col-sm-3">
-                                    <input type="text" class="form-control" placeholder="Professor 1" readonly>  
-                                </div>
-                                <div class="col-sm-2">
-                                    <input type="text" class="form-control" placeholder="Monday" readonly>
-                                </div>
-                                <div class="col-sm-2" id="time">
-                                    <input type="text" class="form-control" placeholder="7:00" readonly>
-                                </div>
-                                <div class="col-sm-2" id="time">
-                                    <input type="text" class="form-control" placeholder="9:00" readonly>
-                                </div>
-                            </div>
-                        </form>
-                        <div class="viewClassButton d-flex justify-content-end"> <!--Buttons-->
-                            <button class="btn btn-default" id="save" type="button" data-bs-dismiss="modal">Okay</button>
+                        <div id="view_class">
+
                         </div>
                     </div>
 
@@ -460,226 +206,9 @@ include __DIR__.'/../includes/adminSideBar.php'
                     </div>
 
                     <div class="modal-body">
+                        <div id="edit_class">
 
-                        <form action="">
-                            <div class="row mb-3">
-                                <div class="col-6"> <!--Year Level-->
-                                    <label class="form-label">Year Level</label>
-                                    <select name="yearLevel" class="form-control">
-                                        <option value="" disabled selected hidden></option>
-                                        <option value="yearLevel">First Year</option>
-                                        <option value="yearLevel">Second Year</option>
-                                        <option value="yearLevel">Third Year</option>
-                                        <option value="yearLevel">Fourth Year</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-6"> <!--Course-->
-                                <label class="form-label">Course</label>
-                                <select name="course" class="form-control">
-                                    <option value="" disabled selected hidden></option>
-                                    <option value="course">Course 1</option>
-                                    <option value="course">Course 2</option>
-                                    <option value="course">Course 3</option>
-                                </select>
-                                </div>
-                                <div class="col-6"> <!--Semester-->
-                                <label class="form-label">Semester</label>
-                                <select name="semester" class="form-control">
-                                    <option value="" disabled selected hidden></option>
-                                    <option value="semester">First Semester</option>
-                                    <option value="semester">Second Semester</option>
-                                </select>
-                                </div>
-                            </div>
-                            <div class="row mb-3"> <!--Subject-->
-                                <label class="form-label">Subject</label>
-                                <div class="col-sm-3">
-                                    <select name="subject" class="form-control">
-                                        <option value="" disabled selected hidden>Subject</option>
-                                        <option value="subject">Subject 1</option>
-                                        <option value="subject">Subject 2</option>
-                                        <option value="subject">Subject 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-3"> <!-- Professor -->
-                                    <select name="professorName" class="form-control">
-                                        <option value="" disabled selected hidden>Professor</option>
-                                        <option value="professorName">Professor 1</option>
-                                        <option value="professorName">Professor 2</option>
-                                        <option value="professorName">Professor 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-2"> <!-- Day -->
-                                    <select name="daySchedule" class="form-control">
-                                        <option value="" disabled selected hidden>Day</option>
-                                        <option value="daySchedule">Monday</option>
-                                        <option value="daySchedule">Tuesday</option>
-                                        <option value="daySchedule">Wednesday</option>
-                                        <option value="daySchedule">Thursday</option>
-                                        <option value="daySchedule">Friday</option>
-                                        <option value="daySchedule">Saturday</option>
-                                        <option value="daySchedule">Sunday</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-2" id="time"> <!-- Time from -->
-                                    <input type="text" class="form-control" name="timeFrom" placeholder="From">
-                                </div>
-                                <div class="col-sm-2" id="time"> <!--Time to -->
-                                    <input type="text" class="form-control" name="timeTo" placeholder="To">
-                                </div>
-                            </div>
-                            <div class="row mb-3"> <!--Subject-->
-                                <div class="col-sm-3">
-                                    <select name="subject" class="form-control">
-                                        <option value="" disabled selected hidden>Subject</option>
-                                        <option value="subject">Subject 1</option>
-                                        <option value="subject">Subject 2</option>
-                                        <option value="subject">Subject 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-3"> <!-- Professor -->
-                                    <select name="professorName" class="form-control">
-                                        <option value="" disabled selected hidden>Professor</option>
-                                        <option value="professorName">Professor 1</option>
-                                        <option value="professorName">Professor 2</option>
-                                        <option value="professorName">Professor 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-2"> <!-- Day -->
-                                    <select name="daySchedule" class="form-control">
-                                        <option value="" disabled selected hidden>Day</option>
-                                        <option value="daySchedule">Monday</option>
-                                        <option value="daySchedule">Tuesday</option>
-                                        <option value="daySchedule">Wednesday</option>
-                                        <option value="daySchedule">Thursday</option>
-                                        <option value="daySchedule">Friday</option>
-                                        <option value="daySchedule">Saturday</option>
-                                        <option value="daySchedule">Sunday</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-2" id="time"> <!-- Time from -->
-                                    <input type="text" class="form-control" name="timeFrom" placeholder="From">
-                                </div>
-                                <div class="col-sm-2" id="time"> <!--Time to -->
-                                    <input type="text" class="form-control" name="timeTo" placeholder="To">
-                                </div>
-                            </div>
-                            <div class="row mb-3"> <!--Subject-->
-                                <div class="col-sm-3">
-                                    <select name="subject" class="form-control">
-                                        <option value="" disabled selected hidden>Subject</option>
-                                        <option value="subject">Subject 1</option>
-                                        <option value="subject">Subject 2</option>
-                                        <option value="subject">Subject 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-3"> <!-- Professor -->
-                                    <select name="professorName" class="form-control">
-                                        <option value="" disabled selected hidden>Professor</option>
-                                        <option value="professorName">Professor 1</option>
-                                        <option value="professorName">Professor 2</option>
-                                        <option value="professorName">Professor 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-2"> <!-- Day -->
-                                    <select name="daySchedule" class="form-control">
-                                        <option value="" disabled selected hidden>Day</option>
-                                        <option value="daySchedule">Monday</option>
-                                        <option value="daySchedule">Tuesday</option>
-                                        <option value="daySchedule">Wednesday</option>
-                                        <option value="daySchedule">Thursday</option>
-                                        <option value="daySchedule">Friday</option>
-                                        <option value="daySchedule">Saturday</option>
-                                        <option value="daySchedule">Sunday</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-2" id="time"> <!-- Time from -->
-                                    <input type="text" class="form-control" name="timeFrom" placeholder="From">
-                                </div>
-                                <div class="col-sm-2" id="time"> <!--Time to -->
-                                    <input type="text" class="form-control" name="timeTo" placeholder="To">
-                                </div>
-                            </div>
-                            <div class="row mb-3"> <!--Subject-->
-                                <div class="col-sm-3">
-                                    <select name="subject" class="form-control">
-                                        <option value="" disabled selected hidden>Subject</option>
-                                        <option value="subject">Subject 1</option>
-                                        <option value="subject">Subject 2</option>
-                                        <option value="subject">Subject 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-3"> <!-- Professor -->
-                                    <select name="professorName" class="form-control">
-                                        <option value="" disabled selected hidden>Professor</option>
-                                        <option value="professorName">Professor 1</option>
-                                        <option value="professorName">Professor 2</option>
-                                        <option value="professorName">Professor 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-2"> <!-- Day -->
-                                    <select name="daySchedule" class="form-control">
-                                        <option value="" disabled selected hidden>Day</option>
-                                        <option value="daySchedule">Monday</option>
-                                        <option value="daySchedule">Tuesday</option>
-                                        <option value="daySchedule">Wednesday</option>
-                                        <option value="daySchedule">Thursday</option>
-                                        <option value="daySchedule">Friday</option>
-                                        <option value="daySchedule">Saturday</option>
-                                        <option value="daySchedule">Sunday</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-2" id="time"> <!-- Time from -->
-                                    <input type="text" class="form-control" name="timeFrom" placeholder="From">
-                                </div>
-                                <div class="col-sm-2" id="time"> <!--Time to -->
-                                    <input type="text" class="form-control" name="timeTo" placeholder="To">
-                                </div>
-                            </div>
-                            <div class="row mb-3"> <!--Subject-->
-                                <div class="col-sm-3">
-                                    <select name="subject" class="form-control">
-                                        <option value="" disabled selected hidden>Subject</option>
-                                        <option value="subject">Subject 1</option>
-                                        <option value="subject">Subject 2</option>
-                                        <option value="subject">Subject 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-3"> <!-- Professor -->
-                                    <select name="professorName" class="form-control">
-                                        <option value="" disabled selected hidden>Professor</option>
-                                        <option value="professorName">Professor 1</option>
-                                        <option value="professorName">Professor 2</option>
-                                        <option value="professorName">Professor 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-2"> <!-- Day -->
-                                    <select name="daySchedule" class="form-control">
-                                        <option value="" disabled selected hidden>Day</option>
-                                        <option value="daySchedule">Monday</option>
-                                        <option value="daySchedule">Tuesday</option>
-                                        <option value="daySchedule">Wednesday</option>
-                                        <option value="daySchedule">Thursday</option>
-                                        <option value="daySchedule">Friday</option>
-                                        <option value="daySchedule">Saturday</option>
-                                        <option value="daySchedule">Sunday</option>
-                                    </select>
-                                </div>
-                                <div class="col-sm-2" id="time"> <!-- Time from -->
-                                    <input type="text" class="form-control" name="timeFrom" placeholder="From">
-                                </div>
-                                <div class="col-sm-2" id="time"> <!--Time to -->
-                                    <input type="text" class="form-control" name="timeTo" placeholder="To">
-                                </div>
-                            </div>
-                            <div class="editClassButton d-flex justify-content-end"> <!--Buttons-->
-                                <button class="btn btn-default" id="save" type="submit" value="save">Confirm</button>
-                                <button class="btn btn-default" id="cancel" type="button" data-bs-dismiss="modal">Cancel</button>
-                            </div>
-                        </form>    
-
+                        </div>
                     </div>
 
                 </div>
@@ -692,3 +221,50 @@ include __DIR__.'/../includes/adminSideBar.php'
 
 <script src="<?php echo base_url('assets/js/class.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
+<!-- jQuery JS CDN -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> 
+ <!-- jQuery DataTables JS CDN -->
+ <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+ <!-- Ajax fetching data -->
+<script type="text/javascript">
+        $(document).ready(function(){
+            $('#dataTable').DataTable();
+            $(".loadSubjects").click(function(){
+                var courseID=$('#courseID').val();
+                var semester=$('#semester').val() 
+                var yearlevel=$('#yearlevel').val() 
+                $.ajax({ 
+                    url: "<?php echo site_url('classController/viewCourseSubjects');?>",
+                    method: "POST",
+                    data: {courseID:courseID, semester:semester, yearlevel:yearlevel},
+                    success: function(data){
+                        $('#listSubjects').html(data);
+                    }
+                    });  
+            });
+
+            $(".view_data").click(function(){
+                var classcode = $(this).data('id');
+                $.ajax({ 
+                    url: "<?php echo site_url('classController/viewClass');?>",
+                    method: "POST",
+                    data: {classcode:classcode},
+                    success: function(data){
+                        $('#view_class').html(data);
+                    }
+                });  
+            });
+
+            $(".edit_data").click(function(){
+                var classcode = $(this).data('id');
+                $.ajax({ 
+                    url: "<?php echo site_url('classController/editClass');?>",
+                    method: "POST",
+                    data: {classcode:classcode},
+                    success: function(data){
+                        $('#edit_class').html(data);
+                    }
+                });  
+            });
+        });
+</script>

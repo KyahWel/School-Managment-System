@@ -80,6 +80,28 @@ class eventsController extends CI_Controller {
         echo $output;
     }
 
+	public function viewAnnouncement(){
+		$eventData = $this->input->post('eventData');
+        $records = $this->eventsModel->getData($eventData); 
+		$output ='
+		<div class="row">
+			<div class="col mb-3">
+			<b>Title: </b>'.$records->title.'
+			</div>
+		</div>
+		<div class="col  mb-3">
+				<b>Date Posted: </b> '.$records->date.'
+		</div>
+		<div class="col  mb-3">
+				<b>Time: </b> '.$records->time.'
+		</div>
+		<div class="col  mb-3">
+				<b>Details: </b> <br>
+				'.$records->details.'
+		</div>';
+		echo $output;
+	}
+
     public function updateData($id){
         $data['row'] = $this->eventsModel->updateData($id);
         redirect("Admin/announcement");

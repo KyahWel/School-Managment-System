@@ -7,12 +7,13 @@ class subjectController extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('subjectModel');
+		$this->load->model('classModel');
 	}
 
 
 	public function addsubject()
 	{
-		if(isset($_POST['courseID']) && isset($_POST['subjectCode']) && isset($_POST['yearlevel']) && isset($_POST['name']) && isset($_POST['units'])){
+		if(isset($_POST['courseID']) && isset($_POST['subjectCode']) && isset($_POST['college']) && isset($_POST['yearlevel']) && isset($_POST['name']) && isset($_POST['units'])){
 			$this->subjectModel->insertData();
 			redirect('Admin/subject');
 		}
@@ -80,6 +81,7 @@ class subjectController extends CI_Controller {
 		</form>';
 		echo $output;
 	}
+
 
 	public function updatesubject($id)
 	{	

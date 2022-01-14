@@ -65,7 +65,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
                                                 <h5 class="details mx-3">Details <br></h5>
                                             </div>
                                             <div>
-                                                <button type="button" class="btn btn-primary btn-sm mx-3 viewAnnounceDeets" data-bs-toggle="modal" data-bs-target="#viewAnnouncementDetailsAdmin">
+                                                <button type="button" data-id='<?php echo $announcement->eaID ?>' class="btn btn-primary btn-sm mx-3 viewAnnounceDeets view_data" data-bs-toggle="modal" data-bs-target="#viewAnnouncementDetailsAdmin">
                                                     View Details
                                                 </button>
                                             </div>
@@ -86,20 +86,8 @@ include __DIR__ . '/../includes/adminSideBar.php'
                                             <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body p-4">
-                                            <div class="row">
-                                                <div class="col mb-3">
-                                                   <b>Title: </b>Suspension of Classes 
-                                                </div>
-                                            </div>
-                                            <div class="col  mb-3">
-                                                    <b>Date Posted: </b> 2022-01-15 
-                                            </div>
-                                            <div class="col  mb-3">
-                                                    <b>Time: </b> 12:00pm 
-                                            </div>
-                                            <div class="col  mb-3">
-                                                    <b>Details: </b> <br>
-                                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti quis voluptate voluptatum officiis voluptates perferendis, temporibus deleniti id ratione reprehenderit molestiae nisi amet, recusandae voluptatem at magni ab possimus mollitia libero, facilis aut esse nihil ullam distinctio. Modi dignissimos autem repellendus voluptas veritatis quos. Hic amet culpa numquam velit laboriosam?
+                                            <div id="event_result">
+                                                
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -216,6 +204,28 @@ include __DIR__ . '/../includes/adminSideBar.php'
     <script src="<?php echo base_url('assets/js/calendar.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 
+<!-- jQuery JS CDN -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> 
+ <!-- jQuery DataTables JS CDN -->
+ <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+ <!-- Ajax fetching data -->
+ <script type="text/javascript">
+    $(document).ready(function(){
+      $('#dataTable').DataTable();
+      $('.view_data').click(function(){
+        var eventData = $(this).data('id');
+        console.log(eventData);
+        $.ajax({
+          url: "<?php echo site_url('eventsController/viewAnnouncement');?>",
+          method: "POST",
+          data: {eventData:eventData},
+          success: function(data){
+            $('#event_result').html(data);
+          }
+        });
+      });
+    });
+</script>
 </body>
 
 </html>

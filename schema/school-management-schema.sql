@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 12, 2022 at 12:03 AM
+-- Generation Time: Jan 14, 2022 at 05:12 AM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -96,12 +96,12 @@ CREATE TABLE IF NOT EXISTS `applicant_accounts` (
 
 INSERT INTO `applicant_accounts` (`applicantID`, `applicantNumber`, `course_chosen`, `firstname`, `middlename`, `lastname`, `extname`, `LRN`, `gender`, `age`, `birthday`, `birthplace`, `contactnum`, `landline`, `email`, `unit`, `street`, `barangay`, `city`, `province`, `zipcode`, `last_school_attended`, `track`, `school_address`, `year_level`, `year_graduated`, `category`, `gpa`, `medical_record`, `form_137`, `good_moral`, `applicant_result`) VALUES
 (1, 'TUPM-APPL21-9231', 'Bachelor of Science in Computer Science', 'William Cris', 'Entero', 'Hod', ' ', 123456, 'Male', 20, '2001-03-20', 'Metro Manila', '09270287483', '8-7000', 'williamcris18@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', 'TVL', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-N4SsLOvQ.jpg', 'F137-N4SsLOvQ.jpg', 'GM-N4SsLOvQ.jpg', 'Student'),
-(2, 'TUPM-APPL21-1268', 'Bachelor of Science in Information Technology', 'William Cris', 'Entero', 'Hod', ' ', 123456, 'Male', 20, '2001-03-02', 'Metro Manila', '09270287483', '717-1426', 'williamcris18@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', 'TVL', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-6QU1ZlHJ.jpg', 'F137-6QU1ZlHJ.jpg', 'GM-6QU1ZlHJ.jpg', 'Applied'),
+(2, 'TUPM-APPL21-1268', 'Bachelor of Science in Information Technology', 'William Cris', 'Entero', 'Hod', ' ', 123456, 'Male', 20, '2001-03-02', 'Metro Manila', '09270287483', '717-1426', 'williamcris18@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', 'TVL', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-6QU1ZlHJ.jpg', 'F137-6QU1ZlHJ.jpg', 'GM-6QU1ZlHJ.jpg', 'Student'),
 (3, 'TUPM-APPL21-8586', 'Bachelor of Science in Information Technology', 'William Cris', 'Entero', 'Hod', ' ', 123456, 'Male', 21, '2021-12-03', 'Metro Manila', '09270287483', '717-1426', 'williamcris18@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', 'TVL', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-Cqsb5y2Q.jpg', 'F137-Cqsb5y2Q.jpg', 'GM-Cqsb5y2Q.jpg', 'Applied'),
 (4, 'TUPM-APPL21-9470', 'Bachelor of Science in Computer Engineering', 'Paolo', 'Lovidioro ', 'Gonzales', ' ', 123456, 'Male', 21, '2008-02-11', 'Metro Manila', '09270287483', '717-1426', 'test@gmail.com', '151', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', '', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'Old Curriculum', 93, 'MR-X1UB6dvZ.jpg', 'F137-X1UB6dvZ.jpg', 'GM-X1UB6dvZ.jpg', 'Student'),
 (5, 'TUPM-APPL21-4232', 'Bachelor of Science in Computer Engineering', 'Paolo', 'Lovidioro ', 'Gonzales', ' ', 123456, 'Male', 21, '2008-02-11', 'Metro Manila', '09270287483', '717-1426', 'test@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', '', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'Old Curriculum', 93, 'MR-Btoce4YQ.jpg', 'F137-Btoce4YQ.jpg', 'GM-Btoce4YQ.jpg', 'Applied'),
-(6, 'TUPM-APPL21-9910', 'Bachelor of Engineering in Mechanical Engineering', 'Gabrielle', 'MaColl', 'Demo', ' ', 123456, 'Male', 21, '2000-11-19', 'Metro Manila', '09270287483', '717-1426', 'test@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', '', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-mOkT4oBt.jpg', 'F137-mOkT4oBt.jpg', 'GM-mOkT4oBt.jpg', 'Applied'),
-(7, 'TUPM-APPL21-5533', 'Bachelor of Science in Mathematics', 'Minatozaki', 'Sana', 'Hod', ' ', 123456, 'Female', 21, '2022-01-12', 'Metro Manila', '09270287483', '717-1426', 'williamcrshod@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', '', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-TMZcOJ2W.jpg', 'F137-TMZcOJ2W.jpg', 'GM-TMZcOJ2W.jpg', 'Applied'),
+(6, 'TUPM-APPL21-9910', 'Bachelor of Engineering in Mechanical Engineering', 'Gabrielle', 'MaColl', 'Demo', ' ', 123456, 'Male', 21, '2000-11-19', 'Metro Manila', '09270287483', '717-1426', 'test@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', '', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-mOkT4oBt.jpg', 'F137-mOkT4oBt.jpg', 'GM-mOkT4oBt.jpg', 'Student'),
+(7, 'TUPM-APPL21-5533', 'Bachelor of Science in Mathematics', 'Minatozaki', 'Sana', 'Hod', ' ', 123456, 'Female', 21, '2022-01-12', 'Metro Manila', '09270287483', '717-1426', 'williamcrshod@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', '', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-TMZcOJ2W.jpg', 'F137-TMZcOJ2W.jpg', 'GM-TMZcOJ2W.jpg', 'Student'),
 (8, 'TUPM-APPL21-5545', 'Bachelor of Science in Mathematics', 'Minatozaki', 'Sana', 'Hod', ' ', 123456, 'Female', 21, '2022-01-12', 'Metro Manila', '09270287483', '717-1426', 'williamcrshod@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', '', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-A5tn1gGr.jpg', 'F137-A5tn1gGr.jpg', 'GM-A5tn1gGr.jpg', 'Student');
 
 -- --------------------------------------------------------
@@ -113,18 +113,26 @@ INSERT INTO `applicant_accounts` (`applicantID`, `applicantNumber`, `course_chos
 DROP TABLE IF EXISTS `class`;
 CREATE TABLE IF NOT EXISTS `class` (
   `classID` int(255) NOT NULL AUTO_INCREMENT,
+  `class_code` varchar(255) NOT NULL,
+  `teacherID` int(255) DEFAULT NULL,
   `subjectID` int(255) NOT NULL,
-  `teacherID` int(255) NOT NULL,
   `start_time` time NOT NULL,
   `end_time` time NOT NULL,
   `day` varchar(255) NOT NULL,
   `room_no` varchar(255) NOT NULL,
-  `grade` int(255) NOT NULL,
   `status` int(1) NOT NULL,
   PRIMARY KEY (`classID`),
   KEY `class_subject` (`subjectID`),
   KEY `class_teacher` (`teacherID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `class`
+--
+
+INSERT INTO `class` (`classID`, `class_code`, `teacherID`, `subjectID`, `start_time`, `end_time`, `day`, `room_no`, `status`) VALUES
+(1, 'CLASS-01', 1, 71, '05:00:00', '08:00:00', 'Thursday', 'COS-123', 1),
+(2, 'CLASS-01', 2, 72, '11:00:00', '14:00:00', 'Monday', 'TBA', 1);
 
 -- --------------------------------------------------------
 
@@ -286,7 +294,7 @@ CREATE TABLE IF NOT EXISTS `student_accounts` (
   PRIMARY KEY (`studentID`),
   KEY `studentDetails` (`applicantID`),
   KEY `studentAdmin` (`creatorID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `student_accounts`
@@ -295,7 +303,10 @@ CREATE TABLE IF NOT EXISTS `student_accounts` (
 INSERT INTO `student_accounts` (`studentID`, `applicantID`, `studentNumber`, `username`, `password`, `type`, `status`, `creatorID`) VALUES
 (1, 1, 'TUPM-21-8437', 'TUPM-21-8437', '$2y$10$WoB3vqSF/S.dxlNe0.RUFOcZI/0kc5sp.KovxWOS.Qh4vVbExhxaW', 'ewan', '1', 1),
 (2, 4, 'TUPM-21-9297', 'TUPM-21-9297', '$2y$10$Ivt4xeO3S86hO4XRyE6wTOorhTBREyfZNQ/VIGa8k4FhnLeG9zJlu', 'ewan', '1', 1),
-(3, 8, 'TUPM-21-7805', 'TUPM-21-7805', '$2y$10$QVYvZKqiZtDMbVHorKoYc.M7doOcHzrih84cu9HEPkCKQ1XYejN/C', 'ewan', '1', 1);
+(3, 8, 'TUPM-21-7805', 'TUPM-21-7805', '$2y$10$QVYvZKqiZtDMbVHorKoYc.M7doOcHzrih84cu9HEPkCKQ1XYejN/C', 'ewan', '1', 1),
+(4, 6, 'TUPM-21-1431', 'TUPM-21-1431', '$2y$10$/QN38f/UWEvqqf8olWiYfOX9ggSLa/y2n0o9EAT0drBbE374t04zy', 'ewan', '1', 1),
+(5, 2, 'TUPM-22-7891', 'TUPM-22-7891', '$2y$10$2phxwIVwJC72cFsab1zE/uMHFJNYAYub5XfwX4BJg9wCKDroABPSO', 'ewan', '1', 1),
+(6, 7, 'TUPM-22-4674', 'TUPM-22-4674', '$2y$10$zajKNTdSL2.bar565XuH2u1hGSAug1U5aWQWSjztZGFXIhMO/XZsS', 'ewan', '1', 1);
 
 -- --------------------------------------------------------
 
@@ -330,25 +341,90 @@ CREATE TABLE IF NOT EXISTS `subjects_table` (
   `name` varchar(255) NOT NULL,
   `units` int(255) NOT NULL,
   `yearlevel` int(255) NOT NULL,
+  `college` varchar(255) NOT NULL,
+  `semester` varchar(255) NOT NULL,
   `status` int(255) NOT NULL,
   PRIMARY KEY (`subjectID`),
   KEY `course` (`courseID`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `subjects_table`
 --
 
-INSERT INTO `subjects_table` (`subjectID`, `courseID`, `subjectCode`, `name`, `units`, `yearlevel`, `status`) VALUES
-(1, 2, 'CC-212', 'Intro to Computing', 4, 1, 1),
-(2, 2, 'CC-213', 'Intro to Programming', 6, 1, 0),
-(3, 2, 'CS-301', 'Programming Language', 4, 2, 1),
-(4, 2, 'CC-717', 'Data Analytics', 5, 3, 1),
-(5, 2, 'CC-999', 'Automata and Formal Language', 5, 4, 1),
-(6, 6, 'AA - 201', 'Ewan try lang', 5, 2, 0),
-(7, 6, 'AA - 201', 'Ewan try lang', 5, 2, 1),
-(8, 1, 'test', 'testing', 1, 1, 1),
-(9, 7, 'MM -001', 'Basic Algebra', 4, 1, 1);
+INSERT INTO `subjects_table` (`subjectID`, `courseID`, `subjectCode`, `name`, `units`, `yearlevel`, `college`, `semester`, `status`) VALUES
+(1, 2, 'CC131L-M', 'Computer Programming 1, Lab', 1, 1, 'COS', '1', 1),
+(2, 2, 'CC132-M', 'Computer Programming 1, Lec', 2, 1, 'COS', '1', 1),
+(3, 2, 'CHEMGENL-M', 'General Chemistry, Laboratory', 1, 1, 'COS', '1', 1),
+(4, 2, 'CHEMGEN-M', 'General Chemistry, Lecture', 4, 1, 'COS', '1', 1),
+(5, 2, 'PHYSGENL-M', 'General Physics Laboratory', 1, 1, 'COS', '1', 1),
+(6, 2, 'PHYSGEN-M', 'General Physics, Lecture', 4, 1, 'COS', '1', 1),
+(7, 2, 'CC113-M', 'Introduction to Computing', 3, 1, 'COS', '1', 1),
+(8, 2, 'PE1-M', 'Physical Fitness', 2, 1, 'CLA', '1', 1),
+(9, 2, 'MATHA05-M', 'Pre-Calculus', 5, 1, 'COS', '1', 1),
+(10, 2, 'GEC1-M', 'Understanding the Self', 3, 1, 'CLA', '1', 1),
+(11, 2, 'NSTP1-M', 'National Service Training Program 1', 3, 1, 'NSTP', '1', 1),
+(12, 2, 'CC101L-M', 'Computer Programming 2, Lab', 1, 1, 'COS', '2', 1),
+(13, 2, 'CC102-M', 'Computer Programming 2, Lec', 2, 1, 'COS', '2', 1),
+(14, 2, 'MATHA35-M', 'Differential and Integral Calculus', 5, 1, 'COS', '2', 1),
+(15, 2, 'CC123-M', 'Discrete Structures', 3, 1, 'COS', '2', 1),
+(16, 2, 'CS103-M', 'Linear Algebra', 3, 1, 'COS', '2', 1),
+(17, 2, 'GEC4-M', 'Mathematics in the Modern World', 3, 1, 'COS', '2', 1),
+(18, 2, 'GEC5-M', 'Purposive Communication', 3, 1, 'CLA', '2', 1),
+(19, 2, 'PE2-M', 'Rhythmic Activities', 2, 1, 'CLA', '2', 1),
+(20, 2, 'NSTP2-M', 'National Service Training Program 2', 3, 1, 'NSTP', '2', 1),
+(21, 2, 'GEC6-M', 'Art Appreciation', 3, 2, 'CAFA', '1', 1),
+(22, 2, 'CS213-M', 'Combinatorics and Graph Theory', 3, 2, 'COS', '1', 1),
+(23, 2, 'CC271L-M', 'Computer Architecture and Organization, Laboratory', 1, 2, 'COS', '1', 1),
+(24, 2, 'CC272-M', 'Computer Architecture and Organization, Lecture', 2, 2, 'COS', '1', 1),
+(25, 2, 'CC211L', 'Data Structures and Algorithms, Laboratory', 1, 2, 'COS', '1', 1),
+(26, 2, 'CC212-M', 'Data Structures and Algorithms, Lecture', 3, 2, '', '1', 1),
+(27, 2, 'CC233-M', 'Human Computer Interaction', 3, 2, '', '1', 1),
+(28, 2, 'PE3-M', 'Individual and Dual Sports', 2, 2, '', '1', 1),
+(29, 2, 'CC251L-M', 'Object Oriented Programming, Laboratory', 1, 2, '', '1', 1),
+(30, 2, 'CC252-M', 'Object Oriented Programming, Lecture', 2, 2, '', '1', 1),
+(31, 2, 'GEC7-M', 'Science, Technology and Society', 3, 2, '', '1', 1),
+(32, 2, 'CC223-M', 'Applications Development and Emerging Technologies', 3, 2, '', '2', 1),
+(33, 2, 'CS203-M', 'Design and Analysis of Algorithms', 3, 2, '', '2', 1),
+(34, 2, 'GEC8-M', 'Ethics', 3, 2, '', '2', 1),
+(35, 2, 'CC201L-M', 'Information Management, Laboratory', 1, 2, '', '2', 1),
+(36, 2, 'CC202-M', 'Information Management, Lecture', 2, 2, '', '2', 1),
+(37, 2, 'CS221L-M', 'Networks and Communications, Laboratory', 1, 2, '', '2', 1),
+(38, 2, 'CS222-M', 'Networks and Communications, Lecture', 2, 2, '', '2', 1),
+(39, 2, 'CC241L-M', 'Operating Systems Concepts, Laboratory', 1, 2, '', '2', 1),
+(40, 2, 'CC242-M', 'Operating Systems Concepts, Lecture', 2, 2, '', '2', 1),
+(41, 2, 'MATHSTAT03-M', 'Probability and Statistics', 3, 2, '', '2', 1),
+(42, 2, 'CC261L-M', 'Programming Language (Design and Implementation), Laboratory', 1, 2, '', '2', 1),
+(43, 2, 'CC262-M', 'Programming Language (Design and Implementation), Lecture', 2, 2, '', '2', 1),
+(44, 2, 'PE4-M', 'Team Sports', 2, 2, '', '2', 1),
+(45, 2, 'CSE1-M', 'CS Professional Elective 1', 3, 3, '', '1', 1),
+(46, 2, 'CSE2-M', 'CS Professional Elective 2', 3, 3, '', '1', 1),
+(47, 2, 'CS333-M', 'Data Analytics', 3, 3, '', '1', 1),
+(48, 2, 'CS313-M', 'Information Assurance and Security', 3, 3, '', '1', 1),
+(49, 2, 'CS373-M', 'Parallel and Distributed Computing', 3, 3, '', '1', 1),
+(50, 2, 'GEC2-M', 'Readings in Philippine History', 3, 3, '', '1', 1),
+(51, 2, 'CS351L-M', 'Software Engineering 1, Laboratory', 1, 3, '', '1', 1),
+(52, 2, 'CS352-M', 'Software Engineering 1, Lecture', 2, 3, '', '1', 1),
+(53, 2, 'CC311L-M', 'Web Development, Laboratory', 1, 3, '', '1', 1),
+(54, 2, 'CC312-M', 'Web Development, Lecture', 2, 3, '', '1', 1),
+(55, 2, 'CS321L-M', 'Artificial Intelligence, Laboratory', 1, 3, '', '2', 1),
+(56, 2, 'CS322-M', 'Artificial Intelligence, Lecture', 2, 3, '', '2', 1),
+(57, 2, 'CS303-M', 'Automata Theory and Formal Language', 3, 3, '', '2', 1),
+(58, 2, 'CSE3-M', 'CS Professional Elective 3', 3, 3, '', '2', 1),
+(59, 2, 'CSE4-M', 'CS Professional Elective 4', 3, 3, '', '2', 1),
+(60, 2, 'CC303-M', 'Methods of Research in Computing', 3, 3, '', '2', 1),
+(61, 2, 'CS363-M', 'Modeling and Simulation', 3, 3, '', '2', 1),
+(62, 2, 'CS341L-M', 'Software Engineering 2, Laboratory', 1, 3, '', '2', 1),
+(63, 2, 'CS342-M', 'Software Engineering 2, Lecture', 2, 3, '', '2', 1),
+(64, 2, 'GEC3-M', 'The Contemporary World', 3, 3, '', '2', 1),
+(65, 2, 'GEM14-M', 'Life and Works of Rizal', 3, 4, '', '1', 1),
+(66, 2, 'GEE11D-M', 'Living in the IT Era', 3, 4, '', '1', 1),
+(67, 2, 'GEE13D-M', 'Reading Visual Arts', 3, 4, '', '1', 1),
+(68, 2, 'CC413-M', 'Social and Professional Issues', 3, 4, '', '1', 1),
+(69, 2, 'GEE12D-M', 'The Entrepreneurial Mind', 3, 4, '', '1', 1),
+(70, 2, 'CS413-M', 'Thesis Writing 1', 3, 4, '', '1', 1),
+(71, 2, 'CC406-M', 'Supervised Industrial Training', 6, 4, '', '2', 1),
+(72, 2, 'CS403-M', 'Thesis Writing 2', 3, 4, '', '2', 1);
 
 -- --------------------------------------------------------
 
@@ -374,14 +450,15 @@ CREATE TABLE IF NOT EXISTS `teacher_accounts` (
   `creatorID` int(255) NOT NULL,
   PRIMARY KEY (`teacherID`),
   KEY `teacherAdmin` (`creatorID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `teacher_accounts`
 --
 
 INSERT INTO `teacher_accounts` (`teacherID`, `teacherNumber`, `username`, `password`, `firstname`, `middlename`, `lastname`, `extname`, `phonenum`, `email`, `college`, `department`, `status`, `creatorID`) VALUES
-(1, 'PROF-TUPM-21-5056', 'PROF-TUPM-21-5056', '$2y$10$81UKH4jgh9JzphudFhIlc.UCpyx1vBpylKEaZxYP0FvycdQiZZXXa', 'William Cris', 'Entero', 'Hod', ' ', '09270287483', 'williamcris18@gmail.com', 'Science', 'Computer', 1, 1);
+(1, 'PROF-TUPM-22-6713', 'PROF-TUPM-22-6713', '$2y$10$jxbGh6AUgBMEWv2fJTDamOZYD3Njx/yF/WdAWrzbkP1gH2nzwNVei', 'William Cris', 'Entero', 'Hod', ' ', '09270287483', 'williamcris18@gmail.com', 'Science', 'Computer', 1, 1),
+(2, 'PROF-TUPM-22-7204', 'PROF-TUPM-22-7204', '$2y$10$OllPfi.MnyBVZJgyQAmMNOUz3gaKm.HRzVWByiIjW9Cna.b6l.4.O', 'Minatozaki', 'Sana', 'Hod', ' ', '', '', 'Science', 'Computer', 1, 1);
 
 --
 -- Constraints for dumped tables
@@ -391,7 +468,7 @@ INSERT INTO `teacher_accounts` (`teacherID`, `teacherNumber`, `username`, `passw
 -- Constraints for table `class`
 --
 ALTER TABLE `class`
-  ADD CONSTRAINT `class_subject` FOREIGN KEY (`subjectID`) REFERENCES `subject_table` (`subjectID`),
+  ADD CONSTRAINT `class_subject` FOREIGN KEY (`subjectID`) REFERENCES `subjects_table` (`subjectID`),
   ADD CONSTRAINT `class_teacher` FOREIGN KEY (`teacherID`) REFERENCES `teacher_accounts` (`teacherID`);
 
 --
