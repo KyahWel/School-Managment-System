@@ -5,14 +5,25 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <html>
 
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat'>
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins'>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/css/applicant.css'); ?>" rel="stylesheet" type="text/css">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity=
+"sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous">
+    </script>
+      
+    <script src=
+"https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity=
+"sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous">
+    </script>
     <title>Applicant Registration</title>
 
 </head>
@@ -86,12 +97,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             <div id='personalInfo' class=" container pt-3" style="display: block;">
                                 <div class="step_progressbar">
                                     <ul>
-                                        <li class="active">Personal Information  <span class="spare1"> <br></span></li>
+                                        <li class="active">Personal Information <span class="spare1"> <br></span></li>
                                         <li>Education Attainment</li>
                                         <li>Requirements <span class="spare"> <br></span></li>
                                         <li>Review All <span class="spare"> <br></span></li>
                                     </ul>
-                               </div>
+                                </div>
                                 <div class="Wrapper">
                                     <div class="tabTitle">
                                         <p class="text-white"><i class="fa fa-user"></i> <span class="px-2"> Personal Information </span></p>
@@ -118,28 +129,28 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <div class="row mt-0 asterisk">
                                             <div class="col-lg-3 col-md-6 py-1">
                                                 <label class="form-label small">First Name</label>
-                                                <input type="text" name="firstname" class="form-control form-control-sm" aria-label="First name" required>
+                                                <input type="text" name="firstname" id="fname" class="form-control form-control-sm" aria-label="First name" required>
                                                 <div class="invalid-feedback">
                                                     Please input your first name.
                                                 </div>
                                             </div>
                                             <div class="col-lg-3 col-md-6 py-1">
                                                 <label class="form-label small">Middle Name</label>
-                                                <input type="text" name='middlename' class="form-control form-control-sm" aria-label="Last name" required>
+                                                <input type="text" name='middlename' id="midname" class="form-control form-control-sm" aria-label="Last name" required>
                                                 <div class="invalid-feedback">
                                                     Please input your middle name.
                                                 </div>
                                             </div>
                                             <div class="col-lg-3 col-md-6 py-1">
                                                 <label class="form-label small">Surname</label>
-                                                <input type="text" name="lastname" class="form-control form-control-sm" aria-label="Surname" required>
+                                                <input type="text" name="lastname" id="surname" class="form-control form-control-sm" aria-label="Surname" required>
                                                 <div class="invalid-feedback">
                                                     Please input your surname.
                                                 </div>
                                             </div>
                                             <div class="col-lg-3 col-md-6 py-1">
                                                 <label class="form-label small">Suffix</label>
-                                                <input type="text" name='extname' class="form-control form-control-sm" aria-label="Extension Name" required>
+                                                <input type="text" name='extname' id="suffix" class="form-control form-control-sm" aria-label="Extension Name" required>
                                                 <div class="invalid-feedback">
                                                     Please input your extension name.
                                                 </div>
@@ -150,7 +161,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12 pt-1">LRN:</label>
                                             <div class="col-lg-3 col-md-12">
-                                                <input type="text" name="LRN" class="form-control form-control-sm" minlength="10" aria-label="LRN" required>
+                                                <input type="text" name="LRN" id="lrn" class="form-control form-control-sm" minlength="10" aria-label="LRN" required>
                                                 <div class="invalid-feedback">
                                                     Please input your LRN.
                                                 </div>
@@ -176,7 +187,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12 pt-1">Birth Date:</label>
                                             <div class="col-lg-3 col-md-12">
-                                                <input type="date" name='birthday' class="form-control form-control-sm" aria-label="Birthdate" required>
+                                                <input type="date" name='birthday' id="birthdate" class="form-control form-control-sm" aria-label="Birthdate" required>
                                                 <div class="invalid-feedback">
                                                     Please input your birthdate.
                                                 </div>
@@ -185,7 +196,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                                             <label class="form-label col-lg-2 col-md-12 pt-1">Age:</label>
                                             <div class="col-lg-3 col-md-12">
-                                                <input type="text" name='age' class="form-control form-control-sm" aria-label="Age" required>
+                                                <input type="text" name='age' id="age1" class="form-control form-control-sm" aria-label="Age" required>
                                                 <div class="invalid-feedback">
                                                     Please input your age.
                                                 </div>
@@ -196,7 +207,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 pt-1">Birth Place:</label>
                                             <div class="col-lg-3">
-                                                <input type="text" name='birthplace' class="form-control form-control-sm" aria-label="Birthpalace" required>
+                                                <input type="text" name='birthplace' id="birthplace1" class="form-control form-control-sm" aria-label="Birthpalace" required>
                                                 <div class="invalid-feedback">
                                                     Please input your birthplace.
                                                 </div>
@@ -207,7 +218,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12 pt-1">Contact Number:</label>
                                             <div class="col-lg-3 col-md-12">
-                                                <input type="tel" name='contactnum' class="form-control form-control-sm" aria-label="Contact Number" required>
+                                                <input type="tel" name='contactnum' id="contact" class="form-control form-control-sm" aria-label="Contact Number" required>
                                                 <div class="invalid-feedback">
                                                     Please input your contact number.
                                                 </div>
@@ -216,7 +227,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                                             <label class="form-label col-lg-2 col-md-12 pt-1">Landline:</label>
                                             <div class="col-lg-3 col-md-12">
-                                                <input type="tel" name='landline' class="form-control form-control-sm" aria-label="Landline" required>
+                                                <input type="tel" name='landline' id="landline1" class="form-control form-control-sm" aria-label="Landline" required>
                                                 <div class="invalid-feedback">
                                                     Please input your landline number.
                                                 </div>
@@ -227,7 +238,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 pt-1">Email Address:</label>
                                             <div class="col-lg-4">
-                                                <input type="email" name='email' class="form-control form-control-sm" aria-label="Email Address" required>
+                                                <input type="email" name='email' id="email1" class="form-control form-control-sm" aria-label="Email Address" required>
                                                 <div class="invalid-feedback">
                                                     Please input you valid email address.
                                                 </div>
@@ -242,7 +253,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12  pt-1">Unit #:</label>
                                             <div class="col-lg-3 col-md-12">
-                                                <input type="text" name='unit' class="form-control form-control-sm" aria-label="Unit Number" required>
+                                                <input type="text" name='unit' id="unit1" class="form-control form-control-sm" aria-label="Unit Number" required>
                                                 <div class="invalid-feedback">
                                                     Please input your unit #.
                                                 </div>
@@ -251,7 +262,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                                             <label class="form-label col-lg-2 col-md-12 pt-1">Street:</label>
                                             <div class="col-lg-3 col-md-12">
-                                                <input type="text" name='street' class="form-control form-control-sm" aria-label="Street" required>
+                                                <input type="text" name='street' id="street1" class="form-control form-control-sm" aria-label="Street" required>
                                                 <div class="invalid-feedback">
                                                     Please input your street.
                                                 </div>
@@ -262,7 +273,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12  pt-1">Barangay:</label>
                                             <div class="col-lg-3 col-md-12">
-                                                <input type="text" name='barangay' class="form-control form-control-sm" aria-label="Barangay" required>
+                                                <input type="text" name='barangay' id="brgy" class="form-control form-control-sm" aria-label="Barangay" required>
                                                 <div class="invalid-feedback">
                                                     Please input your barangay.
                                                 </div>
@@ -271,7 +282,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                                             <label class="form-label col-lg-2 col-md-12 pt-1">City:</label>
                                             <div class="col-lg-3 col-md-12">
-                                                <input type="text" name='city' class="form-control form-control-sm" aria-label="City" required>
+                                                <input type="text" name='city' id="city1" class="form-control form-control-sm" aria-label="City" required>
                                                 <div class="invalid-feedback">
                                                     Please input your city.
                                                 </div>
@@ -283,7 +294,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                                             <label class="form-label col-lg-2 col-md-6 pt-1">Zipcode:</label>
                                             <div class="col-lg-3 col-md-6">
-                                                <input type="text" name='zipcode' class="form-control form-control-sm" aria-label="Zipcode" required>
+                                                <input type="text" name='zipcode' id="zip" class="form-control form-control-sm" aria-label="Zipcode" required>
                                                 <div class="invalid-feedback">
                                                     Please input your zipcode.
                                                 </div>
@@ -292,7 +303,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                                             <label class="form-label col-lg-2 col-md-6 pt-1">Province:</label>
                                             <div class="col-lg-3 col-md-6">
-                                                <input type="text" name='province' class="form-control form-control-sm" aria-label="Province" required>
+                                                <input type="text" name='province' id="province1" class="form-control form-control-sm" aria-label="Province" required>
                                                 <div class="invalid-feedback">
                                                     Please input your province.
                                                 </div>
@@ -323,14 +334,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                             <!-- Educational Attainment -->
                             <div id='educationalattainment' class=" container pt-3" style="display: none;">
-                               <div class="step_progressbar">
+                                <div class="step_progressbar">
                                     <ul>
                                         <li>Personal Information</li>
                                         <li class="active">Education Attainment</li>
                                         <li>Requirements</li>
                                     </ul>
-                               </div>
-                                <div class="Wrapper">         
+                                </div>
+                                <div class="Wrapper">
                                     <div class="tabTitle">
                                         <p class="text-white"><i class="fa fa-user-graduate"></i> <span class="px-2"> Educational Attainment </span></p>
                                     </div>
@@ -341,7 +352,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12 pt-1">Name of School:</label>
                                             <div class="col-lg-4 col-md-12">
-                                                <input type="text" name="school" class="form-control form-control-sm" aria-label="Name of School" required>
+                                                <input type="text" name="school" id="nameschool" class="form-control form-control-sm" aria-label="Name of School" required>
                                                 <div class="invalid-feedback">
                                                     Please input your school name.
                                                 </div>
@@ -371,7 +382,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                 <label class="form-label pt-1">School Address:</label>
                                             </div>
                                             <div class="col-lg-10">
-                                                <input type="text" name="school_address" class="form-control form-control-sm" aria-label="School Address" required>
+                                                <input type="text" name="school_address" id="schooladdress" class="form-control form-control-sm" aria-label="School Address" required>
                                                 <div class="invalid-feedback">
                                                     Please input your school address.
                                                 </div>
@@ -382,7 +393,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12  pt-1">Year Level:</label>
                                             <div class="col-lg-3 col-md-12">
-                                                <input type="text" name="year_level" class="form-control form-control-sm" aria-label="Year level" required>
+                                                <input type="text" name="year_level" id="yearlvl" class="form-control form-control-sm" aria-label="Year level" required>
                                                 <div class="invalid-feedback">
                                                     Please input year level.
                                                 </div>
@@ -393,7 +404,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                             <label class="form-label col-lg-2 col-md-12 pt-1">Year Graduated:</label>
 
                                             <div class="col-lg-3 col-md-12">
-                                                <input type="text" name="year_graduated" class="form-control form-control-sm" aria-label="Year Graduated" required>
+                                                <input type="text" name="year_graduated" id="yeargrad" class="form-control form-control-sm" aria-label="Year Graduated" required>
                                                 <div class="invalid-feedback">
                                                     Please input graduated year.
                                                 </div>
@@ -423,7 +434,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                 <label class="form-label pt-1">GPA:</label>
                                             </div>
                                             <div class="col-lg-5">
-                                                <input type="tel" name="gpa" maxlength="4" class="form-control form-control-sm" aria-label="GPA" required>
+                                                <input type="tel" name="gpa" id="gpa1" maxlength="4" class="form-control form-control-sm" aria-label="GPA" required>
                                                 <div class="invalid-feedback">
                                                     Please input your gpa.
                                                 </div>
@@ -468,13 +479,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             <!-- ------------------------------------------------------------------------------------------------------- -->
                             <!-- Requirements -->
                             <div id='requirement' class=" container pt-3 " style="display: none;">
-                               <div class="step_progressbar">
+                                <div class="step_progressbar">
                                     <ul>
                                         <li>Personal Information</li>
                                         <li>Education Attainment</li>
                                         <li class="active">Requirements</li>
                                     </ul>
-                               </div>
+                                </div>
                                 <div class="Wrapper">
                                     <div class="tabTitle">
                                         <p class="text-white"><i class="fas fa-file"></i> <span class="px-2">Requirements </span></p>
@@ -486,7 +497,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <div class="row mt-4 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12 pt-1">Medical Record:</label>
                                             <div class="col-lg-7 mb-3">
-                                                <input name="medical_record" class="form-control form-control-sm" type="file" aria-label="Medical Record" required>
+                                                <input name="medical_record" id="medical" class="form-control form-control-sm" type="file" aria-label="Medical Record" required>
                                             </div>
                                         </div>
 
@@ -494,7 +505,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12 pt-1">Form 137:</label>
                                             <div class="col-lg-7 mb-3">
-                                                <input name="form_137" class="form-control form-control-sm" type="file" aria-label="Form 137" required>
+                                                <input name="form_137" id="form137" class="form-control form-control-sm" type="file" aria-label="Form 137" required>
                                             </div>
                                         </div>
 
@@ -502,7 +513,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12 pt-1">Good Moral:</label>
                                             <div class="col-lg-7 mb-3">
-                                                <input name="good_moral" class="form-control form-control-sm" type="file" aria-label="Good Moral" required>
+                                                <input name="good_moral" id="goodmoral" class="form-control form-control-sm" type="file" aria-label="Good Moral" required>
                                             </div>
                                         </div>
 
@@ -519,7 +530,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                     </div>
                                                 </div>
                                             </button>
-                                            <button type="submit" class="btn btn-warning ms-auto mb-3">
+                                            <button type="button" class="btn btn-warning ms-auto mb-3" data-bs-toggle="modal" data-bs-target="#confirmationPage">
                                                 <div class=" d-flex align-items-center ">
                                                     <div class="flex-shrink-0 text-start d-md-block">
                                                         <span class="next text-dark">PROCEED
@@ -529,6 +540,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                     </div>
                                                 </div>
                                             </button>
+
                                         </div>
                                     </div>
                                     <!-- Requiremets Contents-->
@@ -545,17 +557,89 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
     <template id="fieldFeedbackTemplate">
         <div id="error-message">
-        <small class="text-danger">
-            <!-- Add error message here using selector-->
-        </small>
+            <small class="text-danger">
+                <!-- Add error message here using selector-->
+            </small>
         </div>
     </template>
+    
+    <!-- Confirmation Page -->
 
+    <!-- Modal -->
+    <div class="modal fade" id="confirmationPage" data-bs-backdrop="static" aria-modal="true" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header text-center text-uppercase">
+                    <h5 class="modal-title">Confirmation Page</h5>
+                </div>
+                <div class="modal-body">
+      
+                </div>
+                <div class="modal-footer d-flex justify-content-middle">
+                    <button type="button" class="btn btn-warning text-uppercase">CONFIRM</button>
+                    <button type="button" class="btn btn-secondary text-uppercase" data-bs-dismiss="modal">CLOSE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script type="text/javascript">
+
+    $('#confirmationPage').on('shown.bs.modal', function (e) {
+    var fname = $("#fname").val(); 
+    var midname = $("#midname").val(); 
+    var surname = $("#surname").val(); 
+    var suffix = $("#suffix").val(); 
+    var lrn = $("#lrn").val(); 
+    var birthdate = $("#birthdate").val(); 
+    var age1 = $("#age1").val(); 
+    var birthplace1 = $("#birthplace1").val(); 
+    var landline1 = $("#landline1").val(); 
+    var email1 = $("#email1").val(); 
+    var unit1 = $("#unit1").val(); 
+    var street1 = $("#street1").val(); 
+    var brgy = $("#brgy").val(); 
+    var city1 = $("#city1").val(); 
+    var zip = $("#zip").val(); 
+    var nameschool = $("#nameschool").val(); 
+    var schooladdress = $("#schooladdress").val(); 
+    var yearlvl = $("#yearlvl").val(); 
+    var yeargrad = $("#yeargrad").val(); 
+    var gpa1 = $("#gpa1").val(); 
+    var medical = $("#medical").val(); 
+    var form137 = $("#form137").val(); 
+    var goodmoral = $("#goodmoral").val(); 
+
+    $(".modal-body").html(
+        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Name:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+fname+' '+midname+' '+surname+' '+suffix+' </div> </div>' +
+        '<div class="row"> <label class="form-label col-lg-3 col-md-3">LRN:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+lrn+'</div></div>' +
+        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Birth Date:</label><div class=""col-lg-9 col-md-9 fw-bold text-uppercase"> '+birthdate+'</div></div>' +
+        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Age:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+age1+'</div>' +
+        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Birthplace:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+birthplace1+'</div></div>' +
+        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Landline:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+landline1+'</div></div>' +
+        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Email:</label><div class="col-lg-9 col-md-9 fw-bold"> '+email1+'</div></div>' +
+        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Unit:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+unit1+'</div></div>' +
+        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Street:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+street1+'</div></div>' +
+        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Barangay:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+brgy+'</div></div>' +
+        '<div class="row"> <label class="form-label col-lg-3 col-md-3">City:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+city1+'</div></div>' +
+        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Zipcode:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+zip+'</div></div>' +
+        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Name of School:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+nameschool+'</div></div>' +
+        '<div class="row"> <label class="form-label col-lg-3 col-md-3">School Address:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+schooladdress+'</div></div>' +
+        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Year Level: </label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+yearlvl+'</div></div>' +
+        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Year Graduated: </label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+yeargrad+'</div></div>' +
+        '<div class="row"> <label class="form-label col-lg-3 col-md-3">GPA: </label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+gpa1+'</div></div>' +
+        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Medical Record:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+medical+'</div></div>' +
+        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Form 137:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+form137+'</div></div>' +
+        '<div class="row"> <label class="form-label col-lg-3 col-md-3">Good Moral:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> '+goodmoral+'</div></div>' 
+        );     }); 
+
+    </script>
     <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/applicant.js'); ?>"></script>
 
     <script>
-        
+
 
     </script>
 </body>
