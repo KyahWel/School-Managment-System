@@ -35,12 +35,12 @@ span.spare{
 #personalInfo span.spare1, #educationalattainment span.spare1, #requirement span.spare1 {
     display: none;
 }
-@media (max-width: 1075px) and (min-width:1038px){
+@media (max-width: 560px) and  (min-width: 543px) and  (min-width: 543px) {
     #personalInfo span.spare1, #educationalattainment span.spare1, #requirement span.spare{
         display: block;
     }
 }
-@media (max-width: 1076px){
+@media  (max-width: 565px){
     #personalInfo span.spare, #educationalattainment span.spare, #requirement span.spare{
         display: block;
     }
@@ -148,7 +148,7 @@ ul {
 li {
     display: inline-block;
     position: relative;
-    width: 24%;
+    width: 32.22%;
     text-align: center;
     margin-bottom: 15px 0;
 }
@@ -240,8 +240,10 @@ label {
 
 
 /* step buttons */
-
-.stepButtons .btn-warning {
+.modal .modal-footer .btn-warning{
+    background: #F2BD53;
+}
+.stepButtons .btn-warning{
     background: #F2BD53;
     align-content: flex-end;
     place-items: right;
@@ -252,13 +254,24 @@ label {
     font-size: small;
 }
 
-.stepButtons .btn-warning:hover {
+.stepButtons .btn-warning:hover, .modal .modal-footer .btn-warning:hover {
     background: #faba39;
 }
 
-.stepButtons .btn-warning:focus {
+.stepButtons .btn-warning:focus, .modal .modal-footer .btn-warning:focus, .stepButtons .btn-secondary:focus, .modal .modal-footer .btn-secondary:focus {
     outline: none;
     box-shadow: none;
+}
+
+.stepButtons .btn-secondary, .modal .modal-footer .btn-secondary{
+    background: #bdbdbd;
+    opacity: 0.8;
+    color:black;
+    border: 1px solid gray;
+}
+
+.stepButtons .btn-secondary:hover, .modal .modal-footer .btn-secondary:hover{
+    opacity: 1;
 }
 
 /* common styles */
@@ -354,4 +367,9 @@ label {
     content:" *";
     color:red;
     font-size: 1rem;
+  }
+
+  .modal h5.confirmtitle{
+      letter-spacing: 1px;
+      text-align: center;
   }
