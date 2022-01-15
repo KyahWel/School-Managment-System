@@ -4,6 +4,7 @@ include __DIR__ . '/../includes/facultySideBar.php'
 
 <head>
     <link href="<?php echo base_url('assets/css/adminDashboard.css'); ?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url('assets/css/facultyDashboard.css'); ?>" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url('assets/css/announcement.css'); ?>" rel="stylesheet" type="text/css">
     <title>Dashboard</title>
 </head>
@@ -100,98 +101,327 @@ include __DIR__ . '/../includes/facultySideBar.php'
                 </div>
             </div>
         </div>
-    <!--Schedule-->
-    <div class="col-12 align-self-center" id="schedule">
-            <div class="table-wrapper">
-                <div class="table-title">
-                    <div class="row">
-                        <div class="col">
-                            <h2>Schedule</h2>
+        <!--Schedule-->
+        <div class="col-12 align-self-center my-3 pt-3 viewSched ">
+        <ul class="nav nav-tabs text-dark d-flex flex-row" id="viewSchedule" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#monday" type="button" role="tab" aria-controls="monday" aria-selected="true">Mon</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tuesday" type="button" role="tab" aria-controls="tuesday" aria-selected="false">Tue</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#wednesday" type="button" role="tab" aria-controls="wednesday" aria-selected="false">Wed</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#thursday" type="button" role="tab" aria-controls="thursday" aria-selected="false">Thurs</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#friday" type="button" role="tab" aria-controls="friday" aria-selected="false">Fri</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#saturday" type="button" role="tab" aria-controls="saturday" aria-selected="false">Sat</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#sunday" type="button" role="tab" aria-controls="sunday" aria-selected="false">Sun</button>
+                </li>
+            </ul>
+            <div class="tab-content p-4">
+                <!-- Monday -->
+                <div class="tab-pane show active mb-3 text-dark" id="monday" role="tabpanel" aria-labelledby="Monday">
+                    <div class="row mb-3">
+                    <div class="col-lg-6 mb-2">
+                            <div class="box-wrapper p-4" href="#">
+                                <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 8:00am - 12:00pm</h5>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="timetable-item-subtitle">Subject</div>
+                                        <h6 class=" timetable-item-subj my-1 px-3 py-2">Mathematics 3</h6>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="timetable-item-subtitle"> Section</div>
+                                        <h6 class=" timetable-item-prof my-1 px-3 py-2">BSCS-NS-3A</h6>
+                                    </div>
+                                </div>
+                                <div class="box-content">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-2">
+                            <div class="box-wrapper p-4" href="#">
+                                <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 1:00pm - 3:00pm</h5>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="timetable-item-subtitle">Subject</div>
+                                        <h6 class=" timetable-item-subj my-1 px-3 py-2">Mathematics 3</h6>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="timetable-item-subtitle"> Section</div>
+                                        <h6 class=" timetable-item-prof my-1 px-3 py-2">BSCS-3B</h6>
+                                    </div>
+                                </div>
+                                <div class="box-content">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Tuesday -->
+                <div class="tab-pane " id="tuesday" role="tabpanel" aria-labelledby="Tuesday">
+                    <div class="row mb-3">
+                    <div class="col-lg-6 mb-2">
+                            <div class="box-wrapper p-4" href="#">
+                                <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 8:00am - 12:00pm</h5>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="timetable-item-subtitle">Subject</div>
+                                        <h6 class=" timetable-item-subj my-1 px-3 py-2">Mathematics 3</h6>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="timetable-item-subtitle"> Section</div>
+                                        <h6 class=" timetable-item-prof my-1 px-3 py-2">BSCS-NS-3A</h6>
+                                    </div>
+                                </div>
+                                <div class="box-content">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-2">
+                            <div class="box-wrapper p-4" href="#">
+                                <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 1:00pm - 3:00pm</h5>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="timetable-item-subtitle">Subject</div>
+                                        <h6 class=" timetable-item-subj my-1 px-3 py-2">Mathematics 3</h6>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="timetable-item-subtitle"> Section</div>
+                                        <h6 class=" timetable-item-prof my-1 px-3 py-2">BSCS-3B</h6>
+                                    </div>
+                                </div>
+                                <div class="box-content">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="table-responsive">  
-                    <table class="table table-fixed align-middle table-striped table-borderless table-hover" style="height: 250px;" id="table-body">
-                        <thead class ="thead">
-                            <tr>
-			                    <th>Subject Code</th>
-			                    <th>Subject Name </th>
-                                <th>Section</th>
-                                <th>Day</th>
-                                <th>Time</th>
-		                    </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Math001</td>
-                                <td>Mathematics 1</td>
-                                <td>BSCS-NS-1A</td>
-                                <td>Mon</td>
-                                <td>7:00-9:00</td>
-                            </tr>
-                            <tr>
-                                <td>Math002</td>
-                                <td>Mathematics 2</td>
-                                <td>BSCS-2A</td>
-                                <td>Wed</td>
-                                <td>7:00-9:00</td>
-                            </tr>
-                            <tr>
-                                <td>Math003</td>
-                                <td>Mathematics 3</td>
-                                <td>BSCS-NS-3A</td>
-                                <td>Thur</td>
-                                <td>7:00-9:00</td>
-                            </tr>
-                            <tr>
-                                <td>Math004</td>
-                                <td>Mathematics 4</td>
-                                <td>BSCS-4A</td>
-                                <td>Fri</td>
-                                <td>7:00-9:00</td>
-                            </tr>
-                            <tr>
-                                <td>Math001</td>
-                                <td>Mathematics 1</td>
-                                <td>BSCS-1A</td>
-                                <td>Mon</td>
-                                <td>7:00-9:00</td>
-                            </tr>
-                            <tr>
-                                <td>Math002</td>
-                                <td>Mathematics 2</td>
-                                <td>BSCS-NS-2A</td>
-                                <td>Tue</td>
-                                <td>7:00-9:00</td>
-                            </tr>
-                            <tr>
-                                <td>Math003</td>
-                                <td>Mathematics 3</td>
-                                <td>BSCS-NS-3A</td>
-                                <td>Wed</td>
-                                <td>7:00-9:00</td>
-                            </tr>
-                            <tr>
-                                <td>Math004</td>
-                                <td>Mathematics 4</td>
-                                <td>BSCS-4A</td>
-                                <td>Fri</td>
-                                <td>7:00-9:00</td>
-                            </tr>
-                            <tr>
-                                <td>Math001</td>
-                                <td>Mathematics 1</td>
-                                <td>BSCS-NS-1A</td>
-                                <td>Mon</td>
-                                <td>7:00-9:00</td>
-                            </tr> 
-                        </tbody>
-                    </table>	
+
+                <!-- Wednesday -->
+                <div class="tab-pane" id="wednesday" role="tabpanel" aria-labelledby="Wednesday">
+                    <div class="row mb-3">
+                    <div class="col-lg-6 mb-2">
+                            <div class="box-wrapper p-4" href="#">
+                                <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 8:00am - 12:00pm</h5>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="timetable-item-subtitle">Subject</div>
+                                        <h6 class=" timetable-item-subj my-1 px-3 py-2">Mathematics 3</h6>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="timetable-item-subtitle"> Section</div>
+                                        <h6 class=" timetable-item-prof my-1 px-3 py-2">BSCS-NS-3A</h6>
+                                    </div>
+                                </div>
+                                <div class="box-content">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-2">
+                            <div class="box-wrapper p-4" href="#">
+                                <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 1:00pm - 3:00pm</h5>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="timetable-item-subtitle">Subject</div>
+                                        <h6 class=" timetable-item-subj my-1 px-3 py-2">Mathematics 3</h6>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="timetable-item-subtitle"> Section</div>
+                                        <h6 class=" timetable-item-prof my-1 px-3 py-2">BSCS-3B</h6>
+                                    </div>
+                                </div>
+                                <div class="box-content">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Thursday -->
+                <div class="tab-pane" id="thursday" role="tabpanel" aria-labelledby="Thursday">
+                    <div class="row mb-3">
+                    <div class="col-lg-6 mb-2">
+                            <div class="box-wrapper p-4" href="#">
+                                <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 8:00am - 12:00pm</h5>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="timetable-item-subtitle">Subject</div>
+                                        <h6 class=" timetable-item-subj my-1 px-3 py-2">Mathematics 3</h6>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="timetable-item-subtitle"> Section</div>
+                                        <h6 class=" timetable-item-prof my-1 px-3 py-2">BSCS-NS-3A</h6>
+                                    </div>
+                                </div>
+                                <div class="box-content">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-2">
+                            <div class="box-wrapper p-4" href="#">
+                                <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 1:00pm - 3:00pm</h5>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="timetable-item-subtitle">Subject</div>
+                                        <h6 class=" timetable-item-subj my-1 px-3 py-2">Mathematics 3</h6>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="timetable-item-subtitle"> Section</div>
+                                        <h6 class=" timetable-item-prof my-1 px-3 py-2">BSCS-3B</h6>
+                                    </div>
+                                </div>
+                                <div class="box-content">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Friday -->
+                <div class="tab-pane" id="friday" role="tabpanel" aria-labelledby="Friday">
+                    <div class="row mb-3">
+                    <div class="col-lg-6 mb-2">
+                            <div class="box-wrapper p-4" href="#">
+                                <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 8:00am - 12:00pm</h5>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="timetable-item-subtitle">Subject</div>
+                                        <h6 class=" timetable-item-subj my-1 px-3 py-2">Mathematics 3</h6>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="timetable-item-subtitle"> Section</div>
+                                        <h6 class=" timetable-item-prof my-1 px-3 py-2">BSCS-NS-3A</h6>
+                                    </div>
+                                </div>
+                                <div class="box-content">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-2">
+                            <div class="box-wrapper p-4" href="#">
+                                <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 1:00pm - 3:00pm</h5>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="timetable-item-subtitle">Subject</div>
+                                        <h6 class=" timetable-item-subj my-1 px-3 py-2">Mathematics 3</h6>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="timetable-item-subtitle"> Section</div>
+                                        <h6 class=" timetable-item-prof my-1 px-3 py-2">BSCS-3B</h6>
+                                    </div>
+                                </div>
+                                <div class="box-content">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Saturday -->
+                <div class="tab-pane" id="saturday" role="tabpanel" aria-labelledby="Saturday">
+                    <div class="row mb-3">
+                    <div class="col-lg-6 mb-2">
+                            <div class="box-wrapper p-4" href="#">
+                                <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 8:00am - 12:00pm</h5>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="timetable-item-subtitle">Subject</div>
+                                        <h6 class=" timetable-item-subj my-1 px-3 py-2">Mathematics 3</h6>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="timetable-item-subtitle"> Section</div>
+                                        <h6 class=" timetable-item-prof my-1 px-3 py-2">BSCS-NS-3A</h6>
+                                    </div>
+                                </div>
+                                <div class="box-content">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-2">
+                            <div class="box-wrapper p-4" href="#">
+                                <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 1:00pm - 3:00pm</h5>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="timetable-item-subtitle">Subject</div>
+                                        <h6 class=" timetable-item-subj my-1 px-3 py-2">Mathematics 3</h6>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="timetable-item-subtitle"> Section</div>
+                                        <h6 class=" timetable-item-prof my-1 px-3 py-2">BSCS-3B</h6>
+                                    </div>
+                                </div>
+                                <div class="box-content">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sunday -->
+                <div class="tab-pane" id="sunday" role="tabpanel" aria-labelledby="Sunday">
+                    <div class="row mb-3">
+                    <div class="col-lg-6 mb-2">
+                            <div class="box-wrapper p-4" href="#">
+                                <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 8:00am - 12:00pm</h5>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="timetable-item-subtitle">Subject</div>
+                                        <h6 class=" timetable-item-subj my-1 px-3 py-2">Lesson Plan</h6>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="timetable-item-subtitle"> Section</div>
+                                        <h6 class=" timetable-item-prof my-1 px-3 py-2"> N/A </h6>
+                                    </div>
+                                </div>
+                                <div class="box-content">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-2">
+                            <div class="box-wrapper p-4" href="#">
+                                <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 1:00pm - 3:00pm</h5>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="timetable-item-subtitle">Subject</div>
+                                        <h6 class=" timetable-item-subj my-1 px-3 py-2">Faculty Meeting</h6>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="timetable-item-subtitle"> Section</div>
+                                        <h6 class=" timetable-item-prof my-1 px-3 py-2"> N/A</h6>
+                                    </div>
+                                </div>
+                                <div class="box-content">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 <script src="<?php echo base_url('assets/js/calendar.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
