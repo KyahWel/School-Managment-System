@@ -31,11 +31,11 @@ include __DIR__.'/../includes/adminSideBar.php'
                     <div class="accordion-body">
                         <form  method="POST" action="<?php echo site_url('classController/addClass')?>">
                             <div class="row mb-3">
-                                <div class="col-6"> <!--Year Level-->
+                                <div class="col-sm-6 col-md-6 col-lg-6"> <!--Year Level-->
                                     <label class="form-label">Class Code</label>
                                     <input type="text" class="form-control" name="classcode" required placeholder="Enter class code"> 
                                 </div>
-                                <div class="col-6"> <!--Year Level-->
+                                <div class="col-sm-6 col-md-6 col-lg-6"> <!--Year Level-->
                                     <label class="form-label">Year Level</label>
                                     <select name="yearlevel" id="yearlevel" required class="form-control">
                                         <option value="" disabled selected  hidden>Please Select</option>
@@ -47,16 +47,16 @@ include __DIR__.'/../includes/adminSideBar.php'
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <div class="col-6"> <!--Course-->
+                                <div class="col-sm-6 col-md-6 col-lg-6"> <!--Course-->
                                 <label class="form-label">Course</label>
-                                <select name="courseID" class="form-control" required id="courseID">
+                                <select name="courseID" id="courseID" required class="form-control">
                                     <option value="" disabled selected  hidden >Please select</option>
                                     <?php foreach($course as $courserow) {?>
 			                                <option value="<?php echo $courserow->courseID?>"><?php echo $courserow->degree?> in <?php echo $courserow->major?></option>
                                     <?php }?>
                                 </select>
                                 </div>
-                                <div class="col-3"> <!--Semester-->
+                                <div class="col-sm-4 col-md-4 col-lg-4"> <!--Semester-->
                                     <label class="form-label">Semester</label>
                                     <select name="semester" id="semester" required class="form-control">
                                         <option value="" disabled selected hidden >Please select</option>
@@ -64,19 +64,16 @@ include __DIR__.'/../includes/adminSideBar.php'
                                         <option value="2">Second Semester</option>
                                     </select>
                                 </div>
-                            </div>
-
-                            <!-- Load Subects Button -->
-                            <div class="col-3 mb-3">
+                                <div class="loadSubject-button col-sm-2 col-md-2 col-lg-2"> <!-- Load Subects Button -->
                                     <button type="button" id="load" class="btn loadSubjects">Load Subjects</button>   
+                                </div>
                             </div>
                             
                             <div id="listSubjects">
 
                             </div>  
-
                         
-                            <div class="addClassButton d-flex justify-content-end"> <!--Buttons-->
+                            <div class="addClassButton d-flex justify-content-end mt-3"> <!--Buttons-->
                                 <button ctype="submit" class="btn btn-default" id="save" value="save">Save</button>
                                 <button class="btn btn-default" id="cancel" type="reset" value="cancel">Cancel</button>
                             </div>
@@ -90,21 +87,23 @@ include __DIR__.'/../includes/adminSideBar.php'
 
         <!-- Filter and Search -->
         <div class="col-12 align-self-center my-3" id="filterAndSearch">
-            <label>Filter by:</label>
-            <select required>
+            <label for="yearLevel-filter">Filter by:</label>
+            <select id="yearLevel-filter">
                 <option value="" disabled selected hidden>Year Level</option>
                 <option value="yearLevel">First Year</option>
                 <option value="yearLevel">Second Year</option>
                 <option value="yearLevel">Third Year</option>
                 <option value="yearLevel">Fourth Year</option>
             </select>
-            <select required>
+            <label for="course-filter"></label>
+            <select id="course-filter">
                 <option value="" disabled selected hidden>Course</option>
                 <option value="course">Course 1</option>
                 <option value="course">Course 2</option>
                 <option value="course">Course 3</option>
             </select>
-            <select required>
+            <label for="semester-filter"></label>
+            <select id="semester-filter">
                 <option value="" disabled selected hidden>Semester</option>
                 <option value="semester">First Semester</option>
                 <option value="semester">Second Semester</option>
@@ -147,23 +146,25 @@ include __DIR__.'/../includes/adminSideBar.php'
                                     <td><?php echo $class->semester; ?></td>
                                     <td>
                                     <div class="action-buttons">
-                                    <?php if ($class->status == 1): ?>
-                                        <li><button type="button" id="view" data-id='<?php echo $class->class_code;?>' class="btn view_data" data-bs-toggle="modal" data-bs-target="#viewClass"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                        <li><button type="button" id="edit" data-id='<?php echo $class->class_code;?>' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editClass"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-                                        <li>
-                                        <li><button type="button" class="btn"  onclick="location.href='<?php if($class->status == 1){echo site_url('classController/deactivate');} else {echo site_url('classController/activate');}?>/<?php echo $class->class_code; ?>'">
-                                            Deactivate
-                                        </button>
-                                        </li>
-                                    <?php else: ?>
-                                            <li><button type="button" id="view" data-id='<?php echo $class->class_code;?>' class="btn" disabled style="background-color: gray;"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                            <li><button type="button" id="edit" data-id='<?php echo $class->class_code;?>' class="btn" disabled style="background-color: gray;"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
+                                    <ul>
+                                        <?php if ($class->status == 1): ?>
+                                            <li><button type="button" id="view" data-id='<?php echo $class->class_code;?>' class="btn view_data" data-bs-toggle="modal" data-bs-target="#viewClass"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
+                                            <li><button type="button" id="edit" data-id='<?php echo $class->class_code;?>' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editClass"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
                                             <li>
-                                            <li><button type="button" id="status" class="btn" onclick="location.href='<?php if($class->status == 1){echo site_url('classController/deactivate');} else {echo site_url('classController/activate');}?>/<?php echo $class->class_code; ?>'">
-                                             Activate
+                                            <li><button type="button" class="btn"  onclick="location.href='<?php if($class->status == 1){echo site_url('classController/deactivate');} else {echo site_url('classController/activate');}?>/<?php echo $class->class_code; ?>'">
+                                                Deactivate
                                             </button>
-                                            </li>	
-                                    <?php endif ?>
+                                            </li>
+                                        <?php else: ?>
+                                                <li><button type="button" id="view" data-id='<?php echo $class->class_code;?>' class="btn" disabled style="background-color: gray;"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
+                                                <li><button type="button" id="edit" data-id='<?php echo $class->class_code;?>' class="btn" disabled style="background-color: gray;"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
+                                                <li>
+                                                <li><button type="button" id="status" class="btn" onclick="location.href='<?php if($class->status == 1){echo site_url('classController/deactivate');} else {echo site_url('classController/activate');}?>/<?php echo $class->class_code; ?>'">
+                                                Activate
+                                                </button>
+                                                </li>	
+                                        <?php endif ?>
+                                    </ul>
                                     </div>
                                     </td> 
                                 </tr>
@@ -176,8 +177,8 @@ include __DIR__.'/../includes/adminSideBar.php'
         </div>
 
         <!-- View Class -->
-        <div class="modal fade" id="viewClass" tabindex="-1" aria-labelledby="viewClassHeader" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal fade" id="viewClass" tabindex="-1" aria-modal="true" aria-labelledby="viewClassHeader" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
                 <div class="modal-content">
 
                     <div class="modal-header">
@@ -197,7 +198,7 @@ include __DIR__.'/../includes/adminSideBar.php'
 
         <!-- Edit Class -->
         <div class="modal fade" id="editClass" tabindex="-1" aria-labelledby="editClassHeader" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
                 <div class="modal-content">
 
                     <div class="modal-header">

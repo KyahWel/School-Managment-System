@@ -77,20 +77,20 @@ include __DIR__ . '/../includes/facultySideBar.php'
 
         <button class="btn btn-sm" id="back-button" onclick="mainPage()"><i class="fa fa-arrow-left"></i> Back</button>
 
-        <div class="table-responsive pt-2">
+        <div class="table-responsive">
             <table id="sectionInformation">
                 <tr>
                     <td>
                         <p><b>Course:</b></p>
-                        <p><b>Subject Code:</b><br></p>
+                        <p><b>Subject Code:</b></p>
                         <p><b>Subject Title:</b></p>
-                        <p><b>Schedule:</b></p>
+                        <p class="mb-0"><b>Schedule:</b></p>
                     </td>
                     <td class="text-uppercase">
                         <p>BSCS</p>
                         <p>Math-01</p>
                         <p>Mathematics 1</p>
-                        <p>Monday 7:00AM-9:00AM</p>
+                        <p class="mb-0">Monday 7:00AM-9:00AM</p>
                     </td>
                 </tr>
             </table>

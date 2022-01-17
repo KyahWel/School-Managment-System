@@ -90,26 +90,24 @@ input[type=text], input[type=date], input[type=time], textarea{
     color: white;
     text-decoration: none;
     font-size: 0.8rem;
-    margin-right: 8px;
+    margin: 0px 8px;
 }
-
-#load{
-    background-color: #800000;
-    border-color: transparent;
-    color: white;
-    text-decoration: none;
-    font-size: 0.8rem;
-    margin-right: 8px;
-}
-
 #cancel{
     background-color: #aaaaaa;
     border-color: transparent;
     color: black;
     text-decoration: none;
     font-size: 0.8rem;
+    margin: 0px;
 }
-
+#load{
+    background-color: #800000;
+    border-color: transparent;
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    margin: 32px 0 0 0;
+}
 
 #save:hover{
     background-color: white;
@@ -118,6 +116,12 @@ input[type=text], input[type=date], input[type=time], textarea{
     font-size: 0.8rem;
 }
 #cancel:hover{
+    background-color: white;
+    border-color: #800000;
+    color: #800000;
+    font-size: 0.8rem;
+}
+#load:hover{
     background-color: white;
     border-color: #800000;
     color: #800000;
