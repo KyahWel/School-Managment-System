@@ -186,7 +186,7 @@ class classController extends CI_Controller {
 					<input type="text" class="form-control" hidden name="subjectID[]" readonly required value="'.$records[$i]['subjectID'].'">
 				</div>	
 				<div class="col-sm-3"> <!-- Professor -->
-					<select name="profID[]" class="form-control">';
+					<select name="profID[]" class="form-select">';
 						if($records[$i]['teacherID']==NULL){
 							$output.=' <option value="" disabled selected hidden>Select Professor</option>';
 						}
@@ -201,7 +201,7 @@ class classController extends CI_Controller {
 					</select>
 				</div>
 				<div class="col-sm-2"> <!-- Day -->
-					<select name="day[]" class="form-control">
+					<select name="day[]" class="form-select">
 						<option value="'.$records[$i]['day'].'" selected hidden>'.$records[$i]['day'].'</option>
 						<option value="Monday">Monday</option>
 						<option value="Tuesday">Tuesday</option>

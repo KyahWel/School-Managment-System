@@ -64,16 +64,23 @@ body{
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.form-select:focus{
+    box-shadow: none;
+    border-color: #800000;
+}
 .form-control:focus{
     box-shadow: none;
     border-color: #800000;
 }
+.form-select::placeholder,
 .form-control::placeholder{ /* Chrome, Firefox, Opera, Safari 10.1+ */
     font-size: 0.8rem;
 }
+.form-select:-ms-input-placeholder,
 .form-control:-ms-input-placeholder{ /* Internet Explorer 10-11 */
     font-size: 0.8rem;
 }
+.form-select::-ms-input-placeholder,
 .form-control::-ms-input-placeholder{ /* Microsoft Edge */
     font-size: 0.8rem;
 }
@@ -108,7 +115,6 @@ input[type=text], input[type=date], input[type=time], textarea{
     font-size: 0.8rem;
     margin: 32px 0 0 0;
 }
-
 #save:hover{
     background-color: white;
     border-color: #800000;
@@ -232,14 +238,16 @@ textarea:focus, input:focus{
 
 /* Add Class */
 
+select.form-select,
 select.form-control{
     color: gray;
-    font-size: small;
+    font-size: 0.8rem;
 }
 
 /* View Class */
 
-.form-control:disabled, .form-control[readonly] {
+.form-select:disabled, .form-select[readonly],
+.form-control:disabled, .form-control[readonly]{
     background-color: white;
     opacity: 1;
 }
