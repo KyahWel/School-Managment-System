@@ -37,7 +37,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                                 </div>
                                 <div class="col-sm-6 col-md-6 col-lg-6"> <!--Year Level-->
                                     <label class="form-label">Year Level</label>
-                                    <select name="yearlevel" id="yearlevel" required class="form-control">
+                                    <select name="yearlevel" id="yearlevel" required class="form-select">
                                         <option value="" disabled selected  hidden>Please Select</option>
                                         <option value="1">First Year</option>
                                         <option value="2">Second Year</option>
@@ -49,7 +49,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                             <div class="row mb-3">
                                 <div class="col-sm-6 col-md-6 col-lg-6"> <!--Course-->
                                 <label class="form-label">Course</label>
-                                <select name="courseID" id="courseID" required class="form-control">
+                                <select name="courseID" id="courseID" required class="form-select">
                                     <option value="" disabled selected  hidden >Please select</option>
                                     <?php foreach($course as $courserow) {?>
 			                                <option value="<?php echo $courserow->courseID?>"><?php echo $courserow->degree?> in <?php echo $courserow->major?></option>
@@ -58,7 +58,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                                 </div>
                                 <div class="col-sm-4 col-md-4 col-lg-4"> <!--Semester-->
                                     <label class="form-label">Semester</label>
-                                    <select name="semester" id="semester" required class="form-control">
+                                    <select name="semester" id="semester" required class="form-select">
                                         <option value="" disabled selected hidden >Please select</option>
                                         <option value="1">First Semester</option>
                                         <option value="2">Second Semester</option>

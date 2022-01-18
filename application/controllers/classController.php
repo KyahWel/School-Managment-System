@@ -51,8 +51,8 @@ class classController extends CI_Controller {
 						<input type="text" class="form-control" readonly required value="'.$records[$i]['name'].'">
 						<input type="text" class="form-control" hidden name="subjectID[]" readonly required value="'.$records[$i]['subjectID'].'">
 					</div>		
-					<div class="col-sm-2"> <!-- Day -->
-						<select name="day[]" class="form-control" required>
+					<div class="col-sm-3"> <!-- Day -->
+						<select name="day[]" class="form-select" required>
 							<option value="" disabled selected hidden>Day</option>
 							<option value="Monday">Monday</option>
 							<option value="Tuesday">Tuesday</option>
@@ -63,10 +63,10 @@ class classController extends CI_Controller {
 							<option value="Sunday">Sunday</option>
 						</select>
 					</div>
-					<div class="col-sm-2" id="time"> <!-- Time from -->
+					<div class="col-sm-2" id="from-time"> <!-- Time from -->
 						<input type="time" class="form-control" name="timeFrom[]" required>
 					</div>
-					<div class="col-sm-2" id="time"> <!--Time to -->
+					<div class="col-sm-2" id="to-time"> <!--Time to -->
 						<input type="time" class="form-control" name="timeTo[]" required>
 					</div>
 					<div class="col-sm-2" id="time"> <!-- Room No -->
@@ -186,7 +186,7 @@ class classController extends CI_Controller {
 					<input type="text" class="form-control" hidden name="subjectID[]" readonly required value="'.$records[$i]['subjectID'].'">
 				</div>	
 				<div class="col-sm-3"> <!-- Professor -->
-					<select name="profID[]" class="form-control">';
+					<select name="profID[]" class="form-select">';
 						if($records[$i]['teacherID']==NULL){
 							$output.=' <option value="" disabled selected hidden>Select Professor</option>';
 						}
@@ -201,7 +201,7 @@ class classController extends CI_Controller {
 					</select>
 				</div>
 				<div class="col-sm-2"> <!-- Day -->
-					<select name="day[]" class="form-control">
+					<select name="day[]" class="form-select">
 						<option value="'.$records[$i]['day'].'" selected hidden>'.$records[$i]['day'].'</option>
 						<option value="Monday">Monday</option>
 						<option value="Tuesday">Tuesday</option>
