@@ -33,7 +33,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                         <div class="row mb-3">
                             <div class="col-lg-3"> <!--Year Level-->
                                 <label class="form-label">Year Level</label>
-                                <select name="yearLevel" class="form-control">
+                                <select name="yearLevel" class="form-select">
                                     <option value="" disabled selected hidden></option>
                                     <option value="yearLevel">First Year</option>
                                     <option value="yearLevel">Second Year</option>
@@ -43,7 +43,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                             </div>
                             <div class="col-lg-3"> <!--Course-->
                                 <label class="form-label">Course</label>
-                                <select name="course" class="form-control">
+                                <select name="course" class="form-select">
                                     <option value="" disabled selected hidden></option>
                                     <option value="course">Course 1</option>
                                     <option value="course">Course 2</option>
@@ -53,7 +53,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                             </div>
                             <div class="col-lg-4"> <!--Section-->
                                 <label class="form-label">Section</label>
-                                <select name="section" class="form-control">
+                                <select name="section" class="form-select">
                                     <option value="" disabled selected hidden></option>
                                     <option value="section">Section 1</option>
                                     <option value="section">Section 2</option>
@@ -71,15 +71,16 @@ include __DIR__.'/../includes/adminSideBar.php'
 
                     <!-- Filter -->
                     <div class="container col-12 align-self-center my-3" id="filterAndSearch">
-                        <label>Filter by:</label>
-                        <select required>
+                        <label for="yearLevel-filter">Filter by:</label>
+                        <select id="yearLevel-filter">
                             <option value="" disabled selected hidden>Year Level</option>
                             <option value="yearLevel">First Year</option>
                             <option value="yearLevel">Second Year</option>
                             <option value="yearLevel">Third Year</option>
                             <option value="yearLevel">Fourth Year</option>
                         </select>
-                        <select required>
+                        <label for="course-filter"></label>
+                        <select id="course-filter">
                             <option value="" disabled selected hidden>Course</option>
                             <option value="course">Course 1</option>
                             <option value="course">Course 2</option>
@@ -91,7 +92,7 @@ include __DIR__.'/../includes/adminSideBar.php'
 
                 <!--Table Body-->
                 <div class="table-responsive">  
-                    <table class="table align-middle table-striped table-borderless table-hover" id="table-body">
+                    <table class="table table-body align-middle table-striped table-borderless table-hover">
                         <thead>
                             <tr>
                                 <th>Student ID</th>
@@ -124,7 +125,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                 </div>
 
                 <!-- Add Section -->
-                <div class="modal fade" id="addSection" tabindex="-1" aria-labelledby="addSectionHeader" aria-hidden="true">
+                <div class="modal fade" id="addSection" tabindex="-1" aria-modal="true" aria-labelledby="addSectionHeader" aria-hidden="true">
                     <div class="modal-dialog modal-lg modal-dialog-centered">
                         <div class="modal-content">
 
@@ -133,7 +134,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                                     <div class="row mb-3">
                                         <div class="col-lg-6"> <!--Year Level-->
                                             <label class="form-label">Year Level</label>
-                                            <select name="yearLevel" class="form-control">
+                                            <select name="yearLevel" class="form-select">
                                                 <option value="" disabled selected hidden></option>
                                                 <option value="yearLevel">First Year</option>
                                                 <option value="yearLevel">Second Year</option>
@@ -143,7 +144,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                                         </div>
                                         <div class="col-lg-6"> <!--Course-->
                                             <label class="form-label">Course</label>
-                                            <select name="course" class="form-control">
+                                            <select name="course" class="form-select">
                                                 <option value="" disabled selected hidden></option>
                                                 <option value="course">Course 1</option>
                                                 <option value="course">Course 2</option>
@@ -159,15 +160,15 @@ include __DIR__.'/../includes/adminSideBar.php'
                                         </div>
                                         <div class="col-lg-6"> <!--Capacity-->
                                             <label class="form-label">Capacity</label>
-                                            <select name="capacity" class="form-control">
+                                            <select name="capacity" class="form-select">
                                                 <option value="" disabled selected hidden></option>
                                                 <option value="capacity">25</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="addSectionButton d-flex justify-content-end"> <!--Buttons-->
-                                        <button class="btn btn-default" id="save" type="submit" value="save">Save</button>
-                                        <button class="btn btn-default" id="cancel" type="button" data-bs-dismiss="modal">Cancel</button>
+                                        <button class="btn btn-default" id="addSectionSave" type="submit" value="save">Save</button>
+                                        <button class="btn btn-default" id="addSectionCancel" type="button" data-bs-dismiss="modal">Cancel</button>
                                     </div>
                                 </form>
                             </div>
@@ -177,7 +178,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                 </div>
 
                 <!-- Edit Section -->
-                <div class="modal fade" id="editSection" tabindex="-1" aria-labelledby="editSectionHeader" aria-hidden="true">
+                <div class="modal fade" id="editSection" tabindex="-1" aria-modal="true" aria-labelledby="editSectionHeader" aria-hidden="true">
                     <div class="modal-dialog modal-lg modal-dialog-centered">
                         <div class="modal-content">
 
@@ -191,38 +192,20 @@ include __DIR__.'/../includes/adminSideBar.php'
                                     <div class="row mb-3">
                                         <div class="col-lg-4"> <!--Year Level-->
                                             <label class="form-label">Year Level</label>
-                                            <select name="yearLevel" class="form-control">
-                                                <option value="" disabled selected hidden></option>
-                                                <option value="yearLevel">First Year</option>
-                                                <option value="yearLevel">Second Year</option>
-                                                <option value="yearLevel">Third Year</option>
-                                                <option value="yearLevel">Fourth Year</option>
-                                            </select>
+                                            <input type="text" class="form-control" readonly>
                                         </div>
                                         <div class="col-lg-4"> <!--Course-->
                                             <label class="form-label">Course</label>
-                                            <select name="course" class="form-control">
-                                                <option value="" disabled selected hidden></option>
-                                                <option value="course">Course 1</option>
-                                                <option value="course">Course 2</option>
-                                                <option value="course">Course 3</option>
-                                                <option value="course">Course 4</option>
-                                            </select>
+                                            <input type="text" class="form-control" readonly>
                                         </div>
                                         <div class="col-lg-4"> <!--Section-->
                                             <label class="form-label">Section</label>
-                                            <select name="section" class="form-control">
-                                                <option value="" disabled selected hidden></option>
-                                                <option value="section">Section 1</option>
-                                                <option value="section">Section 2</option>
-                                                <option value="section">Section 3</option>
-                                                <option value="section">Section 4</option>
-                                            </select>
+                                            <input type="text" class="form-control" readonly>
                                         </div>
                                     </div>
                                 </form>
                                 <div class="table-responsive">  
-                                    <table class="table align-middle table-striped table-borderless table-hover" id="table-body">
+                                    <table class="table table-body align-middle table-striped table-borderless table-hover">
                                         <thead>
                                             <tr>
                                                 <th style="width: 10px"></th>

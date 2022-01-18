@@ -28,19 +28,19 @@ body{
     margin: 12px 12px 12px 20px;
     text-align: start;
 }
-#table-body thead{
+.table-body thead{
     text-align: center;
 }
-#table-body tbody{
+.table-body tbody{
     text-align: center;
 
 }
-#table-body tr{
+.table-body tr{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-#table-body td{
+.table-body td{
     max-width: 200px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -63,22 +63,39 @@ label.form-label{
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.form-select:focus{
+    box-shadow: none;
+    border-color: #800000;
+}
 .form-control:focus{
     box-shadow: none;
     border-color: #800000;
 }
+.form-select::placeholder,
 .form-control::placeholder{ /* Chrome, Firefox, Opera, Safari 10.1+ */
     font-size: 0.8rem;
 }
+.form-select:-ms-input-placeholder,
 .form-control:-ms-input-placeholder{ /* Internet Explorer 10-11 */
     font-size: 0.8rem;
 }
+.form-select::-ms-input-placeholder,
 .form-control::-ms-input-placeholder{ /* Microsoft Edge */
     font-size: 0.8rem;
 }
 input[type=text], input[type=date], input[type=time], textarea{
     color: black;
     font-size: 0.8rem;
+}
+select.form-select,
+select.form-control{
+    color: gray;
+    font-size: 0.8rem;
+}
+.form-select:disabled, .form-select[readonly],
+.form-control:disabled, .form-control[readonly]{
+    background-color: white;
+    opacity: 1;
 }
 
 /* Modal */
@@ -106,6 +123,7 @@ input[type=text], input[type=date], input[type=time], textarea{
 
 /* Save and Cancel Button */
 
+#addSectionSave,
 #save{
     background-color: #800000;
     border-color: transparent;
@@ -114,6 +132,7 @@ input[type=text], input[type=date], input[type=time], textarea{
     font-size: 0.8rem;
     margin-right: 8px;
 }
+#addSectionCancel,
 #cancel{
     background-color: #aaaaaa;
     border-color: transparent;
@@ -121,12 +140,14 @@ input[type=text], input[type=date], input[type=time], textarea{
     text-decoration: none;
     font-size: 0.8rem;
 }
+#addSectionSave:hover,
 #save:hover{
     background-color: white;
     border-color: #800000;
     color: #800000;
     font-size: 0.8rem;
 }
+#addSectionCancel:hover,
 #cancel:hover{
     background-color: white;
     border-color: #800000;
