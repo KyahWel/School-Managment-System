@@ -66,7 +66,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                                 <input type="text" name='middlename' value="<?php echo $student->middlename?>" class="form-control form-control-sm" aria-label="Last name" readonly>
                             </div>
                             <div class="col-lg-3 col-md-6 py-1">
-                                <label class="form-label small">Surname</label>
+                                <label class="small">Surname</label>
                                 <input type="text" name="lastname" value="<?php echo $student->lastname?>" class="form-control form-control-sm" aria-label="Surname" readonly>
                             </div>
                             <div class="col-lg-3 col-md-6 py-1">

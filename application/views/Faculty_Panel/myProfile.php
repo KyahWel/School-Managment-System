@@ -16,7 +16,7 @@ include __DIR__ . '/../includes/facultySideBar.php'
             <div class="d-flex align-items-center my-2">
 
                 <div class=" profile-pic-div">
-                    <img src="../assets/images/facultyAvatar.png" alt="Student Avatar" id="facultyPhoto">
+                    <img src="../assets/images/facultyAvatar.jpg" alt="Student Avatar" id="facultyPhoto">
                 </div>
 
                 <!-- My Profile Details -->
@@ -157,6 +157,7 @@ include __DIR__ . '/../includes/facultySideBar.php'
         </div>
 
     </div>
+    <div class="py-1"> </div>
 </div>
 <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 </body>

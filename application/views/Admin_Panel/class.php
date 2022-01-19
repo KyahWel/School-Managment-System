@@ -74,7 +74,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                             </div>  
                         
                             <div class="addClassButton d-flex justify-content-end mt-3"> <!--Buttons-->
-                                <button ctype="submit" class="btn btn-default" id="save" value="save">Save</button>
+                                <button type="submit" class="btn btn-default" id="save" value="save">Save</button>
                                 <button class="btn btn-default" id="cancel" type="reset" value="cancel">Cancel</button>
                             </div>
                         </form>
@@ -217,7 +217,7 @@ include __DIR__.'/../includes/adminSideBar.php'
         </div>
 
     </div>
-
+    <div class="py-2"> &nbsp;</div>
 </div>
 
 <script src="<?php echo base_url('assets/js/class.js'); ?>"></script>
