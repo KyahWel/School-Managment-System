@@ -65,7 +65,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                     </div>
                 </div>
                 <div class="table-responsive">  
-                    <table class="table table-fixed align-middle table-striped table-borderless table-hover" style="height: 400px;" id="table-body">
+                    <table class="table table-default table-striped align-middle table-borderless table-hover" id="table-body">
                         <thead class ="thead">
                             <tr>
 			                    <th>Student ID</th>
