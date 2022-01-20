@@ -103,7 +103,6 @@ body {
 }
 #collegeSelect{
     box-shadow: none;
-    background-color: rgb(223, 222, 222);
 }
 input[type=text], textarea{
     color: black;
