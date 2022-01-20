@@ -1,20 +1,20 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
-class FacultyController extends CI_Controller {
-
-	public function __construct()
-	{
+class FacultyController extends CI_Controller
+{
+	public function __construct() {
 		parent::__construct();
 		$this->load->model('teacherModel');
 		$this->load->model('eventsModel');
 		$this->load->model('Authentication');
-		if ($this->session->userdata('authenticated') != '2'){
-			$this->session->set_flashdata('logout','Please logout first'); 
+		if ($this->session->userdata('authenticated') != '2')
+		{
+			$this->session->set_flashdata('logout', 'Please logout first');
 			if ($this->session->userdata('authenticated') == '1') {
 				redirect('Admin/dashboard');
 			}
-			elseif ($this->session->userdata('authenticated') == '3'){
+			elseif ($this->session->userdata('authenticated') == '3') {
 				redirect('Student/dashboard');
 			}
 			else {
@@ -23,27 +23,21 @@ class FacultyController extends CI_Controller {
 		}
 	}
 
-	public function dashboard()
-	{
+	public function dashboard() {
 		$data['announcement'] = $this->eventsModel->getAllData();
-		$this->load->view('Faculty_Panel/dashboard',$data);
+		$this->load->view('Faculty_Panel/dashboard', $data);
 	}
 
-	public function myProfile()
-	{
+	public function myProfile() {
 		$data['prof'] = $this->teacherModel->getData($this->session->userdata('auth_user')['teacherID']);
-        $this->load->view('Faculty_Panel/myProfile',$data);
+        $this->load->view('Faculty_Panel/myProfile', $data);
 	}
 
-	
-	public function myStudents()
-	{
+	public function myStudents() {
         $this->load->view('Faculty_Panel/myStudents');
 	}
 
-
-	public function changePassword()
-	{
+	public function changePassword() {
         $this->load->view('Faculty_Panel/changePassword');
 	}
 }
