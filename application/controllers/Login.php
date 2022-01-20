@@ -1,16 +1,19 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
-class Login extends CI_Controller {
+class Login extends CI_Controller
+{
 
-	public function __construct() {
+	public function __construct()
+	{
         parent:: __construct();
         $this->load->model('AdminModel');
 		$this->load->model('studentModel');
 		$this->load->model('teacherModel');
 		$this->load->model('applicantModel');
-		if ($this->session->has_userdata('authenticated')){
-			$this->session->set_flashdata('logout','Please logout first'); 
+		if ($this->session->has_userdata('authenticated'))
+		{
+			$this->session->set_flashdata('logout', 'Please logout first');
 			if ($this->session->userdata('authenticated') == '1')
 				redirect('Admin/dashboard');
 			elseif ($this->session->userdata('authenticated') == '2')
@@ -22,35 +25,32 @@ class Login extends CI_Controller {
 		}
     }
 
-	public function index()
-	{
+	public function index() {
 		$this->load->view('Login/home');
 	}
 
-	public function student()
-	{
+	public function student() {
         $this->load->view('Login/student');
 	}
 
-	public function faculty()
-	{
+	public function faculty() {
         $this->load->view('Login/faculty');
 	}
 
-	public function admin()
-	{
+	public function admin() {
         $this->load->view('Login/admin');
 	}
 
-	public function applicant()
-	{
+	public function applicant() {
         $this->load->view('Login/applicant');
 	}
 
-	public function admin_login(){
+	public function admin_login()
+	{
 		$data = $this->AdminModel->login();
-			if($data != NULL){ 
-				if($data->status == 1){
+			if ($data != null)
+			{
+				if ($data->status == 1) {
 					$auth_userdetails = [
 						'adminID' => $data->adminID,
 						'password'=> $data->password,
@@ -58,26 +58,29 @@ class Login extends CI_Controller {
 						'lastname' =>  $data->lastname,
 						'adminNumber' =>  $data->adminNumber
 					];
-					$this->session->set_userdata('auth_user',$auth_userdetails);
-					$this->session->set_userdata('authenticated',"1");
-					$this->session->set_flashdata('success','');
+					$this->session->set_userdata('auth_user', $auth_userdetails);
+					$this->session->set_userdata('authenticated', "1");
+					$this->session->set_flashdata('success', '');
 					redirect('Admin/dashboard');
 				}
-				else{
-					$this->session->set_flashdata('loginerror','Account is deactivated'); 
+				else {
+					$this->session->set_flashdata('loginerror', 'Account is deactivated');
  					redirect('Login/admin');
 				}
 			}
-			else{
-				$this->session->set_flashdata('loginerror','Invalid Username or Password'); 
+			else
+			{
+				$this->session->set_flashdata('loginerror', 'Invalid Username or Password');
 				redirect('Login/admin');
 			}
 	}
 
-	public function student_login(){
+	public function student_login()
+	{
 		$data = $this->studentModel->login();
-			if($data != NULL){  
-				if($data->status == 1){
+			if ($data != null)
+			{
+				if ($data->status == 1) {
 					$auth_userdetails = [
 						'applicantID' => $data->applicantID,
 						'studentID' => $data->studentID,
@@ -115,27 +118,30 @@ class Login extends CI_Controller {
 						'medical_record' => $data->medical_record,
 						'goodmoral' => $data->good_moral
 					];
-					$this->session->set_userdata('auth_user',$auth_userdetails);
-					$this->session->set_userdata('authenticated',"3");
-					$this->session->set_flashdata('adminError','');
-					$this->session->set_flashdata('successAdmin','');
+					$this->session->set_userdata('auth_user', $auth_userdetails);
+					$this->session->set_userdata('authenticated', "3");
+					$this->session->set_flashdata('adminError', '');
+					$this->session->set_flashdata('successAdmin', '');
 					redirect('Student/Dashboard');
 				}
-				else{
-					$this->session->set_flashdata('loginerror','Account is deactivated');
+				else {
+					$this->session->set_flashdata('loginerror', 'Account is deactivated');
  					redirect('Login/student');
 				}
 			}
-			else{
-				$this->session->set_flashdata('loginerror','Invalid Username or Password'); 
+			else
+			{
+				$this->session->set_flashdata('loginerror', 'Invalid Username or Password');
 				redirect('Login/student');
 			}
 	}
 
-	public function faculty_login(){
+	public function faculty_login()
+	{
 		$data = $this->teacherModel->login();
-			if($data != NULL){  
-				if($data->status == 1){
+			if ($data != null)
+			{
+				if ($data->status == 1) {
 					$auth_userdetails = [
 						'teacherID' => $data->teacherID,
 						'password' => $data->password,
@@ -150,25 +156,28 @@ class Login extends CI_Controller {
 						'department' => $data->department,
 
 					];
-					$this->session->set_userdata('auth_user',$auth_userdetails);
-					$this->session->set_userdata('authenticated',"2");
+					$this->session->set_userdata('auth_user', $auth_userdetails);
+					$this->session->set_userdata('authenticated', "2");
 					redirect('Faculty/dashboard');
 				}
-				else{
-					$this->session->set_flashdata('loginerror','Account is deactivated');  
+				else {
+					$this->session->set_flashdata('loginerror', 'Account is deactivated');
  					redirect('Login/faculty');
 				}
 			}
-			else{
-				$this->session->set_flashdata('loginerror','Invalid Username or Password'); 
+			else
+			{
+				$this->session->set_flashdata('loginerror', 'Invalid Username or Password');
 				redirect('Login/faculty');
 			}
 	}
 
-	public function applicant_login(){
+	public function applicant_login()
+	{
 		$data = $this->applicantModel->login();
-		if($data != NULL){ 
-			$this->session->set_userdata('authenticated',"4");
+		if ($data != null)
+		{
+			$this->session->set_userdata('authenticated', "4");
 			$auth_userdetails = [
 				'applicantID' => $data->applicantID,
 				'applicantNumber' => $data->applicantNumber,
@@ -203,14 +212,14 @@ class Login extends CI_Controller {
 				'medical_record' => $data->medical_record,
 				'goodmoral' => $data->good_moral
 			];
-			$this->session->set_userdata('auth_user',$auth_userdetails);
-			$this->session->set_userdata('authenticated',"4");
+			$this->session->set_userdata('auth_user', $auth_userdetails);
+			$this->session->set_userdata('authenticated', "4");
 			redirect('Applicant/'.$data->applicantID);
 		}
-		else{
-			$this->session->set_flashdata('loginerror','Applicant account not found'); 
+		else
+		{
+			$this->session->set_flashdata('loginerror', 'Applicant account not found');
 			redirect('Login/applicant');
 		}
 	}
-	
 }
