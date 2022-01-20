@@ -72,21 +72,21 @@ body{
     box-shadow: none;
     border-color: #800000;
 }
-.form-select::placeholder,
+
 .form-control::placeholder{ /* Chrome, Firefox, Opera, Safari 10.1+ */
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
-.form-select:-ms-input-placeholder,
+
 .form-control:-ms-input-placeholder{ /* Internet Explorer 10-11 */
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
-.form-select::-ms-input-placeholder,
+
 .form-control::-ms-input-placeholder{ /* Microsoft Edge */
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 input[type=text], input[type=date], input[type=time], textarea{
     color: black;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 
 /* Save and Cancel Button */
@@ -240,8 +240,7 @@ textarea:focus, input:focus{
 
 select.form-select,
 select.form-control{
-    color: gray;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 
 /* View Class */
