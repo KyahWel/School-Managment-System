@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Jan 14, 2022 at 05:12 AM
--- Server version: 5.7.31
--- PHP Version: 7.3.21
+-- Host: 127.0.0.1
+-- Generation Time: Jan 14, 2022 at 03:16 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,17 +27,15 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin_accounts`
 --
 
-DROP TABLE IF EXISTS `admin_accounts`;
-CREATE TABLE IF NOT EXISTS `admin_accounts` (
-  `adminID` int(255) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `admin_accounts` (
+  `adminID` int(255) NOT NULL,
   `adminNumber` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `firstname` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
-  `status` int(1) NOT NULL,
-  PRIMARY KEY (`adminID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `admin_accounts`
@@ -53,9 +51,8 @@ INSERT INTO `admin_accounts` (`adminID`, `adminNumber`, `username`, `password`, 
 -- Table structure for table `applicant_accounts`
 --
 
-DROP TABLE IF EXISTS `applicant_accounts`;
-CREATE TABLE IF NOT EXISTS `applicant_accounts` (
-  `applicantID` int(255) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `applicant_accounts` (
+  `applicantID` int(255) NOT NULL,
   `applicantNumber` varchar(255) NOT NULL,
   `course_chosen` varchar(255) NOT NULL,
   `firstname` varchar(255) NOT NULL,
@@ -86,9 +83,8 @@ CREATE TABLE IF NOT EXISTS `applicant_accounts` (
   `medical_record` varchar(255) NOT NULL,
   `form_137` varchar(255) NOT NULL,
   `good_moral` varchar(255) NOT NULL,
-  `applicant_result` varchar(255) NOT NULL,
-  PRIMARY KEY (`applicantID`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+  `applicant_result` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `applicant_accounts`
@@ -110,9 +106,8 @@ INSERT INTO `applicant_accounts` (`applicantID`, `applicantNumber`, `course_chos
 -- Table structure for table `class`
 --
 
-DROP TABLE IF EXISTS `class`;
-CREATE TABLE IF NOT EXISTS `class` (
-  `classID` int(255) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `class` (
+  `classID` int(255) NOT NULL,
   `class_code` varchar(255) NOT NULL,
   `teacherID` int(255) DEFAULT NULL,
   `subjectID` int(255) NOT NULL,
@@ -120,11 +115,8 @@ CREATE TABLE IF NOT EXISTS `class` (
   `end_time` time NOT NULL,
   `day` varchar(255) NOT NULL,
   `room_no` varchar(255) NOT NULL,
-  `status` int(1) NOT NULL,
-  PRIMARY KEY (`classID`),
-  KEY `class_subject` (`subjectID`),
-  KEY `class_teacher` (`teacherID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `class`
@@ -140,15 +132,13 @@ INSERT INTO `class` (`classID`, `class_code`, `teacherID`, `subjectID`, `start_t
 -- Table structure for table `course_table`
 --
 
-DROP TABLE IF EXISTS `course_table`;
-CREATE TABLE IF NOT EXISTS `course_table` (
-  `courseID` int(255) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `course_table` (
+  `courseID` int(255) NOT NULL,
   `degree` varchar(255) NOT NULL,
   `major` varchar(255) NOT NULL,
   `college` varchar(255) NOT NULL,
-  `status` int(1) NOT NULL,
-  PRIMARY KEY (`courseID`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `course_table`
@@ -169,14 +159,11 @@ INSERT INTO `course_table` (`courseID`, `degree`, `major`, `college`, `status`) 
 -- Table structure for table `dropped_subjects`
 --
 
-DROP TABLE IF EXISTS `dropped_subjects`;
-CREATE TABLE IF NOT EXISTS `dropped_subjects` (
+CREATE TABLE `dropped_subjects` (
   `droppedsubjectsID` int(255) DEFAULT NULL,
   `studentID` int(255) NOT NULL,
   `coursesubjectID` int(255) NOT NULL,
-  `status` int(255) NOT NULL,
-  KEY `student` (`studentID`),
-  KEY `course-subject` (`coursesubjectID`)
+  `status` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -185,18 +172,13 @@ CREATE TABLE IF NOT EXISTS `dropped_subjects` (
 -- Table structure for table `enrollment_table`
 --
 
-DROP TABLE IF EXISTS `enrollment_table`;
-CREATE TABLE IF NOT EXISTS `enrollment_table` (
-  `enrollmentID` int(255) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `enrollment_table` (
+  `enrollmentID` int(255) NOT NULL,
   `studentID` int(255) NOT NULL,
   `courseID` int(255) NOT NULL,
   `courses_subjectID` int(255) NOT NULL,
   `payment_gateway` varchar(255) NOT NULL,
-  `status` int(255) NOT NULL,
-  PRIMARY KEY (`enrollmentID`),
-  KEY `studentID` (`studentID`),
-  KEY `courseenroll` (`courseID`),
-  KEY `course-subjects` (`courses_subjectID`)
+  `status` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -205,18 +187,15 @@ CREATE TABLE IF NOT EXISTS `enrollment_table` (
 -- Table structure for table `events_announcements`
 --
 
-DROP TABLE IF EXISTS `events_announcements`;
-CREATE TABLE IF NOT EXISTS `events_announcements` (
-  `eaID` int(255) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `events_announcements` (
+  `eaID` int(255) NOT NULL,
   `title` varchar(255) NOT NULL,
   `details` varchar(255) NOT NULL,
   `time` time NOT NULL,
   `date` date NOT NULL,
   `creatorID` int(255) NOT NULL,
-  `status` int(1) NOT NULL,
-  PRIMARY KEY (`eaID`),
-  KEY `EA_Admin` (`creatorID`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `events_announcements`
@@ -239,14 +218,10 @@ INSERT INTO `events_announcements` (`eaID`, `title`, `details`, `time`, `date`, 
 -- Table structure for table `examination_table`
 --
 
-DROP TABLE IF EXISTS `examination_table`;
-CREATE TABLE IF NOT EXISTS `examination_table` (
-  `examID` int(255) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `examination_table` (
+  `examID` int(255) NOT NULL,
   `applicantID` int(255) NOT NULL,
-  `schedule` int(255) NOT NULL,
-  PRIMARY KEY (`examID`),
-  KEY `applicantExam` (`applicantID`),
-  KEY `schedule` (`schedule`)
+  `schedule` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -255,17 +230,15 @@ CREATE TABLE IF NOT EXISTS `examination_table` (
 -- Table structure for table `exam_schedule`
 --
 
-DROP TABLE IF EXISTS `exam_schedule`;
-CREATE TABLE IF NOT EXISTS `exam_schedule` (
-  `schedID` int(255) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `exam_schedule` (
+  `schedID` int(255) NOT NULL,
   `date` date NOT NULL,
   `time` time NOT NULL,
   `building` varchar(255) NOT NULL,
   `room_no` varchar(255) NOT NULL,
   `floor_no` int(255) NOT NULL,
-  `status` int(1) NOT NULL,
-  PRIMARY KEY (`schedID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `exam_schedule`
@@ -278,23 +251,35 @@ INSERT INTO `exam_schedule` (`schedID`, `date`, `time`, `building`, `room_no`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `grades_table`
+--
+
+CREATE TABLE `grades_table` (
+  `gradeID` int(255) NOT NULL,
+  `teacherID` int(255) NOT NULL,
+  `studentID` int(255) NOT NULL,
+  `subjectID` int(255) NOT NULL,
+  `grade` float NOT NULL,
+  `rating` float NOT NULL,
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `student_accounts`
 --
 
-DROP TABLE IF EXISTS `student_accounts`;
-CREATE TABLE IF NOT EXISTS `student_accounts` (
-  `studentID` int(255) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `student_accounts` (
+  `studentID` int(255) NOT NULL,
   `applicantID` int(255) NOT NULL,
   `studentNumber` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `type` varchar(255) NOT NULL,
   `status` varchar(1) NOT NULL,
-  `creatorID` int(255) NOT NULL,
-  PRIMARY KEY (`studentID`),
-  KEY `studentDetails` (`applicantID`),
-  KEY `studentAdmin` (`creatorID`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+  `creatorID` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `student_accounts`
@@ -314,17 +299,12 @@ INSERT INTO `student_accounts` (`studentID`, `applicantID`, `studentNumber`, `us
 -- Table structure for table `student_course`
 --
 
-DROP TABLE IF EXISTS `student_course`;
-CREATE TABLE IF NOT EXISTS `student_course` (
-  `studentcourseID` int(255) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `student_course` (
+  `studentcourseID` int(255) NOT NULL,
   `studentID` int(255) NOT NULL,
   `courseID` int(255) NOT NULL,
   `enrollmentID` int(255) NOT NULL,
-  `status` int(1) NOT NULL,
-  PRIMARY KEY (`studentcourseID`),
-  KEY `studentConnection` (`studentID`),
-  KEY `courseConnection` (`courseID`),
-  KEY `enrollment` (`enrollmentID`)
+  `status` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -333,9 +313,8 @@ CREATE TABLE IF NOT EXISTS `student_course` (
 -- Table structure for table `subjects_table`
 --
 
-DROP TABLE IF EXISTS `subjects_table`;
-CREATE TABLE IF NOT EXISTS `subjects_table` (
-  `subjectID` int(255) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `subjects_table` (
+  `subjectID` int(255) NOT NULL,
   `courseID` int(255) NOT NULL,
   `subjectCode` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -343,10 +322,8 @@ CREATE TABLE IF NOT EXISTS `subjects_table` (
   `yearlevel` int(255) NOT NULL,
   `college` varchar(255) NOT NULL,
   `semester` varchar(255) NOT NULL,
-  `status` int(255) NOT NULL,
-  PRIMARY KEY (`subjectID`),
-  KEY `course` (`courseID`)
-) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=latin1;
+  `status` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `subjects_table`
@@ -432,9 +409,8 @@ INSERT INTO `subjects_table` (`subjectID`, `courseID`, `subjectCode`, `name`, `u
 -- Table structure for table `teacher_accounts`
 --
 
-DROP TABLE IF EXISTS `teacher_accounts`;
-CREATE TABLE IF NOT EXISTS `teacher_accounts` (
-  `teacherID` int(255) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `teacher_accounts` (
+  `teacherID` int(255) NOT NULL,
   `teacherNumber` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -447,10 +423,8 @@ CREATE TABLE IF NOT EXISTS `teacher_accounts` (
   `college` varchar(255) NOT NULL,
   `department` varchar(255) NOT NULL,
   `status` int(1) NOT NULL,
-  `creatorID` int(255) NOT NULL,
-  PRIMARY KEY (`teacherID`),
-  KEY `teacherAdmin` (`creatorID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+  `creatorID` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `teacher_accounts`
@@ -459,6 +433,195 @@ CREATE TABLE IF NOT EXISTS `teacher_accounts` (
 INSERT INTO `teacher_accounts` (`teacherID`, `teacherNumber`, `username`, `password`, `firstname`, `middlename`, `lastname`, `extname`, `phonenum`, `email`, `college`, `department`, `status`, `creatorID`) VALUES
 (1, 'PROF-TUPM-22-6713', 'PROF-TUPM-22-6713', '$2y$10$jxbGh6AUgBMEWv2fJTDamOZYD3Njx/yF/WdAWrzbkP1gH2nzwNVei', 'William Cris', 'Entero', 'Hod', ' ', '09270287483', 'williamcris18@gmail.com', 'Science', 'Computer', 1, 1),
 (2, 'PROF-TUPM-22-7204', 'PROF-TUPM-22-7204', '$2y$10$OllPfi.MnyBVZJgyQAmMNOUz3gaKm.HRzVWByiIjW9Cna.b6l.4.O', 'Minatozaki', 'Sana', 'Hod', ' ', '', '', 'Science', 'Computer', 1, 1);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admin_accounts`
+--
+ALTER TABLE `admin_accounts`
+  ADD PRIMARY KEY (`adminID`);
+
+--
+-- Indexes for table `applicant_accounts`
+--
+ALTER TABLE `applicant_accounts`
+  ADD PRIMARY KEY (`applicantID`);
+
+--
+-- Indexes for table `class`
+--
+ALTER TABLE `class`
+  ADD PRIMARY KEY (`classID`),
+  ADD KEY `class_subject` (`subjectID`),
+  ADD KEY `class_teacher` (`teacherID`);
+
+--
+-- Indexes for table `course_table`
+--
+ALTER TABLE `course_table`
+  ADD PRIMARY KEY (`courseID`);
+
+--
+-- Indexes for table `dropped_subjects`
+--
+ALTER TABLE `dropped_subjects`
+  ADD KEY `student` (`studentID`),
+  ADD KEY `course-subject` (`coursesubjectID`);
+
+--
+-- Indexes for table `enrollment_table`
+--
+ALTER TABLE `enrollment_table`
+  ADD PRIMARY KEY (`enrollmentID`),
+  ADD KEY `studentID` (`studentID`),
+  ADD KEY `courseenroll` (`courseID`),
+  ADD KEY `course-subjects` (`courses_subjectID`);
+
+--
+-- Indexes for table `events_announcements`
+--
+ALTER TABLE `events_announcements`
+  ADD PRIMARY KEY (`eaID`),
+  ADD KEY `EA_Admin` (`creatorID`);
+
+--
+-- Indexes for table `examination_table`
+--
+ALTER TABLE `examination_table`
+  ADD PRIMARY KEY (`examID`),
+  ADD KEY `applicantExam` (`applicantID`),
+  ADD KEY `schedule` (`schedule`);
+
+--
+-- Indexes for table `exam_schedule`
+--
+ALTER TABLE `exam_schedule`
+  ADD PRIMARY KEY (`schedID`);
+
+--
+-- Indexes for table `grades_table`
+--
+ALTER TABLE `grades_table`
+  ADD PRIMARY KEY (`gradeID`),
+  ADD KEY `teacherID` (`teacherID`),
+  ADD KEY `studentID` (`studentID`),
+  ADD KEY `subjectID` (`subjectID`);
+
+--
+-- Indexes for table `student_accounts`
+--
+ALTER TABLE `student_accounts`
+  ADD PRIMARY KEY (`studentID`),
+  ADD KEY `studentDetails` (`applicantID`),
+  ADD KEY `studentAdmin` (`creatorID`);
+
+--
+-- Indexes for table `student_course`
+--
+ALTER TABLE `student_course`
+  ADD PRIMARY KEY (`studentcourseID`),
+  ADD KEY `studentConnection` (`studentID`),
+  ADD KEY `courseConnection` (`courseID`),
+  ADD KEY `enrollment` (`enrollmentID`);
+
+--
+-- Indexes for table `subjects_table`
+--
+ALTER TABLE `subjects_table`
+  ADD PRIMARY KEY (`subjectID`),
+  ADD KEY `course` (`courseID`);
+
+--
+-- Indexes for table `teacher_accounts`
+--
+ALTER TABLE `teacher_accounts`
+  ADD PRIMARY KEY (`teacherID`),
+  ADD KEY `teacherAdmin` (`creatorID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `admin_accounts`
+--
+ALTER TABLE `admin_accounts`
+  MODIFY `adminID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `applicant_accounts`
+--
+ALTER TABLE `applicant_accounts`
+  MODIFY `applicantID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `class`
+--
+ALTER TABLE `class`
+  MODIFY `classID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `course_table`
+--
+ALTER TABLE `course_table`
+  MODIFY `courseID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `enrollment_table`
+--
+ALTER TABLE `enrollment_table`
+  MODIFY `enrollmentID` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `events_announcements`
+--
+ALTER TABLE `events_announcements`
+  MODIFY `eaID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `examination_table`
+--
+ALTER TABLE `examination_table`
+  MODIFY `examID` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `exam_schedule`
+--
+ALTER TABLE `exam_schedule`
+  MODIFY `schedID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `grades_table`
+--
+ALTER TABLE `grades_table`
+  MODIFY `gradeID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
+--
+-- AUTO_INCREMENT for table `student_accounts`
+--
+ALTER TABLE `student_accounts`
+  MODIFY `studentID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `student_course`
+--
+ALTER TABLE `student_course`
+  MODIFY `studentcourseID` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `subjects_table`
+--
+ALTER TABLE `subjects_table`
+  MODIFY `subjectID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+
+--
+-- AUTO_INCREMENT for table `teacher_accounts`
+--
+ALTER TABLE `teacher_accounts`
+  MODIFY `teacherID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -498,6 +661,14 @@ ALTER TABLE `events_announcements`
 ALTER TABLE `examination_table`
   ADD CONSTRAINT `applicantExam` FOREIGN KEY (`applicantID`) REFERENCES `applicant_accounts` (`applicantID`),
   ADD CONSTRAINT `schedule` FOREIGN KEY (`schedule`) REFERENCES `exam_schedule` (`schedID`);
+
+--
+-- Constraints for table `grades_table`
+--
+ALTER TABLE `grades_table`
+  ADD CONSTRAINT `grades_table_ibfk_1` FOREIGN KEY (`studentID`) REFERENCES `student_accounts` (`studentID`),
+  ADD CONSTRAINT `subjectID` FOREIGN KEY (`subjectID`) REFERENCES `subjects_table` (`subjectID`),
+  ADD CONSTRAINT `teacherID` FOREIGN KEY (`teacherID`) REFERENCES `teacher_accounts` (`teacherID`);
 
 --
 -- Constraints for table `student_accounts`

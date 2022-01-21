@@ -87,6 +87,14 @@ class teacherModel extends CI_Model {
 		$this->db->update('teacher_accounts',$data);
 	}
 
+	public function getSchedule($id){
+		$query = $this->db->query("SELECT * FROM `class`
+								LEFT JOIN `subjects_table` 
+								ON class.subjectID=subjects_table.subjectID
+								WHERE class.teacherID= '$id' ORDER BY class.start_time ASC ");
+		return $query->result();
+	}
+
 	public function login(){
 		$data = array(
 			'username' => $_POST['username']

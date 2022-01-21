@@ -26,6 +26,7 @@ class FacultyController extends CI_Controller {
 	public function dashboard()
 	{
 		$data['announcement'] = $this->eventsModel->getAllData();
+		$data['schedule'] = $this->teacherModel->getSchedule($this->session->userdata('auth_user')['teacherID']);
 		$this->load->view('Faculty_Panel/dashboard',$data);
 	}
 
@@ -34,7 +35,6 @@ class FacultyController extends CI_Controller {
 		$data['prof'] = $this->teacherModel->getData($this->session->userdata('auth_user')['teacherID']);
         $this->load->view('Faculty_Panel/myProfile',$data);
 	}
-
 	
 	public function myStudents()
 	{
