@@ -12,6 +12,7 @@ class AdminController extends CI_Controller
 		$this->load->model('subjectModel');
 		$this->load->model('studentModel');
 		$this->load->model('classModel');
+		$this->load->model('sectionModel');
 		$this->load->model('examModel');
 		$this->load->model('applicantModel');
 		$this->load->model('Authentication');
@@ -70,9 +71,13 @@ class AdminController extends CI_Controller
         $this->load->view('Admin_Panel/faculty', $data);
 	}
 
-	public function section() {
+	public function section()
+	{	
+		$data['class'] = $this->classModel->viewClasses();
+		$data['student'] = $this->studentModel->viewNoSection();
 		$data['course'] = $this->courseModel->viewData();
-		$this->load->view('Admin_Panel/section', $data);
+		$data['section'] = $this->sectionModel->viewData();
+		$this->load->view('Admin_Panel/section',$data);
 	}
 
 	public function subject() {

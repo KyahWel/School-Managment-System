@@ -85,7 +85,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                             <label for="courses" class="col-2 form-label small pt-2">Course: </label>
                                             <div class="col-lg-7 col-md-10 col-sm-12">
                                                 <select class="form-select form-select-sm" id="courses" name="course_chosen" value="bscs" aria-label="Select Course" disabled>
-                                                    <option selected> <?php echo $applicant->course_chosen?></option>
+                                                    <option selected> <?php echo $applicant->degree?> in <?php echo $applicant->major?> </option>
 
                                                 </select>
                                             </div>

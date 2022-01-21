@@ -76,7 +76,7 @@ class applicantModel extends CI_Model {
                             $data = array(
 								'applicantID' => NULL,
 								'applicantNumber' => $holder,
-								'course_chosen' => $_POST['course_chosen'],
+								'courseID' => $_POST['course_chosen'],
 								'firstname' => $_POST['firstname'],
 								'middlename' => $_POST['middlename'],
 								'lastname' => $_POST['lastname'],
@@ -116,13 +116,18 @@ class applicantModel extends CI_Model {
 	
 	public function viewData() #Read
 	{
-		$query = $this->db->query('SELECT * FROM applicant_accounts');
+		$query = $this->db->query('	SELECT * FROM applicant_accounts 
+									LEFT JOIN course_table 
+									ON applicant_accounts.courseID = course_table.courseID');
 		return $query->result();
 	}
 
 	public function getData($id)
 	{	
-		$query = $this->db->query('SELECT * FROM applicant_accounts  WHERE applicant_accounts.applicantID ='.$id);
+		$query = $this->db->query('	SELECT * FROM applicant_accounts 
+									LEFT JOIN course_table 
+									ON applicant_accounts.courseID = course_table.courseID 
+									WHERE applicant_accounts.applicantID ='.$id);
 		return $query->row();
 	}
 

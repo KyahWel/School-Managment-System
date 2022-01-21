@@ -198,7 +198,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
                                             <td> </td>
                                             <td><?php echo $applicantrow->applicantNumber ?></td>
                                             <td><?php echo $applicantrow->firstname ?> <?php echo $applicantrow->lastname ?></td>
-                                            <td><?php echo $applicantrow->course_chosen ?></td>
+                                            <td><?php echo $applicantrow->degree ?> in <?php echo $applicantrow->major ?></td>
                                             <td><?php echo $applicantrow->applicant_result ?></td>
                                             <td>
                                                 <button type="button" onclick="applicantDetails()" data-id='<?php echo $applicantrow->applicantID;?>' class="btn btn-primary viewApplicant text-white text-uppercase addBtn">View</button>

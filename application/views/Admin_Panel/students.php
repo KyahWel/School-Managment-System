@@ -25,30 +25,12 @@ include __DIR__.'/../includes/adminSideBar.php'
         <select required>
             <option value="" disabled selected hidden>Course</option>
             <option value="CS">BSCS</option>
-			<option value="IT">BSIT</option>
-			<option value="IS">BSIS</option>
-			<option value="CSNS">BSCS-NS</option>
-			<option value="ITNS">BSIT-NS</option>
-            <option value="ISNS">BSIS-NS</option>
+			
         </select>
         <select required>
             <option value="" disabled selected hidden>Section</option>
             <option value="1a">1A</option>
-            <option value="1b">1B</option>
-            <option value="1c">1C</option>
-            <option value="1d">1D</option>
-            <option value="2a">2A</option>
-            <option value="2b">2B</option>
-            <option value="2c">2C</option>
-            <option value="2d">2D</option>
-            <option value="3a">3A</option>
-            <option value="3b">3B</option>
-            <option value="3c">3C</option>
-            <option value="3d">3D</option>
-            <option value="4a">4A</option>
-            <option value="4b">4B</option>
-            <option value="4c">4C</option>
-            <option value="4d">4D</option>
+            
         </select>
             <input type="text" id="searchStudentID" name="searchStudentID" placeholder="Search Student ID">
             <button type="button" class="btn btn-sm" id="search"><i class="fas fa-search" data-bs-toggle="tooltip" title="Search"></i></button>
@@ -82,8 +64,8 @@ include __DIR__.'/../includes/adminSideBar.php'
                                     <td><?php echo $studentrow->studentNumber?></td> 
                                     <td><?php echo $studentrow->firstname;?></td>
                                     <td><?php echo $studentrow->lastname?></td>
-                                    <td><?php echo $studentrow->course_chosen;?></td>
-                                    <td> </td>
+                                    <td><?php echo $studentrow->degree;?> in <?php echo $studentrow->major;?></td>
+                                    <td><?php echo $studentrow->sectionName;?></td>
                                     <td>
                                         <div class="action-buttons">
                                             <?php if ($studentrow->status == 1): ?>

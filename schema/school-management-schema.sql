@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 14, 2022 at 03:16 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.13
+-- Host: 127.0.0.1:3306
+-- Generation Time: Jan 21, 2022 at 12:37 PM
+-- Server version: 5.7.31
+-- PHP Version: 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -54,7 +54,7 @@ INSERT INTO `admin_accounts` (`adminID`, `adminNumber`, `username`, `password`, 
 CREATE TABLE `applicant_accounts` (
   `applicantID` int(255) NOT NULL,
   `applicantNumber` varchar(255) NOT NULL,
-  `course_chosen` varchar(255) NOT NULL,
+  `courseID` int(255) NOT NULL,
   `firstname` varchar(255) NOT NULL,
   `middlename` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
@@ -83,22 +83,27 @@ CREATE TABLE `applicant_accounts` (
   `medical_record` varchar(255) NOT NULL,
   `form_137` varchar(255) NOT NULL,
   `good_moral` varchar(255) NOT NULL,
-  `applicant_result` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `applicant_result` varchar(255) NOT NULL,
+  PRIMARY KEY (`applicantID`),
+  KEY `studentCourse` (`courseID`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `applicant_accounts`
 --
 
-INSERT INTO `applicant_accounts` (`applicantID`, `applicantNumber`, `course_chosen`, `firstname`, `middlename`, `lastname`, `extname`, `LRN`, `gender`, `age`, `birthday`, `birthplace`, `contactnum`, `landline`, `email`, `unit`, `street`, `barangay`, `city`, `province`, `zipcode`, `last_school_attended`, `track`, `school_address`, `year_level`, `year_graduated`, `category`, `gpa`, `medical_record`, `form_137`, `good_moral`, `applicant_result`) VALUES
-(1, 'TUPM-APPL21-9231', 'Bachelor of Science in Computer Science', 'William Cris', 'Entero', 'Hod', ' ', 123456, 'Male', 20, '2001-03-20', 'Metro Manila', '09270287483', '8-7000', 'williamcris18@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', 'TVL', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-N4SsLOvQ.jpg', 'F137-N4SsLOvQ.jpg', 'GM-N4SsLOvQ.jpg', 'Student'),
-(2, 'TUPM-APPL21-1268', 'Bachelor of Science in Information Technology', 'William Cris', 'Entero', 'Hod', ' ', 123456, 'Male', 20, '2001-03-02', 'Metro Manila', '09270287483', '717-1426', 'williamcris18@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', 'TVL', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-6QU1ZlHJ.jpg', 'F137-6QU1ZlHJ.jpg', 'GM-6QU1ZlHJ.jpg', 'Student'),
-(3, 'TUPM-APPL21-8586', 'Bachelor of Science in Information Technology', 'William Cris', 'Entero', 'Hod', ' ', 123456, 'Male', 21, '2021-12-03', 'Metro Manila', '09270287483', '717-1426', 'williamcris18@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', 'TVL', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-Cqsb5y2Q.jpg', 'F137-Cqsb5y2Q.jpg', 'GM-Cqsb5y2Q.jpg', 'Applied'),
-(4, 'TUPM-APPL21-9470', 'Bachelor of Science in Computer Engineering', 'Paolo', 'Lovidioro ', 'Gonzales', ' ', 123456, 'Male', 21, '2008-02-11', 'Metro Manila', '09270287483', '717-1426', 'test@gmail.com', '151', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', '', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'Old Curriculum', 93, 'MR-X1UB6dvZ.jpg', 'F137-X1UB6dvZ.jpg', 'GM-X1UB6dvZ.jpg', 'Student'),
-(5, 'TUPM-APPL21-4232', 'Bachelor of Science in Computer Engineering', 'Paolo', 'Lovidioro ', 'Gonzales', ' ', 123456, 'Male', 21, '2008-02-11', 'Metro Manila', '09270287483', '717-1426', 'test@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', '', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'Old Curriculum', 93, 'MR-Btoce4YQ.jpg', 'F137-Btoce4YQ.jpg', 'GM-Btoce4YQ.jpg', 'Applied'),
-(6, 'TUPM-APPL21-9910', 'Bachelor of Engineering in Mechanical Engineering', 'Gabrielle', 'MaColl', 'Demo', ' ', 123456, 'Male', 21, '2000-11-19', 'Metro Manila', '09270287483', '717-1426', 'test@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', '', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-mOkT4oBt.jpg', 'F137-mOkT4oBt.jpg', 'GM-mOkT4oBt.jpg', 'Student'),
-(7, 'TUPM-APPL21-5533', 'Bachelor of Science in Mathematics', 'Minatozaki', 'Sana', 'Hod', ' ', 123456, 'Female', 21, '2022-01-12', 'Metro Manila', '09270287483', '717-1426', 'williamcrshod@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', '', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-TMZcOJ2W.jpg', 'F137-TMZcOJ2W.jpg', 'GM-TMZcOJ2W.jpg', 'Student'),
-(8, 'TUPM-APPL21-5545', 'Bachelor of Science in Mathematics', 'Minatozaki', 'Sana', 'Hod', ' ', 123456, 'Female', 21, '2022-01-12', 'Metro Manila', '09270287483', '717-1426', 'williamcrshod@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', '', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-A5tn1gGr.jpg', 'F137-A5tn1gGr.jpg', 'GM-A5tn1gGr.jpg', 'Student');
+INSERT INTO `applicant_accounts` (`applicantID`, `applicantNumber`, `courseID`, `firstname`, `middlename`, `lastname`, `extname`, `LRN`, `gender`, `age`, `birthday`, `birthplace`, `contactnum`, `landline`, `email`, `unit`, `street`, `barangay`, `city`, `province`, `zipcode`, `last_school_attended`, `track`, `school_address`, `year_level`, `year_graduated`, `category`, `gpa`, `medical_record`, `form_137`, `good_moral`, `applicant_result`) VALUES
+(1, 'TUPM-APPL22-9732', 2, 'William Cris', 'Entero', 'Hod', ' ', 123456, 'Male', 20, '2022-01-08', 'Metro Manila', '09270287483', '717-1426', 'williamcris18@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', 'ICT', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-8ZP9TGYg.jpg', 'F137-8ZP9TGYg.jpg', 'GM-8ZP9TGYg.jpg', 'Student'),
+(2, 'TUPM-APPL22-9926', 2, 'Vann Chezter', ' ', 'Lizan', ' ', 123456, 'Male', 20, '2021-12-31', 'Metro Manila', '09270287483', '717-1426', 'williamcris18@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', 'ABM', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-5Nzfwtr8.jpg', 'F137-5Nzfwtr8.jpg', 'GM-5Nzfwtr8.jpg', 'Student'),
+(3, 'TUPM-APPL22-4276', 2, 'Lyah Bianca', ' ', 'Aquino', ' ', 123456, 'Female', 20, '2021-12-29', 'Metro Manila', '09270287483', '717-1426', 'williamcrshod@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', 'ABM', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-YZzfaCIu.jpg', 'F137-YZzfaCIu.jpg', 'GM-YZzfaCIu.jpg', 'Student'),
+(4, 'TUPM-APPL22-7328', 2, 'Minatozaki', 'Sana', 'Hod', ' ', 123456, 'Female', 20, '2022-01-01', 'Metro Manila', '09270287483', '717-1426', 'williamcris18@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', 'ABM', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-gC9XGZPl.jpg', 'F137-gC9XGZPl.jpg', 'GM-gC9XGZPl.jpg', 'Student'),
+(5, 'TUPM-APPL22-3046', 2, 'Matthew Perry', ' ', 'Bustarde', ' ', 123456, 'Male', 20, '2022-01-13', 'Metro Manila', '09270287483', '717-1426', 'williamcris18@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', 'ICT', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-BKGg0Q37.jpg', 'F137-BKGg0Q37.jpg', 'GM-BKGg0Q37.jpg', 'Student'),
+(6, 'TUPM-APPL22-9463', 2, 'Kimberly', ' ', 'Delgado', ' ', 123456, 'Female', 20, '2022-01-22', 'Metro Manila', '09270287483', '717-1426', 'williamcris18@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', 'ABM', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-HwBYMQP9.jpg', 'F137-HwBYMQP9.jpg', 'GM-HwBYMQP9.jpg', 'Student'),
+(7, 'TUPM-APPL22-3381', 2, 'Harold ', ' ', 'Talavera', ' ', 123456, 'Male', 21, '2022-01-20', 'Metro Manila', '09270287483', '8-7000', 'williamcrshod@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', 'ABM', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-OTgtWiMC.jpg', 'F137-OTgtWiMC.jpg', 'GM-OTgtWiMC.jpg', 'Student'),
+(8, 'TUPM-APPL22-9126', 2, 'Czarina', ' ', 'Pielago', ' ', 123456, 'Female', 20, '2022-01-22', 'Metro Manila', '09270287483', '717-1426', 'williamcris18@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', 'ICT', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-EkseLmMr.jpg', 'F137-EkseLmMr.jpg', 'GM-EkseLmMr.jpg', 'Student'),
+(9, 'TUPM-APPL22-6075', 5, 'Gabrielle', 'MaColl', 'Demo', ' ', 123456, 'Male', 20, '2022-01-21', 'Metro Manila', '09270287483', '717-1426', 'williamcrshod@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', 'ICT', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-WjyGb05n.jpg', 'F137-WjyGb05n.jpg', 'GM-WjyGb05n.jpg', 'Student'),
+(10, 'TUPM-APPL22-6996', 4, 'Paolo', 'Lovidioro', 'Gonzales', ' ', 123456, 'Male', 20, '2022-02-03', 'Metro Manila', '09270287483', '717-1426', 'williamcrshod@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', 'ICT', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-eJfAuUMV.jpg', 'F137-eJfAuUMV.jpg', 'GM-eJfAuUMV.jpg', 'Student'),
+(11, 'TUPM-APPL22-8391', 7, 'Raffy', 'Crisostomo', 'Tenedor', ' ', 123456, 'Male', 20, '2022-02-04', 'Metro Manila', '09270287483', '717-1426', 'williamcrshod@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', 'STEM', 'Del Monte Avenue, Quezon City', 'grade 12', 2017, 'K-12', 93, 'MR-6cABUjvx.jpg', 'F137-6cABUjvx.jpg', 'GM-6cABUjvx.jpg', 'Student');
 
 -- --------------------------------------------------------
 
@@ -113,18 +118,34 @@ CREATE TABLE `class` (
   `subjectID` int(255) NOT NULL,
   `start_time` time NOT NULL,
   `end_time` time NOT NULL,
+  `courseID` int(255) NOT NULL,
+  `yearlevel` int(255) NOT NULL,
   `day` varchar(255) NOT NULL,
   `room_no` varchar(255) NOT NULL,
-  `status` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `isTaken` int(1) NOT NULL,
+  `status` int(1) NOT NULL,
+  PRIMARY KEY (`classID`),
+  KEY `class_subject` (`subjectID`),
+  KEY `class_teacher` (`teacherID`),
+  KEY `class_course` (`courseID`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `class`
 --
 
-INSERT INTO `class` (`classID`, `class_code`, `teacherID`, `subjectID`, `start_time`, `end_time`, `day`, `room_no`, `status`) VALUES
-(1, 'CLASS-01', 1, 71, '05:00:00', '08:00:00', 'Thursday', 'COS-123', 1),
-(2, 'CLASS-01', 2, 72, '11:00:00', '14:00:00', 'Monday', 'TBA', 1);
+INSERT INTO `class` (`classID`, `class_code`, `teacherID`, `subjectID`, `start_time`, `end_time`, `courseID`, `yearlevel`, `day`, `room_no`, `isTaken`, `status`) VALUES
+(1, 'CLASS-01', NULL, 1, '20:01:00', '21:01:00', 2, 1, 'Monday', 'TBA', 1, 1),
+(2, 'CLASS-01', NULL, 2, '21:01:00', '20:03:00', 2, 1, 'Tuesday', 'TBA', 1, 1),
+(3, 'CLASS-01', NULL, 3, '22:01:00', '20:02:00', 2, 1, 'Wednesday', 'TBA', 1, 1),
+(4, 'CLASS-01', NULL, 4, '12:01:00', '12:01:00', 2, 1, 'Thursday', 'TBA', 1, 1),
+(5, 'CLASS-01', NULL, 5, '20:08:00', '13:02:00', 2, 1, 'Thursday', 'TBA', 1, 1),
+(6, 'CLASS-01', NULL, 6, '20:07:00', '13:02:00', 2, 1, 'Wednesday', 'TBA', 1, 1),
+(7, 'CLASS-01', NULL, 7, '22:02:00', '20:04:00', 2, 1, 'Friday', 'TBA', 1, 1),
+(8, 'CLASS-01', NULL, 8, '23:06:00', '12:02:00', 2, 1, 'Tuesday', 'TBA', 1, 1),
+(9, 'CLASS-01', NULL, 9, '20:07:00', '13:02:00', 2, 1, 'Monday', 'TBA', 1, 1),
+(10, 'CLASS-01', NULL, 10, '08:02:00', '14:02:00', 2, 1, 'Friday', 'TBA', 1, 1),
+(11, 'CLASS-01', NULL, 11, '13:02:00', '20:06:00', 2, 1, 'Wednesday', 'TBA', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -251,17 +272,46 @@ INSERT INTO `exam_schedule` (`schedID`, `date`, `time`, `building`, `room_no`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `grades_table`
+-- Table structure for table `section_table`
 --
 
-CREATE TABLE `grades_table` (
-  `gradeID` int(255) NOT NULL,
-  `teacherID` int(255) NOT NULL,
+DROP TABLE IF EXISTS `section_table`;
+CREATE TABLE IF NOT EXISTS `section_table` (
+  `sectionID` int(255) NOT NULL AUTO_INCREMENT,
+  `sectionName` varchar(255) NOT NULL,
+  `classID` int(255) NOT NULL,
+  `courseID` int(255) NOT NULL,
+  `capacity` int(255) NOT NULL,
+  `studCount` int(255) NOT NULL,
+  `yearlevel` int(11) NOT NULL,
+  `schoolyear` varchar(255) NOT NULL,
+  PRIMARY KEY (`sectionID`),
+  KEY `classSection` (`classID`),
+  KEY `sectionCourse` (`courseID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `section_table`
+--
+
+INSERT INTO `section_table` (`sectionID`, `sectionName`, `classID`, `courseID`, `capacity`, `studCount`, `yearlevel`, `schoolyear`) VALUES
+(1, 'BSCS-NS-1C', 1, 2, 5, 5, 1, '2022-2023');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student-subjects`
+--
+
+DROP TABLE IF EXISTS `student-subjects`;
+CREATE TABLE IF NOT EXISTS `student-subjects` (
+  `studentSubjectID` int(255) NOT NULL AUTO_INCREMENT,
   `studentID` int(255) NOT NULL,
   `subjectID` int(255) NOT NULL,
-  `grade` float NOT NULL,
-  `rating` float NOT NULL,
-  `status` int(1) NOT NULL
+  `grade` int(255) NOT NULL,
+  PRIMARY KEY (`studentSubjectID`),
+  KEY `subj` (`subjectID`),
+  KEY `stud` (`studentID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -276,22 +326,31 @@ CREATE TABLE `student_accounts` (
   `studentNumber` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `type` varchar(255) NOT NULL,
+  `sectionID` int(255) DEFAULT NULL,
+  `yearlevel` int(255) NOT NULL,
   `status` varchar(1) NOT NULL,
-  `creatorID` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `creatorID` int(255) NOT NULL,
+  PRIMARY KEY (`studentID`),
+  KEY `studentDetails` (`applicantID`),
+  KEY `studentAdmin` (`creatorID`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `student_accounts`
 --
 
-INSERT INTO `student_accounts` (`studentID`, `applicantID`, `studentNumber`, `username`, `password`, `type`, `status`, `creatorID`) VALUES
-(1, 1, 'TUPM-21-8437', 'TUPM-21-8437', '$2y$10$WoB3vqSF/S.dxlNe0.RUFOcZI/0kc5sp.KovxWOS.Qh4vVbExhxaW', 'ewan', '1', 1),
-(2, 4, 'TUPM-21-9297', 'TUPM-21-9297', '$2y$10$Ivt4xeO3S86hO4XRyE6wTOorhTBREyfZNQ/VIGa8k4FhnLeG9zJlu', 'ewan', '1', 1),
-(3, 8, 'TUPM-21-7805', 'TUPM-21-7805', '$2y$10$QVYvZKqiZtDMbVHorKoYc.M7doOcHzrih84cu9HEPkCKQ1XYejN/C', 'ewan', '1', 1),
-(4, 6, 'TUPM-21-1431', 'TUPM-21-1431', '$2y$10$/QN38f/UWEvqqf8olWiYfOX9ggSLa/y2n0o9EAT0drBbE374t04zy', 'ewan', '1', 1),
-(5, 2, 'TUPM-22-7891', 'TUPM-22-7891', '$2y$10$2phxwIVwJC72cFsab1zE/uMHFJNYAYub5XfwX4BJg9wCKDroABPSO', 'ewan', '1', 1),
-(6, 7, 'TUPM-22-4674', 'TUPM-22-4674', '$2y$10$zajKNTdSL2.bar565XuH2u1hGSAug1U5aWQWSjztZGFXIhMO/XZsS', 'ewan', '1', 1);
+INSERT INTO `student_accounts` (`studentID`, `applicantID`, `studentNumber`, `username`, `password`, `sectionID`, `yearlevel`, `status`, `creatorID`) VALUES
+(1, 1, 'TUPM-22-9591', 'TUPM-22-9591', '$2y$10$eaU4rFjSVopbf9THGRzX/OFE4M275B215duBRhMt3Icpczpe6SXlG', 1, 1, '1', 1),
+(2, 2, 'TUPM-22-7830', 'TUPM-22-7830', '$2y$10$npWPXEszb4cKXVJG3W/cUuurp.btTR/x5xYoV9otrEziid08rUNYa', 1, 1, '1', 1),
+(3, 3, 'TUPM-22-8308', 'TUPM-22-8308', '$2y$10$4boc1s78c.G.UCrEAehJF.GBGyZANLzjrwIffptLlASGlGepPvQtm', 1, 1, '1', 1),
+(4, 4, 'TUPM-22-2132', 'TUPM-22-2132', '$2y$10$bDSyJgpjrFByyirzgafSdeeitV8gWyU/0q3UHozx7JY6IcyOMjkqm', 1, 1, '1', 1),
+(5, 5, 'TUPM-22-9307', 'TUPM-22-9307', '$2y$10$DtZZEEgpw8D6bvTmGscUwubvgtaPinirN2q2VGlS0M8ef0rwlqESi', 1, 1, '1', 1),
+(6, 6, 'TUPM-22-6929', 'TUPM-22-6929', '$2y$10$Aws.6dSokiQTTn1hjf/MSO5voIrGmtvLNzoqULIdqHuOoeO9DEc2q', NULL, 1, '1', 1),
+(7, 7, 'TUPM-22-5134', 'TUPM-22-5134', '$2y$10$SHgclVbQgR4ZtSItQk3RIOkeOiFNABSrLvJKf79/5QFC0LWMkECMq', NULL, 1, '1', 1),
+(8, 8, 'TUPM-22-2491', 'TUPM-22-2491', '$2y$10$ffdNBRGRqqbd2AsjO7LjV.9ZklUiBAjVZFW.IfBsWHIf12yNeZpAu', NULL, 1, '1', 1),
+(9, 10, 'TUPM-22-6069', 'TUPM-22-6069', '$2y$10$rNLT0TCv4rm0KB/y6JnSD.cjhuKTdEAGQ.RM.QLDDR30/eD1Ecpde', NULL, 1, '1', 1),
+(10, 9, 'TUPM-22-1895', 'TUPM-22-1895', '$2y$10$CldHgsAt.riCf.2bHZqABOEhLJWua6KwNVazFaE1e257YmWG8JGxa', NULL, 1, '1', 1),
+(11, 11, 'TUPM-22-2707', 'TUPM-22-2707', '$2y$10$y5U7UrAvhDiVurR3cWkeiuXQl68OmOn/KbT/kpskTfnhYwdG7/4lG', NULL, 1, '1', 1);
 
 -- --------------------------------------------------------
 
@@ -628,9 +687,16 @@ ALTER TABLE `teacher_accounts`
 --
 
 --
+-- Constraints for table `applicant_accounts`
+--
+ALTER TABLE `applicant_accounts`
+  ADD CONSTRAINT `studentCourse` FOREIGN KEY (`courseID`) REFERENCES `course_table` (`courseID`);
+
+--
 -- Constraints for table `class`
 --
 ALTER TABLE `class`
+  ADD CONSTRAINT `class_course` FOREIGN KEY (`courseID`) REFERENCES `course_table` (`courseID`),
   ADD CONSTRAINT `class_subject` FOREIGN KEY (`subjectID`) REFERENCES `subjects_table` (`subjectID`),
   ADD CONSTRAINT `class_teacher` FOREIGN KEY (`teacherID`) REFERENCES `teacher_accounts` (`teacherID`);
 
@@ -663,12 +729,18 @@ ALTER TABLE `examination_table`
   ADD CONSTRAINT `schedule` FOREIGN KEY (`schedule`) REFERENCES `exam_schedule` (`schedID`);
 
 --
--- Constraints for table `grades_table`
+-- Constraints for table `section_table`
 --
-ALTER TABLE `grades_table`
-  ADD CONSTRAINT `grades_table_ibfk_1` FOREIGN KEY (`studentID`) REFERENCES `student_accounts` (`studentID`),
-  ADD CONSTRAINT `subjectID` FOREIGN KEY (`subjectID`) REFERENCES `subjects_table` (`subjectID`),
-  ADD CONSTRAINT `teacherID` FOREIGN KEY (`teacherID`) REFERENCES `teacher_accounts` (`teacherID`);
+ALTER TABLE `section_table`
+  ADD CONSTRAINT `classSection` FOREIGN KEY (`classID`) REFERENCES `class` (`classID`),
+  ADD CONSTRAINT `sectionCourse` FOREIGN KEY (`courseID`) REFERENCES `course_table` (`courseID`);
+
+--
+-- Constraints for table `student-subjects`
+--
+ALTER TABLE `student-subjects`
+  ADD CONSTRAINT `stud` FOREIGN KEY (`studentID`) REFERENCES `student_accounts` (`studentID`),
+  ADD CONSTRAINT `subj` FOREIGN KEY (`subjectID`) REFERENCES `subjects_table` (`subjectID`);
 
 --
 -- Constraints for table `student_accounts`

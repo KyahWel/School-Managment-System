@@ -141,7 +141,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
                                     <th>Last Name</th>
                                     <th>First Name</th>
                                     <th>Section</th>
-                                    <th>Status</th>
+                                    <th>Year Level</th>
                                 </tr>
                             </thead>
                             <tbody class="text-center">
@@ -150,8 +150,8 @@ include __DIR__ . '/../includes/adminSideBar.php'
                                         <td><?php echo $studentrow->studentNumber ?></td>
                                         <td><?php echo $studentrow->firstname; ?></td>
                                         <td><?php echo $studentrow->lastname ?></td>
-                                        <td> </td>
-                                        <td><?php echo $studentrow->status; ?></td>
+                                        <td><?php echo $studentrow->sectionName ?></td>
+                                        <td><?php echo $studentrow->yearlevel; ?></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>
