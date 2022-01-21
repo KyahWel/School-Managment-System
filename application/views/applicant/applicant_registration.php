@@ -102,7 +102,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                 <select class="form-select form-select-sm" id="courses" name="course_chosen" aria-label="Select Course" required>
                                                     <option value="" selected>--Please Select--</option>
                                                     <?php foreach ($course as $course) { ?>
-                                                        <option value='<?php echo $course->degree ?> in <?php echo $course->major ?>'><?php echo $course->degree ?> in <?php echo $course->major ?></option>
+                                                        <option value='<?php echo $course->courseID?>'><?php echo $course->degree ?> in <?php echo $course->major ?></option>
                                                     <?php } ?>
                                                 </select>
                                                 <div class="invalid-feedback">

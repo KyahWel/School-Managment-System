@@ -52,7 +52,11 @@ class teacherModel extends CI_Model {
 
 	public function getData($id)
 	{	
-		$query = $this->db->query('SELECT admin_accounts.adminNumber, teacher_accounts.* FROM teacher_accounts RIGHT JOIN admin_accounts ON teacher_accounts.creatorID = admin_accounts.adminID WHERE teacher_accounts.teacherID ='.$id);
+		$query = $this->db->query('	SELECT admin_accounts.adminNumber, teacher_accounts.* 
+									FROM teacher_accounts 
+									RIGHT JOIN admin_accounts 
+									ON teacher_accounts.creatorID = admin_accounts.adminID 
+									WHERE teacher_accounts.teacherID ='.$id);
 		return $query->row();
 	}
 

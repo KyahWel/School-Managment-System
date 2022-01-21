@@ -134,6 +134,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                                 <th>Course</th>
                                 <th>Year Level</th>
                                 <th>Semester</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -144,6 +145,13 @@ include __DIR__.'/../includes/adminSideBar.php'
                                     <td><?php echo $class->degree;?> in <?php echo $class->major;?></td>
                                     <td><?php echo $class->yearlevel; ?></td>
                                     <td><?php echo $class->semester; ?></td>
+                                    <td>
+                                    <?php if ($class->isTaken == 0): ?>
+                                        Free
+                                    <?php else: ?>
+                                        Taken
+                                    <?php endif ?>   
+                                    </td>
                                     <td>
                                     <div class="action-buttons">
                                     <ul>

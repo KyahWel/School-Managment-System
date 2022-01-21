@@ -28,6 +28,9 @@ class classModel extends CI_Model {
 				'end_time' => $timeTo,
 				'day' => $day,
 				'room_no' => $room,
+				'courseID' => $_POST['courseID'],
+				'yearlevel' => $_POST['yearlevel'],
+				'isTaken' => 0,
 				'status' => 1
 			);
 			$this->db->insert('class',$data);
@@ -36,9 +39,21 @@ class classModel extends CI_Model {
 
 	public function viewClasses()
 	{
-		$query = $this->db->query('SELECT DISTINCT class.class_code, class.status, course_table.degree, course_table.major, subjects_table.yearlevel, subjects_table.semester FROM class LEFT JOIN subjects_table ON class.subjectID = subjects_table.subjectID LEFT JOIN course_table ON subjects_table.courseID = course_table.courseID');
+		$query = $this->db->query('	SELECT * FROM class 
+									LEFT JOIN subjects_table 
+									ON class.subjectID = subjects_table.subjectID 
+									LEFT JOIN course_table 
+									ON subjects_table.courseID = course_table.courseID 
+									GROUP BY class.class_code');
 		return $query->result();
 	}
+
+	public function ClassList($courseID, $yearlevel){
+		$query = $this->db->query('	SELECT * FROM class 	
+									WHERE courseID = '.$courseID.' AND yearlevel ='.$yearlevel.' GROUP BY class_code');
+		return $query->result();
+	}
+	
 
 	public function getData($classcode)
 	{	
@@ -48,10 +63,22 @@ class classModel extends CI_Model {
 		$data=$this->db->get();
 		$prof = $data->row();
 		if($prof->teacherID==NULL){
-			$query = $this->db->query('SELECT * FROM class JOIN subjects_table ON class.subjectID = subjects_table.subjectID JOIN course_table ON subjects_table.courseID = course_table.courseID WHERE class.class_code = "'.$classcode.'"');
+			$query = $this->db->query('	SELECT * FROM class 
+										JOIN subjects_table 
+										ON class.subjectID = subjects_table.subjectID 
+										JOIN course_table 
+										ON subjects_table.courseID = course_table.courseID 
+										WHERE class.class_code = "'.$classcode.'"');
 		}
 		else{
-			$query = $this->db->query('SELECT * FROM class JOIN subjects_table ON class.subjectID = subjects_table.subjectID JOIN teacher_accounts ON class.teacherID = teacher_accounts.teacherID JOIN course_table ON subjects_table.courseID = course_table.courseID WHERE class.class_code = "'.$classcode.'"');
+			$query = $this->db->query('	SELECT * FROM class 
+										JOIN subjects_table 
+										ON class.subjectID = subjects_table.subjectID 
+										JOIN teacher_accounts 
+										ON class.teacherID = teacher_accounts.teacherID 
+										JOIN course_table 
+										ON subjects_table.courseID = course_table.courseID
+										WHERE class.class_code = "'.$classcode.'"');
 		}
 		return $query->result_array();
 	}
