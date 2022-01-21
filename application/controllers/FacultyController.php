@@ -25,15 +25,17 @@ class FacultyController extends CI_Controller
 
 	public function dashboard() {
 		$data['announcement'] = $this->eventsModel->getAllData();
-		$this->load->view('Faculty_Panel/dashboard', $data);
+		$data['schedule'] = $this->teacherModel->getSchedule($this->session->userdata('auth_user')['teacherID']);
+		$this->load->view('Faculty_Panel/dashboard',$data);
 	}
 
 	public function myProfile() {
 		$data['prof'] = $this->teacherModel->getData($this->session->userdata('auth_user')['teacherID']);
         $this->load->view('Faculty_Panel/myProfile', $data);
 	}
-
-	public function myStudents() {
+	
+	public function myStudents()
+	{
         $this->load->view('Faculty_Panel/myStudents');
 	}
 
