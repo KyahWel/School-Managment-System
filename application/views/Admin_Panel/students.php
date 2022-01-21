@@ -65,7 +65,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                     </div>
                 </div>
                 <div class="table-responsive">  
-                    <table class="table table-fixed align-middle table-striped table-borderless table-hover" style="height: 400px;" id="table-body">
+                    <table class="table table-default table-striped align-middle table-borderless table-hover" id="table-body">
                         <thead class ="thead">
                             <tr>
 			                    <th>Student ID</th>
@@ -164,9 +164,9 @@ include __DIR__.'/../includes/adminSideBar.php'
                                     
     <!--View Student-->
     <div class="container my-3" id='viewStudent' style="display: none;">     
-        <div class="viewStudentTitle">
-            <button class="btn btn-default btn-sm" id="back-button" onclick="mainStudent()"><i class="fas fa-angle-left"></i> Back</button><br>
-            <h3><i>Student Profile</i></h3><br>
+        <div class="viewStudentTitle d-flex align-items-center">
+            <button type="button" class="btn btn-default btn-sm my-3" id="back-button" onclick="mainStudent()"><i class="fa fa-arrow-left"></i> Back</button>
+            <h3><i>Student Profile</i></h3>
         </div>
   
         <div id="view_student">       
