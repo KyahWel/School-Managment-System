@@ -71,27 +71,32 @@ body{
 
 /* Save and Cancel Button */
 
+#addProfessorSave,
 #save{
     background-color: #800000;
     border-color: transparent;
     color: white;
     text-decoration: none;
     font-size: 0.8rem;
-    margin-right: 8px;
+    margin: 0px 8px;
 }
-#cancel{
-    background-color: #aaaaaa;
-    border-color: transparent;
-    color: black;
-    text-decoration: none;
-    font-size: 0.8rem;
-}
+#addProfessorSave:hover,
 #save:hover{
     background-color: white;
     border-color: #800000;
     color: #800000;
     font-size: 0.8rem;
 }
+#addProfessorCancel,
+#cancel{
+    background-color: #aaaaaa;
+    border-color: transparent;
+    color: black;
+    text-decoration: none;
+    font-size: 0.8rem;
+    margin: 0px;
+}
+#addProfessorCancel:hover,
 #cancel:hover{
     background-color: white;
     border-color: #800000;
@@ -146,19 +151,19 @@ input[type=text], input[type=date], input[type=time], textarea{
     font-size: inherit;
     margin: 15px;
 }
-#table-body thead{
+.table-body thead{
     text-align: center;
 }
-#table-body tbody{
+.table-body tbody{
     text-align: center;
 
 }
-#table-body tr{
+.table-body tr{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-#table-body td{
+.table-body td{
  max-width: 200px;
  overflow: hidden;
  text-overflow: ellipsis;
@@ -167,11 +172,11 @@ input[type=text], input[type=date], input[type=time], textarea{
 
 /* Action Button */
 
-#table-body tbody .action-buttons li{
+.table-body tbody .action-buttons li{
     list-style-type: none;
     display: inline-block;
 }
-#table-body tbody .action-buttons li button{
+.table-body tbody .action-buttons li button{
     color: white;
     background-color:maroon;
     font-size: 0.55rem;
@@ -179,7 +184,7 @@ input[type=text], input[type=date], input[type=time], textarea{
     opacity: 0.93;
     margin-top: 2.5px;
 }
-#table-body tbody .action-buttons li #status{ 
+.table-body tbody .action-buttons li #status{ 
     color: white;
     background-color:maroon;
     font-size: 0.53rem;
@@ -188,10 +193,10 @@ input[type=text], input[type=date], input[type=time], textarea{
     border-radius: 3px;
     cursor: pointer;
 }
-#table-body tbody .action-buttons li button:hover, #table-body tbody .action-buttons li #status:hover{
+.table-body tbody .action-buttons li button:hover, .table-body tbody .action-buttons li #status:hover{
     opacity: 1;
 }
-#table-body tbody .action-buttons li button:focus{
+.table-body tbody .action-buttons li button:focus{
     box-shadow: none;
 }
 
@@ -204,6 +209,7 @@ input[type=text], input[type=date], input[type=time], textarea{
 
 /* Filter and Search */
 
+#filterAndSearch-main,
 #filterAndSearch{
     text-align: right;
 }
@@ -219,11 +225,13 @@ select:active{
 textarea:focus, input:focus{
     outline: none;
 }
+#search-main,
 #search{
     color: white;
     background-color: #800000;
     padding: .1rem .5rem;
 }
+#search-main i,
 #search i{
     font-size: 10px;
 }
@@ -298,8 +306,8 @@ div#viewProfessorTabContent.tab-content{
     color: rgb(95, 95, 95);
     font-weight: 200;
 }
-#ProfessorSubject #table-body td,
-#ProfessorSection #table-body td{
+#ProfessorSubject .table-body td,
+#ProfessorSection .table-body td{
     font-weight: 200;
 }
 .form-control:disabled, .form-control[readonly] {

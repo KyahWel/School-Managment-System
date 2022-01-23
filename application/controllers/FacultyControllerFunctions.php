@@ -21,35 +21,36 @@ class FacultyControllerFunctions extends CI_Controller
 		$facultyData = $this->input->post('id');
         $records = $this->teacherModel->getData($facultyData);
 		$output = '
-				<div class="row">
-					<div class="col-lg-3 col-md-6 mb-1"> <!--Last Name-->
-						<input type="text" class="form-control" readonly value = "'.$records->lastname.'">
-						<label class="form-label pt-2">Last Name</label>
-					</div>
-					<div class="col-lg-3 col-md-6 mb-1"> <!--First Name-->
-						<input type="text" class="form-control" readonly value="'.$records->firstname.'">
-						<label class="form-label pt-2">First Name</label>
-					</div>
-					<div class="col-lg-3 col-md-6 mb-1"> <!--Middle Name-->
-						<input type="text" class="form-control" readonly value="'.$records->middlename.'">
-						<label class="form-label pt-2">Middle Name</label>
-					</div>
-					<div class="col-lg-3 col-md-6 mb-1"> <!--Suffix-->
-						<input type="text" class="form-control" readonly value="'.$records->extname.'">
-						<label class="form-label pt-2">Suffix</label>
-					</div>
+		<form class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6"> <!--Last Name-->
+					<input type="text" class="form-control" readonly value = "'.$records->lastname.'">
+					<label class="form-label pt-2">Last Name</label>
 				</div>
-				<div class="row">
-					<div class="col-lg-6 col-md-6 mb-1"> <!--Phone Number-->
-						<input type="text" class="form-control" readonly value="'.$records->phonenum.'">
-						<label class="form-label pt-2">Phone Number</label>
-					</div>
-					<div class="col-lg-6 col-md-6 mb-1"> <!--Email-->
-						<input type="text" class="form-control" readonly value="'.$records->email.'">
-						<label class="form-label pt-2">Email</label>
-					</div>
+				<div class="col-lg-3 col-md-6"> <!--First Name-->
+					<input type="text" class="form-control" readonly value="'.$records->firstname.'">
+					<label class="form-label pt-2">First Name</label>
 				</div>
-				';
+				<div class="col-lg-3 col-md-6"> <!--Middle Name-->
+					<input type="text" class="form-control" readonly value="'.$records->middlename.'">
+					<label class="form-label pt-2">Middle Name</label>
+				</div>
+				<div class="col-lg-3 col-md-6"> <!--Suffix-->
+					<input type="text" class="form-control" readonly value="'.$records->extname.'">
+					<label class="form-label pt-2">Suffix</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6 col-md-6"> <!--Phone Number-->
+					<input type="text" class="form-control" readonly value="'.$records->phonenum.'">
+					<label class="form-label pt-2">Phone Number</label>
+				</div>
+				<div class="col-lg-6 col-md-6"> <!--Email-->
+					<input type="text" class="form-control" readonly value="'.$records->email.'">
+					<label class="form-label pt-2">Email</label>
+				</div>
+			</div>
+		</form>';
 		echo $output;
 	}
 
