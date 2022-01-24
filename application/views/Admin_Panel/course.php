@@ -35,7 +35,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                             <div class="row mb-3">
                                 <div class="col-12 align-self-center my-3">
                                     <label class="form-label">College: </label>
-                                    <select name="college" required id="collegeSelect">
+                                    <select name="college" class="form-select" required id="collegeSelect">
 			                            <option value="" disabled selected hidden>Please Select</option>
 			                            <option value="College of Science">College of Science</option>
 			                            <option value="College of Engineering">College of Engineering</option>
@@ -57,7 +57,7 @@ include __DIR__.'/../includes/adminSideBar.php'
         </div>
 
         <!--Search -->
-        <div class="col-12 align-self-center my-3" id="filter">
+        <div class="col-12 align-self-center pt-3 my-3" id="filter">
             <label>Filter by:</label>
             <select required>
                 <option value="" disabled selected hidden>College</option>

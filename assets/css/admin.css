@@ -1,7 +1,4 @@
-body {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.9rem;
-}
+
 /*Admin Tab*/
 .AdminTab h3{
     font-size: 1.5rem;
@@ -77,43 +74,27 @@ body {
     color: white;
     text-decoration: none;
     margin-right: 8px;
-    font-size: 0.8rem;
 }
-#cancel{
+#cancel, #cancelView{
     background-color: #aaaaaa;
     border-color: transparent;
     color: black;
     text-decoration: none;
-    font-size: 0.8rem;
 }
 .container .addAdminButton button:focus{
     box-shadow: none;
 }
-.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    font-size: 0.8rem;
-}
-.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
-    font-size: 0.8rem;
-}
-.form-control::-ms-input-placeholder { /* Microsoft Edge */
-    font-size: 0.8rem;
-}
-input[type=text], input[type=date],input[type=time], textarea{
-    color: black;
-    font-size: 0.8rem;
-}
+
 #save:hover{
     background-color: white;
     border-color: #800000;
     color: #800000;
-    font-size: 0.8rem;
 }
 
-#cancel:hover{
+#cancel:hover, #cancelView:hover{
     background-color: white;
     border-color: #800000;
     color: #800000;
-    font-size: 0.8rem;
 }
 
 /*Search*/
@@ -209,4 +190,14 @@ textarea:focus, input:focus{
 .modal-header{
     background-color: #800000;
     color: white;
+}
+
+.modal .cont{
+    font-size: 1rem;
+}
+
+@media only screen and (max-width: 576px) {
+    .hashed{
+        font-size: 0.9rem;
+    }
 }

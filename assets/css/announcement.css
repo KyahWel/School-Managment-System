@@ -1,9 +1,3 @@
-body {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.9rem;
-}
-
-
 /* Announcement Tab */
 
 .AnnouncenentTab h3 {
@@ -110,21 +104,6 @@ body {
 
 .container .addAnnouncementButton button:focus {
     box-shadow: none;
-}
-
-.form-control::placeholder {
-    /* Chrome, Firefox, Opera, Safari 10.1+ */
-    font-size: 0.8rem;
-}
-
-.form-control:-ms-input-placeholder {
-    /* Internet Explorer 10-11 */
-    font-size: 0.8rem;
-}
-
-.form-control::-ms-input-placeholder {
-    /* Microsoft Edge */
-    font-size: 0.8rem;
 }
 
 input[type=text],

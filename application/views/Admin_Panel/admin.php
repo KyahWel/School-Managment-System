@@ -56,7 +56,7 @@ include __DIR__.'/../includes/adminSideBar.php'
         </div>
         
         <!--Search ID-->
-        <div class="col-12 align-self-center my-3" id="Search">
+        <div class="col-12 align-self-center pt-3 my-3" id="Search">
             <label>Search:</label>
             <input type="text" id="searchAdmin" name="searchAdmin" placeholder="Search Admin ID">
             <button type="button" class="btn btn-sm" id="search"><i class="fas fa-search" data-bs-toggle="tooltip" title="Search"></i></button>
@@ -73,17 +73,17 @@ include __DIR__.'/../includes/adminSideBar.php'
                     </div>
                 </div>
 
-                <div class="table-responsive">  
+                <div class="table-responsive py-2">  
                     <table class="table table-default align-middle table-striped table-borderless table-hover" id="table-body">
                         <thead>
                             <tr>
-                                <th>ID</th>
-			                    <th>Admin Number</th>
-			                    <th>Username</th>
-			                    <th>First Name</th>
-			                    <th>Last Name</th>
-			                    <th>Status</th>
-                                <th>Action</th>
+                                <th class="pb-3">ID</th>
+			                    <th class="pb-3">Admin Number</th>
+			                    <th class="pb-3">Username</th>
+			                    <th class="pb-3">First Name</th>
+			                    <th class="pb-3">Last Name</th>
+			                    <th class="pb-3">Status</th>
+                                <th class="pb-3">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -130,17 +130,17 @@ include __DIR__.'/../includes/adminSideBar.php'
         <!--Admin View-->
         <div class="modal fade" id="viewAdmin" tabindex="-1" aria-labelledby="viewAdminHeader" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
-                <div class="modal-content">
+                <div class="modal-content cont">
                     <div class="modal-header">
                         <h5 class="modal-title" id="viewAdminHeader">View Admin</h5>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body p-4">
                         <div id="admin_result">
                                         
                         </div>
                         <div class="editAdminButton d-flex justify-content-end">
-                            <button class="btn btn-default" id="save" type="button" data-bs-dismiss="modal">Exit</button>
+                            <button class="btn btn-default" id="cancelView" type="button" data-bs-dismiss="modal">Close</button>
                         </div>                                                                          
                     </div>
                 </div>

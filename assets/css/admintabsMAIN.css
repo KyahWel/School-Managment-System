@@ -10,3 +10,26 @@
  text-overflow: ellipsis;
  white-space: nowrap;
 }
+
+tbody{
+    text-align: center;
+    line-height: 32px;
+}
+
+.form-control::placeholder, .form-select::placeholder{ /* Chrome, Firefox, Opera, Safari 10.1+ */
+    font-size: 0.9rem;
+}
+.form-control:-ms-input-placeholder, .form-select:-ms-input-placeholder{ /* Internet Explorer 10-11 */
+    font-size: 0.9rem;
+}
+.form-control::-ms-input-placeholder, .form-select::-ms-input-placeholder{ /* Microsoft Edge */
+    font-size: 0.9rem;
+}
+input[type=text], input[type=date], input[type=time], input[type=tel], textarea{
+    color: black;
+    font-size: 0.9rem;
+}
+
+.form-control:focus, .form-select:focus{
+    border-color: maroon;
+}

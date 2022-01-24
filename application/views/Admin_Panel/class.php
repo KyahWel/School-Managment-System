@@ -86,7 +86,7 @@ include __DIR__.'/../includes/adminSideBar.php'
         </div>
 
         <!-- Filter and Search -->
-        <div class="col-12 align-self-center my-3" id="filterAndSearch">
+        <div class="col-12 align-self-center pt-2 my-3" id="filterAndSearch">
             <label for="yearLevel-filter">Filter by:</label>
             <select id="yearLevel-filter">
                 <option value="" disabled selected hidden>Year Level</option>
@@ -228,7 +228,6 @@ include __DIR__.'/../includes/adminSideBar.php'
     <div class="py-2"> &nbsp;</div>
 </div>
 
-<script src="<?php echo base_url('assets/js/class.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 <!-- jQuery JS CDN -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> 
