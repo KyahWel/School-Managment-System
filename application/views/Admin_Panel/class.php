@@ -126,16 +126,16 @@ include __DIR__.'/../includes/adminSideBar.php'
                 </div>
 
                 <!--Table Body-->
-                <div class="table-responsive">  
+                <div class="table-responsive py-2">  
                     <table class="table align-middle table-striped table-borderless table-hover" id="table-body">
                         <thead>
                             <tr>
-                                <th>Class Code</th>
-                                <th>Course</th>
-                                <th>Year Level</th>
-                                <th>Semester</th>
-                                <th>Status</th>
-                                <th>Action</th>
+                                <th class="pb-3">Class Code</th>
+                                <th class="pb-3">Course</th>
+                                <th class="pb-3">Year Level</th>
+                                <th class="pb-3">Semester</th>
+                                <th class="pb-3">Status</th>
+                                <th class="pb-3">Action</th>
                             </tr>
                         </thead>
                         <tbody>     

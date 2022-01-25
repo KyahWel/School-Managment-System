@@ -87,14 +87,14 @@ include __DIR__.'/../includes/adminSideBar.php'
                         </div>
                     </div>
                 </div>
-                <div class="table-responsive">  
+                <div class="table-responsive py-2">  
                     <table class="table table-default align-middle table-striped table-borderless table-hover" id="table-body">
                         <thead>
                             <tr>
-			                    <th>Degree</th>
-			                    <th>Major</th>
-			                    <th>College</th>
-                                <th>Action</th>
+			                    <th class="pb-3">Degree</th>
+			                    <th class="pb-3">Major</th>
+			                    <th class="pb-3">College</th>
+                                <th class="pb-3">Action</th>
                             </tr>
                         </thead>
                         <tbody>

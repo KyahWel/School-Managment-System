@@ -197,6 +197,7 @@ textarea:focus, input:focus{
  overflow: hidden;
  text-overflow: ellipsis;
  white-space: nowrap;
+ line-height: 0px;
 }
 
 /* Action Button */

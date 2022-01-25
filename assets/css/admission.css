@@ -156,37 +156,39 @@ ul#viewTab.nav {
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
 }
-
-.nav-tabs .nav-item.show .nav-link,
-.nav-tabs .nav-link {
-    color: white;
+.nav-tabs .nav-link{
+    color:white;
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+  
 }
-
-.nav-tabs .nav-item.show .nav-link,
-.nav-tabs .student.Button.active {
-    color: #800000;
-    background-color: white;
-    font-weight: 200;
-    border-top-left-radius: 25px;
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link:hover{
+    border-top-left-radius: 18px;
+    border-top-right-radius:18px;
 }
-
-.nav-tabs .nav-item.show .nav-link,
-.nav-tabs .faculty.Button.active {
-    color: #800000;
-    background-color: white;
-    border-color: white;
-    font-weight: 200;
-    border-radius: 0;
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #495057;
+    background-color: #fff;
+    border-color: #dee2e6 #dee2e6 #fff;
+    border-top-left-radius: 18px;
+    border-top-right-radius:18px;
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
 }
 
 button#viewApplicantButton.nav-link.active::before,
 button#viewEnrollmenttButton.nav-link.active::before {
     background: none;
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
 }
 
 div#viewApplicantButton.tab-pane.active.show::before,
 div#viewEnrollmenttButton.tab-pane.active::before {
     background: none;
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+
 }
 
 
@@ -225,7 +227,7 @@ div#viewEnrollmenttButton.tab-pane.active::before {
     background: #DB1A00;
     border: none;
     opacity: 0.9;
-    padding: 1px 8px;
+    padding: 3px 8px;
 }
 
 .addBtn:hover,
@@ -236,21 +238,19 @@ div#viewEnrollmenttButton.tab-pane.active::before {
 }
 
 .addALL {
-    background: #920003;
+    background: #df0404;
     opacity: 0.9;
     border: none;
-    font-size: 0.8rem;
+    font-size: 0.93rem;
     color: white;
 }
 
-.addALL:hover {
-    background: #920003;
+.addALL:hover, .addALL:focus  {
+    background: #df0404;
     opacity: 1;
+    box-shadow: none;
 }
 
-.addALL:focus {
-    background: maroon;
-}
 
 .enrollmentDetails {
     background: white;
@@ -569,17 +569,19 @@ img.hover-shadow {
     }
 }
 
-.table-body tr {
+.table-body, tr #table-bodySched tr{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+ 
 }
 
-.table-body td {
+.table-body td, #table-bodySched td{
     max-width: 200px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    line-height: 32px;
 }
 
 #table-bodySched tbody .action-buttons {
@@ -619,4 +621,8 @@ img.hover-shadow {
 
 #table-body tbody .action-buttons li button:focus {
     box-shadow: none;
+}
+
+img.bugfix{
+    max-width: 500px;
 }

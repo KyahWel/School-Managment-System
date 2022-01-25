@@ -4,7 +4,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
 
 <head>
     <link href="<?php echo base_url('assets/css/adminDashboard.css'); ?>" rel="stylesheet" type="text/css">
-    <link href="<?php echo base_url('assets/css/announcement.css'); ?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url('assets/css/admin.css'); ?>" rel="stylesheet" type="text/css">
     <title>Admin | Dashboard </title>
 </head>
 
@@ -83,7 +83,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLabel">View Announement</h5>
-                                                <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body p-4">
                                                 <div id="event_result">
@@ -126,7 +126,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
             <div class="tab-content" id="viewStudentsTab">
                 <div class="tab-pane show active" id="studentsTabContent" role="tabpanel" aria-labelledby="Students Information">
                     <!-- Filter and Search -->
-                    <div class=" d-flex justify-content-end p-3 mt-2" id="studentFilter">
+                    <div class=" d-flex justify-content-end p-3" id="studentFilter">
                         <label class="px-2 pt-1">Search ID: </label>
                         <input type="text" name="searchStudentID" placeholder="Search Student ID">
                         <button type="button" class="btn btn-sm" id="searchStudID"><i class="fas fa-search" data-bs-toggle="tooltip" title="Search"></i></button>
@@ -161,7 +161,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
                 <!-- Faculty List -->
                 <div class="tab-pane" id="facultyTabContent" role="tabpanel" aria-labelledby="Faculty Information">
                     <!-- Filter and Search -->
-                    <div class=" d-flex justify-content-end  p-3 mt-2" id="facultyFilter">
+                    <div class=" d-flex justify-content-end p-3 " id="facultyFilter">
                         <label class="px-2 pt-1">Search ID: </label>
                         <input type="text" id="searchFacultyID" name="searchFacultyID" placeholder="Search Faculty ID">
                         <button type="button" class="btn btn-sm" id="searchFacID"><i class="fas fa-search" data-bs-toggle="tooltip" title="Search"></i></button>

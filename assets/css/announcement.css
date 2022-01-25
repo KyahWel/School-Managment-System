@@ -1,3 +1,6 @@
+body{
+    font-family: "Poppins", sans-serif;
+}
 /* Announcement Tab */
 
 .AnnouncenentTab h3 {
@@ -85,7 +88,7 @@
     border-color: #800000;
 }
 
-#save {
+#save, .accordion #saveSubject {
     background-color: #800000;
     border-color: transparent;
     color: white;
@@ -94,7 +97,7 @@
     font-size: 0.8rem;
 }
 
-#cancel {
+#cancel, .accordion #cancelSubject {
     background-color: #aaaaaa;
     border-color: transparent;
     color: black;
@@ -106,13 +109,6 @@
     box-shadow: none;
 }
 
-input[type=text],
-input[type=date],
-input[type=time],
-textarea {
-    color: black;
-    font-size: 0.8rem;
-}
 
 #save:hover {
     background-color: white;
@@ -150,23 +146,29 @@ textarea {
     margin: 15px;
 }
 
-#table-body thead {
+.table-body thead {
     text-align: center;
 }
 
-#table-body tbody {
+.table-bodySubject tbody {
     text-align: center;
+    line-height: 0;
+}
+
+.table-body tbody {
+    text-align: center;
+    line-height: 32px;
 }
 
 
 /* Action Button */
 
-#table-body tbody .action-buttons li {
+.table-body tbody .action-buttons li {
     list-style-type: none;
     display: inline-block;
 }
 
-#table-body tbody .action-buttons li button {
+.table-body tbody .action-buttons li button {
     color: white;
     background-color: maroon;
     font-size: 0.55rem;
@@ -175,24 +177,24 @@ textarea {
     margin-top: 2.4px;
 }
 
-#table-body tbody .action-buttons li #status {
+.table-body tbody .action-buttons li #status, #table-body tbody .action-buttons li #uniqueSubjectEdit {
     color: white;
-    background-color: maroon;
-    font-size: 0.53rem;
+    background-color: #B20000;
+    font-size: 0.6rem;
     opacity: 0.93;
     padding: 3px 6.8px;
     border-radius: 3px;
     cursor: pointer;
-    width: 55px;
+    width: 59.5px;
     margin-left: 1px;
 }
 
-#table-body tbody .action-buttons li button:hover,
-#table-body tbody .action-buttons li #status:hover {
+.table-body tbody .action-buttons li button:hover,
+.table-body tbody .action-buttons li #status:hover, #table-body tbody .action-buttons li #uniqueSubjectEdit:hover {
     opacity: 1;
 }
 
-#table-body tbody .action-buttons li button:focus {
+.table-body tbody .action-buttons li button:focus {
     box-shadow: none;
 }
 
