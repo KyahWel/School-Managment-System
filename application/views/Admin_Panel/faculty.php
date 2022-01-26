@@ -82,7 +82,7 @@ include __DIR__.'/../includes/adminSideBar.php'
         </div>
 
         <!-- Filter and Search -->
-        <div class="col-12 align-self-center my-3" id="filterAndSearch-main">
+        <div class="col-12 align-self-center pt-3 my-3" id="filterAndSearch-main">
             <label for="college-filter">Filter by: </label>
             <select id="college-filter">
                 <option value="" disabled selected hidden>College</option>
@@ -113,16 +113,15 @@ include __DIR__.'/../includes/adminSideBar.php'
                     </div>
                 </div>
 
-                <div class="table-responsive">  
+                <div class="table-responsive py-3">  
                     <table class="table table-body align-middle table-striped table-borderless table-hover"> <!--Table Body-->
                         <thead>
                             <tr>
-                                <th>Faculty ID</th>
-                                <th>Faculty Name</th>
-                                <th>College</th>
-                                <th>Department</th>
-                                <th>Action</th>
-                                
+                                <th class="pb-3">Faculty ID</th>
+                                <th class="pb-3">Faculty Name</th>
+                                <th class="pb-3"> College</th>
+                                <th class="pb-3">Department</th>
+                                <th class="pb-3">Action</th>
                             </tr>
                         </thead>
                         <tbody>  

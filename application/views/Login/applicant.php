@@ -23,57 +23,57 @@
                 background: none #f4f4f4;
             }
         }
-    </style> 
+    </style>
 </head>
 
 <body>
-<?php
-include __DIR__.'/../includes/loginNavbar.php'
-?>
-<div class="background">
- 
-    <!-- APPLICANT LOGIN ACCESS MODULE -->
-    <div class="wrapper" id="applicantLogin">
-             
-        <?php if($this->session->flashdata('loginerror')) : ?>
-            <div class="alert alert-danger alert-dismissible fade show">
-                <?= $this->session->flashdata('loginerror'); ?>
-                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
-            </div>
-        <?php elseif($this->session->flashdata('successApplicant')): ?>
-        <!-- Successfull change password alert -->
-            <div class="alert alert-success alert-dismissible fade show">
-                <?= $this->session->flashdata('successApplicant'); ?>
-                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
-            </div>
-        <?php endif; ?>
+    <?php
+    include __DIR__ . '/../includes/loginNavbar.php'
+    ?>
+    <div class="background">
 
-        <h3 class="applicant"> <strong>Applicant Access Module</strong></h3>
-        <form action="applicant_login" method="POST">
-            <hr>
+        <!-- APPLICANT LOGIN ACCESS MODULE -->
+        <div class="wrapper" id="applicantLogin">
 
-            <!-- Username -->
-            <div class="form-group mb-4">
-                <label for="username">Applicant Number</label>
-                <div class="input-group-addon">
-                    <i class="fa fa-user"></i>
+            <?php if ($this->session->flashdata('loginerror')) : ?>
+                <div class="alert alert-danger alert-dismissible fade show">
+                    <?= $this->session->flashdata('loginerror'); ?>
+                    <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
                 </div>
-                <input type="text" class="form-control" name="username" placeholder="Applicant Number" required>
-            </div>
+            <?php elseif ($this->session->flashdata('successApplicant')) : ?>
+                <!-- Successfull change password alert -->
+                <div class="alert alert-success alert-dismissible fade show">
+                    <?= $this->session->flashdata('successApplicant'); ?>
+                    <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+                </div>
+            <?php endif; ?>
 
-            <!-- clear entries and login button -->
-            <div class="btn-toolbar justify-content-between mb-5" role="toolbar" aria-label="Toolbar with button groups">
-                <input type="reset" class="btn btn-default" name="reset" value="Clear entries"></input>
-                <input type="submit" class="btn btn-default " name="login" value="Login"></input>
-            </div>
+            <h3 class="applicant"> <strong>Applicant Access Module</strong></h3>
+            <form action="applicant_login" method="POST">
+                <hr>
 
-            <!--<p class= "notice">
+                <!-- Username -->
+                <div class="form-group mb-4">
+                    <label for="username">Applicant Number</label>
+                    <div class="input-group-addon">
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <input type="text" class="form-control" name="username" placeholder="Applicant Number" required>
+                </div>
+
+                <!-- clear entries and login button -->
+                <div class="btn-toolbar justify-content-between mb-5" role="toolbar" aria-label="Toolbar with button groups">
+                    <input type="reset" class="btn btn-default" name="reset" value="Clear entries"></input>
+                    <input type="submit" class="btn btn-default " name="login" value="Login"></input>
+                </div>
+
+                <!--<p class= "notice">
              </p> -->
-            <button type="button" class="btn btn-default apply" name="apply" onclick="location.href='<?php echo site_url('applicantRegistration') ?>'">APPLY</button>
-        </form>
+                <button type="button" class="btn btn-default apply" name="apply" onclick="location.href='<?php echo site_url('applicantRegistration') ?>'">APPLY NOW</button>
+            </form>
+        </div>
     </div>
-</div>
-<script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
+    <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 </body>
 
 </html>
