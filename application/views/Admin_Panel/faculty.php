@@ -134,7 +134,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                                     <td><?php echo $teacherrow->department;?></td>
                                     <td>
                                     <div class="action-buttons">
-                                        <ul>
+                                        <ul class="mb-0 px-0">
                                             <?php if ($teacherrow->status == 1): ?>
                                                 <li><button type="button" id="view" data-id='<?php echo $teacherrow->teacherID;?>' class="btn view_data" onclick="viewProfessor()"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
                                                 <li><button type="button" id="edit" data-id='<?php echo $teacherrow->teacherID;?>' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editProfessor"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
@@ -169,29 +169,29 @@ include __DIR__.'/../includes/adminSideBar.php'
     <div class="container my-3" id='viewProfessor' style="display: none;">     
         
         <div class="viewProfessorTitle">
-            <button class="btn btn-default btn-sm" id="back-button" onclick="mainFaculty()"><i class="fa fa-arrow-left"></i> Back</button>
+            <button type="button" class="btn btn-default btn-sm" id="back-button" onclick="mainFaculty()"><i class="fa fa-arrow-left"></i> Back</button>
             <h3>Lida's Profile</h3>
         </div>
 
         <!-- View Professor Information -->
         <div class="viewProfessorContent d-flex align-items-center">
-            <div id="viewProfessorAvatar">
-                <button class="btn"><i class="fas fa-user"></i></button>
+            <div class="profile-pic-div">
+                <img src="../assets/images/facultyAvatar.jpg" alt="Professor Avatar" id="facultyPhoto">
             </div>
-            <div class="table-responsive">
-                <table id="viewProfessorInformation">
+            <div class="table-responsive mx-3">
+                <table id="viewProfessorInformation" class="table-body">
                     <tr>
-                        <td>
-                            <b>Faculty ID:</b><br>
-                            <b>Name:</b><br>
-                            <b>Username:</b><br>
-                            <b>Department:</b><br>
+                        <td class="py-3">
+                            <p><b>Faculty ID:</b></p>
+                            <p><b>Name:</b></p>
+                            <p><b>Department:</b></p>
+                            <p class="mb-0"><b>Email:</b></p>
                         </td>
-                        <td>
-                            1234567890<br>
-                            Lida Cruz<br>
-                            Lida12345<br>
-                            Mathematics Department<br>
+                        <td class="py-3">
+                            <p>1234567890</p>
+                            <p>Lida Cruz</p>
+                            <p>Lida12345</p>
+                            <p class="mb-0">Mathematics Department</p>
                         </td>
                     </tr>
                 </table>
@@ -233,7 +233,7 @@ include __DIR__.'/../includes/adminSideBar.php'
         </div> 
 
         <!-- View Professor Table -->
-        <div class="col-12 align-self-center my-3" id="viewProfessorTable">
+        <div class="table-wrapper col-12 align-self-center my-3" id="viewProfessorTable">
             <ul class="nav nav-tabs d-flex flex-row justify-content-start" id="viewProfessorTab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="viewProfessorInformationTab" data-bs-toggle="tab" data-bs-target="#ProfessorInformation" type="button" role="tab" aria-controls="ProfessorInformation" aria-selected="true">Professor Information</button>

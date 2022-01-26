@@ -16,7 +16,7 @@ include __DIR__ . '/../includes/facultySideBar.php'
             <div class="d-flex align-items-center my-2">
 
                 <div class=" profile-pic-div">
-                    <img src="../assets/images/facultyAvatar.jpg" alt="Student Avatar" id="facultyPhoto">
+                    <img src="../assets/images/facultyAvatar.jpg" alt="Professor Avatar" id="facultyPhoto">
                 </div>
 
                 <!-- My Profile Details -->
@@ -27,9 +27,7 @@ include __DIR__ . '/../includes/facultySideBar.php'
                                 <p><b>Faculty ID:</b></p>
                                 <p><b>Name:</b></p>
                                 <p><b>Department:</b></p>
-
                                 <p class="mb-0"><b>Email:</b></p>
-
                             </td>
                             <td class="py-3">
                                 <p><?php echo $prof->teacherNumber?></p>
