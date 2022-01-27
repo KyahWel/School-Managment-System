@@ -26,6 +26,13 @@ class StudentController extends CI_Controller {
 	public function dashboard()
 	{	
 		$data['announcement'] = $this->eventsModel->getAllData();
+		$data['schedMonday'] = $this->studentModel->getScheduleMonday($this->session->userdata('auth_user')['studentID']);
+		$data['schedTuesday'] = $this->studentModel->getScheduleTuesday($this->session->userdata('auth_user')['studentID']);
+		$data['schedWednesday'] = $this->studentModel->getScheduleWednesday($this->session->userdata('auth_user')['studentID']);
+		$data['schedThursday'] = $this->studentModel->getScheduleThursday($this->session->userdata('auth_user')['studentID']);
+		$data['schedFriday'] = $this->studentModel->getScheduleFriday($this->session->userdata('auth_user')['studentID']);
+		$data['schedSaturday'] = $this->studentModel->getScheduleSaturday($this->session->userdata('auth_user')['studentID']);
+		$data['schedSunday'] = $this->studentModel->getScheduleSunday($this->session->userdata('auth_user')['studentID']);
 		$this->load->view('Student_Panel/dashboard',$data);
 	}
 
