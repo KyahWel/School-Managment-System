@@ -145,296 +145,121 @@ include __DIR__ . '/../includes/studentSideBar.php'
             <div class="tab-content p-4">
                 <!-- Monday -->
                 <div class="tab-pane show active mb-3 text-dark" id="monday" role="tabpanel" aria-labelledby="Monday">
-                    <div class="row mb-3">
-                        <div class="col-lg-6 mb-2">
-                            <div class="box-wrapper p-4" href="#">
-                                <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 8:00am - 12:00pm</h5>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="timetable-item-subtitle">Subject</div>
-                                        <h6 class=" timetable-item-subj my-1 px-3 py-2">Software Engineering</h6>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="timetable-item-subtitle"> Professor</div>
-                                        <h6 class=" timetable-item-prof my-1 px-3 py-2">Professor Geneva Cruz</h6>
-                                    </div>
-                                </div>
-                                <div class="box-content">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 mb-2">
-                            <div class="box-wrapper p-4" href="#">
-                                <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 1:00pm - 3:00pm</h5>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="timetable-item-subtitle">Subject</div>
-                                        <h6 class=" timetable-item-subj my-1 px-3 py-2">Data Analytics</h6>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="timetable-item-subtitle"> Professor</div>
-                                        <h6 class=" timetable-item-prof my-1 px-3 py-2">Professor Geneva Cruz</h6>
-                                    </div>
-                                </div>
-                                <div class="box-content">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                	<?php foreach($schedMonday as $monday) {?>
+                	<div class="row mb-3">
+                		<div class="col-lg-6 mb-2">
+                			<div class="box-wrapper p-4" href="#">
+                				<h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i>
+                					<?php echo date("h:i A",strtotime($monday->start_time)) . " - " . date("h:i A",strtotime($monday->end_time)); ?>
+                				</h5>
+                				<hr>
+                				<div class="row">
+                					<div class="col-lg-6 col-md-6 col-sm-6">
+                						<div class="timetable-item-subtitle">Subject</div>
+                						<h6 class=" timetable-item-subj my-1 px-3 py-2"><?php echo $monday->name; ?>
+                						</h6>
+                					</div>
+                					<div class="col-lg-6 col-md-6 col-sm-12">
+                						<div class="timetable-item-subtitle"> Professor</div>
+                						<h6 class=" timetable-item-prof my-1 px-3 py-2">
+                							<?php echo $monday->firstname . " " .$monday->lastname; ?></h6>
+                					</div>
+                				</div>
+                				<div class="box-content">
+                				</div>
+                			</div>
+                		</div>
+                	</div>
+                	<?php } ?>
                 </div>
-
                 <!-- Tuesday -->
-                <div class="tab-pane " id="tuesday" role="tabpanel" aria-labelledby="Tuesday">
-                    <div class="row mb-3">
-                        <div class="col-lg-6 mb-2">
-                            <div class="box-wrapper p-4" href="#">
-                                <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 8:00am - 12:00pm</h5>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="timetable-item-subtitle">Subject</div>
-                                        <h6 class=" timetable-item-subj my-1 px-3 py-2">Software Engineering</h6>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="timetable-item-subtitle"> Professor</div>
-                                        <h6 class=" timetable-item-prof my-1 px-3 py-2">Professor Geneva Cruz</h6>
-                                    </div>
-                                </div>
-                                <div class="box-content">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 mb-2">
-                            <div class="box-wrapper p-4" href="#">
-                                <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 1:00pm - 3:00pm</h5>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="timetable-item-subtitle">Subject</div>
-                                        <h6 class=" timetable-item-subj my-1 px-3 py-2">Data Analytics</h6>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="timetable-item-subtitle"> Professor</div>
-                                        <h6 class=" timetable-item-prof my-1 px-3 py-2">Professor Geneva Cruz</h6>
-                                    </div>
-                                </div>
-                                <div class="box-content">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="tab-pane show active mb-3 text-dark" id="tuesday" role="tabpanel" aria-labelledby="Tuesday">
+                	<?php foreach($schedTuesday as $tuesday) {?>
+                	<div class="row mb-3">
+                		<div class="col-lg-6 mb-2">
+                			<div class="box-wrapper p-4" href="#">
+                				<h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i>
+                					<?php echo date("h:i A",strtotime($tuesday->start_time)) . " - " . date("h:i A",strtotime($tuesday->end_time)); ?>
+                				</h5>
+                				<hr>
+                				<div class="row">
+                					<div class="col-lg-6 col-md-6 col-sm-6">
+                						<div class="timetable-item-subtitle">Subject</div>
+                						<h6 class=" timetable-item-subj my-1 px-3 py-2"><?php echo $tuesday->name; ?>
+                						</h6>
+                					</div>
+                					<div class="col-lg-6 col-md-6 col-sm-12">
+                						<div class="timetable-item-subtitle"> Professor</div>
+                						<h6 class=" timetable-item-prof my-1 px-3 py-2">
+                							<?php echo $tuesday->firstname . " " .$tuesday->lastname; ?></h6>
+                					</div>
+                				</div>
+                				<div class="box-content">
+                				</div>
+                			</div>
+                		</div>
+                	</div>
+                	<?php } ?>
                 </div>
-
                 <!-- Wednesday -->
-                <div class="tab-pane" id="wednesday" role="tabpanel" aria-labelledby="Wednesday">
-                    <div class="row mb-3">
-                        <div class="col-lg-6 mb-2">
-                            <div class="box-wrapper p-4" href="#">
-                                <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 8:00am - 12:00pm</h5>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="timetable-item-subtitle">Subject</div>
-                                        <h6 class=" timetable-item-subj my-1 px-3 py-2">Software Engineering</h6>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="timetable-item-subtitle"> Professor</div>
-                                        <h6 class=" timetable-item-prof my-1 px-3 py-2">Professor Geneva Cruz</h6>
-                                    </div>
-                                </div>
-                                <div class="box-content">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 mb-2">
-                            <div class="box-wrapper p-4" href="#">
-                                <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 1:00pm - 3:00pm</h5>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="timetable-item-subtitle">Subject</div>
-                                        <h6 class=" timetable-item-subj my-1 px-3 py-2">Data Analytics</h6>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="timetable-item-subtitle"> Professor</div>
-                                        <h6 class=" timetable-item-prof my-1 px-3 py-2">Professor Geneva Cruz</h6>
-                                    </div>
-                                </div>
-                                <div class="box-content">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="tab-pane show active mb-3 text-dark" id="wednesday" role="tabpanel" aria-labelledby="Wednesday">
+                	<?php foreach($schedWednesday as $wednesday) {?>
+                	<div class="row mb-3">
+                		<div class="col-lg-6 mb-2">
+                			<div class="box-wrapper p-4" href="#">
+                				<h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i>
+                					<?php echo date("h:i A",strtotime($wednesday->start_time)) . " - " . date("h:i A",strtotime($wednesday->end_time)); ?>
+                				</h5>
+                				<hr>
+                				<div class="row">
+                					<div class="col-lg-6 col-md-6 col-sm-6">
+                						<div class="timetable-item-subtitle">Subject</div>
+                						<h6 class=" timetable-item-subj my-1 px-3 py-2"><?php echo $wednesday->name; ?>
+                						</h6>
+                					</div>
+                					<div class="col-lg-6 col-md-6 col-sm-12">
+                						<div class="timetable-item-subtitle"> Professor</div>
+                						<h6 class=" timetable-item-prof my-1 px-3 py-2">
+                							<?php echo $wednesday->firstname . " " .$wednesday->lastname; ?></h6>
+                					</div>
+                				</div>
+                				<div class="box-content">
+                				</div>
+                			</div>
+                		</div>
+                	</div>
+                	<?php } ?>
                 </div>
                 <!-- Thursday -->
-                <div class="tab-pane" id="thursday" role="tabpanel" aria-labelledby="Thursday">
-                    <div class="row mb-3">
-                        <div class="col-lg-6 mb-2">
-                            <div class="box-wrapper p-4" href="#">
-                                <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 8:00am - 12:00pm</h5>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="timetable-item-subtitle">Subject</div>
-                                        <h6 class=" timetable-item-subj my-1 px-3 py-2">Software Engineering</h6>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="timetable-item-subtitle"> Professor</div>
-                                        <h6 class=" timetable-item-prof my-1 px-3 py-2">Professor Geneva Cruz</h6>
-                                    </div>
-                                </div>
-                                <div class="box-content">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 mb-2">
-                            <div class="box-wrapper p-4" href="#">
-                                <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 1:00pm - 3:00pm</h5>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="timetable-item-subtitle">Subject</div>
-                                        <h6 class=" timetable-item-subj my-1 px-3 py-2">Data Analytics</h6>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="timetable-item-subtitle"> Professor</div>
-                                        <h6 class=" timetable-item-prof my-1 px-3 py-2">Professor Geneva Cruz</h6>
-                                    </div>
-                                </div>
-                                <div class="box-content">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <!-- Friday -->
-                <div class="tab-pane" id="friday" role="tabpanel" aria-labelledby="Friday">
-                    <div class="row mb-3">
-                        <div class="col-lg-6 mb-2">
-                            <div class="box-wrapper p-4" href="#">
-                                <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 8:00am - 12:00pm</h5>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="timetable-item-subtitle">Subject</div>
-                                        <h6 class=" timetable-item-subj my-1 px-3 py-2">Software Engineering</h6>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="timetable-item-subtitle"> Professor</div>
-                                        <h6 class=" timetable-item-prof my-1 px-3 py-2">Professor Geneva Cruz</h6>
-                                    </div>
-                                </div>
-                                <div class="box-content">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 mb-2">
-                            <div class="box-wrapper p-4" href="#">
-                                <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 1:00pm - 3:00pm</h5>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="timetable-item-subtitle">Subject</div>
-                                        <h6 class=" timetable-item-subj my-1 px-3 py-2">Data Analytics</h6>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="timetable-item-subtitle"> Professor</div>
-                                        <h6 class=" timetable-item-prof my-1 px-3 py-2">Professor Geneva Cruz</h6>
-                                    </div>
-                                </div>
-                                <div class="box-content">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Saturday -->
-                <div class="tab-pane" id="saturday" role="tabpanel" aria-labelledby="Saturday">
-                    <div class="row mb-3">
-                        <div class="col-lg-6 mb-2">
-                            <div class="box-wrapper p-4" href="#">
-                                <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 8:00am - 12:00pm</h5>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="timetable-item-subtitle">Subject</div>
-                                        <h6 class=" timetable-item-subj my-1 px-3 py-2">Software Engineering</h6>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="timetable-item-subtitle"> Professor</div>
-                                        <h6 class=" timetable-item-prof my-1 px-3 py-2">Professor Geneva Cruz</h6>
-                                    </div>
-                                </div>
-                                <div class="box-content">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 mb-2">
-                            <div class="box-wrapper p-4" href="#">
-                                <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 1:00pm - 3:00pm</h5>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="timetable-item-subtitle">Subject</div>
-                                        <h6 class=" timetable-item-subj my-1 px-3 py-2">Data Analytics</h6>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="timetable-item-subtitle"> Professor</div>
-                                        <h6 class=" timetable-item-prof my-1 px-3 py-2">Professor Geneva Cruz</h6>
-                                    </div>
-                                </div>
-                                <div class="box-content">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="tab-pane show active mb-3 text-dark" id="thursday" role="tabpanel" aria-labelledby="Thursday">
+                	<?php foreach($schedThursday as $thursday) {?>
+                	<div class="row mb-3">
+                		<div class="col-lg-6 mb-2">
+                			<div class="box-wrapper p-4" href="#">
+                				<h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i>
+                					<?php echo date("h:i A",strtotime($thursday->start_time)) . " - " . date("h:i A",strtotime($thursday->end_time)); ?>
+                				</h5>
+                				<hr>
+                				<div class="row">
+                					<div class="col-lg-6 col-md-6 col-sm-6">
+                						<div class="timetable-item-subtitle">Subject</div>
+                						<h6 class=" timetable-item-subj my-1 px-3 py-2"><?php echo $thursday->name; ?>
+                						</h6>
+                					</div>
+                					<div class="col-lg-6 col-md-6 col-sm-12">
+                						<div class="timetable-item-subtitle"> Professor</div>
+                						<h6 class=" timetable-item-prof my-1 px-3 py-2">
+                							<?php echo $thursday->firstname . " " .$thursday->lastname; ?></h6>
+                					</div>
+                				</div>
+                				<div class="box-content">
+                				</div>
+                			</div>
+                		</div>
+                	</div>
+                	<?php } ?>
                 </div>
 
-                <!-- Sunday -->
-                <div class="tab-pane" id="sunday" role="tabpanel" aria-labelledby="Sunday">
-                    <div class="row mb-3">
-                        <div class="col-lg-6 mb-2">
-                            <div class="box-wrapper p-4" href="#">
-                                <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 8:00am - 12:00pm</h5>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="timetable-item-subtitle">Subject</div>
-                                        <h6 class=" timetable-item-subj my-1 px-3 py-2">Software Engineering</h6>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="timetable-item-subtitle"> Professor</div>
-                                        <h6 class=" timetable-item-prof my-1 px-3 py-2">Professor Geneva Cruz</h6>
-                                    </div>
-                                </div>
-                                <div class="box-content">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 mb-2">
-                            <div class="box-wrapper p-4" href="#">
-                                <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 1:00pm - 3:00pm</h5>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="timetable-item-subtitle">Subject</div>
-                                        <h6 class=" timetable-item-subj my-1 px-3 py-2">Data Analytics</h6>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="timetable-item-subtitle"> Professor</div>
-                                        <h6 class=" timetable-item-prof my-1 px-3 py-2">Professor Geneva Cruz</h6>
-                                    </div>
-                                </div>
-                                <div class="box-content">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

@@ -127,6 +127,103 @@ class studentModel extends CI_Model {
 		return $query->row();
 	}
 
+	public function getScheduleMonday($id){
+		$query = $this->db->query("SELECT class.class_code FROM `class` 
+									JOIN `section_table` ON class.classID = section_table.classID 
+									JOIN `student_accounts` ON section_table.sectionID = student_accounts.sectionID 
+									WHERE `studentID` = ".$id);
+		$class_code = $query->row();
+		$query2 = $this->db->query("SELECT * FROM `class` 
+									JOIN `subjects_table` ON class.subjectID = subjects_table.subjectID
+									JOIN `teacher_accounts` ON class.teacherID = teacher_accounts.teacherID
+									WHERE `class_code` = '$class_code->class_code' AND class.day='Monday' 
+									ORDER BY `start_time` ASC ");
+		return $query2->result();
+	}
+	public function getScheduleTuesday($id){
+		$query = $this->db->query("SELECT class.class_code FROM `class` 
+									JOIN `section_table` ON class.classID = section_table.classID 
+									JOIN `student_accounts` ON section_table.sectionID = student_accounts.sectionID 
+									WHERE `studentID` = ".$id);
+		$class_code = $query->row();
+		$query2 = $this->db->query("SELECT * FROM `class` 
+									JOIN `subjects_table` ON class.subjectID = subjects_table.subjectID
+									JOIN `teacher_accounts` ON class.teacherID = teacher_accounts.teacherID
+									WHERE `class_code` = '$class_code->class_code' AND class.day='Tuesday' 
+									ORDER BY `start_time` ASC ");
+		return $query2->result();
+	}
+
+	public function getScheduleWednesday($id){
+		$query = $this->db->query("SELECT class.class_code FROM `class` 
+									JOIN `section_table` ON class.classID = section_table.classID 
+									JOIN `student_accounts` ON section_table.sectionID = student_accounts.sectionID 
+									WHERE `studentID` = ".$id);
+		$class_code = $query->row();
+		$query2 = $this->db->query("SELECT * FROM `class` 
+									JOIN `subjects_table` ON class.subjectID = subjects_table.subjectID
+									JOIN `teacher_accounts` ON class.teacherID = teacher_accounts.teacherID
+									WHERE `class_code` = '$class_code->class_code' AND class.day='Wednesday' 
+									ORDER BY `start_time` ASC ");
+		return $query2->result();
+	}
+
+	public function getScheduleThursday($id){
+		$query = $this->db->query("SELECT class.class_code FROM `class` 
+									JOIN `section_table` ON class.classID = section_table.classID 
+									JOIN `student_accounts` ON section_table.sectionID = student_accounts.sectionID 
+									WHERE `studentID` = ".$id);
+		$class_code = $query->row();
+		$query2 = $this->db->query("SELECT * FROM `class` 
+									JOIN `subjects_table` ON class.subjectID = subjects_table.subjectID
+									JOIN `teacher_accounts` ON class.teacherID = teacher_accounts.teacherID
+									WHERE `class_code` = '$class_code->class_code' AND class.day='Thursday' 
+									ORDER BY `start_time` ASC ");
+		return $query2->result();
+	}
+
+	public function getScheduleFriday($id){
+		$query = $this->db->query("SELECT class.class_code FROM `class` 
+									JOIN `section_table` ON class.classID = section_table.classID 
+									JOIN `student_accounts` ON section_table.sectionID = student_accounts.sectionID 
+									WHERE `studentID` = ".$id);
+		$class_code = $query->row();
+		$query2 = $this->db->query("SELECT * FROM `class` 
+									JOIN `subjects_table` ON class.subjectID = subjects_table.subjectID
+									JOIN `teacher_accounts` ON class.teacherID = teacher_accounts.teacherID
+									WHERE `class_code` = '$class_code->class_code' AND class.day='Friday' 
+									ORDER BY `start_time` ASC ");
+		return $query2->result();
+	}
+
+	public function getScheduleSaturday($id){
+		$query = $this->db->query("SELECT class.class_code FROM `class` 
+									JOIN `section_table` ON class.classID = section_table.classID 
+									JOIN `student_accounts` ON section_table.sectionID = student_accounts.sectionID 
+									WHERE `studentID` = ".$id);
+		$class_code = $query->row();
+		$query2 = $this->db->query("SELECT * FROM `class` 
+									JOIN `subjects_table` ON class.subjectID = subjects_table.subjectID
+									JOIN `teacher_accounts` ON class.teacherID = teacher_accounts.teacherID
+									WHERE `class_code` = '$class_code->class_code' AND class.day='Saturday' 
+									ORDER BY `start_time` ASC ");
+		return $query2->result();
+	}
+
+	public function getScheduleSunday($id){
+		$query = $this->db->query("SELECT class.class_code FROM `class` 
+									JOIN `section_table` ON class.classID = section_table.classID 
+									JOIN `student_accounts` ON section_table.sectionID = student_accounts.sectionID 
+									WHERE `studentID` = ".$id);
+		$class_code = $query->row();
+		$query2 = $this->db->query("SELECT * FROM `class` 
+									JOIN `subjects_table` ON class.subjectID = subjects_table.subjectID
+									JOIN `teacher_accounts` ON class.teacherID = teacher_accounts.teacherID
+									WHERE `class_code` = '$class_code->class_code' AND class.day='Sunday' 
+									ORDER BY `start_time` ASC ");
+		return $query2->result();
+	}
+
 	public function updateData($id)
 	{
 		$data = array(
