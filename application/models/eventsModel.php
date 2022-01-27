@@ -21,7 +21,7 @@ class eventsModel extends CI_Model {
     }
     
     function getAllData() {
-        $query = $this->db->query('SELECT * FROM events_announcements');
+        $query = $this->db->query('SELECT * FROM events_announcements ORDER BY `date` DESC');
         return $query->result();
     }
 

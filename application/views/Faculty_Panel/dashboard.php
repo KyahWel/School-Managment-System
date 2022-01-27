@@ -132,37 +132,40 @@
                 <!-- Monday -->
                 
                 <div class="tab-pane show active mb-3 text-dark" id="monday" role="tabpanel" aria-labelledby="Monday">
-                	<?php foreach($schedMonday as $monday) {?>
+                	
                 	<div class="row mb-3">
-                		<div class="col-lg-6 mb-2">
-                			<div class="box-wrapper p-4" href="#">
-                				<h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i>
-                					<?php echo date("h:i A",strtotime($monday->start_time)) . " - " . date("h:i A",strtotime($monday->end_time)); ?>
-                				</h5>
-                				<hr>
-                				<div class="row">
-                					<div class="col-lg-6 col-md-6 col-sm-6">
-                						<div class="timetable-item-subtitle">Subject</div>
-                						<h6 class=" timetable-item-subj my-1 px-3 py-2"><?php echo $monday->name; ?>
-                						</h6>
-                					</div>
-                					<div class="col-lg-6 col-md-6 col-sm-12">
-                						<div class="timetable-item-subtitle"> Section</div>
-                						<h6 class=" timetable-item-prof my-1 px-3 py-2">
-                							<?php echo $monday->class_code; ?></h6>
-                					</div>
-                				</div>
-                				<div class="box-content">
-                				</div>
-                			</div>
-                		</div>
+						<?php foreach($schedMonday as $monday) {?>
+							<div class="col-lg-6 mb-2">
+								<div class="box-wrapper p-4" href="#">
+									<h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i>
+										<?php echo date("h:i A",strtotime($monday->start_time)) . " - " . date("h:i A",strtotime($monday->end_time)); ?>
+									</h5>
+									<hr>
+									<div class="row">
+										<div class="col-lg-6 col-md-6 col-sm-6">
+											<div class="timetable-item-subtitle">Subject</div>
+											<h6 class=" timetable-item-subj my-1 px-3 py-2"><?php echo $monday->name; ?>
+											</h6>
+										</div>
+										<div class="col-lg-6 col-md-6 col-sm-12">
+											<div class="timetable-item-subtitle"> Section</div>
+											<h6 class=" timetable-item-prof my-1 px-3 py-2">
+												<?php echo $monday->class_code; ?></h6>
+										</div>
+									</div>
+									<div class="box-content">
+									</div>
+								</div>
+							</div>
+						<?php } ?>
                 	</div>
-                	<?php } ?>
+                
                 </div>
                 <!-- Tuesday -->
                 <div class="tab-pane " id="tuesday" role="tabpanel" aria-labelledby="Tuesday">
-                	<?php foreach($schedTuesday as $tuesday) {?>
+                
                 	<div class="row mb-3">
+					<?php foreach($schedTuesday as $tuesday) {?>
                 		<div class="col-lg-6 mb-2">
                 			<div class="box-wrapper p-4" href="#">
                 				<h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i>
@@ -185,13 +188,15 @@
                 				</div>
                 			</div>
                 		</div>
+						<?php } ?>
                 	</div>
-                	<?php } ?>
+                	
                 </div>
                 <!-- Wednesday -->
                 <div class="tab-pane " id="wednesday" role="tabpanel" aria-labelledby="Wednesday">
-                	<?php foreach($schedWednesday as $wednesday) {?>
+                	
                 	<div class="row mb-3">
+					<?php foreach($schedWednesday as $wednesday) {?>
                 		<div class="col-lg-6 mb-2">
                 			<div class="box-wrapper p-4" href="#">
                 				<h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i>
@@ -214,13 +219,15 @@
                 				</div>
                 			</div>
                 		</div>
+						<?php } ?>
                 	</div>
-                	<?php } ?>
+                	
                 </div>
                 <!-- Thursday -->
                 <div class="tab-pane " id="thursday" role="tabpanel" aria-labelledby="Thursday">
-                	<?php foreach($schedThursday as $thursday) {?>
+                	
                 	<div class="row mb-3">
+					<?php foreach($schedThursday as $thursday) {?>
                 		<div class="col-lg-6 mb-2">
                 			<div class="box-wrapper p-4" href="#">
                 				<h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i>
@@ -243,13 +250,15 @@
                 				</div>
                 			</div>
                 		</div>
+						<?php } ?>
                 	</div>
-                	<?php } ?>
+                	
                 </div>
                 <!-- Friday -->
                 <div class="tab-pane " id="friday" role="tabpanel" aria-labelledby="Friday">
-                	<?php foreach($schedFriday as $friday) {?>
+                	
                 	<div class="row mb-3">
+					<?php foreach($schedFriday as $friday) {?>
                 		<div class="col-lg-6 mb-2">
                 			<div class="box-wrapper p-4" href="#">
                 				<h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i>
@@ -272,13 +281,15 @@
                 				</div>
                 			</div>
                 		</div>
+						<?php } ?>
                 	</div>
-                	<?php } ?>
+                	
                 </div>
                 <!-- Saturday -->
                 <div class="tab-pane " id="saturday" role="tabpanel" aria-labelledby="Saturday">
-                	<?php foreach($schedSaturday as $saturday) {?>
+                	
                 	<div class="row mb-3">
+					<?php foreach($schedSaturday as $saturday) {?>
                 		<div class="col-lg-6 mb-2">
                 			<div class="box-wrapper p-4" href="#">
                 				<h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i>
@@ -301,13 +312,15 @@
                 				</div>
                 			</div>
                 		</div>
+						<?php } ?>
                 	</div>
-                	<?php } ?>
+                	
                 </div>
                 <!-- Sunday -->
                 <div class="tab-pane " id="sunday" role="tabpanel" aria-labelledby="Sunday">
-                	<?php foreach($schedSunday as $sunday) {?>
+                	
                 	<div class="row mb-3">
+					<?php foreach($schedSunday as $sunday) {?>
                 		<div class="col-lg-6 mb-2">
                 			<div class="box-wrapper p-4" href="#">
                 				<h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i>
@@ -330,8 +343,9 @@
                 				</div>
                 			</div>
                 		</div>
+						<?php } ?>
                 	</div>
-                	<?php } ?>
+                	
                 </div>
             </div>
             

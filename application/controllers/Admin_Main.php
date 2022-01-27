@@ -92,7 +92,7 @@ class Admin_Main extends CI_Controller
 			</div>
 			<div class="tabDetails px-4">
 				<h6 class="step fw-bold"> <i class="fa fa-user px-2"></i> PERSONAL INFORMATION</h6>
-				<p class="my-4 "> <b>Course Chosen: </b>'.$records->course_chosen.'</p>
+				<p class="my-4 "> <b>Course Chosen: </b>'.$records->degree.' in '.$records->major.'</p>
 				<hr>
 				<div class="row">
 					<div class="col-lg-6">
