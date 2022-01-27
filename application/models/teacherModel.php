@@ -57,7 +57,7 @@ class teacherModel extends CI_Model {
 									LEFT JOIN admin_accounts 
 									ON teacher_accounts.creatorID = admin_accounts.adminID 
 									WHERE teacher_accounts.teacherID ='.$id);
-		return $query->result();
+		return $query->row();
 	}
 
 	public function updateData($id)
