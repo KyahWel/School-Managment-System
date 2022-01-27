@@ -32,27 +32,32 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             <img src="../assets/images/applicantAvatar.svg" alt="" class="pt-4 mx-4" style="width: 125px;">
                             <br>
                             <p class="text-center pt-4 h5">Welcome,</p>
-                            <p class="text-center pt-2 fw-bold h5"> <?php echo $applicant->applicantNumber?></p>
+                            <p class="text-center pt-2 fw-bold h5"> <?php echo $applicant->applicantNumber ?></p>
                             <hr>
                         </div>
                     </div>
                 </div>
             </div>
- 
+
             <!-- Contents -->
             <div class="col d-flex flex-column">
-                
                 <div class="container-fluid" id="steps" style="display: block;">
-                    <?php if($this->session->flashdata('logout')) : ?>
+                    <?php if ($this->session->flashdata('logout')) : ?>
                         <br>
                         <div class="alert alert-danger alert-dismissible fade show">
                             <?= $this->session->flashdata('logout'); ?>
                             <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
                         </div>
                     <?php endif; ?>
-                    <div class="mt-3 applicant-head text-white px-3">
-                        Appicant ID: <span class="fw-bold"><?php echo $applicant->applicantNumber?></span>
-                        <!--APPLICANT NUMBER READ -->
+                    <div class="d-flex mt-2 py-3 rounded applicant-head text-white justify-content-between">
+                        <div class="px-3">
+                            Appicant ID: <span class="fw-bold"><?php echo $applicant->applicantNumber ?></span>
+                            <!--APPLICANT NUMBER READ -->
+                        </div>
+                        <div class="px-3">
+                            Status: <span class="fw-bold text-uppercase"><?php echo $applicant->applicant_result ?></span>
+                            <!--APPLICANT NUMBER READ -->
+                        </div>
                     </div>
 
                     <!--Information -->
@@ -73,7 +78,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <div class="row height-sm-100 contents">
                     <div class="col">
                         <!-- Personal Information -->
-                        <div id='personalInfo' class=" container pt-3" style="display: block;">
+                        <div id='personalInfo' class="container pt-3" style="display: block;">
+                            <div class="step_progressbar">
+                                <ul>
+                                    <li class="active">Personal Information <span class="spare1"> <br></span></li>
+                                    <li>Education Attainment</li>
+                                    <li>Requirements <span class="spare"> <br></span></li>
+                                </ul>
+                            </div>
                             <div class="Wrapper">
                                 <div class="tabTitle">
                                     <p class="text-white"><i class="fa fa-user"></i> <span class="px-2"> Personal Information </span></p>
@@ -81,11 +93,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <div class="Contents">
                                     <fieldset disabled>
                                         <!-- Course Dropdown, next change: use AJAX and JQUERY to retrieve data from database-->
-                                        <div class="mb-3 row">
+                                        <div class="mb-3 row asterisk">
                                             <label for="courses" class="col-2 form-label small pt-2">Course: </label>
                                             <div class="col-lg-7 col-md-10 col-sm-12">
                                                 <select class="form-select form-select-sm" id="courses" name="course_chosen" value="bscs" aria-label="Select Course" disabled>
-                                                    <option selected> <?php echo $applicant->degree?> in <?php echo $applicant->major?> </option>
+                                                    <option selected> <?php echo $applicant->degree ?> in <?php echo $applicant->major ?> </option>
 
                                                 </select>
                                             </div>
@@ -93,100 +105,100 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         </div>
 
                                         <!-- Name Input-->
-                                        <div class="row mt-0">
+                                        <div class="row mt-0 asterisk">
                                             <!-- <div class="col-lg-2 col-md-none form-label small ">                                                   
                                                     <label for="Name" class="form-control-sm">Name: </label>
                                             </div> -->
                                             <div class="col-lg-3 col-md-6 py-1">
                                                 <label class="form-label small">First Name</label>
-                                                <input type="text" name="firstname" value="<?php echo $applicant->firstname?>" class="form-control form-control-sm" aria-label="First name" readonly>
+                                                <input type="text" name="firstname" value="<?php echo $applicant->firstname ?>" class="form-control form-control-sm" aria-label="First name" readonly>
                                             </div>
                                             <div class="col-lg-3 col-md-6 py-1">
-                                                <label class="form-label small">Middle Name</label>
-                                                <input type="text" name='middlename' value="<?php echo $applicant->middlename?>" class="form-control form-control-sm" aria-label="Last name" readonly>
+                                                <label class="small mb-2">Middle Name</label>
+                                                <input type="text" name='middlename' value="<?php echo $applicant->middlename ?>" class="form-control form-control-sm" aria-label="Last name" readonly>
                                             </div>
                                             <div class="col-lg-3 col-md-6 py-1">
                                                 <label class="form-label small">Surname</label>
-                                                <input type="text" name="lastname" value="<?php echo $applicant->lastname?>" class="form-control form-control-sm" aria-label="Surname" readonly>
+                                                <input type="text" name="lastname" value="<?php echo $applicant->lastname ?>" class="form-control form-control-sm" aria-label="Surname" readonly>
                                             </div>
                                             <div class="col-lg-3 col-md-6 py-1">
-                                                <labe class="form-label small">Suffix</label>
-                                                    <input type="text" name='extname' value="<?php echo $applicant->extname?>" class="form-control form-control-sm" aria-label="Extension Name" readonly>
+                                                <labe class="small mb-2">Suffix</label>
+                                                    <input type="text" name='extname' value="<?php echo $applicant->extname ?>" class="form-control form-control-sm" aria-label="Extension Name" readonly>
                                             </div>
                                         </div>
 
                                         <!-- LRN and Gender-->
-                                        <div class="row mt-2 small">
+                                        <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12 pt-1">LRN:</label>
                                             <div class="col-lg-3 col-md-12">
-                                                <input type="text" name="LRN" value="<?php echo $applicant->LRN?>" class="form-control form-control-sm" minlength="10" aria-label="LRN" readonly>
+                                                <input type="text" name="LRN" value="<?php echo $applicant->LRN ?>" class="form-control form-control-sm" minlength="10" aria-label="LRN" readonly>
                                             </div>
 
                                             <div class="col-lg-2 col-md-none"> </div>
 
                                             <label class="form-label col-lg-2 col-md-12 pt-1">Gender:</label>
-                                            <?php if ($applicant->gender == 'Male'):?>
-                                            <div class="col-lg-3 col-md-12 pt-1">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gender" value="Male" checked>Male
+                                            <?php if ($applicant->gender == 'Male') : ?>
+                                                <div class="col-lg-3 col-md-12 pt-1">
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="gender" value="Male" checked>Male
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="gender" value="Female">Female
+                                                    </div>
                                                 </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gender" value="Female">Female
+                                            <?php else : ?>
+                                                <div class="col-lg-3 col-md-12 pt-1">
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="gender" value="Male">Male
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="gender" value="Female" checked>Female
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <?php else: ?>
-                                            <div class="col-lg-3 col-md-12 pt-1">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gender" value="Male" >Male
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gender" value="Female"checked>Female
-                                                </div>
-                                            </div>
                                             <?php endif ?>
                                         </div>
 
                                         <!-- Birthdate and Age-->
-                                        <div class="row mt-2 small">
+                                        <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12 pt-1">Birth Date:</label>
                                             <div class="col-lg-3 col-md-12">
-                                                <input type="date" name='birthday' value="<?php echo $applicant->birthday?>" class="form-control form-control-sm" aria-label="Birthdate" readonly>
+                                                <input type="date" name='birthday' value="<?php echo $applicant->birthday ?>" class="form-control form-control-sm" aria-label="Birthdate" readonly>
                                             </div>
                                             <div class="col-lg-2 col-md-none"> </div>
 
                                             <label class="form-label col-lg-2 col-md-12 pt-1">Age:</label>
                                             <div class="col-lg-3 col-md-12">
-                                                <input type="text" name='age' value="<?php echo $applicant->age?>"class="form-control form-control-sm" aria-label="Age" readonly>
+                                                <input type="text" name='age' value="<?php echo $applicant->age ?>" class="form-control form-control-sm" aria-label="Age" readonly>
                                             </div>
                                         </div>
 
                                         <!-- Birthplace-->
-                                        <div class="row mt-2 small">
+                                        <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 pt-1">Birth Place:</label>
                                             <div class="col-lg-3">
-                                                <input type="text" name='birthplace'value="<?php echo $applicant->birthplace?>" class="form-control form-control-sm" aria-label="Birthpalace" readonly>
+                                                <input type="text" name='birthplace' value="<?php echo $applicant->birthplace ?>" class="form-control form-control-sm" aria-label="Birthpalace" readonly>
                                             </div>
                                         </div>
 
                                         <!-- Contact Number and Landline-->
-                                        <div class="row mt-2 small">
+                                        <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12 pt-1">Contact Number:</label>
                                             <div class="col-lg-3 col-md-12">
-                                                <input type="tel" name='contactnum' value="<?php echo $applicant->contactnum?>" class="form-control form-control-sm" aria-label="Contact Number" readonly>
+                                                <input type="tel" name='contactnum' value="<?php echo $applicant->contactnum ?>" class="form-control form-control-sm" aria-label="Contact Number" readonly>
                                             </div>
                                             <div class="col-lg-2 col-md-none"> </div>
 
                                             <label class="form-label col-lg-2 col-md-12 pt-1">Landline:</label>
                                             <div class="col-lg-3 col-md-12">
-                                                <input type="tel" name='landline' value="<?php echo $applicant->landline?>" class="form-control form-control-sm" aria-label="Landline" readonly>
+                                                <input type="tel" name='landline' value="<?php echo $applicant->landline ?>" class="form-control form-control-sm" aria-label="Landline" readonly>
                                             </div>
                                         </div>
 
                                         <!-- Email Address-->
-                                        <div class="row mt-2 small">
+                                        <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 pt-1">Email Address:</label>
                                             <div class="col-lg-4">
-                                                <input type="email" name='email' value="<?php echo $applicant->email?>" class="form-control form-control-sm" aria-label="Email Address" readonly>
+                                                <input type="email" name='email' value="<?php echo $applicant->email ?>" class="form-control form-control-sm" aria-label="Email Address" readonly>
                                             </div>
                                             <hr class="mt-4 mb-3">
                                         </div>
@@ -195,45 +207,45 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <p class="fw-bold">PERMANENT ADDRESS</p>
 
                                         <!--Unit and Street-->
-                                        <div class="row mt-2 small">
+                                        <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12  pt-1">Unit #:</label>
                                             <div class="col-lg-3 col-md-12">
-                                                <input type="text" name='unit' value="<?php echo $applicant->unit?>" class="form-control form-control-sm" aria-label="Unit Number" readonly>
+                                                <input type="text" name='unit' value="<?php echo $applicant->unit ?>" class="form-control form-control-sm" aria-label="Unit Number" readonly>
                                             </div>
                                             <div class="col-lg-2 col-md-none"> </div>
 
                                             <label class="form-label col-lg-2 col-md-12 pt-1">Street:</label>
                                             <div class="col-lg-3 col-md-12">
-                                                <input type="text" name='street' class="form-control form-control-sm" value="<?php echo $applicant->street?>" aria-label="Street" readonly>
+                                                <input type="text" name='street' class="form-control form-control-sm" value="<?php echo $applicant->street ?>" aria-label="Street" readonly>
                                             </div>
                                         </div>
 
                                         <!-- Barangay and City-->
-                                        <div class="row mt-2 small">
+                                        <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12  pt-1">Barangay:</label>
                                             <div class="col-lg-3 col-md-12">
-                                                <input type="text" name='barangay' value="<?php echo $applicant->barangay?>" class="form-control form-control-sm" aria-label="Barangay" readonly>
+                                                <input type="text" name='barangay' value="<?php echo $applicant->barangay ?>" class="form-control form-control-sm" aria-label="Barangay" readonly>
                                             </div>
                                             <div class="col-lg-2 col-md-none"> </div>
 
                                             <label class="form-label col-lg-2 col-md-12 pt-1">City:</label>
                                             <div class="col-lg-3 col-md-12">
-                                                <input type="text" name='city' class="form-control form-control-sm" value="<?php echo $applicant->city?>" aria-label="City" readonly>
+                                                <input type="text" name='city' class="form-control form-control-sm" value="<?php echo $applicant->city ?>" aria-label="City" readonly>
                                             </div>
                                         </div>
 
                                         <!-- Zipcode and Province-->
-                                        <div class="row mt-2 small">
+                                        <div class="row mt-2 small asterisk">
 
                                             <label class="form-label col-lg-2 col-md-6 pt-1">Zipcode:</label>
                                             <div class="col-lg-3 col-md-6">
-                                                <input type="text" name='zipcode' value="<?php echo $applicant->zipcode?>" class="form-control form-control-sm" aria-label="Zipcode" readonly>
+                                                <input type="text" name='zipcode' value="<?php echo $applicant->zipcode ?>" class="form-control form-control-sm" aria-label="Zipcode" readonly>
                                             </div>
                                             <div class="col-lg-2 col-md-none"> </div>
 
                                             <label class="form-label col-lg-2 col-md-6 pt-1">Province:</label>
                                             <div class="col-lg-3 col-md-6">
-                                                <input type="text" name='province' value="<?php echo $applicant->province?>" class="form-control form-control-sm" aria-label="Province" readonly>
+                                                <input type="text" name='province' value="<?php echo $applicant->province ?>" class="form-control form-control-sm" aria-label="Province" readonly>
                                             </div>
                                         </div>
                                     </fieldset>
@@ -254,6 +266,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                 <!-- Educational Attainment -->
                 <div id='educationalattainment' class=" container pt-3" style="display: none;">
+                    <div class="step_progressbar">
+                        <ul>
+                            <li>Personal Information <span class="spare1"> <br></span></li>
+                            <li class="active">Education Attainment</li>
+                            <li>Requirements <span class="spare"> <br></span></li>
+                        </ul>
+                    </div>
                     <div class="Wrapper">
                         <div class="tabTitle">
                             <p class="text-white"><i class="fa fa-user-graduate"></i> <span class="px-2"> Educational Attainment </span></p>
@@ -263,36 +282,36 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <p class="fw-bold">SCHOOL LAST ATTENDED</p>
 
                                 <!--Name of School and Track-->
-                                <div class="row mt-2 small">
+                                <div class="row mt-2 small asterisk">
                                     <label class="form-label col-lg-2 col-md-12 pt-1">Name of School:</label>
                                     <div class="col-lg-4 col-md-12">
-                                        <input type="text" name="school" value="<?php echo $applicant->last_school_attended?>" class="form-control form-control-sm" aria-label="Name of School" readonly>
+                                        <input type="text" name="school" value="<?php echo $applicant->last_school_attended ?>" class="form-control form-control-sm" aria-label="Name of School" readonly>
                                     </div>
                                     <div class="col-lg-1 col-md-none"> </div>
 
                                     <label class="form-label col-lg-2 col-md-12 pt-1">Program/Track:</label>
                                     <div class="col-lg-3 col-md-12">
-                                        <select class="form-select form-select-sm" name="track"  aria-label="Program Track" value="abm" disabled>
-                                            <option value="<?php echo $applicant->track?>" selected><?php echo $applicant->track?></option>
+                                        <select class="form-select form-select-sm" name="track" aria-label="Program Track" value="abm" disabled>
+                                            <option value="<?php echo $applicant->track ?>" selected><?php echo $applicant->track ?></option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <!-- School Adress-->
-                                <div class="row mt-2 small">
+                                <div class="row mt-2 small asterisk">
                                     <div class="col-lg-2">
                                         <label class="form-label pt-1">School Address:</label>
                                     </div>
                                     <div class="col-lg-10">
-                                        <input type="text" name="school_address" value="<?php echo $applicant->school_address?>" class="form-control form-control-sm" aria-label="School Address" readonly>
+                                        <input type="text" name="school_address" value="<?php echo $applicant->school_address ?>" class="form-control form-control-sm" aria-label="School Address" readonly>
                                     </div>
                                 </div>
 
                                 <!-- Year Level and Graduated-->
-                                <div class="row mt-2 small">
+                                <div class="row mt-2 small asterisk">
                                     <label class="form-label col-lg-2 col-md-12  pt-1">Year Level:</label>
                                     <div class="col-lg-3 col-md-12">
-                                        <input type="text" name="year_level" value="<?php echo $applicant->year_level?>" class="form-control form-control-sm" aria-label="Year level" readonly>
+                                        <input type="text" name="year_level" value="<?php echo $applicant->year_level ?>" class="form-control form-control-sm" aria-label="Year level" readonly>
                                     </div>
                                     <div class="col-lg-2 col-md-none"> </div>
 
@@ -300,41 +319,41 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                     <label class="form-label col-lg-2 col-md-12 pt-1">Year Graduated:</label>
 
                                     <div class="col-lg-3 col-md-12">
-                                        <input type="text" name="year_graduated" value="<?php echo $applicant->year_graduated?>" class="form-control form-control-sm" aria-label="Year Graduated" readonly>
+                                        <input type="text" name="year_graduated" value="<?php echo $applicant->year_graduated ?>" class="form-control form-control-sm" aria-label="Year Graduated" readonly>
                                     </div>
                                 </div>
 
                                 <!-- Category-->
-                                <div class="row mt-2 small">
+                                <div class="row mt-2 small asterisk">
                                     <label class="form-label col-lg-2 col-md-12  pt-1">Category:</label>
-                                    <?php if($applicant->category=='K-12'):?>
-                                    <div class="col-lg-3 col-md-12 pt-1">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="category" value="K-12" checked>K-12
+                                    <?php if ($applicant->category == 'K-12') : ?>
+                                        <div class="col-lg-3 col-md-12 pt-1">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="category" value="K-12" checked>K-12
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="category" value="Old Curriculum">Old Curriculum
+                                            </div>
                                         </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="category" value="Old Curriculum">Old Curriculum
+                                    <?php else : ?>
+                                        <div class="col-lg-3 col-md-12 pt-1">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="category" value="K-12">K-12
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="category" value="Old Curriculum" checked>Old Curriculum
+                                            </div>
                                         </div>
-                                    </div>
-                                    <?php else:?>
-                                    <div class="col-lg-3 col-md-12 pt-1">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="category" value="K-12">K-12
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="category" value="Old Curriculum" checked>Old Curriculum
-                                        </div>
-                                    </div>
                                     <?php endif ?>
                                 </div>
 
                                 <!-- GPA-->
-                                <div class="row mt-2 small">
+                                <div class="row mt-2 small asterisk">
                                     <div class="col-lg-2">
                                         <label class="form-label pt-1">GPA:</label>
                                     </div>
                                     <div class="col-lg-5">
-                                        <input type="tel" name="gpa" value="<?php echo $applicant->gpa?>" maxlength="4" class="form-control form-control-sm" aria-label="GPA" readonly>
+                                        <input type="tel" name="gpa" value="<?php echo $applicant->gpa ?>" maxlength="4" class="form-control form-control-sm" aria-label="GPA" readonly>
                                     </div>
                                 </div>
                             </fieldset>
@@ -362,6 +381,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                 <!-- Requirements -->
                 <div id='requirement' class=" container pt-3 " style="display: none;">
+                    <div class="step_progressbar">
+                        <ul>
+                            <li>Personal Information <span class="spare1"> <br></span></li>
+                            <li>Education Attainment</li>
+                            <li class="active">Requirements <span class="spare"> <br></span></li>
+                        </ul>
+                    </div>
                     <div class="Wrapper">
                         <div class="tabTitle">
                             <p class="text-white"><i class="fas fa-file"></i> <span class="px-2">Requirements </span></p>
@@ -371,26 +397,26 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             <p class="fw-bold">ADMISSION REQUIREMENTS</p>
 
                             <!--Medical Record-->
-                            <div class="row mt-4 small">
+                            <div class="row mt-4 small asterisk">
                                 <label class="form-label col-lg-2 col-md-12 pt-1">Medical Record:</label>
                                 <div class="col-lg-7 mb-3">
-                                    <input name="medical_record" class="form-control form-control-sm" value="<?php echo $applicant->medical_record?>" type="text" aria-label="Medical Record" disabled readonly>
+                                    <input name="medical_record" class="form-control form-control-sm" value="<?php echo $applicant->medical_record ?>" type="text" aria-label="Medical Record" disabled readonly>
                                 </div>
                             </div>
 
                             <!--Form 137-->
-                            <div class="row mt-2 small">
+                            <div class="row mt-2 small asterisk">
                                 <label class="form-label col-lg-2 col-md-12 pt-1">Form 137:</label>
                                 <div class="col-lg-7 mb-3">
-                                    <input name="form_137" class="form-control form-control-sm" value="<?php echo $applicant->form_137?>" type="text" aria-label="Form 137" disabled readonly>
+                                    <input name="form_137" class="form-control form-control-sm" value="<?php echo $applicant->form_137 ?>" type="text" aria-label="Form 137" disabled readonly>
                                 </div>
                             </div>
 
                             <!--Good Moral-->
-                            <div class="row mt-2 small">
+                            <div class="row mt-2 small asterisk">
                                 <label class="form-label col-lg-2 col-md-12 pt-1">Good Moral:</label>
                                 <div class="col-lg-7 mb-3">
-                                    <input name="good_moral" class="form-control form-control-sm" value="<?php echo $applicant->good_moral?>" type="text" aria-label="Good Moral" disabled readonly>
+                                    <input name="good_moral" class="form-control form-control-sm" value="<?php echo $applicant->good_moral ?>" type="text" aria-label="Good Moral" disabled readonly>
                                 </div>
                             </div>
 
@@ -418,18 +444,26 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     </div>
                     <div class="Wrapper">
                         <div class="tabTitle px-2">
-                            <p class="text-white">Applicant Name: <?php echo $applicant->firstname?> <?php echo $applicant->middlename?> <?php echo $applicant->lastname?> <?php echo $applicant->extname?></p>
+                            <p class="text-white py-3">
+                                Applicant Name: 
+                                <span class="text-uppercase fw-bold">
+                                    <?php echo $applicant->firstname ?> 
+                                    <?php echo $applicant->middlename ?> 
+                                    <?php echo $applicant->lastname ?> 
+                                    <?php echo $applicant->extname ?>
+                                </span>
+                            </p>
                         </div>
                         <div class="Contents">
                             <p class="note1 small">Please take note of your Applicant ID.</p>
-                            <h3 class="fw-bold pt-3"> Applicant ID: <?php echo $applicant->applicantNumber?> </h4>
+                            <h3 class="fw-bold pt-3"> Applicant ID: <?php echo $applicant->applicantNumber ?> </h4>
                                 <p class="note2 pt-4"> Take the TUPSTAT on scheduled date, time, and specific venue. Bring with you the following: <br>
                                     a.) Test Permit <br>
                                     b.) 2 Sharpened pencil with eraser</p>
                                 <p class="note3 pt-2 fw-bold"> Kindly check your email for the test permit or download it here.</p>
-                                
-                                <button type="button" class="btn btn-warning download mb-2" onclick="location.href='<?php echo site_url('applicantcontroller/downloadTestPermit/'.$applicant->applicantID)?>'">Download Test Permit </button>
-                                
+
+                                <button type="button" class="btn btn-warning download mb-2" onclick="location.href='<?php echo site_url('applicantcontroller/downloadTestPermit/' . $applicant->applicantID) ?>'">Download Test Permit </button>
+
 
                                 <p class="note4 pt-3 fw-bold"> Note: Please come one hour before the time.</p>
                         </div>
@@ -439,7 +473,39 @@ defined('BASEPATH') or exit('No direct script access allowed');
         </div>
     </div>
 
-    <script src="<?php echo base_url('assets/js/applicant.js'); ?>"></script>
+    <script type="text/javascript">
+        function personalInfo() {
+            document.getElementById('steps').style.display = "block";
+            document.getElementById('personalInfo').style.display = "block";
+            document.getElementById('educationalattainment').style.display = "none";
+            document.getElementById('requirement').style.display = "none";
+            document.getElementById('final_step').style.display = "none";
+        }
+
+        function educationalAttainment() {
+            document.getElementById('steps').style.display = "block";
+            document.getElementById('personalInfo').style.display = "none";
+            document.getElementById('educationalattainment').style.display = "block";
+            document.getElementById('requirement').style.display = "none";
+            document.getElementById('final_step').style.display = "none";
+        }
+
+        function requirement() {
+            document.getElementById('steps').style.display = "block";
+            document.getElementById('personalInfo').style.display = "none";
+            document.getElementById('educationalattainment').style.display = "none";
+            document.getElementById('requirement').style.display = "block";
+            document.getElementById('final_step').style.display = "none";
+        }
+
+        function final_step() {
+            document.getElementById('personalInfo').style.display = "none";
+            document.getElementById('educationalattainment').style.display = "none";
+            document.getElementById('requirement').style.display = "none";
+            document.getElementById('steps').style.display = "none";
+            document.getElementById('final_step').style.display = "block";
+        }
+    </script>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . '/../includes/adminSideBar.php'
+$this->load->view('includes/adminSideBar'); 
 ?>
 
 <head>
@@ -113,7 +113,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
 
         <!--Search -->
         <div class="col-12 d-flex justify-content-end pt-3 my-3 text-align-end" id="filter">
-            <label>Filter by:</label>
+            <label class="pt-1">Filter by: </label>
             <select aria-labelledby="Filter by College" required>
                 <option value="" disabled selected hidden>College</option>
                 <option value="College of Science">College of Science</option>
@@ -287,7 +287,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
                                     </div>
                                 </div>
 
-                                <div class="py-3 d-flex justify-content-end">
+                                <div class="pt-3 d-flex justify-content-end">
                                     <button class="btn btn-default" id="save" type="submit" value="save">Save</button>
                             </form>
                             <button class="btn btn-default" id="cancel" type="button" data-bs-dismiss="modal">Cancel</button>

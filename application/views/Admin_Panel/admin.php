@@ -1,6 +1,7 @@
 <?php
-include __DIR__.'/../includes/adminSideBar.php'
+$this->load->view('includes/adminSideBar'); 
 ?>
+
 <head>
     <link href="<?php echo base_url('assets/css/admin.css'); ?>" rel="stylesheet" type="text/css">
     <title>Admin | Admin Tab</title>
