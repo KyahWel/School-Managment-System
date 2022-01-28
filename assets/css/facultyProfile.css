@@ -37,10 +37,12 @@ body{
 
 /* My Profile Details */
 
-#myProfileDetails td{
+#myProfileDetails p{
     color: black;
-    padding-right: 10px;
     font-size: 1rem;
+    text-align: start;
+    margin-bottom: 0;
+    padding-right: 10px;
 }
 
 /* Table Responsiveness */
