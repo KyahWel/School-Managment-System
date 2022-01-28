@@ -52,7 +52,7 @@ class sectionController extends CI_Controller {
 			$records = $this->classModel->Classlist($courseData,$yearlevel);
 			foreach($records as $records){
 				if($records->isTaken == 0){
-					echo '<option value='.$records->classID.'>'.$records->class_code.'</option>';
+					echo '<option value='.$records->class_code.'>'.$records->class_code.'</option>';
 				}			
 			}	
 		}

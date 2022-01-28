@@ -146,7 +146,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                         <input class="form-check-input" type="radio" name="gender" value="Female">Female
                                                     </div>
                                                 </div>
-<<<<<<< Updated upstream
                                             <?php else : ?>
                                                 <div class="col-lg-3 col-md-12 pt-1">
                                                     <div class="form-check form-check-inline">
@@ -155,16 +154,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                     <div class="form-check form-check-inline">
                                                         <input class="form-check-input" type="radio" name="gender" value="Female" checked>Female
                                                     </div>
-=======
-                                            </div>
-                                            <?php else: ?>
-                                            <div class="col-lg-3 col-md-12 pt-1">
-                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gender" value="Male" >Male
-                                                </div>
-                                                <divclass="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="gender" value="Female"checked>Female
->>>>>>> Stashed changes
                                                 </div>
                                             <?php endif ?>
                                         </div>

@@ -241,13 +241,13 @@ class StudentControllerFunctions extends CI_Controller {
 
 	public function deactivate($id)
 	{	
-		$data['row'] = $this->studentModel->deactivateData($id);
+		 $this->studentModel->deactivateData($id);
 		redirect('Admin/students');
 	}
 
 	public function activate($id)
 	{	
-		$data['row'] = $this->studentModel->reactivateData($id);
+		$this->studentModel->reactivateData($id);
 		redirect('Admin/students');
 	}
 
