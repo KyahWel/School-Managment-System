@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . '/../includes/adminSideBar.php'
+$this->load->view('includes/adminSideBar'); 
 ?>
 
 <head>
@@ -10,7 +10,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
     <h3 class="pt-3" id="tab" style="display:block">Admission</h3>
 
     <!--Add exam Schedule-->
-    <div class="col-12 align-self-center" id="create" style="display: block;">
+    <div class="col-12 align-self-center pb-2" id="create" style="display: block;">
         <div class="accordion accordion-flush" id="accordion-addExamSchedule">
             <div class="accordion-item">
                 <h2 class="accordion-header">
@@ -25,19 +25,19 @@ include __DIR__ . '/../includes/adminSideBar.php'
                                 <div class="col-lg-6 col-md-12">
                                     <!--Date-->
                                     <label class="form-label">Date</label>
-                                    <input type="date" class="form-control" name="date">
+                                    <input type="date" class="form-control" name="date" aria-labelledby="Date">
                                 </div>
                                 <div class="col-lg-6 col-md-12">
                                     <!--Time-->
                                     <label class="form-label">Time</label>
-                                    <input type="time" class="form-control" name="time">
+                                    <input type="time" class="form-control" name="time" aria-labelledby="Time">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <div class="col-lg-6 col-md-12">
                                     <!--Building-->
                                     <label class="form-label">Building</label>
-                                    <select class="form-select" name="building">
+                                    <select class="form-select" name="building" aria-labelledby="Building">
                                         <option value="" disabled selected hidden>--Please Select--</option>
                                         <option value="College of Science">College of Science</option>
                                         <option value="College of Engineering">College of Engineering</option>
@@ -49,14 +49,14 @@ include __DIR__ . '/../includes/adminSideBar.php'
                                 <div class="col-lg-6 col-md-12">
                                     <!--Time-->
                                     <label class="form-label">Room Number</label>
-                                    <input type="text" class="form-control" name="room_no">
+                                    <input type="text" class="form-control" name="room_no" aria-labelledby="Room Number">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6 col-md-12">
                                     <!--Time-->
                                     <label class="form-label">Floor Number</label>
-                                    <input type="text" class="form-control" name="floor_no">
+                                    <input type="text" class="form-control" name="floor_no" aria-labelledby="Floor Number">
                                 </div>
                             </div>
                             <div class="addExamScheduleButton d-flex justify-content-end">
@@ -91,17 +91,16 @@ include __DIR__ . '/../includes/adminSideBar.php'
                     <table class=" table align-middle  table-striped table-borderless table-hover" id="table-bodySched">
                         <thead>
                             <tr>
-                                <th>Date</th>
-                                <th>Time</th>
-                                <th>Building</th>
-                                <th>Room Number</th>
-                                <th>Floor Number</th>
-                                <th>Status</th>
-                                <th>Action</th>
+                                <th class="pb-3">Date</th>
+                                <th class="pb-3">Time</th>
+                                <th class="pb-3">Building</th>
+                                <th class="pb-3">Room Number</th>
+                                <th class="pb-3">Floor Number</th>
+                                <th class="pb-3">Status</th>
+                                <th class="pb-3">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-
                             <?php foreach ($exam as $examrow) { ?>
                                 <tr>
                                     <td><?php echo date('m/d/Y', strtotime($examrow->date)) ?></td>
@@ -145,7 +144,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
             </div>
 
             <!--Edit Exam Schedule-->
-            <div class="modal fade" id="editExamSchedule" tabindex="-1" aria-labelledby="editExamHeader" aria-hidden="true">
+            <div class="modal fade" id="editExamSchedule" tabindex="-1" aria-modal="true" aria-labelledby="editExamHeader" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -163,138 +162,98 @@ include __DIR__ . '/../includes/adminSideBar.php'
 
             <!-- Applicant Tab -->
             <div class="tab-pane" id="applicantTabContent" role="tabpanel" aria-labelledby="Applicants">
-                    <!-- Filter and Search -->
-                    <div class=" d-flex  align-items-center my-1 pt-3 px-3">
-                        <div class="ms-auto">
-                            <label class="mb-2 text-dark">Filter by:</label>
-                            <select name="stats" class="select" placeholder="status">
-                                <option value="" disabled selected hidden>Status</option>
-                                <option name="stats" value="Passed">Passed</option>
-                                <option name="stats" value="Failed">Failed</option>
-                                <option name="stats" value="Applied">Applied</option>
-                            </select>
-                            <input type="text" id="searchApplicantID" name="searchApplicantID" placeholder="Search Applicant ID">
-                            <button type="button" class="btn btn-sm searchBG" id="searchApplicantIDIcon"><i class="fas fa-search" title="Search"></i></button>
-                        </div>
+                <!-- Filter and Search -->
+                <div class=" d-flex  align-items-center pt-3 px-3">
+                    <div class="ms-auto">
+                        <label class="mb-2 text-dark">Filter by:</label>
+                        <select name="stats" class="select" placeholder="status" aria-labelledby="Status">
+                            <option value="" disabled selected hidden>Status</option>
+                            <option name="stats" value="Passed">Passed</option>
+                            <option name="stats" value="Failed">Failed</option>
+                            <option name="stats" value="Applied">Applied</option>
+                        </select>
+                        <input type="text" id="searchApplicantID" name="searchApplicantID" placeholder="Search Applicant ID">
+                        <button type="button" class="btn btn-sm searchBG" id="searchApplicantIDIcon"><i class="fas fa-search" title="Search"></i></button>
                     </div>
-                    <div class="table-responsive mt-3">
-
-                        <table class="table align-middle table-striped table-borderless table-hover" id="table-bodyAppl">
-                            <!--Table Body-->
-                            <thead>
-                                <tr>
-                                    <th style="width: 10px"></th>
-                                    <th>Applicant ID</th>
-                                    <th>Name</th>
-                                    <th>Course</th>
-                                    <th>Status</th>
-                                    <th> </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($applicant as $applicantrow) { ?>
-                                    <?php if($applicantrow->applicant_result != "Student"): ?>
-                                        <tr>
-                                            <td> </td>
-                                            <td><?php echo $applicantrow->applicantNumber ?></td>
-                                            <td><?php echo $applicantrow->firstname ?> <?php echo $applicantrow->lastname ?></td>
-                                            <td><?php echo $applicantrow->degree ?> in <?php echo $applicantrow->major ?></td>
-                                            <td><?php echo $applicantrow->applicant_result ?></td>
-                                            <td>
-                                                <button type="button" onclick="applicantDetails()" data-id='<?php echo $applicantrow->applicantID;?>' class="btn btn-primary viewApplicant text-white text-uppercase addBtn">View</button>
-                                                <?php if ($applicantrow->applicant_result == "Passed"): ?>
-                                                    <button type="button" class="btn btn-primary text-white text-uppercase addBtn">ADD</button>
-                                                <?php else: ?>
-                                                    <button type="button" disabled style="background-color: gray;" class="btn btn-primary text-white text-uppercase addBtn">ADD</button>
-                                                <?php endif?>
-                                            </td>
-                                        </tr>
-                                    <?php endif ?>
-                                <?php } ?>
-                            </tbody>
-                        </table>
-
-                        <div class=" d-flex justify-content-end my-3 p-3">
-                            <button type="button" class="btn btn-primary btn-sm text-uppercase addALL px-3 " id="addAll" data-bs-toggle="modal" data-bs-target="#addApplicant">
-                                <i class="fas fa-plus fa-sm" title="Add All"></i> ADD ALL PASSED APPLICANTS</button>
-                        </div>
-
-                        <!-- Add All PASSED Applicants Pop up Dialog-->
-                        <div class="modal fade" id="addApplicant" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="cancelApplicationLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <form method="POST" action="<?php echo site_url('Admin_Main/addApplicants/')?>">
-                                        <div class="modal-header">
-                                            <h6 class="modal-title text-white" id="cancelApplicationLabel">Add Applicant</h6>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body text-dark">
-                                            Are you sure you want to add the following applicants?
-                                            <ul>
-                                            <?php foreach ($applicant as $applicantrow) { ?>
-                                                <?php if ($applicantrow->applicant_result == "Passed"): ?>
-                                                    <br>
-                                                    <li><?php echo $applicantrow->firstname?> <?php echo $applicantrow->lastname?> (<?php echo $applicantrow->applicantNumber?>)</li>
-                                                    <input type="text" hidden class="form-control" name="applicantID[]" value="<?php echo $applicantrow->applicantID?>">
-                                                    <input type="text" hidden class="form-control" name="lastname[]" value="<?php echo $applicantrow->lastname?>">
-                                                <?php endif?>
-                                            <?php } ?>
-                                            </ul>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                                            <button type="submit" class="btn btn-primary">Yes</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-
-            <!-- Enrollment Tab -->
-            <div class="tab-pane " id="enrollmentTabContent" role="tabpanel" aria-labelledby="Enrollment">
-                <div class=" d-flex justify-content-end my-1 pt-3 px-3">
-                    <label class="px-2 pt-1 mb-2">Search ID: </label>
-                    <input type="text" id="searchStudentID" name="searchStudentID" placeholder="Search Student ID">
-                    <button type="button" class="btn btn-sm mx-1 searchBG" id="searchStudentIDIcon"><i class="fas fa-search"></i></button>
                 </div>
-                <div class="table-responsive">
-                    <table class="table align-middle table-striped table-borderless table-hover" id="table-bodyEnroll">
+                <div class="table-responsive mt-3">
+
+                    <table class="table align-middle table-striped table-borderless table-hover" id="table-bodyAppl">
                         <!--Table Body-->
                         <thead>
                             <tr>
-                                <th>Student ID</th>
-                                <th style="width: 200px;">Name</th>
-                                <th>College</th>
-                                <th>Course</th>
-                                <th>Year Level</th>
-                                <th> </th>
+                                <th class="pb-3">Applicant ID</th>
+                                <th class="pb-3">Name</th>
+                                <th class="pb-3">Course</th>
+                                <th class="pb-3">Status</th>
+                                <th class="pb-3"> </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>TUPM-STUDENT-1234</td>
-                                <td>Lida Cruz</td>
-                                <td>COS</td>
-                                <td>BS-Computer Science</td>
-                                <td>Third</td>
-                                <td>
-                                    <button type="button" onclick="lastpage()" class="btn btn-primary text-white text-uppercase confirmBtn">Confirm Enrollment</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>TUPM-STUDENT-1234</td>
-                                <td>Lida Cruz</td>
-                                <td>COS</td>
-                                <td>BS-Computer Science</td>
-                                <td>Third</td>
-                                <td>
-                                    <button type="button" onclick="lastpage()" class="btn btn-primary text-white text-uppercase confirmBtn">Confirm Enrollment</button>
-                                </td>
-                            </tr>
+                            <?php foreach ($applicant as $applicantrow) { ?>
+                                <?php if ($applicantrow->applicant_result != "Student") : ?>
+                                    <tr>
+                                        <td><?php echo $applicantrow->applicantNumber ?></td>
+                                        <td><?php echo $applicantrow->firstname ?> <?php echo $applicantrow->lastname ?></td>
+                                        <td><?php echo $applicantrow->degree ?> in <?php echo $applicantrow->major ?></td>
+                                        <td><?php echo $applicantrow->applicant_result ?></td>
+                                        <td>
+                                            <button type="button" onclick="applicantDetails()" data-id='<?php echo $applicantrow->applicantID; ?>' class="btn btn-primary viewApplicant text-white text-uppercase addBtn">View</button>
+                                            <?php if ($applicantrow->applicant_result == "Passed") : ?>
+                                                <button type="button" class="btn btn-primary text-white text-uppercase addBtn">ADD</button>
+                                            <?php else : ?>
+                                                <button type="button" disabled style="background-color: gray;" class="btn btn-primary text-white text-uppercase addBtn">ADD</button>
+                                            <?php endif ?>
+                                        </td>
+                                    </tr>
+                                <?php endif ?>
+                            <?php } ?>
                         </tbody>
                     </table>
+
+                    <div class=" d-flex justify-content-end my-3 p-3">
+                        <button type="button" class="btn btn-primary btn-sm text-uppercase addALL px-3 " id="addAll" data-bs-toggle="modal" data-bs-target="#addApplicant">
+                            ADD ALL PASSED APPLICANTS</button>
+                    </div>
+
+                    <!-- Add All PASSED Applicants Pop up Dialog-->
+                    <div class="modal fade" id="addApplicant" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-modal="true" aria-labelledby="cancelApplicationLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <form method="POST" action="<?php echo site_url('Admin_Main/addApplicants/') ?>">
+                                    <div class="modal-header">
+                                        <h6 class="modal-title text-white" id="cancelApplicationLabel">Add Applicant</h6>
+                                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body text-dark">
+                                        Are you sure you want to add the following applicants?
+                                        <ul>
+                                            <?php foreach ($applicant as $applicantrow) { ?>
+                                                <?php if ($applicantrow->applicant_result == "Passed") : ?>
+                                                    <br>
+                                                    <li><?php echo $applicantrow->firstname ?> <?php echo $applicantrow->lastname ?> (<?php echo $applicantrow->applicantNumber ?>)</li>
+                                                    <input type="text" hidden class="form-control" name="applicantID[]" value="<?php echo $applicantrow->applicantID ?>">
+                                                    <input type="text" hidden class="form-control" name="lastname[]" value="<?php echo $applicantrow->lastname ?>">
+                                                <?php endif ?>
+                                            <?php } ?>
+                                        </ul>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary">Yes</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enrollment Tab -->
+            <div class="tab-pane" id="enrollmentTabContent" role="tabpanel" aria-labelledby="Enrollment">
+                <div class="px-5 pt-3 my-0 pb-0 text-center">
+                    <img class="bugfix" src="../assets/images/bug-fixing.svg" alt="Under Maintenance">
+                    <h3 class="pt-5 pb-4 my-0 pb-0 text-uppercase">This tab under maintenance.</h3>
                 </div>
             </div>
         </div>
@@ -309,7 +268,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
             <span class="confirmTitle m-2">View Applicant Details </span>
         </div>
         <div id="applicantData">
-            
+
         </div>
         <div class="p-1"></div>
     </div>
@@ -354,7 +313,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
             <div class="tabDetails p-3">
                 <h6 class="fw-bold px-4"> Subjects Enrolled</h6>
                 <div class="table-responsive">
-                    <table class="table align-middle table-striped table-borderless table-hover px-2" id="table-bodyDetails">
+                    <table class="table align-middle table-striped table-borderless table-hover px-2" class="table-body">
                         <!--Table Body-->
                         <thead>
                             <tr>
@@ -398,7 +357,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
                 <!-- Receipt Modal -->
                 <div id="myModal" class="modal modalReceipt">
                     <span class="close">&times;</span>
-                    <img class="modal-content modalReceiptContent" id="receipt01">
+                    <img class="modal-content modalReceiptContent" alt="Receipt" id="receipt01">
                     <div id="caption" class="text-center"></div>
                 </div>
 
@@ -408,6 +367,7 @@ include __DIR__ . '/../includes/adminSideBar.php'
             </div>
         </div>
     </div>
+    <div class="py-1">&nbsp;</div>
 </div>
 
 <!-- Ajax and Jquery -->
@@ -438,7 +398,9 @@ include __DIR__ . '/../includes/adminSideBar.php'
             $.ajax({
                 url: "<?php echo site_url('Admin_Main/viewApplicant'); ?>",
                 method: "POST",
-                data: {id:id},
+                data: {
+                    id: id
+                },
                 success: function(data) {
                     $('#applicantData').html(data);
                 }

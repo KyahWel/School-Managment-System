@@ -1,6 +1,7 @@
 <?php
-include __DIR__.'/../includes/adminSideBar.php'
+$this->load->view('includes/adminSideBar'); 
 ?>
+
 <head>
     <link href="<?php echo base_url('assets/css/course.css'); ?>" rel="stylesheet" type="text/css">
     <title>Admin | Course</title>
@@ -35,7 +36,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                             <div class="row mb-3">
                                 <div class="col-12 align-self-center my-3">
                                     <label class="form-label">College: </label>
-                                    <select name="college" required id="collegeSelect">
+                                    <select name="college" class="form-select" required id="collegeSelect">
 			                            <option value="" disabled selected hidden>Please Select</option>
 			                            <option value="College of Science">College of Science</option>
 			                            <option value="College of Engineering">College of Engineering</option>
@@ -57,7 +58,7 @@ include __DIR__.'/../includes/adminSideBar.php'
         </div>
 
         <!--Search -->
-        <div class="col-12 align-self-center my-3" id="filter">
+        <div class="col-12 align-self-center pt-3 my-3" id="filter">
             <label>Filter by:</label>
             <select required>
                 <option value="" disabled selected hidden>College</option>
@@ -87,14 +88,14 @@ include __DIR__.'/../includes/adminSideBar.php'
                         </div>
                     </div>
                 </div>
-                <div class="table-responsive">  
+                <div class="table-responsive py-2">  
                     <table class="table table-default align-middle table-striped table-borderless table-hover" id="table-body">
                         <thead>
                             <tr>
-			                    <th>Degree</th>
-			                    <th>Major</th>
-			                    <th>College</th>
-                                <th>Action</th>
+			                    <th class="pb-3">Degree</th>
+			                    <th class="pb-3">Major</th>
+			                    <th class="pb-3">College</th>
+                                <th class="pb-3">Action</th>
                             </tr>
                         </thead>
                         <tbody>

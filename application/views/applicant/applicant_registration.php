@@ -62,14 +62,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
             <!-- Contents -->
             <div class="col d-flex flex-column">
-                <div class="container-fluid" id="steps" style="display: block;">
-
+                <div class="container-fluid pt-3" id="steps" style="display: block;">
                     <div class=" mt-3 applicant-head text-dark px-3 rounded-3 information ">
                         <div class="d-flex align-items-center">
                             <div class="flex-shrink-0">
                                 <i class="fa fa-info-circle" aria-hidden="true"></i>
                             </div>
                             <div class="flex-grow-1 ms-3">
+                                <h6><strong>Attention!</strong></h6>
                                 1. Kindly type 'NA' in boxes where there are no possible answers to the information being requested. <br>
                                 2. Enter a valid email address to receive the test permit.
                             </div>
@@ -96,7 +96,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                     </div>
                                     <div class="Contents">
                                         <p class="fw-bold">COURSE PREFERENCE</p>
-                                        <div class="mb-3 row">
+                                        <div class="mb-3 row asterisk">
                                             <label for="courses" class="col-2 form-label small pt-2">Course: </label>
                                             <div class="col-lg-7 col-md-10 col-sm-12">
                                                 <select class="form-select form-select-sm" id="courses" name="course_chosen" aria-label="Select Course" required>
@@ -122,7 +122,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                 </div>
                                             </div>
                                             <div class="col-lg-3 col-md-6 py-1">
-                                                <label class="small">Middle Name</label>
+                                                <label class="small mb-2">Middle Name</label>
                                                 <input type="text" name='middlename' id="midname" class="form-control form-control-sm" aria-label="Last name">
                                                 <div class="invalid-feedback">
                                                     Please input your middle name.
@@ -136,7 +136,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                 </div>
                                             </div>
                                             <div class="col-lg-3 col-md-6 py-1">
-                                                <label class="small">Suffix</label>
+                                                <label class="small mb-2">Suffix</label>
                                                 <input type="text" name='extname' id="suffix" class="form-control form-control-sm" aria-label="Extension Name">
                                                 <div class="invalid-feedback">
                                                     Please input your extension name.
@@ -517,7 +517,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                     </div>
                                                 </div>
                                             </button>
-                                            <button type="button" class="btn btn-warning ms-auto mb-3" data-bs-toggle="modal" data-bs-target="#confirmationPage">
+                                            <button type="button" class="btn btn-warning ms-auto mb-3" id="last" data-bs-toggle="modal" data-bs-target="#confirmationPage">
                                                 <div class=" d-flex align-items-center ">
                                                     <div class="flex-shrink-0 text-start d-md-block">
                                                         <span class="next text-dark">PROCEED

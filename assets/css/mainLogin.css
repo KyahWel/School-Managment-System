@@ -190,10 +190,14 @@ label {
     font-weight: 600;
     letter-spacing: 5px;
     box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.25);
+    background:#ff9a01;
+    opacity: 0.85;
+    color: black;
 }
 
 .wrapper .apply:hover {
     background-color: #f39303;
+    opacity: 1;
 }
 
 form .form-control:focus {

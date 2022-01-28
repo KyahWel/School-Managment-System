@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . '/../includes/studentSideBar.php'
+$this->load->view('includes/studentSideBar');
 ?>
 
 <head>
@@ -28,7 +28,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                     <td class="pt-2 px-2">
                         <p> <?php echo $student->username?></p>
                         <p> <?php echo $student->email ?></p>
-                        <p> <?php echo $student->course_chosen ?> </p>
+                        <p> <?php echo $student->degree ?> in  <?php echo $student->major ?> </p>
                     </td>
                 </tr>
             </table>
@@ -48,7 +48,7 @@ include __DIR__ . '/../includes/studentSideBar.php'
                             <label for="courses" class="col-2 form-label small pt-2">Course: </label>
                             <div class="col-lg-7 col-md-10 col-sm-12">
                                 <select class="form-select form-select-sm" id="courses" name="course_chosen" value="bscs" aria-label="Select Course" disabled>
-                                    <option selected> <?php echo $student->course_chosen?> </option>
+                                    <option selected> <?php echo $student->degree ?> in  <?php echo $student->major ?> </option>
 
                                 </select> 
                             </div>

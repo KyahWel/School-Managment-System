@@ -4,7 +4,7 @@ body {
     height: 100%;
     background: #f4f4f4;
     font-family: 'Poppins', sans-serif;
-    font-size: 0.93rem;
+    font-size: 0.94rem;
 }
 
 @media (min-width: 767px) {
@@ -110,7 +110,7 @@ img.applicantAvatar{
 
 .information {
     background: #93D9F6;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     padding: 15px;
     width: 80%;
 }

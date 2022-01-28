@@ -110,6 +110,7 @@ body{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    letter-spacing: 0.5px;
 }
 .form-control{
     white-space: nowrap;
@@ -119,19 +120,6 @@ body{
 .form-control:focus{
     box-shadow: none;
     border-color: #800000;
-}
-.form-control::placeholder{ /* Chrome, Firefox, Opera, Safari 10.1+ */
-    font-size: 0.8rem;
-}
-.form-control:-ms-input-placeholder{ /* Internet Explorer 10-11 */
-    font-size: 0.8rem;
-}
-.form-control::-ms-input-placeholder{ /* Microsoft Edge */
-    font-size: 0.8rem;
-}
-input[type=text], input[type=date], input[type=time], textarea{
-    color: black;
-    font-size: 0.8rem;
 }
 
 /* Table Responsiveness */
@@ -156,7 +144,7 @@ input[type=text], input[type=date], input[type=time], textarea{
 }
 .table-body tbody{
     text-align: center;
-
+    line-height: 32px;
 }
 .table-body tr{
     overflow: hidden;
@@ -164,10 +152,11 @@ input[type=text], input[type=date], input[type=time], textarea{
     white-space: nowrap;
 }
 .table-body td{
-    max-width: 200px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+ max-width: 200px;
+ overflow: hidden;
+ text-overflow: ellipsis;
+ white-space: nowrap;
+ /* line-height: 0; */
 }
 
 /* Action Button */
@@ -323,4 +312,3 @@ div#viewProfessorTabContent.tab-content{
     background-color: white;
     opacity: 1;
 }
-

@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . '/../includes/studentSideBar.php'
+$this->load->view('includes/studentSideBar'); 
 ?>
 
 <head>

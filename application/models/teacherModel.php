@@ -54,7 +54,7 @@ class teacherModel extends CI_Model {
 	{	
 		$query = $this->db->query('	SELECT admin_accounts.adminNumber, teacher_accounts.* 
 									FROM teacher_accounts 
-									RIGHT JOIN admin_accounts 
+									LEFT JOIN admin_accounts 
 									ON teacher_accounts.creatorID = admin_accounts.adminID 
 									WHERE teacher_accounts.teacherID ='.$id);
 		return $query->row();
@@ -91,11 +91,53 @@ class teacherModel extends CI_Model {
 		$this->db->update('teacher_accounts',$data);
 	}
 
-	public function getSchedule($id){
+	public function getScheduleMonday($id){
 		$query = $this->db->query("SELECT * FROM `class`
 								LEFT JOIN `subjects_table` 
 								ON class.subjectID=subjects_table.subjectID
-								WHERE class.teacherID= '$id' ORDER BY class.start_time ASC ");
+								WHERE class.teacherID= '$id' AND class.day='Monday' ORDER BY class.day ASC, class.start_time ASC ");
+		return $query->result();
+	}
+	public function getScheduleTuesday($id){
+		$query = $this->db->query("SELECT * FROM `class`
+								LEFT JOIN `subjects_table` 
+								ON class.subjectID=subjects_table.subjectID
+								WHERE class.teacherID= '$id' AND class.day='Tuesday' ORDER BY class.day ASC, class.start_time ASC ");
+		return $query->result();
+	}
+	public function getScheduleWednesday($id){
+		$query = $this->db->query("SELECT * FROM `class`
+								LEFT JOIN `subjects_table` 
+								ON class.subjectID=subjects_table.subjectID
+								WHERE class.teacherID= '$id' AND class.day='Wednesday' ORDER BY class.day ASC, class.start_time ASC ");
+		return $query->result();
+	}
+	public function getScheduleThursday($id){
+		$query = $this->db->query("SELECT * FROM `class`
+								LEFT JOIN `subjects_table` 
+								ON class.subjectID=subjects_table.subjectID
+								WHERE class.teacherID= '$id' AND class.day='Thursday' ORDER BY class.day ASC, class.start_time ASC ");
+		return $query->result();
+	}
+	public function getScheduleFriday($id){
+		$query = $this->db->query("SELECT * FROM `class`
+								LEFT JOIN `subjects_table` 
+								ON class.subjectID=subjects_table.subjectID
+								WHERE class.teacherID= '$id' AND class.day='Friday' ORDER BY class.day ASC, class.start_time ASC ");
+		return $query->result();
+	}
+	public function getScheduleSaturday($id){
+		$query = $this->db->query("SELECT * FROM `class`
+								LEFT JOIN `subjects_table` 
+								ON class.subjectID=subjects_table.subjectID
+								WHERE class.teacherID= '$id' AND class.day='Saturday' ORDER BY class.day ASC, class.start_time ASC ");
+		return $query->result();
+	}
+	public function getScheduleSunday($id){
+		$query = $this->db->query("SELECT * FROM `class`
+								LEFT JOIN `subjects_table` 
+								ON class.subjectID=subjects_table.subjectID
+								WHERE class.teacherID= '$id' AND class.day='Sunday' ORDER BY class.day ASC, class.start_time ASC ");
 		return $query->result();
 	}
 

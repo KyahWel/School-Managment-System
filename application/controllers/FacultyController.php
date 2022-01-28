@@ -25,7 +25,13 @@ class FacultyController extends CI_Controller
 
 	public function dashboard() {
 		$data['announcement'] = $this->eventsModel->getAllData();
-		$data['schedule'] = $this->teacherModel->getSchedule($this->session->userdata('auth_user')['teacherID']);
+		$data['schedMonday'] = $this->teacherModel->getScheduleMonday($this->session->userdata('auth_user')['teacherID']);
+		$data['schedTuesday'] = $this->teacherModel->getScheduleTuesday($this->session->userdata('auth_user')['teacherID']);
+		$data['schedWednesday'] = $this->teacherModel->getScheduleWednesday($this->session->userdata('auth_user')['teacherID']);
+		$data['schedThursday'] = $this->teacherModel->getScheduleThursday($this->session->userdata('auth_user')['teacherID']);
+		$data['schedFriday'] = $this->teacherModel->getScheduleFriday($this->session->userdata('auth_user')['teacherID']);
+		$data['schedSaturday'] = $this->teacherModel->getScheduleSaturday($this->session->userdata('auth_user')['teacherID']);
+		$data['schedSunday'] = $this->teacherModel->getScheduleSunday($this->session->userdata('auth_user')['teacherID']);
 		$this->load->view('Faculty_Panel/dashboard',$data);
 	}
 

@@ -21,32 +21,32 @@ class Admin_Main extends CI_Controller
         $records = $this->AdminModel->getData($adminData);
 		$output = '
 			<div class="row mb-3">
-				<div class="col-6">
-					<label>ID: </label>
+				<div>
+					<label class="col-lg-3 col-md-3 col-sm-12 fw-bold pb-2">ID: </label>
 					<label>'.$records->adminID.'</label>
 				</div>
-				<div class="col-12">
-					<label>Admin Number: </label>
+				<div>
+					<label class="col-lg-3 col-md-3 col-sm-12 fw-bold">Admin Number: </label>
 					<label>'.$records->adminNumber.'</label>
 				</div>
 			</div>
 			<div class="row mb-3">
-				<div class="col-6">
-					<label>Username: </label>
+				<div>
+					<label class="col-lg-3 col-md-3 col-sm-12 fw-bold pb-2">Username: </label>
 					<label>'.$records->username.'</label>
 				</div>
-				<div class="col-12">
-					<label>Password(hashed): </label>
-					<label>'.$records->password.'</label>
+				<div>
+					<label class="col-lg-3 col-md-3 col-sm-12 fw-bold">Password(hashed): </label>
+					<label class="hashed">'.$records->password.'</label>
 				</div>
 			</div>
 			<div class="row mb-3">
-				<div class="col-6">
-					<label>Firstname: </label>
+				<div>
+					<label class="col-lg-3 col-md-3 col-sm-12 fw-bold pb-2">Firstname: </label>
 					<label>'.$records->firstname.'</label>
 				</div>
-				<div class="col-12">
-					<label>Lastname: </label>
+				<div>
+					<label class="col-lg-3 col-md-3 col-sm-12 fw-bold">Lastname: </label>
 					<label>'.$records->lastname.'</label>
 				</div>
 			</div>
@@ -92,7 +92,7 @@ class Admin_Main extends CI_Controller
 			</div>
 			<div class="tabDetails px-4">
 				<h6 class="step fw-bold"> <i class="fa fa-user px-2"></i> PERSONAL INFORMATION</h6>
-				<p class="my-4 "> <b>Course Chosen: </b>'.$records->course_chosen.'</p>
+				<p class="my-4 "> <b>Course Chosen: </b>'.$records->degree.' in '.$records->major.'</p>
 				<hr>
 				<div class="row">
 					<div class="col-lg-6">
