@@ -129,7 +129,7 @@ class studentModel extends CI_Model {
 
 	public function getScheduleMonday($id){
 		$query = $this->db->query("SELECT class.class_code FROM `class` 
-									JOIN `section_table` ON class.classID = section_table.classID 
+									JOIN `section_table` ON class.class_code = section_table.class_code 
 									JOIN `student_accounts` ON section_table.sectionID = student_accounts.sectionID 
 									WHERE `studentID` = ".$id);
 		$class_code = $query->row();
@@ -142,7 +142,7 @@ class studentModel extends CI_Model {
 	}
 	public function getScheduleTuesday($id){
 		$query = $this->db->query("SELECT class.class_code FROM `class` 
-									JOIN `section_table` ON class.classID = section_table.classID 
+									JOIN `section_table` ON class.class_code = section_table.class_code 
 									JOIN `student_accounts` ON section_table.sectionID = student_accounts.sectionID 
 									WHERE `studentID` = ".$id);
 		$class_code = $query->row();
@@ -156,7 +156,7 @@ class studentModel extends CI_Model {
 
 	public function getScheduleWednesday($id){
 		$query = $this->db->query("SELECT class.class_code FROM `class` 
-									JOIN `section_table` ON class.classID = section_table.classID 
+									JOIN `section_table` ON class.class_code = section_table.class_code 
 									JOIN `student_accounts` ON section_table.sectionID = student_accounts.sectionID 
 									WHERE `studentID` = ".$id);
 		$class_code = $query->row();
@@ -169,8 +169,8 @@ class studentModel extends CI_Model {
 	}
 
 	public function getScheduleThursday($id){
-		$query = $this->db->query("SELECT class.class_code FROM `class` 
-									JOIN `section_table` ON class.classID = section_table.classID 
+			$query = $this->db->query("SELECT class.class_code FROM `class` 
+									JOIN `section_table` ON class.class_code = section_table.class_code 
 									JOIN `student_accounts` ON section_table.sectionID = student_accounts.sectionID 
 									WHERE `studentID` = ".$id);
 		$class_code = $query->row();
@@ -184,7 +184,7 @@ class studentModel extends CI_Model {
 
 	public function getScheduleFriday($id){
 		$query = $this->db->query("SELECT class.class_code FROM `class` 
-									JOIN `section_table` ON class.classID = section_table.classID 
+									JOIN `section_table` ON class.class_code = section_table.class_code 
 									JOIN `student_accounts` ON section_table.sectionID = student_accounts.sectionID 
 									WHERE `studentID` = ".$id);
 		$class_code = $query->row();
@@ -198,7 +198,7 @@ class studentModel extends CI_Model {
 
 	public function getScheduleSaturday($id){
 		$query = $this->db->query("SELECT class.class_code FROM `class` 
-									JOIN `section_table` ON class.classID = section_table.classID 
+									JOIN `section_table` ON class.class_code = section_table.class_code 
 									JOIN `student_accounts` ON section_table.sectionID = student_accounts.sectionID 
 									WHERE `studentID` = ".$id);
 		$class_code = $query->row();
@@ -212,7 +212,7 @@ class studentModel extends CI_Model {
 
 	public function getScheduleSunday($id){
 		$query = $this->db->query("SELECT class.class_code FROM `class` 
-									JOIN `section_table` ON class.classID = section_table.classID 
+									JOIN `section_table` ON class.class_code = section_table.class_code 
 									JOIN `student_accounts` ON section_table.sectionID = student_accounts.sectionID 
 									WHERE `studentID` = ".$id);
 		$class_code = $query->row();

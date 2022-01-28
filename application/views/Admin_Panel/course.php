@@ -106,11 +106,11 @@ $this->load->view('includes/adminSideBar');
                                 <td><?php echo $courserow->college?></td> 
                                 <td>
                                 <div class="action-buttons">
-                                    <?php if ($courserow->status == 1): ?>
+                                    <?php if ($courserow->courseStatus == 1): ?>
                                     <li><button type="button" id="view" data-id='<?php echo $courserow->courseID;?>' class="btn view_data viewsubject_data" data-bs-toggle="modal" data-bs-target="#viewCourse"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
                                     <li><button type="button" id="edit" data-id='<?php echo $courserow->courseID;?>' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editCourse"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
                                     <li>
-                                    <li><button type="button" class="btn" id="status" onclick="location.href='<?php if($courserow->status == 1){echo site_url('courseController/deactivate');} else {echo site_url('courseController/activate');}?>/<?php echo $courserow->courseID; ?>'">
+                                    <li><button type="button" class="btn" id="status" onclick="location.href='<?php if($courserow->courseStatus == 1){echo site_url('courseController/deactivate');} else {echo site_url('courseController/activate');}?>/<?php echo $courserow->courseID; ?>'">
                                         Deactivate
                                     </button>
                                     </li>
@@ -118,7 +118,7 @@ $this->load->view('includes/adminSideBar');
                                         <li><button type="button" id="view" data-id='<?php echo $courserow->courseID;?>' class="btn" disabled style="background-color: gray;"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
                                         <li><button type="button" id="edit" data-id='<?php echo $courserow->courseID;?>' class="btn" disabled style="background-color: gray;"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
                                         <li>
-                                        <li><button type="button" id="status" class="btn" onclick="location.href='<?php if($courserow->status == 1){echo site_url('courseController/deactivate');} else {echo site_url('courseController/activate');}?>/<?php echo $courserow->courseID; ?>'">
+                                        <li><button type="button" id="status" class="btn" onclick="location.href='<?php if($courserow->courseStatus == 1){echo site_url('courseController/deactivate');} else {echo site_url('courseController/activate');}?>/<?php echo $courserow->courseID; ?>'">
                                         Activate
                                         </button>
                                         </li>	

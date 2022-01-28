@@ -16,7 +16,7 @@ class sectionModel extends CI_Model {
 			$data = array(
 				'sectionID' => NULL,
 				'sectionName' => $_POST['sectionName'],
-				'classID' => $_POST['classID'],
+				'class_code' => $_POST['classID'],
 				'courseID' => $_POST['courseID'],
 				'schoolyear' => $_POST['schoolyear'],
 				'capacity' => $_POST['capacity'],
@@ -24,7 +24,7 @@ class sectionModel extends CI_Model {
 				'yearlevel' => $_POST['yearlevel'],
 			);
 			$this->db->insert('section_table',$data);
-			$query=$this->db->query('SELECT * FROM class WHERE classID = '.$_POST['classID']);	
+			$query=$this->db->query('SELECT * FROM class WHERE class_code = "'.$_POST['classID'].'"');	
 			$query = $query->row();
 			$classdata = array(
 				'isTaken' => 1,
@@ -42,7 +42,7 @@ class sectionModel extends CI_Model {
 
 	public function viewData() #Read
 	{
-		$query = $this->db->query('SELECT * FROM section_table JOIN class ON class.classID = section_table.classID JOIN course_table ON class.courseID = course_table.courseID');
+		$query = $this->db->query('SELECT * FROM section_table JOIN class ON class.class_code = section_table.class_code JOIN course_table ON class.courseID = course_table.courseID GROUP BY class.class_code');
 		return $query->result();
 	}
 
@@ -81,7 +81,7 @@ class sectionModel extends CI_Model {
 	public function getData($id) #Edit
 	{
 		$query = $this->db->query('	SELECT * FROM section_table 
-									JOIN class ON class.classID = section_table.classID 
+									JOIN class ON class.class_code = section_table.class_code
 									JOIN course_table ON class.courseID = course_table.courseID
 									WHERE `sectionID` ='.$id) ;
 		return $query->row();

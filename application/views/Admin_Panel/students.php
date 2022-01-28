@@ -57,6 +57,7 @@ $this->load->view('includes/adminSideBar');
                                 <!-- <th>Last Name</th> -->
                                 <th class="pb-3">Course</th>
                                 <th class="pb-3">Section</th>
+                                <th class="pb-3">Status</th>
                                 <th class="pb-3">Action</th>
                             </tr>
                         </thead>
@@ -68,31 +69,21 @@ $this->load->view('includes/adminSideBar');
                                     <!-- <td><?php echo $studentrow->lastname ?></td> -->
                                     <td><?php echo $studentrow->degree; ?> in <?php echo $studentrow->major; ?></td>
                                     <td><?php echo $studentrow->sectionName; ?></td>
+                                    <td><?php echo $studentrow->status; ?></td>
                                     <td>
                                         <div class="action-buttons">
-                                            <?php if ($studentrow->status == 1) : ?>
-                                                <li><button type="button" id="view" data-id='<?php echo $studentrow->studentID; ?>' class="btn view_data" onclick="viewStudent()"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                                <li>
-                                                <li><button type="button" class="btn" id="status" onclick="location.href='<?php if ($studentrow->status == 1) {
-                                                                                                                                echo site_url('studentControllerFunctions/deactivate');
-                                                                                                                            } else {
-                                                                                                                                echo site_url('studentControllerFunctions/activate');
-                                                                                                                            } ?>/<?php echo $studentrow->studentID; ?>'">
-                                                        Deactivate
-                                                    </button>
+                                        <?php if ($studentrow->status == 1): ?>
+                                                <li><button type="button" id="view" data-id='<?php echo $studentrow->studentID;?>' class="btn view_data" onclick="viewStudent()"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
+                                                <li><button type="button"  class="btn" id="status" onclick="location.href='<?php if($studentrow->status == 1){echo site_url('studentControllerFunctions/deactivate');} else {echo site_url('studentControllerFunctions/activate');}?>/<?php echo $studentrow->studentID; ?>'">
+                                                Deactivate
+                                                </button>
                                                 </li>
-                                            <?php else : ?>
-                                                <li><button type="button" id="view" data-id='<?php echo $studentrow->studentID; ?>' class="btn" disabled style="background-color: gray;"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                                <li><button type="button" id="edit" data-id='<?php echo $studentrow->studentID; ?>' class="btn" disabled style="background-color: gray;"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-
-                                                <li><button type="button" class="btn" id="status" onclick="location.href='<?php if ($studentrow->status == 1) {
-                                                                                                                                echo site_url('studentControllerFunctions/deactivate');
-                                                                                                                            } else {
-                                                                                                                                echo site_url('studentControllerFunctions/activate');
-                                                                                                                            } ?>/<?php echo $studentrow->studentID; ?>'">
-                                                        Activate
-                                                    </button>
-                                                </li>
+                                            <?php else: ?>
+                                                <li><button type="button" id="view" data-id='<?php echo $studentrow->studentID;?>' class="btn" disabled style="background-color: gray;"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>           
+                                                <li><button type="button"  class="btn"  id="status" onclick="location.href='<?php if($studentrow->status == 1){echo site_url('studentControllerFunctions/deactivate');} else {echo site_url('studentControllerFunctions/activate');}?>/<?php echo $studentrow->studentID; ?>'">
+                                                Activate
+                                                </button>
+                                                </li>	
                                             <?php endif ?>
                                         </div>
                                     </td>
@@ -141,18 +132,6 @@ $this->load->view('includes/adminSideBar');
                 }
             });
         });
-        // No student edit data yet
-        //   $('.edit_data').click(function(){
-        //     var id = $(this).data('id');
-        //     $.ajax({
-        //       url: "<?php echo site_url('FacultyController/editFaculty'); ?>",
-        //       method: "POST",
-        //       data: {id:id},
-        //       success: function(data){
-        //         $('#edit_faculty').html(data);
-        //       }
-        //     });
-        //   });
     });
 </script>
 </body>

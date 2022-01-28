@@ -41,8 +41,9 @@ class FacultyController extends CI_Controller
 	}
 	
 	public function myStudents()
-	{
-        $this->load->view('Faculty_Panel/myStudents');
+	{	
+		$data['subjects'] = $this->teacherModel->getSubjects($this->session->userdata('auth_user')['teacherID']);
+        $this->load->view('Faculty_Panel/myStudents',$data);
 	}
 
 	public function changePassword() {

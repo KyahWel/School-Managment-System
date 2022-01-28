@@ -188,7 +188,7 @@ class classController extends CI_Controller {
 				<div class="col-sm-3"> <!-- Professor -->
 					<select name="profID[]" class="form-select">';
 						if($records[$i]['teacherID']==NULL){
-							$output.=' <option value="" disabled selected hidden>Select Professor</option>';
+							$output.=' <option value="NULL" disabled selected hidden>Select Professor</option>';
 						}
 						else{
 							$output.=' <option value="'.$records[$i]['teacherID'].'" selected hidden>'.$records[$i]['firstname'].' '.$records[$i]['lastname'].'</option>';

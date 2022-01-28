@@ -141,6 +141,43 @@ class teacherModel extends CI_Model {
 		return $query->result();
 	}
 
+	public function getSubjects($id){
+		$getTeacherSubject = $this->db->query('	SELECT * FROM class
+												LEFT JOIN subjects_table
+												ON class.subjectID=subjects_table.subjectID
+												LEFT JOIN section_table
+												ON class.class_code = section_table.class_code
+												WHERE class.teacherID='.$id
+												);
+		return $getTeacherSubject->result();
+	}
+
+	public function getStudents($id){
+	
+		$getStudentList = $this->db->query(	'SELECT * FROM student_accounts
+											LEFT JOIN applicant_accounts
+											ON student_accounts.applicantID = applicant_accounts.applicantID
+											LEFT JOIN course_table
+											ON applicant_accounts.courseID = course_table.courseID
+											WHERE student_accounts.sectionID ='.$id);
+		return $getStudentList->result();									
+	}
+
+	public function getSectionData($subjectID,$class_code){
+	
+		$getSectionData = $this->db->query(	'SELECT * FROM class
+											 LEFT JOIN subjects_table
+											 ON class.subjectID = subjects_table.subjectID
+											 LEFT JOIN course_table
+											 ON class.courseID = course_table.courseID
+											 WHERE class.subjectID ='.$subjectID.' AND
+											 class.class_code ="'.$class_code.'"
+		
+		');
+		return $getSectionData->row();									
+	}
+
+
 	public function login(){
 		$data = array(
 			'username' => $_POST['username']
