@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . '/../includes/studentSideBar.php'
+$this->load->view('includes/studentSideBar'); 
 ?>
 
 <head>
@@ -10,8 +10,9 @@ include __DIR__ . '/../includes/studentSideBar.php'
     <div class="row">
         <div class="col-lg-12 align-self-center">
             <div class="table-wrapper-2">
-                <div class="wrap px-4 py-3">
-                    <h3>This page is under maintenance.</h3>
+                <div class="wrap px-5 py-5"> 
+                    <img class="bugfix"src="../assets/images/bug-fixing.svg" alt="Under Maintenance" class="px-3">
+                    <h3 class="text-uppercase">This page is under maintenance.</h3>
                 </div>
             </div>
         </div>

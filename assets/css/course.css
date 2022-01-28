@@ -66,6 +66,7 @@ body {
 .accordion-button:focus{
     box-shadow: none;
 }
+
 #addCourseForm .form-control:focus{
     box-shadow: none;
     border-color: #800000;
@@ -88,26 +89,16 @@ body {
 .container .addCourseButton button:focus{
     box-shadow: none;
 }
-.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    font-size: 0.8rem;
-}
-.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
-    font-size: 0.8rem;
-}
-.form-control::-ms-input-placeholder { /* Microsoft Edge */
-    font-size: 0.8rem;
-}
+
 #collegeSelect:hover{
     box-shadow: none;
     border-color: #3d3b3b;
 }
 #collegeSelect{
     box-shadow: none;
-    background-color: rgb(223, 222, 222);
 }
-input[type=text], textarea{
-    color: black;
-    font-size: 0.8rem;
+#collegeSelect:focus{
+    border-color: maroon;
 }
 select:invalid{
     color: gray;

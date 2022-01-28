@@ -43,6 +43,7 @@ include __DIR__.'/../includes/loginNavbar.php'
         <?php endif; ?>
 
         <h3><strong>Student Access Module</strong></h3>
+        <hr>
         <form action="<?php echo site_url('Login/student_login') ?>" method="POST">
             <!-- Username -->
             <div class="form-group mb-4">

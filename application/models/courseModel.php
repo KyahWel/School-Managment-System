@@ -15,7 +15,7 @@ class courseModel extends CI_Model {
 			'degree' => $_POST['degree'],
 			'major' => $_POST['major'],
 			'college' => $_POST['college'],
-			'status' => 1
+			'courseStatus' => 1
 		);
 		$this->db->insert('course_table',$data);
 		unset($_POST);
@@ -52,7 +52,7 @@ class courseModel extends CI_Model {
 
 	public function deactivateData($id){
 		$data = array(
-			'status' => 0
+			'courseStatus' => 0
 		);
 		$this->db->where('courseID',$id);
 		$this->db->update('course_table',$data);
@@ -60,7 +60,7 @@ class courseModel extends CI_Model {
 
 	public function reactivateData($id){
 		$data = array(
-			'status' => 1
+			'courseStatus' => 1
 		);
 		$this->db->where('courseID',$id);
 		$this->db->update('course_table',$data);

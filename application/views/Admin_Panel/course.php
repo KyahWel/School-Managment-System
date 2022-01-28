@@ -1,6 +1,7 @@
 <?php
-include __DIR__.'/../includes/adminSideBar.php'
+$this->load->view('includes/adminSideBar'); 
 ?>
+
 <head>
     <link href="<?php echo base_url('assets/css/course.css'); ?>" rel="stylesheet" type="text/css">
     <title>Admin | Course</title>
@@ -35,7 +36,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                             <div class="row mb-3">
                                 <div class="col-12 align-self-center my-3">
                                     <label class="form-label">College: </label>
-                                    <select name="college" required id="collegeSelect">
+                                    <select name="college" class="form-select" required id="collegeSelect">
 			                            <option value="" disabled selected hidden>Please Select</option>
 			                            <option value="College of Science">College of Science</option>
 			                            <option value="College of Engineering">College of Engineering</option>
@@ -57,7 +58,7 @@ include __DIR__.'/../includes/adminSideBar.php'
         </div>
 
         <!--Search -->
-        <div class="col-12 align-self-center my-3" id="filter">
+        <div class="col-12 align-self-center pt-3 my-3" id="filter">
             <label>Filter by:</label>
             <select required>
                 <option value="" disabled selected hidden>College</option>
@@ -87,14 +88,14 @@ include __DIR__.'/../includes/adminSideBar.php'
                         </div>
                     </div>
                 </div>
-                <div class="table-responsive">  
+                <div class="table-responsive py-2">  
                     <table class="table table-default align-middle table-striped table-borderless table-hover" id="table-body">
                         <thead>
                             <tr>
-			                    <th>Degree</th>
-			                    <th>Major</th>
-			                    <th>College</th>
-                                <th>Action</th>
+			                    <th class="pb-3">Degree</th>
+			                    <th class="pb-3">Major</th>
+			                    <th class="pb-3">College</th>
+                                <th class="pb-3">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -105,11 +106,11 @@ include __DIR__.'/../includes/adminSideBar.php'
                                 <td><?php echo $courserow->college?></td> 
                                 <td>
                                 <div class="action-buttons">
-                                    <?php if ($courserow->status == 1): ?>
+                                    <?php if ($courserow->courseStatus == 1): ?>
                                     <li><button type="button" id="view" data-id='<?php echo $courserow->courseID;?>' class="btn view_data viewsubject_data" data-bs-toggle="modal" data-bs-target="#viewCourse"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
                                     <li><button type="button" id="edit" data-id='<?php echo $courserow->courseID;?>' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editCourse"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
                                     <li>
-                                    <li><button type="button" class="btn" id="status" onclick="location.href='<?php if($courserow->status == 1){echo site_url('courseController/deactivate');} else {echo site_url('courseController/activate');}?>/<?php echo $courserow->courseID; ?>'">
+                                    <li><button type="button" class="btn" id="status" onclick="location.href='<?php if($courserow->courseStatus == 1){echo site_url('courseController/deactivate');} else {echo site_url('courseController/activate');}?>/<?php echo $courserow->courseID; ?>'">
                                         Deactivate
                                     </button>
                                     </li>
@@ -117,7 +118,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                                         <li><button type="button" id="view" data-id='<?php echo $courserow->courseID;?>' class="btn" disabled style="background-color: gray;"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
                                         <li><button type="button" id="edit" data-id='<?php echo $courserow->courseID;?>' class="btn" disabled style="background-color: gray;"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
                                         <li>
-                                        <li><button type="button" id="status" class="btn" onclick="location.href='<?php if($courserow->status == 1){echo site_url('courseController/deactivate');} else {echo site_url('courseController/activate');}?>/<?php echo $courserow->courseID; ?>'">
+                                        <li><button type="button" id="status" class="btn" onclick="location.href='<?php if($courserow->courseStatus == 1){echo site_url('courseController/deactivate');} else {echo site_url('courseController/activate');}?>/<?php echo $courserow->courseID; ?>'">
                                         Activate
                                         </button>
                                         </li>	

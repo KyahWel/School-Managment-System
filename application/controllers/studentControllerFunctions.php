@@ -36,8 +36,8 @@ class StudentControllerFunctions extends CI_Controller {
                             <b>Email:</b> '.$records->email.'<br>
                             <b>Username:</b> '.$records->username.'<br>
                             <b>Student ID:</b> '.$records->studentNumber.'<br>
-                            <b>Course:</b> '.$records->course_chosen.'<br>
-                            <b>Section:</b> 3A<br>
+                            <b>Course:</b> '.$records->degree.' in '.$records->major.'<br>
+                            <b>Section:</b> '.$records->sectionName.'<br>
                         </td>
                     </tr>
                 </table>
@@ -241,13 +241,13 @@ class StudentControllerFunctions extends CI_Controller {
 
 	public function deactivate($id)
 	{	
-		$data['row'] = $this->studentModel->deactivateData($id);
+		 $this->studentModel->deactivateData($id);
 		redirect('Admin/students');
 	}
 
 	public function activate($id)
 	{	
-		$data['row'] = $this->studentModel->reactivateData($id);
+		$this->studentModel->reactivateData($id);
 		redirect('Admin/students');
 	}
 

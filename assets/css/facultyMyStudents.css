@@ -122,12 +122,12 @@ textarea:focus, input:focus{
 
 /* Section Details */
 
-#sectionInformation td{
+#sectionInformation p{
     color: black;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    padding: 15px 5px;
+    font-size: 1rem;
+    text-align: start;
+    margin-bottom: 0;
+    padding-right: 10px;
 }
 
 /* Modal */

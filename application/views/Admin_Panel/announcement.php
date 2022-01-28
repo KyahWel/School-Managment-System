@@ -1,5 +1,5 @@
 <?php
-include __DIR__.'/../includes/adminSideBar.php'
+$this->load->view('includes/adminSideBar'); 
 ?>
 
 <head>
@@ -78,7 +78,7 @@ include __DIR__.'/../includes/adminSideBar.php'
       </div>
 
       <div class="table-responsive">  
-        <table class="table table-default table-striped align-middle  table-borderless table-hover" id="table-body"> <!--Table Body-->
+        <table class="table table-default table-striped align-middle  table-borderless table-hover table-body"> <!--Table Body-->
           <thead>
             <tr>
               <th>Title</th>
@@ -109,7 +109,7 @@ include __DIR__.'/../includes/adminSideBar.php'
                         <li><button type="button" id="view" data-id='<?php echo $row->eaID;?>' class="btn" disabled style="background-color: gray;"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
                         <li><button type="button" id="edit" data-id='<?php echo $row->eaID;?>' class="btn" disabled style="background-color: gray;"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
                         <li>
-                        <li><button type="button" id="status" class="btn" onclick="location.href='<?php if($row->status == 1){echo site_url('eventsController/deactivate');} else {echo site_url('eventsController/activate');}?>/<?php echo $row->eaID; ?>'">
+                        <li><button type="button" class="btn" id="status" onclick="location.href='<?php if($row->status == 1){echo site_url('eventsController/deactivate');} else {echo site_url('eventsController/activate');}?>/<?php echo $row->eaID; ?>'">
                           Activate
                         </button>
                         </li>	
