@@ -77,8 +77,8 @@
 
         <button class="btn btn-sm" id="back-button" onclick="mainPage()"><i class="fa fa-arrow-left"></i> Back</button>
 
-        <div class="table-responsive">
-            <table id="sectionInformation">
+        <div class="table-responsive my-3">
+            <table id="sectionInformation" class="table-body">
                 <tr>
                     <td>
                         <p><b>Course:</b></p>

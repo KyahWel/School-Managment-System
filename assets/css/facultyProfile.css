@@ -10,8 +10,10 @@ body{
     font-weight: 1000;
     margin-bottom: 0;
 }
-/* Change profile picture */
-.profile-pic-div {
+
+/* Change Profile Picture */
+
+.profile-pic-div{
     height: 140px;
     width: 140px;
     border-radius: 50%;
@@ -19,14 +21,12 @@ body{
     position: relative;
     border: 1px solid grey;
 }
-
 #facultyPhoto{
     height: 100%;
     width: 100%;
 }
-
-@media only screen and (max-width: 768px) {
-    .profile-pic-div {
+@media only screen and (max-width: 768px){
+    .profile-pic-div{
         height: 140px;
         width: 200px;
     }
@@ -34,15 +34,15 @@ body{
 .info, .info1{
     font-size: 1rem;
 }
+
 /* My Profile Details */
 
-#myProfileDetails td{
+#myProfileDetails p{
     color: black;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    padding: 0px 10px 15px 0px;
     font-size: 1rem;
+    text-align: start;
+    margin-bottom: 0;
+    padding-right: 10px;
 }
 
 /* Table Responsiveness */
