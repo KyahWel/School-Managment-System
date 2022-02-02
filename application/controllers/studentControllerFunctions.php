@@ -51,7 +51,7 @@ class StudentControllerFunctions extends CI_Controller {
             </div>
         </div>
         <!--Tabs-->
-        <div class="col-12 align-self-center my-3" id="viewStudentTable">
+		<div class="table-wrapper col-12 align-self-center my-3" id="viewProfessorTable">
             <ul class="nav nav-tabs d-flex flex-row justify-content-start" id="viewStudentTab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="viewStudentInfoTab" data-bs-toggle="tab" data-bs-target="#StudentInfo" type="button" role="tab" aria-controls="StudentInfo" aria-selected="true">Personal Information</button>
