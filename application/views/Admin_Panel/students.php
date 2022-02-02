@@ -100,7 +100,7 @@ $this->load->view('includes/adminSideBar');
     <div class="container my-3" id='viewStudent' style="display: none;">
         <div class="viewStudentTitle d-flex align-items-center">
             <button type="button" class="btn btn-default btn-sm my-3" id="back-button" onclick="mainStudent()"><i class="fa fa-arrow-left"></i> Back</button>
-            <h3><i>Student Profile</i></h3>
+            <h3>Hod's Profile</h3>
         </div>
 
         <div id="view_student">
