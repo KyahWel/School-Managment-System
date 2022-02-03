@@ -78,7 +78,7 @@ $this->load->view('includes/adminSideBar');
       </div>
 
       <div class="table-responsive">  
-        <table class="table table-default table-striped align-middle  table-borderless table-hover table-body"> <!--Table Body-->
+        <table class="table table-default table-striped align-middle  table-borderless table-hover table-body" id="announcementTable"> <!--Table Body-->
           <thead>
             <tr>
               <th>Title</th>
@@ -196,6 +196,11 @@ $this->load->view('includes/adminSideBar');
         });
       });
     });
+    $(document).ready(function() {
+    $('#announcementTable').DataTable( {
+        "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]
+    } );
+} );
 </script>
 
  <!-- External Javascripts -->

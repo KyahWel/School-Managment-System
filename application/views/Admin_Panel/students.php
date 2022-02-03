@@ -1,5 +1,5 @@
 <?php
-$this->load->view('includes/adminSideBar'); 
+$this->load->view('includes/adminSideBar');
 ?>
 
 <head>
@@ -72,18 +72,26 @@ $this->load->view('includes/adminSideBar');
                                     <td><?php echo $studentrow->status; ?></td>
                                     <td>
                                         <div class="action-buttons">
-                                        <?php if ($studentrow->status == 1): ?>
-                                                <li><button type="button" id="view" data-id='<?php echo $studentrow->studentID;?>' class="btn view_data" onclick="viewStudent()"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                                <li><button type="button"  class="btn" id="status" onclick="location.href='<?php if($studentrow->status == 1){echo site_url('studentControllerFunctions/deactivate');} else {echo site_url('studentControllerFunctions/activate');}?>/<?php echo $studentrow->studentID; ?>'">
-                                                Deactivate
-                                                </button>
+                                            <?php if ($studentrow->status == 1) : ?>
+                                                <li><button type="button" id="view" data-id='<?php echo $studentrow->studentID; ?>' class="btn view_data" onclick="viewStudent()"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
+                                                <li><button type="button" class="btn" id="status" onclick="location.href='<?php if ($studentrow->status == 1) {
+                                                                                                                                echo site_url('studentControllerFunctions/deactivate');
+                                                                                                                            } else {
+                                                                                                                                echo site_url('studentControllerFunctions/activate');
+                                                                                                                            } ?>/<?php echo $studentrow->studentID; ?>'">
+                                                        Deactivate
+                                                    </button>
                                                 </li>
-                                            <?php else: ?>
-                                                <li><button type="button" id="view" data-id='<?php echo $studentrow->studentID;?>' class="btn" disabled style="background-color: gray;"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>           
-                                                <li><button type="button"  class="btn"  id="status" onclick="location.href='<?php if($studentrow->status == 1){echo site_url('studentControllerFunctions/deactivate');} else {echo site_url('studentControllerFunctions/activate');}?>/<?php echo $studentrow->studentID; ?>'">
-                                                Activate
-                                                </button>
-                                                </li>	
+                                            <?php else : ?>
+                                                <li><button type="button" id="view" data-id='<?php echo $studentrow->studentID; ?>' class="btn" disabled style="background-color: gray;"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
+                                                <li><button type="button" class="btn" id="status" onclick="location.href='<?php if ($studentrow->status == 1) {
+                                                                                                                                echo site_url('studentControllerFunctions/deactivate');
+                                                                                                                            } else {
+                                                                                                                                echo site_url('studentControllerFunctions/activate');
+                                                                                                                            } ?>/<?php echo $studentrow->studentID; ?>'">
+                                                        Activate
+                                                    </button>
+                                                </li>
                                             <?php endif ?>
                                         </div>
                                     </td>
@@ -100,15 +108,16 @@ $this->load->view('includes/adminSideBar');
     <div class="container my-3" id='viewStudent' style="display: none;">
         <div class="viewStudentTitle d-flex align-items-center">
             <button type="button" class="btn btn-default btn-sm my-3" id="back-button" onclick="mainStudent()"><i class="fa fa-arrow-left"></i> Back</button>
-            <h3>Hod's Profile</h3>
+            <h3><i>Student Profile</i></h3>
         </div>
 
         <div id="view_student">
         </div>
-    </div>  
+    </div>
 
     <div class="pt-1">&nbsp;</div>
 </div>
+
 <script src="<?php echo base_url('assets/js/student.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 <!-- jQuery JS CDN -->
@@ -132,6 +141,9 @@ $this->load->view('includes/adminSideBar');
                 }
             });
         });
+        $('#table-body').DataTable( {
+        "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]
+    } );
     });
 </script>
 </body>

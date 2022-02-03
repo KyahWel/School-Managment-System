@@ -1,5 +1,5 @@
 <?php
-$this->load->view('includes/adminSideBar'); 
+$this->load->view('includes/adminSideBar');
 ?>
 
 <head>
@@ -25,53 +25,61 @@ $this->load->view('includes/adminSideBar');
 
                     <h2 class="accordion-header" id="addProfessorHeader">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#addProfessor" aria-expanded="false" aria-controls="addProfessor">
-                        Add Professor
+                            Add Professor
                         </button>
                     </h2>
 
                     <div id="addProfessor" class="accordion-collapse collapse" aria-labelledby="addProfessorHeader" data-bs-parent="#accordion-addProfessor">
                         <div class="accordion-body">
-                            <form method="POST" action="<?php echo site_url('FacultyControllerFunctions/addFaculty')?>" id="addProfessorForm">
+                            <form method="POST" action="<?php echo site_url('FacultyControllerFunctions/addFaculty') ?>" id="addProfessorForm">
                                 <div class="row mb-3">
-                                    <div class="col"> <!--Creator ID-->
+                                    <div class="col">
+                                        <!--Creator ID-->
                                         <label for="adminName" class="form-label">Created By</label>
-                                        <input type="text" class="form-control" id="adminName" name="adminname" disabled value="<?= $this->session->userdata('auth_user')['firstname']?>">
+                                        <input type="text" class="form-control" id="adminName" name="adminname" disabled value="<?= $this->session->userdata('auth_user')['firstname'] ?>">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <div class="col-6"> <!--First Name-->
+                                    <div class="col-6">
+                                        <!--First Name-->
                                         <label for="firstName" class="form-label">First Name</label>
                                         <input type="text" class="form-control" id="firstName" name="firstname">
                                     </div>
-                                    <div class="col-6"> <!--Middle Name-->
+                                    <div class="col-6">
+                                        <!--Middle Name-->
                                         <label for="middleName" class="form-label">Middle Name</label>
                                         <input type="text" class="form-control" id="middleName" name="middlename">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <div class="col-6"> <!--Last Name-->
+                                    <div class="col-6">
+                                        <!--Last Name-->
                                         <label for="lastName" class="form-label">Last Name</label>
                                         <input type="text" class="form-control" id="lastName" name="lastname">
                                     </div>
-                                    <div class="col-6"> <!--Suffix-->
+                                    <div class="col-6">
+                                        <!--Suffix-->
                                         <label for="suffix" class="form-label">Suffix</label>
                                         <input type="text" class="form-control" id="suffix" name="extname">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <div class="col-6"> <!--College-->
+                                    <div class="col-6">
+                                        <!--College-->
                                         <label for="college" class="form-label">College</label>
                                         <input type="text" class="form-control" id="college" name="college">
                                     </div>
-                                    <div class="col-6"> <!--Department-->
+                                    <div class="col-6">
+                                        <!--Department-->
                                         <label for="department" class="form-label">Department</label>
                                         <input type="text" class="form-control" id="department" name="department">
                                     </div>
                                 </div>
-                                <div class="addProfessorButton d-flex justify-content-end"> <!--Buttons-->
+                                <div class="addProfessorButton d-flex justify-content-end">
+                                    <!--Buttons-->
                                     <button class="btn btn-default" id="addProfessorSave" type="submit" value="save">Save</button>
                                     <button class="btn btn-default" id="addProfessorCancel" type="reset" value="cancel">Cancel</button>
-                                </div>  
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -81,31 +89,12 @@ $this->load->view('includes/adminSideBar');
 
         </div>
 
-        <!-- Filter and Search -->
-        <div class="col-12 align-self-center pt-3 my-3" id="filterAndSearch-main">
-            <label for="college-filter">Filter by: </label>
-            <select id="college-filter">
-                <option value="" disabled selected hidden>College</option>
-                <option value="college">College 1</option>
-                <option value="college">College 2</option>
-                <option value="college">College 3</option>
-            </select>
-            <label for="department-filter"></label>
-            <select id="department-filter">
-                <option value="" disabled selected hidden>Department</option>
-                <option value="department">Department 1</option>
-                <option value="department">Department 2</option>
-                <option value="department">Department 3</option>
-            </select>
-            <input type="text" name="search-main" placeholder="Search Faculty ID">
-            <button type="button" class="btn btn-sm" id="search-main"><i class="fas fa-search" data-bs-toggle="tooltip" title="Search"></i></button>
-        </div>  
-
         <!-- Faculty Information -->
         <div class="col-12 align-self-center my-3" id="facultyInformation">
             <div class="table-wrapper">
-            
-                <div class="table-title"> <!--Table Header-->
+
+                <div class="table-title">
+                    <!--Table Header-->
                     <div class="row">
                         <div class="col">
                             <h2>Faculty Information</h2>
@@ -113,8 +102,9 @@ $this->load->view('includes/adminSideBar');
                     </div>
                 </div>
 
-                <div class="table-responsive py-3">  
-                    <table class="table table-body align-middle table-striped table-borderless table-hover"> <!--Table Body-->
+                <div class="table-responsive py-3">
+                    <table class="table table-body align-middle table-striped table-borderless table-hover" id="facultyList">
+                        <!--Table Body-->
                         <thead>
                             <tr>
                                 <th class="pb-3">Faculty ID</th>
@@ -124,38 +114,46 @@ $this->load->view('includes/adminSideBar');
                                 <th class="pb-3">Action</th>
                             </tr>
                         </thead>
-                        <tbody>  
-                            <?php foreach($teacher as $teacherrow) {?>
+                        <tbody>
+                            <?php foreach ($teacher as $teacherrow) { ?>
                                 <tr>
-                                    <td><?php echo $teacherrow->teacherNumber?></td> 
-                                    <td><?php echo $teacherrow->firstname;?> <?php echo $teacherrow->lastname?></td>
-                                    <td><?php echo $teacherrow->college;?></td>
-                                    <td><?php echo $teacherrow->department;?></td>
+                                    <td><?php echo $teacherrow->teacherNumber ?></td>
+                                    <td><?php echo $teacherrow->firstname; ?> <?php echo $teacherrow->lastname ?></td>
+                                    <td><?php echo $teacherrow->college; ?></td>
+                                    <td><?php echo $teacherrow->department; ?></td>
                                     <td>
-                                    <div class="action-buttons">
-                                        <ul class="mb-0 px-0">
-                                            <?php if ($teacherrow->status == 1): ?>
-                                                <li><button type="button" id="view" data-id='<?php echo $teacherrow->teacherID;?>' class="btn view_data" onclick="viewProfessor()"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                                <li><button type="button" id="edit" data-id='<?php echo $teacherrow->teacherID;?>' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editProfessor"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-                                                <li>
-                                                <li><button type="button"  class="btn" id="status" onclick="location.href='<?php if($teacherrow->status == 1){echo site_url('FacultyControllerFunctions/deactivate');} else {echo site_url('FacultyControllerFunctions/activate');}?>/<?php echo $teacherrow->teacherID; ?>'">
-                                                    Deactivate
-                                                </button>
-                                                </li>
-                                            <?php else: ?>
-                                                <li><button type="button" id="view" data-id='<?php echo $teacherrow->teacherID;?>' class="btn" disabled style="background-color: gray;"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                                <li><button type="button" id="edit" data-id='<?php echo $teacherrow->teacherID;?>' class="btn" disabled style="background-color: gray;"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-                                                <li>
-                                                <li><button type="button"  class="btn"  id="status" onclick="location.href='<?php if($teacherrow->status == 1){echo site_url('FacultyControllerFunctions/deactivate');} else {echo site_url('FacultyControllerFunctions/activate');}?>/<?php echo $teacherrow->teacherID; ?>'">
-                                                    Activate
-                                                </button>
-                                                </li>	
-                                            <?php endif ?>
-                                        </ul>
-                                    </div>
+                                        <div class="action-buttons">
+                                            <ul class="mb-0 px-0">
+                                                <?php if ($teacherrow->status == 1) : ?>
+                                                    <li><button type="button" id="view" data-id='<?php echo $teacherrow->teacherID; ?>' class="btn view_data" onclick="viewProfessor()"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
+                                                    <li><button type="button" id="edit" data-id='<?php echo $teacherrow->teacherID; ?>' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editProfessor"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
+                                                    <li>
+                                                    <li><button type="button" class="btn" id="status" onclick="location.href='<?php if ($teacherrow->status == 1) {
+                                                                                                                                    echo site_url('FacultyControllerFunctions/deactivate');
+                                                                                                                                } else {
+                                                                                                                                    echo site_url('FacultyControllerFunctions/activate');
+                                                                                                                                } ?>/<?php echo $teacherrow->teacherID; ?>'">
+                                                            Deactivate
+                                                        </button>
+                                                    </li>
+                                                <?php else : ?>
+                                                    <li><button type="button" id="view" data-id='<?php echo $teacherrow->teacherID; ?>' class="btn" disabled style="background-color: gray;"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
+                                                    <li><button type="button" id="edit" data-id='<?php echo $teacherrow->teacherID; ?>' class="btn" disabled style="background-color: gray;"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
+                                                    <li>
+                                                    <li><button type="button" class="btn" id="status" onclick="location.href='<?php if ($teacherrow->status == 1) {
+                                                                                                                                    echo site_url('FacultyControllerFunctions/deactivate');
+                                                                                                                                } else {
+                                                                                                                                    echo site_url('FacultyControllerFunctions/activate');
+                                                                                                                                } ?>/<?php echo $teacherrow->teacherID; ?>'">
+                                                            Activate
+                                                        </button>
+                                                    </li>
+                                                <?php endif ?>
+                                            </ul>
+                                        </div>
                                     </td>
-                                </tr> 
-                            <?php } ?> 
+                                </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>
@@ -165,8 +163,8 @@ $this->load->view('includes/adminSideBar');
     </div>
 
     <!-- Faculty View Page -->
-    <div class="container my-3" id='viewProfessor' style="display: none;">     
-        
+    <div class="container my-3" id='viewProfessor' style="display: none;">
+
         <div class="viewProfessorTitle">
             <button type="button" class="btn btn-default btn-sm" id="back-button" onclick="mainFaculty()"><i class="fa fa-arrow-left"></i> Back</button>
             <h3>Lida's Profile</h3>
@@ -196,43 +194,9 @@ $this->load->view('includes/adminSideBar');
                 </table>
             </div>
         </div>
-        
-        <!-- View Professor Filter and Search -->
-        <div class="col-12 align-self-center my-3" id="filterAndSearch">
-            <label for="schoolYear-filter">Filter by: </label>
-            <select id="schoolYear-filter">
-                <option value="" disabled selected hidden>School Year</option>
-                <option value="schoolYear">2019</option>
-                <option value="schoolYear">2020</option>
-                <option value="schoolYear">2021</option>
-            </select>
-            <label for="yearLevel-filter"></label>
-            <select id="yearLevel-filter"> 
-                <option value="" disabled selected hidden>Year Level</option>
-                <option value="yearLevel">First</option>
-                <option value="yearLevel">Second</option>
-                <option value="yearLevel">Third</option>
-                <option value="yearLevel">Fourth</option>
-            </select>
-            <label for="semester-filter"></label>
-            <select id="semester-filter">
-                <option value="" disabled selected hidden>Semester</option>
-                <option value="semester">First</option>
-                <option value="semester">Second</option>
-            </select>
-            <label for="subjectCode-filter"></label>
-            <select id="subjectCode-filter">
-                <option value="" disabled selected hidden>Subject Code</option>
-                <option value="subjectCode">12345</option>
-                <option value="subjectCode">67890</option>
-                <option value="subjectCode">76543</option>
-            </select>
-            <input type="text" name="search" placeholder="Search">
-            <button type="button" class="btn btn-sm" id="search"><i class="fas fa-search" data-bs-toggle="tooltip" title="Search"></i></button>
-        </div> 
 
         <!-- View Professor Table -->
-        <div class="table-wrapper col-12 align-self-center my-3" id="viewProfessorTable">
+        <div class="table-wrapper col-12 align-self-center mt-4 mb-3" id="viewProfessorTable">
             <ul class="nav nav-tabs d-flex flex-row justify-content-start" id="viewProfessorTab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="viewProfessorInformationTab" data-bs-toggle="tab" data-bs-target="#ProfessorInformation" type="button" role="tab" aria-controls="ProfessorInformation" aria-selected="true">Professor Information</button>
@@ -253,8 +217,9 @@ $this->load->view('includes/adminSideBar');
                 </div>
                 <!-- Subject Tab -->
                 <div class="tab-pane" id="ProfessorSubject" role="tabpanel" aria-labelledby="viewProfessorSubjectTab">
-                    <div class="table-responsive">  
-                        <table class="table table-body align-middle table-striped table-borderless table-hover"> <!--Table Body-->
+                    <div class="table-responsive">
+                        <table class="table table-body align-middle table-striped table-borderless table-hover">
+                            <!--Table Body-->
                             <thead>
                                 <tr>
                                     <th>School Year</th>
@@ -265,9 +230,9 @@ $this->load->view('includes/adminSideBar');
                                     <th>Subject Title</th>
                                 </tr>
                             </thead>
-                            <tbody>     
+                            <tbody>
                                 <tr>
-                                    <td>2020-2021</td> 
+                                    <td>2020-2021</td>
                                     <td>First</td>
                                     <td>Second</td>
                                     <td>BSCS</td>
@@ -275,7 +240,7 @@ $this->load->view('includes/adminSideBar');
                                     <td>Mathematics 1</td>
                                 </tr>
                                 <tr>
-                                    <td>2020-2021</td> 
+                                    <td>2020-2021</td>
                                     <td>First</td>
                                     <td>Second</td>
                                     <td>BSCS</td>
@@ -288,8 +253,9 @@ $this->load->view('includes/adminSideBar');
                 </div>
                 <!-- Section Tab -->
                 <div class="tab-pane" id="ProfessorSection" role="tabpanel" aria-labelledby="viewProfessorSectionTab">
-                    <div class="table-responsive">  
-                        <table class="table table-body align-middle table-striped table-borderless table-hover"> <!--Table Body-->
+                    <div class="table-responsive">
+                        <table class="table table-body align-middle table-striped table-borderless table-hover" id="sectionListOfFaculty">
+                            <!--Table Body-->
                             <thead>
                                 <tr>
                                     <th>School Year</th>
@@ -303,9 +269,9 @@ $this->load->view('includes/adminSideBar');
                                     <th>Time</th>
                                 </tr>
                             </thead>
-                            <tbody>     
+                            <tbody>
                                 <tr>
-                                    <td>2020-2021</td> 
+                                    <td>2020-2021</td>
                                     <td>First</td>
                                     <td>Second</td>
                                     <td>BSCS</td>
@@ -316,7 +282,7 @@ $this->load->view('includes/adminSideBar');
                                     <td>7:00AM-9:00AM</td>
                                 </tr>
                                 <tr>
-                                    <td>2020-2021</td> 
+                                    <td>2020-2021</td>
                                     <td>First</td>
                                     <td>Second</td>
                                     <td>BSCS</td>
@@ -347,19 +313,22 @@ $this->load->view('includes/adminSideBar');
                 <div class="modal-body">
                     <form action="" id="editProfessorForm">
                         <div class="row mb-3">
-                            <div class="col-6"> <!--College-->
+                            <div class="col-6">
+                                <!--College-->
                                 <label for="college-edit" class="form-label">College</label>
                                 <input type="text" class="form-control" id="college-edit" name="college">
                             </div>
-                            <div class="col-6"> <!--Department-->
+                            <div class="col-6">
+                                <!--Department-->
                                 <label for="department-edit" class="form-label">Department</label>
                                 <input type="text" class="form-control" id="department-edit" name="department">
                             </div>
                         </div>
-                        <div class="editProfessorButton d-flex justify-content-end"> <!--Buttons-->
+                        <div class="editProfessorButton d-flex justify-content-end">
+                            <!--Buttons-->
                             <button class="btn btn-default" id="save" type="submit" value="save">Save</button>
                             <button class="btn btn-default" id="cancel" type="button" data-bs-dismiss="modal">Cancel</button>
-                        </div>  
+                        </div>
                     </form>
                 </div>
 
@@ -373,23 +342,37 @@ $this->load->view('includes/adminSideBar');
 <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 
 <!-- jQuery JS CDN -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> 
- <!-- jQuery DataTables JS CDN -->
- <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
- <!-- Ajax fetching data -->
- <script type="text/javascript">
-    $(document).ready(function(){
-      $('#dataTable').DataTable();
-      $('.view_data').click(function(){
-         var id = $(this).data('id');
-         $.ajax({
-          url: "<?php echo site_url('FacultyControllerFunctions/viewFaculty');?>",
-          method: "POST",
-          data: {id:id},
-          success: function(data){
-            $('#view_faculty').html(data);
-         }
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<!-- jQuery DataTables JS CDN -->
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<!-- Ajax fetching data -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#dataTable').DataTable();
+        $('.view_data').click(function() {
+            var id = $(this).data('id');
+            $.ajax({
+                url: "<?php echo site_url('FacultyControllerFunctions/viewFaculty'); ?>",
+                method: "POST",
+                data: {
+                    id: id
+                },
+                success: function(data) {
+                    $('#view_faculty').html(data);
+                }
+            });
         });
-       });
+        $('#facultyList').DataTable({
+            "lengthMenu": [
+                [5, 10, 25, -1],
+                [5, 10, 25, "All"]
+            ]
+        });
+        $('#sectionListOfFaculty').DataTable({
+            "lengthMenu": [
+                [5, 10, 25, -1],
+                [5, 10, 25, "All"]
+            ]
+        });
     });
 </script>
