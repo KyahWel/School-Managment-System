@@ -31,11 +31,11 @@ $this->load->view('includes/adminSideBar');
                     <div class="accordion-body">
                         <form  method="POST" action="<?php echo site_url('classController/addClass')?>">
                             <div class="row mb-3">
-                                <div class="col-sm-6 col-md-6 col-lg-6"> <!--Year Level-->
+                                <div class="col-sm-12 col-md-6 col-lg-6"> <!--Class Code-->
                                     <label class="form-label">Class Code</label>
                                     <input type="text" class="form-control" name="classcode" required placeholder="Enter class code"> 
                                 </div>
-                                <div class="col-sm-6 col-md-6 col-lg-6"> <!--Year Level-->
+                                <div class="col-sm-12 col-md-6 col-lg-6"> <!--Year Level-->
                                     <label class="form-label">Year Level</label>
                                     <select name="yearlevel" id="yearlevel" required class="form-select">
                                         <option value="" disabled selected  hidden>Please Select</option>
@@ -47,7 +47,7 @@ $this->load->view('includes/adminSideBar');
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <div class="col-sm-6 col-md-6 col-lg-6"> <!--Course-->
+                                <div class="col-sm-12 col-md-6 col-lg-6"> <!--Course-->
                                 <label class="form-label">Course</label>
                                 <select name="courseID" id="courseID" required class="form-select">
                                     <option value="" disabled selected  hidden >Please select</option>
@@ -56,7 +56,7 @@ $this->load->view('includes/adminSideBar');
                                     <?php }?>
                                 </select>
                                 </div>
-                                <div class="col-sm-4 col-md-4 col-lg-4"> <!--Semester-->
+                                <div class="col-sm-12 col-md-6 col-lg-4"> <!--Semester-->
                                     <label class="form-label">Semester</label>
                                     <select name="semester" id="semester" required class="form-select">
                                         <option value="" disabled selected hidden >Please select</option>
@@ -64,8 +64,8 @@ $this->load->view('includes/adminSideBar');
                                         <option value="2">Second Semester</option>
                                     </select>
                                 </div>
-                                <div class="loadSubject-button col-sm-2 col-md-2 col-lg-2"> <!-- Load Subects Button -->
-                                    <button type="button" id="load" class="btn loadSubjects">Load Subjects</button>   
+                                <div class="loadSubject-button col-sm-12 col-md-12 col-lg-2"> <!-- Load Subects Button -->
+                                    <button type="button" id="load" class="btn loadSubjects"><span>Load Subjects</span></button>   
                                 </div>
                             </div>
                             
