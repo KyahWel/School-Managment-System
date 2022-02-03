@@ -22,7 +22,7 @@ $this->load->view('includes/adminSideBar');
     </style>
 </head>
 <div class="height-100 pt-2 container-fluid">
-    <div class=" my-3">
+    <div class="my-3">
         <div class="CourseTab my-3">
             <h4 class="fw-bold"> Subjects Tab</h4>
         </div>

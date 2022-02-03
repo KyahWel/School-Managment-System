@@ -1,56 +1,94 @@
-#table-body tr{
+#table-body tr {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-#table-body td{
- max-width: 200px;
- overflow: hidden;
- text-overflow: ellipsis;
- white-space: nowrap;
+#table-body td {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-tbody{
+tbody {
     text-align: center;
     line-height: 32px;
 }
 
-.form-control::placeholder, .form-select::placeholder{ /* Chrome, Firefox, Opera, Safari 10.1+ */
+.form-control::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
     font-size: 0.9rem;
 }
-.form-control:-ms-input-placeholder, .form-select:-ms-input-placeholder{ /* Internet Explorer 10-11 */
+
+.form-control:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
     font-size: 0.9rem;
 }
-.form-control::-ms-input-placeholder, .form-select::-ms-input-placeholder{ /* Microsoft Edge */
+ 
+.form-control::-ms-input-placeholder {
+    /* Microsoft Edge */
     font-size: 0.9rem;
 }
-input[type=text], input[type=date], input[type=time], input[type=tel], textarea{
+
+.form-select::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    font-size: 0.8rem;
+}
+
+.form-select:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    font-size: 0.8rem;
+}
+
+.form-select::-ms-input-placeholder {
+    font-size: 0.8rem;
+}
+
+
+input[type=text],
+input[type=date],
+input[type=time],
+input[type=tel],
+textarea {
     color: black;
     font-size: 0.9rem;
 }
 
-.form-control:focus, .form-select:focus{
+.form-control:focus,
+.form-select:focus {
     border-color: maroon;
     box-shadow: none;
 }
 
-.nav-tabs .nav-link{
-    color:white;
+.nav-tabs .nav-link {
+    color: white;
     padding-top: 0.65rem;
     padding-bottom: 0.65rem;
-  
 }
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link:hover{
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link:hover {
     border-top-left-radius: 18px;
-    border-top-right-radius:18px;
+    border-top-right-radius: 18px;
 }
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
     color: #495057;
     background-color: #fff;
     border-color: #dee2e6 #dee2e6 #fff;
     border-top-left-radius: 18px;
-    border-top-right-radius:18px;
+    border-top-right-radius: 18px;
     padding-top: 0.65rem;
     padding-bottom: 0.65rem;
+}
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_processing,
+.dataTables_wrapper .dataTables_paginate {
+    color: #333;
+    padding: 1.3rem;
 }

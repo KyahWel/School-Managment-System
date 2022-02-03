@@ -8,34 +8,9 @@ $this->load->view('includes/adminSideBar');
     <title>Admin | Students</title>
 </head>
 <div class="height-100 pt-2 container-fluid">
-    <div class="container my-3" id="mainStudent" style="display: block;">
+    <div class="my-3" id="mainStudent" style="display: block;">
         <div class="StudentTab my-3">
             <h3>Students</h3>
-        </div>
-
-        <!--Search -->
-        <div class="col-12 align-self-center my-3" id="filter">
-            <label>Filter by:</label>
-            <select required>
-                <option value="" disabled selected hidden>College</option>
-                <option value="College of Science">College of Science</option>
-                <option value="College of Engineering">College of Engineering</option>
-                <option value="College of Industrial Education">College of Industrial Education</option>
-                <option value="College of Architecture and Fine Arts">College of Architecture and Fine Arts</option>
-                <option value="College of Liberal Arts">College of Liberal Arts</option>
-            </select>
-            <select required>
-                <option value="" disabled selected hidden>Course</option>
-                <option value="CS">BSCS</option>
-
-            </select>
-            <select required>
-                <option value="" disabled selected hidden>Section</option>
-                <option value="1a">1A</option>
-
-            </select>
-            <input type="text" id="searchStudentID" name="searchStudentID" placeholder="Search Student ID">
-            <button type="button" class="btn btn-sm" id="search"><i class="fas fa-search" data-bs-toggle="tooltip" title="Search"></i></button>
         </div>
 
         <!--Student List-->

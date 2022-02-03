@@ -248,3 +248,7 @@ div#viewStudentTabContent.tab-content{
         width: 200px;
     }
 }
+
+#viewStudentInformation tbody.lineList{
+    line-height: 22px;
+}

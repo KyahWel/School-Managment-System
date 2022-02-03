@@ -7,7 +7,7 @@ $this->load->view('includes/adminSideBar');
     <title>Admin | Course</title>
 </head>
 <div class="height-100 pt-2 container-fluid">
-    <div class="container my-3" id="mainCourse" style="display: block;">
+    <div class=" my-3" id="mainCourse" style="display: block;">
         <div class="CourseTab my-3">
             <h3>Course</h3>
         </div>
@@ -159,6 +159,7 @@ $this->load->view('includes/adminSideBar');
             </div>
         </div>
     </div>
+    <div class="pt-1"></div>
 </div>
 <script src="<?php echo base_url('assets/js/course.js'); ?>"></script>
 <!-- jQuery JS CDN -->

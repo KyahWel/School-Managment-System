@@ -9,7 +9,7 @@ $this->load->view('includes/adminSideBar');
 
 <div class="height-100 pt-2 container-fluid">
 
-    <div class="container my-3">
+    <div class=" my-3">
 
         <!-- Class Tab -->
         <div class="ClassTab my-3">

@@ -7,7 +7,7 @@ $this->load->view('includes/adminSideBar');
     <title>Admin | Admin Tab</title>
 </head>
 <div class="height-100 pt-2 container-fluid">
-    <div class="container my-3" id="mainAdmin" style="display: block;">
+    <div class="my-3" id="mainAdmin" style="display: block;">
         <div class="AdminTab my-3">
             <h3>Admins</h3>
         </div>

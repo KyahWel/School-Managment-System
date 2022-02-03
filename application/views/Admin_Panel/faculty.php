@@ -10,7 +10,7 @@ $this->load->view('includes/adminSideBar');
 <div class="height-100 pt-2 container-fluid">
 
     <!-- Faculty Main Page -->
-    <div class="container my-3" id="mainFaculty" style="display: block;">
+    <div class="my-3" id="mainFaculty" style="display: block;">
 
         <!-- Faculty Tab -->
         <div class="FacultyTab my-3">

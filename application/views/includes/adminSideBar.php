@@ -43,10 +43,14 @@
         <nav class="nav">
             <div>
                 <div class="nav_list">
-                    <div class="welcome text-dark pt-3 fw-bold">
-                        Hello, <?= $this->session->userdata('auth_user')['firstname'] ?>
+                    <div class="none py-1">
+                        <div class="nav_link">
+                            <i class="fa fa-user nav_icon user"></i>
+                            <span class="nav_name fw-bold">Hello, <?= $this->session->userdata('auth_user')['firstname'] ?> !</span>
+                        </div>
                         <hr>
                     </div>
+
                     <a href="<?php echo base_url('Admin/dashboard'); ?>" class="nav_link pt-3">
                         <i class='fa fa-th-large nav_icon' data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard"></i>
                         <span class="nav_name">Dashboard</span>

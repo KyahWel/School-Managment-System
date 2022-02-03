@@ -110,7 +110,6 @@ body{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    letter-spacing: 0.5px;
 }
 .form-control{
     white-space: nowrap;

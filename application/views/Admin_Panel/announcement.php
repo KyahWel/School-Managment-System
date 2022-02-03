@@ -7,9 +7,9 @@ $this->load->view('includes/adminSideBar');
   <title>Admin | Events and Announcements</title>
 </head>
 
-<div class="height-100 pt-2 container">
+<div class="height-100 pt-2 container-fluid">
 
-  <div class="container my-3">
+  <div class="my-3">
     
     <!--Announcement Tab-->
     <div class="AnnouncenentTab my-3">
@@ -163,7 +163,7 @@ $this->load->view('includes/adminSideBar');
     </div>
 
   </div>
-
+<div class="pt-1"> &nbsp;</div>
 </div>
 <!-- jQuery JS CDN -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> 

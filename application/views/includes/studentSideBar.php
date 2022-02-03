@@ -32,9 +32,11 @@
         <nav class="nav">
             <div>
                 <div class="nav_list">
-                    <div class="welcome text-dark pt-3 fw-bold">
-                        <i class='fa fa-user nav_icon '></i>
-                        <span class="nav_name">Hello, <?= $this->session->userdata('auth_user')['firstname']?>!</span>  
+                <div class="none py-1">
+                        <div class="nav_link">
+                            <i class="fa fa-user nav_icon user"></i>
+                            <span class="nav_name fw-bold">Hello, <?= $this->session->userdata('auth_user')['firstname'] ?> !</span>
+                        </div>
                         <hr>
                     </div>
                     <a href="<?php echo base_url('Student/Dashboard'); ?>" class="nav_link pt-3"> 
