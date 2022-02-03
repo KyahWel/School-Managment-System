@@ -37,11 +37,26 @@
                         <span class="nav_name">Hello, <?= $this->session->userdata('auth_user')['firstname']?>!</span>  
                         <hr>
                     </div>
-                    <a href="<?php echo base_url('Student/Dashboard'); ?>" class="nav_link pt-3"> <i class='fa fa-th-large nav_icon'></i> <span class="nav_name">Dashboard</span> </a>
-                    <a href="<?php echo base_url('Student/Profile');?>" class="nav_link"> <i class='fa fa-user nav_icon'></i> <span class="nav_name">My Profile</span> </a>
-                    <a href="<?php echo base_url('Student/Enrollment'); ?>" class="nav_link"> <i class=' fa fa-paste nav_icon'></i> <span class="nav_name">Enrollment</span> </a>
-                    <a href="<?php echo base_url('Student/Grades'); ?>" class="nav_link"> <i class='fa fa-file-alt nav_icon'></i> <span class="nav_name">Grades</span> </a>
-                    <a href="<?php echo base_url('Student/Drop_Subject'); ?>" class="nav_link"> <i class='fa fa-minus-square nav_icon'></i> <span class="nav_name">Drop Subject</span> </a>
+                    <a href="<?php echo base_url('Student/Dashboard'); ?>" class="nav_link pt-3"> 
+                    <i class='fa fa-th-large nav_icon' data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard"></i> 
+                    <span class="nav_name">Dashboard</span> 
+                </a>
+                    <a href="<?php echo base_url('Student/Profile');?>" class="nav_link"> 
+                    <i class='fa fa-user nav_icon' data-bs-toggle="tooltip" data-bs-placement="right" title="My Profile"></i> 
+                    <span class="nav_name">My Profile</span> 
+                </a>
+                    <a href="<?php echo base_url('Student/Enrollment'); ?>" class="nav_link"> 
+                    <i class=' fa fa-paste nav_icon' data-bs-toggle="tooltip" data-bs-placement="right" title="Enrollment Tab"></i> 
+                    <span class="nav_name">Enrollment</span> 
+                </a>
+                    <a href="<?php echo base_url('Student/Grades'); ?>" class="nav_link"> 
+                    <i class='fa fa-file-alt nav_icon' data-bs-toggle="tooltip" data-bs-placement="right" title="My Grades"></i> 
+                    <span class="nav_name">My Grades</span> 
+                </a>
+                    <a href="<?php echo base_url('Student/Drop_Subject'); ?>" class="nav_link"> 
+                    <i class='fa fa-minus-square nav_icon' data-bs-toggle="tooltip" data-bs-placement="right" title="Drop Subject Tab"></i> 
+                    <span class="nav_name">Drop Subject</span> 
+                </a>
                     <a href="<?php echo base_url('Student/changePassword'); ?>" class="nav_link"> <i class='fa fa-key nav_icon'></i> <span class="nav_name">Change Password</span> </a>
                 </div>
             </div>
