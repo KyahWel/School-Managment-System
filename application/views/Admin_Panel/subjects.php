@@ -318,11 +318,14 @@ $this->load->view('includes/adminSideBar');
         });
         $('#subjectTable').DataTable({
             "lengthMenu": [
-                [10, 15, 30, -1],
-                [10, 15, 30, "All"]
+                [10, 20, 40, -1],
+                [10, 20, 40, "All"]
             ]
         });
+    jQuery('.dataTable').wrap('<div class="dataTables_scroll" />');
     });
+  
+
 </script>
 <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 </body>

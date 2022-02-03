@@ -10,7 +10,9 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-
+table{
+border-collapse: separate;
+}
 tbody {
     text-align: center;
     line-height: 32px;
@@ -84,6 +86,8 @@ textarea {
     padding-bottom: 0.65rem;
 }
 
+
+
 .dataTables_wrapper .dataTables_length,
 .dataTables_wrapper .dataTables_filter,
 .dataTables_wrapper .dataTables_info,
@@ -91,4 +95,13 @@ textarea {
 .dataTables_wrapper .dataTables_paginate {
     color: #333;
     padding: 1.3rem;
+}
+
+.dataTables_scroll
+{
+    overflow: auto;
+    text-align: center  ;
+}
+table{
+    border-collapse: collapse;
 }
