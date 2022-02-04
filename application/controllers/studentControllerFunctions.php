@@ -31,22 +31,24 @@ class StudentControllerFunctions extends CI_Controller {
             </div>
             <div class="table-responsive mx-3">
                 <table id="viewStudentInformation" class="table-body">
-                    <tr class="text-start">    
-                        <td class="py-2">
-							<p><b>Email:</b></p>
-                            <p><b>Username:</b></p>
-                            <p><b>Student ID:</b></p>
-                            <p><b>Course:</b></p>
-                            <p class="mb-0"><b>Section:</b></p>
-                        </td>
-						<td class="py-2">
-							<p>'.$records->email.'</p>
-                            <p>'.$records->username.'</p>
-                            <p>'.$records->studentNumber.'</p>
-                            <p>'.$records->degree.' in '.$records->major.'</p>
-                            <p class="mb-0">'.$records->sectionName.'</p>
-                        </td>
-                    </tr>
+					<tbody class="lineList">
+						<tr class="text-start">    
+							<td class="py-2">
+								<p><b>Email:</b></p>
+								<p><b>Username:</b></p>
+								<p><b>Student ID:</b></p>
+								<p><b>Course:</b></p>
+								<p class="mb-0"><b>Section:</b></p>
+							</td>
+							<td class="py-2">
+								<p>'.$records->email.'</p>
+								<p>'.$records->username.'</p>
+								<p>'.$records->studentNumber.'</p>
+								<p>'.$records->degree.' in '.$records->major.'</p>
+								<p class="mb-0">'.$records->sectionName.'</p>
+							</td>
+						</tr>
+					</tbody>
                 </table>
             </div>
         </div>

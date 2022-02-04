@@ -1,9 +1,10 @@
 <?php
-$this->load->view('includes/adminSideBar'); 
+$this->load->view('includes/adminSideBar');
 ?>
 
 <head>
     <link href="<?php echo base_url('assets/css/admission.css'); ?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url('assets/css/announcement.css'); ?>" rel="stylesheet" type="text/css">
     <title>Admin | Admission </title>
 </head>
 <div class="height-100 pt-2 container-fluid pb-3">
@@ -123,7 +124,8 @@ $this->load->view('includes/adminSideBar');
                                                 </button>
 
                                             <?php else : ?>
-                                                <button type="button" id="edit" data-id='<?php echo $examrow->schedID; ?>' class="btn" disabled style="background-color: gray;"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
+                                                <button type="button" id="edit" data-id='<?php echo $examrow->schedID; ?>' class="btn" disabled style="background-color: gray;">
+                                                <i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
                                                 <button type="button" id="status" class="btn" onclick="location.href='<?php if ($examrow->status == 1) {
                                                                                                                             echo site_url('examController/deactivate');
                                                                                                                         } else {
@@ -177,7 +179,6 @@ $this->load->view('includes/adminSideBar');
                     </div>
                 </div>
                 <div class="table-responsive mt-3">
-
                     <table class="table align-middle table-striped table-borderless table-hover" id="table-bodyAppl">
                         <!--Table Body-->
                         <thead>
@@ -406,7 +407,20 @@ $this->load->view('includes/adminSideBar');
                 }
             });
         });
+        // $('#table-bodySched').DataTable({
+        //     "lengthMenu": [
+        //         [5, 10, 20, -1],
+        //         [5, 10, 20, "All"]
+        //     ]
+        // });
+        // $('#table-bodyAppl').DataTable({
+        //     "lengthMenu": [
+        //         [20, 30, 50, -1],
+        //         [20, 30, 50, "All"]
+        //     ]
+        // });
     });
+    
 </script>
 
 <script src="<?php echo base_url('assets/js/admission.js'); ?>"></script>
