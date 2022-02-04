@@ -221,6 +221,7 @@ $this->load->view('includes/adminSideBar');
                     [10, 25, 50, "All"]
                 ]
             });
+            jQuery('.dataTable').wrap('<div class="dataTables_scroll" />');
         });
         $(document).ready(function() {
             $('#table-bodyFac').DataTable({
@@ -229,6 +230,7 @@ $this->load->view('includes/adminSideBar');
                     [10, 25, 50, "All"]
                 ]
             });
+		jQuery('.dataTable').wrap('<div class="dataTables_scroll" />');
         });
     </script>
 

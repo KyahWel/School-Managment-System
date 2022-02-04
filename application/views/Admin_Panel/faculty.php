@@ -364,15 +364,16 @@ $this->load->view('includes/adminSideBar');
         });
         $('#facultyList').DataTable({
             "lengthMenu": [
-                [5, 10, 25, -1],
-                [5, 10, 25, "All"]
+                [15, 25, 50, -1],
+                [15, 25, 50, "All"]
             ]
         });
         $('#sectionListOfFaculty').DataTable({
             "lengthMenu": [
-                [5, 10, 25, -1],
-                [5, 10, 25, "All"]
+                [15, 25, 50, -1],
+                [15, 25, 50, "All"]
             ]
         });
+        jQuery('.dataTable').wrap('<div class="dataTables_scroll" />');
     });
 </script>
