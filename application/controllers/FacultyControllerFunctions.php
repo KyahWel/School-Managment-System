@@ -20,37 +20,166 @@ class FacultyControllerFunctions extends CI_Controller
 	public function viewFaculty() {
 		$facultyData = $this->input->post('id');
         $records = $this->teacherModel->getData($facultyData);
+		$recordsSched = $this->teacherModel->getSchedule($facultyData);
+		$sectionSched = $this->teacherModel->getSchedule($facultyData);
 		$output = '
-		<form class="container">
-			<div class="row">
-				<div class="col-lg-3 col-md-6"> <!--Last Name-->
-					<input type="text" class="form-control" readonly value = "'.$records->lastname.'">
-					<label class="form-label pt-2">Last Name</label>
-				</div>
-				<div class="col-lg-3 col-md-6"> <!--First Name-->
-					<input type="text" class="form-control" readonly value="'.$records->firstname.'">
-					<label class="form-label pt-2">First Name</label>
-				</div>
-				<div class="col-lg-3 col-md-6"> <!--Middle Name-->
-					<input type="text" class="form-control" readonly value="'.$records->middlename.'">
-					<label class="form-label pt-2">Middle Name</label>
-				</div>
-				<div class="col-lg-3 col-md-6"> <!--Suffix-->
-					<input type="text" class="form-control" readonly value="'.$records->extname.'">
-					<label class="form-label pt-2">Suffix</label>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-6 col-md-6"> <!--Phone Number-->
-					<input type="text" class="form-control" readonly value="'.$records->phonenum.'">
-					<label class="form-label pt-2">Phone Number</label>
-				</div>
-				<div class="col-lg-6 col-md-6"> <!--Email-->
-					<input type="text" class="form-control" readonly value="'.$records->email.'">
-					<label class="form-label pt-2">Email</label>
-				</div>
-			</div>
-		</form>';
+		<div class="viewProfessorTitle">
+            <button type="button" class="btn btn-default btn-sm" id="back-button" onclick="mainFaculty()"><i class="fa fa-arrow-left"></i> Back</button>
+            <h3>'.$records->firstname.'\'s Profile</h3>
+        </div>
+
+        <!-- View Professor Information -->
+        <div class="viewProfessorContent d-flex align-items-center">
+            <div class="profile-pic-div">
+                <img src="../assets/images/facultyAvatar.jpg" alt="Professor Avatar" id="facultyPhoto">
+            </div>
+            <div class="table-responsive mx-3">
+                <table id="viewProfessorInformation" class="table-body">
+                    <tr>
+                        <td class="py-3">
+                            <p><b>Faculty ID:</b></p>
+                            <p><b>Name:</b></p>
+                            <p><b>Department:</b></p>
+                            <p class="mb-0"><b>Email:</b></p>
+                        </td>
+                        <td class="py-3">
+                            <p>'.$records->teacherNumber.'</p>
+                            <p>'.$records->firstname.' '.$records->lastname.'</p>
+                            <p>'.$records->department.'</p>';
+			if($records->email==NULL){
+				$output.=' <p class="mb-0"> &nbsp </p>';
+			}
+			else{
+				$output.='<p class="mb-0">'.$records->email.'</p>';
+			}
+               $output.='          
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- View Professor Table -->
+        <div class="table-wrapper col-12 align-self-center mt-4 mb-3" id="viewProfessorTable">
+            <ul class="nav nav-tabs d-flex flex-row justify-content-start" id="viewProfessorTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="viewProfessorInformationTab" data-bs-toggle="tab" data-bs-target="#ProfessorInformation" type="button" role="tab" aria-controls="ProfessorInformation" aria-selected="true">Professor Information</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="viewProfessorSubjectTab" data-bs-toggle="tab" data-bs-target="#ProfessorSubject" type="button" role="tab" aria-controls="ProfessorSubject" aria-selected="false">Subject</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="viewProfessorSectionTab" data-bs-toggle="tab" data-bs-target="#ProfessorSection" type="button" role="tab" aria-controls="ProfessorSection" aria-selected="false">Section</button>
+                </li>
+            </ul>
+            <div class="tab-content p-3" id="viewProfessorTabContent">
+                <!-- Information Tab -->
+                <div class="tab-pane show active my-3" id="ProfessorInformation" role="tabpanel" aria-labelledby="viewProfessorInformationTab">
+					<form class="container">
+					<div class="row">
+						<div class="col-lg-3 col-md-6"> <!--Last Name-->
+							<input type="text" class="form-control" readonly value = "'.$records->lastname.'">
+							<label class="form-label pt-2">Last Name</label>
+						</div>
+						<div class="col-lg-3 col-md-6"> <!--First Name-->
+							<input type="text" class="form-control" readonly value="'.$records->firstname.'">
+							<label class="form-label pt-2">First Name</label>
+						</div>
+						<div class="col-lg-3 col-md-6"> <!--Middle Name-->
+							<input type="text" class="form-control" readonly value="'.$records->middlename.'">
+							<label class="form-label pt-2">Middle Name</label>
+						</div>
+						<div class="col-lg-3 col-md-6"> <!--Suffix-->
+							<input type="text" class="form-control" readonly value="'.$records->extname.'">
+							<label class="form-label pt-2">Suffix</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6 col-md-6"> <!--Phone Number-->
+							<input type="text" class="form-control" readonly value="'.$records->phonenum.'">
+							<label class="form-label pt-2">Phone Number</label>
+						</div>
+						<div class="col-lg-6 col-md-6"> <!--Email-->
+							<input type="text" class="form-control" readonly value="'.$records->email.'">
+							<label class="form-label pt-2">Email</label>
+						</div>
+					</div>
+				</form>
+                </div>
+                <!-- Subject Tab -->
+                <div class="tab-pane" id="ProfessorSubject" role="tabpanel" aria-labelledby="viewProfessorSubjectTab">
+                    <div class="table-responsive">
+                        <table class="table table-body align-middle table-striped table-borderless table-hover">
+                            <!--Table Body-->
+                            <thead>
+                                <tr>
+                                    <th>School Year</th>
+                                    <th>Year Level</th>
+                                    <th>Semester</th>
+                                    <th>Course</th>
+                                    <th>Subject Code</th>
+                                    <th>Subject Title</th>
+                                </tr>
+                            </thead>
+                            <tbody>';
+			foreach($recordsSched as $recordsSched){
+				$output.=' <tr>
+								<td>'.$recordsSched->schoolyear.'</td>
+								<td>'.$recordsSched->yearlevel.'</td>
+								<td>'.$recordsSched->semester.'</td>
+								<td>'.$recordsSched->major.''.$recordsSched->degree.'</td>
+								<td>'.$recordsSched->subjectCode.'</td>
+								<td>'.$recordsSched->name.'</td>
+							</tr>';
+			}
+                                
+            $output.='                   
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- Section Tab -->
+                <div class="tab-pane" id="ProfessorSection" role="tabpanel" aria-labelledby="viewProfessorSectionTab">
+                    <div class="table-responsive">
+                        <table class="table table-body align-middle table-striped table-borderless table-hover" id="sectionListOfFaculty">
+                            <!--Table Body-->
+                            <thead>
+                                <tr>
+                                    <th>School Year</th>
+                                    <th>Year Level</th>
+                                    <th>Semester</th>
+                                    <th>Course</th>
+                                    <th>Section</th>
+                                    <th>Subject Code</th>
+                                    <th>Subject Title</th>
+                                    <th>Day</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>';
+							foreach($sectionSched as $sectionSched){
+								$output.='
+										<tr>
+											<td>'.$sectionSched->schoolyear.'</td>
+											<td>'.$sectionSched->yearlevel.'</td>
+											<td>'.$sectionSched->semester.'</td>
+											<td>'.$sectionSched->major.''.$sectionSched->degree.'</td>
+											<td>'.$sectionSched->sectionName.'</td>
+											<td>'.$sectionSched->subjectCode.'</td>
+											<td>'.$sectionSched->name.'</td>
+											<td>'.$sectionSched->day.'</td>
+											<td>'.date("h:i:sa",strtotime($sectionSched->start_time)).'-'.date("h:i:sa",strtotime($sectionSched->end_time)).'</td>
+										</tr>';
+											
+							}				
+							$output.='      
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+		';
 		echo $output;
 	}
 

@@ -32,7 +32,7 @@ $this->load->view('includes/adminSideBar');
                                 <!-- <th>Last Name</th> -->
                                 <th class="pb-3">Course</th>
                                 <th class="pb-3">Section</th>
-                                <th class="pb-3">Status</th>
+                                <th class="pb-3">Yearlevel</th>
                                 <th class="pb-3">Action</th>
                             </tr>
                         </thead>
@@ -44,7 +44,7 @@ $this->load->view('includes/adminSideBar');
                                     <!-- <td><?php echo $studentrow->lastname ?></td> -->
                                     <td><?php echo $studentrow->degree; ?> in <?php echo $studentrow->major; ?></td>
                                     <td><?php echo $studentrow->sectionName; ?></td>
-                                    <td><?php echo $studentrow->status; ?></td>
+                                    <td><?php echo $studentrow->yearlevel; ?></td>
                                     <td>
                                         <div class="action-buttons">
                                             <?php if ($studentrow->status == 1) : ?>
