@@ -23,28 +23,45 @@ class StudentControllerFunctions extends CI_Controller {
 	public function view(){
 		$studentData = $this->input->post('id');
         $records = $this->studentModel->getData($studentData);
+		$recordsSched = $this->studentModel->getSchedule($studentData);
 		$output = 
 		'  <!-- View Student Info -->
         <div class="viewStudentContent d-flex align-items-center">
             <div id="viewStudentAvatar">
-                <button class="btn"><i class="fas fa-user"></i></button>
+				<img src="../assets/images/studentAvatar.svg" alt="Student Avatar" id="studentPhoto">
             </div>
-            <div class="table-responsive">
-                <table id="viewStudentInformation">
-                    <tr>    
-                        <td>
-                            <b>Email:</b> '.$records->email.'<br>
-                            <b>Username:</b> '.$records->username.'<br>
-                            <b>Student ID:</b> '.$records->studentNumber.'<br>
-                            <b>Course:</b> '.$records->degree.' in '.$records->major.'<br>
-                            <b>Section:</b> '.$records->sectionName.'<br>
-                        </td>
-                    </tr>
+            <div class="table-responsive mx-3">
+                <table id="viewStudentInformation" class="table-body">
+					<tbody class="lineList">
+						<tr class="text-start">    
+							<td class="py-2">
+								<p><b>Email:</b></p>
+								<p><b>Username:</b></p>
+								<p><b>Student ID:</b></p>
+								<p><b>Course:</b></p>
+								<p class="mb-0"><b>Section:</b></p>
+							</td>
+							<td class="py-2">
+								<p>'.$records->email.'</p>
+								<p>'.$records->username.'</p>
+								<p>'.$records->studentNumber.'</p>
+								<p>'.$records->degree.' in '.$records->major.'</p>';
+			if($records->sectionName == NULL){
+				$output.= '<p class="mb-0"> &nbsp </p>';
+			}
+			else{
+				$output.= '<p class="mb-0">'.$records->sectionName.'</p>';
+			}
+								
+				$output.='			
+							</td>
+						</tr>
+					</tbody>
                 </table>
             </div>
         </div>
         <!--Tabs-->
-        <div class="col-12 align-self-center my-3" id="viewStudentTable">
+		<div class="table-wrapper col-12 align-self-center my-3" id="viewProfessorTable">
             <ul class="nav nav-tabs d-flex flex-row justify-content-start" id="viewStudentTab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="viewStudentInfoTab" data-bs-toggle="tab" data-bs-target="#StudentInfo" type="button" role="tab" aria-controls="StudentInfo" aria-selected="true">Personal Information</button>
@@ -67,7 +84,7 @@ class StudentControllerFunctions extends CI_Controller {
 							<label class="form-label pt-2">First Name</label>
 						</div>
 						<div class="col-lg-3 col-md-6 mb-1"> <!--Middle Name-->
-							<input type="text" name="middlename" class="form-control" value='.$records->middlename.' readonly>
+							<input type="text" name="middlename" class="form-control" value="'.$records->middlename.'" readonly>
 							<label class="form-label pt-2">Middle Name</label>
 						</div>
 						<div class="col-lg-3 col-md-6 mb-1"> <!--Last Name-->
@@ -155,14 +172,20 @@ class StudentControllerFunctions extends CI_Controller {
 									<th>Time</th>
 								</tr>
 							</thead>
-							<tbody>     
-								<tr>
-									<td>DM001</td> 
-									<td>Discrete Mathematics</td>
-									<td>Salvador John</td>
-									<td>Mon</td>
-									<td>10:00-13:00</td>
-								</tr>
+							<tbody';
+				if($recordsSched!=NULL){
+					foreach($recordsSched as $recordsSched){	
+						$output.='     
+									<tr>
+										<td>'.$recordsSched->subjectCode.'</td> 
+										<td>'.$recordsSched->name.'</td>
+										<td>'.$recordsSched->firstname.' '.$recordsSched->lastname.'</td>
+										<td>'.$recordsSched->day.'</td>
+										<td>'.date("h:i:sa",strtotime($recordsSched->start_time)).'-'.date("h:i:sa",strtotime($recordsSched->end_time)).'</td>
+									</tr>';
+					}
+				}
+				$output.='
 							</tbody>
 						</table>
 					</div>

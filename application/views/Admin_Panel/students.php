@@ -1,5 +1,5 @@
 <?php
-$this->load->view('includes/adminSideBar'); 
+$this->load->view('includes/adminSideBar');
 ?>
 
 <head>
@@ -8,34 +8,9 @@ $this->load->view('includes/adminSideBar');
     <title>Admin | Students</title>
 </head>
 <div class="height-100 pt-2 container-fluid">
-    <div class="container my-3" id="mainStudent" style="display: block;">
+    <div class="my-3" id="mainStudent" style="display: block;">
         <div class="StudentTab my-3">
             <h3>Students</h3>
-        </div>
-
-        <!--Search -->
-        <div class="col-12 align-self-center my-3" id="filter">
-            <label>Filter by:</label>
-            <select required>
-                <option value="" disabled selected hidden>College</option>
-                <option value="College of Science">College of Science</option>
-                <option value="College of Engineering">College of Engineering</option>
-                <option value="College of Industrial Education">College of Industrial Education</option>
-                <option value="College of Architecture and Fine Arts">College of Architecture and Fine Arts</option>
-                <option value="College of Liberal Arts">College of Liberal Arts</option>
-            </select>
-            <select required>
-                <option value="" disabled selected hidden>Course</option>
-                <option value="CS">BSCS</option>
-
-            </select>
-            <select required>
-                <option value="" disabled selected hidden>Section</option>
-                <option value="1a">1A</option>
-
-            </select>
-            <input type="text" id="searchStudentID" name="searchStudentID" placeholder="Search Student ID">
-            <button type="button" class="btn btn-sm" id="search"><i class="fas fa-search" data-bs-toggle="tooltip" title="Search"></i></button>
         </div>
 
         <!--Student List-->
@@ -57,7 +32,7 @@ $this->load->view('includes/adminSideBar');
                                 <!-- <th>Last Name</th> -->
                                 <th class="pb-3">Course</th>
                                 <th class="pb-3">Section</th>
-                                <th class="pb-3">Status</th>
+                                <th class="pb-3">Yearlevel</th>
                                 <th class="pb-3">Action</th>
                             </tr>
                         </thead>
@@ -69,21 +44,29 @@ $this->load->view('includes/adminSideBar');
                                     <!-- <td><?php echo $studentrow->lastname ?></td> -->
                                     <td><?php echo $studentrow->degree; ?> in <?php echo $studentrow->major; ?></td>
                                     <td><?php echo $studentrow->sectionName; ?></td>
-                                    <td><?php echo $studentrow->status; ?></td>
+                                    <td><?php echo $studentrow->yearlevel; ?></td>
                                     <td>
                                         <div class="action-buttons">
-                                        <?php if ($studentrow->status == 1): ?>
-                                                <li><button type="button" id="view" data-id='<?php echo $studentrow->studentID;?>' class="btn view_data" onclick="viewStudent()"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                                <li><button type="button"  class="btn" id="status" onclick="location.href='<?php if($studentrow->status == 1){echo site_url('studentControllerFunctions/deactivate');} else {echo site_url('studentControllerFunctions/activate');}?>/<?php echo $studentrow->studentID; ?>'">
-                                                Deactivate
-                                                </button>
+                                            <?php if ($studentrow->status == 1) : ?>
+                                                <li><button type="button" id="view" data-id='<?php echo $studentrow->studentID; ?>' class="btn view_data" onclick="viewStudent()"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
+                                                <li><button type="button" class="btn" id="status" onclick="location.href='<?php if ($studentrow->status == 1) {
+                                                                                                                                echo site_url('studentControllerFunctions/deactivate');
+                                                                                                                            } else {
+                                                                                                                                echo site_url('studentControllerFunctions/activate');
+                                                                                                                            } ?>/<?php echo $studentrow->studentID; ?>'">
+                                                        Deactivate
+                                                    </button>
                                                 </li>
-                                            <?php else: ?>
-                                                <li><button type="button" id="view" data-id='<?php echo $studentrow->studentID;?>' class="btn" disabled style="background-color: gray;"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>           
-                                                <li><button type="button"  class="btn"  id="status" onclick="location.href='<?php if($studentrow->status == 1){echo site_url('studentControllerFunctions/deactivate');} else {echo site_url('studentControllerFunctions/activate');}?>/<?php echo $studentrow->studentID; ?>'">
-                                                Activate
-                                                </button>
-                                                </li>	
+                                            <?php else : ?>
+                                                <li><button type="button" id="view" data-id='<?php echo $studentrow->studentID; ?>' class="btn" disabled style="background-color: gray;"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
+                                                <li><button type="button" class="btn" id="status" onclick="location.href='<?php if ($studentrow->status == 1) {
+                                                                                                                                echo site_url('studentControllerFunctions/deactivate');
+                                                                                                                            } else {
+                                                                                                                                echo site_url('studentControllerFunctions/activate');
+                                                                                                                            } ?>/<?php echo $studentrow->studentID; ?>'">
+                                                        Activate
+                                                    </button>
+                                                </li>
                                             <?php endif ?>
                                         </div>
                                     </td>
@@ -105,10 +88,11 @@ $this->load->view('includes/adminSideBar');
 
         <div id="view_student">
         </div>
-    </div>  
+    </div>
 
     <div class="pt-1">&nbsp;</div>
 </div>
+
 <script src="<?php echo base_url('assets/js/student.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 <!-- jQuery JS CDN -->
@@ -132,6 +116,14 @@ $this->load->view('includes/adminSideBar');
                 }
             });
         });
+        
+        $('#table-body').DataTable({
+			"lengthMenu": [
+				[15, 25, 50, -1],
+				[15, 25, 50, "All"]
+			]
+		});
+		jQuery('.dataTable').wrap('<div class="dataTables_scroll" />');
     });
 </script>
 </body>

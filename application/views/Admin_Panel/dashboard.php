@@ -1,5 +1,5 @@
 <?php
-$this->load->view('includes/adminSideBar'); 
+$this->load->view('includes/adminSideBar');
 ?>
 
 
@@ -115,23 +115,17 @@ $this->load->view('includes/adminSideBar');
 
 
         <!-- Students List -->
-        <div class="col-12 align-self-center " id="viewInfoDashboard">
+        <div class=" col-12 align-self-center " id="viewInfoDashboard">
             <ul class="nav nav-tabs d-flex flex-row justify-content-start" id="viewInfoTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link student active" id="viewStudentButton" data-bs-toggle="tab" data-bs-target="#studentsTabContent" type="button" role="tab" aria-controls="studentsTabContent" aria-selected="true">Students</button>
+                    <button class="nav-link student active px-4" id="viewStudentButton" data-bs-toggle="tab" data-bs-target="#studentsTabContent" type="button" role="tab" aria-controls="studentsTabContent" aria-selected="true">Students</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link faculty" id="viewFacultytButton" data-bs-toggle="tab" data-bs-target="#facultyTabContent" type="button" role="tab" aria-controls="facultyTabContent" aria-selected="false">Faculty</button>
+                    <button class="nav-link faculty px-4" id="viewFacultytButton" data-bs-toggle="tab" data-bs-target="#facultyTabContent" type="button" role="tab" aria-controls="facultyTabContent" aria-selected="false">Faculty</button>
                 </li>
             </ul>
             <div class="tab-content" id="viewStudentsTab">
                 <div class="tab-pane show active" id="studentsTabContent" role="tabpanel" aria-labelledby="Students Information">
-                    <!-- Filter and Search -->
-                    <div class=" d-flex justify-content-end p-3" id="studentFilter">
-                        <label class="px-2 pt-1">Search ID: </label>
-                        <input type="text" name="searchStudentID" placeholder="Search Student ID">
-                        <button type="button" class="btn btn-sm" id="searchStudID"><i class="fas fa-search" data-bs-toggle="tooltip" title="Search"></i></button>
-                    </div>
                     <div class="table-responsive">
                         <table class="table align-middle table-striped table-borderless table-hover" id="table-bodyStud">
                             <!--Table Body-->
@@ -161,12 +155,6 @@ $this->load->view('includes/adminSideBar');
 
                 <!-- Faculty List -->
                 <div class="tab-pane" id="facultyTabContent" role="tabpanel" aria-labelledby="Faculty Information">
-                    <!-- Filter and Search -->
-                    <div class=" d-flex justify-content-end p-3 " id="facultyFilter">
-                        <label class="px-2 pt-1">Search ID: </label>
-                        <input type="text" id="searchFacultyID" name="searchFacultyID" placeholder="Search Faculty ID">
-                        <button type="button" class="btn btn-sm" id="searchFacID"><i class="fas fa-search" data-bs-toggle="tooltip" title="Search"></i></button>
-                    </div>
                     <div class="table-responsive">
                         <table class="table align-middle table-striped table-borderless table-hover" id="table-bodyFac">
                             <!--Table Body-->
@@ -205,6 +193,7 @@ $this->load->view('includes/adminSideBar');
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <!-- jQuery DataTables JS CDN -->
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
     <!-- Ajax fetching data -->
     <script type="text/javascript">
         $(document).ready(function() {
@@ -223,6 +212,25 @@ $this->load->view('includes/adminSideBar');
                     }
                 });
             });
+        });
+
+        $(document).ready(function() {
+            $('#table-bodyStud').DataTable({
+                "lengthMenu": [
+                    [10, 25, 50, -1],
+                    [10, 25, 50, "All"]
+                ]
+            });
+            jQuery('.dataTable').wrap('<div class="dataTables_scroll" />');
+        });
+        $(document).ready(function() {
+            $('#table-bodyFac').DataTable({
+                "lengthMenu": [
+                    [10, 25, 50, -1],
+                    [10, 25, 50, "All"]
+                ]
+            });
+		jQuery('.dataTable').wrap('<div class="dataTables_scroll" />');
         });
     </script>
 

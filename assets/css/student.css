@@ -227,5 +227,28 @@ div#viewStudentTabContent.tab-content{
     background-color: white;
     opacity: 1;
 }
+/* View Avatar */
 
-/* Form */
+#viewStudentAvatar{
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid grey;
+}
+
+#studentPhoto{
+    height: 100%;
+    width: 100%;
+}
+@media only screen and (max-width: 768px){
+    #viewStudentAvatar{
+        height: 140px;
+        width: 200px;
+    }
+}
+
+#viewStudentInformation tbody.lineList{
+    line-height: 22px;
+}
