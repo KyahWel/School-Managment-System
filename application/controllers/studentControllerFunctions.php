@@ -23,6 +23,7 @@ class StudentControllerFunctions extends CI_Controller {
 	public function view(){
 		$studentData = $this->input->post('id');
         $records = $this->studentModel->getData($studentData);
+		$recordsSched = $this->studentModel->getSchedule($studentData);
 		$output = 
 		'  <!-- View Student Info -->
         <div class="viewStudentContent d-flex align-items-center">
@@ -44,8 +45,15 @@ class StudentControllerFunctions extends CI_Controller {
 								<p>'.$records->email.'</p>
 								<p>'.$records->username.'</p>
 								<p>'.$records->studentNumber.'</p>
-								<p>'.$records->degree.' in '.$records->major.'</p>
-								<p class="mb-0">'.$records->sectionName.'</p>
+								<p>'.$records->degree.' in '.$records->major.'</p>';
+			if($records->sectionName == NULL){
+				$output.= '<p class="mb-0"> &nbsp </p>';
+			}
+			else{
+				$output.= '<p class="mb-0">'.$records->sectionName.'</p>';
+			}
+								
+				$output.='			
 							</td>
 						</tr>
 					</tbody>
@@ -76,7 +84,7 @@ class StudentControllerFunctions extends CI_Controller {
 							<label class="form-label pt-2">First Name</label>
 						</div>
 						<div class="col-lg-3 col-md-6 mb-1"> <!--Middle Name-->
-							<input type="text" name="middlename" class="form-control" value='.$records->middlename.' readonly>
+							<input type="text" name="middlename" class="form-control" value="'.$records->middlename.'" readonly>
 							<label class="form-label pt-2">Middle Name</label>
 						</div>
 						<div class="col-lg-3 col-md-6 mb-1"> <!--Last Name-->
@@ -164,14 +172,20 @@ class StudentControllerFunctions extends CI_Controller {
 									<th>Time</th>
 								</tr>
 							</thead>
-							<tbody>     
-								<tr>
-									<td>DM001</td> 
-									<td>Discrete Mathematics</td>
-									<td>Salvador John</td>
-									<td>Mon</td>
-									<td>10:00-13:00</td>
-								</tr>
+							<tbody';
+				if($recordsSched!=NULL){
+					foreach($recordsSched as $recordsSched){	
+						$output.='     
+									<tr>
+										<td>'.$recordsSched->subjectCode.'</td> 
+										<td>'.$recordsSched->name.'</td>
+										<td>'.$recordsSched->firstname.' '.$recordsSched->lastname.'</td>
+										<td>'.$recordsSched->day.'</td>
+										<td>'.date("h:i:sa",strtotime($recordsSched->start_time)).'-'.date("h:i:sa",strtotime($recordsSched->end_time)).'</td>
+									</tr>';
+					}
+				}
+				$output.='
 							</tbody>
 						</table>
 					</div>

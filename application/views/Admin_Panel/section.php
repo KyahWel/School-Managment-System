@@ -125,7 +125,7 @@ $this->load->view('includes/adminSideBar');
 												<option value="" disabled selected hidden></option>
 												<?php foreach ($course as $courserow) { ?>
 													<option value="<?php echo $courserow->courseID ?>">
-														<?php echo $courserow->degree ?> in
+														<?php echo $courserow->degree ?>
 														<?php echo $courserow->major ?></option>
 												<?php } ?>
 											</select>

@@ -165,7 +165,7 @@
 								<div class="col-lg-6 col-md-6 col-sm-12">
 									<div class="timetable-item-subtitle"> Section</div>
 									<h6 class=" timetable-item-prof my-1 px-3 py-2">
-										<?php echo $monday->class_code; ?></h6>
+										<?php echo $monday->sectionName; ?></h6>
 								</div>
 							</div>
 							<div class="box-content">
@@ -196,7 +196,7 @@
 								<div class="col-lg-6 col-md-6 col-sm-12">
 									<div class="timetable-item-subtitle"> Section</div>
 									<h6 class=" timetable-item-prof my-1 px-3 py-2">
-										<?php echo $tuesday->class_code; ?></h6>
+										<?php echo $tuesday->sectionName; ?></h6>
 								</div>
 							</div>
 							<div class="box-content">
@@ -227,7 +227,7 @@
 								<div class="col-lg-6 col-md-6 col-sm-12">
 									<div class="timetable-item-subtitle"> Section</div>
 									<h6 class=" timetable-item-prof my-1 px-3 py-2">
-										<?php echo $wednesday->class_code; ?></h6>
+										<?php echo $wednesday->sectionName; ?></h6>
 								</div>
 							</div>
 							<div class="box-content">
@@ -258,7 +258,7 @@
 								<div class="col-lg-6 col-md-6 col-sm-12">
 									<div class="timetable-item-subtitle"> Section</div>
 									<h6 class=" timetable-item-prof my-1 px-3 py-2">
-										<?php echo $thursday->class_code; ?></h6>
+										<?php echo $thursday->sectionName; ?></h6>
 								</div>
 							</div>
 							<div class="box-content">
@@ -289,7 +289,7 @@
 								<div class="col-lg-6 col-md-6 col-sm-12">
 									<div class="timetable-item-subtitle"> Section</div>
 									<h6 class=" timetable-item-prof my-1 px-3 py-2">
-										<?php echo $friday->class_code; ?></h6>
+										<?php echo $friday->sectionName; ?></h6>
 								</div>
 							</div>
 							<div class="box-content">
@@ -320,7 +320,7 @@
 								<div class="col-lg-6 col-md-6 col-sm-12">
 									<div class="timetable-item-subtitle"> Section</div>
 									<h6 class=" timetable-item-prof my-1 px-3 py-2">
-										<?php echo $saturday->class_code; ?></h6>
+										<?php echo $saturday->sectionName; ?></h6>
 								</div>
 							</div>
 							<div class="box-content">
@@ -351,7 +351,7 @@
 								<div class="col-lg-6 col-md-6 col-sm-12">
 									<div class="timetable-item-subtitle"> Section</div>
 									<h6 class=" timetable-item-prof my-1 px-3 py-2">
-										<?php echo $sunday->class_code; ?></h6>
+										<?php echo $sunday->sectionName; ?></h6>
 								</div>
 							</div>
 							<div class="box-content">

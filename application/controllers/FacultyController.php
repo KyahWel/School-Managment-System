@@ -32,6 +32,7 @@ class FacultyController extends CI_Controller
 		$data['schedFriday'] = $this->teacherModel->getScheduleFriday($this->session->userdata('auth_user')['teacherID']);
 		$data['schedSaturday'] = $this->teacherModel->getScheduleSaturday($this->session->userdata('auth_user')['teacherID']);
 		$data['schedSunday'] = $this->teacherModel->getScheduleSunday($this->session->userdata('auth_user')['teacherID']);
+		
 		$this->load->view('Faculty_Panel/dashboard',$data);
 	}
 
