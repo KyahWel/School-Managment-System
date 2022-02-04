@@ -102,7 +102,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                 <select class="form-select form-select-sm" id="courses" name="course_chosen" aria-label="Select Course" required>
                                                     <option value="" selected>--Please Select--</option>
                                                     <?php foreach ($course as $course) { ?>
-                                                        <option value='<?php echo $course->courseID?>'><?php echo $course->degree ?> in <?php echo $course->major ?></option>
+                                                        <option value='<?php echo $course->courseID ?>'><?php echo $course->degree ?> in <?php echo $course->major ?></option>
                                                     <?php } ?>
                                                 </select>
                                                 <div class="invalid-feedback">
@@ -116,28 +116,32 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <div class="row mt-0 asterisk">
                                             <div class="col-lg-3 col-md-6 py-1">
                                                 <label class="form-label small">First Name</label>
-                                                <input type="text" name="firstname" id="fname" class="form-control form-control-sm" aria-label="First name" required>
+                                                <input type="text" name="firstname" id="fname" class="form-control form-control-sm" aria-label="First name" required
+                                                 onkeydown="return /[a-z]/i.test(event.key)">
                                                 <div class="invalid-feedback">
                                                     Please input your first name.
                                                 </div>
                                             </div>
                                             <div class="col-lg-3 col-md-6 py-1">
                                                 <label class="small mb-2">Middle Name</label>
-                                                <input type="text" name='middlename' id="midname" class="form-control form-control-sm" aria-label="Last name">
+                                                <input type="text" name='middlename' id="midname" class="form-control form-control-sm" aria-label="Last name"
+                                                onkeydown="return /[a-z]/i.test(event.key)">
                                                 <div class="invalid-feedback">
                                                     Please input your middle name.
                                                 </div>
                                             </div>
                                             <div class="col-lg-3 col-md-6 py-1">
                                                 <label class="form-label small">Surname</label>
-                                                <input type="text" name="lastname" id="surname" class="form-control form-control-sm" aria-label="Surname" required>
+                                                <input type="text" name="lastname" id="surname" class="form-control form-control-sm" aria-label="Surname" required
+                                                onkeydown="return /[a-z]/i.test(event.key)">
                                                 <div class="invalid-feedback">
                                                     Please input your surname.
                                                 </div>
                                             </div>
                                             <div class="col-lg-3 col-md-6 py-1">
                                                 <label class="small mb-2">Suffix</label>
-                                                <input type="text" name='extname' id="suffix" class="form-control form-control-sm" aria-label="Extension Name">
+                                                <input type="text" name='extname' id="suffix" class="form-control form-control-sm" aria-label="Extension Name"
+                                                onkeydown="return /[a-z]/i.test(event.key)">
                                                 <div class="invalid-feedback">
                                                     Please input your extension name.
                                                 </div>
@@ -148,7 +152,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12 pt-1">LRN:</label>
                                             <div class="col-lg-3 col-md-12">
-                                                <input type="text" name="LRN" id="lrn" class="form-control form-control-sm" minlength="12" aria-label="LRN" required>
+                                                <input type="text" name="LRN" id="lrn" class="form-control form-control-sm"  minlength="12" maxlength="12" aria-label="LRN" required 
+                                                onkeyup="this.value=this.value.replace(/[^\d]/,'')" title="Numbers only">
                                                 <div class="invalid-feedback">
                                                     Please input your LRN.
                                                 </div>
@@ -183,7 +188,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                                             <label class="form-label col-lg-2 col-md-12 pt-1">Age:</label>
                                             <div class="col-lg-3 col-md-12">
-                                                <input type="text" name='age' id="age1" class="form-control form-control-sm" aria-label="Age" required>
+                                                <input type="text" name='age' id="age1" class="form-control form-control-sm" aria-label="Age" required
+                                                onkeyup="this.value=this.value.replace(/[^\d]/,'')" title="Numbers only">
                                                 <div class="invalid-feedback">
                                                     Please input your age.
                                                 </div>
@@ -205,7 +211,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12 pt-1">Contact Number:</label>
                                             <div class="col-lg-3 col-md-12">
-                                                <input type="tel" name='contactnum' id="contact" class="form-control form-control-sm" aria-label="Contact Number" required>
+                                                <input type="tel" name='contactnum' id="contact" class="form-control form-control-sm" aria-label="Contact Number" required
+                                                onkeyup="this.value=this.value.replace(/[^\d]/,'')" title="Numbers only">
                                                 <div class="invalid-feedback">
                                                     Please input your contact number.
                                                 </div>
@@ -260,7 +267,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12  pt-1">Barangay:</label>
                                             <div class="col-lg-3 col-md-12">
-                                                <input type="text" name='barangay' id="brgy" class="form-control form-control-sm" aria-label="Barangay" required>
+                                                <input type="text" name='barangay' id="brgy" class="form-control form-control-sm" aria-label="Barangay" required
+                                                onkeyup="this.value=this.value.replace(/[^\d]/,'')" title="Numbers only">
                                                 <div class="invalid-feedback">
                                                     Please input your barangay.
                                                 </div>
@@ -269,7 +277,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                                             <label class="form-label col-lg-2 col-md-12 pt-1">City:</label>
                                             <div class="col-lg-3 col-md-12">
-                                                <input type="text" name='city' id="city1" class="form-control form-control-sm" aria-label="City" required>
+                                                <input type="text" name='city' id="city1" class="form-control form-control-sm" aria-label="City" required
+                                                onkeydown="return /[a-z]/i.test(event.key)">
                                                 <div class="invalid-feedback">
                                                     Please input your city.
                                                 </div>
@@ -281,7 +290,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                                             <label class="form-label col-lg-2 col-md-6 pt-1">Zipcode:</label>
                                             <div class="col-lg-3 col-md-6">
-                                                <input type="text" name='zipcode' id="zip" class="form-control form-control-sm" aria-label="Zipcode" required>
+                                                <input type="text" name='zipcode' id="zip" class="form-control form-control-sm" aria-label="Zipcode" required
+                                                onkeyup="this.value=this.value.replace(/[^\d]/,'')" title="Numbers only">
                                                 <div class="invalid-feedback">
                                                     Please input your zipcode.
                                                 </div>
@@ -290,7 +300,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                                             <label class="form-label col-lg-2 col-md-6 pt-1">Province:</label>
                                             <div class="col-lg-3 col-md-6">
-                                                <input type="text" name='province' id="province1" class="form-control form-control-sm" aria-label="Province" required>
+                                                <input type="text" name='province' id="province1" class="form-control form-control-sm" aria-label="Province" required
+                                                onkeydown="return /[a-z]/i.test(event.key)">
                                                 <div class="invalid-feedback">
                                                     Please input your province.
                                                 </div>
@@ -339,7 +350,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12 pt-1">Name of School:</label>
                                             <div class="col-lg-4 col-md-12">
-                                                <input type="text" name="school" id="nameschool" class="form-control form-control-sm" aria-label="Name of School" required>
+                                                <input type="text" name="school" id="nameschool" class="form-control form-control-sm" aria-label="Name of School" required
+                                                onkeydown="return /[a-z]/i.test(event.key)">
                                                 <div class="invalid-feedback">
                                                     Please input your school name.
                                                 </div>
@@ -380,7 +392,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <div class="row mt-2 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12  pt-1">Year Level:</label>
                                             <div class="col-lg-3 col-md-12">
-                                                <input type="text" name="year_level" id="yearlvl" class="form-control form-control-sm" aria-label="Year level" required>
+                                                <input type="text" name="year_level" id="yearlvl" class="form-control form-control-sm" aria-label="Year level" required
+                                                onkeyup="this.value=this.value.replace(/[^\d]/,'')" title="Numbers only">
                                                 <div class="invalid-feedback">
                                                     Please input year level.
                                                 </div>
@@ -391,7 +404,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                             <label class="form-label col-lg-2 col-md-12 pt-1">Year Graduated:</label>
 
                                             <div class="col-lg-3 col-md-12">
-                                                <input type="text" name="year_graduated" id="yeargrad" class="form-control form-control-sm" aria-label="Year Graduated" required>
+                                                <input type="text" name="year_graduated" id="yeargrad" class="form-control form-control-sm" aria-label="Year Graduated" required
+                                                onkeyup="this.value=this.value.replace(/[^\d]/,'')" title="Numbers only">
                                                 <div class="invalid-feedback">
                                                     Please input graduated year.
                                                 </div>
@@ -421,7 +435,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                 <label class="form-label pt-1">GPA:</label>
                                             </div>
                                             <div class="col-lg-5">
-                                                <input type="tel" name="gpa" id="gpa1" maxlength="4" class="form-control form-control-sm" aria-label="GPA" required>
+                                                <input type="tel" name="gpa" id="gpa1" maxlength="5" class="form-control form-control-sm" aria-label="GPA" required
+                                                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" title="Float number is accepted.">
                                                 <div class="invalid-feedback">
                                                     Please input your gpa.
                                                 </div>
@@ -535,7 +550,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <!--Requirements Wrapper-->
                             </div>
                             <!-- requirements div -->
-                       
+
                     </div>
                 </div>
             </div>
@@ -549,7 +564,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </small>
         </div>
     </template>
-    
+
     <!-- Confirmation Page -->
 
     <!-- Modal -->
