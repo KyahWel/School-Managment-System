@@ -19,7 +19,7 @@
     <header class="header body-pd" id="header">
         <div class="header_toggle">
             <i class='fa fa-bars' id="header-toggle"></i>
-            <span class="brand"> Technological University of the Philippines</span>
+            <span class="brand">Technological University of the Philippines</span>
         </div>
         <div class="text-white ms-auto email">
             <?= $this->session->userdata('auth_user')['adminNumber'] ?>

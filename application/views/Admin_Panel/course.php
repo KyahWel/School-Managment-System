@@ -211,10 +211,11 @@ $this->load->view('includes/adminSideBar');
         });
         $('#table-body').DataTable({
             "lengthMenu": [
-                [10, 25, 50, -1],
-                [10, 25, 50, "All"]
+                [20, 30, 50, -1],
+                [20, 30, 50, "All"]
             ]
         });
+        jQuery('.dataTable').wrap('<div class="dataTables_scroll" />');
     });
 </script>
 <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>

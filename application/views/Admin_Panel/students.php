@@ -116,9 +116,14 @@ $this->load->view('includes/adminSideBar');
                 }
             });
         });
-        $('#table-body').DataTable( {
-        "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]]
-    } );
+        
+        $('#table-body').DataTable({
+			"lengthMenu": [
+				[15, 25, 50, -1],
+				[15, 25, 50, "All"]
+			]
+		});
+		jQuery('.dataTable').wrap('<div class="dataTables_scroll" />');
     });
 </script>
 </body>
