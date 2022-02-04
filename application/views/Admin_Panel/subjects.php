@@ -1,27 +1,28 @@
 <?php
-$this->load->view('includes/adminSideBar'); 
+$this->load->view('includes/adminSideBar');
 ?>
 
 <head>
     <link href="<?php echo base_url('assets/css/announcement.css'); ?>" rel="stylesheet" type="text/css">
     <title>Admin | Subjects</title>
     <style>
-       .table-body tr{
+        .table-body tr {
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
         }
-        .table-body td{
-        max-width: 250px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        line-height: 0;
+
+        .table-body td {
+            max-width: 250px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            line-height: 0;
         }
     </style>
 </head>
 <div class="height-100 pt-2 container-fluid">
-    <div class="container my-3">
+    <div class="my-3">
         <div class="CourseTab my-3">
             <h4 class="fw-bold"> Subjects Tab</h4>
         </div>
@@ -111,27 +112,6 @@ $this->load->view('includes/adminSideBar');
             </div>
         </div>
 
-        <!--Search -->
-        <div class="col-12 d-flex justify-content-end pt-3 my-3 text-align-end" id="filter">
-            <label class="pt-1">Filter by: </label>
-            <select aria-labelledby="Filter by College" required>
-                <option value="" disabled selected hidden>College</option>
-                <option value="College of Science">College of Science</option>
-                <option value="College of Engineering">College of Engineering</option>
-                <option value="College of Industrial Education">College of Industrial Education</option>
-                <option value="College of Architecture and Fine Arts">College of Architecture and Fine Arts</option>
-                <option value="College of Liberal Arts">College of Liberal Arts</option>
-            </select>
-            <select aria-labelledby="Filter by Major" required>
-                <option value="" disabled selected hidden>Major</option>
-                <option value="CS">Computer Science</option>
-                <option value="IT">Information Technology</option>
-                <option value="IS">Information System</option>
-            </select>
-            <input type="text" id="searchCourseID" name="searchCourseID" placeholder="Search Course ID">
-            <button type="button" class="btn btn-sm" id="search"><i class="fas fa-search" data-bs-toggle="tooltip" title="Search"></i></button>
-        </div>
-
         <!--Subject List-->
         <div class="col-12 align-self-center" id="CourseTable">
             <div class="table-wrapper">
@@ -143,7 +123,7 @@ $this->load->view('includes/adminSideBar');
                     </div>
                 </div>
                 <div class="table-responsive py-2">
-                    <table class="table table-default align-middle table-striped table-borderless table-hover table-body">
+                    <table class="table table-default align-middle table-striped table-borderless table-hover table-body" id="subjectTable">
                         <thead>
                             <tr>
                                 <th class="pb-3">Subject Code</th>
@@ -171,10 +151,10 @@ $this->load->view('includes/adminSideBar');
                                                             <i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button>
                                                     </li>
                                                     <li><button type="button" class="btn" onclick="location.href='<?php if ($subjectrow->status == 1) {
-                                                                                                                                            echo site_url('subjectController/deactivate');
-                                                                                                                                        } else {
-                                                                                                                                            echo site_url('subjectController/activate');
-                                                                                                                                        } ?>/<?php echo $subjectrow->subjectID; ?>'">
+                                                                                                                        echo site_url('subjectController/deactivate');
+                                                                                                                    } else {
+                                                                                                                        echo site_url('subjectController/activate');
+                                                                                                                    } ?>/<?php echo $subjectrow->subjectID; ?>'">
                                                             Deactivate
                                                         </button>
                                                     </li>
@@ -185,11 +165,11 @@ $this->load->view('includes/adminSideBar');
                                                         <button type="button" data-id='<?php echo $subjectrow->subjectID; ?>' class="btn" disabled style="background-color: gray;">
                                                             <i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button>
                                                     </li>
-                                                    <li><button type="button" class="btn"  id="uniqueSubjectEdit" onclick="location.href='<?php if ($subjectrow->status == 1) {
-                                                                                                                        echo site_url('subjectController/deactivate');
-                                                                                                                    } else {
-                                                                                                                        echo site_url('subjectController/activate');
-                                                                                                                    } ?>/<?php echo $subjectrow->subjectID; ?>'">
+                                                    <li><button type="button" class="btn" id="uniqueSubjectEdit" onclick="location.href='<?php if ($subjectrow->status == 1) {
+                                                                                                                                                echo site_url('subjectController/deactivate');
+                                                                                                                                            } else {
+                                                                                                                                                echo site_url('subjectController/activate');
+                                                                                                                                            } ?>/<?php echo $subjectrow->subjectID; ?>'">
                                                             Activate
                                                         </button>
                                                     </li>
@@ -336,7 +316,16 @@ $this->load->view('includes/adminSideBar');
                 }
             });
         });
+        $('#subjectTable').DataTable({
+            "lengthMenu": [
+                [10, 20, 40, -1],
+                [10, 20, 40, "All"]
+            ]
+        });
+    jQuery('.dataTable').wrap('<div class="dataTables_scroll" />');
     });
+  
+
 </script>
 <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 </body>

@@ -47,13 +47,19 @@ a {
     transition: .5s
 }
 
-.l-navbar .welcome {
+.l-navbar .none .user {
     margin: 0 auto;
-    text-align: center;
     color: steelblue; 
     font-size:1rem;
 }
 
+.l-navbar span#welcome, .l-navbar .none .nav_link{
+    color: black;
+    font-size: 1rem;
+}
+.l-navbar .none .nav_link{
+    color:black
+}
 .l-navbar i {
     padding-right: 7px;
 }

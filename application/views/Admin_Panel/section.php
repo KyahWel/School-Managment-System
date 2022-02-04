@@ -1,5 +1,5 @@
 <?php
-$this->load->view('includes/adminSideBar'); 
+$this->load->view('includes/adminSideBar');
 ?>
 
 <head>
@@ -9,7 +9,7 @@ $this->load->view('includes/adminSideBar');
 
 <div class="height-100 pt-2 container-fluid">
 
-	<div class="container my-3">
+	<div class="my-3">
 
 		<!-- Section Tab -->
 		<div class="SectionTab my-3">
@@ -46,10 +46,10 @@ $this->load->view('includes/adminSideBar');
 							<label class="form-label">Course</label>
 							<select name="course" id="course" class="form-select">
 								<option value="" disabled selected hidden></option>
-								<?php foreach($course as $courserow) {?>
-								<option value="<?php echo $courserow->courseID?>"><?php echo $courserow->degree?> in
-									<?php echo $courserow->major?></option>
-								<?php }?>
+								<?php foreach ($course as $courserow) { ?>
+									<option value="<?php echo $courserow->courseID ?>"><?php echo $courserow->degree ?> in
+										<?php echo $courserow->major ?></option>
+								<?php } ?>
 							</select>
 						</div>
 						<div class="col-lg-4">
@@ -63,42 +63,16 @@ $this->load->view('includes/adminSideBar');
 							</div>
 						</div>
 						<div class="col-lg-2 d-flex justify-content-evenly" id="addSectionButton">
-							<button type="button" class="btn btn-sm" id="add" data-bs-toggle="modal"
-								data-bs-target="#addSection"><i class="fas fa-plus" data-bs-toggle="tooltip"
-									title="Add Section"></i></button>
-							<button type="button" class="btn btn-sm" id="edit" data-bs-toggle="modal"
-								data-bs-target="#editSection"><i class="fas fa-pen" data-bs-toggle="tooltip"
-									title="Edit Section"></i></button>
-							<button type="button" class="btn btn-sm" id="delete" data-bs-toggle="modal"
-								data-bs-target="#deleteSection"><i class="fas fa-eraser" data-bs-toggle="tooltip"
-									title="Delete Section"></i></button>
+							<button type="button" class="btn btn-sm" id="add" data-bs-toggle="modal" data-bs-target="#addSection"><i class="fas fa-plus" data-bs-toggle="tooltip" title="Add Section"></i></button>
+							<button type="button" class="btn btn-sm" id="edit" data-bs-toggle="modal" data-bs-target="#editSection"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit Section"></i></button>
+							<button type="button" class="btn btn-sm" id="delete" data-bs-toggle="modal" data-bs-target="#deleteSection"><i class="fas fa-eraser" data-bs-toggle="tooltip" title="Delete Section"></i></button>
 						</div>
-					</div>
-
-					<!-- Filter -->
-					<div class="container col-12 align-self-center my-3" id="filterAndSearch">
-						<label for="yearLevel-filter">Filter by:</label>
-						<select id="yearLevel-filter">
-							<option value="" disabled selected hidden>Year Level</option>
-							<option value="yearLevel">First Year</option>
-							<option value="yearLevel">Second Year</option>
-							<option value="yearLevel">Third Year</option>
-							<option value="yearLevel">Fourth Year</option>
-						</select>
-						<label for="course-filter"></label>
-						<select id="course-filter">
-							<option value="" disabled selected hidden>Course</option>
-							<option value="course">Course 1</option>
-							<option value="course">Course 2</option>
-							<option value="course">Course 3</option>
-							<option value="course">Course 4</option>
-						</select>
 					</div>
 				</div>
 
 				<!--Table Body-->
 				<div class="table-responsive">
-					<table class="table table-body align-middle table-striped table-borderless table-hover">
+					<table class="table table-body align-middle table-striped table-borderless table-hover" id="sectionTable">
 						<thead>
 							<tr>
 								<th>Section</th>
@@ -110,31 +84,28 @@ $this->load->view('includes/adminSideBar');
 						</thead>
 						<tbody>
 							<?php foreach ($section as $section) { ?>
-							<tr>
-								<td><?php echo $section->sectionName ?></td>
-								<td><?php echo $section->degree; ?> in <?php echo $section->major; ?></td>
-								<td><?php echo $section->yearlevel ?></td>
-								<td><?php echo $section->studCount ?>/<?php echo $section->capacity ?></td>
-								<td><?php echo $section->class_code?></td>
-							</tr>
+								<tr>
+									<td><?php echo $section->sectionName ?></td>
+									<td><?php echo $section->degree; ?> in <?php echo $section->major; ?></td>
+									<td><?php echo $section->yearlevel ?></td>
+									<td><?php echo $section->studCount ?>/<?php echo $section->capacity ?></td>
+									<td><?php echo $section->class_code ?></td>
+								</tr>
 							<?php } ?>
 						</tbody>
 					</table>
 				</div>
 
 				<!-- Add Section -->
-				<div class="modal fade" id="addSection" tabindex="-1" aria-modal="true"
-					aria-labelledby="addSectionHeader" aria-hidden="true">
+				<div class="modal fade" id="addSection" tabindex="-1" aria-modal="true" aria-labelledby="addSectionHeader" aria-hidden="true">
 					<div class="modal-dialog modal-lg modal-dialog-centered">
 						<div class="modal-content">
 							<div class="modal-header">
 								<h5 class="modal-title" id="addectionHeader">Add Section</h5>
-								<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-									aria-label="Close"></button>
+								<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
-								<form class="container" method="POST"
-									action="<?php echo site_url('sectionController/addSection')?>">
+								<form class="container" method="POST" action="<?php echo site_url('sectionController/addSection') ?>">
 									<div class="row mb-3">
 										<div class="col-lg-6">
 											<!--Year Level-->
@@ -152,11 +123,11 @@ $this->load->view('includes/adminSideBar');
 											<label class="form-label">Course</label>
 											<select name="courseID" id="AddCourse" class="form-select">
 												<option value="" disabled selected hidden></option>
-												<?php foreach($course as $courserow) {?>
-												<option value="<?php echo $courserow->courseID?>">
-													<?php echo $courserow->degree?> in
-													<?php echo $courserow->major?></option>
-												<?php }?>
+												<?php foreach ($course as $courserow) { ?>
+													<option value="<?php echo $courserow->courseID ?>">
+														<?php echo $courserow->degree ?> in
+														<?php echo $courserow->major ?></option>
+												<?php } ?>
 											</select>
 										</div>
 									</div>
@@ -184,9 +155,7 @@ $this->load->view('includes/adminSideBar');
 										<div class="col-lg-6">
 											<!--schoolyear-->
 											<label class="form-label">School Year</label>
-											<input type="text" readonly
-												value="<?php echo date("Y"); ?>-<?php echo date("Y")+1; ?>"
-												class="form-control" name="schoolyear">
+											<input type="text" readonly value="<?php echo date("Y"); ?>-<?php echo date("Y") + 1; ?>" class="form-control" name="schoolyear">
 										</div>
 									</div>
 									<div class="table-title">
@@ -204,10 +173,8 @@ $this->load->view('includes/adminSideBar');
 									<br>
 									<div class="addSectionButton d-flex justify-content-end">
 										<!--Buttons-->
-										<button class="btn btn-default" id="addSectionSave" type="submit"
-											value="save">Save</button>
-										<button class="btn btn-default" id="addSectionCancel" type="button"
-											data-bs-dismiss="modal">Cancel</button>
+										<button class="btn btn-default" id="addSectionSave" type="submit" value="save">Save</button>
+										<button class="btn btn-default" id="addSectionCancel" type="button" data-bs-dismiss="modal">Cancel</button>
 									</div>
 								</form>
 							</div>
@@ -217,15 +184,13 @@ $this->load->view('includes/adminSideBar');
 				</div>
 
 				<!-- Edit Section -->
-				<div class="modal fade" id="editSection" tabindex="-1" aria-modal="true"
-					aria-labelledby="editSectionHeader" aria-hidden="true">
+				<div class="modal fade" id="editSection" tabindex="-1" aria-modal="true" aria-labelledby="editSectionHeader" aria-hidden="true">
 					<div class="modal-dialog modal-lg modal-dialog-centered">
 						<div class="modal-content">
 
 							<div class="modal-header">
 								<h5 class="modal-title" id="editSectionHeader">Edit Section</h5>
-								<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-									aria-label="Close"></button>
+								<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
 
 							<div class="modal-body">
@@ -245,8 +210,7 @@ $this->load->view('includes/adminSideBar');
 
 </div>
 <!-- jQuery JS CDN -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"
-	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
 <script src="<?php echo base_url('assets/js/section.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
@@ -255,128 +219,132 @@ $this->load->view('includes/adminSideBar');
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <!-- Ajax fetching data -->
 <script type="text/javascript">
-	$(document).ready(function () {
+	$(document).ready(function() {
 		$('#dataTable').DataTable();
 		var courseID = $('#course').val();
 		var yearlevel = $("#yearlevel").val();
 		$.ajax({
-			url: "<?php echo site_url('sectionController/filteredStudentList');?>",
+			url: "<?php echo site_url('sectionController/filteredStudentList'); ?>",
 			method: "POST",
 			data: {
 				courseID: courseID,
 				yearlevel: courseID
 			},
-			success: function (data) {
+			success: function(data) {
 				$('#filteredStudent').html(data);
-			
+
 			}
 		});
-		$("#course").change(function () {
+		$("#course").change(function() {
 			var courseID = $(this).val();
 			var yearlevel = $("#yearlevel").val();
 			$.ajax({
-				url: "<?php echo site_url('sectionController/viewSectionList');?>",
+				url: "<?php echo site_url('sectionController/viewSectionList'); ?>",
 				method: "POST",
 				data: {
 					courseID: courseID,
 					yearlevel: yearlevel
 				},
-				success: function (data) {
+				success: function(data) {
 					$('#section').html(data);
 				}
 			});
 		});
-		$("#yearlevel").change(function () {
+		$("#yearlevel").change(function() {
 			var courseID = $("#course").val();
 			var yearlevel = $(this).val();
 			$.ajax({
-				url: "<?php echo site_url('sectionController/viewSectionList');?>",
+				url: "<?php echo site_url('sectionController/viewSectionList'); ?>",
 				method: "POST",
 				data: {
 					courseID: courseID,
 					yearlevel: yearlevel
 				},
-				success: function (data) {
+				success: function(data) {
 					$('#section').html(data);
 				}
 			});
 		});
 
-		$("#AddYearlevel").change(function () {
+		$("#AddYearlevel").change(function() {
 			var yearlevel = $(this).val();
 			var courseID = $("#AddCourse").val();
-				$.ajax({
-					url: "<?php echo site_url('sectionController/viewClassList');?>",
+			$.ajax({
+					url: "<?php echo site_url('sectionController/viewClassList'); ?>",
 					method: "POST",
 					data: {
 						courseID: courseID,
 						yearlevel: yearlevel
 					},
-					success: function (data) {
+					success: function(data) {
 						$('#AddClass').html(data);
 					}
 				}),
 				$.ajax({
-					url: "<?php echo site_url('sectionController/filteredStudentList');?>",
+					url: "<?php echo site_url('sectionController/filteredStudentList'); ?>",
 					method: "POST",
 					data: {
 						courseID: courseID,
 						yearlevel: yearlevel
 					},
-					success: function (data) {
+					success: function(data) {
 						$('#filteredStudent').html(data);
 					}
 				});
-			
+
 		});
 
 
-		$("#AddCourse").change(function () {
+		$("#AddCourse").change(function() {
 			var courseID = $(this).val();
 			var yearlevel = $("#AddYearlevel").val();
 			console.log(yearlevel);
 			console.log(courseID);
-		
-				$.ajax({
-					url: "<?php echo site_url('sectionController/viewClassList');?>",
+
+			$.ajax({
+					url: "<?php echo site_url('sectionController/viewClassList'); ?>",
 					method: "POST",
 					data: {
 						courseID: courseID,
 						yearlevel: yearlevel
 					},
-					success: function (data) {
+					success: function(data) {
 						$('#AddClass').html(data);
 					}
 				}),
 				$.ajax({
-					url: "<?php echo site_url('sectionController/filteredStudentList');?>",
+					url: "<?php echo site_url('sectionController/filteredStudentList'); ?>",
 					method: "POST",
 					data: {
 						courseID: courseID,
 						yearlevel: yearlevel
 					},
-					success: function (data) {
+					success: function(data) {
 						$('#filteredStudent').html(data);
 					}
 				});
-			
+
 		});
 
-		$("#edit").click(function () {
+		$("#edit").click(function() {
 			var sectionID = $("#section").val();
 			console.log(sectionID);
 			$.ajax({
-				url: "<?php echo site_url('sectionController/editSection');?>",
+				url: "<?php echo site_url('sectionController/editSection'); ?>",
 				method: "POST",
 				data: {
 					sectionID: sectionID
 				},
-				success: function (data) {
+				success: function(data) {
 					$('#edit_section').html(data);
 				}
 			});
 		});
-
+		$('#sectionTable').DataTable({
+			"lengthMenu": [
+				[10, 25, 50, -1],
+				[10, 25, 50, "All"]
+			]
+		});
 	});
-
 </script>
