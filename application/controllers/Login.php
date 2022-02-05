@@ -11,6 +11,7 @@ class Login extends CI_Controller
 		$this->load->model('studentModel');
 		$this->load->model('teacherModel');
 		$this->load->model('applicantModel');
+		$this->load->library('session');
 		if ($this->session->has_userdata('authenticated'))
 		{
 			$this->session->set_flashdata('logout', 'Please logout first');

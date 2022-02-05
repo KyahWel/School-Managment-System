@@ -117,9 +117,9 @@ $this->load->view('includes/studentSideBar');
         </div>
 
 
-        <!-- View Professor Table -->
-        <div class="col-12 align-self-center my-3 pt-3 viewSched ">
-            <ul class="nav nav-tabs text-dark d-flex flex-row" id="viewScehdule" role="tablist">
+        <!-- View Student Schedule -->
+        <div class="col-12  my-3 pt-3 viewSched ">
+            <ul class="nav nav-tabs text-dark" id="viewScehdule" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#monday" type="button" role="tab" aria-controls="monday" aria-selected="true">Mon</button>
                 </li>
