@@ -58,39 +58,46 @@ body {
 
 /* Form Responsiveness */
 
-.form-label{
+.form-label {
     white-space: nowrap;
     overflow: hidden;
 }
-.form-control{
+.form-control {
     white-space: nowrap;
     overflow: hidden;
 }
-.form-control:focus{
+.form-control:focus {
     box-shadow: none;
     border-color: #800000;
 }
-.form-control::placeholder{ /* Chrome, Firefox, Opera, Safari 10.1+ */
+.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     font-size: 0.8rem;
 }
-.form-control:-ms-input-placeholder{ /* Internet Explorer 10-11 */
+.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
     font-size: 0.8rem;
 }
-.form-control::-ms-input-placeholder{ /* Microsoft Edge */
+.form-control::-ms-input-placeholder { /* Microsoft Edge */
     font-size: 0.8rem;
 }
-input[type=text], input[type=date], input[type=time], textarea{
+input[type=text], input[type=date], input[type=time], textarea {
     color: black;
     font-size: 0.8rem;
 }
-.form-control:disabled, .form-control[readonly], form-control[disabled]{
+.form-control:disabled, .form-control[readonly], .form-control[disabled] {
     background-color: white;
     opacity: 1;
 }
 
 /* Save and Cancel Button */
 
-#save, #saveAnnouncement {
+#okay {
+    background-color: #800000;
+    border-color: transparent;
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+#saveAnnouncement, #saveEdit {
     background-color: #800000;
     border-color: transparent;
     color: white;
@@ -98,20 +105,18 @@ input[type=text], input[type=date], input[type=time], textarea{
     margin-right: 8px;
     font-size: 0.8rem;
 }
-#cancel, #cancelAnnouncement {
+#cancelAnnouncement, #cancelEdit {
     background-color: #aaaaaa;
     border-color: transparent;
     color: black;
     text-decoration: none;
     font-size: 0.8rem;
 }
-#save:hover, #saveAnnouncement:hover{
-    background-color: white;
-    border-color: #800000;
-    color: #800000;
-    font-size: 0.8rem;
-}
-#cancel:hover, #cancelAnnouncement:hover {
+#okay:hover,
+#saveAnnouncement:hover,
+#cancelAnnouncement:hover,
+#saveEdit:hover,
+#cancelEdit:hover {
     background-color: white;
     border-color: #800000;
     color: #800000;
@@ -152,12 +157,12 @@ input[type=text], input[type=date], input[type=time], textarea{
     text-align: center;
     line-height: 32px;
 }
-.table-body tr{
+.table-body tr {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-.table-body td{
+.table-body td {
     max-width: 200px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -194,7 +199,8 @@ input[type=text], input[type=date], input[type=time], textarea{
     margin-left: 1px;
 }
 .table-body tbody .action-buttons li button:hover,
-.table-body tbody .action-buttons li #status:hover, #table-body tbody .action-buttons li #uniqueSubjectEdit:hover {
+.table-body tbody .action-buttons li #status:hover,
+.table-body tbody .action-buttons li #uniqueSubjectEdit:hover {
     opacity: 1;
 }
 .table-body tbody .action-buttons li button:focus {
