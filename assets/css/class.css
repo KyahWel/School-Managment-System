@@ -62,7 +62,7 @@ body{
 .form-control{
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
+    /* text-overflow: ellipsis; */
 }
 .form-select:focus{
     box-shadow: none;

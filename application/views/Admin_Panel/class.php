@@ -36,7 +36,7 @@ $this->load->view('includes/adminSideBar');
                                         <input type="text" class="form-control" name="classcode" required placeholder="Enter class code"> 
                                     </div>
                                     <div class="col-sm-12 col-md-6 col-lg-6"> <!--Year Level-->
-                                        <label class="form-label">Year Level</label>
+                                        <label for="yearlevel" class="form-label">Year Level</label>
                                         <select name="yearlevel" id="yearlevel" required class="form-select">
                                             <option value="" disabled selected  hidden>Please Select</option>
                                             <option value="1">First Year</option>
@@ -52,7 +52,7 @@ $this->load->view('includes/adminSideBar');
                                         <select name="courseID" id="courseID" required class="form-select">
                                             <option value="" disabled selected  hidden >Please select</option>
                                             <?php foreach($course as $courserow) {?>
-                                                    <option value="<?php echo $courserow->courseID?>"><?php echo $courserow->degree?> in <?php echo $courserow->major?></option>
+                                                <option value="<?php echo $courserow->courseID?>"><?php echo $courserow->degree?> in <?php echo $courserow->major?></option>
                                             <?php }?>
                                         </select>
                                     </div>
@@ -96,7 +96,7 @@ $this->load->view('includes/adminSideBar');
 
                 <!--Table Body-->
                 <div class="table-responsive py-2">
-                    <table class="table align-middle table-striped table-borderless table-hover" id="table-body">
+                    <table class="table align-middle table-striped table-borderless table-hover" aria-label="classList" id="table-body">
                         <thead>
                             <tr>
                                 <th class="pb-3">Class Code</th>
@@ -182,7 +182,7 @@ $this->load->view('includes/adminSideBar');
         </div>
 
         <!-- Edit Class -->
-        <div class="modal fade" id="editClass" tabindex="-1" aria-labelledby="editClassHeader" aria-hidden="true">
+        <div class="modal fade" id="editClass" tabindex="-1" aria-modal="true" aria-labelledby="editClassHeader" aria-hidden="true">
             <div class="modal-dialog modal-xl modal-dialog-centered">
                 <div class="modal-content">
 
