@@ -142,7 +142,7 @@ $this->load->view('includes/adminSideBar');
     </div>
 
     <!--View Announcement-->
-    <div class="modal fade" id="viewAnnouncement" tabindex="-1" aria-labelledby="viewAnnouncementHeader" aria-hidden="true">
+    <div class="modal fade" id="viewAnnouncement" tabindex="-1" aria-modal="true" aria-labelledby="viewAnnouncementHeader" aria-hidden="true">
       <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
@@ -153,7 +153,7 @@ $this->load->view('includes/adminSideBar');
             <div id="event_result">
 
             </div>
-            <div class="editAnnouncementButton d-flex justify-content-end">
+            <div class="viewAnnouncementButton d-flex justify-content-end">
               <button class="btn btn-default" id="save" type="button" data-bs-dismiss="modal">Okay</button>
             </div>
           </div>
@@ -162,7 +162,7 @@ $this->load->view('includes/adminSideBar');
     </div>
 
     <!--Edit Announcement-->
-    <div class="modal fade" id="editAnnouncement" tabindex="-1" aria-labelledby="editAnnouncementHeader" aria-hidden="true">
+    <div class="modal fade" id="editAnnouncement" tabindex="-1" aria-modal="true" aria-labelledby="editAnnouncementHeader" aria-hidden="true">
       <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
