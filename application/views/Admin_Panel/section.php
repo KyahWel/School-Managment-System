@@ -125,7 +125,7 @@ $this->load->view('includes/adminSideBar');
 												<option value="" disabled selected hidden></option>
 												<?php foreach ($course as $courserow) { ?>
 													<option value="<?php echo $courserow->courseID ?>">
-														<?php echo $courserow->degree ?> in
+														<?php echo $courserow->degree ?>
 														<?php echo $courserow->major ?></option>
 												<?php } ?>
 											</select>
@@ -342,9 +342,10 @@ $this->load->view('includes/adminSideBar');
 		});
 		$('#sectionTable').DataTable({
 			"lengthMenu": [
-				[10, 25, 50, -1],
-				[10, 25, 50, "All"]
+				[15, 25, 50, -1],
+				[15, 25, 50, "All"]
 			]
 		});
+		jQuery('.dataTable').wrap('<div class="dataTables_scroll" />');
 	});
 </script>

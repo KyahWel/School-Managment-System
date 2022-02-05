@@ -318,8 +318,8 @@ $this->load->view('includes/adminSideBar');
         });
         $('#subjectTable').DataTable({
             "lengthMenu": [
-                [10, 20, 40, -1],
-                [10, 20, 40, "All"]
+                [15, 25, 50, -1],
+                [15, 25, 50, "All"]
             ]
         });
     jQuery('.dataTable').wrap('<div class="dataTables_scroll" />');

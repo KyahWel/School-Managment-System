@@ -127,6 +127,26 @@ class studentModel extends CI_Model {
 		return $query->row();
 	}
 
+	public function getSchedule($id){
+		$query = $this->db->query("SELECT class.class_code FROM `class` 
+									JOIN `section_table` ON class.class_code = section_table.class_code 
+									JOIN `student_accounts` ON section_table.sectionID = student_accounts.sectionID 
+									WHERE `studentID` = ".$id);
+		$class_code = $query->row();
+		if($class_code != NULL){
+			$query2 = $this->db->query("SELECT * FROM `class` 
+										JOIN `subjects_table` ON class.subjectID = subjects_table.subjectID
+										JOIN `teacher_accounts` ON class.teacherID = teacher_accounts.teacherID
+										WHERE `class_code` = '$class_code->class_code'
+										ORDER BY `day` ASC ");
+			return $query2->result();
+		}
+		else{
+			return NULL;
+		}
+		
+	}
+
 	public function getScheduleMonday($id){
 		$query = $this->db->query("SELECT class.class_code FROM `class` 
 									JOIN `section_table` ON class.class_code = section_table.class_code 

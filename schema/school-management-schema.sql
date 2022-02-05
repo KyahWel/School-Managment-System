@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 28, 2022 at 03:59 PM
+-- Generation Time: Feb 05, 2022 at 03:42 AM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `admin_accounts` (
   `lastname` varchar(255) NOT NULL,
   `status` int(1) NOT NULL,
   PRIMARY KEY (`adminID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `admin_accounts`
@@ -45,7 +45,9 @@ CREATE TABLE IF NOT EXISTS `admin_accounts` (
 
 INSERT INTO `admin_accounts` (`adminID`, `adminNumber`, `username`, `password`, `firstname`, `lastname`, `status`) VALUES
 (1, 'TUP-ADMIN-0000', 'admin', '$2y$10$cFxtHgNDDa21QJU/uEQXlOp3j5iREQTk/SDFMpwn2iJAczXNQUv1K', 'admin', '', 1),
-(2, 'TUP-ADMIN-5525', 'admin-01', '$2y$10$H4GOzj1LQtLLeFZu7EByMe0aPMW92JTq59Kj51JsgQlfIhV6c/4Dq', 'William Cris', 'Hod', 1);
+(2, 'TUP-ADMIN-5525', 'admin-01', '$2y$10$H4GOzj1LQtLLeFZu7EByMe0aPMW92JTq59Kj51JsgQlfIhV6c/4Dq', 'William Cris', 'Hod', 1),
+(3, 'TUP-ADMIN-8520', 'admin-02', '$2y$10$CvTeIqw8Z8BrSk44VrQRl.OKLWM/27eyAAYOKSenpgdJ5ccEEYw/W', 'Juan', 'Pedro', 1),
+(4, 'TUP-ADMIN-2654', 'admin-03', '$2y$10$qVzeyO0IU86FOeXbn3xKxedD.qesE5SBRry6yrt1BMmwM6K0LUO4y', 'Cesar', 'Hawkins', 1);
 
 -- --------------------------------------------------------
 
@@ -133,17 +135,30 @@ CREATE TABLE IF NOT EXISTS `class` (
   KEY `class_subject` (`subjectID`),
   KEY `class_teacher` (`teacherID`),
   KEY `class_course` (`courseID`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `class`
 --
 
 INSERT INTO `class` (`classID`, `class_code`, `teacherID`, `subjectID`, `start_time`, `end_time`, `courseID`, `yearlevel`, `day`, `room_no`, `isTaken`, `status`) VALUES
-(1, 'CLASS-01', 1, 71, '19:47:00', '19:47:00', 2, 4, 'Monday', 'TBA', 1, 0),
+(1, 'CLASS-01', 1, 71, '19:47:00', '19:47:00', 2, 4, 'Thursday', 'TBA', 1, 0),
 (2, 'CLASS-01', 1, 72, '19:51:00', '19:51:00', 2, 4, 'Tuesday', 'TBA', 1, 0),
-(14, 'CLASS-02', 1, 71, '22:41:00', '21:41:00', 2, 4, 'Wednesday', 'TBA', 1, 1),
-(15, 'CLASS-02', 1, 72, '21:47:00', '21:41:00', 2, 4, 'Tuesday', 'TBA', 1, 1);
+(14, 'CLASS-02', 1, 71, '22:41:00', '21:41:00', 2, 4, 'Wednesday', 'TBA', 1, 0),
+(15, 'CLASS-02', 1, 72, '21:47:00', '21:41:00', 2, 4, 'Tuesday', 'TBA', 1, 0),
+(16, 'CLASS-03', 3, 71, '01:17:00', '03:15:00', 2, 4, 'Monday', 'TBA', 0, 1),
+(17, 'CLASS-03', 1, 72, '03:15:00', '04:15:00', 2, 4, 'Thursday', 'TBA', 0, 1),
+(18, 'CLASS-04', 1, 1, '03:13:00', '04:13:00', 2, 1, 'Monday', 'TBA', 1, 1),
+(19, 'CLASS-04', 2, 2, '03:14:00', '05:13:00', 2, 1, 'Tuesday', 'TBA', 1, 1),
+(20, 'CLASS-04', 1, 3, '03:15:00', '05:13:00', 2, 1, 'Wednesday', 'TBA', 1, 1),
+(21, 'CLASS-04', 1, 4, '03:18:00', '03:17:00', 2, 1, 'Wednesday', 'TBA', 1, 1),
+(22, 'CLASS-04', 3, 5, '03:17:00', '03:17:00', 2, 1, 'Thursday', 'TBA', 1, 1),
+(23, 'CLASS-04', 3, 6, '03:17:00', '03:17:00', 2, 1, 'Friday', 'TBA', 1, 1),
+(24, 'CLASS-04', 4, 7, '08:13:00', '09:13:00', 2, 1, 'Saturday', 'TBA', 1, 1),
+(25, 'CLASS-04', 4, 8, '08:13:00', '03:18:00', 2, 1, 'Wednesday', 'TBA', 1, 1),
+(26, 'CLASS-04', 2, 9, '09:13:00', '09:13:00', 2, 1, 'Monday', 'TBA', 1, 1),
+(27, 'CLASS-04', 2, 10, '03:19:00', '09:13:00', 2, 1, 'Tuesday', 'TBA', 1, 1),
+(28, 'CLASS-04', 1, 11, '08:13:00', '09:13:00', 2, 1, 'Monday', 'TBA', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -159,20 +174,59 @@ CREATE TABLE IF NOT EXISTS `course_table` (
   `college` varchar(255) NOT NULL,
   `courseStatus` int(1) NOT NULL,
   PRIMARY KEY (`courseID`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `course_table`
 --
 
 INSERT INTO `course_table` (`courseID`, `degree`, `major`, `college`, `courseStatus`) VALUES
-(1, 'Bachelor of Engineering', 'Railway Management', 'College of Engineering', 1),
-(2, 'Bachelor of Science', 'Computer Science', 'College of Science', 1),
-(3, 'Bachelor of Science', 'Information System', 'College of Engineering', 1),
-(4, 'Bachelor of Science', 'Computer Engineering', 'College of Science', 1),
-(5, 'Bachelor of Engineering', 'Mechanical Engineering', 'College of Engineering', 1),
-(6, 'Bachelor of Science', 'Architecture', 'College of Architecture and Fine Arts', 1),
-(7, 'Bachelor of Science', 'Mathematics', 'College of Science', 1);
+(1, 'Bachelor of Applied Science in Laboratory Technology', '', 'College of Science', 1),
+(2, 'Bachelor of Science in Computer Science', '', 'College of Science', 1),
+(3, 'Bachelor of Science in Environmental Science', '', 'College of Science', 1),
+(4, 'Bachelor of Science in Information System', '', 'College of Science', 1),
+(5, 'Bachelor of Science in Information Technology', '', 'College of Science', 1),
+(6, 'Bachelor of Science in Civil Engineering', '', 'College of Engineering', 1),
+(7, 'Bachelor of Science in Electrical Engineering', '', 'College of Engineering', 1),
+(8, 'Bachelor of Science in Electronics Engineering', '', 'College of Engineering', 1),
+(9, 'Bachelor of Science in Mechanical Engineering', '', 'College of Engineering', 1),
+(10, 'Bachelor of Science in Architecture', '', 'College of Architecture and Fine Arts', 1),
+(11, 'Bachelor of Fine Arts', '', 'College of Architecture and Fine Arts', 1),
+(12, 'Bachelor in Graphics Technology', 'Architecture Technology', 'College of Architecture and Fine Arts', 1),
+(13, 'Bachelor in Graphics Technology', 'Industrial Design', 'College of Architecture and Fine Arts', 1),
+(14, 'Bachelor in Graphics Technology', 'Mechanical Drafting Technology', 'College of Architecture and Fine Arts', 1),
+(15, 'Bachelor of Arts in Management', 'Industrial Management', 'College of Liberal Arts', 1),
+(16, 'Bachelor of Science in Entrepreneurship Management', '', 'College of Liberal Arts', 1),
+(17, 'Bachelor of Science Industrial Education', 'Information and Communication Technology', 'College of Industrial Education', 1),
+(18, 'Bachelor of Science Industrial Education', 'Home Economics', 'College of Industrial Education', 1),
+(19, 'Bachelor of Science Industrial Education', 'Industrial Arts', 'College of Industrial Education', 1),
+(20, 'Bachelor of Technical Vocational Teachers Education', 'Animation', 'College of Industrial Education', 1),
+(21, 'Bachelor of Technical Vocational Teachers Education', 'Automotive', 'College of Industrial Education', 1),
+(22, 'Bachelor of Technical Vocational Teachers Education', 'Beauty Care and Wellness', 'College of Industrial Education', 1),
+(23, 'Bachelor of Technical Vocational Teachers Education', 'Computer Programming', 'College of Industrial Education', 1),
+(24, 'Bachelor of Technical Vocational Teachers Education', 'Electrical', 'College of Industrial Education', 1),
+(25, 'Bachelor of Technical Vocational Teachers Education', 'Electronics', 'College of Industrial Education', 1),
+(26, 'Bachelor of Technical Vocational Teachers Education', 'Food Service Management', 'College of Industrial Education', 1),
+(27, 'Bachelor of Technical Vocational Teachers Education', 'Fashion and Garment', 'College of Industrial Education', 1),
+(28, 'Bachelor of Technical Vocational Teachers Education', 'Heat Ventilation & Air Conditioning', 'College of Industrial Education', 1),
+(29, 'Bachelor of Technical Teacher Education', '', 'College of Industrial Education', 1),
+(30, 'Bachelor of Science in Food Technology', '', 'College of Industrial Technology', 1),
+(31, 'Bachelor of Science in Hotel and Restaurant Management', '', 'College of Industrial Technology', 1),
+(32, 'Bachelor of Engineering Technology', 'Computer Engineering Technology', 'College of Industrial Technology', 1),
+(33, 'Bachelor of Engineering Technology', 'Civil Technology', 'College of Industrial Technology', 1),
+(34, 'Bachelor of Engineering Technology', 'Electrical Technology', 'College of Industrial Technology', 1),
+(35, 'Bachelor of Bachelor of Engineering Technology', 'Electronics Communication Technology', 'College of Industrial Technology', 1),
+(36, 'Bachelor of Engineering Technology', 'Electronics Technology', 'College of Industrial Technology', 1),
+(37, 'Bachelor of Engineering Technology', 'Instrumentation and Control Technology', 'College of Industrial Technology', 1),
+(38, 'Bachelor of Engineering Technology', 'Mechanical Technology', 'College of Industrial Technology', 1),
+(39, 'Bachelor of Engineering Technology', 'Mechatronics Technology', 'College of Industrial Technology', 1),
+(40, 'Bachelor of Engineering Technology', 'Railway Technology', 'College of Industrial Technology', 1),
+(41, 'Bachelor of Engineering Technology', 'Mechanical Engineering Technology', 'College of Industrial Technology', 1),
+(42, 'Bachelor of Technology in Apparel and Fashion', '', 'College of Industrial Technology', 1),
+(43, 'Bachelor of Technology in Nutrition and Food Technology', '', 'College of Industrial Technology', 1),
+(44, 'Bachelor of Technology in Print Media Technology', '', 'College of Industrial Technology', 1),
+(45, 'Bachelor of Science', 'Biology', 'College of Science', 1),
+(46, 'Bachelor of Engineering', 'Chemical Engineering', 'College of Engineering', 1);
 
 -- --------------------------------------------------------
 
@@ -227,7 +281,7 @@ CREATE TABLE IF NOT EXISTS `events_announcements` (
   `status` int(1) NOT NULL,
   PRIMARY KEY (`eaID`),
   KEY `EA_Admin` (`creatorID`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `events_announcements`
@@ -243,7 +297,11 @@ INSERT INTO `events_announcements` (`eaID`, `title`, `details`, `time`, `date`, 
 (8, 'last test', 'minjeong cutie', '05:17:00', '2021-12-03', 1, 0),
 (10, 'test william admin', 'test', '03:36:00', '2021-12-03', 2, 1),
 (11, 'testing add', 'testing chuchu', '18:10:00', '2022-01-05', 2, 1),
-(12, 'dapat unahan', 'test', '02:14:00', '2022-01-28', 1, 1);
+(12, 'dapat unahan', 'test', '02:14:00', '2022-01-28', 1, 1),
+(13, 'Test Announcement', 'happy birthday', '02:18:00', '2022-02-03', 1, 1),
+(14, 'test', 'test', '02:21:00', '2022-02-01', 1, 1),
+(15, 'unahan', 'tetasrasda', '01:25:00', '2022-02-05', 1, 1),
+(16, 'Announcement Test', 'Announcement Test edited', '16:17:00', '2022-02-06', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -277,15 +335,17 @@ CREATE TABLE IF NOT EXISTS `exam_schedule` (
   `floor_no` int(255) NOT NULL,
   `status` int(1) NOT NULL,
   PRIMARY KEY (`schedID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `exam_schedule`
 --
 
 INSERT INTO `exam_schedule` (`schedID`, `date`, `time`, `building`, `room_no`, `floor_no`, `status`) VALUES
-(0, '2022-02-05', '15:13:00', 'College of Science', 'COS-153', 2, 1),
-(2, '2022-01-07', '02:14:00', 'College of Industrial Education', 'CIE-314', 3, 1);
+(0, '2022-02-10', '17:13:00', 'College of Science', 'COS-154', 1, 1),
+(2, '2022-01-07', '02:14:00', 'College of Industrial Education', 'CIE-314', 3, 1),
+(3, '2022-02-05', '02:17:00', 'College of Science', '111', 1, 1),
+(4, '2022-02-11', '04:17:00', 'College of Science', '1', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -305,7 +365,7 @@ CREATE TABLE IF NOT EXISTS `section_table` (
   `schoolyear` varchar(255) NOT NULL,
   PRIMARY KEY (`sectionID`),
   KEY `sectionCourse` (`courseID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `section_table`
@@ -313,7 +373,8 @@ CREATE TABLE IF NOT EXISTS `section_table` (
 
 INSERT INTO `section_table` (`sectionID`, `sectionName`, `class_code`, `courseID`, `capacity`, `studCount`, `yearlevel`, `schoolyear`) VALUES
 (1, 'BSCS-NS-4A', 'CLASS-01', 2, 2, 2, 4, '2022-2023'),
-(3, 'BSCS-NS-4B', 'CLASS-02', 2, 5, 1, 4, '2022-2023');
+(3, 'BSCS-NS-4B', 'CLASS-02', 2, 5, 1, 4, '2022-2023'),
+(4, 'BSCS-NS-1D', 'CLASS-04', 2, 5, 3, 1, '2022-2023');
 
 -- --------------------------------------------------------
 
@@ -362,9 +423,9 @@ INSERT INTO `student_accounts` (`studentID`, `applicantID`, `studentNumber`, `us
 (1, 1, 'TUPM-22-9591', 'TUPM-22-9591', '$2y$10$eaU4rFjSVopbf9THGRzX/OFE4M275B215duBRhMt3Icpczpe6SXlG', 1, 4, 1, 1),
 (2, 2, 'TUPM-22-7830', 'TUPM-22-7830', '$2y$10$npWPXEszb4cKXVJG3W/cUuurp.btTR/x5xYoV9otrEziid08rUNYa', 1, 4, 1, 1),
 (3, 3, 'TUPM-22-8308', 'TUPM-22-8308', '$2y$10$4boc1s78c.G.UCrEAehJF.GBGyZANLzjrwIffptLlASGlGepPvQtm', 3, 4, 1, 1),
-(4, 4, 'TUPM-22-2132', 'TUPM-22-2132', '$2y$10$bDSyJgpjrFByyirzgafSdeeitV8gWyU/0q3UHozx7JY6IcyOMjkqm', NULL, 1, 1, 1),
-(5, 5, 'TUPM-22-9307', 'TUPM-22-9307', '$2y$10$DtZZEEgpw8D6bvTmGscUwubvgtaPinirN2q2VGlS0M8ef0rwlqESi', NULL, 1, 1, 1),
-(6, 6, 'TUPM-22-6929', 'TUPM-22-6929', '$2y$10$Aws.6dSokiQTTn1hjf/MSO5voIrGmtvLNzoqULIdqHuOoeO9DEc2q', NULL, 1, 1, 1),
+(4, 4, 'TUPM-22-2132', 'TUPM-22-2132', '$2y$10$bDSyJgpjrFByyirzgafSdeeitV8gWyU/0q3UHozx7JY6IcyOMjkqm', 4, 1, 1, 1),
+(5, 5, 'TUPM-22-9307', 'TUPM-22-9307', '$2y$10$DtZZEEgpw8D6bvTmGscUwubvgtaPinirN2q2VGlS0M8ef0rwlqESi', 4, 1, 1, 1),
+(6, 6, 'TUPM-22-6929', 'TUPM-22-6929', '$2y$10$Aws.6dSokiQTTn1hjf/MSO5voIrGmtvLNzoqULIdqHuOoeO9DEc2q', 4, 1, 1, 1),
 (7, 7, 'TUPM-22-5134', 'TUPM-22-5134', '$2y$10$SHgclVbQgR4ZtSItQk3RIOkeOiFNABSrLvJKf79/5QFC0LWMkECMq', NULL, 1, 1, 1),
 (8, 8, 'TUPM-22-2491', 'TUPM-22-2491', '$2y$10$ffdNBRGRqqbd2AsjO7LjV.9ZklUiBAjVZFW.IfBsWHIf12yNeZpAu', NULL, 1, 1, 1),
 (9, 10, 'TUPM-22-6069', 'TUPM-22-6069', '$2y$10$rNLT0TCv4rm0KB/y6JnSD.cjhuKTdEAGQ.RM.QLDDR30/eD1Ecpde', NULL, 1, 1, 1),
@@ -409,7 +470,7 @@ CREATE TABLE IF NOT EXISTS `subjects_table` (
   `status` int(255) NOT NULL,
   PRIMARY KEY (`subjectID`),
   KEY `course` (`courseID`)
-) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `subjects_table`
@@ -487,7 +548,9 @@ INSERT INTO `subjects_table` (`subjectID`, `courseID`, `subjectCode`, `name`, `u
 (69, 2, 'GEE12D-M', 'The Entrepreneurial Mind', 3, 4, '', '1', 1),
 (70, 2, 'CS413-M', 'Thesis Writing 1', 3, 4, '', '1', 1),
 (71, 2, 'CC406-M', 'Supervised Industrial Training', 6, 4, '', '2', 1),
-(72, 2, 'CS403-M', 'Thesis Writing 2', 3, 4, '', '2', 1);
+(72, 2, 'CS403-M', 'Thesis Writing 2', 3, 4, '', '2', 1),
+(73, 10, 'BA-111', 'Basic Architecture', 4, 1, 'College of Science', '2', 1),
+(74, 2, 'CS-111', 'OJT', 6, 4, 'College of Science', '2', 1);
 
 -- --------------------------------------------------------
 
@@ -513,7 +576,7 @@ CREATE TABLE IF NOT EXISTS `teacher_accounts` (
   `creatorID` int(255) NOT NULL,
   PRIMARY KEY (`teacherID`),
   KEY `teacherAdmin` (`creatorID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `teacher_accounts`
@@ -521,7 +584,10 @@ CREATE TABLE IF NOT EXISTS `teacher_accounts` (
 
 INSERT INTO `teacher_accounts` (`teacherID`, `teacherNumber`, `username`, `password`, `firstname`, `middlename`, `lastname`, `extname`, `phonenum`, `email`, `college`, `department`, `status`, `creatorID`) VALUES
 (1, 'PROF-TUPM-22-6713', 'PROF-TUPM-22-6713', '$2y$10$jxbGh6AUgBMEWv2fJTDamOZYD3Njx/yF/WdAWrzbkP1gH2nzwNVei', 'William Cris', 'Entero', 'Hod', ' ', '09270287483', 'williamcris18@gmail.com', 'Science', 'Computer', 1, 1),
-(2, 'PROF-TUPM-22-7204', 'PROF-TUPM-22-7204', '$2y$10$OllPfi.MnyBVZJgyQAmMNOUz3gaKm.HRzVWByiIjW9Cna.b6l.4.O', 'Minatozaki', 'Sana', 'Hod', ' ', '', '', 'Science', 'Computer', 1, 1);
+(2, 'PROF-TUPM-22-7204', 'PROF-TUPM-22-7204', '$2y$10$OllPfi.MnyBVZJgyQAmMNOUz3gaKm.HRzVWByiIjW9Cna.b6l.4.O', 'Minatozaki', 'Sana', 'Hod', ' ', '', '', 'Science', 'Computer', 1, 1),
+(3, 'PROF-TUPM-22-2334', 'PROF-TUPM-22-2334', '$2y$10$LxfmBCC6.QXfuwvSsZde6eCHkzm4OyJU8QwjaLZdaalNN9YvlLNKq', 'Juan', 'Pedro', 'Alfonso', 'Jr.', '', '', 'COS', 'Math', 1, 1),
+(4, 'PROF-TUPM-22-3745', 'PROF-TUPM-22-3745', '$2y$10$IFT69y07HLSZOojFFVItQufMiJ8hjbik2IUKAKYExLOB5fkJlzleO', 'Pedro', ' ', 'Batumbakal', ' ', '', '', 'COS', 'Computer', 1, 1),
+(5, 'PROF-TUPM-22-6913', 'PROF-TUPM-22-6913', '$2y$10$Z5ewvfVmTwjkUxxFAjOsxeqrc5TaIyn9sDfVI.Uc6VAxPZVboT6U6', 'Pedro', '', 'Batumbakal', '', '', '', 'COS', 'Computer', 1, 1);
 
 --
 -- Constraints for dumped tables
@@ -561,53 +627,6 @@ ALTER TABLE `enrollment_table`
 --
 ALTER TABLE `events_announcements`
   ADD CONSTRAINT `EA_Admin` FOREIGN KEY (`creatorID`) REFERENCES `admin_accounts` (`adminID`);
-
---
--- Constraints for table `examination_table`
---
-ALTER TABLE `examination_table`
-  ADD CONSTRAINT `applicantExam` FOREIGN KEY (`applicantID`) REFERENCES `applicant_accounts` (`applicantID`),
-  ADD CONSTRAINT `schedule` FOREIGN KEY (`schedule`) REFERENCES `exam_schedule` (`schedID`);
-
---
--- Constraints for table `section_table`
---
-ALTER TABLE `section_table`
-  ADD CONSTRAINT `sectionCourse` FOREIGN KEY (`courseID`) REFERENCES `course_table` (`courseID`);
-
---
--- Constraints for table `student-subjects`
---
-ALTER TABLE `student-subjects`
-  ADD CONSTRAINT `stud` FOREIGN KEY (`studentID`) REFERENCES `student_accounts` (`studentID`),
-  ADD CONSTRAINT `subj` FOREIGN KEY (`subjectID`) REFERENCES `subjects_table` (`subjectID`);
-
---
--- Constraints for table `student_accounts`
---
-ALTER TABLE `student_accounts`
-  ADD CONSTRAINT `studentAdmin` FOREIGN KEY (`creatorID`) REFERENCES `admin_accounts` (`adminID`),
-  ADD CONSTRAINT `studentDetails` FOREIGN KEY (`applicantID`) REFERENCES `applicant_accounts` (`applicantID`);
-
---
--- Constraints for table `student_course`
---
-ALTER TABLE `student_course`
-  ADD CONSTRAINT `courseConnection` FOREIGN KEY (`courseID`) REFERENCES `course_table` (`courseID`),
-  ADD CONSTRAINT `enrollment` FOREIGN KEY (`enrollmentID`) REFERENCES `enrollment_table` (`enrollmentID`),
-  ADD CONSTRAINT `studentConnection` FOREIGN KEY (`studentID`) REFERENCES `student_accounts` (`studentID`);
-
---
--- Constraints for table `subjects_table`
---
-ALTER TABLE `subjects_table`
-  ADD CONSTRAINT `course` FOREIGN KEY (`courseID`) REFERENCES `course_table` (`courseID`);
-
---
--- Constraints for table `teacher_accounts`
---
-ALTER TABLE `teacher_accounts`
-  ADD CONSTRAINT `teacherAdmin` FOREIGN KEY (`creatorID`) REFERENCES `admin_accounts` (`adminID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -128,11 +128,12 @@ element.style {
 }
 
 .l-navbar .nav {
-    height: 100%;
+    /* height: 100%; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .nav_logo,
