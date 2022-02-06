@@ -281,6 +281,9 @@ ul#viewProfessorTab.nav{
     border-color: white;
     font-weight: 200;
 }
+button#viewProfessorInformationTab.nav-link.active{
+    border-top-left-radius: 25px;
+}
 button#viewProfessorInformationTab.nav-link.active::before,
 button#viewProfessorSubjectTab.nav-link.active::before,
 button#viewProfessorSectionTab.nav-link.active::before{
