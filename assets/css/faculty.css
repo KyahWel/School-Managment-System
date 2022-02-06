@@ -151,11 +151,11 @@ body{
     white-space: nowrap;
 }
 .table-body td{
- max-width: 200px;
- overflow: hidden;
- text-overflow: ellipsis;
- white-space: nowrap;
- /* line-height: 0; */
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /* line-height: 0; */
 }
 
 /* Action Button */
