@@ -37,7 +37,7 @@ function requirement() {
 
 $('#confirmationPage').on('shown.bs.modal', function (e) {
   if (validateFormsss() === false) { // has no errors
-  var courses = $("#courses").val();
+  var courses = $("#courses option:selected").text();
   var fname = $("#fname").val();
   var midname = $("#midname").val();
   var surname = $("#surname").val();

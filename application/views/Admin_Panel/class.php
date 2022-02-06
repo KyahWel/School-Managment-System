@@ -50,10 +50,17 @@ $this->load->view('includes/adminSideBar');
                                     <div class="col-sm-12 col-md-6 col-lg-6"> <!--Course-->
                                         <label class="form-label">Course</label>
                                         <select name="courseID" id="courseID" required class="form-select">
+<<<<<<< Updated upstream
                                             <option value="" disabled selected  hidden >Please select</option>
                                             <?php foreach($course as $courserow) {?>
                                                 <option value="<?php echo $courserow->courseID?>"><?php echo $courserow->degree?> in <?php echo $courserow->major?></option>
                                             <?php }?>
+=======
+                                            <option value="" disabled selected hidden>Please select</option>
+                                            <?php foreach ($course as $courserow) { ?>
+                                                <option value="<?php echo $courserow->courseID ?>"><?php echo $courserow->degree ?><?php echo $courserow->major ?></option>
+                                            <?php } ?>
+>>>>>>> Stashed changes
                                         </select>
                                     </div>
                                     <div class="col-sm-12 col-md-6 col-lg-4"> <!--Semester-->

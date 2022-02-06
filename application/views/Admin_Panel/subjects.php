@@ -46,7 +46,7 @@ $this->load->view('includes/adminSideBar');
                                         <select name="courseID" class="form-select " aria-labelledby="Course" required>
                                             <option value="" disabled selected hidden>Please Select</option>
                                             <?php foreach ($course as $courserow) { ?>
-                                                <option value="<?php echo $courserow->courseID ?>"><?php echo $courserow->degree ?> in <?php echo $courserow->major ?></option>
+                                                <option value="<?php echo $courserow->courseID ?>"><?php echo $courserow->degree ?> <?php echo $courserow->major ?></option>
                                             <?php } ?>
                                         </select>
                                     </div>
