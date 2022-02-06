@@ -24,7 +24,7 @@ $this->load->view('includes/adminSideBar');
                     </div>
                 </div>
                 <div class="table-responsive py-2">
-                    <table class="table table-default table-striped align-middle table-borderless table-hover" id="table-body">
+                    <table class="table table-default table-striped align-middle table-borderless table-hover" aria-label="studentListTable" id="table-body">
                         <thead class="thead">
                             <tr>
                                 <th class="pb-3">Student ID</th>
@@ -47,8 +47,9 @@ $this->load->view('includes/adminSideBar');
                                     <td><?php echo $studentrow->yearlevel; ?></td>
                                     <td>
                                         <div class="action-buttons">
+                                        <ul>
                                             <?php if ($studentrow->status == 1) : ?>
-                                                <li><button type="button" id="view" data-id='<?php echo $studentrow->studentID; ?>' class="btn view_data" onclick="viewStudent()"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
+                                                <li><button type="button" id="view" data-id='<?php echo $studentrow->studentID; ?>' class="btn view_data" onclick="viewStudent()"><em class="fas fa-eye" data-bs-toggle="tooltip" title="View"></em> View</button></li>
                                                 <li><button type="button" class="btn" id="status" onclick="location.href='<?php if ($studentrow->status == 1) {
                                                                                                                                 echo site_url('studentControllerFunctions/deactivate');
                                                                                                                             } else {
@@ -58,7 +59,7 @@ $this->load->view('includes/adminSideBar');
                                                     </button>
                                                 </li>
                                             <?php else : ?>
-                                                <li><button type="button" id="view" data-id='<?php echo $studentrow->studentID; ?>' class="btn" disabled style="background-color: gray;"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
+                                                <li><button type="button" id="view" data-id='<?php echo $studentrow->studentID; ?>' class="btn" disabled style="background-color: gray;"><em class="fas fa-eye" data-bs-toggle="tooltip" title="View"></em> View</button></li>
                                                 <li><button type="button" class="btn" id="status" onclick="location.href='<?php if ($studentrow->status == 1) {
                                                                                                                                 echo site_url('studentControllerFunctions/deactivate');
                                                                                                                             } else {
@@ -68,6 +69,7 @@ $this->load->view('includes/adminSideBar');
                                                     </button>
                                                 </li>
                                             <?php endif ?>
+                                        </ul>
                                         </div>
                                     </td>
                                 </tr>
@@ -82,8 +84,8 @@ $this->load->view('includes/adminSideBar');
     <!--View Student-->
     <div class="container my-3" id='viewStudent' style="display: none;">
         <div class="viewStudentTitle d-flex align-items-center">
-            <button type="button" class="btn btn-default btn-sm my-3" id="back-button" onclick="mainStudent()"><i class="fa fa-arrow-left"></i> Back</button>
-            <h3><i>Student Profile</i></h3>
+            <button type="button" class="btn btn-default btn-sm my-3" id="back-button" onclick="mainStudent()"><em class="fa fa-arrow-left"></em> Back</button>
+            <h3>Student Profile</h3>
         </div>
 
         <div id="view_student">
