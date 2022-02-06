@@ -122,6 +122,15 @@ class applicantModel extends CI_Model {
 		return $query->result();
 	}
 
+	public function viewAppliedData($fname,$lname) #Read
+	{
+		$query = $this->db->query('	SELECT * FROM applicant_accounts 
+									LEFT JOIN course_table 
+									ON applicant_accounts.courseID = course_table.courseID
+									WHERE applicant_accounts.firstname= "'.$fname.'" AND applicant_accounts.lastname="'.$lname.'"');
+		return $query->row();
+	}
+
 	public function getData($id)
 	{	
 		$query = $this->db->query('	SELECT * FROM applicant_accounts 

@@ -11,6 +11,7 @@ class Login extends CI_Controller
 		$this->load->model('studentModel');
 		$this->load->model('teacherModel');
 		$this->load->model('applicantModel');
+		$this->load->library('session');
 		if ($this->session->has_userdata('authenticated'))
 		{
 			$this->session->set_flashdata('logout', 'Please logout first');
@@ -60,7 +61,6 @@ class Login extends CI_Controller
 					];
 					$this->session->set_userdata('auth_user', $auth_userdetails);
 					$this->session->set_userdata('authenticated', "1");
-					$this->session->set_flashdata('success', '');
 					redirect('Admin/dashboard');
 				}
 				else {
@@ -120,8 +120,6 @@ class Login extends CI_Controller
 					];
 					$this->session->set_userdata('auth_user', $auth_userdetails);
 					$this->session->set_userdata('authenticated', "3");
-					$this->session->set_flashdata('adminError', '');
-					$this->session->set_flashdata('successAdmin', '');
 					redirect('Student/Dashboard');
 				}
 				else {

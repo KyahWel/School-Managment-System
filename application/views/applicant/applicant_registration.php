@@ -77,10 +77,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     </div>
                 </div>
 
-
                 <div class="row height-sm-100 contents">
                     <div class="col">
-                        <form method='POST' class="needs-validation" novalidate enctype="multipart/form-data" name="applicantform" id="applicantForm">
+                        <form method='POST' action="<?php echo site_url('applicantRegistration') ?>"  class="needs-validation" novalidate enctype="multipart/form-data" name="applicantform" id="applicantForm">
                             <!-- Personal Information -->
                             <div id='personalInfo' class=" container pt-3" style="display: block;">
                                 <div class="step_progressbar">
@@ -102,7 +101,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                 <select class="form-select form-select-sm" id="courses" name="course_chosen" aria-label="Select Course" required>
                                                     <option value="" selected>--Please Select--</option>
                                                     <?php foreach ($course as $course) { ?>
-                                                        <option value='<?php echo $course->courseID ?>'><?php echo $course->degree ?> in <?php echo $course->major ?></option>
+                                                        <option value='<?php echo $course->courseID ?>'><?php echo $course->degree ?><?php echo $course->major ?></option>
                                                     <?php } ?>
                                                 </select>
                                                 <div class="invalid-feedback">
@@ -268,7 +267,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                             <label class="form-label col-lg-2 col-md-12  pt-1">Barangay:</label>
                                             <div class="col-lg-3 col-md-12">
                                                 <input type="text" name='barangay' id="brgy" class="form-control form-control-sm" aria-label="Barangay" required
-                                                onkeyup="this.value=this.value.replace(/[^\d]/,'')" title="Numbers only">
+                                                >
                                                 <div class="invalid-feedback">
                                                     Please input your barangay.
                                                 </div>
@@ -550,7 +549,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <!--Requirements Wrapper-->
                             </div>
                             <!-- requirements div -->
-
+                                                            
                     </div>
                 </div>
             </div>
@@ -568,28 +567,31 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <!-- Confirmation Page -->
 
     <!-- Modal -->
-    <div class="modal fade" id="confirmationPage" data-bs-backdrop="static" aria-modal="true" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title confirmtitle">Confirmation Page</h5>
-                </div>
-                <div class="modal-body">
+        <div class="modal fade" id="confirmationPage" data-bs-backdrop="static" aria-modal="true" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title confirmtitle">Confirmation Page</h5>
+                    </div>
+                    <div class="modal-body">
 
+                    </div>
+                    <div class="modal-footer d-flex justify-content-middle">
+                        <button type="submit" class="btn btn-warning text-uppercase">CONFIRM</button>
+                        <button type="button" class="btn btn-secondary text-uppercase" data-bs-dismiss="modal">CANCEL</button>
+                    </div>
+                    
                 </div>
-                <div class="modal-footer d-flex justify-content-middle">
-                    <button type="submit" class="btn btn-warning text-uppercase">CONFIRM</button>
-                    <button type="button" class="btn btn-secondary text-uppercase" data-bs-dismiss="modal">CANCEL</button>
-                </div>
-                </form>
             </div>
         </div>
-    </div>
+    </form>
     </div>
 
     <script src="<?php echo base_url('assets/js/jquery-3.5.1.slim.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
     <script src="<?php echo base_url('assets/js/applicant.js'); ?>"></script>
+
+
 </body>
 
 </html>
