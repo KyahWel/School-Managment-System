@@ -28,7 +28,7 @@
                             <img src="../assets/images/applicantAvatar.svg" alt="" class="pt-4 mx-4" style="width: 125px;">
                             <br>
                             <p class="text-center pt-4 h5">Welcome,</p>
-                            <p class="text-center pt-2 fw-bold h5">Applicant-21-2322 </p>
+                            <p class="text-center pt-2 fw-bold h5"> <?php echo $student->applicantNumber?> </p>
                             <hr>
                         </div>
                     </div>
@@ -40,11 +40,11 @@
                 <div id='final_step' class="container mt-4 pt-3">
                     <div class="Wrapper">
                         <div class="tabTitle px-2">
-                            <p class="text-white">Applicant Name: LIDA CRUZ </p>
+                            <p class="text-white">Applicant Name: <?php echo $student->firstname?>  <?php echo $student->lastname?></p>
                         </div>
                         <div class="Contents">
                             <p class="note1 small">Please take note of your Applicant ID.</p>
-                            <h3 class="fw-bold pt-3"> Applicant ID: applicant ID READ </h4>
+                            <h3 class="fw-bold pt-3"> Applicant ID: <?php echo $student->applicantNumber?> </h4>
                             <p class="note2 pt-4"> Take the TUPSTAT on scheduled date, time, and specific venue. Bring with you the following: <br>
                                 a.) Test Permit <br>
                                 b.) 2 Sharpened pencil with eraser</p>

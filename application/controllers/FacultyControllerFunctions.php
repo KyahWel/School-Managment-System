@@ -13,7 +13,7 @@ class FacultyControllerFunctions extends CI_Controller
 		if (isset($_POST['firstname']) && isset($_POST['lastname']))
 		{
 			$this->teacherModel->insertData();
-			redirect('Admin/faculty');
+			
 		}
 	}
 
@@ -187,17 +187,7 @@ class FacultyControllerFunctions extends CI_Controller
 		$facultyData = $this->input->post('id');
         $records = $this->teacherModel->getData($facultyData);
 		$output = '
-			<form method="POST" action="../FacultyController/updateTeacher/'.$records->teacherID.'" id="editProfessorForm">
-				<div class="row mb-3">
-					<div class="col"> <!--Year Level-->
-						<label class="form-label">Year Level</label>
-						<input type="text" class="form-control" name="yearlevel">
-					</div>
-					<div class="col-6"> <!--Username-->
-						<label class="form-label">Username</label>
-						<input type="text" class="form-control" name="username" value="'.$records->username.'">
-					</div>
-				</div>
+			<form method="POST" action="../FacultyControllerFunctions/updateTeacherAdmin/'.$records->teacherID.'" id="editProfessorForm">
 				<div class="row mb-3">
 					<div class="col-6"> <!--College-->
 						<label class="form-label">College</label>
@@ -295,18 +285,22 @@ class FacultyControllerFunctions extends CI_Controller
 		echo $output;
 	}
 
+	public function updateTeacherAdmin($id) {
+		$this->teacherModel->adminupdateData($id);
+	}
+
 	public function updateTeacher($id) {
-		$data['row'] = $this->teacherModel->updateData($id);
+		 $this->teacherModel->updateData($id);
 		redirect('Faculty/profile');
 	}
 
 	public function deactivate($id) {
-		$data['row'] = $this->teacherModel->deactivateData($id);
+		$this->teacherModel->deactivateData($id);
 		redirect('Admin/faculty');
 	}
 
 	public function activate($id) {
-		$data['row'] = $this->teacherModel->reactivateData($id);
+		$this->teacherModel->reactivateData($id);
 		redirect('Admin/faculty');
 	}
 

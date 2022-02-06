@@ -11,7 +11,18 @@ $this->load->view('includes/adminSideBar');
 
     <!-- Faculty Main Page -->
     <div class="my-3" id="mainFaculty" style="display: block;">
-
+        <?php if ($this->session->flashdata('adminError')) : ?>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <?= $this->session->flashdata('adminError'); ?>
+                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+            </div>
+        <?php elseif ($this->session->flashdata('successAdmin')) : ?>
+            <!-- Successfull change password alert -->
+            <div class="alert alert-success alert-dismissible fade show">
+                <?= $this->session->flashdata('successAdmin'); ?>
+                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+            </div>
+        <?php endif?>
         <!-- Faculty Tab -->
         <div class="FacultyTab my-3">
             <h3><i>Welcome to Faculty Tab</i></h3>
@@ -181,25 +192,9 @@ $this->load->view('includes/adminSideBar');
                 </div>
 
                 <div class="modal-body">
-                    <form action="" id="editProfessorForm">
-                        <div class="row mb-3">
-                            <div class="col-6">
-                                <!--College-->
-                                <label for="college-edit" class="form-label">College</label>
-                                <input type="text" class="form-control" id="college-edit" name="college">
-                            </div>
-                            <div class="col-6">
-                                <!--Department-->
-                                <label for="department-edit" class="form-label">Department</label>
-                                <input type="text" class="form-control" id="department-edit" name="department">
-                            </div>
-                        </div>
-                        <div class="editProfessorButton d-flex justify-content-end">
-                            <!--Buttons-->
-                            <button class="btn btn-default" id="save" type="submit" value="save">Save</button>
-                            <button class="btn btn-default" id="cancel" type="button" data-bs-dismiss="modal">Cancel</button>
-                        </div>
-                    </form>
+                   <div id="edit_faculty">
+                       
+                   </div>
                 </div>
 
             </div>
@@ -229,6 +224,19 @@ $this->load->view('includes/adminSideBar');
                 },
                 success: function(data) {
                     $('#view_faculty').html(data);
+                }
+            });
+        });
+        $('.edit_data').click(function() {
+            var id = $(this).data('id');
+            $.ajax({
+                url: "<?php echo site_url('FacultyControllerFunctions/editFaculty'); ?>",
+                method: "POST",
+                data: {
+                    id: id
+                },
+                success: function(data) {
+                    $('#edit_faculty').html(data);
                 }
             });
         });

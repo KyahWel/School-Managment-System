@@ -86,7 +86,7 @@ $this->load->view('includes/adminSideBar');
 							<?php foreach ($section as $section) { ?>
 								<tr>
 									<td><?php echo $section->sectionName ?></td>
-									<td><?php echo $section->degree; ?> in <?php echo $section->major; ?></td>
+									<td><?php echo $section->degree; ?> <?php echo $section->major; ?></td>
 									<td><?php echo $section->yearlevel ?></td>
 									<td><?php echo $section->studCount ?>/<?php echo $section->capacity ?></td>
 									<td><?php echo $section->class_code ?></td>
