@@ -225,7 +225,7 @@ class sectionController extends CI_Controller {
 				</div>
 				<div class="editSectionButton d-flex justify-content-end">
 						<!--Buttons-->
-						<button class="btn btn-default" id="save" type="button"
+						<button class="btn btn-default" id="okay" type="button"
 							data-bs-dismiss="modal">Okay</button>
 				</div>
 		';

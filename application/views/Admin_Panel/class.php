@@ -13,7 +13,7 @@ $this->load->view('includes/adminSideBar');
 
         <!-- Class Tab -->
         <div class="ClassTab my-3">
-            <h3><i>Welcome to Class Tab</i></h3>
+            <h3>Class</h3>
         </div>
 
         <!-- Add Class -->
