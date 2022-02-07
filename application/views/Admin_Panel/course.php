@@ -4,6 +4,7 @@ $this->load->view('includes/adminSideBar');
 
 <head>
     <link href="<?php echo base_url('assets/css/course.css'); ?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url('assets/css/announcement.css'); ?>" rel="stylesheet" type="text/css">
     <title>Admin | Course</title>
 </head>
 <div class="height-100 pt-2 container-fluid">
@@ -123,7 +124,7 @@ $this->load->view('includes/adminSideBar');
 
         <!--Course View-->
         <div class="modal fade" id="viewCourse" tabindex="-1" aria-labelledby="viewCourseHeader" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="viewCourseHeader">View Course</h5>
