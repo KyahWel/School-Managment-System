@@ -112,7 +112,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         </div>
 
                                         <!-- Name Input-->
-                                        <div class="row mt-0 asterisk">
+                                        <div class="row mt-0 mb-3 asterisk">
                                             <div class="col-lg-3 col-md-6 py-1">
                                                 <label class="form-label small">First Name</label>
                                                 <input type="text" name="firstname" id="fname" class="form-control form-control-sm" aria-label="First name" required
@@ -148,7 +148,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         </div>
 
                                         <!-- LRN and Gender-->
-                                        <div class="row mt-2 small asterisk">
+                                        <div class="row mt-4 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12 pt-1">LRN:</label>
                                             <div class="col-lg-3 col-md-12">
                                                 <input type="text" name="LRN" id="lrn" class="form-control form-control-sm"  minlength="12" maxlength="12" aria-label="LRN" required 
@@ -175,7 +175,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         </div>
 
                                         <!-- Birthdate and Age-->
-                                        <div class="row mt-2 small asterisk">
+                                        <div class="row mt-4 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12 pt-1">Birth Date:</label>
                                             <div class="col-lg-3 col-md-12">
                                                 <input type="date" name='birthday' id="birthdate" class="form-control form-control-sm" aria-label="Birthdate" required>
@@ -196,7 +196,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         </div>
 
                                         <!-- Birthplace-->
-                                        <div class="row mt-2 small asterisk">
+                                        <div class="row mt-4 small asterisk">
                                             <label class="form-label col-lg-2 pt-1">Birth Place:</label>
                                             <div class="col-lg-3">
                                                 <input type="text" name='birthplace' id="birthplace1" class="form-control form-control-sm" aria-label="Birthpalace" required>
@@ -207,7 +207,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         </div>
 
                                         <!-- Contact Number and Landline-->
-                                        <div class="row mt-2 small asterisk">
+                                        <div class="row mt-4 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12 pt-1">Contact Number:</label>
                                             <div class="col-lg-3 col-md-12">
                                                 <input type="tel" name='contactnum' id="contact" class="form-control form-control-sm" aria-label="Contact Number" required
@@ -228,7 +228,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         </div>
 
                                         <!-- Email Address-->
-                                        <div class="row mt-2 small asterisk">
+                                        <div class="row mt-4 small asterisk">
                                             <label class="form-label col-lg-2 pt-1">Email Address:</label>
                                             <div class="col-lg-4">
                                                 <input type="email" name='email' id="email1" class="form-control form-control-sm" aria-label="Email Address" required>
@@ -243,7 +243,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <p class="fw-bold">PERMANENT ADDRESS</p>
 
                                         <!--Unit and Street-->
-                                        <div class="row mt-2 small asterisk">
+                                        <div class="row mt-4 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12  pt-1">Unit #:</label>
                                             <div class="col-lg-3 col-md-12">
                                                 <input type="text" name='unit' id="unit1" class="form-control form-control-sm" aria-label="Unit Number" required>
@@ -263,7 +263,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         </div>
 
                                         <!-- Barangay and City-->
-                                        <div class="row mt-2 small asterisk">
+                                        <div class="row mt-4 small asterisk">
                                             <label class="form-label col-lg-2 col-md-12  pt-1">Barangay:</label>
                                             <div class="col-lg-3 col-md-12">
                                                 <input type="text" name='barangay' id="brgy" class="form-control form-control-sm" aria-label="Barangay" required
@@ -285,7 +285,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         </div>
 
                                         <!-- Zipcode and Province-->
-                                        <div class="row mt-2 small asterisk">
+                                        <div class="row mt-4 small asterisk">
 
                                             <label class="form-label col-lg-2 col-md-6 pt-1">Zipcode:</label>
                                             <div class="col-lg-3 col-md-6">
@@ -564,10 +564,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
         </div>
     </template>
 
-    <!-- Confirmation Page -->
-
-    <!-- Modal -->
-        <div class="modal fade" id="confirmationPage" data-bs-backdrop="static" aria-modal="true" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <!-- Confirmation Page Modal-->
+        <div class="modal fade" 
+                id="confirmationPage"
+                data-bs-backdrop="static"
+                aria-modal="true"
+                data-bs-keyboard="false" 
+                data-target-custom="#myModal"
+                tabindex="-1" 
+                aria-labelledby="staticBackdropLabel" 
+                aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
