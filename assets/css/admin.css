@@ -23,51 +23,6 @@
 #create{
     margin-bottom: 20px;
 }
-.accordion-item{
-    border-radius: 30px;
-}
-.accordion-button{
-    background-color: #302323;
-    color: white;
-    font-size: 0.9rem;
-    padding: 15px 1.3rem;
-}
-.accordion-item:first-of-type .accordion-button{
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-}
-.accordion-item:last-of-type {
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
-}
-.accordion-item:last-of-type .accordion-button.collapsed {
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
-    background: maroon;
-}
-.accordion-item:last-of-type {
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-}
-.accordion-button::after{
-    filter: brightness(0%) invert(100%);
-}
-.accordion-button:not(.collapsed){
-    background-color: #800000;
-    color:white;
-}
-.accordion-button:not(.collapsed)::after{
-    filter: brightness(0%) invert(100%);
-}
-.accordion-button:focus{
-    box-shadow: none;
-}
-#addAdminForm .form-control:focus{
-    box-shadow: none;
-    border-color: #800000;
-}
 
 /* Save and Cancel Button */
 
