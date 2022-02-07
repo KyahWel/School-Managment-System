@@ -117,7 +117,7 @@ $this->load->view('includes/adminSideBar');
             <div class="tab-content" id="viewStudentsTab">
                 <div class="tab-pane show active" id="studentsTabContent" role="tabpanel" aria-labelledby="Students Information">
                     <div class="table-responsive">
-                        <table class="table align-middle table-striped table-borderless table-hover" id="table-bodyStud">
+                        <table class="table align-middle table-striped table-borderless table-hover" aria-label="studentTab" id="table-bodyStud">
                             <!--Table Body-->
                             <thead class="text-center">
                                 <tr>
@@ -146,7 +146,7 @@ $this->load->view('includes/adminSideBar');
                 <!-- Faculty List -->
                 <div class="tab-pane" id="facultyTabContent" role="tabpanel" aria-labelledby="Faculty Information">
                     <div class="table-responsive">
-                        <table class="table align-middle table-striped table-borderless table-hover" id="table-bodyFac">
+                        <table class="table align-middle table-striped table-borderless table-hover" aria-label="facultyTab" id="table-bodyFac">
                             <!--Table Body-->
                             <thead class="text-center">
                                 <tr>

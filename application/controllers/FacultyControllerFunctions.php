@@ -24,7 +24,7 @@ class FacultyControllerFunctions extends CI_Controller
 		$sectionSched = $this->teacherModel->getSchedule($facultyData);
 		$output = '
 		<div class="viewProfessorTitle">
-            <button type="button" class="btn btn-default btn-sm" id="back-button" onclick="mainFaculty()"><i class="fa fa-arrow-left"></i> Back</button>
+            <button type="button" class="btn btn-default btn-sm" id="back-button" onclick="mainFaculty()"><em class="fa fa-arrow-left"></em> Back</button>
             <h3>'.$records->firstname.'\'s Profile</h3>
         </div>
 
