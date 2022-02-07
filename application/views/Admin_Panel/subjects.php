@@ -11,7 +11,6 @@ $this->load->view('includes/adminSideBar');
             text-overflow: ellipsis;
             white-space: nowrap;
         }
-
         .table-body td {
             max-width: 250px;
             overflow: hidden;
@@ -19,12 +18,46 @@ $this->load->view('includes/adminSideBar');
             white-space: nowrap;
             line-height: 0;
         }
+        ul {
+            margin: 0px;
+            padding: 0px;
+        }
+        #saveSubject,
+        #saveEdit {
+            background-color: #800000;
+            border-color: transparent;
+            color: white;
+            text-decoration: none;
+            font-size: 0.8rem;
+            margin: 0px 8px;
+        }
+        #cancelSubject,
+        #cancelEdit {
+            background-color: #aaaaaa;
+            border-color: transparent;
+            color: black;
+            text-decoration: none;
+            font-size: 0.8rem;
+            margin: 0px;
+        }
+        #saveSubject:hover,
+        #saveEdit:hover,
+        #cancelSubject:hover,
+        #cancelEdit:hover {
+            background-color: white;
+            border-color: #800000;
+            color: #800000;
+            font-size: 0.8rem;
+        }
+        .btn:focus {
+            box-shadow: none;
+        }
     </style>
 </head>
 <div class="height-100 pt-2 container-fluid">
     <div class="my-3">
         <div class="CourseTab my-3">
-            <h4 class="fw-bold"> Subjects Tab</h4>
+            <h4 class="fw-bold">Subject</h4>
         </div>
         <!--Add Subject-->
         <div class="col-12 align-self-center pt-2 my-3">
@@ -101,7 +134,7 @@ $this->load->view('includes/adminSideBar');
                                         <input type="number" name="units" class="form-control" aria-labelledby="Units" required>
                                     </div>
                                 </div>
-                                <div class="addCourseButton d-flex justify-content-end">
+                                <div class="addSubjectButton d-flex justify-content-end">
                                     <button class="btn btn-default" id="saveSubject" type="submit" value="save">Save</button>
                                     <button class="btn btn-default" id="cancelSubject" type="reset" value="cancel">Cancel</button>
                                 </div>
@@ -123,7 +156,7 @@ $this->load->view('includes/adminSideBar');
                     </div>
                 </div>
                 <div class="table-responsive py-2">
-                    <table class="table table-default align-middle table-striped table-borderless table-hover table-body" id="subjectTable">
+                    <table class="table table-default align-middle table-striped table-borderless table-hover table-body" aria-label="subjectList" id="subjectTable">
                         <thead>
                             <tr>
                                 <th class="pb-3">Subject Code</th>
@@ -148,7 +181,7 @@ $this->load->view('includes/adminSideBar');
                                                 <ul>
                                                     <li>
                                                         <button type="button" data-id='' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editSubject">
-                                                            <i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button>
+                                                            <em class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></em> Edit</button>
                                                     </li>
                                                     <li><button type="button" class="btn" onclick="location.href='<?php if ($subjectrow->status == 1) {
                                                                                                                         echo site_url('subjectController/deactivate');
@@ -163,7 +196,7 @@ $this->load->view('includes/adminSideBar');
                                                 <ul>
                                                     <li>
                                                         <button type="button" data-id='<?php echo $subjectrow->subjectID; ?>' class="btn" disabled style="background-color: gray;">
-                                                            <i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button>
+                                                            <em class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></em> Edit</button>
                                                     </li>
                                                     <li><button type="button" class="btn" id="uniqueSubjectEdit" onclick="location.href='<?php if ($subjectrow->status == 1) {
                                                                                                                                                 echo site_url('subjectController/deactivate');
@@ -266,11 +299,11 @@ $this->load->view('includes/adminSideBar');
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="pt-3 d-flex justify-content-end">
-                                    <button class="btn btn-default" id="save" type="submit" value="save">Save</button>
+                                <div class="editSubjectButton d-flex justify-content-end mt-3">
+                                    <button class="btn btn-default" id="saveEdit" type="submit" value="save">Save</button>
+                                    <button class="btn btn-default" id="cancelEdit" type="button" data-bs-dismiss="modal">Cancel</button>
+                                </div>
                             </form>
-                            <button class="btn btn-default" id="cancel" type="button" data-bs-dismiss="modal">Cancel</button>
                         </div>
                         </form>
                     </div>

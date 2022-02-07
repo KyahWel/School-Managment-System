@@ -66,27 +66,48 @@ body {
 .accordion-button:focus{
     box-shadow: none;
 }
-
 #addCourseForm .form-control:focus{
     box-shadow: none;
     border-color: #800000;
 }
-#save{
+
+/* Save and Cancel Buttons */
+
+#saveCourse,
+#saveEdit,
+#okay{
     background-color: #800000;
     border-color: transparent;
     color: white;
     text-decoration: none;
-    margin-right: 8px;
+    font-size: 0.8rem;
+    margin: 0px 8px;
+}
+#saveCourse:hover,
+#saveEdit:hover,
+#okay:hover{
+    background-color: white;
+    border-color: #800000;
+    color: #800000;
     font-size: 0.8rem;
 }
-#cancel{
+#cancelCourse,
+#cancelEdit{
     background-color: #aaaaaa;
     border-color: transparent;
     color: black;
     text-decoration: none;
     font-size: 0.8rem;
+    margin: 0px;
 }
-.container .addCourseButton button:focus{
+#cancelEdit:hover,
+#cancelCourse:hover{
+    background-color: white;
+    border-color: #800000;
+    color: #800000;
+    font-size: 0.8rem;
+}
+.btn:focus{
     box-shadow: none;
 }
 
@@ -112,19 +133,6 @@ select:active{
 textarea:focus, input:focus{
     outline: none;
 }
-#save:hover{
-    background-color: white;
-    border-color: #800000;
-    color: #800000;
-    font-size: 0.8rem;
-}
-#cancel:hover{
-    background-color: white;
-    border-color: #800000;
-    color: #800000;
-    font-size: 0.8rem;
-}
-
 
 /* Filter and Search */
 
@@ -176,6 +184,11 @@ textarea:focus, input:focus{
 }
 
 /* Action Button */
+
+ul{
+    margin: 0px;
+    padding: 0px;
+}
 #table-body tbody .action-buttons li{
     list-style-type: none;
     display: inline-block;
@@ -218,4 +231,9 @@ textarea:focus, input:focus{
 #editCourseForm .form-control:focus{
     box-shadow: none;
     border-color: #800000;
+}
+
+.form-control[readonly]{
+    background-color: white;
+    opacity: 1;
 }

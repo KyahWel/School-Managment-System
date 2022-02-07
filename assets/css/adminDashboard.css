@@ -1,3 +1,8 @@
+h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
 .billboard {
     background: white;
     border-radius: 25px;
@@ -55,6 +60,9 @@ h5.details{
 .modal button.btn-secondary:hover{
     background-color: transparent;
     border:  1px solid gray;
+}
+.modal button.btn-secondary:focus{
+    box-shadow: none;
 }
 
 .carousel-item.active::before {

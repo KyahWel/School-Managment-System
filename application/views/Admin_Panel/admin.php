@@ -25,31 +25,29 @@ $this->load->view('includes/adminSideBar');
                             <form method="POST" action="<?php echo site_url('admin_main/addadmin') ?>" id="addAdminForm">
                                 <div class="row mb-3">
                                     <div class="col-6">
-                                        <label class="form-label">Firstname:</label>
-                                        <input type="text" name="firstname" class="form-control">
+                                        <label for="firstname" class="form-label">Firstname:</label>
+                                        <input type="text" id="firstname" name="firstname" class="form-control">
                                     </div>
                                     <div class="col-6">
-                                        <label class="form-label">Lastname:</label>
-                                        <input type="text" name="lastname" class="form-control">
+                                        <label for="lastname" class="form-label">Lastname:</label>
+                                        <input type="text" id="lastname" name="lastname" class="form-control">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-6">
-                                        <label class="form-label">Username:</label>
-                                        <input type="text" name="username" class="form-control">
+                                        <label for="username" class="form-label">Username:</label>
+                                        <input type="text" id="username" name="username" class="form-control">
                                     </div>
                                     <div class="col-6">
-                                        <label class="form-label">Password:</label>
-                                        <input type="password" name="password" class="form-control">
+                                        <label for="password" class="form-label">Password:</label>
+                                        <input type="password" id="password" name="password" class="form-control">
                                     </div>
                                 </div>
                                 <div class="addAdminButton d-flex justify-content-end">
-                                    <button class="btn btn-default" id="save" type="submit" value="save">Save</button>
-                                    <button class="btn btn-default" id="cancel" type="reset" value="cancel">Cancel</button>
+                                    <button class="btn btn-default" id="saveAdmin" type="submit" value="save">Save</button>
+                                    <button class="btn btn-default" id="cancelAdmin" type="reset" value="cancel">Cancel</button>
                                 </div>
                             </form>
-                            <br>
-
                         </div>
                     </div>
                 </div>
@@ -68,7 +66,7 @@ $this->load->view('includes/adminSideBar');
                 </div>
 
                 <div class="table-responsive py-2">
-                    <table class="table table-default align-middle table-striped table-borderless table-hover" id="table-body">
+                    <table class="table table-default align-middle table-striped table-borderless table-hover" aria-label="adminList" id="table-body">
                         <thead>
                             <tr>
                                 <th class="pb-3">ID</th>
@@ -92,25 +90,27 @@ $this->load->view('includes/adminSideBar');
                                     <td><?php echo $row->status; ?></td>
                                     <td>
                                         <div class="action-buttons">
+                                        <ul>
                                             <?php if ($row->status == 1) : ?>
-                                                <li><button type="button" id="view" data-id='<?php echo $row->adminID; ?>' class="btn view_data" data-bs-toggle="modal" data-bs-target="#viewAdmin"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                                <?php if ($row->adminID == 1) : ?>
-                                                    <li><button type="button" id="edit" data-id='<?php echo $row->adminID; ?>' class="btn" disabled style="background-color: gray;"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-                                                    <li><button type="button" class="btn" disabled style="background-color: gray;"> Deactivate </button>
-                                                    <?php else : ?>
-                                                    <li><button type="button" id="edit" data-id='<?php echo $row->adminID; ?>' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editAdmin"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-                                                    <li><button type="button" class="btn" id="status" onclick="location.href='<?php echo site_url('admin_main/deactivate') ?>/<?php echo $row->adminID; ?>'">
-                                                            Deactivate
-                                                        </button>
-                                                    <?php endif ?>
-                                                <?php else : ?>
-                                                    <li><button type="button" id="view" data-id='<?php echo $row->adminID; ?>' class="btn" disabled style="background-color: gray;"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                                    <li><button type="button" id="edit" data-id='<?php echo $row->adminID; ?>' class="btn" disabled style="background-color: gray;"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-                                                    <li><button type="button" class="btn" id="status" onclick="location.href='<?php echo site_url('admin_main/activate') ?>/<?php echo $row->adminID; ?>'">
-                                                            Activate
-                                                        </button>
-                                                    </li>
-                                                <?php endif ?>
+                                                <li><button type="button" id="view" data-id='<?php echo $row->adminID; ?>' class="btn view_data" data-bs-toggle="modal" data-bs-target="#viewAdmin"><em class="fas fa-eye" data-bs-toggle="tooltip" title="View"></em> View</button></li>
+                                            <?php if ($row->adminID == 1) : ?>
+                                                <li><button type="button" id="edit" data-id='<?php echo $row->adminID; ?>' class="btn" disabled style="background-color: gray;"><em class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></em> Edit</button></li>
+                                                <li><button type="button" class="btn" disabled style="background-color: gray;"> Deactivate </button>
+                                            <?php else : ?>
+                                                <li><button type="button" id="edit" data-id='<?php echo $row->adminID; ?>' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editAdmin"><em class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></em> Edit</button></li>
+                                                <li><button type="button" class="btn" id="status" onclick="location.href='<?php echo site_url('admin_main/deactivate') ?>/<?php echo $row->adminID; ?>'">
+                                                        Deactivate
+                                                    </button>
+                                            <?php endif ?>
+                                            <?php else : ?>
+                                                <li><button type="button" id="view" data-id='<?php echo $row->adminID; ?>' class="btn" disabled style="background-color: gray;"><em class="fas fa-eye" data-bs-toggle="tooltip" title="View"></em> View</button></li>
+                                                <li><button type="button" id="edit" data-id='<?php echo $row->adminID; ?>' class="btn" disabled style="background-color: gray;"><em class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></em> Edit</button></li>
+                                                <li><button type="button" class="btn" id="status" onclick="location.href='<?php echo site_url('admin_main/activate') ?>/<?php echo $row->adminID; ?>'">
+                                                        Activate
+                                                    </button>
+                                                </li>
+                                            <?php endif ?>
+                                        </ul>
                                         </div>
                                     </td>
                                 </tr>
@@ -122,7 +122,7 @@ $this->load->view('includes/adminSideBar');
         </div>
 
         <!--Admin View-->
-        <div class="modal fade" id="viewAdmin" tabindex="-1" aria-labelledby="viewAdminHeader" aria-hidden="true">
+        <div class="modal fade" id="viewAdmin" tabindex="-1" aria-modal="true" aria-labelledby="viewAdminHeader" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content cont">
                     <div class="modal-header">
@@ -134,7 +134,7 @@ $this->load->view('includes/adminSideBar');
 
                         </div>
                         <div class="editAdminButton d-flex justify-content-end">
-                            <button class="btn btn-default" id="cancelView" type="button" data-bs-dismiss="modal">Close</button>
+                            <button class="btn btn-default" id="closeView" type="button" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
@@ -142,7 +142,7 @@ $this->load->view('includes/adminSideBar');
         </div>
 
         <!--Edit Admin-->
-        <div class="modal fade" id="editAdmin" tabindex="-1" aria-labelledby="editAdminHeader" aria-hidden="true">
+        <div class="modal fade" id="editAdmin" tabindex="-1" aria-modal="true" aria-labelledby="editAdminHeader" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -154,7 +154,6 @@ $this->load->view('includes/adminSideBar');
                         <div id="edit_admin">
 
                         </div>
-
                     </div>
                 </div>
             </div>

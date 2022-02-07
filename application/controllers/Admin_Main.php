@@ -21,33 +21,33 @@ class Admin_Main extends CI_Controller
         $records = $this->AdminModel->getData($adminData);
 		$output = '
 			<div class="row mb-3">
-				<div>
-					<label class="col-lg-3 col-md-3 col-sm-12 fw-bold pb-2">ID: </label>
-					<label>'.$records->adminID.'</label>
+				<div class="col-6">
+					<label for="id" class="form-label">ID</label>
+					<input type="text" class="form-control" name="id" value="'.$records->adminID.'" readonly>				
 				</div>
-				<div>
-					<label class="col-lg-3 col-md-3 col-sm-12 fw-bold">Admin Number: </label>
-					<label>'.$records->adminNumber.'</label>
-				</div>
-			</div>
-			<div class="row mb-3">
-				<div>
-					<label class="col-lg-3 col-md-3 col-sm-12 fw-bold pb-2">Username: </label>
-					<label>'.$records->username.'</label>
-				</div>
-				<div>
-					<label class="col-lg-3 col-md-3 col-sm-12 fw-bold">Password(hashed): </label>
-					<label class="hashed">'.$records->password.'</label>
+				<div class="col-6">
+					<label for="adminNumber" class="form-label">Admin Number</label>
+					<input type="text" class="form-control" name="adminNumber" value="'.$records->adminNumber.'" readonly>
 				</div>
 			</div>
 			<div class="row mb-3">
-				<div>
-					<label class="col-lg-3 col-md-3 col-sm-12 fw-bold pb-2">Firstname: </label>
-					<label>'.$records->firstname.'</label>
+				<div class="col-6">
+					<label for="username" class="form-label">Username</label>
+					<input type="text" class="form-control" name="username" value="'.$records->username.'" readonly>				
 				</div>
-				<div>
-					<label class="col-lg-3 col-md-3 col-sm-12 fw-bold">Lastname: </label>
-					<label>'.$records->lastname.'</label>
+				<div class="col-6">
+					<label for="password" class="form-label">Password (Hashed)</label>
+					<input type="text" class="form-control" name="password" value="'.$records->password.'" readonly>
+				</div>
+			</div>
+			<div class="row mb-3">
+				<div class="col-6">
+					<label for="firstname" class="form-label">First Name</label>
+					<input type="text" class="form-control" name="firstname" value="'.$records->firstname.'" readonly>
+				</div>
+				<div class="col-6">
+					<label for="lastname" class="form-label">Last Name</label>
+					<input type="text" class="form-control" name="lastname" value="'.$records->lastname.'" readonly>
 				</div>
 			</div>
 		';
@@ -60,6 +60,12 @@ class Admin_Main extends CI_Controller
 			<form method="POST" action="../admin_main/updateAdmin/'.$records->adminID.'" id="editAdminForm">
 				<div class="row mb-3">
 					<div class="col-6">
+						<label class="form-label">Username:</label>
+						<input type="text" class="form-control" name="username" value="'.$records->username.'">
+					</div>
+				</div>
+				<div class="row mb-3">
+					<div class="col-6">
 						<label class="form-label">Firstname:</label>
 						<input type="text" class="form-control" name="firstname" value="'.$records->firstname.'">
 					</div>
@@ -68,15 +74,9 @@ class Admin_Main extends CI_Controller
 						<input type="text" class="form-control" name ="lastname" value="'.$records->lastname.'">
 					</div>
 				</div>
-				<div class="row mb-3">
-					<div class="col-6">
-						<label class="form-label">Username:</label>
-						<input type="text" class="form-control" name="username" value="'.$records->username.'">
-					</div>
-				</div>
 				<div class="editAdminButton d-flex justify-content-end">
-					<button class="btn btn-default" id="save" type="submit" value="save">Save Changes</button>
-					<button class="btn btn-default" id="cancel" type="button" data-bs-dismiss="modal">Cancel</button><br>
+					<button class="btn btn-default" id="saveEdit" type="submit" value="save">Save Changes</button>
+					<button class="btn btn-default" id="cancelEdit" type="button" data-bs-dismiss="modal">Cancel</button><br>
 				</div>
 			</form>';
 		echo $output;
