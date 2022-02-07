@@ -13,7 +13,7 @@ $this->load->view('includes/adminSideBar');
 
 		<!-- Section Tab -->
 		<div class="SectionTab my-3">
-			<h3><i>Welcome to Section Tab</i></h3>
+			<h3>Section</h3>
 		</div>
 
 		<div class="col-12 align-self-center my-3">
@@ -32,7 +32,7 @@ $this->load->view('includes/adminSideBar');
 					<div class="row mb-3">
 						<div class="col-lg-3">
 							<!--Year Level-->
-							<label class="form-label">Year Level</label>
+							<label for="yearlevel" class="form-label">Year Level</label>
 							<select name="yearLevel" id="yearlevel" class="form-select">
 								<option value="" disabled selected hidden></option>
 								<option value="1">First Year</option>
@@ -43,7 +43,7 @@ $this->load->view('includes/adminSideBar');
 						</div>
 						<div class="col-lg-3">
 							<!--Course-->
-							<label class="form-label">Course</label>
+							<label for="course" class="form-label">Course</label>
 							<select name="course" id="course" class="form-select">
 								<option value="" disabled selected hidden></option>
 								<?php foreach ($course as $courserow) { ?>
@@ -54,7 +54,7 @@ $this->load->view('includes/adminSideBar');
 						</div>
 						<div class="col-lg-4">
 							<!--Section-->
-							<label class="form-label">Section</label>
+							<label for="section" class="form-label">Section</label>
 							<select name="section" id="section" class="form-select">
 								<option value="" disabled selected hidden></option>
 							</select>
@@ -63,16 +63,16 @@ $this->load->view('includes/adminSideBar');
 							</div>
 						</div>
 						<div class="col-lg-2 d-flex justify-content-evenly" id="addSectionButton">
-							<button type="button" class="btn btn-sm" id="add" data-bs-toggle="modal" data-bs-target="#addSection"><i class="fas fa-plus" data-bs-toggle="tooltip" title="Add Section"></i></button>
-							<button type="button" class="btn btn-sm" id="edit" data-bs-toggle="modal" data-bs-target="#editSection"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit Section"></i></button>
-							<button type="button" class="btn btn-sm" id="delete" data-bs-toggle="modal" data-bs-target="#deleteSection"><i class="fas fa-eraser" data-bs-toggle="tooltip" title="Delete Section"></i></button>
+							<button type="button" class="btn btn-sm" id="add" data-bs-toggle="modal" data-bs-target="#addSection"><em class="fas fa-plus" data-bs-toggle="tooltip" title="Add Section"></em></button>
+							<button type="button" class="btn btn-sm" id="edit" data-bs-toggle="modal" data-bs-target="#editSection"><em class="fas fa-pen" data-bs-toggle="tooltip" title="Edit Section"></em></button>
+							<button type="button" class="btn btn-sm" id="delete" data-bs-toggle="modal" data-bs-target="#deleteSection"><em class="fas fa-eraser" data-bs-toggle="tooltip" title="Delete Section"></em></button>
 						</div>
 					</div>
 				</div>
 
 				<!--Table Body-->
 				<div class="table-responsive">
-					<table class="table table-body align-middle table-striped table-borderless table-hover" id="sectionTable">
+					<table class="table table-body align-middle table-striped table-borderless table-hover" aria-label="sectionList" id="sectionTable">
 						<thead>
 							<tr>
 								<th>Section</th>

@@ -57,7 +57,7 @@ $this->load->view('includes/adminSideBar');
 <div class="height-100 pt-2 container-fluid">
     <div class="my-3">
         <div class="CourseTab my-3">
-            <h4 class="fw-bold"> Subjects Tab</h4>
+            <h4 class="fw-bold">Subject</h4>
         </div>
         <!--Add Subject-->
         <div class="col-12 align-self-center pt-2 my-3">
