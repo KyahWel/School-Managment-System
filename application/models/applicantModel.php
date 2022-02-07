@@ -108,6 +108,7 @@ class applicantModel extends CI_Model {
                                 'good_moral' => $gm_newimgname
                             ); 
 							$this->db->insert('applicant_accounts',$data);
+							
 							unset($_POST);
                         } 
                     } 
