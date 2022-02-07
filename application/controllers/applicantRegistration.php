@@ -6,6 +6,7 @@ class applicantRegistration extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('applicantModel');
+		$this->load->model('pdfGeneratorModel');
 		$this->load->model('courseModel');
 	}
 
@@ -24,7 +25,19 @@ class applicantRegistration extends CI_Controller {
 	public function final_step(){
 		$data['student'] = $this->applicantModel->viewAppliedData($this->session->flashdata('fname'),$this->session->flashdata('lname'));
 		$this->load->view('applicant/applicantFinalStep',$data);
-		$this->session->set_flashdata('success','Applied Successfully!'); 
+		$this->session->set_flashdata('successApplicant','Applied Successfully!'); 
 	}
 
+	public function downloadTestPermit($id)
+	{
+		$this->pdfGeneratorModel->generateTestPermit($id);
+	}
+
+	public function verification(){
+		$fname = $this->input->post('fname');
+		$lname = $this->input->post('lname');
+		$middlename = $this->input->post('middlename');
+		$extname = $this->input->post('extname');
+		echo $this->applicantModel->verify($fname,$lname,$middlename,$extname);
+	}
 }
