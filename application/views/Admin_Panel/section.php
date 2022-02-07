@@ -185,11 +185,11 @@ $this->load->view('includes/adminSideBar');
 
 				<!-- Edit Section -->
 				<div class="modal fade" id="editSection" tabindex="-1" aria-modal="true" aria-labelledby="editSectionHeader" aria-hidden="true">
-					<div class="modal-dialog modal-lg modal-dialog-centered">
+					<div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
 						<div class="modal-content">
 
 							<div class="modal-header">
-								<h5 class="modal-title" id="editSectionHeader">Edit Section</h5>
+								<h5 class="modal-title" id="editSectionHeader">View Section</h5>
 								<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
 

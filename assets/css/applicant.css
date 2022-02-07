@@ -280,6 +280,11 @@ label {
 }
 /* final procedure */
 
+#final_step .Wrapper{
+    border: 0.1px solid rgb(221, 220, 220);
+    box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.25);
+}
+
 #final_step .Wrapper .Contents p.note1 {
     color: red;
     letter-spacing: 0.5px;
@@ -372,4 +377,9 @@ label {
   .modal h5.confirmtitle{
       letter-spacing: 1px;
       text-align: center;
+  }
+
+  #applSidebar{
+    border-right: 1px solid rgb(232, 226, 226);
+    box-shadow: 3px 0px 5px 0px rgba(0, 0, 0, 0.25);
   }

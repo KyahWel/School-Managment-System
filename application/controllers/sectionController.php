@@ -141,7 +141,7 @@ class sectionController extends CI_Controller {
 					</div>
 					
 
-					<div class="table-responsive">
+					<div class="table-responsive py-2">
 					Number of students in this section: '.count($student).'/'.$records->capacity.'
 						<table
 							class="table table-body align-middle table-striped table-borderless table-hover">
@@ -169,52 +169,12 @@ class sectionController extends CI_Controller {
 							</tbody>
 						</table>
 					</div>
-					<div class="table-title">
-										<div class="row">
-											<div class="col">
-												<h2>List of Students without sections</h2>
-											</div>
-										</div>
-									</div>
-									<br>
-									<div class="table-responsive">
-										<table class="table table-body align-middle table-striped table-borderless table-hover">
-											<thead>
-												<tr>
-													<th style="width: 10px"></th>
-													<th>Student ID</th>
-													<th>Student Name</th>
-													<th>Year Level</th>
-													<th>Course</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr><input class="mx-3 parent" type="checkbox" onclick="toggleEdit(this);">Select Students</tr>											
-												';
-									foreach($studentNoSection as $studentNoSection){
-										$output.= '
-												<tr>
-													<td style="text-align: justify"><input type="checkbox" name="studentList[]" value ='.$student->studentID.' class="mx-2 child">
-													</td>	
-													<td>'.$studentNoSection->studentNumber.'</td>
-													<td>'.$studentNoSection->firstname.' '.$studentNoSection->lastname.'</td>
-													<td>'.$studentNoSection->yearlevel.'</td>
-													<td>'.$studentNoSection->degree.' in '.$studentNoSection->major.'  </td>
-												</tr>';
-									}
-									$output.='											
-											</tbody>
-										</table>
-									</div>
-									<br>
 					<div class="editSectionButton d-flex justify-content-end">
 						<!--Buttons-->
-						<button class="btn btn-default" id="save" type="submit" value="save">Add
-							Students</button>
-						<button class="btn btn-default" id="cancel" type="button"
-							data-bs-dismiss="modal">Cancel</button>
-					</div>
-				</form>
+						<button class="btn btn-default" id="save" type="button"
+							data-bs-dismiss="modal">Okay</button>
+				</div>
+					
 			';
 		}
 		else{
