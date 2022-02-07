@@ -34,8 +34,9 @@ class teacherModel extends CI_Model {
 			);
 		$this->db->insert('teacher_accounts',$data);
 		unset($_POST);
-		$this->session->set_flashdata('successAdmin','Added faculty account successfully'); 
-		redirect('Admin/dashboard');	
+		$this->session->set_flashdata('successAdmin','Added faculty account successfully');
+		redirect('Admin/faculty');
+			
 	}
 
 	public function viewData()
@@ -60,6 +61,20 @@ class teacherModel extends CI_Model {
 		return $query->row();
 	}
 
+	
+	public function adminupdateData($id)
+	{
+		$data = array(
+			'college' => $_POST['college'],
+			'department' => $_POST['department']
+		);
+		$this->db->where('teacherID',$id);
+		$this->db->update('teacher_accounts',$data);
+		$this->session->set_flashdata('successAdmin','Updated faculty account successfully');
+		redirect('Admin/faculty');
+	}
+
+
 	public function updateData($id)
 	{
 		$data = array(
@@ -73,6 +88,7 @@ class teacherModel extends CI_Model {
 		);
 		$this->db->where('teacherID',$id);
 		$this->db->update('teacher_accounts',$data);
+		
 	}
 
 	public function deactivateData($id){

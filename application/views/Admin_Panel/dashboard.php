@@ -12,18 +12,8 @@ $this->load->view('includes/adminSideBar');
 <body>
     <div class="height-100 pt-2 container-fluid">
         <!-- If user accessed login page or other pages -->
-        <?php if ($this->session->flashdata('adminError')) : ?>
-            <div class="alert alert-danger alert-dismissible fade show">
-                <?= $this->session->flashdata('adminError'); ?>
-                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
-            </div>
-        <?php elseif ($this->session->flashdata('successAdmin')) : ?>
-            <!-- Successfull change password alert -->
-            <div class="alert alert-success alert-dismissible fade show">
-                <?= $this->session->flashdata('successAdmin'); ?>
-                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
-            </div>
-        <?php elseif ($this->session->flashdata('logout')) : ?>
+       
+        <?php if ($this->session->flashdata('logout')) : ?>
             <div class="alert alert-danger alert-dismissible fade show">
                 <?= $this->session->flashdata('logout'); ?>
                 <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
@@ -127,7 +117,7 @@ $this->load->view('includes/adminSideBar');
             <div class="tab-content" id="viewStudentsTab">
                 <div class="tab-pane show active" id="studentsTabContent" role="tabpanel" aria-labelledby="Students Information">
                     <div class="table-responsive">
-                        <table class="table align-middle table-striped table-borderless table-hover" id="table-bodyStud">
+                        <table class="table align-middle table-striped table-borderless table-hover" aria-label="studentTab" id="table-bodyStud">
                             <!--Table Body-->
                             <thead class="text-center">
                                 <tr>
@@ -156,7 +146,7 @@ $this->load->view('includes/adminSideBar');
                 <!-- Faculty List -->
                 <div class="tab-pane" id="facultyTabContent" role="tabpanel" aria-labelledby="Faculty Information">
                     <div class="table-responsive">
-                        <table class="table align-middle table-striped table-borderless table-hover" id="table-bodyFac">
+                        <table class="table align-middle table-striped table-borderless table-hover" aria-label="facultyTab" id="table-bodyFac">
                             <!--Table Body-->
                             <thead class="text-center">
                                 <tr>

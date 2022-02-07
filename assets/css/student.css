@@ -98,6 +98,10 @@ textarea:focus, input:focus{
 }
 
 /* Action Button */
+ul {
+    margin: 0px;
+    padding: 0px;
+}
 #table-body tbody .action-buttons li{
     list-style-type: none;
     display: inline-block;

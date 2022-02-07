@@ -62,7 +62,7 @@ body{
 .form-control{
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
+    /* text-overflow: ellipsis; */
 }
 .form-select:focus{
     box-shadow: none;
@@ -185,7 +185,6 @@ textarea:focus, input:focus{
 }
 #table-body tbody{
     text-align: center;
-
 }
 #table-body tr{
     overflow: hidden;
@@ -193,15 +192,19 @@ textarea:focus, input:focus{
     white-space: nowrap;
 }
 #table-body td{
- max-width: 200px;
- overflow: hidden;
- text-overflow: ellipsis;
- white-space: nowrap;
- line-height: 0px;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 0px;
 }
 
 /* Action Button */
 
+ul{
+    margin: 0px;
+    padding: 0px;
+}
 #table-body tbody .action-buttons li{
     list-style-type: none;
     display: inline-block;

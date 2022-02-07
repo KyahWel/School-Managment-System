@@ -29,18 +29,16 @@ $this->load->view('includes/adminSideBar');
 
                     <div id="addClass" class="accordion-collapse collapse" aria-labelledby="addClassHeader" data-bs-parent="#accordion-addClass">
                         <div class="accordion-body">
-                            <form method="POST" action="<?php echo site_url('classController/addClass') ?>">
+                            <form  method="POST" action="<?php echo site_url('classController/addClass')?>">
                                 <div class="row mb-3">
-                                    <div class="col-sm-6 col-md-6 col-lg-6">
-                                        <!--Year Level-->
+                                    <div class="col-sm-12 col-md-6 col-lg-6"> <!--Class Code-->
                                         <label class="form-label">Class Code</label>
-                                        <input type="text" class="form-control" name="classcode" required placeholder="Enter class code">
+                                        <input type="text" class="form-control" name="classcode" required placeholder="Enter class code"> 
                                     </div>
-                                    <div class="col-sm-6 col-md-6 col-lg-6">
-                                        <!--Year Level-->
-                                        <label class="form-label">Year Level</label>
+                                    <div class="col-sm-12 col-md-6 col-lg-6"> <!--Year Level-->
+                                        <label for="yearlevel" class="form-label">Year Level</label>
                                         <select name="yearlevel" id="yearlevel" required class="form-select">
-                                            <option value="" disabled selected hidden>Please Select</option>
+                                            <option value="" disabled selected  hidden>Please Select</option>
                                             <option value="1">First Year</option>
                                             <option value="2">Second Year</option>
                                             <option value="3">Third Year</option>
@@ -49,35 +47,27 @@ $this->load->view('includes/adminSideBar');
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <div class="col-sm-6 col-md-6 col-lg-6">
-                                        <!--Course-->
+                                    <div class="col-sm-12 col-md-6 col-lg-6"> <!--Course-->
                                         <label class="form-label">Course</label>
                                         <select name="courseID" id="courseID" required class="form-select">
                                             <option value="" disabled selected hidden>Please select</option>
                                             <?php foreach ($course as $courserow) { ?>
-                                                <option value="<?php echo $courserow->courseID ?>"><?php echo $courserow->degree ?> in <?php echo $courserow->major ?></option>
+                                                <option value="<?php echo $courserow->courseID ?>"><?php echo $courserow->degree ?><?php echo $courserow->major ?></option>
                                             <?php } ?>
                                         </select>
                                     </div>
-                                    <div class="col-sm-4 col-md-4 col-lg-4">
-                                        <!--Semester-->
+                                    <div class="col-sm-12 col-md-6 col-lg-4"> <!--Semester-->
                                         <label class="form-label">Semester</label>
                                         <select name="semester" id="semester" required class="form-select">
-                                            <option value="" disabled selected hidden>Please select</option>
+                                            <option value="" disabled selected hidden >Please select</option>
                                             <option value="1">First Semester</option>
                                             <option value="2">Second Semester</option>
                                         </select>
                                     </div>
-                                    <div class="loadSubject-button col-sm-2 col-md-2 col-lg-2">
-                                        <!-- Load Subects Button -->
-                                        <button type="button" id="load" class="btn loadSubjects">Load Subjects</button>
+                                    <div class="loadSubject-button col-sm-12 col-md-12 col-lg-2"> <!-- Load Subects Button -->
+                                        <button type="button" id="load" class="btn loadSubjects"><span>Load Subjects</span></button>   
                                     </div>
                                 </div>
-
-                                <div id="listSubjects">
-
-                                </div>
-
                                 <div class="addClassButton d-flex justify-content-end mt-3">
                                     <!--Buttons-->
                                     <button type="submit" class="btn btn-default" id="save" value="save">Save</button>
@@ -106,7 +96,7 @@ $this->load->view('includes/adminSideBar');
 
                 <!--Table Body-->
                 <div class="table-responsive py-2">
-                    <table class="table align-middle table-striped table-borderless table-hover" id="table-body">
+                    <table class="table align-middle table-striped table-borderless table-hover" aria-label="classList" id="table-body">
                         <thead>
                             <tr>
                                 <th class="pb-3">Class Code</th>
@@ -135,8 +125,8 @@ $this->load->view('includes/adminSideBar');
                                         <div class="action-buttons">
                                             <ul>
                                                 <?php if ($class->status == 1) : ?>
-                                                    <li><button type="button" id="view" data-id='<?php echo $class->class_code; ?>' class="btn view_data" data-bs-toggle="modal" data-bs-target="#viewClass"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                                    <li><button type="button" id="edit" data-id='<?php echo $class->class_code; ?>' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editClass"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
+                                                    <li><button type="button" id="view" data-id='<?php echo $class->class_code; ?>' class="btn view_data" data-bs-toggle="modal" data-bs-target="#viewClass"><em class="fas fa-eye" data-bs-toggle="tooltip" title="View"></em> View</button></li>
+                                                    <li><button type="button" id="edit" data-id='<?php echo $class->class_code; ?>' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editClass"><em class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></em> Edit</button></li>
                                                     <li>
                                                     <li><button type="button" class="btn" onclick="location.href='<?php if ($class->status == 1) {
                                                                                                                         echo site_url('classController/deactivate');
@@ -147,8 +137,8 @@ $this->load->view('includes/adminSideBar');
                                                         </button>
                                                     </li>
                                                 <?php else : ?>
-                                                    <li><button type="button" id="view" data-id='<?php echo $class->class_code; ?>' class="btn" disabled style="background-color: gray;"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                                    <li><button type="button" id="edit" data-id='<?php echo $class->class_code; ?>' class="btn" disabled style="background-color: gray;"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
+                                                    <li><button type="button" id="view" data-id='<?php echo $class->class_code; ?>' class="btn" disabled style="background-color: gray;"><em class="fas fa-eye" data-bs-toggle="tooltip" title="View"></em> View</button></li>
+                                                    <li><button type="button" id="edit" data-id='<?php echo $class->class_code; ?>' class="btn" disabled style="background-color: gray;"><em class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></em> Edit</button></li>
                                                     <li>
                                                     <li><button type="button" id="status" class="btn" onclick="location.href='<?php if ($class->status == 1) {
                                                                                                                                     echo site_url('classController/deactivate');
@@ -192,7 +182,7 @@ $this->load->view('includes/adminSideBar');
         </div>
 
         <!-- Edit Class -->
-        <div class="modal fade" id="editClass" tabindex="-1" aria-labelledby="editClassHeader" aria-hidden="true">
+        <div class="modal fade" id="editClass" tabindex="-1" aria-modal="true" aria-labelledby="editClassHeader" aria-hidden="true">
             <div class="modal-dialog modal-xl modal-dialog-centered">
                 <div class="modal-content">
 

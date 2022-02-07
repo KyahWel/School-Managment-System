@@ -11,10 +11,21 @@ $this->load->view('includes/adminSideBar');
 
     <!-- Faculty Main Page -->
     <div class="my-3" id="mainFaculty" style="display: block;">
-
+        <?php if ($this->session->flashdata('adminError')) : ?>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <?= $this->session->flashdata('adminError'); ?>
+                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+            </div>
+        <?php elseif ($this->session->flashdata('successAdmin')) : ?>
+            <!-- Successfull change password alert -->
+            <div class="alert alert-success alert-dismissible fade show">
+                <?= $this->session->flashdata('successAdmin'); ?>
+                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+            </div>
+        <?php endif?>
         <!-- Faculty Tab -->
         <div class="FacultyTab my-3">
-            <h3><i>Welcome to Faculty Tab</i></h3>
+            <h3>Faculty</h3>
         </div>
 
         <!-- Add Professor -->
@@ -103,13 +114,13 @@ $this->load->view('includes/adminSideBar');
                 </div>
 
                 <div class="table-responsive py-3">
-                    <table class="table table-body align-middle table-striped table-borderless table-hover" id="facultyList">
+                    <table class="table table-body align-middle table-striped table-borderless table-hover" aria-label="facultyInformationTable" id="facultyList">
                         <!--Table Body-->
                         <thead>
                             <tr>
                                 <th class="pb-3">Faculty ID</th>
                                 <th class="pb-3">Faculty Name</th>
-                                <th class="pb-3"> College</th>
+                                <th class="pb-3">College</th>
                                 <th class="pb-3">Department</th>
                                 <th class="pb-3">Action</th>
                             </tr>
@@ -125,8 +136,8 @@ $this->load->view('includes/adminSideBar');
                                         <div class="action-buttons">
                                             <ul class="mb-0 px-0">
                                                 <?php if ($teacherrow->status == 1) : ?>
-                                                    <li><button type="button" id="view" data-id='<?php echo $teacherrow->teacherID; ?>' class="btn view_data" onclick="viewProfessor()"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                                    <li><button type="button" id="edit" data-id='<?php echo $teacherrow->teacherID; ?>' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editProfessor"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
+                                                    <li><button type="button" id="view" data-id='<?php echo $teacherrow->teacherID; ?>' class="btn view_data" onclick="viewProfessor()"><em class="fas fa-eye" data-bs-toggle="tooltip" title="View"></em> View</button></li>
+                                                    <li><button type="button" id="edit" data-id='<?php echo $teacherrow->teacherID; ?>' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editProfessor"><em class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></em> Edit</button></li>
                                                     <li>
                                                     <li><button type="button" class="btn" id="status" onclick="location.href='<?php if ($teacherrow->status == 1) {
                                                                                                                                     echo site_url('FacultyControllerFunctions/deactivate');
@@ -137,8 +148,8 @@ $this->load->view('includes/adminSideBar');
                                                         </button>
                                                     </li>
                                                 <?php else : ?>
-                                                    <li><button type="button" id="view" data-id='<?php echo $teacherrow->teacherID; ?>' class="btn" disabled style="background-color: gray;"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                                    <li><button type="button" id="edit" data-id='<?php echo $teacherrow->teacherID; ?>' class="btn" disabled style="background-color: gray;"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
+                                                    <li><button type="button" id="view" data-id='<?php echo $teacherrow->teacherID; ?>' class="btn" disabled style="background-color: gray;"><em class="fas fa-eye" data-bs-toggle="tooltip" title="View"></em> View</button></li>
+                                                    <li><button type="button" id="edit" data-id='<?php echo $teacherrow->teacherID; ?>' class="btn" disabled style="background-color: gray;"><em class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></em> Edit</button></li>
                                                     <li>
                                                     <li><button type="button" class="btn" id="status" onclick="location.href='<?php if ($teacherrow->status == 1) {
                                                                                                                                     echo site_url('FacultyControllerFunctions/deactivate');
@@ -166,8 +177,7 @@ $this->load->view('includes/adminSideBar');
     <div class="container my-3" id='viewProfessor' style="display: none;">
         <div id="view_faculty">
 
-        </div>                                                                                                                      
-        
+        </div>                                                                                                                            
     </div>
 
     <!-- Edit Professor -->
@@ -181,25 +191,9 @@ $this->load->view('includes/adminSideBar');
                 </div>
 
                 <div class="modal-body">
-                    <form action="" id="editProfessorForm">
-                        <div class="row mb-3">
-                            <div class="col-6">
-                                <!--College-->
-                                <label for="college-edit" class="form-label">College</label>
-                                <input type="text" class="form-control" id="college-edit" name="college">
-                            </div>
-                            <div class="col-6">
-                                <!--Department-->
-                                <label for="department-edit" class="form-label">Department</label>
-                                <input type="text" class="form-control" id="department-edit" name="department">
-                            </div>
-                        </div>
-                        <div class="editProfessorButton d-flex justify-content-end">
-                            <!--Buttons-->
-                            <button class="btn btn-default" id="save" type="submit" value="save">Save</button>
-                            <button class="btn btn-default" id="cancel" type="button" data-bs-dismiss="modal">Cancel</button>
-                        </div>
-                    </form>
+                   <div id="edit_faculty">
+                       
+                   </div>
                 </div>
 
             </div>
@@ -229,6 +223,19 @@ $this->load->view('includes/adminSideBar');
                 },
                 success: function(data) {
                     $('#view_faculty').html(data);
+                }
+            });
+        });
+        $('.edit_data').click(function() {
+            var id = $(this).data('id');
+            $.ajax({
+                url: "<?php echo site_url('FacultyControllerFunctions/editFaculty'); ?>",
+                method: "POST",
+                data: {
+                    id: id
+                },
+                success: function(data) {
+                    $('#edit_faculty').html(data);
                 }
             });
         });

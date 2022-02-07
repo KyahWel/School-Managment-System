@@ -15,6 +15,7 @@ class AdminController extends CI_Controller
 		$this->load->model('sectionModel');
 		$this->load->model('examModel');
 		$this->load->model('applicantModel');
+		$this->load->library('session');
 		$this->load->model('Authentication');
 		
 		if ($this->session->userdata('authenticated') != '1')
