@@ -25,27 +25,93 @@ body {
 #createCourse{
     margin-bottom: 20px;
 }
+<<<<<<< HEAD
 
+=======
+.accordion-item{
+    border-radius: 30px;
+}
+.accordion-button{
+    background-color: #302323;
+    color: white;
+    font-size: 0.9rem;
+    padding: 15px 1.3rem;
+}
+.accordion-item:first-of-type .accordion-button{
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+.accordion-item:last-of-type {
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+.accordion-item:last-of-type .accordion-button.collapsed {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background: maroon;
+}
+.accordion-item:last-of-type {
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+.accordion-button::after{
+    filter: brightness(0%) invert(100%);
+}
+.accordion-button:not(.collapsed){
+    background-color: #800000;
+    color:white;
+}
+.accordion-button:not(.collapsed)::after{
+    filter: brightness(0%) invert(100%);
+}
+.accordion-button:focus{
+    box-shadow: none;
+}
+>>>>>>> develop
 #addCourseForm .form-control:focus{
     box-shadow: none;
     border-color: #800000;
 }
-#save{
+
+/* Save and Cancel Buttons */
+
+#saveCourse,
+#saveEdit,
+#okay{
     background-color: #800000;
     border-color: transparent;
     color: white;
     text-decoration: none;
-    margin-right: 8px;
+    font-size: 0.8rem;
+    margin: 0px 8px;
+}
+#saveCourse:hover,
+#saveEdit:hover,
+#okay:hover{
+    background-color: white;
+    border-color: #800000;
+    color: #800000;
     font-size: 0.8rem;
 }
-#cancel{
+#cancelCourse,
+#cancelEdit{
     background-color: #aaaaaa;
     border-color: transparent;
     color: black;
     text-decoration: none;
     font-size: 0.8rem;
+    margin: 0px;
 }
-.container .addCourseButton button:focus{
+#cancelEdit:hover,
+#cancelCourse:hover{
+    background-color: white;
+    border-color: #800000;
+    color: #800000;
+    font-size: 0.8rem;
+}
+.btn:focus{
     box-shadow: none;
 }
 
@@ -71,19 +137,6 @@ select:active{
 textarea:focus, input:focus{
     outline: none;
 }
-#save:hover{
-    background-color: white;
-    border-color: #800000;
-    color: #800000;
-    font-size: 0.8rem;
-}
-#cancel:hover{
-    background-color: white;
-    border-color: #800000;
-    color: #800000;
-    font-size: 0.8rem;
-}
-
 
 /* Filter and Search */
 
@@ -135,6 +188,11 @@ textarea:focus, input:focus{
 }
 
 /* Action Button */
+
+ul{
+    margin: 0px;
+    padding: 0px;
+}
 #table-body tbody .action-buttons li{
     list-style-type: none;
     display: inline-block;
@@ -177,4 +235,9 @@ textarea:focus, input:focus{
 #editCourseForm .form-control:focus{
     box-shadow: none;
     border-color: #800000;
+}
+
+.form-control[readonly]{
+    background-color: white;
+    opacity: 1;
 }

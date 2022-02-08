@@ -69,7 +69,7 @@
                                     b.) 2 Sharpened pencil with eraser</p>
                                 <p class="note3 pt-2 fw-bold"> Kindly check your email for the test permit or download it here.</p>
 
-                                <button type="button" class="btn btn-warning download mb-2"> Download Test Permit </button>
+                            <button type="button" class="btn btn-warning download mb-2" onclick="location.href='<?php echo site_url('applicantRegistration/downloadTestPermit/'.$student->applicantID) ?>'"> Download Test Permit </button>
 
                                 <p class="note4 pt-3 fw-bold"> Note: Please come one hour before the time.</p>
 

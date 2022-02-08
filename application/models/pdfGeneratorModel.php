@@ -13,13 +13,14 @@ class pdfGeneratorModel extends CI_Model {
         //get applicant data from applicant_accounts
         $this->db->select('*');
         $this->db->from('applicant_accounts');
+        $this->db->join('course_table',"course_table.courseID = applicant_accounts.courseID", 'left');
         $this->db->where('applicant_accounts.applicantID = ' . $id);
         $query=$this->db->get();
         $applicant=$query->row();
 
         $applicant_number = $applicant->applicantNumber;
         $applicant_name = $applicant->firstname . " " . $applicant->middlename . " " . $applicant->lastname;
-        $course = $applicant->course_chosen;
+       
 
         //ipapair yung student sa exam sched nya
         $this->db->select('*');
@@ -31,16 +32,16 @@ class pdfGeneratorModel extends CI_Model {
         //get exam schedule details
         $this->db->select('*');
         $this->db->from('exam_schedule');
-        $this->db->where('exam_schedule.schedID = '. $exam_table->schedule);
+        $this->db->where('exam_schedule.schedID = ');
         $query=$this->db->get();
         $exam=$query->row();
 
-        $examination_date = date("F j, Y",strtotime($exam->date));
-        $examination_time = date("g:i a",strtotime($exam->time));
-        $building = $exam->building;
-        $room = $exam->room_no;
-        $exam_date = $examination_date . " at ". $examination_time;
-        $location = $building . " -  " . $room;
+        $examination_date = "update"; //date("F j, Y",strtotime($exam->date));
+        $examination_time = "update"; //date("g:i a",strtotime($exam->time));
+        $building = "update"; //$exam->building;
+        $room = "update"; //$exam->room_no;
+        $exam_date = "update"; //$examination_date . " at ". $examination_time;
+        $location ="update"; // $building . " -  " . $room;
 
 
         $pdf = new FPDF();
@@ -60,8 +61,6 @@ class pdfGeneratorModel extends CI_Model {
 
         /* BASIC APPLICANT INFORMATION */
         
-        
-
         $pdf->SetFont("Helvetica","",11);
         $pdf->Rect(160,45,30,30);
         $pdf->Text(15,50,"Applicant No.");
@@ -69,7 +68,7 @@ class pdfGeneratorModel extends CI_Model {
         $pdf->Text(15,55,"Applicant Name");
         $pdf->Text(60,55,":  " . $applicant_name);
         $pdf->Text(15,60,"Course Chosen ");
-        $pdf->Text(60,60,":  " . $course);
+        $pdf->Text(60,60,":  ".$applicant->degree." ".$applicant->major );
         $pdf->Text(15,65,"Date/Time of Examination");
         $pdf->Text(60,65,":  " . $exam_date);
         $pdf->Text(15,70,"Building and Room ");
@@ -82,6 +81,6 @@ class pdfGeneratorModel extends CI_Model {
         $pdf->Text(40,100,"TUP Scholastic and Technical Aptitude Test (TUPSTAT) at TUP - Manila. ");
         
         $pdf->Text(80,110,"This is a sample permit.");
-        $pdf->Output('test_permit.pdf','d');
+        $pdf->Output($applicant_number.' Test Permit.pdf','d');
     }
 }

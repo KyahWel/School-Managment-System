@@ -46,6 +46,12 @@
                     <?= $this->session->flashdata('successApplicant'); ?>
                     <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
                 </div>
+            <?php elseif ($this->session->flashdata('errorApplicant')) : ?>
+                <!-- Successfull change password alert -->
+                <div class="alert alert-danger alert-dismissible fade show">
+                    <?= $this->session->flashdata('errorApplicant'); ?>
+                    <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+                </div>
             <?php endif; ?>
 
             <h3 class="applicant"> <strong>Applicant Access Module</strong></h3>
