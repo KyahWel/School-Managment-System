@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/css/sideBarMAIN.css'); ?>" rel="stylesheet" type="text/css">
-    <link href="<?php echo base_url('assets/css/admintabsMAIN.css'); ?>" rel="stylesheet" type="text/css">
+
     <link href="<?php echo base_url('assets/css/changePassword.css'); ?>" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url('assets/css/dataTables.bootstrap.min.css'); ?>" rel="stylesheet">
     <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
@@ -24,7 +24,7 @@
         <div class="text-white ms-auto email">
             <?= $this->session->userdata('auth_user')['teacherNumber'] ?>
         </div>
-        <div class="header_img"> <img src="../assets/images/facultyAvatar.jpg" alt="Faculty Avatar"></div>
+        <div class="header_img"> <img src="../assets/images/facultyAvatar.png" alt="Faculty Avatar"></div>
     </header>
 
     <div class="l-navbar side" id="nav-bar">

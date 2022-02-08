@@ -3,12 +3,19 @@ const months = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "S
 const days = ["Sun", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat"];
 
 const d = new Date();
+setTimeout("ShowTime()", 1000);//Set the timing refresh to update once a second
 let date = [d.getDate()];
 let year = [d.getFullYear()];
 let month = months[d.getMonth()];
 let monthFull = monthsFull[d.getMonth()];
 let day = days[d.getDay()];
 
-const dateStr = day + " " + month + " " + date + ", " + year;
-document.getElementById("getMonth").innerHTML = monthFull;
+const dateStr = day + " " + monthFull + " " + date + ", " + year;
 document.getElementById("today").innerHTML = dateStr;
+
+window.onload = displayClock();
+function displayClock(){
+  var display = new Date().toLocaleTimeString();
+  document.getElementById("getMonth").innerHTML = display;
+  setTimeout(displayClock, 1000); 
+}

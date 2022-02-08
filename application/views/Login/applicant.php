@@ -64,18 +64,39 @@
                 </div>
 
                 <!-- clear entries and login button -->
-                <div class="btn-toolbar justify-content-between mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-toolbar justify-content-between mb-2" role="toolbar" aria-label="Toolbar with button groups">
                     <input type="reset" class="btn btn-default" name="reset" value="Clear entries"></input>
                     <input type="submit" class="btn btn-default " name="login" value="Login"></input>
                 </div>
-
-                <p class= "notice text-center">
+                <button type="button" class="forgot py-0 my-0" data-bs-toggle="modal" data-bs-target="#forgotApplicantNumber"
+                 title="Your applicant number is sent together with the test permit. Kindly check your email.">
+                    Forgot applicant number?
+                </button>
+                <p class= "notice text-center p-1">
                     <i>
                     For new applicant and applicants who have not completed the requirements, click APPLY NOW.
                     </i>
                 </p>
-                <button type="button" class="btn btn-default apply" data-bs-toggle="modal" data-bs-target="#verification" name="apply" >APPLY NOW</button>
+                <button type="button" class="btn btn-default apply" data-bs-toggle="modal" 
+                data-bs-target="#verification" name="apply" >APPLY NOW</button>
             </form>
+        </div>
+
+        <!-- Forgot tup number -->
+        <div class="modal fade" id="forgotApplicantNumber" tabindex="-1" aria-modal="true" aria-labelledby="forgotApplicantNumber" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-body small">
+                Your applicant number is sent together with the test permit. Kindly check your email.
+                <p class="mt-3 text-muted">
+                    <i>If you happen to delete your email, please do contact the school administation.</i> 
+                </p>
+                </div>
+                <div class="d-flex justify-content-end mx-3 mb-3">
+                    <button type="button" class="btn btn-default py-1" data-bs-dismiss="modal">Close</button>
+                </div>
+                </div>
+            </div>
         </div>
 
         <!-- Profile Verification -->
@@ -83,7 +104,8 @@
 		<div class="modal-dialog modal-md modal-dialog-centered">
 			<div class="modal-content">
 				<div class="d-flex justify-content-center head py-3">
-					<h5 class="modal-title fw-bold" id="editProfessorHeader">Profile Verification</h5>
+					<h5 class="modal-title fw-bold" id="editProfessorHeader">
+                    Profile Verification</h5>
 				</div>
 				<div class="modal-body mt-2 px-4">
                     <div class="row-lg-12 mt-0 asterisk align-items-center">

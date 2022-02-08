@@ -18,11 +18,9 @@
 <body>
     <div class="d-flex justify-content-between text-white header px-3 py-2">
         <div class="brand">
+        <img src="../assets/images/logo.png" alt="TUP Logo"  style="width:1.8rem;">
             Technological University of the Philippines
         </div>
-        <!-- <div class="cancel">
-            Cancel Application
-        </div> -->
     </div>
     <div class="container-fluid">
         <div class="row height-100vh">

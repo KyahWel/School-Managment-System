@@ -8,31 +8,8 @@
 </head>
 
 <div class="height-100 pt-2 container-fluid">
+	<h4 class="fw-bold py-2">My Students</h4>
 	<div class="container my-3" id="mainPage">
-
-		<!-- Filter and Search -->
-		<div class="col-12 align-self-center my-3" id="filterAndSearch">
-			<label for="yearLevelFilter">Filter by:</label>
-			<select name="Year Level" id="yearLevelFilter">
-				<option value="" disabled selected hidden>Year Level</option>
-				<option value="yearLevel">First Year</option>
-				<option value="yearLevel">Second Year</option>
-				<option value="yearLevel">Third Year</option>
-				<option value="yearLevel">Fourth Year</option>
-			</select>
-			<label for="subjectCodeFilter"></label>
-			<select name="Subject Code" id="subjectCodeFilter">
-				<option value="" disabled selected hidden>Subject Code</option>
-				<option value="subjectCode">Math-01</option>
-				<option value="subjectCode">Math-02</option>
-				<option value="subjectCode">Math-03</option>
-				<option value="subjectCode">Math-03</option>
-			</select>
-			<input type="text" name="sectionSearch" placeholder="Search Section">
-			<button type="button" class="btn btn-sm" id="sectionSearch"><i class="fas fa-search"
-					data-bs-toggle="tooltip" title="Search"></i></button>
-		</div>
-
 		<div class="table-wrapper">
 
 			<!--Table Header-->

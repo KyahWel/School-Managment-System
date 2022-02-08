@@ -14,16 +14,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	<link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
 	<link href="<?php echo base_url('assets/css/applicant.css'); ?>" rel="stylesheet" type="text/css">
 	<title>Applicant Registration</title>
-	<script type="text/javascript" >
-		function preventBack(){window.history.forward();}
-			setTimeout("preventBack()", 0);
-			window.onunload=function(){null};
-		</script>
+	<script type="text/javascript">
+        function disableBack() { window.history.forward(); }
+        setTimeout("disableBack()", 0);
+        window.onunload = function () { null };
+    </script>
 </head>
 
 <body>
 	<div class="d-flex justify-content-between text-white header px-3 py-2">
 		<div class="brand py-2">
+		<img src="assets/images/logo.png" alt="TUP Logo"  style="width:1.8rem;">
 			Technological University of the Philippines
 		</div>
 		<button type="button" class="btn btn-outline-warning cancel mx-1 fw-bold" data-bs-toggle="modal"
@@ -61,7 +62,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 							<img src="assets/images/applicantAvatar.svg" alt="" class="pt-4 mx-4" style="width: 125px;">
 							<br>
 							<p class="text-center pt-4 h5 fw-bold">Welcome, Applicant</p>
-							<!-- <p class="text-center pt-2 fw-bold h5">Applicant !</p> -->
 							<hr>
 						</div>
 					</div>

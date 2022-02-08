@@ -54,7 +54,7 @@ function requirement() {
 const validateForms = () => {
   let hasError = false;
   const applicantForm = document.querySelector('#personalInfo') // this is a div not a form tag
-  const applicantFormInputs = getFormInputs(applicantForm, ['input', 'select'])
+  const applicantFormInputs = getFormInputs(applicantForm, ['input', 'select', , 'input[type="radio"]:checked'])
   applicantFormInputs.forEach((element) => {
     const fieldFeedbackTemplate = document.querySelector("#fieldFeedbackTemplate").content
     const fieldFeedback = document.importNode(fieldFeedbackTemplate, true).querySelector('div')
@@ -68,6 +68,12 @@ const validateForms = () => {
       element.classList.add("is-invalid")
       insertAfter(element, fieldFeedback)
     }
+    if (element.hasAttribute("required") && document.getElementsByName('gender').checked) {
+      hasError = true
+      element.classList.add("is-invalid")
+      insertAfter(element, fieldFeedback)
+    }
+ 
   })
 
   return hasError
@@ -99,6 +105,7 @@ const validateFormsss = () => {
   let hasError = false;
   const applicantForm = document.querySelector('#requirement') // this is a div not a form tag
   const applicantFormInputs = getFormInputs(applicantForm, ['input', 'select'])
+  
   applicantFormInputs.forEach((element) => {
     const fieldFeedbackTemplate = document.querySelector("#fieldFeedbackTemplate").content
     const fieldFeedback = document.importNode(fieldFeedbackTemplate, true).querySelector('div')
@@ -132,4 +139,3 @@ const getFormInputs = (form, constraints = []) => {
   })
   return elements
 }
-
