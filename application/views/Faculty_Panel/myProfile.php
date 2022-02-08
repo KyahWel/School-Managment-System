@@ -16,7 +16,7 @@
             <div class="d-flex align-items-center my-2">
 
                 <div class=" profile-pic-div">
-                    <img src="../assets/images/facultyAvatar.jpg" alt="Professor Avatar" id="facultyPhoto">
+                    <img src="../assets/images/facultyAvatar.png" alt="Professor Avatar" id="facultyPhoto">
                 </div>
 
                 <!-- My Profile Details -->

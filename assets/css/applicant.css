@@ -35,12 +35,17 @@ span.spare{
 #personalInfo span.spare1, #educationalattainment span.spare1, #requirement span.spare1 {
     display: none;
 }
-@media (max-width: 560px) and  (min-width: 543px) and  (min-width: 543px) {
+@media (max-width: 767px) and  (min-width: 567px) {
     #personalInfo span.spare1, #educationalattainment span.spare1, #requirement span.spare{
         display: block;
     }
 }
-@media  (max-width: 565px){
+@media (max-width: 567px) and  (min-width: 548px) {
+    #personalInfo span.spare1, #educationalattainment span.spare1, #requirement span.spare{
+        display: block;
+    }
+}
+@media  (max-width:767px){
     #personalInfo span.spare, #educationalattainment span.spare, #requirement span.spare{
         display: block;
     }

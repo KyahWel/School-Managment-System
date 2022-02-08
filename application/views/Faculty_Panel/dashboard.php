@@ -79,7 +79,7 @@
 								<div class="modal-content">
 									<div class="modal-header">
 										<h5 class="modal-title" id="exampleModalLabel">View Announcement</h5>
-										<button type="button" class="btn-close" data-bs-dismiss="modal"
+										<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
 											aria-label="Close"></button>
 									</div>
 									<div class="modal-body p-4">
@@ -111,32 +111,32 @@
 	</div>
 	<!--Schedule-->
 	<div class="col-12 align-self-center my-3 pt-3 viewSched ">
-		<ul class="nav nav-tabs text-dark d-flex flex-row" id="viewSchedule" role="tablist">
-			<li class="nav-item" role="presentation">
+		<ul class="nav nav-tabs text-dark d-flex flex-row justify-content-evenly" id="viewSchedule" role="tablist">
+			<li class="nav-item flex-fill" role="presentation">
 				<button class="nav-link active" data-bs-toggle="tab" data-bs-target="#monday" type="button" role="tab"
 					aria-controls="monday" aria-selected="true">Mon</button>
 			</li>
-			<li class="nav-item" role="presentation">
-				<button class="nav-link" data-bs-toggle="tab" data-bs-target="#tuesday" type="button" role="tab"
+			<li class="nav-item flex-fill" role="presentation">
+				<button class="nav-link " data-bs-toggle="tab" data-bs-target="#tuesday" type="button" role="tab"
 					aria-controls="tuesday" aria-selected="false">Tue</button>
 			</li>
-			<li class="nav-item" role="presentation">
+			<li class="nav-item flex-fill" role="presentation">
 				<button class="nav-link" data-bs-toggle="tab" data-bs-target="#wednesday" type="button" role="tab"
 					aria-controls="wednesday" aria-selected="false">Wed</button>
 			</li>
-			<li class="nav-item" role="presentation">
+			<li class="nav-item flex-fill" role="presentation">
 				<button class="nav-link" data-bs-toggle="tab" data-bs-target="#thursday" type="button" role="tab"
 					aria-controls="thursday" aria-selected="false">Thurs</button>
 			</li>
-			<li class="nav-item" role="presentation">
+			<li class="nav-item flex-fill" role="presentation">
 				<button class="nav-link" data-bs-toggle="tab" data-bs-target="#friday" type="button" role="tab"
 					aria-controls="friday" aria-selected="false">Fri</button>
 			</li>
-			<li class="nav-item" role="presentation">
+			<li class="nav-item flex-fill" role="presentation">
 				<button class="nav-link" data-bs-toggle="tab" data-bs-target="#saturday" type="button" role="tab"
 					aria-controls="saturday" aria-selected="false">Sat</button>
 			</li>
-			<li class="nav-item" role="presentation">
+			<li class="nav-item flex-fill" role="presentation">
 				<button class="nav-link" data-bs-toggle="tab" data-bs-target="#sunday" type="button" role="tab"
 					aria-controls="sunday" aria-selected="false">Sun</button>
 			</li>
