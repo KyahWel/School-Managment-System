@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/css/applicant.css'); ?>" rel="stylesheet" type="text/css">
+    <script type="text/javascript" >
+     function preventBack(){window.history.forward();}
+        setTimeout("preventBack()", 0);
+        window.onunload=function(){null};
+    </script>
 </head>
 
 <body>
@@ -87,17 +92,6 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-        window.location.hash = "no-back-button";
-
-        // Again because Google Chrome doesn't insert
-        // the first hash into the history
-        window.location.hash = "Again-No-back-button";
-
-        window.onhashchange = function() {
-            window.location.hash = "no-back-button";
-        }
-    </script>
     <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 </body>
 

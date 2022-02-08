@@ -27,11 +27,11 @@ $this->load->view('includes/adminSideBar');
                                 <div class="row mb-3">
                                     <div class="col-6">
                                         <label for="degree" class="form-label">Enter Degree: </label>
-                                        <input type="text" id="degree" name="degree" class="form-control">
+                                        <input type="text" id="degree" name="degree" required class="form-control">
                                     </div>
                                     <div class="col-6">
                                         <label for="major" class="form-label">Enter Major: </label>
-                                        <input type="text" id="major" name="major" class="form-control">
+                                        <input type="text" id="major" name="major" required class="form-control">
                                     </div>
                                 </div>
                                 <div class="row mb-3">

@@ -16,12 +16,14 @@ $this->load->view('includes/adminSideBar');
                 <?= $this->session->flashdata('adminError'); ?>
                 <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
             </div>
+            <?php $this->session->unset_userdata ('adminError'); ?>
         <?php elseif ($this->session->flashdata('successAdmin')) : ?>
             <!-- Successfull change password alert -->
             <div class="alert alert-success alert-dismissible fade show">
                 <?= $this->session->flashdata('successAdmin'); ?>
                 <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
             </div>
+            <?php $this->session->unset_userdata ('successAdmin'); ?>
         <?php endif?>
         <!-- Faculty Tab -->
         <div class="FacultyTab my-3">
@@ -47,26 +49,26 @@ $this->load->view('includes/adminSideBar');
                                     <div class="col">
                                         <!--Creator ID-->
                                         <label for="adminName" class="form-label">Created By</label>
-                                        <input type="text" class="form-control" id="adminName" name="adminname" disabled value="<?= $this->session->userdata('auth_user')['firstname'] ?>">
+                                        <input type="text" class="form-control" id="adminName" required name="adminname" disabled value="<?= $this->session->userdata('auth_user')['firstname'] ?>">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-6">
                                         <!--First Name-->
                                         <label for="firstName" class="form-label">First Name</label>
-                                        <input type="text" class="form-control" id="firstName" name="firstname">
+                                        <input type="text" class="form-control" id="firstName" required name="firstname">
                                     </div>
                                     <div class="col-6">
                                         <!--Middle Name-->
                                         <label for="middleName" class="form-label">Middle Name</label>
-                                        <input type="text" class="form-control" id="middleName" name="middlename">
+                                        <input type="text" class="form-control" id="middleName" required name="middlename">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-6">
                                         <!--Last Name-->
                                         <label for="lastName" class="form-label">Last Name</label>
-                                        <input type="text" class="form-control" id="lastName" name="lastname">
+                                        <input type="text" class="form-control" id="lastName" required name="lastname">
                                     </div>
                                     <div class="col-6">
                                         <!--Suffix-->
@@ -78,12 +80,12 @@ $this->load->view('includes/adminSideBar');
                                     <div class="col-6">
                                         <!--College-->
                                         <label for="college" class="form-label">College</label>
-                                        <input type="text" class="form-control" id="college" name="college">
+                                        <input type="text" class="form-control" id="college" required name="college">
                                     </div>
                                     <div class="col-6">
                                         <!--Department-->
                                         <label for="department" class="form-label">Department</label>
-                                        <input type="text" class="form-control" id="department" name="department">
+                                        <input type="text" class="form-control" id="department" required name="department">
                                     </div>
                                 </div>
                                 <div class="addProfessorButton d-flex justify-content-end">

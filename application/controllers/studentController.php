@@ -10,15 +10,22 @@ class StudentController extends CI_Controller {
 		$this->load->model('eventsModel');
 		$this->load->model('Authentication');
 		if ($this->session->userdata('authenticated') != '3'){
-			$this->session->set_flashdata('logout','Please logout first'); 
+			
 			if ($this->session->userdata('authenticated') == '1') {
+				$this->session->set_flashdata('logout','Please logout first'); 
 				redirect('Admin/dashboard');
 			}	
 			elseif ($this->session->userdata('authenticated') == '2') {
+				$this->session->set_flashdata('logout','Please logout first'); 
 				redirect('Faculty/dashboard');
 			}
-			else {	
+			elseif ($this->session->userdata('authenticated') == '4') {	
+				$this->session->set_flashdata('logout','Please logout first'); 
 				redirect('Applicant/'.$this->session->userdata('auth_user')['applicantID']);
+			}
+			else{
+				$this->session->set_flashdata('invalid','Error: Invalid Action'); 
+				redirect('Login/Applicant');
 			}
 		}
 	}

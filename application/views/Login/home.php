@@ -48,6 +48,7 @@
         <?= $this->session->flashdata('login'); ?>
         <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
       </div>
+      <?php $this->session->unset_userdata ('login'); ?>
       <?php endif; ?>
 
       <h1>Access Modules</h1>

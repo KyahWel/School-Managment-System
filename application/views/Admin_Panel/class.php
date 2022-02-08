@@ -67,12 +67,19 @@ $this->load->view('includes/adminSideBar');
                                     <div class="loadSubject-button col-sm-12 col-md-12 col-lg-2"> <!-- Load Subects Button -->
                                         <button type="button" id="load" class="btn loadSubjects"><span>Load Subjects</span></button>   
                                     </div>
+                                    
                                 </div>
+                                    <b> List of Subjects</b>
+                                    <br>
+                                    <div id="listSubjects">
+
+                                    </div>
                                 <div class="addClassButton d-flex justify-content-end mt-3">
                                     <!--Buttons-->
                                     <button type="submit" class="btn btn-default" id="save" value="save">Save</button>
                                     <button class="btn btn-default" id="cancel" type="reset" value="cancel">Cancel</button>
                                 </div>
+                                
                             </form>
                         </div>
                     </div>

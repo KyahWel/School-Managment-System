@@ -27,21 +27,21 @@ $this->load->view('includes/adminSideBar');
                                 <div class="row mb-3">
                                     <div class="col-6">
                                         <label for="firstname" class="form-label">Firstname:</label>
-                                        <input type="text" id="firstname" name="firstname" class="form-control">
+                                        <input type="text" id="firstname" name="firstname" required class="form-control">
                                     </div>
                                     <div class="col-6">
                                         <label for="lastname" class="form-label">Lastname:</label>
-                                        <input type="text" id="lastname" name="lastname" class="form-control">
+                                        <input type="text" id="lastname" name="lastname" required class="form-control">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-6">
                                         <label for="username" class="form-label">Username:</label>
-                                        <input type="text" id="username" name="username" class="form-control">
+                                        <input type="text" id="username" name="username" required class="form-control">
                                     </div>
                                     <div class="col-6">
                                         <label for="password" class="form-label">Password:</label>
-                                        <input type="password" id="password" name="password" class="form-control">
+                                        <input type="password" id="password" name="password" required class="form-control">
                                     </div>
                                 </div>
                                 <div class="addAdminButton d-flex justify-content-end">

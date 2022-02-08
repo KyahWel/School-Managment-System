@@ -14,6 +14,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	<link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
 	<link href="<?php echo base_url('assets/css/applicant.css'); ?>" rel="stylesheet" type="text/css">
 	<title>Applicant Registration</title>
+	<script type="text/javascript" >
+		function preventBack(){window.history.forward();}
+			setTimeout("preventBack()", 0);
+			window.onunload=function(){null};
+		</script>
 </head>
 
 <body>
@@ -127,7 +132,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 												<label class="form-label small">First Name</label>
 												<input type="text" name="firstname" id="fname"
 													class="form-control form-control-sm" aria-label="First name"
-													required onkeypress="return /[a-z ]/i.test(event.key)">
+													required readonly onkeypress="return /[a-z ]/i.test(event.key)"
+													value=<?php echo $personalInfo[0]?>>
 												<div class="invalid-feedback">
 													Please input your first name.
 												</div>
@@ -136,7 +142,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 												<label class="small mb-2">Middle Name</label>
 												<input type="text" name='middlename' id="midname"
 													class="form-control form-control-sm" aria-label="Last name"
-                                                    onkeypress="return /[a-z ]/i.test(event.key)">
+                                                    readonly onkeypress="return /[a-z ]/i.test(event.key)"
+													value=<?php echo $personalInfo[2]?>>
 												<div class="invalid-feedback">
 													Please input your middle name.
 												</div>
@@ -145,7 +152,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 												<label class="form-label small">Surname</label>
 												<input type="text" name="lastname" id="surname"
 													class="form-control form-control-sm" aria-label="Surname" required
-                                                    onkeypress="return /[a-z ]/i.test(event.key)">
+													required readonly onkeypress="return /[a-z ]/i.test(event.key)"
+													value=<?php echo $personalInfo[1]?>>
 												<div class="invalid-feedback">
 													Please input your surname.
 												</div>
@@ -154,7 +162,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 												<label class="small mb-2">Suffix</label>
 												<input type="text" name='extname' id="suffix"
 													class="form-control form-control-sm" aria-label="Extension Name"
-                                                    onkeypress="return /[a-z ]/i.test(event.key)">
+                                                    readonly onkeypress="return /[a-z ]/i.test(event.key)"
+													value=<?php echo $personalInfo[3]?>>
 												<div class="invalid-feedback">
 													Please input your extension name.
 												</div>
@@ -663,72 +672,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>           
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>                                        
     <script type="text/javascript">
-        $(document).ready(function(){
-            $("#verification").modal({backdrop: 'static', keyboard: false});  
-            $("#verification").modal('show');
-            $('#dataTable').DataTable();
-            $('.check').click(function() {
-                var fname = $("#fnameVerify").val();
-                var lname = $("#surnameVerify").val();
-                var middlename = $("#midnameVerify").val();
-                var extname = $("#suffixVerify").val();
-                if(fname=='' || lname=='' || middlename=='' || extname==''){
-                    if(fname==''){
-                        $("#fnameVerify").css("border", "1px solid red");
-                    }
-                    else{
-                        $("#fnameVerify").css("border", "1px solid black");
-                    }
-                    if(lname==''){
-                        $("#surnameVerify").css("border", "1px solid red");
-                    }
-                    else{
-                        $("#surnameVerify").css("border", "1px solid black");
-                    }
-                    if(middlename==''){
-                        $("#midnameVerify").css("border", "1px solid red");
-                    }
-                    else{
-                        $("#midnameVerify").css("border", "1px solid black");
-                    }
-                    if(extname==''){
-                        $("#suffixVerify").css("border", "1px solid red");
-                    }
-                    else{
-                        $("#suffixVerify").css("border", "1px solid black");
-                    }
-                   
-                }
-                else{
-                    $.ajax({
-                        url: "<?php echo site_url('applicantRegistration/verification');?>",
-                        method: "POST",
-                        data: {
-                            fname:fname,
-                            lname:lname,
-                            middlename:middlename,
-                            extname:extname
-                        },
-                        success: function(data) {
-                            if(data == 1){
-                                // Data is not existing in database
-                                $("#verification").modal('hide'); 
-                                $("#fname").val(fname)
-                                $("#midname").val(middlename)
-                                $("#surname").val(lname)
-                                $("#suffix").val(extname);      
-                            }
-                            else{
-                                // Data is existing in database
-                                window.location.replace("<?php echo site_url('Login/applicant'); ?>");
-
-                            }
-                        }
-                    });
-                }
-            });
-		});
-
 
 	$('#confirmationPage').on('shown.bs.modal', function (e) {
 	if (validateFormsss() === false) { // has no errors
@@ -794,12 +737,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		'<p class="text-center pt-5 fw-bold">Please confirm by clicking the "CONFIRM" button below, "CANCEL" to go back to the Applicant Registration form. </p>'
 	);}
 	});
+    </script>  
 
-	history.pushState(null, null, document.URL);
-window.addEventListener('popstate', function () {
-    history.pushState(null, null, document.URL);
-});
-    </script>                                                    
 </body>
 
 </html>
