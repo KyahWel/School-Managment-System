@@ -37,75 +37,23 @@ defined('BASEPATH') or exit('No direct script access allowed');
 					<div class="modal-body text-dark">
 						Are you sure you want to cancel your application?
 					</div>
-					<div class="modal-footer">
+					<hr>
+					<div class="d-flex justify-content-center">
+						<div>
 						<button type="reset" class="btn btn-primary"
 							onclick="location.href='<?php echo site_url('Login/applicant'); ?>'">Yes</button>
+						</div>
+						<div>
 						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-
-	</div>
-	<div class="modal fade" id="verification" tabindex="-1" aria-modal="true" aria-hidden="true">
-		<div class="modal-dialog modal-lg modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="editProfessorHeader">Profile Verification</h5>
-				</div>
-
-				<div class="modal-body">
-                        
-                        <div class="row-lg-6 mt-0 asterisk align-items-center">
-                            <div class="col-lg-6 col-md-12 py-1">
-                                <input type="text" name="firstnameVerify" id="fnameVerify" class="form-control form-control-sm"
-                                    aria-label="First name" required onkeydown="return /[a-z ]/i.test(event.key)">
-                                    <label class="form-label">First Name</label>   
-                                <div class="invalid-feedback">
-                                    Please input your first name.
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12 py-1">
-                                
-                                <input type="text" name='middlename' id="midnameVerify" class="form-control form-control-sm"
-                                    aria-label="Last name" onkeydown="return /[a-z ]/i.test(event.key)">
-                                    <label class="mb-2">Middle Name</label>
-                                <div class="invalid-feedback">
-                                    Please input your middle name.
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12 py-1">						
-                                <input type="text" name="lastname" id="surnameVerify" class="form-control form-control-sm"
-                                    aria-label="Surname" required onkeydown="return /[a-z ]/i.test(event.key)">
-                                <label class="form-label">Surname</label>
-                                <div class="invalid-feedback">
-                                    Please input your surname.
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12 py-1">
-                                <input type="text" name='extname' id="suffixVerify" class="form-control form-control-sm"
-                                    aria-label="Extension Name" onkeydown="return /[a-z ]/i.test(event.key)">
-                                    <label class="mb-2">Suffix</label>
-                                <div class="invalid-feedback">
-                                    Please input your extension name.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer d-flex justify-content-middle">
-                        <button type="submit" class="btn btn-warning text-uppercase check">CONTINUE</button>
-                        <button type="button" class="btn btn-secondary text-uppercase" 
-                        onclick="location.href='<?php echo site_url('Login/applicant'); ?>'">
-                            CANCEL
-                        </button>
-                    </div>
-                  
 			</div>
 		</div>
 	</div>
 	<div class="container-fluid">
 		<div class="row height-100vh">
-			<div class="col-lg-3 col-md-3 col-sm-0 col-xl-2 px-0 bg-default d-flex sticky-top">
+			<div class="col-lg-3 col-md-3 col-sm-0 col-xl-2 px-0 bg-default d-flex sticky-top" id="applSidebarRegistration">
 				<div class="d-flex flex-md-column flex-row flex-grow-1 align-items-center text-dark">
 					<div href="/" class="d-block align-items-center pb-sm-3 text-dark text-decoration-none">
 						<div class="d-none d-md-inline">

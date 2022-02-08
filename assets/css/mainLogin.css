@@ -120,7 +120,7 @@ h3.applicant {
 
 hr {
     background-color: black;
-    opacity: 1;
+    opacity: 0.8;
     margin-top: 2px;
 }
 
@@ -185,12 +185,11 @@ label {
 .wrapper .apply {
     width: 100%;
     padding: 6px;
-    margin-top: 2rem;
     font-size: 0.9rem;
     font-weight: 600;
     letter-spacing: 5px;
     box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.25);
-    background:#ff9a01;
+    background:#f39f21;
     opacity: 0.85;
     color: black;
 }
@@ -232,7 +231,7 @@ input[type=password] {
 
 @media screen and (max-width: 1024px) {
     .navbar-light {
-        background: #B20000;
+        background: maroon;
         box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.25);
         border-bottom: 1px solid white;
     }
@@ -299,4 +298,73 @@ input[type=password] {
         width: 200px;
         margin: 1rem;
     }
+}
+#verification{
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+#applicantLogin .notice{
+    font-size: 0.9rem;
+}
+
+.modal .line{
+    opacity: 0.3;
+}
+.modal-backdrop { 
+    opacity:0.3 !important; 
+}
+
+.modal .head{
+    background: #f4f4f4;
+    border: #bdbdbd;
+} 
+.modal .btn-default {
+    background: maroon;
+}
+.modal .btn-default:hover {
+    background: rgb(174, 0, 0);
+    border: 1px solid maroon;
+    color: white;
+}
+.modal .btn-secondary{
+    font-size: 0.8rem;
+    background-color: #8f8d8d;
+}
+.modal .btn-secondary:hover{
+    opacity: 1;
+    background: none;
+    border: 1px solid #7b7b7b;
+    color: black;
+}
+
+.modal .btn-secondary:focus, .modal .btn-default:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.modal .form-control:focus{
+    box-shadow: none;
+    outline: maroon;
+    border: 1px solid steelblue
 }

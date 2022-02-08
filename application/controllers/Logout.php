@@ -10,7 +10,10 @@ class Logout extends CI_Controller {
     }
 
 	public function index(){
-		$this->session->sess_destroy();
+		// $this->session->unset_userdata('authenticated');
+		// $this->session->unset_userdata('auth_user');
+		// $this->session->set_flashdata('status',''); 
+		$this->session->sess_destroy(); 
 		redirect('Login');
 	}
 }

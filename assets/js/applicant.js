@@ -26,15 +26,6 @@ function requirement() {
   }
 }
 
-// function final_step() {
-//   document.getElementById('personalInfo').style.display = "none";
-//   document.getElementById('educationalattainment').style.display = "none";
-//   document.getElementById('requirement').style.display = "none";
-//   document.getElementById('steps').style.display = "none";
-//   document.getElementById('final_step').style.display = "block";
-// }
-
-
 $('#confirmationPage').on('shown.bs.modal', function (e) {
   if (validateFormsss() === false) { // has no errors
   var courses = $("#courses option:selected").text();

@@ -4,6 +4,7 @@ $this->load->view('includes/adminSideBar');
 
 <head>
     <link href="<?php echo base_url('assets/css/course.css'); ?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url('assets/css/announcement.css'); ?>" rel="stylesheet" type="text/css">
     <title>Admin | Course</title>
 </head>
 <div class="height-100 pt-2 container-fluid">

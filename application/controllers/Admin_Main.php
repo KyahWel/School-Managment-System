@@ -86,13 +86,13 @@ class Admin_Main extends CI_Controller
 		$applicantData = $this->input->post('id');
         $records = $this->applicantModel->getData($applicantData);
 		$output = '
-		<div class="enrollmentDetails mt-3 mb-5" id="details">
+		<div class="enrollmentDetails mt-3 mb-0" id="details">
 			<div class="tabHeader">
-				<p class="text-center text-white p-2">Applicant ID: '.$records->applicantNumber.'</p>
+				<p class="text-white px-4 py-3">Applicant ID: <span class="fw-bold">'.$records->applicantNumber.'</span></p>
 			</div>
 			<div class="tabDetails px-4">
-				<h6 class="step fw-bold"> <i class="fa fa-user px-2"></i> PERSONAL INFORMATION</h6>
-				<p class="my-4 "> <b>Course Chosen: </b>'.$records->degree.' in '.$records->major.'</p>
+				<h6 class="step fw-bold py-2 px-3"> <i class="fa fa-user px-1"></i> PERSONAL INFORMATION </h6>
+				<p class="my-4 pt-1"> <b>Course Chosen: </b>'.$records->degree.' in '.$records->major.'</p>
 				<hr>
 				<div class="row">
 					<div class="col-lg-6">
@@ -109,7 +109,7 @@ class Admin_Main extends CI_Controller
 
 					</div>
 					<div class="col-lg-6">
-						<p class="text-dark fw-bold pb-2"> PERMANENT ADDRESS</p>
+						<h6 class="text-dark fw-bold pb-3"> PERMANENT ADDRESS</h6>
 						<p><b>Unit #:</b> '.$records->unit.'</p>
 						<p><b>Street: </b> '.$records->street.'</p>
 						<p><b>Barangay: </b> '.$records->barangay.'</p>
@@ -119,8 +119,9 @@ class Admin_Main extends CI_Controller
 					</div>
 				</div>
 				<hr>
-				<h6 class="step fw-bold text-uppercase py-4"><i class="fa fa-user-graduate px-2"></i>Educational Attainment: School Last Attended</h6>
-				<p><b>Name of School: </b> '.$records->last_school_attended.'</p>
+				<h6 class="step fw-bold text-uppercase py-2 px-3"><i class="fa fa-user-graduate px-1"></i>
+				Educational Attainment: School Last Attended</h6>
+				<p class="pt-2"><b>Name of School: </b> '.$records->last_school_attended.'</p>
 				<p><b>Program/Track: </b> '.$records->track.'</p>
 				<p><b>School Address: </b> '.$records->school_address.'</p>
 				<p><b>Year Level: </b> '.$records->year_level.'</p>
@@ -128,8 +129,8 @@ class Admin_Main extends CI_Controller
 				<p><b>Category: </b> '.$records->category.'</p>
 				<p class="pb-3"><b>GPA: </b> '.$records->gpa.'</p>
 				<hr>
-				<h6 class="step fw-bold text-uppercase py-4"><i class="fas fa-file px-2"></i> Admission Requirements</h6>
-				<div class="row mb-3">
+				<h6 class="step fw-bold text-uppercase py-2 px-3"><i class="fas fa-file px-1"></i> Admission Requirements</h6>
+				<div class="row mb-3 pt-2">
 					<div class="mb-3 fw-bold">
 						Medical Clearance <br>
 						<img src="../application/uploads\\'.$records->medical_record.'" alt="Medical Clearance" class="rounded hover-shadow cursor" src="assets/images/download.png" onclick="openModal();currentSlide(1)" style="width: 200px;">

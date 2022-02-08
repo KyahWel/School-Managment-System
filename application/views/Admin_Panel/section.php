@@ -98,7 +98,7 @@ $this->load->view('includes/adminSideBar');
 
 				<!-- Add Section -->
 				<div class="modal fade" id="addSection" tabindex="-1" aria-modal="true" aria-labelledby="addSectionHeader" aria-hidden="true">
-					<div class="modal-dialog modal-lg modal-dialog-centered">
+					<div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
 						<div class="modal-content">
 							<div class="modal-header">
 								<h5 class="modal-title" id="addectionHeader">Add Section</h5>
@@ -110,7 +110,7 @@ $this->load->view('includes/adminSideBar');
 										<div class="col-lg-6">
 											<!--Year Level-->
 											<label class="form-label">Year Level</label>
-											<select name="yearlevel" id="AddYearlevel" class="form-select">
+											<select name="yearlevel" id="AddYearlevel" class="form-select" required>
 												<option value="" disabled selected hidden></option>
 												<option value="1">First Year</option>
 												<option value="2">Second Year</option>
@@ -121,7 +121,7 @@ $this->load->view('includes/adminSideBar');
 										<div class="col-lg-6">
 											<!--Course-->
 											<label class="form-label">Course</label>
-											<select name="courseID" id="AddCourse" class="form-select">
+											<select name="courseID" id="AddCourse" class="form-select" required>
 												<option value="" disabled selected hidden></option>
 												<?php foreach ($course as $courserow) { ?>
 													<option value="<?php echo $courserow->courseID ?>">
@@ -135,19 +135,19 @@ $this->load->view('includes/adminSideBar');
 										<div class="col-lg-6">
 											<!--Section-->
 											<label class="form-label">Section Name</label>
-											<input type="text" class="form-control" name="sectionName">
+											<input type="text" class="form-control" name="sectionName" required>
 										</div>
 										<div class="col-lg-6">
 											<!--Capacity-->
 											<label class="form-label">Capacity</label>
-											<input type="number" id="capacity" class="form-control" name="capacity">
+											<input type="number" id="capacity" min="0" max="25" class="form-control" name="capacity" title="Max capacity is 25" required>
 										</div>
 									</div>
-									<div class="row mb-3">
+									<div class="row mb-4">
 										<div class="col-lg-6">
 											<!--Class-->
 											<label class="form-label">Class</label>
-											<select name="classID" class="form-select" id="AddClass">
+											<select name="classID" class="form-select" id="AddClass" required>
 												<option value="" disabled selected hidden></option>
 											</select>
 
@@ -155,7 +155,7 @@ $this->load->view('includes/adminSideBar');
 										<div class="col-lg-6">
 											<!--schoolyear-->
 											<label class="form-label">School Year</label>
-											<input type="text" readonly value="<?php echo date("Y"); ?>-<?php echo date("Y") + 1; ?>" class="form-control" name="schoolyear">
+											<input type="text" readonly value="<?php echo date("Y"); ?>-<?php echo date("Y") + 1; ?>" class="form-control" name="schoolyear" >
 										</div>
 									</div>
 									<div class="table-title">
@@ -185,11 +185,11 @@ $this->load->view('includes/adminSideBar');
 
 				<!-- Edit Section -->
 				<div class="modal fade" id="editSection" tabindex="-1" aria-modal="true" aria-labelledby="editSectionHeader" aria-hidden="true">
-					<div class="modal-dialog modal-lg modal-dialog-centered">
+					<div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
 						<div class="modal-content">
 
 							<div class="modal-header">
-								<h5 class="modal-title" id="editSectionHeader">Edit Section</h5>
+								<h5 class="modal-title" id="editSectionHeader">View Section</h5>
 								<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
 

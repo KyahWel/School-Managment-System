@@ -71,10 +71,11 @@ function lastpage() {
 }
 
 function enrollment() {
+    document.getElementById('viewApplicantDetails').style.display = "none";
     document.getElementById('create').style.display = "block";
     document.getElementById('viewApplicantEnrolledStudents').style.display = "block";
     document.getElementById('viewEnrollmentDetails').style.display = "none";
-    document.getElementById('viewApplicantDetails').style.display = "none";
+   
     document.getElementById('tab').style.display = "block";
 }
 
