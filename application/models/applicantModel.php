@@ -16,7 +16,6 @@ class applicantModel extends CI_Model {
 		$query=$this->db->get();
 		if($query->num_rows()>0){
 			unset($_POST);
-			$this->session->set_flashdata('errorApplicant','Error: You have already applied');
 			return 0;
 		}
 		else{

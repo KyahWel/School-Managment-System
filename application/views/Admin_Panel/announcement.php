@@ -32,7 +32,7 @@ $this->load->view('includes/adminSideBar');
                   <div class="col-6">
                     <!--Title-->
                     <label for="announcementTitle" class="form-label">Title</label>
-                    <input type="text" class="form-control" id="announcementTitle" name="title">
+                    <input type="text" class="form-control" id="announcementTitle" required name="title">
                   </div>
                   <div class="col-6">
                     <!--Creator ID-->
@@ -44,19 +44,19 @@ $this->load->view('includes/adminSideBar');
                   <div class="col-6">
                     <!--Date-->
                     <label for="announcementDate" class="form-label">Date</label>
-                    <input type="date" class="form-control" id="announcementDate" name="date">
+                    <input type="date" class="form-control" id="announcementDate"required  name="date">
                   </div>
                   <div class="col-6">
                     <!--Time-->
                     <label for="announcementTime" class="form-label">Time</label>
-                    <input type="time" class="form-control" id="announcementTime" name="time">
+                    <input type="time" class="form-control" id="announcementTime" required name="time">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <div class="col">
                     <!--Details-->
                     <label for="announcementDetails" class="form-label">Details</label>
-                    <textarea class="form-control" name="details" id="announcementDetails" placeholder="Input text here..." rows="4"></textarea>
+                    <textarea class="form-control" name="details" id="announcementDetails" required placeholder="Input text here..." rows="4"></textarea>
                   </div>
                 </div>
                 <div class="addAnnouncementButton d-flex justify-content-end">

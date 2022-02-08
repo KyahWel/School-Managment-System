@@ -40,6 +40,7 @@
                 <?= $this->session->flashdata('loginerror'); ?>
                 <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
             </div>
+            <?php $this->session->unset_userdata ('loginerror'); ?>
         <?php endif; ?>
 
       <h3><strong>Faculty Access Module</strong></h3>

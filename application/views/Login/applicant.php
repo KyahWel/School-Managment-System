@@ -41,18 +41,13 @@
                     <?= $this->session->flashdata('loginerror'); ?>
                     <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
                 </div>
-            <?php elseif ($this->session->flashdata('successApplicant')) : ?>
-                <!-- Successfull change password alert -->
-                <div class="alert alert-success alert-dismissible fade show">
-                    <?= $this->session->flashdata('successApplicant'); ?>
-                    <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
-                </div>
-            <?php elseif ($this->session->flashdata('errorApplicant')) : ?>
-                <!-- Successfull change password alert -->
+                <?php $this->session->unset_userdata ('loginerror'); ?>
+            <?php elseif ($this->session->flashdata('invalid')) : ?>
                 <div class="alert alert-danger alert-dismissible fade show">
-                    <?= $this->session->flashdata('errorApplicant'); ?>
+                    <?= $this->session->flashdata('invalid'); ?>
                     <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
                 </div>
+                <?php $this->session->unset_userdata ('invalid'); ?>
             <?php endif; ?>
 
             <h3 class="applicant"> <strong>Applicant Access Module</strong></h3>
@@ -92,6 +87,11 @@
 				</div>
 				<div class="modal-body mt-2 px-4">
                     <div class="row-lg-12 mt-0 asterisk align-items-center">
+                        <div id="errorMessage" class="alert alert-danger alert-dismissible fade show" style="display:none">
+                                Error: Applicant data already exists
+                                <button type="button" class="btn-close close exit"></button>
+                        </div>
+                        
                         <div class="col">
 							<div class="form-floating mb-3">
 								<input type="text" name="firstnameVerify" id="fnameVerify"  class="form-control form-control-sm"
@@ -128,17 +128,74 @@
                 </div>
 				<hr class="line">
                 <div class="d-flex justify-content-center mb-3">
-                    <button type="submit" class="btn btn-default check mx-2" 
-                    onclick="location.href='<?php echo site_url('applicantRegistration') ?>'">Continue</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">
+                    <button type="button" class="btn btn-default check mx-2">Continue</button>
+                    <button type="button" class="btn btn-secondary"  data-bs-dismiss="modal" aria-label="Close">
                             Cancel
                     </button>
                 </div>
+               
 			</div>
 		</div>
 	</div>
     </div>
     <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
+     <!-- jQuery JS CDN -->
+     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!-- jQuery DataTables JS CDN -->
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>                                             
+    <script type="text/javascript">
+        $(document).ready(function(){
+            <?php $this->session->unset_userdata('authenticated')?>
+            $('#dataTable').DataTable();
+            $('.exit').click(function() {
+                $('#errorMessage').css('display', 'none');
+            });
+            $('.check').click(function() {
+                var fname = $("#fnameVerify").val();
+                var lname = $("#surnameVerify").val();
+                var middlename = $("#midnameVerify").val();
+                var extname = $("#suffixVerify").val();
+                if(fname=='' || lname==''){
+                    if(fname==''){
+                        $("#fnameVerify").css("border", "1px solid red");
+                    }
+                    else{
+                        $("#fnameVerify").css("border", "1px solid black");
+                    }
+                    if(lname==''){
+                        $("#surnameVerify").css("border", "1px solid red");
+                    }
+                    else{
+                        $("#surnameVerify").css("border", "1px solid black");
+                    }
+                   
+                }
+                else{
+                    $.ajax({
+                        url: "<?php echo site_url('applicantVerification');?>",
+                        method: "POST",
+                        data: {
+                            fname:fname,
+                            lname:lname,
+                            middlename:middlename,
+                            extname:extname
+                        },
+                        success: function(data) {
+                            if(data == 1){
+                                // Data is not existing in database
+                                window.location.replace('<?php echo site_url('applicantRegistration'); ?>'+'?firstname="'+fname+'"&lastname="'+lname+'"&middlename="'+middlename+'"&extname="'+extname+'"');                            
+                            }
+                            else{
+                                // Data is existing in database
+                                $('#errorMessage').css('display', '') 
+                            }
+                        }
+                    });
+                }
+                
+            });
+});
+    </script>                               
 </body>
 
 </html>

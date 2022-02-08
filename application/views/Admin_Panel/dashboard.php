@@ -18,6 +18,7 @@ $this->load->view('includes/adminSideBar');
                 <?= $this->session->flashdata('logout'); ?>
                 <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
             </div>
+            <?php $this->session->unset_userdata ('logout'); ?>
         <?php endif; ?>
 
         <h3 class="mt-2">Dashboard</h3>

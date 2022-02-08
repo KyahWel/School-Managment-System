@@ -40,6 +40,7 @@ include __DIR__.'/../includes/loginNavbar.php'
                 <?= $this->session->flashdata('loginerror'); ?>
                 <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
             </div>
+            <?php $this->session->unset_userdata ('loginerror'); ?>
         <?php endif; ?>
 
         <h3><strong>Student Access Module</strong></h3>
