@@ -52,33 +52,62 @@ class subjectController extends CI_Controller {
 	public function editsubject(){
 		$subjectData = $this->input->post('id');
         $records = $this->subjectModel->getData($subjectData);
-		$output = '<form method="POST" action="../subjectController/updatesubject/'.$records->subjectID.'"" id="editsubjectForm">
+		$output = '<div id="edit_course">
+		<form method="POST" action="../subjectController/updatesubject/'.$records->subjectID.'"">
 			<div class="row">
-				<div class="col-sm-12">
-					<label class="form-label">Degree:</label>
-					<input type="text" class="form-control" name="degree" value="'.$records->degree.'">
+				<div class="row mb-3 py-1">
+					<div class="col-lg-2 col-md-2 col-sm-12 pt-2">
+						<label class="form-label">Select Course: </label>
+					</div>
+					<div class="col-lg-10 col-md-10 col-sm-12 ">
+						<input type="text" name="courseID" class="form-control" value="'.$records->degree.' '.$records->major.'" readonly>
+					</div>
 				</div>
-				<div class="col-sm-12"> 
-					<label class="form-label">Major:</label>
-					<input type="text" class="form-control" name="major" value="'.$records->major.'">
+				<div class="row mb-3 py-1">
+					<div class="col-lg-2 col-md-2 col-sm-12 pt-2">
+						<label class="form-label">College: </label>
+					</div>
+					<div class="col-lg-10 col-md-10 col-sm-12 ">
+						<input type="text" name="college" class="form-control" value="'.$records->college.'" readonly>
+						
+					</div>
 				</div>
-				<div class="col-sm-12">
-					<label class="form-label">College:</label>
-					<select name="college" class="form-control" required id="collegeSelect">
-						<option value="" disabled selected hidden>'.$records->college.'</option>
-						<option value="College of Science">College of Science</option>
-						<option value="College of Engineering">College of Engineering</option>
-						<option value="College of Industrial Education">College of Industrial Education</option>
-						<option value="College of Architecture and Fine Arts">College of Architecture and Fine Arts</option>
-						<option value="College of Liberal Arts">College of Liberal Arts</option>
-					</select>
+				<div class="row mb-3 py-1">
+					<div class="col-6">
+						<label class="form-label">Year Level: </label>
+						<input type="text" name="yearlevel" class="form-control" value="'.$records->yearlevel.'" readonly>
+					</div>
+					<div class="col-6">
+						<label class="form-label">Semester: </label>
+						<input type="text" name="semester" class="form-control" value="'.$records->semester.'" readonly>
+						
+					</div>
 				</div>
-			</div><br>
-			<div class="editsubjectButton d-flex justify-content-end">
-				<button class="btn btn-default" id="save" type="submit" value="save">Save</button>
-				<button class="btn btn-default" id="cancel" type="submit" value="cancel">Cancel</button>
-			</div>  
-		</form>';
+				<div class="row mb-3 py-1">
+					<div class="col-6">
+						<label class="form-label">Subject Code: </label>
+						<input type="text" name="subjectCode" class="form-control" required value="'.$records->subjectCode.'">
+					</div>
+					<div class="col-6">
+						<label class="form-label">Units: </label>
+						<input type="number" name="units" class="form-control" value="'.$records->units.'" required>
+					</div>
+				</div>
+				<div class="row mb-2">
+					<div class="col-lg-2 col-md-2 col-sm-12 pt-2">
+						<label class="form-label">Subject Name: </label>
+					</div>
+					<div class="col-lg-10 col-md-10 col-sm-12 ">
+						<input type="text" name="name" class="form-control" value="'.$records->name.'" required>
+					</div>
+				</div>
+			</div>
+			<div class="editSubjectButton d-flex justify-content-end mt-3">
+				<button class="btn btn-default" id="saveEdit" type="submit" value="save">Save</button>
+				<button class="btn btn-default" id="cancelEdit" type="button" data-bs-dismiss="modal">Cancel</button>
+			</div>
+		</form>
+	</div>';
 		echo $output;
 	}
 
