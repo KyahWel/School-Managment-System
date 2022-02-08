@@ -128,8 +128,9 @@
                 </div>
 				<hr class="line">
                 <div class="d-flex justify-content-center mb-3">
-                    <button type="submit" class="btn btn-default check mx-2" onclick="location.href='<?php echo site_url('applicantRegistration') ?>'">Continue</button>
-                    <button type="button" class="btn btn-secondary"  data-bs-dismiss="modal" aria-label="Close">
+                    <button type="submit" class="btn btn-default check mx-2" 
+                    onclick="location.href='<?php echo site_url('applicantRegistration') ?>'">Continue</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">
                             Cancel
                     </button>
                 </div>
