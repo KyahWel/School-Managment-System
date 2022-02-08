@@ -270,8 +270,11 @@ label {
     border: 1px solid gray;
 }
 
-.stepButtons .btn-secondary:hover, .modal .modal-footer .btn-secondary:hover{
+.stepButtons .btn-secondary:hover, .modal .btn-secondary:hover{
     opacity: 1;
+    background: none;
+    border: 1px solid #7b7b7b;
+    color: black;
 }
 
 /* common styles */
@@ -344,9 +347,13 @@ label {
     color: white;
 }
 
-.modal-title {
-    letter-spacing: 1.5px;
+.modal .head{
+    background: #f4f4f4;
+    border: #bdbdbd;
+} .modal-title {
+    letter-spacing: 1px;
     font-weight: 500;
+  
 }
 
 .modal-footer button.btn-primary {
@@ -379,7 +386,7 @@ label {
       text-align: center;
   }
 
-  #applSidebar{
+  #applSidebar, #applSidebarRegistration{
     border-right: 1px solid rgb(232, 226, 226);
     box-shadow: 3px 0px 5px 0px rgba(0, 0, 0, 0.25);
   }
