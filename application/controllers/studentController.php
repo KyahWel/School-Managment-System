@@ -9,6 +9,7 @@ class StudentController extends CI_Controller {
 		$this->load->model('studentModel');
 		$this->load->model('eventsModel');
 		$this->load->model('Authentication');
+		$this->load->model('studentGrades');
 		if ($this->session->userdata('authenticated') != '3'){
 			
 			if ($this->session->userdata('authenticated') == '1') {
@@ -56,7 +57,11 @@ class StudentController extends CI_Controller {
 
 	public function grades()
 	{
-        $this->load->view('Student_Panel/grades');
+		$data['grades'] = $this->studentGrades->viewData($this->session->userdata('auth_user')['studentID']);
+		$data['gpa'] = $this->studentGrades->getGPA($this->session->userdata('auth_user')['studentID']);
+		$data['sem'] = $this->studentGrades->getsem($this->session->userdata('auth_user')['studentID']);
+		$data['student'] =  $this->studentModel->getData($this->session->userdata('auth_user')['studentID']);
+        $this->load->view('Student_Panel/grades',$data);
 	}
 
 	public function dropSubject()

@@ -63,7 +63,7 @@ class applicantRegistration extends CI_Controller {
 		$data['student'] = $this->applicantModel->viewAppliedData($firstname,$lastname);
 		$this->load->view('applicant/applicantFinalStep',$data);
 		$this->session->set_flashdata('successApplicant','Applied Successfully!'); 
-		$this->session->unset_userdata('authenticated');
+		
 	}
 
 	public function downloadTestPermit($id)
