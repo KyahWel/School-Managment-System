@@ -672,7 +672,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>           
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>                                        
     <script type="text/javascript">
-
+	 $(document).ready(function(){
+            console.log("Authenticated ="+"<?php echo $this->session->userdata('authenticated')?>")
+	 });
+	 
 	$('#confirmationPage').on('shown.bs.modal', function (e) {
 	if (validateFormsss() === false) { // has no errors
 	var courses = $("#courses option:selected").text();

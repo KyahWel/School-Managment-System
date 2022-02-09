@@ -150,6 +150,7 @@ $this->load->view('includes/studentSideBar');
                 <!-- Monday -->
                 <div class="tab-pane show active mb-3 text-dark" id="monday" role="tabpanel" aria-labelledby="Monday">
                     <div class="row mb-3">
+                    <?php if ($schedMonday != NULL) : ?>
                         <?php foreach($schedMonday as $monday) {?>
                             <div class="col-lg-6 mb-2">
                                 <div class="box-wrapper p-4" href="#">
@@ -172,6 +173,7 @@ $this->load->view('includes/studentSideBar');
                                 </div>
                             </div>
                          <?php } ?>
+                        <?php endif ?> 
                     </div>
 
                 </div>
@@ -179,36 +181,39 @@ $this->load->view('includes/studentSideBar');
                 <!-- Tuesday -->
                 <div class="tab-pane " id="tuesday" role="tabpanel" aria-labelledby="Tuesday">
                     <div class="row mb-3">
-                        <?php foreach($schedTuesday as $tuesday) {?>
-                            <div class="col-lg-6 mb-2">
-                                <div class="box-wrapper p-4" href="#">
-                                    <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 
-                                        <?php echo date("h:i A",strtotime($tuesday->start_time)) . " - " . date("h:i A",strtotime($tuesday->end_time)); ?>
-                                    </h5>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <div class="timetable-item-subtitle">Subject</div>
-                                            <h6 class=" timetable-item-subj my-1 px-3 py-2"><?php echo $tuesday->name; ?></h6>
+                        <?php if ($schedTuesday != NULL) : ?>
+                            <?php foreach($schedTuesday as $tuesday) {?>
+                                <div class="col-lg-6 mb-2">
+                                    <div class="box-wrapper p-4" href="#">
+                                        <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 
+                                            <?php echo date("h:i A",strtotime($tuesday->start_time)) . " - " . date("h:i A",strtotime($tuesday->end_time)); ?>
+                                        </h5>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <div class="timetable-item-subtitle">Subject</div>
+                                                <h6 class=" timetable-item-subj my-1 px-3 py-2"><?php echo $tuesday->name; ?></h6>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <div class="timetable-item-subtitle"> Professor</div>
+                                                <h6 class=" timetable-item-prof my-1 px-3 py-2">
+                                                    <?php echo $tuesday->firstname . " " .$tuesday->lastname; ?>
+                                                </h6>
+                                            </div>
                                         </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <div class="timetable-item-subtitle"> Professor</div>
-                                            <h6 class=" timetable-item-prof my-1 px-3 py-2">
-                                                <?php echo $tuesday->firstname . " " .$tuesday->lastname; ?>
-                                            </h6>
+                                        <div class="box-content">
                                         </div>
-                                    </div>
-                                    <div class="box-content">
                                     </div>
                                 </div>
-                            </div>
-                        <?php } ?>
+                            <?php } ?>
+                        <?php endif ?> 
                     </div>
                 </div>
 
                 <!-- Wednesday -->
                 <div class="tab-pane" id="wednesday" role="tabpanel" aria-labelledby="Wednesday">
                     <div class="row mb-3">
+                    <?php if ($schedWednesday != NULL) : ?>
                         <?php foreach($schedWednesday as $wednesday) {?>
                             <div class="col-lg-6 mb-2">
                                 <div class="box-wrapper p-4" href="#">
@@ -230,133 +235,142 @@ $this->load->view('includes/studentSideBar');
                                     </div>
                                 </div>
                             </div>
-                        <?php } ?>   
+                        <?php } ?>  
+                        <?php endif ?>  
                     </div>
                 </div>
                 <!-- Thursday -->
                 <div class="tab-pane" id="thursday" role="tabpanel" aria-labelledby="Thursday">
                     <div class="row mb-3">
-                        <?php foreach($schedThursday as $thursday) {?>
-                            <div class="col-lg-6 mb-2">
-                                <div class="box-wrapper p-4" href="#">
-                                    <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i>
-                                     <?php echo date("h:i A",strtotime($thursday->start_time)) . " - " . date("h:i A",strtotime($thursday->end_time)); ?>
-                                    </h5>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <div class="timetable-item-subtitle">Subject</div>
-                                            <h6 class=" timetable-item-subj my-1 px-3 py-2">
-                                                <?php echo $thursday->name; ?>
-                                            </h6>
+                        <?php if ($schedThursday != NULL) : ?>
+                            <?php foreach($schedThursday as $thursday) {?>
+                                <div class="col-lg-6 mb-2">
+                                    <div class="box-wrapper p-4" href="#">
+                                        <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i>
+                                        <?php echo date("h:i A",strtotime($thursday->start_time)) . " - " . date("h:i A",strtotime($thursday->end_time)); ?>
+                                        </h5>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <div class="timetable-item-subtitle">Subject</div>
+                                                <h6 class=" timetable-item-subj my-1 px-3 py-2">
+                                                    <?php echo $thursday->name; ?>
+                                                </h6>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <div class="timetable-item-subtitle"> Professor</div>
+                                                <h6 class=" timetable-item-prof my-1 px-3 py-2">
+                                                <?php echo $thursday->firstname . " " .$thursday->lastname; ?>
+                                                </h6>
+                                            </div>
                                         </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <div class="timetable-item-subtitle"> Professor</div>
-                                            <h6 class=" timetable-item-prof my-1 px-3 py-2">
-                                             <?php echo $thursday->firstname . " " .$thursday->lastname; ?>
-                                            </h6>
+                                        <div class="box-content">
                                         </div>
-                                    </div>
-                                    <div class="box-content">
                                     </div>
                                 </div>
-                            </div>
-                        <?php } ?>
+                            <?php } ?>
+                        <?php endif ?> 
                     </div>
 
                 </div>
                 <!-- Friday -->
                 <div class="tab-pane" id="friday" role="tabpanel" aria-labelledby="Friday">
                     <div class="row mb-3">
-                        <?php foreach($schedFriday as $friday) {?>
-                            <div class="col-lg-6 mb-2">
-                                <div class="box-wrapper p-4" href="#">
-                                    <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i>
-                                        <?php echo date("h:i A",strtotime($friday->start_time)) . " - " . date("h:i A",strtotime($friday->end_time)); ?>
-                                    </h5>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <div class="timetable-item-subtitle">Subject</div>
-                                            <h6 class=" timetable-item-subj my-1 px-3 py-2">
-                                                <?php echo $friday->name; ?>
-                                            </h6>
+                        <?php if ($schedFriday != NULL) : ?>
+                            <?php foreach($schedFriday as $friday) {?>
+                                <div class="col-lg-6 mb-2">
+                                    <div class="box-wrapper p-4" href="#">
+                                        <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i>
+                                            <?php echo date("h:i A",strtotime($friday->start_time)) . " - " . date("h:i A",strtotime($friday->end_time)); ?>
+                                        </h5>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <div class="timetable-item-subtitle">Subject</div>
+                                                <h6 class=" timetable-item-subj my-1 px-3 py-2">
+                                                    <?php echo $friday->name; ?>
+                                                </h6>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <div class="timetable-item-subtitle"> Professor</div>
+                                                <h6 class=" timetable-item-prof my-1 px-3 py-2">
+                                                    <?php echo $friday->firstname . " " .$friday->lastname; ?>
+                                                </h6>
+                                            </div>
                                         </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <div class="timetable-item-subtitle"> Professor</div>
-                                            <h6 class=" timetable-item-prof my-1 px-3 py-2">
-                                                <?php echo $friday->firstname . " " .$friday->lastname; ?>
-                                            </h6>
+                                        <div class="box-content">
                                         </div>
-                                    </div>
-                                    <div class="box-content">
                                     </div>
                                 </div>
-                            </div>
-                        <?php } ?> 
+                            <?php } ?> 
+                        <?php endif ?> 
                     </div>
                 </div>
                 <!-- Saturday -->
                 <div class="tab-pane" id="saturday" role="tabpanel" aria-labelledby="Saturday">
                     <div class="row mb-3">
-                         <?php foreach($schedSaturday as $saturday) {?>
-                            <div class="col-lg-6 mb-2">
-                                <div class="box-wrapper p-4" href="#">
-                                    <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i>
-                                        <?php echo date("h:i A",strtotime($saturday->start_time)) . " - " . date("h:i A",strtotime($saturday->end_time)); ?>
-                                    </h5>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <div class="timetable-item-subtitle">Subject</div>
-                                            <h6 class=" timetable-item-subj my-1 px-3 py-2">
-                                                 <?php echo $saturday->name; ?>
-                                            </h6>
+                        <?php if ($schedSaturday != NULL) : ?>
+                            <?php foreach($schedSaturday as $saturday) {?>
+                                <div class="col-lg-6 mb-2">
+                                    <div class="box-wrapper p-4" href="#">
+                                        <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i>
+                                            <?php echo date("h:i A",strtotime($saturday->start_time)) . " - " . date("h:i A",strtotime($saturday->end_time)); ?>
+                                        </h5>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <div class="timetable-item-subtitle">Subject</div>
+                                                <h6 class=" timetable-item-subj my-1 px-3 py-2">
+                                                    <?php echo $saturday->name; ?>
+                                                </h6>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                <div class="timetable-item-subtitle"> Professor</div>
+                                                <h6 class=" timetable-item-prof my-1 px-3 py-2">
+                                                    <?php echo $saturday->firstname . " " .$saturday->lastname; ?>
+                                                </h6>
+                                            </div>
                                         </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                            <div class="timetable-item-subtitle"> Professor</div>
-                                            <h6 class=" timetable-item-prof my-1 px-3 py-2">
-                                                <?php echo $saturday->firstname . " " .$saturday->lastname; ?>
-                                            </h6>
+                                        <div class="box-content">
                                         </div>
-                                    </div>
-                                    <div class="box-content">
                                     </div>
                                 </div>
-                            </div>
-                        <?php } ?>    
+                            <?php } ?>  
+                        <?php endif ?>   
                     </div>
                 </div>
 
                 <!-- Sunday -->
                 <div class="tab-pane" id="sunday" role="tabpanel" aria-labelledby="Sunday">
                     <div class="row mb-3">
-                    <?php foreach($schedSunday as $sunday) {?>
-                        <div class="col-lg-6 mb-2">
-                            <div class="box-wrapper p-4" href="#">
-                                <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i>
-                                    <?php echo date("h:i A",strtotime($sunday->start_time)) . " - " . date("h:i A",strtotime($sunday->end_time)); ?>
-                                </h5>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="timetable-item-subtitle">Subject</div>
-                                        <h6 class=" timetable-item-subj my-1 px-3 py-2">
-                                             <?php echo $sunday->name; ?>
-                                        </h6>
+                    <?php if ($schedSunday != NULL) : ?>
+                        <?php foreach($schedSunday as $sunday) {?>
+                            <div class="col-lg-6 mb-2">
+                                <div class="box-wrapper p-4" href="#">
+                                    <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i>
+                                        <?php echo date("h:i A",strtotime($sunday->start_time)) . " - " . date("h:i A",strtotime($sunday->end_time)); ?>
+                                    </h5>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <div class="timetable-item-subtitle">Subject</div>
+                                            <h6 class=" timetable-item-subj my-1 px-3 py-2">
+                                                <?php echo $sunday->name; ?>
+                                            </h6>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                            <div class="timetable-item-subtitle"> Professor</div>
+                                            <h6 class=" timetable-item-prof my-1 px-3 py-2">
+                                                <?php echo $sunday->firstname . " " .$sunday->lastname; ?>
+                                            </h6>
+                                        </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <div class="timetable-item-subtitle"> Professor</div>
-                                        <h6 class=" timetable-item-prof my-1 px-3 py-2">
-                                            <?php echo $sunday->firstname . " " .$sunday->lastname; ?>
-                                        </h6>
+                                    <div class="box-content">
                                     </div>
-                                </div>
-                                <div class="box-content">
                                 </div>
                             </div>
-                        </div>
-                        <?php } ?>  
+                            <?php } ?> 
+                        <?php endif ?>  
                     </div>
                 </div>
             </div>

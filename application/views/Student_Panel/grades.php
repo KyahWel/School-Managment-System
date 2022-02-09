@@ -31,7 +31,7 @@ $this->load->view('includes/studentSideBar');
 
         <div class="row align-items-center">
             <div class="col-6 text-uppercase fw-bolder">
-                <label>Welcome, Lida Cruz</label>
+                <label>Welcome, <?php echo $student->firstname?> <?php echo $student->lastname?></label>
             </div>
             <!--Search -->
             <div class="col-6 align-self-center my-3" id="filter">
@@ -62,12 +62,16 @@ $this->load->view('includes/studentSideBar');
                         <div class="col">
                             <table class="col-11 mb-3 mt-3 align-self-center table-body">
                                 <tr>
-                                    <td>School Year: 2020-2021</td>
-                                    <td>Year Level: Third</td>
+                                    <td>School Year: <?php echo date("Y"); ?>-<?php echo date("Y") + 1; ?></td>
+                                    <td>Year Level: <?php echo $student->yearlevel?></td>
                                 </tr>
                                 <tr>
-                                    <td>Course: BSCS-NS</td>
-                                    <td>Semester: First</td>
+                                    <td>Course: <?php echo $student->degree?> <?php echo $student->major?></td>
+                                    <td>Semester: 
+                                        <?php if ($sem != NULL) : ?>
+                                            <?php echo $sem?>
+                                        <?php endif ?>
+                                    </td>
                                 </tr>
                             </table>
                         </div>
@@ -81,96 +85,36 @@ $this->load->view('includes/studentSideBar');
 			                    <th class="py-3">Subject Name</th>
 			                    <th class="py-3">Teacher</th>
 			                    <th class="py-3">Units</th>
-                                <th class="py-3">Section</th>
-                                <th class="py-3">Average</th>
+                                <th class="py-3">Grade</th>
                                 <th class="py-3">Remarks</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>DM001</td>
-                                <td>Discrete Mathematics</td>
-                                <td>Salvador John</td>
-                                <td>1</td>
-                                <td>BSCS-NS-3A</td>
-                                <td>1.25</td>
-                                <td><b>Passed</b></td>
-                            </tr>
-                            <tr>
-                                <td>CSB001</td>
-                                <td>CS Basics</td>
-                                <td>Castro Dexter</td>
-                                <td>2</td>
-                                <td>BSCS-NS-3A</td>
-                                <td>1.00</td>
-                                <td><b>Passed</b></td>
-                            </tr>
-                            <tr>
-                                <td>DS001</td>
-                                <td>Data Structures</td>
-                                <td>Reyes Mary</td>
-                                <td>3</td>
-                                <td>BSCS-NS-3A</td>
-                                <td>1.75</td>
-                                <td><b>Passed</b></td>
-                            </tr>
-                            <tr>
-                                <td>SP001</td>
-                                <td>System Programming</td>
-                                <td>Salvador Jeff</td>
-                                <td>3</td>
-                                <td>BSCS-NS-3A</td>
-                                <td>1.25</td>
-                                <td><b>Passed</b></td>
-                            </tr>
-                            <tr>
-                                <td>DP001</td>
-                                <td>Data Programming</td>
-                                <td>Garcia Dave</td>
-                                <td>1</td>
-                                <td>BSCS-NS-3A</td>
-                                <td>1.25</td>
-                                <td><b>Passed</b></td>
-                            </tr>
-                            <tr>
-                                <td>OOP001</td>
-                                <td>OOP using C++</td>
-                                <td>Catahan Bryan</td>
-                                <td>2</td>
-                                <td>BSCS-NS-3A</td>
-                                <td>1.75</td>
-                                <td><b>Passed</b></td>
-                            </tr>
-                            <tr>
-                                <td>CN001</td>
-                                <td>Computer Networks</td>
-                                <td>Reyes Kyla</td>
-                                <td>3</td>
-                                <td>BSCS-NS-3A</td>
-                                <td>1.50</td>
-                                <td><b>Passed</b></td>
-                            </tr>
-                            <tr>
-                                <td>MA001</td>
-                                <td>Mobile Applications</td>
-                                <td>Roxas Tim</td>
-                                <td>3</td>
-                                <td>BSCS-NS-3A</td>
-                                <td>1.25</td>
-                                <td><b>Passed</b></td>
-                            </tr>
-                            <tr>
-                                <td>AJ001</td>
-                                <td>Advanced Java</td>
-                                <td>Acosta Jade</td>
-                                <td>3</td>
-                                <td>BSCS-NS-3A</td>
-                                <td>1.50</td>
-                                <td><b>Passed</b></td>
-                            </tr> 
+                            <?php if ($grades != NULL) : ?>
+                                <?php foreach($grades as $grades) {?>
+                                <tr>
+                                    <td><?php echo $grades->subjectCode?></td>
+                                    <td><?php echo $grades->name?></td>
+                                    <td><?php echo $grades->firstname?> <?php echo $grades->lastname?></td>
+                                    <td><?php echo $grades->units?></td>
+                                    <td><?php echo $grades->grade?></td>
+                                    <td>
+                                        <?php if ($grades->grade == 0) : ?>
+                                            <b>Unavailable</b>
+                                        <?php elseif ($grades->grade == 5) : ?>
+                                            <b style="color:red;">Failed</b>
+                                        <?php else: ?>
+                                            <b>Passed</b>
+                                        <?php endif ?>
+                                    </td>
+                                </tr>
+                                <?php } ?> 
+                            <?php endif ?>
                         </tbody>
                     </table>	
-                    <div class="col-12 mb-1 text-end px-5 py-3 fw-bold text-decoration-underline" style="font-size: 1rem;">GPA: 1.38</div>
+                    <div class="col-12 mb-1 text-end px-5 py-3 fw-bold text-decoration-underline" style="font-size: 1rem;"> GPA: <?php echo $gpa?>
+                  
+                    </div>
                 </div>
             </div>
         </div>

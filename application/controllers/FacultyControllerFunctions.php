@@ -271,8 +271,8 @@ class FacultyControllerFunctions extends CI_Controller
 							<td>'.$records->firstname.'</td>
 							<td> </td>
 							<td>
-								<button type="button" id="input" class="btn btn-default btn-sm" data-bs-toggle="modal" data-bs-target="#inputGrade"><i class="fas fa-plus"></i> Input Grade</button>
-								<button type="button" id="edit" class="btn btn-default btn-sm" data-bs-toggle="modal" data-bs-target="#editGrade"><i class="fas fa-pen"></i> Edit Grade</button>
+								<button type="button" id="input" data-id='.$records->studentID.' class="btn btn-default btn-sm addGrade" data-bs-toggle="modal" data-bs-target="#inputGrade"><i class="fas fa-plus"></i> Input Grade</button>
+								<button type="button" id="edit" data-id='.$records->studentID.' class="btn btn-default btn-sm editGrade" data-bs-toggle="modal" data-bs-target="#editGrade"><i class="fas fa-pen"></i> Edit Grade</button>
 							</td>
 						</tr> ';
 			}
@@ -306,5 +306,83 @@ class FacultyControllerFunctions extends CI_Controller
 
 	public function changePass($id) {
 		$this->teacherModel->changePassword($id);
+	}
+
+	public function editGrade(){
+		$output='
+			<form class="container my-3" action="">
+				<div class="row mb-3">
+					<div class="col-6">
+						<!--Subject Code-->
+						<label for="subjectCode" class="form-label mb-0">Subject Code: </label>
+						<input type="text" class="form-control" readonly>
+					</div>
+					<div class="col-6">
+						<!--Subject Title-->
+						<label for="subjectTitle" class="form-label mb-0">Subject Title: </label>
+						<input type="text" class="form-control" readonly>
+					</div>
+				</div>
+				<div class="row mb-3">
+					<div class="col-6">
+						<!--Student Name-->
+						<label for="studentName" class="form-label mb-0">Student Name: </label>
+						<input type="text" class="form-control" readonly>
+					</div>
+					<div class="col-6">
+						<!--Student ID-->
+						<label for="studentID" class="form-label mb-0">Student ID: </label>
+						<input type="text" class="form-control" readonly>
+					</div>
+				</div>
+				<div class="row mb-3">
+					<div class="col-6">
+						<!--Section-->
+						<label for="section" class="form-label mb-0">Section: </label>
+						<input type="text" class="form-control" readonly>
+					</div>
+					<div class="col-6">
+						<!--Schedule-->
+						<label for="schedule" class="form-label mb-0">Schedule: </label>
+						<input type="text" class="form-control" readonly>
+					</div>
+				</div>
+				<div class="row my-4 align-items-center">
+					<div class="col-sm-auto">
+						<label for="grade" class="col-form-label">Old Grade: </label>
+					</div>
+					<div class="col-auto col-sm-3">
+						<input type="grade" class="form-control" aria-describedby="gradeOfStudent">
+					</div>
+					<div class="col-sm-auto">
+						<label for="rating" class="col-form-label">Equivalent Rating: </label>
+					</div>
+					<div class="col-auto col-sm-3">
+						<input type="rating" class="form-control" aria-describedby="equivalentRating" readonly>
+					</div>
+				</div>
+				<div class="row mb-3 align-items-center">
+					<div class="col-sm-auto">
+						<label for="grade" class="col-form-label">New Grade: </label>
+					</div>
+					<div class="col-auto col-sm-3">
+						<input type="grade" class="form-control" aria-describedby="gradeOfStudent">
+					</div>
+					<div class="col-sm-auto">
+						<label for="rating" class="col-form-label">Equivalent Rating: </label>
+					</div>
+					<div class="col-auto col-sm-3">
+						<input type="rating" class="form-control" aria-describedby="equivalentRating" readonly>
+					</div>
+				</div>
+				<div class="editGradeButton d-flex justify-content-end pt-4">
+					<!--Buttons-->
+					<button class="btn btn-default" id="save" type="submit" value="save">Confirm</button>
+					<button class="btn btn-default" id="cancel" type="button"
+						data-bs-dismiss="modal">Cancel</button>
+				</div>
+		</form>
+	';
+	echo $output;
 	}
 }

@@ -29,7 +29,7 @@ class classModel extends CI_Model {
 				'day' => $day,
 				'room_no' => $room,
 				'courseID' => $_POST['courseID'],
-				'yearlevel' => $_POST['yearlevel'],
+				'yearlevelClass' => $_POST['yearlevel'],
 				'isTaken' => 0,
 				'status' => 1
 			);
@@ -96,6 +96,14 @@ class classModel extends CI_Model {
 			$this->db->where('class_code',$classcode);
 			$this->db->where('subjectID',$subjectID);
 			$this->db->update('class',$data);
+			
+			$data = array(
+				'teacherID' => $profID,
+			);
+			$this->db->where('class_code',$classcode);
+			$this->db->where('subjectID',$subjectID);
+			$this->db->update('student_grades',$data);
+			
 	}
 
 	public function deactivateData($classcode){

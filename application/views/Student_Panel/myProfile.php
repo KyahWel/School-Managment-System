@@ -28,7 +28,7 @@ $this->load->view('includes/studentSideBar');
                     <td class="pt-2 px-2">
                         <p> <?php echo $student->username?></p>
                         <p> <?php echo $student->email ?></p>
-                        <p> <?php echo $student->degree ?> in  <?php echo $student->major ?> </p>
+                        <p> <?php echo $student->degree ?> <?php echo $student->major ?> </p>
                     </td>
                 </tr>
             </table>
@@ -48,7 +48,7 @@ $this->load->view('includes/studentSideBar');
                             <label for="courses" class="col-2 form-label small pt-2">Course: </label>
                             <div class="col-lg-7 col-md-10 col-sm-12">
                                 <select class="form-select form-select-sm" id="courses" name="course_chosen" value="bscs" aria-label="Select Course" disabled>
-                                    <option selected> <?php echo $student->degree ?> in  <?php echo $student->major ?> </option>
+                                    <option selected> <?php echo $student->degree ?> <?php echo $student->major ?> </option>
 
                                 </select> 
                             </div>

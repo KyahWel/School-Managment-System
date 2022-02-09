@@ -79,7 +79,7 @@
 						aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<form class="container my-3" action="">
+				<form class="container my-3" action="">
 						<div class="row mb-3">
 							<div class="col-6">
 								<!--Subject Code-->
@@ -155,78 +155,9 @@
 				</div>
 
 				<div class="modal-body">
-					<form class="container my-3" action="">
-						<div class="row mb-3">
-							<div class="col-6">
-								<!--Subject Code-->
-								<label for="subjectCode" class="form-label mb-0">Subject Code: </label>
-								<input type="text" class="form-control" readonly>
-							</div>
-							<div class="col-6">
-								<!--Subject Title-->
-								<label for="subjectTitle" class="form-label mb-0">Subject Title: </label>
-								<input type="text" class="form-control" readonly>
-							</div>
-						</div>
-						<div class="row mb-3">
-							<div class="col-6">
-								<!--Student Name-->
-								<label for="studentName" class="form-label mb-0">Student Name: </label>
-								<input type="text" class="form-control" readonly>
-							</div>
-							<div class="col-6">
-								<!--Student ID-->
-								<label for="studentID" class="form-label mb-0">Student ID: </label>
-								<input type="text" class="form-control" readonly>
-							</div>
-						</div>
-						<div class="row mb-3">
-							<div class="col-6">
-								<!--Section-->
-								<label for="section" class="form-label mb-0">Section: </label>
-								<input type="text" class="form-control" readonly>
-							</div>
-							<div class="col-6">
-								<!--Schedule-->
-								<label for="schedule" class="form-label mb-0">Schedule: </label>
-								<input type="text" class="form-control" readonly>
-							</div>
-						</div>
-						<div class="row my-4 align-items-center">
-							<div class="col-sm-auto">
-								<label for="grade" class="col-form-label">Old Grade: </label>
-							</div>
-							<div class="col-auto col-sm-3">
-								<input type="grade" class="form-control" aria-describedby="gradeOfStudent">
-							</div>
-							<div class="col-sm-auto">
-								<label for="rating" class="col-form-label">Equivalent Rating: </label>
-							</div>
-							<div class="col-auto col-sm-3">
-								<input type="rating" class="form-control" aria-describedby="equivalentRating" readonly>
-							</div>
-						</div>
-						<div class="row mb-3 align-items-center">
-							<div class="col-sm-auto">
-								<label for="grade" class="col-form-label">New Grade: </label>
-							</div>
-							<div class="col-auto col-sm-3">
-								<input type="grade" class="form-control" aria-describedby="gradeOfStudent">
-							</div>
-							<div class="col-sm-auto">
-								<label for="rating" class="col-form-label">Equivalent Rating: </label>
-							</div>
-							<div class="col-auto col-sm-3">
-								<input type="rating" class="form-control" aria-describedby="equivalentRating" readonly>
-							</div>
-						</div>
-						<div class="editGradeButton d-flex justify-content-end pt-4">
-							<!--Buttons-->
-							<button class="btn btn-default" id="save" type="submit" value="save">Confirm</button>
-							<button class="btn btn-default" id="cancel" type="button"
-								data-bs-dismiss="modal">Cancel</button>
-						</div>
-					</form>
+					<div id="edit_grade">
+						
+					</div>
 				</div>
 
 			</div>
@@ -251,9 +182,7 @@
 			var sectionID = $(this).data('id');
 			var classCode = $(this).attr('data-classCode');
             var subjectID = $(this).attr('data-subjectID');
-            console.log(sectionID);
-            console.log(classCode);
-            console.log(subjectID);
+          
 			$.ajax({
 				url: "<?php echo site_url('FacultyControllerFunctions/viewStudents');?>",
 				method: "POST",
@@ -264,6 +193,32 @@
 				},
 				success: function (data) {
 					$('#student_section').html(data);
+				}
+			});
+		});
+		$('.addGrade').click(function () {
+			var studentID = $('#input').data('id');
+			$.ajax({
+				url: "<?php echo site_url('FacultyControllerFunctions/addGrade');?>",
+				method: "POST",
+				data: {
+					studentID: studentID,
+				},
+				success: function (data) {
+					console.log(studentID);
+				}
+			});
+		});
+		$('.editGrade').click(function () {
+			var studentID = $('#edit').data('id');
+			$.ajax({
+				url: "<?php echo site_url('FacultyControllerFunctions/editGrade');?>",
+				method: "POST",
+				data: {
+					studentID: studentID, 
+				},
+				success: function (data) {
+					$('#edit_grade').html(data);
 				}
 			});
 		});

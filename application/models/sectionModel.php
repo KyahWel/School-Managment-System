@@ -59,6 +59,35 @@ class sectionModel extends CI_Model {
 		$this->db->update('section_table',$dataB);
 	}	
 
+	public function addStudentGrades($id){
+
+		// Get Student Section
+		$queryStudent = $this->db->query(' SELECT * from student_accounts WHERE studentID ='.$id);
+		$queryStudent = $queryStudent->row();
+
+		// Get specific section
+		$querySection = $this->db->query(' SELECT * from section_table WHERE sectionID = '.$queryStudent->sectionID);
+		$querySection = $querySection->row();
+
+		// Get Class
+		$queryClass = $this->db->query(' SELECT * from class WHERE class_code ="'.$querySection->class_code.'"');
+		$queryClass = $queryClass->result();
+
+		foreach($queryClass as $queryClass){
+			$data = array(
+				'studentGradesID' => NULL,
+				'studentID' => $queryStudent->studentID,
+				'teacherID' => $queryClass->teacherID,
+				'subjectID' => $queryClass->subjectID,
+				'schoolyear' => $querySection->schoolyear,
+				'class_code' => $queryClass->class_code,
+				'grade' => 0,
+			);
+			$this->db->insert('student_grades',$data);
+		}
+	}	
+
+
 	public function viewSectionList($courseID,$yearlevel) #Read
 	{
 		$query = $this->db->query('SELECT * FROM section_table WHERE courseID ='.$courseID.' AND yearlevel ='.$yearlevel );

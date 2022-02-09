@@ -153,12 +153,17 @@ class studentModel extends CI_Model {
 									JOIN `student_accounts` ON section_table.sectionID = student_accounts.sectionID 
 									WHERE `studentID` = ".$id);
 		$class_code = $query->row();
+		if($class_code != NULL){
 		$query2 = $this->db->query("SELECT * FROM `class` 
 									JOIN `subjects_table` ON class.subjectID = subjects_table.subjectID
 									JOIN `teacher_accounts` ON class.teacherID = teacher_accounts.teacherID
 									WHERE `class_code` = '$class_code->class_code' AND class.day='Monday' 
 									ORDER BY `start_time` ASC ");
 		return $query2->result();
+		}
+		else{
+			return NULL;
+		}
 	}
 	public function getScheduleTuesday($id){
 		$query = $this->db->query("SELECT class.class_code FROM `class` 
@@ -166,12 +171,17 @@ class studentModel extends CI_Model {
 									JOIN `student_accounts` ON section_table.sectionID = student_accounts.sectionID 
 									WHERE `studentID` = ".$id);
 		$class_code = $query->row();
+		if($class_code != NULL){
 		$query2 = $this->db->query("SELECT * FROM `class` 
 									JOIN `subjects_table` ON class.subjectID = subjects_table.subjectID
 									JOIN `teacher_accounts` ON class.teacherID = teacher_accounts.teacherID
 									WHERE `class_code` = '$class_code->class_code' AND class.day='Tuesday' 
 									ORDER BY `start_time` ASC ");
 		return $query2->result();
+		}
+		else{
+			return NULL;
+		}
 	}
 
 	public function getScheduleWednesday($id){
@@ -180,12 +190,17 @@ class studentModel extends CI_Model {
 									JOIN `student_accounts` ON section_table.sectionID = student_accounts.sectionID 
 									WHERE `studentID` = ".$id);
 		$class_code = $query->row();
+		if($class_code != NULL){
 		$query2 = $this->db->query("SELECT * FROM `class` 
 									JOIN `subjects_table` ON class.subjectID = subjects_table.subjectID
 									JOIN `teacher_accounts` ON class.teacherID = teacher_accounts.teacherID
 									WHERE `class_code` = '$class_code->class_code' AND class.day='Wednesday' 
 									ORDER BY `start_time` ASC ");
 		return $query2->result();
+		}
+		else{
+			return NULL;
+		}
 	}
 
 	public function getScheduleThursday($id){
@@ -194,12 +209,17 @@ class studentModel extends CI_Model {
 									JOIN `student_accounts` ON section_table.sectionID = student_accounts.sectionID 
 									WHERE `studentID` = ".$id);
 		$class_code = $query->row();
+		if($class_code != NULL){
 		$query2 = $this->db->query("SELECT * FROM `class` 
 									JOIN `subjects_table` ON class.subjectID = subjects_table.subjectID
 									JOIN `teacher_accounts` ON class.teacherID = teacher_accounts.teacherID
 									WHERE `class_code` = '$class_code->class_code' AND class.day='Thursday' 
 									ORDER BY `start_time` ASC ");
 		return $query2->result();
+			}
+			else{
+				return NULL;
+			}
 	}
 
 	public function getScheduleFriday($id){
@@ -208,12 +228,17 @@ class studentModel extends CI_Model {
 									JOIN `student_accounts` ON section_table.sectionID = student_accounts.sectionID 
 									WHERE `studentID` = ".$id);
 		$class_code = $query->row();
+		if($class_code != NULL){
 		$query2 = $this->db->query("SELECT * FROM `class` 
 									JOIN `subjects_table` ON class.subjectID = subjects_table.subjectID
 									JOIN `teacher_accounts` ON class.teacherID = teacher_accounts.teacherID
 									WHERE `class_code` = '$class_code->class_code' AND class.day='Friday' 
 									ORDER BY `start_time` ASC ");
 		return $query2->result();
+		}
+		else{
+			return NULL;
+		}
 	}
 
 	public function getScheduleSaturday($id){
@@ -222,12 +247,17 @@ class studentModel extends CI_Model {
 									JOIN `student_accounts` ON section_table.sectionID = student_accounts.sectionID 
 									WHERE `studentID` = ".$id);
 		$class_code = $query->row();
+		if($class_code != NULL){
 		$query2 = $this->db->query("SELECT * FROM `class` 
 									JOIN `subjects_table` ON class.subjectID = subjects_table.subjectID
 									JOIN `teacher_accounts` ON class.teacherID = teacher_accounts.teacherID
 									WHERE `class_code` = '$class_code->class_code' AND class.day='Saturday' 
 									ORDER BY `start_time` ASC ");
 		return $query2->result();
+		}
+		else{
+			return NULL;
+		}
 	}
 
 	public function getScheduleSunday($id){
@@ -236,12 +266,17 @@ class studentModel extends CI_Model {
 									JOIN `student_accounts` ON section_table.sectionID = student_accounts.sectionID 
 									WHERE `studentID` = ".$id);
 		$class_code = $query->row();
+		if($class_code != NULL){
 		$query2 = $this->db->query("SELECT * FROM `class` 
 									JOIN `subjects_table` ON class.subjectID = subjects_table.subjectID
 									JOIN `teacher_accounts` ON class.teacherID = teacher_accounts.teacherID
 									WHERE `class_code` = '$class_code->class_code' AND class.day='Sunday' 
 									ORDER BY `start_time` ASC ");
 		return $query2->result();
+		}
+		else{
+			return NULL;
+		}
 	}
 
 	public function updateData($id)

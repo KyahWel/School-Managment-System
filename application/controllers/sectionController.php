@@ -12,6 +12,7 @@ class sectionController extends CI_Controller {
 		$this->load->model('teacherModel');
 		$this->load->model('sectionModel');
 		$this->load->model('studentModel');
+		$this->load->model('studentGrades');
 	}
 
 	public function addSection(){
@@ -22,6 +23,7 @@ class sectionController extends CI_Controller {
 			$data = $this->sectionModel->getDataName($sectionName);
 			for($i=0;$i<sizeof($studentList);$i++){
 				$this->sectionModel->addStudents($studentList[$i],$data,$i+1);;
+				$this->sectionModel->addStudentGrades($studentList[$i]);
 			}
 			redirect('Admin/section');
 		}
