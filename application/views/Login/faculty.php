@@ -65,16 +65,79 @@
         </div>
 
         <!-- clear entries and login button -->
-        <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-toolbar justify-content-between pb-2" role="toolbar" aria-label="Toolbar with button groups">
           <input type="reset" class="btn btn-default" name="reset" value="Clear entries"></input>
           <input type="submit" class="btn btn-default " name="login" value="Login"></input>
         </div>
 
-        <p class="text-left">
-          <a href="#!">Forgot password?</a><br>
-        </p>
+        <button type="button" class="forgot py-0 my-0" data-bs-toggle="modal" data-bs-target="#forgotFacultyPass">
+					Forgot password?
+				</button>
       </form>
     </div>
+
+    <!-- Forgot password -->
+		<div class="modal fade" id="forgotFacultyPass" tabindex="-1" aria-modal="true" 
+            aria-labelledby="forgotFacultyPass" aria-hidden="true">
+			<div class="modal-dialog modal-md modal-dialog-centered">
+				<div class=" modal-content">
+					<div class="modal-body">
+						<div>
+							<p class="text-muted small pt-2">Verify your TUP Faculty Number</p>
+							<form action="">
+								<div class="form-floating my-3">
+									<input type="text" class="form-control" name="facultyUsername" id="forgotPassUsername" placeholder="Username">
+									<label for="forgotPassUsername" class="py-2">Faculty Number</label>
+								</div>
+								<div class="d-flex justify-content-end pt-3 pb-2">
+									<button type="submit" class="btn btn-default check mx-2">Verify</button>
+									<button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal" aria-label="Close">
+										Cancel
+									</button>
+								</div>
+							</form>
+						</div>
+
+						<div hidden="true">
+							<form action="">
+								<p class="text-muted small pt-2">Enter the 6-digit code sent to your email</p>
+								<div class="form-floating mb-3">
+									<input type="text" class="form-control" name="facultyOTP" id="otp" placeholder="One-Time Pin" 
+                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+									<label for="otp" class="py-2">One-Time PIN</label>
+								</div>
+								<div class="d-flex justify-content-end pt-3 pb-2">
+									<button type="submit" class="btn btn-default check mx-2">Submit</button>
+									<button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal" aria-label="Close">
+										Cancel
+									</button>
+								</div>
+							</form>
+						</div>
+
+						<div hidden="true">
+							<form action="">
+								<p class="text-muted small pt-2">Change your password</p>
+								<div class="form-floating my-3">
+									<input type="text" class="form-control" name="facultyNewPass" id="newpass" placeholder="New Password">
+									<label for="newpass" class="py-2">New Password</label>
+								</div>
+								<div class="form-floating mb-3">
+									<input type="text" class="form-control" name="facultyOldPass" id="confirmpass" placeholder="Confirm Password">
+									<label for="confirmpass" class="py-2">Confirm Password</label>
+								</div>
+								<div class="d-flex justify-content-end pt-3 pb-2">
+									<button type="submit" class="btn btn-default check mx-2">Submit</button>
+									<button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal" aria-label="Close">
+										Cancel
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
   </div>
 </body>
 

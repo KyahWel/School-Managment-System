@@ -11,7 +11,7 @@
     <link href="<?php echo base_url('assets/css/home.css'); ?>" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url('assets/css/appicant.css'); ?>" rel="stylesheet" type="text/css">
     <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
-    <title>ERS | Student Login</title>
+    <title>ERS | Applicant Login</title>
     <style>
         .background {
             background: url(../assets/images/bg.png) no-repeat center/cover #f4f4f4;
@@ -123,7 +123,7 @@
 								<input type="text" name="firstnameVerify" id="fnameVerify"  class="form-control form-control-sm"
 									required aria-label="First name" onkeydown="return /[a-z ]/i.test(event.key)"
 									placeholder="First Name">
-									<label for="fnameVerify">First name</label>
+									<label for="fnameVerify" class="py-2">First name</label>
 							</div>
                         </div>
 						<div class="col mt-1">
@@ -131,7 +131,7 @@
 								<input type="text" name="middlename" id="midnameVerify"  class="form-control form-control-sm"
 									aria-label="First name" onkeydown="return /[a-z ]/i.test(event.key)"
 									placeholder="Middle Name">
-								<label for="midnameVerify">Middle name</label>
+								<label for="midnameVerify" class="py-2">Middle name</label>
 							</div>
                         </div>
 						<div class="col mt-1">
@@ -139,7 +139,7 @@
 								<input type="text" name="lastname" id="surnameVerify"  class="form-control form-control-sm"
 									required aria-label="First name"
 									placeholder="Surname">
-								<label for="midnameVerify">Surname</label>
+								<label for="midnameVerify" class="py-2">Surname</label>
 							</div>
                         </div>
                         <div class="col">
@@ -147,7 +147,7 @@
                                 <input type="text" name="extname" id="suffixVerify" class="form-control form-control-sm"
                                     aria-label="Extension Name" required onkeydown="return /[a-z ]/i.test(event.key)"
 									placeholder="Suffix">
-                                <label class="form-label">Suffix</label>
+                                <label class="form-label" class="py-2">Suffix</label>
 							</div>
                         </div>
                     </div>
