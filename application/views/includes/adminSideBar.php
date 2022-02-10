@@ -12,7 +12,7 @@
     <link href="<?php echo base_url('assets/css/admintabsMAIN.css'); ?>" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url('assets/css/changePassword.css'); ?>" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url('assets/css/jquery.dataTables.min.css'); ?>" rel="stylesheet" type="text/css">
-
+    <title></title>
 </head>
 
 <body oncontextmenu='return false' class="snippet-body body-pd" id="body-pd">
@@ -28,11 +28,13 @@
 
         </div>
         <div class="btn-group ">
-            <button class="btn text-white dropdown-toggle mx-0 px-0" title="headAvatar" type="button" id="headerAvatarDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+            <button class="btn text-white dropdown-toggle mx-0 px-0" title="headAvatar" type="button" id="headerAvatarDropdown" 
+                    data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
             </button>
             <ul class="dropdown-menu" aria-labelledby="avatarDropdown">
                 <li>
-                    <input type="file" class="dropdown-item form-cotrol form-control-sm" aria-label="choose file"></input>
+                    <input type="file" class="dropdown-item form-cotrol form-control-sm" aria-label="choose file">
+                    </input>
                 </li>
             </ul>
         </div>
@@ -46,70 +48,96 @@
                     <div class="none py-1">
                         <div class="nav_link">
                             <i class="fa fa-user nav_icon user"></i>
-                            <span class="nav_name fw-bold">Hello, <?= $this->session->userdata('auth_user')['firstname'] ?> !</span>
+                            <span class="nav_name fw-bold">
+                                Hello, <?= $this->session->userdata('auth_user')['firstname'] ?> !
+                            </span>
                         </div>
                         <hr>
                     </div>
 
                     <a href="<?php echo base_url('Admin/dashboard'); ?>" class="nav_link pt-3">
-                        <i class='fa fa-th-large nav_icon' data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard"></i>
+                        <i class='fa fa-th-large nav_icon' data-bs-toggle="tooltip" data-bs-placement="right"
+                            title="Dashboard">
+                        </i>
                         <span class="nav_name">Dashboard</span>
                     </a>
 
                     <a href="<?php echo base_url('Admin/students'); ?>" class="nav_link">
-                        <i class='fa fa-graduation-cap nav_icon' data-bs-toggle="tooltip" data-bs-placement="right" title="Students Tab"></i>
+                        <i class='fa fa-graduation-cap nav_icon' data-bs-toggle="tooltip" data-bs-placement="right"
+                            title="Students Tab">
+                        </i>
                         <span class="nav_name">Students</span>
                     </a>
 
                     <a href="<?php echo base_url('Admin/faculty'); ?>" class="nav_link">
-                        <i class='fa fa-chalkboard-teacher nav_icon' data-bs-toggle="tooltip" data-bs-placement="right" title="Faculty Tab"></i>
+                        <i class='fa fa-chalkboard-teacher nav_icon' data-bs-toggle="tooltip" data-bs-placement="right"
+                            title="Faculty Tab">
+                        </i>
                         <span class="nav_name">Faculty</span>
                     </a>
 
                     <a href="<?php echo base_url('Admin/admin'); ?>" class="nav_link">
-                        <i class='fas fa-users-cog nav_icon' data-bs-toggle="tooltip" data-bs-placement="right" title="Admin"></i>
+                        <i class='fas fa-users-cog nav_icon' data-bs-toggle="tooltip" data-bs-placement="right" 
+                            title="Admin">
+                        </i>
                         <span class="nav_name">Admin</span>
                     </a>
 
                     <a href="<?php echo base_url('Admin/class'); ?>">
-                        <i class='fa fa-chalkboard nav_icon' class="nav_link" data-bs-toggle="tooltip" data-bs-placement="right" title="Class Tab"></i>
+                        <i class='fa fa-chalkboard nav_icon' class="nav_link" data-bs-toggle="tooltip" 
+                            data-bs-placement="right" title="Class Tab">
+                        </i>
                         <span class="nav_name">Class</span>
                     </a>
 
                     <a href="<?php echo base_url('Admin/course'); ?>" class="nav_link">
-                        <i class='fa fa-book-open nav_icon' data-bs-toggle="tooltip" data-bs-placement="right" title="Course Tab"></i>
+                        <i class='fa fa-book-open nav_icon' data-bs-toggle="tooltip" data-bs-placement="right"
+                            title="Course Tab">
+                        </i>
                         <span class="nav_name">Course</span>
                     </a>
 
                     <a href="<?php echo base_url('Admin/subject'); ?>" class="nav_link">
-                        <i class='fa fa-pen nav_icon' data-bs-toggle="tooltip" data-bs-placement="right" title="Subjects Tab"></i>
+                        <i class='fa fa-pen nav_icon' data-bs-toggle="tooltip" data-bs-placement="right"
+                            title="Subjects Tab">
+                        </i>
                         <span class="nav_name">Subjects</span>
                     </a>
 
                     <a href="<?php echo base_url('Admin/section'); ?>" class="nav_link">
-                        <i class='fa fa-chalkboard nav_icon' data-bs-toggle="tooltip" data-bs-placement="right" title="Section Tab"></i>
+                        <i class='fa fa-chalkboard nav_icon' data-bs-toggle="tooltip" data-bs-placement="right"
+                            title="Section Tab">
+                        </i>
                         <span class="nav_name">Section</span>
                     </a>
 
                     <a href="<?php echo base_url('Admin/admission'); ?>" class="nav_link">
-                        <i class='fa fa-university nav_icon' data-bs-toggle="tooltip" data-bs-placement="right" title="Admission Tab"></i>
+                        <i class='fa fa-university nav_icon' data-bs-toggle="tooltip" data-bs-placement="right"
+                            title="Admission Tab">
+                        </i>
                         <span class="nav_name">Admission</span>
                     </a>
 
                     <a href="<?php echo base_url('Admin/announcement'); ?>" class="nav_link">
-                        <i class='fa fa-bullhorn nav_icon' data-bs-toggle="tooltip" data-bs-placement="right" title="Announcement Tab"></i>
+                        <i class='fa fa-bullhorn nav_icon' data-bs-toggle="tooltip" data-bs-placement="right"
+                            title="Announcement Tab">
+                        </i>
                         <span class="nav_name">Announcement</span>
                     </a>
 
                     <a href="<?php echo base_url('Admin/changePassword'); ?>" class="nav_link">
-                        <i class='fa fa-key nav_icon' data-bs-toggle="tooltip" data-bs-placement="right" title="Change Password Tab"></i>
+                        <i class='fa fa-key nav_icon' data-bs-toggle="tooltip" data-bs-placement="right"
+                            title="Change Password Tab">
+                        </i>
                         <span class="nav_name">Change Password</span>
                     </a>
 
                 </div>
             </div>
             <a href="<?php echo base_url('Logout'); ?>" class="nav_link" id="logout">
-                <i class='fa fa-sign-out-alt nav_icon' data-bs-toggle="tooltip" data-bs-placement="right" title="Logout"></i>
+                <i class='fa fa-sign-out-alt nav_icon' data-bs-toggle="tooltip" data-bs-placement="right" 
+                    title="Logout">
+                </i>
                 <span class="nav_name">LogOut</span> </a>
         </nav>
     </div>
