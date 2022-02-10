@@ -87,8 +87,12 @@ include __DIR__.'/../includes/loginNavbar.php'
 		<div class="modal fade" id="forgotStudentPass" tabindex="-1" aria-modal="true" 
             aria-labelledby="forgotStudentPass" aria-hidden="true">
 			<div class="modal-dialog modal-md modal-dialog-centered">
-				<div class=" modal-content px-2">
-					<div class="modal-body">
+				<div class=" modal-content">
+               <div class="d-flex justify-content-center head  px-0 py-3">
+					  <h5 class="modal-title fw-bold">
+                   Forgot Password</h5>
+				  </div>
+					<div class="modal-body px-3">
 						<div>
 							<p class="text-muted small pt-2">Verify your TUP Student Number</p>
 							<form action="">

@@ -82,6 +82,10 @@
             aria-labelledby="forgotAdminPass" aria-hidden="true">
 			<div class="modal-dialog modal-md modal-dialog-centered">
 				<div class=" modal-content">
+            <div class="d-flex justify-content-center head py-3">
+					  <h5 class="modal-title fw-bold">
+                   Forgot Password</h5>
+				  </div>
 					<div class="modal-body">
 						<div>
 							<p class="text-muted small pt-2">Verify your TUP Admin Number</p>

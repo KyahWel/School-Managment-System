@@ -220,17 +220,34 @@ div#viewEnrollmenttButton.tab-pane.active::before {
     letter-spacing: 1.5px;
     font-weight: 500;
 }
-
-.modal-footer button.btn-primary {
-    background: #a94c4c;
-    border: none;
-    opacity: 0.9;
+.modal-footer button.btn-default {
+    background: maroon;
+    border: 1px solid maroon;
+    font-size: 0.8rem;
+    color: white;
 }
 
-.modal-footer button.btn-primary:hover {
+.modal-footer button.btn-default:hover {
+    background: rgb(174, 0, 0);
+    border: 1px solid maroon;
+    color: white;
+}
+.modal-footer button.btn-secondary{
+    font-size: 0.8rem;
+    background-color: #8f8d8d;
+}
+.modal-footer button.btn-secondary:hover{
     opacity: 1;
+    background: none;
+    border: 1px solid #7b7b7b;
+    color: black;
 }
 
+.modal-footer button.btn-secondary:focus, .modal-footer button.btn-default:focus{
+    outline: none;
+    box-shadow: none;
+    border: 1px solid maroon;
+}
 span.confirmTitle {
     font-size: 1.5rem;
     letter-spacing: 1px;

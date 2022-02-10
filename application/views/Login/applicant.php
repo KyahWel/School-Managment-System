@@ -107,7 +107,7 @@
 		<div class="modal-dialog modal-md modal-dialog-centered">
 			<div class="modal-content">
 				<div class="d-flex justify-content-center head py-3">
-					<h5 class="modal-title fw-bold" id="editProfessorHeader">
+					<h5 class="modal-title fw-bold">
                     Profile Verification</h5>
 				</div>
 				<div class="modal-body mt-2 px-4">
@@ -138,7 +138,7 @@
 								<input type="text" name="lastname" id="surnameVerify"  class="form-control form-control-sm"
 									required aria-label="First name"
 									placeholder="Surname">
-								<label for="midnameVerify" class="py-2">Surname</label>
+								<label for="surnameVerify" class="py-2">Surname</label>
 							</div>
                         </div>
                         <div class="col">
@@ -146,7 +146,7 @@
                                 <input type="text" name="extname" id="suffixVerify" class="form-control form-control-sm"
                                     aria-label="Extension Name" required onkeydown="return /[a-z ]/i.test(event.key)"
 									placeholder="Suffix">
-                                <label class="form-label" class="py-2">Suffix</label>
+                                <label for="suffixVerify" class="py-2">Suffix</label>
 							</div>
                         </div>
                     </div>

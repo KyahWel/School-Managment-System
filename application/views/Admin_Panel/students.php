@@ -41,7 +41,6 @@ $this->load->view('includes/adminSideBar');
                                 <tr>
                                     <td><?php echo $studentrow->studentNumber ?></td>
                                     <td><?php echo $studentrow->firstname; ?> <?php echo $studentrow->lastname ?></td>
-                                    <!-- <td><?php echo $studentrow->lastname ?></td> -->
                                     <td><?php echo $studentrow->degree; ?> in <?php echo $studentrow->major; ?></td>
                                     <td><?php echo $studentrow->sectionName; ?></td>
                                     <td><?php echo $studentrow->yearlevel; ?></td>
