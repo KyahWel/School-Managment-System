@@ -175,10 +175,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 											<label class="form-label col-lg-2 col-md-12 pt-1">LRN:</label>
 											<div class="col-lg-3 col-md-12">
 												<input type="text" name="LRN" id="lrn"
-													class="form-control form-control-sm" minlength="12" maxlength="12"
-													aria-label="LRN" required
-													onkeyup="this.value=this.value.replace(/[^\d]/,'')"
-													title="Numbers only">
+												class="form-control form-control-sm" minlength="12" maxlength="12"
+												aria-label="LRN" required
+												oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" 
+												title="Numbers only">
 												<div class="invalid-feedback">
 													Please input your LRN.
 												</div>
@@ -218,9 +218,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 											<label class="form-label col-lg-2 col-md-12 pt-1">Age:</label>
 											<div class="col-lg-3 col-md-12">
 												<input type="text" name='age' id="age1"
-													class="form-control form-control-sm" aria-label="Age" required
-													onkeyup="this.value=this.value.replace(/[^\d]/,'')"
-													title="Numbers only">
+												class="form-control form-control-sm" aria-label="Age" required
+												oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+												title="Numbers only">
 												<div class="invalid-feedback">
 													Please input your age.
 												</div>
@@ -245,9 +245,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 											<label class="form-label col-lg-2 col-md-12 pt-1">Contact Number:</label>
 											<div class="col-lg-3 col-md-12">
 												<input type="tel" name='contactnum' id="contact"
-													class="form-control form-control-sm" aria-label="Contact Number"
-													required onkeyup="this.value=this.value.replace(/[^\d]/,'')"
-													title="Numbers only">
+												class="form-control form-control-sm" aria-label="Contact Number"
+												required 
+												oninput="this.value = this.value.replace(/[^0-9.]/g, '')"
+												title="Numbers only">
 												<div class="invalid-feedback">
 													Please input your contact number.
 												</div>
@@ -495,9 +496,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 											</div>
 											<div class="col-lg-5">
 												<input type="tel" name="gpa" id="gpa1" maxlength="5"
-													class="form-control form-control-sm" aria-label="GPA" required
-													oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
-													title="Float number is accepted.">
+												class="form-control form-control-sm" aria-label="GPA" required
+												oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+												title="Float number is accepted.">
 												<div class="invalid-feedback">
 													Please input your gpa.
 												</div>

@@ -3,7 +3,6 @@ const months = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "S
 const days = ["Sun", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat"];
 
 const d = new Date();
-setTimeout("ShowTime()", 1000);//Set the timing refresh to update once a second
 let date = [d.getDate()];
 let year = [d.getFullYear()];
 let month = months[d.getMonth()];
