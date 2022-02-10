@@ -144,6 +144,24 @@
 			</div>
 		</div>
 	</div>
+
+	<script type="text/javascript">
+    var newpass = document.getElementById("newpass");
+    var confirmpass = document.getElementById("confirmpass");
+
+    // new password and confirm password validation
+    function validatePassword() {
+        if (newpass.value != confirmpass.value) {
+            confirmpass.setCustomValidity("Passwords don't match");
+
+        } else {
+            confirmpass.setCustomValidity('');
+        }
+    }
+    newpass.onchange = validatePassword;
+    confirmpass.onkeyup = validatePassword;
+	</script>
+
 </body>
 
 </html>
