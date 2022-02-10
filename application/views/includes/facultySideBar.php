@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
     <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/css/sideBarMAIN.css'); ?>" rel="stylesheet" type="text/css">
-
     <link href="<?php echo base_url('assets/css/changePassword.css'); ?>" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url('assets/css/dataTables.bootstrap.min.css'); ?>" rel="stylesheet">
     <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
+    <title></title>
 </head>
 
 <body oncontextmenu='return false' class="snippet-body body-pd" id="body-pd">
@@ -35,29 +35,42 @@
                     <div class="none py-1">
                         <div class="nav_link">
                             <i class="fa fa-user nav_icon user"></i>
-                            <span class="nav_name fw-bold">Hello, <?= $this->session->userdata('auth_user')['lastname'] ?> !</span>
+                            <span class="nav_name fw-bold">
+                                Hello, <?= $this->session->userdata('auth_user')['lastname'] ?> !
+                            </span>
                         </div>
                         <hr>
                     </div>
                     <a href="<?php echo base_url('Faculty/dashboard'); ?>" class="nav_link pt-3">
-                        <i class='fa fa-th-large nav_icon' data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard"></i>
+                        <i class='fa fa-th-large nav_icon' data-bs-toggle="tooltip" data-bs-placement="right"
+                            title="Dashboard">
+                        </i>
                         <span class="nav_name">Dashboard</span>
                     </a>
                     <a href="<?php echo base_url('Faculty/profile'); ?>" class="nav_link">
-                        <i class='fa fa-user nav_icon' data-bs-toggle="tooltip" data-bs-placement="right" title="My Profile"></i>
+                        <i class='fa fa-user nav_icon' data-bs-toggle="tooltip" data-bs-placement="right"
+                            title="My Profile">
+                        </i>
                         <span class="nav_name">My Profile</span>
                     </a>
-                    <a href="<?php echo base_url('Faculty/students'); ?>" class="nav_link" id='student'>
-                        <i class='fa fa-user-graduate nav_icon' data-bs-toggle="tooltip" data-bs-placement="right" title="My Students"></i>
-                        <span class="nav_name">My Students</span> 
+                    <a href="<?php echo base_url('Faculty/students'); ?>" class="nav_link">
+                        <i class='fa fa-user-graduate nav_icon' data-bs-toggle="tooltip" data-bs-placement="right"
+                            title="My Students">
+                        </i>
+                        <span class="nav_name">My Students</span>
                     </a>
                     <a href="<?php echo base_url('Faculty/changePassword'); ?>" class="nav_link">
-                        <i class='fa fa-key nav_icon' data-bs-toggle="tooltip" data-bs-placement="right" title="Change Password"></i>
+                        <i class='fa fa-key nav_icon' data-bs-toggle="tooltip" data-bs-placement="right"
+                            title="Change Password">
+                        </i>
                         <span class="nav_name">Change Password</span>
                     </a>
                 </div>
             </div>
-            <a href="<?php echo base_url('Logout'); ?>" class="nav_link" id="logout"> <i class='fa fa-sign-out-alt nav_icon'></i> <span class="nav_name">LogOut</span> </a>
+            <a href="<?php echo base_url('Logout'); ?>" class="nav_link" id="logout">
+                <i class='fa fa-sign-out-alt nav_icon'></i>
+                <span class="nav_name">LogOut</span>
+            </a>
         </nav>
     </div>
 
