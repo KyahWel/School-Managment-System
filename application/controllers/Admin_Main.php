@@ -175,13 +175,15 @@ class Admin_Main extends CI_Controller
 		echo $output;
 	}
 
-	public function addApplicants() {
-		$applicantID = $this->input->post('applicantID');
-		$lastname = $this->input->post('lastname');
-		for($i=0;$i<sizeof($applicantID);$i++) {
-			$this->studentModel->insertData($applicantID[$i], $lastname[$i]);
+	public function addApplicants() {	
+		if(isset($_POST['applicantID']) && isset($_POST['lastname'])){
+			$applicantID = $this->input->post('applicantID');
+			$lastname = $this->input->post('lastname');
+			for($i=0;$i<sizeof($applicantID);$i++) {
+				$this->studentModel->insertData($applicantID[$i], $lastname[$i]);
+			}
 		}
-		redirect("Admin/dashboard");
+		redirect("Admin/admission");
 	}
 
 	public function updateAdmin($id) {

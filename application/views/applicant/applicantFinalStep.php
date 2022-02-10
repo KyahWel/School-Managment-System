@@ -61,7 +61,7 @@
                         <div class="tabTitle px-2">
                             <p class="text-white">Applicant Name:
                                 <span class="text-uppercase fw-bold">
-                                    <?php echo $student->firstname ?> <?php echo $student->lastname ?>
+                                    <?php echo $student->firstname ?> <?php echo $student->middlename ?> <?php echo $student->lastname ?>
                                 </span </p>
                         </div>
                         <div class="Contents">

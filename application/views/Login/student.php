@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -87,8 +87,12 @@ include __DIR__.'/../includes/loginNavbar.php'
 		<div class="modal fade" id="forgotStudentPass" tabindex="-1" aria-modal="true" 
             aria-labelledby="forgotStudentPass" aria-hidden="true">
 			<div class="modal-dialog modal-md modal-dialog-centered">
-				<div class=" modal-content px-2">
-					<div class="modal-body">
+				<div class=" modal-content">
+               <div class="d-flex justify-content-center head  px-0 py-3">
+					  <h5 class="modal-title fw-bold">
+                   Forgot Password</h5>
+				  </div>
+					<div class="modal-body px-3">
 						<div>
 							<p class="text-muted small pt-2">Verify your TUP Student Number</p>
 							<form action="">
@@ -146,6 +150,22 @@ include __DIR__.'/../includes/loginNavbar.php'
 			</div>
 		</div>
 </div>
+<script type="text/javascript">
+    var newpass = document.getElementById("newpass");
+    var confirmpass = document.getElementById("confirmpass");
+
+    // new password and confirm password validation
+    function validatePassword() {
+        if (newpass.value != confirmpass.value) {
+            confirmpass.setCustomValidity("Passwords don't match");
+
+        } else {
+            confirmpass.setCustomValidity('');
+        }
+    }
+    newpass.onchange = validatePassword;
+    confirmpass.onkeyup = validatePassword;
+</script>
 <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 </body>
 

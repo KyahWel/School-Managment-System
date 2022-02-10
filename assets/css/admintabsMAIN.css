@@ -18,36 +18,39 @@ tbody {
     line-height: 32px;
 }
 
-.form-control::placeholder {
+.form-control::placeholder, .modal .form-control::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
     font-size: 0.9rem;
 }
 
-.form-control:-ms-input-placeholder {
+.form-control:-ms-input-placeholder, .modal .form-control:-ms-input-placeholder {
     /* Internet Explorer 10-11 */
     font-size: 0.9rem;
 }
  
-.form-control::-ms-input-placeholder {
+.form-control::-ms-input-placeholder, .modal .form-control::-ms-input-placeholder{
     /* Microsoft Edge */
     font-size: 0.9rem;
 }
 
-.form-select::placeholder {
+.form-select::placeholder, .modal .form-select::placeholder{
     /* Chrome, Firefox, Opera, Safari 10.1+ */
     font-size: 0.8rem;
 }
 
-.form-select:-ms-input-placeholder {
+.form-select:-ms-input-placeholder, .modal .form-select:-ms-input-placeholder{
     /* Internet Explorer 10-11 */
     font-size: 0.8rem;
 }
 
-.form-select::-ms-input-placeholder {
+.form-select::-ms-input-placeholder, .modal .form-select::-ms-input-placeholder{
     font-size: 0.8rem;
 }
 
-
+.modal input[type=text],
+.modal input[type=date],
+.modal input[type=time],
+.modal input[type=tel],
 input[type=text],
 input[type=date],
 input[type=time],
@@ -105,3 +108,4 @@ textarea {
 table{
     border-collapse: collapse;
 }
+

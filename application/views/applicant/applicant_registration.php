@@ -244,7 +244,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 										<div class="row mt-4 small asterisk">
 											<label class="form-label col-lg-2 col-md-12 pt-1">Contact Number:</label>
 											<div class="col-lg-3 col-md-12">
-												<input type="tel" name='contactnum' id="contact"
+												<input type="tel" name='contactnum' id="contact" minlength="11" maxlength="11"
 												class="form-control form-control-sm" aria-label="Contact Number"
 												required 
 												oninput="this.value = this.value.replace(/[^0-9.]/g, '')"
@@ -320,8 +320,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 											<label class="form-label col-lg-2 col-md-12 pt-1">City:</label>
 											<div class="col-lg-3 col-md-12">
 												<input type="text" name='city' id="city1"
-													class="form-control form-control-sm" aria-label="City" required
-													onkeydown="return /[a-z]/i.test(event.key)">
+													class="form-control form-control-sm" aria-label="City" required>
 												<div class="invalid-feedback">
 													Please input your city.
 												</div>
@@ -335,7 +334,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 											<div class="col-lg-3 col-md-6">
 												<input type="text" name='zipcode' id="zip"
 													class="form-control form-control-sm" aria-label="Zipcode" required
-													onkeyup="this.value=this.value.replace(/[^\d]/,'')"
+													oninput="this.value = this.value.replace(/[^0-9.]/g, '')"
 													title="Numbers only">
 												<div class="invalid-feedback">
 													Please input your zipcode.
@@ -346,8 +345,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 											<label class="form-label col-lg-2 col-md-6 pt-1">Province:</label>
 											<div class="col-lg-3 col-md-6">
 												<input type="text" name='province' id="province1"
-													class="form-control form-control-sm" aria-label="Province" required
-													onkeydown="return /[a-z]/i.test(event.key)">
+													class="form-control form-control-sm" aria-label="Province" required>
 												<div class="invalid-feedback">
 													Please input your province.
 												</div>
@@ -401,7 +399,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 											<div class="col-lg-4 col-md-12">
 												<input type="text" name="school" id="nameschool"
 													class="form-control form-control-sm" aria-label="Name of School"
-													required onkeydown="return /[a-z]/i.test(event.key)">
+													required>
 												<div class="invalid-feedback">
 													Please input your school name.
 												</div>
@@ -447,7 +445,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 											<div class="col-lg-3 col-md-12">
 												<input type="text" name="year_level" id="yearlvl"
 													class="form-control form-control-sm" aria-label="Year level"
-													required onkeyup="this.value=this.value.replace(/[^\d]/,'')"
+													required oninput="this.value = this.value.replace(/[^0-9.]/g, '')"
 													title="Numbers only">
 												<div class="invalid-feedback">
 													Please input year level.
@@ -461,7 +459,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 											<div class="col-lg-3 col-md-12">
 												<input type="text" name="year_graduated" id="yeargrad"
 													class="form-control form-control-sm" aria-label="Year Graduated"
-													required onkeyup="this.value=this.value.replace(/[^\d]/,'')"
+													required oninput="this.value = this.value.replace(/[^0-9.]/g, '')"
 													title="Numbers only">
 												<div class="invalid-feedback">
 													Please input graduated year.
@@ -649,7 +647,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 					<h5 class="modal-title fw-bold">Confirmation Page</h5>
 				</div>
 				<div class="modal-body">
-
+					
 				</div>
 				<hr class="line">
 				<div class="d-flex justify-content-center mb-3">
@@ -708,6 +706,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	// var goodmoral = $("#goodmoral").val();
 
 	$("#confirmationPage .modal-body").html(
+		'<div class="container-fluid">' +
 		'<p class="text-decoration-underline text-uppercase fw-bold my-2 pb-1">Course Preference</p>' +
 		'<div class="row"> <label class="form-label col-lg-3 col-md-3">Course Chosen:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> ' + courses + ' </div> </div>' +
 		'<hr class="px-2">' +
@@ -738,6 +737,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 		// '<div class="row"> <label class="form-label col-lg-3 col-md-3">Medical Record:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> ' + medical + '</div></div>' +
 		// '<div class="row"> <label class="form-label col-lg-3 col-md-3">Form 137:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> ' + form137 + '</div></div>' +
 		// '<div class="row"> <label class="form-label col-lg-3 col-md-3">Good Moral:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> ' + goodmoral + '</div></div>' +
+		'</div>' +
 		'<p class="text-center pt-5 fw-bold">Please confirm by clicking the "CONFIRM" button below, "CANCEL" to go back to the Applicant Registration form. </p>'
 	);}
 	});

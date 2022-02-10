@@ -281,7 +281,7 @@ $this->load->view('includes/adminSideBar');
 										</ul>
 									</div>
 									<div class="modal-footer">
-										<button type="submit" class="btn btn-primary">Yes</button>
+										<button type="submit" class="btn btn-default">Yes</button>
 										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
 									</div>
 								</form>
