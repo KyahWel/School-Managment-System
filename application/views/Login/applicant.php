@@ -9,7 +9,6 @@
     <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url('assets/css/mainLogin.css'); ?>" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url('assets/css/home.css'); ?>" rel="stylesheet" type="text/css">
-    <link href="<?php echo base_url('assets/css/appicant.css'); ?>" rel="stylesheet" type="text/css">
     <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
     <title>ERS | Applicant Login</title>
     <style>
