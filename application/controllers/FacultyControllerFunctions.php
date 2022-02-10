@@ -7,6 +7,9 @@ class FacultyControllerFunctions extends CI_Controller
 	public function __construct() {
 		parent::__construct();
 		$this->load->model('teacherModel');
+		$this->load->model('studentModel');
+		$this->load->model('studentGrades');
+		$this->load->model('sectionModel');
 	}
 
 	public function addFaculty() {
@@ -206,85 +209,6 @@ class FacultyControllerFunctions extends CI_Controller
 		echo $output;
 	}
 
-	public function viewStudents() {
-		$sectionID = $this->input->post('sectionID');
-		$classCode = $this->input->post('classCode');
-		$subjectID = $this->input->post('subjectID');
-        $records = $this->teacherModel->getStudents($sectionID);
-		$data = $this->teacherModel->getSectionData($subjectID,$classCode);
-		$output='
-		<div class="table-responsive">
-			<table id="sectionInformation">
-				<tr>
-					<td>
-						<p><b>Course:</b></p>
-						<p><b>Subject Code:</b></p>
-						<p><b>Subject Title:</b></p>
-						<p class="mb-0"><b>Schedule:</b></p>
-					</td>
-					<td class="text-uppercase">
-						<p>'.$data->degree.' in '.$data->major.'</p>
-						<p>'.$data->subjectCode.'</p>
-						<p>'.$data->name.'</p>
-						<p class="mb-0">'.$data->day.', '.date('h:i:s a', strtotime($data->start_time)).'-'.date('h:i:s a', strtotime($data->end_time)).'</p>
-					</td>
-				</tr>
-			</table>
-		</div>
-		
-		<!-- Search -->
-		<div class="col-12 align-self-center mb-3" id="searchPanel">
-			<input type="text" name="search" placeholder="Search Student ID">
-			<button type="button" class="btn btn-sm" id="search"><i class="fas fa-search" data-bs-toggle="tooltip" title="Search"></i></button>
-		</div>
-
-		<div class="table-wrapper">
-			
-			<!--Table Header-->
-			<div class="table-title">
-				<div class="row">
-					<div class="col">
-						<h2>BSCS-1A</h2>
-					</div>
-				</div>
-			</div>
-
-			<!-- Table Content -->
-			<div class="table-responsive">  
-				<table class="table table-body align-middle table-striped table-borderless table-hover">
-					<thead>
-					<tr>
-							<th>Student ID</th>
-							<th>Last Name</th>
-							<th>First Name</th>
-							<th>Grade</th>
-							<th>Action</th>
-						</tr>
-					</thead>
-					<tbody>  ';
-			foreach ($records as $records){ 
-				$output .= '
-						
-						<tr>
-							<td>'.$records->studentNumber.'</td> 
-							<td>'.$records->lastname.'</td>
-							<td>'.$records->firstname.'</td>
-							<td> </td>
-							<td>
-								<button type="button" id="input" data-id='.$records->studentID.' class="btn btn-default btn-sm addGrade" data-bs-toggle="modal" data-bs-target="#inputGrade"><i class="fas fa-plus"></i> Input Grade</button>
-								<button type="button" id="edit" data-id='.$records->studentID.' class="btn btn-default btn-sm editGrade" data-bs-toggle="modal" data-bs-target="#editGrade"><i class="fas fa-pen"></i> Edit Grade</button>
-							</td>
-						</tr> ';
-			}
-		$output .= '	
-					</tbody>
-				</table>
-			</div>
-		</div>
-		';
-		echo $output;
-	}
-
 	public function updateTeacherAdmin($id) {
 		$this->teacherModel->adminupdateData($id);
 	}
@@ -308,72 +232,84 @@ class FacultyControllerFunctions extends CI_Controller
 		$this->teacherModel->changePassword($id);
 	}
 
+	public function insertGrade($studentID){
+		$teacheriD = $this->input->get('teacherID');
+		$subjectID = $this->input->get('subjectID');
+		$classCode = $this->input->get('classCode');
+		$student = $this->studentModel->getData($studentID);
+		$sectionName = $this->sectionModel->getData($student->sectionID);
+		if (isset($_POST['grade']))
+		{
+			$this->studentGrades->updateData($studentID,$teacheriD,$subjectID);
+		}
+		redirect("Faculty/list/$sectionName->sectionName?classCode=$classCode&subjectID=$subjectID&sectionID=$sectionName->sectionID");
+	}
+	
 	public function editGrade(){
+		$studentID = $this->input->post('studentID');
+		$teacheriD = $this->input->post('teacherID');
+		$classCode = $this->input->post('class_code');
+		$subjectID = $this->input->post('subjectID');
+		$section= $this->teacherModel->getSectionData($subjectID,$classCode);
+		$student = $this->studentModel->getData($studentID);
+		$grades = $this->studentGrades->viewDataGrade($studentID,$teacheriD,$subjectID);
 		$output='
-			<form class="container my-3" action="">
-				<div class="row mb-3">
-					<div class="col-6">
-						<!--Subject Code-->
-						<label for="subjectCode" class="form-label mb-0">Subject Code: </label>
-						<input type="text" class="form-control" readonly>
+				<form class="container my-3" method="POST" 
+				action="'.base_url('FacultyControllerFunctions/insertGrade').'/'
+				.$studentID.'?teacherID='.$teacheriD.'&subjectID='.$subjectID.'&classCode='.$classCode.'">
+					<div class="row mb-3">
+						<div class="col-6">
+							<!--Subject Code-->
+							<label for="subjectCode" class="form-label mb-0">Subject Code: </label>
+							<input type="text" class="form-control" readonly value='.$section->subjectCode.'>
+						</div>
+						<div class="col-6">
+							<!--Subject Title-->
+							<label for="subjectTitle" class="form-label mb-0">Subject Title: </label>
+							<input type="text" class="form-control" readonly value="'.$section->name.'">
+						</div>
 					</div>
-					<div class="col-6">
-						<!--Subject Title-->
-						<label for="subjectTitle" class="form-label mb-0">Subject Title: </label>
-						<input type="text" class="form-control" readonly>
+					<div class="row mb-3">
+						<div class="col-6">
+							<!--Student Name-->
+							<label for="studentName" class="form-label mb-0">Student Name: </label>
+							<input type="text" class="form-control" readonly value="'.$student->firstname.' '.$student->lastname.'">
+						</div>
+						<div class="col-6">
+							<!--Student ID-->
+							<label for="studentID" class="form-label mb-0">Student Number: </label>
+							<input type="text" class="form-control" readonly value='.$student->studentNumber.'>
+						</div>
 					</div>
-				</div>
-				<div class="row mb-3">
-					<div class="col-6">
-						<!--Student Name-->
-						<label for="studentName" class="form-label mb-0">Student Name: </label>
-						<input type="text" class="form-control" readonly>
+					<div class="row mb-3">
+						<div class="col-6">
+							<!--Section-->
+							<label for="section" class="form-label mb-0">Section: </label>
+							<input type="text" class="form-control" readonly value='.$student->sectionName.'>
+						</div>
+						<div class="col-6">
+							<!--Schedule-->
+							<label for="schedule" class="form-label mb-0">Schedule: </label>
+							<input type="text" class="form-control" readonly 
+							value="'.date('h:i:sa', strtotime($section->start_time)).' to '.date('h:i:sa', strtotime($section->end_time)).'">
+						</div>
 					</div>
-					<div class="col-6">
-						<!--Student ID-->
-						<label for="studentID" class="form-label mb-0">Student ID: </label>
-						<input type="text" class="form-control" readonly>
-					</div>
-				</div>
-				<div class="row mb-3">
-					<div class="col-6">
-						<!--Section-->
-						<label for="section" class="form-label mb-0">Section: </label>
-						<input type="text" class="form-control" readonly>
-					</div>
-					<div class="col-6">
-						<!--Schedule-->
-						<label for="schedule" class="form-label mb-0">Schedule: </label>
-						<input type="text" class="form-control" readonly>
-					</div>
-				</div>
 				<div class="row my-4 align-items-center">
 					<div class="col-sm-auto">
 						<label for="grade" class="col-form-label">Old Grade: </label>
 					</div>
 					<div class="col-auto col-sm-3">
-						<input type="grade" class="form-control" aria-describedby="gradeOfStudent">
-					</div>
-					<div class="col-sm-auto">
-						<label for="rating" class="col-form-label">Equivalent Rating: </label>
-					</div>
-					<div class="col-auto col-sm-3">
-						<input type="rating" class="form-control" aria-describedby="equivalentRating" readonly>
+						<input type="grade" class="form-control text-center" aria-describedby="gradeOfStudent" readonly value='.$grades->grade.'>
 					</div>
 				</div>
 				<div class="row mb-3 align-items-center">
 					<div class="col-sm-auto">
-						<label for="grade" class="col-form-label">New Grade: </label>
+						<label for="grade"  class="col-form-label">New Grade: </label>
 					</div>
 					<div class="col-auto col-sm-3">
-						<input type="grade" class="form-control" aria-describedby="gradeOfStudent">
+						<input type="grade" name="grade" class="form-control" aria-describedby="gradeOfStudent">
 					</div>
-					<div class="col-sm-auto">
-						<label for="rating" class="col-form-label">Equivalent Rating: </label>
-					</div>
-					<div class="col-auto col-sm-3">
-						<input type="rating" class="form-control" aria-describedby="equivalentRating" readonly>
-					</div>
+					
 				</div>
 				<div class="editGradeButton d-flex justify-content-end pt-4">
 					<!--Buttons-->
@@ -384,5 +320,73 @@ class FacultyControllerFunctions extends CI_Controller
 		</form>
 	';
 	echo $output;
+	}
+	
+
+	public function addGrade(){
+		$studentID = $this->input->post('studentID');
+		$teacheriD = $this->input->post('teacherID');
+		$classCode = $this->input->post('class_code');
+		$subjectID = $this->input->post('subjectID');
+		$section= $this->teacherModel->getSectionData($subjectID,$classCode);
+		$student = $this->studentModel->getData($studentID);
+		$output='
+			<form class="container my-3" method="POST" 
+			action="'.base_url('FacultyControllerFunctions/insertGrade').'/'
+			.$studentID.'?teacherID='.$teacheriD.'&subjectID='.$subjectID.'&classCode='.$classCode.'">
+				<div class="row mb-3">
+					<div class="col-6">
+						<!--Subject Code-->
+						<label for="subjectCode" class="form-label mb-0">Subject Code: </label>
+						<input type="text" class="form-control" readonly value='.$section->subjectCode.'>
+					</div>
+					<div class="col-6">
+						<!--Subject Title-->
+						<label for="subjectTitle" class="form-label mb-0">Subject Title: </label>
+						<input type="text" class="form-control" readonly value="'.$section->name.'">
+					</div>
+				</div>
+				<div class="row mb-3">
+					<div class="col-6">
+						<!--Student Name-->
+						<label for="studentName" class="form-label mb-0">Student Name: </label>
+						<input type="text" class="form-control" readonly value="'.$student->firstname.' '.$student->lastname.'">
+					</div>
+					<div class="col-6">
+						<!--Student ID-->
+						<label for="studentID" class="form-label mb-0">Student Number: </label>
+						<input type="text" class="form-control" readonly value='.$student->studentNumber.'>
+					</div>
+				</div>
+				<div class="row mb-3">
+					<div class="col-6">
+						<!--Section-->
+						<label for="section" class="form-label mb-0">Section: </label>
+						<input type="text" class="form-control" readonly value='.$student->sectionName.'>
+					</div>
+					<div class="col-6">
+						<!--Schedule-->
+						<label for="schedule" class="form-label mb-0">Schedule: </label>
+						<input type="text" class="form-control" readonly 
+						value="'.date('h:i:sa', strtotime($section->start_time)).' to '.date('h:i:sa', strtotime($section->end_time)).'">
+					</div>
+				</div>
+				<div class="row my-4 align-items-center">
+					<div class="col-sm-auto">
+						<label for="grade" class="col-form-label">Grade: </label>
+					</div>
+					<div class="col-auto col-sm-3">
+						<input type="number" step="any" class="form-control" name="grade" aria-describedby="gradeOfStudent">
+					</div>
+				</div>
+				<div class="inputGradeButton d-flex justify-content-end pt-4">
+					<!--Buttons-->
+					<button class="btn btn-default" id="saveInput" type="submit" value="save">Save</button>
+					<button class="btn btn-default" id="cancelInput" type="button"
+						data-bs-dismiss="modal">Cancel</button>
+				</div>
+			</form>		
+		';
+		echo $output;
 	}
 }

@@ -15,9 +15,9 @@
 	<div class="alert alert-success alert-dismissible fade show">
 		<?= $this->session->flashdata('successFaculty'); ?>
 	</div>
-	<?php elseif($this->session->flashdata('logout')): ?>
+	<?php elseif($this->session->flashdata('logoutFaculty')): ?>
 	<div class="alert alert-danger alert-dismissible fade show">
-		<?= $this->session->flashdata('logout'); ?>
+		<?= $this->session->flashdata('logoutFaculty'); ?>
 		<button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
 	</div>
 	<?php endif; ?>

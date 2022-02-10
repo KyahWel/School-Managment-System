@@ -14,15 +14,26 @@ class Login extends CI_Controller
 		$this->load->library('session');
 		if ($this->session->has_userdata('authenticated'))
 		{
-			$this->session->set_flashdata('logout', 'Please logout first');
-			if ($this->session->userdata('authenticated') == '1')
+			
+			if ($this->session->userdata('authenticated') == '1'){
+				$this->session->set_flashdata('logoutAdmin', 'Please logout first');
 				redirect('Admin/dashboard');
-			elseif ($this->session->userdata('authenticated') == '2')
+			}
+			elseif ($this->session->userdata('authenticated') == '2'){
+				$this->session->set_flashdata('logoutFaculty', 'Please logout first');
 				redirect('Faculty/dashboard');
-			elseif ($this->session->userdata('authenticated') == '3')
+			}
+				
+			elseif ($this->session->userdata('authenticated') == '3'){
+				$this->session->set_flashdata('logoutStudent', 'Please logout first');
 				redirect('Student/Dashboard');
-			elseif ($this->session->userdata('authenticated') == '4')
+			}
+				
+			elseif ($this->session->userdata('authenticated') == '4'){
+				$this->session->set_flashdata('logoutApplicant', 'Please logout first');
 				redirect('Applicant/'.$this->session->userdata('auth_user')['applicantID']);
+			}
+			
 		}
     }
 

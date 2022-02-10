@@ -17,7 +17,7 @@ $this->load->view('includes/studentSideBar');
             <?= $this->session->flashdata('studentError'); ?>
             <button type="button" class="btn-close close" title="close" data-bs-dismiss="alert"></button>
         </div>
-        <?php $this->session->unset_userdata ('stuentError'); ?>
+        <?php $this->session->unset_userdata ('studentError'); ?>
     <?php elseif ($this->session->flashdata('successStudent')) : ?>
         <!-- Successfull change password alert -->
         <div class="alert alert-success alert-dismissible fade show">
@@ -31,12 +31,12 @@ $this->load->view('includes/studentSideBar');
             <?= $this->session->flashdata('successUpdate'); ?>
             <button type="button" class="btn-close close" title="close" data-bs-dismiss="alert"></button>
         </div>
-    <?php elseif($this->session->flashdata('logout')): ?>
+    <?php elseif($this->session->flashdata('logoutStudent')): ?>
             <div class="alert alert-danger alert-dismissible fade show">
                 <?= $this->session->flashdata('logout'); ?>
                 <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
         </div>
-        <?php $this->session->unset_userdata ('logout'); ?>
+        <?php $this->session->unset_userdata ('logoutStudent'); ?>
     <?php endif; ?>
 
     <h3 class="my-3 fw-bold">Dashboard</h3>

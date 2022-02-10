@@ -20,24 +20,22 @@ class AdminController extends CI_Controller
 		
 		if ($this->session->userdata('authenticated') != '1')
 		{
-			
 			if ($this->session->userdata('authenticated') == '2') {
-				$this->session->set_flashdata('logout', 'Please logout first');
+				$this->session->set_flashdata('logoutFaculty', 'Please logout first');
 				redirect('Faculty/dashboard');
 			}
 			elseif ($this->session->userdata('authenticated') == '3') {
-				$this->session->set_flashdata('logout', 'Please logout first');
+				$this->session->set_flashdata('logoutStudent', 'Please logout first');
 				redirect('Student/Dashboard');
 			}
 			elseif ($this->session->userdata('authenticated') == '4') {
-				$this->session->set_flashdata('logout', 'Please logout first');
+				$this->session->set_flashdata('logoutApplicant', 'Please logout first');
 				redirect('Applicant/'.$this->session->userdata('auth_user')['applicantID']);
 			}
 			else{
 				$this->session->set_flashdata('invalid', 'Error: Invalid Action');
 				redirect('Login/Applicant');
-			}
-			
+			}	
 		}
 	}
 

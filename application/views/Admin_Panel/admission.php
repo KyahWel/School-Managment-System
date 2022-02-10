@@ -60,12 +60,18 @@ $this->load->view('includes/adminSideBar');
                                     aria-labelledby="Room Number">
 								</div>
 							</div>
-							<div class="row">
+							<div class="row mb-2">
 								<div class="col-lg-6 col-md-12">
-									<!--Time-->
+									
 									<label class="form-label">Floor Number</label>
 									<input type="text" class="form-control" name="floor_no"
 									aria-labelledby="Floor Number">
+								</div>
+								<div class="col-lg-6 col-md-12">
+									
+									<label class="form-label">Capacity</label>
+									<input type="number" class="form-control" name="capacity"
+									aria-labelledby="Capacity">
 								</div>
 							</div>
 							<div class="addExamScheduleButton d-flex justify-content-end">
@@ -107,12 +113,12 @@ $this->load->view('includes/adminSideBar');
                     aria-labelledby="Exam Schedule">
 						<thead>
 							<tr>
-								<th class="pb-3" scope="col">ID</th>
-								<th class="pb-3" scope="col">Admin Number</th>
-								<th class="pb-3" scope="col">Username</th>
-								<th class="pb-3" scope="col">First Name</th>
-								<th class="pb-3" scope="col">Last Name</th>
-								<th class="pb-3" scope="col">Status</th>
+								<th class="pb-3" scope="col">Date</th>
+								<th class="pb-3" scope="col">Time</th>
+								<th class="pb-3" scope="col">Building</th>
+								<th class="pb-3" scope="col">Room Number</th>
+								<th class="pb-3" scope="col">Floor Number</th>
+								<th class="pb-3" scope="col">Capacity</th>
 								<th class="pb-3" scope="col">Action</th>
 							</tr>
 						</thead>
@@ -126,7 +132,7 @@ $this->load->view('includes/adminSideBar');
 									<td><?php echo $examrow->building ?></td>
 									<td><?php echo $examrow->room_no ?></td>
 									<td><?php echo $examrow->floor_no ?></td>
-									<td><?php echo $examrow->status ?></td>
+									<td><?php echo $examrow->capacity ?></td>
 
 									<td>
 										<div class="action-buttons">
@@ -215,8 +221,8 @@ $this->load->view('includes/adminSideBar');
 								<?php if ($applicantrow->applicant_result != "Student") : ?>
 									<tr>
 										<td><?php echo $applicantrow->applicantNumber ?></td>
-										<td><?php echo $applicantrow->firstname ?><?php echo $applicantrow->lastname ?></td>
-										<td><?php echo $applicantrow->degree ?> in <?php echo $applicantrow->major ?></td>
+										<td><?php echo $applicantrow->firstname ?> <?php echo $applicantrow->lastname ?></td>
+										<td><?php echo $applicantrow->degree ?><?php echo $applicantrow->major ?></td>
 										<td><?php echo $applicantrow->applicant_result ?></td>
 										<td>
 											<button type="button" onclick="applicantDetails()" 
@@ -225,7 +231,9 @@ $this->load->view('includes/adminSideBar');
                                                 View
                                             </button>
 											<?php if ($applicantrow->applicant_result == "Passed") : ?>
-												<button type="button" class="btn btn-primary text-white text-uppercase addBtn">
+												<button type="button" data-id="<?php echo $applicantrow->applicantID?>"
+												data-surname="<?php echo $applicantrow->lastname?>"
+												class="btn btn-primary text-white text-uppercase addBtn addApplicant">
                                                     ADD
                                                 </button>
 											<?php else : ?>
@@ -235,6 +243,7 @@ $this->load->view('includes/adminSideBar');
                                                 </button>
 											<?php endif ?>
 										</td>
+										
 									</tr>
 								<?php endif ?>
 							<?php } ?>
@@ -443,6 +452,22 @@ $this->load->view('includes/adminSideBar');
 				},
 				success: function(data) {
 					$('#edit_sched').html(data);
+				}
+			});
+		});
+
+		$('.addApplicant').click(function() {
+			var id = $(this).data('id');
+			var surname = $(this).data('surname');
+			$.ajax({
+				url: "<?php echo site_url('Admin_Main/addApplicant'); ?>",
+				method: "POST",
+				data: {
+					id: id,
+					surname:surname
+				},
+				success: function(data) {
+					console.log("test");
 				}
 			});
 		});

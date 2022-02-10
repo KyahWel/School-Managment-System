@@ -97,11 +97,11 @@ $this->load->view('includes/studentSideBar');
                                     <td><?php echo $grades->name?></td>
                                     <td><?php echo $grades->firstname?> <?php echo $grades->lastname?></td>
                                     <td><?php echo $grades->units?></td>
-                                    <td><?php echo $grades->grade?></td>
+                                    <td><?php echo $grades->equivalent?></td>
                                     <td>
-                                        <?php if ($grades->grade == 0) : ?>
+                                        <?php if ($grades->equivalent == 0) : ?>
                                             <b>Unavailable</b>
-                                        <?php elseif ($grades->grade == 5) : ?>
+                                        <?php elseif ($grades->equivalent == 5) : ?>
                                             <b style="color:red;">Failed</b>
                                         <?php else: ?>
                                             <b>Passed</b>

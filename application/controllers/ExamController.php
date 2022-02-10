@@ -41,8 +41,8 @@ class ExamController extends CI_Controller {
 						<div class="col-lg-6 col-md-12">
 							<!--Building-->
 							<label class="form-label">Building</label>
-							<select class="form-select" name="building" required>
-								<option value="" disabled selected hidden>'.$records->building.'</option>
+							<select class="form-select" name="building" disabled required>
+								<option value="'.$records->building.'" selected hidden>'.$records->building.'</option>
 								<option value="College of Science">College of Science</option>
 								<option value="College of Engineering">College of Engineering</option>
 								<option value="College of Industrial Education">College of Industrial Education</option>
@@ -56,13 +56,24 @@ class ExamController extends CI_Controller {
 							<input type="text" class="form-control" name="room_no" value = '.$records->room_no.' required>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-lg-6 col-md-12">
-							<!--Time-->
-							<label class="form-label">Floor Number</label>
-							<input type="text" class="form-control" name="floor_no" value = '.$records->floor_no.' required>
-						</div>
-					</div>
+				
+					<div class="row mb-2">
+					
+								<div class="row">
+									<div class="col-lg-6 col-md-12">
+										<!--Time-->
+										<label class="form-label">Floor Number</label>
+										<input type="text" class="form-control" name="floor_no" value = '.$records->floor_no.' required>
+									</div>
+								</div>
+								<div class="col-lg-6 col-md-12">
+									
+									<label class="form-label">Capacity</label>
+									<input type="number" class="form-control" name="capacity" value = '.$records->capacity.'
+									aria-labelledby="Capacity">
+								</div>
+							</div>
+					
 					<div class="addExamScheduleButton mt-4 d-flex justify-content-end">
 						<!--Buttons-->
 						<button class="btn btn-default" id="examEditSave" type="submit" name="submit" value="save">Save</button>

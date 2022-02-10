@@ -146,6 +146,7 @@
 	</div>
 
 	<script type="text/javascript">
+	
     var newpass = document.getElementById("newpass");
     var confirmpass = document.getElementById("confirmpass");
 

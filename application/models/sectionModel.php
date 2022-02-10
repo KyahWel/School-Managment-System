@@ -82,6 +82,7 @@ class sectionModel extends CI_Model {
 				'schoolyear' => $querySection->schoolyear,
 				'class_code' => $queryClass->class_code,
 				'grade' => 0,
+				'equivalent' => 0.0
 			);
 			$this->db->insert('student_grades',$data);
 		}

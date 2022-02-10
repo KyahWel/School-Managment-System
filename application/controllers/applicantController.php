@@ -49,6 +49,4 @@ class applicantController extends CI_Controller {
 		$this->pdfGeneratorModel->generateTestPermit($id);
 	}
 
-	
-
 }

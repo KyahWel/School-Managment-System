@@ -24,7 +24,7 @@
         <div class="text-white ms-auto email">
             <?= $this->session->userdata('auth_user')['teacherNumber'] ?>
         </div>
-        <div class="header_img"> <img src="../assets/images/facultyAvatar.png" alt="Faculty Avatar"></div>
+        <div class="header_img"> <img src="<?php echo base_url('assets/images/facultyAvatar.png');?>" alt="Faculty Avatar"></div>
     </header>
 
     <div class="l-navbar side" id="nav-bar">
@@ -47,7 +47,7 @@
                         <i class='fa fa-user nav_icon' data-bs-toggle="tooltip" data-bs-placement="right" title="My Profile"></i>
                         <span class="nav_name">My Profile</span>
                     </a>
-                    <a href="<?php echo base_url('Faculty/students'); ?>" class="nav_link">
+                    <a href="<?php echo base_url('Faculty/students'); ?>" class="nav_link" id='student'>
                         <i class='fa fa-user-graduate nav_icon' data-bs-toggle="tooltip" data-bs-placement="right" title="My Students"></i>
                         <span class="nav_name">My Students</span> 
                     </a>

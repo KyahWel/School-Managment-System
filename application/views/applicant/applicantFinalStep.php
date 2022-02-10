@@ -55,13 +55,30 @@
                     Your registration has been successfully completed.
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
+                <?php if($message == 1):?>
+                    <div class="alert mt-3 alert-success alert-dismissible fade show d-flex align-items-center" role="alert">
+                        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
+                            <use xlink:href="#check-circle-fill" />
+                        </svg>
+                    Email attachment sent successfully
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                <?php else:?>
+                    <div class="alert alert-danger alert-dismissible fade show d-flex align-items-center" role="alert">
+                        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
+                            <use xlink:href="#check-circle-fill" />
+                        </svg>
+                    Error: Email attachment was not sent successfully
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                <?php endif?>
 
                 <div id='final_step' class="container mt-3 pt-4">
                     <div class="Wrapper">
                         <div class="tabTitle px-2">
                             <p class="text-white">Applicant Name:
                                 <span class="text-uppercase fw-bold">
-                                    <?php echo $student->firstname ?> <?php echo $student->middlename ?> <?php echo $student->lastname ?>
+                                    <?php echo $student->firstname ?> <?php echo $student->lastname ?>
                                 </span </p>
                         </div>
                         <div class="Contents">

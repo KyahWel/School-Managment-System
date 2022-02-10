@@ -38,8 +38,10 @@ class studentModel extends CI_Model {
 		$this->db->where('applicantID',$applicantID);
 		$this->db->update('applicant_accounts',$applicant);
 		unset($_POST);
-		$this->session->set_flashdata('successAdmin','Added new student accounts successfully'); 
+	
 	}
+
+
 
 	public function viewData()
 	{
