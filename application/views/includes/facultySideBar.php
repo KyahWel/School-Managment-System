@@ -24,7 +24,7 @@
         <div class="text-white ms-auto email">
             <?= $this->session->userdata('auth_user')['teacherNumber'] ?>
         </div>
-        <div class="header_img"> <img src="../assets/images/facultyAvatar.png" alt="Faculty Avatar"></div>
+        <div class="header_img"> <img src="<?php echo base_url('assets/images/facultyAvatar.png');?>" alt="Faculty Avatar"></div>
     </header>
 
     <div class="l-navbar side" id="nav-bar">

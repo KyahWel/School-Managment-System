@@ -78,7 +78,7 @@ include __DIR__.'/../includes/loginNavbar.php'
 
             <p class="text-left1 px-1">
                  Applicant?
-                <a href="applicant" onclick="applicantLogin()">Click here!</a><br>
+                <a href="<?php echo base_url('Login/applicant'); ?>">Click here!</a><br>
             </p>
         </form>
     </div>
@@ -151,6 +151,7 @@ include __DIR__.'/../includes/loginNavbar.php'
 		</div>
 </div>
 <script type="text/javascript">
+  
     var newpass = document.getElementById("newpass");
     var confirmpass = document.getElementById("confirmpass");
 

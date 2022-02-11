@@ -1,9 +1,3 @@
-function mainPage(){
-    document.getElementById('mainPage').style.display = "block";
-    document.getElementById('sectionPage').style.display = "none";
-}
+var element = document.getElementById("student");
+element.classList.add('active');
 
-function sectionPage(){
-    document.getElementById('mainPage').style.display = "none";
-    document.getElementById('sectionPage').style.display = "block";
-}

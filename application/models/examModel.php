@@ -17,10 +17,39 @@ class examModel extends CI_Model {
 			'building' => $_POST['building'],
 			'room_no' => $_POST['room_no'],
             'floor_no' => $_POST['floor_no'],
+			'capacity' => $_POST['capacity'],
 			'status' => 1
 		);
 		$this->db->insert('exam_schedule',$data);
 		unset($_POST);
+	}
+
+	public function applicantSched($id)
+	{
+		$queryApplicant = $this->db->query('SELECT * FROM applicant_accounts WHERE applicantID ='.$id);
+		$queryApplicant = $queryApplicant->row();
+		$queryBuilding = $this->db->query('SELECT * FROM course_table WHERE courseID ='.$queryApplicant->courseID);
+		$queryBuilding = $queryBuilding->row();
+		$querySched = $this->db->query('SELECT * FROM exam_schedule WHERE building ="'.$queryBuilding->college.'" AND capacity != 0 AND `status` != 0');
+		$querySched = $querySched->row();
+		if($querySched==NULL){
+			$data = array(
+				'examID' => NULL,
+				'applicantID' => $id,
+				'schedID' => NULL
+			);
+		}
+		else{
+			$data = array(
+				'examID' => NULL,
+				'applicantID' => $id,
+				'schedID' => $querySched->schedID
+			);
+			$this->db->query(' UPDATE exam_schedule SET capacity = capacity-1 WHERE schedID='.$querySched->schedID);
+		}
+		
+		$this->db->insert('examination_table',$data);
+		
 	}
 
 	public function viewData()
@@ -38,12 +67,11 @@ class examModel extends CI_Model {
 	public function updateData($id)
 	{
 		$data = array(
-			'schedID' => NULL,
 			'date' => $_POST['date'],
 			'time' => $_POST['time'],
-			'building' => $_POST['building'],
 			'room_no' => $_POST['room_no'],
-			'floor_no' => $_POST['floor_no']
+			'floor_no' => $_POST['floor_no'],
+			'capacity' => $_POST['capacity'],
 		);
 		$this->db->where('schedID',$id);
 		$this->db->update('exam_schedule',$data);

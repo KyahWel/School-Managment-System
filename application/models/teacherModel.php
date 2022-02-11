@@ -201,8 +201,20 @@ class teacherModel extends CI_Model {
 											ON student_accounts.applicantID = applicant_accounts.applicantID
 											LEFT JOIN course_table
 											ON applicant_accounts.courseID = course_table.courseID
+											LEFT JOIN student_grades
+											ON student_accounts.studentID = student_grades.studentID
 											WHERE student_accounts.sectionID ='.$id);
 		return $getStudentList->result();									
+	}
+
+	public function getStudentsGrade($teacherID,$subjectID){
+	
+		$this->db->select('*');
+		$this->db->from('student_grades');
+		$this->db->where('teacherID',$teacherID);
+		$this->db->where('subjectID',$subjectID);
+		$query=$this->db->get();
+		return $query->result();									
 	}
 
 	public function getSectionData($subjectID,$class_code){

@@ -186,6 +186,16 @@ class Admin_Main extends CI_Controller
 		redirect("Admin/admission");
 	}
 
+	public function addApplicant() {	
+		$applicantID = $this->input->post('id');
+		$lastname = $this->input->post('surname');
+		if(isset($_POST['applicantID']) && isset($_POST['lastname'])){
+			$this->studentModel->addApplicant($applicantID,$lastname);
+		}
+		redirect("Admin/admission");
+	}
+	
+
 	public function updateAdmin($id) {
 		$data['row'] = $this->AdminModel->updateData($id);
 		redirect("Admin/admin");

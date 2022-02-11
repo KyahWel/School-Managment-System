@@ -9,6 +9,8 @@ class applicantRegistration extends CI_Controller {
 		$this->load->model('applicantModel');
 		$this->load->model('pdfGeneratorModel');
 		$this->load->model('courseModel');
+		$this->load->model('examModel');
+		$this->load->model('sendEmail');
 		if ($this->session->userdata('authenticated') != '5'){
 			 
 			if ($this->session->userdata('authenticated') == '1'){
@@ -61,6 +63,10 @@ class applicantRegistration extends CI_Controller {
 		$firstname=$this->input->get('firstname');
 		$lastname=$this->input->get('lastname');
 		$data['student'] = $this->applicantModel->viewAppliedData($firstname,$lastname);
+		$applicant = $this->applicantModel->viewAppliedData($firstname,$lastname);
+		$this->examModel->applicantSched($applicant->applicantID);
+		$file = $this->pdfGeneratorModel->attachTestPermit($applicant->applicantID);
+		$data['message'] = $this->sendEmail->send($file,$applicant->email,$applicant->applicantNumber);
 		$this->load->view('applicant/applicantFinalStep',$data);
 		$this->session->set_flashdata('successApplicant','Applied Successfully!'); 
 		

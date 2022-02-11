@@ -14,11 +14,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	<link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
 	<link href="<?php echo base_url('assets/css/applicant.css'); ?>" rel="stylesheet" type="text/css">
 	<title>Applicant Registration</title>
-	<script type="text/javascript">
-        function disableBack() { window.history.forward(); }
-        setTimeout("disableBack()", 0);
-        window.onunload = function () { null };
-    </script>
 </head>
 
 <body>
