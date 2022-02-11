@@ -79,13 +79,13 @@ $this->load->view('includes/studentSideBar');
         <div class="tabDetails p-3">
             <h6 class="fw-bold px-4">Available Subjects</h6>
             <div class="table-responsive">
-                <table class="table text-center align-middle table-striped table-borderless table-hover px-2" id="table-bodyEnrollment">
+                <table class="table text-center align-middle table-striped table-borderless table-hover px-2" aria-label="availableSubjectList" id="table-bodyEnrollment">
                     <!--Table Body-->
                     <thead>
                         <tr>
-                            <th style="width: 250px;">Subject Code</th>
-                            <th>Subject Name</th>
-                            <th>Credited Units</th>
+                            <th scope="col" style="width: 250px;">Subject Code</th>
+                            <th scope="col">Subject Name</th>
+                            <th scope="col">Credited Units</th>
                         </tr>
                     </thead>
                     <tbody>
