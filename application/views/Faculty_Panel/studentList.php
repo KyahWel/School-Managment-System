@@ -10,7 +10,7 @@
 <div class="height-100 pt-2 container-fluid">
 	<div class="container my-3">
 
-		<button class="btn btn-sm" id="back-button" onclick="location.href='<?php echo site_url('Faculty/students')?>'"><i class="fa fa-arrow-left"></i> Back</button>
+		<button class="btn btn-sm" id="back-button" onclick="location.href='<?php echo site_url('Faculty/students')?>'"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
 		<!-- ajax here -->
 
 		<div class="table-responsive">
