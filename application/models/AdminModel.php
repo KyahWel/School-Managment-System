@@ -28,6 +28,7 @@ class AdminModel extends CI_Model {
 				'password' => password_hash($_POST['password'],PASSWORD_DEFAULT),
 				'firstname' => $_POST['firstname'],
 				'lastname' => $_POST['lastname'],
+				'email' => $_POST['email'],
 				'status' => 1
 			);
 			$this->db->insert('admin_accounts',$data);
@@ -57,7 +58,8 @@ class AdminModel extends CI_Model {
 		$data = array(
 			'username' => $_POST['username'],
 			'firstname' => $_POST['firstname'],
-			'lastname' => $_POST['lastname']
+			'lastname' => $_POST['lastname'],
+			'email' => $_POST['email'],
 		);
 		$this->db->where('adminID',$id);
 		$this->db->update('admin_accounts',$data);

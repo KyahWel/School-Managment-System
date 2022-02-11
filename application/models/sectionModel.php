@@ -21,7 +21,7 @@ class sectionModel extends CI_Model {
 				'schoolyear' => $_POST['schoolyear'],
 				'capacity' => $_POST['capacity'],
 				'studCount' => 0,
-				'yearlevel' => $_POST['yearlevel'],
+				'yearlevelClass' => $_POST['yearlevel'],
 			);
 			$this->db->insert('section_table',$data);
 			$query=$this->db->query('SELECT * FROM class WHERE class_code = "'.$_POST['classID'].'"');	

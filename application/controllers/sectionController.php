@@ -23,7 +23,9 @@ class sectionController extends CI_Controller {
 			$data = $this->sectionModel->getDataName($sectionName);
 			if($studentList!=NULL){
 				for($i=0;$i<sizeof($studentList);$i++){
+					//Add sectionID to stdent Accounts
 					$this->sectionModel->addStudents($studentList[$i],$data,$i+1);;
+					//Add studentGrades data
 					$this->sectionModel->addStudentGrades($studentList[$i]);
 				}
 			}

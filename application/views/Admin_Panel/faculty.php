@@ -18,7 +18,7 @@ $this->load->view('includes/adminSideBar');
             </div>
             <?php $this->session->unset_userdata ('adminError'); ?>
         <?php elseif ($this->session->flashdata('successAdmin')) : ?>
-            <!-- Successfull change password alert -->
+            
             <div class="alert alert-success alert-dismissible fade show">
                 <?= $this->session->flashdata('successAdmin'); ?>
                 <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>

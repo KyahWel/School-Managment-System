@@ -12,12 +12,12 @@ $this->load->view('includes/adminSideBar');
    <div class="height-100 pt-2 container-fluid">
       <!-- If user accessed login page or other pages -->
 
-      <?php if ($this->session->flashdata('logout')) : ?>
+      <?php if ($this->session->flashdata('logoutAdmin')) : ?>
          <div class="alert alert-danger alert-dismissible fade show">
             <?= $this->session->flashdata('logout'); ?>
             <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
          </div>
-         <?php $this->session->unset_userdata('logout'); ?>
+         <?php $this->session->unset_userdata('logoutAdmin'); ?>
       <?php endif; ?>
 
       <h3 class="mt-2">Dashboard</h3>
@@ -211,6 +211,10 @@ $this->load->view('includes/adminSideBar');
 
    <!-- Ajax fetching data -->
    <script type="text/javascript">
+
+
+
+      
       $(document).ready(function() {
          $('#dataTable').DataTable();
          $('.view_data').click(function() {

@@ -87,7 +87,7 @@ $this->load->view('includes/adminSideBar');
 								<tr>
 									<td><?php echo $section->sectionName ?></td>
 									<td><?php echo $section->degree; ?> <?php echo $section->major; ?></td>
-									<td><?php echo $section->yearlevel ?></td>
+									<td><?php echo $section->yearlevelClass ?></td>
 									<td><?php echo $section->studCount ?>/<?php echo $section->capacity ?></td>
 									<td><?php echo $section->class_code ?></td>
 								</tr>
@@ -326,20 +326,6 @@ $this->load->view('includes/adminSideBar');
 
 		});
 
-		$("#edit").click(function() {
-			var sectionID = $("#section").val();
-			console.log(sectionID);
-			$.ajax({
-				url: "<?php echo site_url('sectionController/editSection'); ?>",
-				method: "POST",
-				data: {
-					sectionID: sectionID
-				},
-				success: function(data) {
-					$('#edit_section').html(data);
-				}
-			});
-		});
 		$('#sectionTable').DataTable({
 			"lengthMenu": [
 				[15, 25, 50, -1],
