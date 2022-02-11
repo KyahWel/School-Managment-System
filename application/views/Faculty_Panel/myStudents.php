@@ -1,5 +1,5 @@
 <?php
-    $this->load->view('includes/facultySideBar'); 
+    $this->load->view('includes/facultySideBar');
 ?>
 
 <head>
@@ -23,7 +23,7 @@
 
 			<!-- Table Content -->
 			<div class="table-responsive">
-				<table class="table table-body align-middle table-striped table-borderless table-hover">
+				<table class="table table-body align-middle table-striped table-borderless table-hover" aria-label="StudentsListTable">
 					<thead>
 						<tr>
 							<th scope="col">Subject Code</th>

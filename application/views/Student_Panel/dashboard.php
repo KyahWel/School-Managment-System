@@ -154,7 +154,7 @@ $this->load->view('includes/studentSideBar');
                         <?php foreach($schedMonday as $monday) {?>
                             <div class="col-lg-6 mb-2">
                                 <div class="box-wrapper p-4" href="#">
-                                    <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 
+                                    <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock" aria-hidden="true"></i> 
                                      <?php echo date("h:i A",strtotime($monday->start_time)) . " - " . date("h:i A",strtotime($monday->end_time)); ?>
                                     </h5>
                                     <hr>
@@ -185,7 +185,7 @@ $this->load->view('includes/studentSideBar');
                             <?php foreach($schedTuesday as $tuesday) {?>
                                 <div class="col-lg-6 mb-2">
                                     <div class="box-wrapper p-4" href="#">
-                                        <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 
+                                        <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock" aria-hidden="true"></i> 
                                             <?php echo date("h:i A",strtotime($tuesday->start_time)) . " - " . date("h:i A",strtotime($tuesday->end_time)); ?>
                                         </h5>
                                         <hr>
@@ -217,7 +217,7 @@ $this->load->view('includes/studentSideBar');
                         <?php foreach($schedWednesday as $wednesday) {?>
                             <div class="col-lg-6 mb-2">
                                 <div class="box-wrapper p-4" href="#">
-                                    <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i> 
+                                    <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock" aria-hidden="true"></i> 
                                         <?php echo date("h:i A",strtotime($wednesday->start_time)) . " - " . date("h:i A",strtotime($wednesday->end_time)); ?>
                                     </h5>
                                     <hr>
@@ -246,7 +246,7 @@ $this->load->view('includes/studentSideBar');
                             <?php foreach($schedThursday as $thursday) {?>
                                 <div class="col-lg-6 mb-2">
                                     <div class="box-wrapper p-4" href="#">
-                                        <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i>
+                                        <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock" aria-hidden="true"></i>
                                         <?php echo date("h:i A",strtotime($thursday->start_time)) . " - " . date("h:i A",strtotime($thursday->end_time)); ?>
                                         </h5>
                                         <hr>
@@ -280,7 +280,7 @@ $this->load->view('includes/studentSideBar');
                             <?php foreach($schedFriday as $friday) {?>
                                 <div class="col-lg-6 mb-2">
                                     <div class="box-wrapper p-4" href="#">
-                                        <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i>
+                                        <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock" aria-hidden="true"></i>
                                             <?php echo date("h:i A",strtotime($friday->start_time)) . " - " . date("h:i A",strtotime($friday->end_time)); ?>
                                         </h5>
                                         <hr>
@@ -313,7 +313,7 @@ $this->load->view('includes/studentSideBar');
                             <?php foreach($schedSaturday as $saturday) {?>
                                 <div class="col-lg-6 mb-2">
                                     <div class="box-wrapper p-4" href="#">
-                                        <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i>
+                                        <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock" aria-hidden="true"></i>
                                             <?php echo date("h:i A",strtotime($saturday->start_time)) . " - " . date("h:i A",strtotime($saturday->end_time)); ?>
                                         </h5>
                                         <hr>
@@ -347,7 +347,7 @@ $this->load->view('includes/studentSideBar');
                         <?php foreach($schedSunday as $sunday) {?>
                             <div class="col-lg-6 mb-2">
                                 <div class="box-wrapper p-4" href="#">
-                                    <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock"></i>
+                                    <h5 class="timetable-item-time fw-bold"> <i class="fas fa-clock" aria-hidden="true"></i>
                                         <?php echo date("h:i A",strtotime($sunday->start_time)) . " - " . date("h:i A",strtotime($sunday->end_time)); ?>
                                     </h5>
                                     <hr>

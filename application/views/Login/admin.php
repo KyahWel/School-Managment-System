@@ -28,7 +28,7 @@
 
 <body>
 	<?php
-	include __DIR__ . '/../includes/loginNavbar.php'
+	include_once __DIR__ . '/../includes/loginNavbar.php'
 	?>
 	<div class="background">
 		<!-- ADMIN ACCESS MODULE -->
@@ -56,7 +56,7 @@
 				<div class="form-group mb-4">
 					<label for="username">Username</label>
 					<div class="input-group-addon">
-						<i class="fa fa-user"></i>
+						<i class="fa fa-user" aria-hidden="true"></i>
 					</div>
 					<input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
 				</div>
@@ -65,7 +65,7 @@
 				<div class="form-group mb-4">
 					<label for="password">Password</label>
 					<div class="input-group-addon">
-						<i class="fa fa-key"></i>
+						<i class="fa fa-key" aria-hidden="true"></i>
 					</div>
 					<input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
 				</div>

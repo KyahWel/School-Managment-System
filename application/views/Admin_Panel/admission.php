@@ -459,8 +459,8 @@ $this->load->view('includes/adminSideBar');
 		});
 		$('#table-bodySched').DataTable({
 			"lengthMenu": [
-				[5, 10, 20, -1],
-				[5, 10, 20, "All"]
+				[10, 15, 20, -1],
+				[10, 15, 20, "All"]
 			]
 		});
 		$('#table-bodyAppl').DataTable({

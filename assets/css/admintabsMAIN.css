@@ -60,6 +60,9 @@ textarea {
     font-size: 0.9rem;
 }
 
+textarea{
+    overflow: auto;
+}
 .form-control:focus,
 .form-select:focus {
     border-color: maroon;

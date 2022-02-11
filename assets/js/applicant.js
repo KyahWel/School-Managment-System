@@ -53,8 +53,10 @@ function requirement() {
 
 const validateForms = () => {
   let hasError = false;
+  const gender = document.getElementsByName('gender');
+  const male = document.getElementById('male');
   const applicantForm = document.querySelector('#personalInfo') // this is a div not a form tag
-  const applicantFormInputs = getFormInputs(applicantForm, ['input', 'select', , 'input[type="radio"]:checked'])
+  const applicantFormInputs = getFormInputs(applicantForm, ['input', 'select'])
   applicantFormInputs.forEach((element) => {
     const fieldFeedbackTemplate = document.querySelector("#fieldFeedbackTemplate").content
     const fieldFeedback = document.importNode(fieldFeedbackTemplate, true).querySelector('div')
@@ -63,24 +65,25 @@ const validateForms = () => {
       element.classList.remove('is-invalid')
       element.nextSibling.remove()
     }
-    if (element.hasAttribute("required") && element.value === "") {
+    if (element.hasAttribute("required") && element.value === "" ) {
       hasError = true
       element.classList.add("is-invalid")
       insertAfter(element, fieldFeedback)
     }
-    if (element.hasAttribute("required") && document.getElementsByName('gender').checked) {
-      hasError = true
-      element.classList.add("is-invalid")
-      insertAfter(element, fieldFeedback)
+    if((gender[0].checked === false) && (gender[1].checked===false)){
+       hasError = true
+       element.classList.add("is-invalid")
+       insertAfter(element, fieldFeedback)
     }
- 
+
   })
 
   return hasError
 }
 
 const validateFormss = () => {
-  let hasError = false;
+  let hasError = false; 
+  const category = document.getElementsByName('category');
   const applicantForm = document.querySelector('#educationalattainment') // this is a div not a form tag
   const applicantFormInputs = getFormInputs(applicantForm, ['input', 'select'])
   applicantFormInputs.forEach((element) => {
@@ -95,7 +98,12 @@ const validateFormss = () => {
       hasError = true
       element.classList.add("is-invalid")
       insertAfter(element, fieldFeedback)
-    } 
+    }
+    if((category[0].checked === false) && (category[1].checked===false) && ((element.hasAttribute("required")))){
+      hasError = true
+      element.classList.add("is-invalid")
+      insertAfter(element, fieldFeedback)
+    }
   })
 
   return hasError
