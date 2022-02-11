@@ -47,6 +47,13 @@ $this->load->view('includes/adminSideBar');
                                         <input type="password" id="password" name="password" required class="form-control">
                                     </div>
                                 </div>
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <label for="email" class="form-label">Email":</label>
+                                        <input type="text" id="email" name="email" required class="form-control">
+                                    </div>
+
+                                </div>
                                 <div class="addAdminButton d-flex justify-content-end">
                                     <button class="btn btn-default" id="saveAdmin" type="submit" value="save">Save</button>
                                     <button class="btn btn-default" id="cancelAdmin" type="reset" value="cancel">
@@ -81,7 +88,7 @@ $this->load->view('includes/adminSideBar');
                                 <th scope="col" class="pb-3">Username</th>
                                 <th scope="col" class="pb-3">First Name</th>
                                 <th scope="col" class="pb-3">Last Name</th>
-                                <th scope="col" class="pb-3">Status</th>
+                 
                                 <th scope="col" class="pb-3">Action</th>
                             </tr>
                         </thead>
@@ -95,7 +102,7 @@ $this->load->view('includes/adminSideBar');
                                     <td><?php echo $row->username; ?></td>
                                     <td><?php echo $row->firstname; ?></td>
                                     <td><?php echo $row->lastname; ?></td>
-                                    <td><?php echo $row->status; ?></td>
+                           
                                     <td>
                                         <div class="action-buttons">
                                         <ul>

@@ -230,18 +230,6 @@ $this->load->view('includes/adminSideBar');
                                                 class="btn btn-primary viewApplicant text-white text-uppercase addBtn">
                                                 View
                                             </button>
-											<?php if ($applicantrow->applicant_result == "Passed") : ?>
-												<button type="button" data-id="<?php echo $applicantrow->applicantID?>"
-												data-surname="<?php echo $applicantrow->lastname?>"
-												class="btn btn-primary text-white text-uppercase addBtn addApplicant">
-                                                    ADD
-                                                </button>
-											<?php else : ?>
-												<button type="button" disabled style="background-color: gray;" 
-                                                class="btn btn-primary text-white text-uppercase addBtn">
-                                                    ADD
-                                                </button>
-											<?php endif ?>
 										</td>
 										
 									</tr>
@@ -452,22 +440,6 @@ $this->load->view('includes/adminSideBar');
 				},
 				success: function(data) {
 					$('#edit_sched').html(data);
-				}
-			});
-		});
-
-		$('.addApplicant').click(function() {
-			var id = $(this).data('id');
-			var surname = $(this).data('surname');
-			$.ajax({
-				url: "<?php echo site_url('Admin_Main/addApplicant'); ?>",
-				method: "POST",
-				data: {
-					id: id,
-					surname:surname
-				},
-				success: function(data) {
-					console.log("test");
 				}
 			});
 		});

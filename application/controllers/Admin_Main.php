@@ -50,6 +50,13 @@ class Admin_Main extends CI_Controller
 					<input type="text" class="form-control" name="lastname" value="'.$records->lastname.'" readonly>
 				</div>
 			</div>
+			<div class="row mb-3">
+				<div class="col-6">
+					<label for="firstname" class="form-label">Email</label>
+					<input type="text" class="form-control" name="firstname" value="'.$records->email.'" readonly>
+				</div>
+
+			</div>
 		';
 		echo $output;
 	}
@@ -62,6 +69,10 @@ class Admin_Main extends CI_Controller
 					<div class="col-6">
 						<label class="form-label">Username:</label>
 						<input type="text" class="form-control" name="username" value="'.$records->username.'">
+					</div>
+					<div class="col-6">
+						<label class="form-label">Email:</label>
+						<input type="text" class="form-control" name="email" value="'.$records->email.'">
 					</div>
 				</div>
 				<div class="row mb-3">

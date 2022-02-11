@@ -23,17 +23,18 @@ class classController extends CI_Controller {
 			if($check==NULL){
 				for($i=0;$i<sizeof($subjectID);$i++){
 					$this->classModel->insertData($subjectID[$i],$timeFrom[$i],$timeTo[$i],$day[$i],$room[$i]);
+					$this->session->set_flashdata('successClass','Successfully added class'); 
 				}
 				redirect('Admin/class');
 			}
 			else{
-				$this->session->set_flashdata('adminError','Error Adding Class: Class Code already exists'); 
-				redirect('Admin/dashboard');
+				$this->session->set_flashdata('errorClass','Error Adding Class: Class Code already exists'); 
+				redirect('Admin/class');
 			}
 		}
 		else{
-			$this->session->set_flashdata('adminError','Error Adding Class: Subjects not loaded properly'); 
-			redirect('Admin/dashboard');
+			$this->session->set_flashdata('errorClass','Error Adding Class: Subjects not loaded properly'); 
+			redirect('Admin/class');
 		}
 	}
 	
