@@ -159,12 +159,12 @@ $this->load->view('includes/adminSideBar');
                     <table class="table table-default align-middle table-striped table-borderless table-hover table-body" aria-label="subjectList" id="subjectTable">
                         <thead>
                             <tr>
-                                <th class="pb-3">Subject Code</th>
-                                <th class="pb-3">Subject Name</th>
-                                <th class="pb-3">Units</th>
-                                <th class="pb-3">Semester</th>
-                                <th class="pb-3">College</th>
-                                <th class="pb-3">Action</th>
+                                <th scope="col" class="pb-3">Subject Code</th>
+                                <th scope="col" class="pb-3">Subject Name</th>
+                                <th scope="col" class="pb-3">Units</th>
+                                <th scope="col" class="pb-3">Semester</th>
+                                <th scope="col" class="pb-3">College</th>
+                                <th scope="col" class="pb-3">Action</th>
                             </tr>
                         </thead>
                         <tbody class="tbodySubject">

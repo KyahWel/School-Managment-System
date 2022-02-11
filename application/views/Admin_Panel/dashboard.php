@@ -9,10 +9,7 @@ $this->load->view('includes/adminSideBar');
 </head>
 
 <body>
-    <div class="height-100 pt-2 container-fluid">
-        <!-- If user accessed login page or other pages -->
-       
-        <div class="height-100 pt-2 container-fluid">
+   <div class="height-100 pt-2 container-fluid">
       <!-- If user accessed login page or other pages -->
 
       <?php if ($this->session->flashdata('logoutAdmin')) : ?>
@@ -175,11 +172,11 @@ $this->load->view('includes/adminSideBar');
                      <!--Table Body-->
                      <thead class="text-center">
                         <tr>
-                           <th class="pb-3">Faculty ID</th>
-                           <th class="pb-3">Last Name</th>
-                           <th class="pb-3">First Name</th>
-                           <th class="pb-3">Section</th>
-                           <th class="pb-3">Status</th>
+                           <th scope="col" class="pb-3">Faculty ID</th>
+                           <th scope="col" class="pb-3">Last Name</th>
+                           <th scope="col" class="pb-3">First Name</th>
+                           <th scope="col" class="pb-3">Section</th>
+                           <th scope="col" class="pb-3">Status</th>
                         </tr>
                      </thead>
 

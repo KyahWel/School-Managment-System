@@ -129,6 +129,9 @@ ul {
 #table-body tbody .action-buttons li button:focus{
     box-shadow: none;
 }
+#viewStudentInformation td{
+    max-width: 100%;
+}
 
 /* Back Button */
 
