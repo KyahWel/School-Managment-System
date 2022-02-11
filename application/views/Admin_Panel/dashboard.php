@@ -14,7 +14,7 @@ $this->load->view('includes/adminSideBar');
 
       <?php if ($this->session->flashdata('logoutAdmin')) : ?>
          <div class="alert alert-danger alert-dismissible fade show">
-            <?= $this->session->flashdata('logout'); ?>
+            <?= $this->session->flashdata('logoutAdmin'); ?>
             <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
          </div>
          <?php $this->session->unset_userdata('logoutAdmin'); ?>

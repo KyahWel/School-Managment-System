@@ -23,7 +23,7 @@
 						<p class="mb-0"><b>Schedule:</b></p>
 					</td>
 					<td class="text-uppercase">
-						<p><?php echo $section->degree?> <?php echo $section->major?></p>
+						<p><?php echo $section->degree?> in <?php echo $section->major?></p>
 						<p><?php echo $section->subjectCode?></p>
 						<p><?php echo $section->name?></p>
 						<p class="mb-0">

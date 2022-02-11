@@ -11,19 +11,19 @@ $this->load->view('includes/adminSideBar');
 
     <!-- Faculty Main Page -->
     <div class="my-3" id="mainFaculty" style="display: block;">
-        <?php if ($this->session->flashdata('adminError')) : ?>
+        <?php if ($this->session->flashdata('errorAddingFaculty')) : ?>
             <div class="alert alert-danger alert-dismissible fade show">
-                <?= $this->session->flashdata('adminError'); ?>
+                <?= $this->session->flashdata('errorAddingFaculty'); ?>
                 <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
             </div>
-            <?php $this->session->unset_userdata ('adminError'); ?>
-        <?php elseif ($this->session->flashdata('successAdmin')) : ?>
+            <?php $this->session->unset_userdata ('errorAddingFaculty'); ?>
+        <?php elseif ($this->session->flashdata('successAddingFaculty')) : ?>
             
             <div class="alert alert-success alert-dismissible fade show">
-                <?= $this->session->flashdata('successAdmin'); ?>
+                <?= $this->session->flashdata('successAddingFaculty'); ?>
                 <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
             </div>
-            <?php $this->session->unset_userdata ('successAdmin'); ?>
+            <?php $this->session->unset_userdata ('successAddingFaculty'); ?>
         <?php endif?>
         <!-- Faculty Tab -->
         <div class="FacultyTab my-3">

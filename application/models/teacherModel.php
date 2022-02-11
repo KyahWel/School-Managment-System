@@ -18,23 +18,33 @@ class teacherModel extends CI_Model {
 			$this->db->where('teacherNumber',$holder);
 			$query=$this->db->get();
 		}while($query->num_rows()>0);	
-			$data = array(
-				'teacherID' => NULL,
-				'username' => $holder,
-				'password' => password_hash($_POST['lastname'],PASSWORD_DEFAULT),
-				'teacherNumber' => $holder,
-				'firstname' => $_POST['firstname'],
-				'lastname' => $_POST['lastname'],
-				'middlename' => $_POST['middlename'],
-				'extname' => $_POST['extname'],
-				'college' => $_POST['college'],
-				'department' => $_POST['department'],
-				'creatorID' => $this->session->userdata('auth_user')['adminID'],
-				'status' => 1
-			);
-		$this->db->insert('teacher_accounts',$data);
-		unset($_POST);
-		$this->session->set_flashdata('successAdmin','Added faculty account successfully');
+			$this->db->select('*');
+			$this->db->from('teacher_accounts');
+			$this->db->where('firstname',$_POST['firstname']);
+			$this->db->where('lastname',$_POST['lastname']);
+			$query=$this->db->get();
+			if($query->num_rows()<=0){
+				$data = array(
+					'teacherID' => NULL,
+					'username' => $holder,
+					'password' => password_hash($_POST['lastname'],PASSWORD_DEFAULT),
+					'teacherNumber' => $holder,
+					'firstname' => $_POST['firstname'],
+					'lastname' => $_POST['lastname'],
+					'middlename' => $_POST['middlename'],
+					'extname' => $_POST['extname'],
+					'college' => $_POST['college'],
+					'department' => $_POST['department'],
+					'creatorID' => $this->session->userdata('auth_user')['adminID'],
+					'status' => 1
+				);
+				$this->db->insert('teacher_accounts',$data);
+				unset($_POST);
+				$this->session->set_flashdata('successAddingFaculty','Added faculty account successfully');
+			}
+			else{	
+				$this->session->set_flashdata('errorAddingFaculty','Error: faculty account exists');	
+			}
 		redirect('Admin/faculty');
 			
 	}
@@ -70,7 +80,7 @@ class teacherModel extends CI_Model {
 		);
 		$this->db->where('teacherID',$id);
 		$this->db->update('teacher_accounts',$data);
-		$this->session->set_flashdata('successAdmin','Updated faculty account successfully');
+		$this->session->set_flashdata('successAddingFaculty','Updated faculty account successfully');
 		redirect('Admin/faculty');
 	}
 

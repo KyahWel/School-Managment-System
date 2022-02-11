@@ -14,7 +14,7 @@ class courseController extends CI_Controller {
 	{
 		if(isset($_POST['degree']) && isset($_POST['major']) && isset($_POST['college'])){
 			$this->courseModel->insertData();
-			redirect('Admin/course');
+			
 		}
 	}
 
@@ -415,7 +415,7 @@ class courseController extends CI_Controller {
 	public function updateCourse($id)
 	{	
 		$this->courseModel->updateData($id);
-		redirect('Admin/course');
+
 	}
 
 	public function deactivate($id)

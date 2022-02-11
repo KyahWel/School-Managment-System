@@ -8,6 +8,20 @@ $this->load->view('includes/adminSideBar');
     <title>Admin | Course</title>
 </head>
 <div class="height-100 pt-2 container-fluid">
+    <?php if ($this->session->flashdata('errorCourse')) : ?>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <?= $this->session->flashdata('errorCourse'); ?>
+                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+            </div>
+            <?php $this->session->unset_userdata ('errorCourse'); ?>
+        <?php elseif ($this->session->flashdata('successCourse')) : ?>
+            
+            <div class="alert alert-success alert-dismissible fade show">
+                <?= $this->session->flashdata('successCourse'); ?>
+                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+            </div>
+            <?php $this->session->unset_userdata ('successCourse'); ?>
+        <?php endif?>
     <div class=" my-3" id="mainCourse" style="display: block;">
         <div class="CourseTab my-3">
             <h3>Course</h3>

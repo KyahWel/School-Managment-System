@@ -66,7 +66,7 @@ $this->load->view('includes/adminSideBar');
                                         <select name="courseID" id="courseID" required class="form-select">
                                             <option value="" disabled selected hidden>Please select</option>
                                             <?php foreach ($course as $courserow) { ?>
-                                                <option value="<?php echo $courserow->courseID ?>"><?php echo $courserow->degree ?><?php echo $courserow->major ?></option>
+                                                <option value="<?php echo $courserow->courseID ?>"><?php echo $courserow->degree ?> in <?php echo $courserow->major ?></option>
                                             <?php } ?>
                                         </select>
                                     </div>
@@ -149,11 +149,11 @@ $this->load->view('includes/adminSideBar');
                                     <td>
                                         <div class="action-buttons">
                                             <ul>
-                                                <?php if ($class->status == 1) : ?>
+                                                <?php if ($class->statusClass == 1) : ?>
                                                     <li><button type="button" id="view" data-id='<?php echo $class->class_code; ?>' class="btn view_data" data-bs-toggle="modal" data-bs-target="#viewClass"><em class="fas fa-eye" data-bs-toggle="tooltip" title="View"></em> View</button></li>
                                                     <li><button type="button" id="edit" data-id='<?php echo $class->class_code; ?>' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editClass"><em class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></em> Edit</button></li>
                                                     <li>
-                                                    <li><button type="button" class="btn" onclick="location.href='<?php if ($class->status == 1) {
+                                                    <li><button type="button" class="btn" onclick="location.href='<?php if ($class->statusClass == 1) {
                                                                                                                         echo site_url('classController/deactivate');
                                                                                                                     } else {
                                                                                                                         echo site_url('classController/activate');
@@ -165,7 +165,7 @@ $this->load->view('includes/adminSideBar');
                                                     <li><button type="button" id="view" data-id='<?php echo $class->class_code; ?>' class="btn" disabled style="background-color: gray;"><em class="fas fa-eye" data-bs-toggle="tooltip" title="View"></em> View</button></li>
                                                     <li><button type="button" id="edit" data-id='<?php echo $class->class_code; ?>' class="btn" disabled style="background-color: gray;"><em class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></em> Edit</button></li>
                                                     <li>
-                                                    <li><button type="button" id="status" class="btn" onclick="location.href='<?php if ($class->status == 1) {
+                                                    <li><button type="button" id="status" class="btn" onclick="location.href='<?php if ($class->statusClass == 1) {
                                                                                                                                     echo site_url('classController/deactivate');
                                                                                                                                 } else {
                                                                                                                                     echo site_url('classController/activate');

@@ -8,7 +8,20 @@ $this->load->view('includes/adminSideBar');
 </head>
 
 <div class="height-100 pt-2 container-fluid">
-
+	<?php if ($this->session->flashdata('errorSection')) : ?>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <?= $this->session->flashdata('errorSection'); ?>
+                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+            </div>
+            <?php $this->session->unset_userdata ('errorSection'); ?>
+        <?php elseif ($this->session->flashdata('successSection')) : ?>
+            
+            <div class="alert alert-success alert-dismissible fade show">
+                <?= $this->session->flashdata('successSection'); ?>
+                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+            </div>
+            <?php $this->session->unset_userdata ('successSection'); ?>
+        <?php endif?>
 	<div class="my-3">
 
 		<!-- Section Tab -->
@@ -125,7 +138,7 @@ $this->load->view('includes/adminSideBar');
 												<option value="" disabled selected hidden></option>
 												<?php foreach ($course as $courserow) { ?>
 													<option value="<?php echo $courserow->courseID ?>">
-														<?php echo $courserow->degree ?>
+														<?php echo $courserow->degree ?> in
 														<?php echo $courserow->major ?></option>
 												<?php } ?>
 											</select>
@@ -324,6 +337,22 @@ $this->load->view('includes/adminSideBar');
 					}
 				});
 
+		});
+
+
+		$("#edit").click(function() {
+			var sectionID = $("#section").val();
+			console.log(sectionID);
+			$.ajax({
+				url: "<?php echo site_url('sectionController/viewSection'); ?>",
+				method: "POST",
+				data: {
+					sectionID: sectionID
+				},
+				success: function(data) {
+					$('#edit_section').html(data);
+				}
+			});
 		});
 
 		$('#sectionTable').DataTable({

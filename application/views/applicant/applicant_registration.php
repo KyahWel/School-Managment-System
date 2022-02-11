@@ -115,7 +115,7 @@ defined('BASEPATH') || exit('No direct script access allowed');
 													<?php foreach ($course as $course)
 													{ ?>
 													<option value='<?php echo $course->courseID ?>'>
-														<?php echo $course->degree ?><?php echo $course->major ?>
+														<?php echo $course->degree ?> in <?php echo $course->major ?>
 													</option>
 													<?php } ?>
 												</select>
