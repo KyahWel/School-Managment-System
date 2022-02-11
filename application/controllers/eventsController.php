@@ -33,7 +33,7 @@ class eventsController extends CI_Controller {
                 <div class="row mb-3">
                     <div class="col"> <!--Details-->
                         <label for="announcementDetails-view" class="form-label">Details</label>
-                        <textarea class="form-control" name="details" id="announcementDetails-view" rows="4" readonly>'.$records->details.'</textarea>
+                        <textarea class="form-control" name="details" id="announcementDetails-view" rows="5" cols="100" readonly>'.$records->details.'</textarea>
                     </div>
                 </div> 
             ';

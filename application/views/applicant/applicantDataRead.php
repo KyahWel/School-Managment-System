@@ -578,8 +578,6 @@ defined('BASEPATH') || exit('No direct script access allowed');
                                 onclick="location.href='<?php echo site_url('applicantcontroller/downloadTestPermit/' . $applicant->applicantID) ?>'">
                                 Download Test Permit 
                                 </button>
-
-
                                 <p class="note4 pt-3 fw-bold"> Note: Please come one hour before the time.</p>
                         </div>
                     </div>

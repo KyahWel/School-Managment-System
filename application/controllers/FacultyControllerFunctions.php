@@ -34,7 +34,7 @@ class FacultyControllerFunctions extends CI_Controller
         <!-- View Professor Information -->
         <div class="viewProfessorContent d-flex align-items-center">
             <div class="profile-pic-div">
-                <img src="../assets/images/facultyAvatar.jpg" alt="Professor Avatar" id="facultyPhoto">
+                <img src="../assets/images/facultyAvatar.png" alt="Professor Avatar" id="facultyPhoto">
             </div>
             <div class="table-responsive mx-3">
                 <table id="viewProfessorInformation" class="table-body">

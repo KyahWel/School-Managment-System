@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,7 +29,7 @@
 
 <body>
     <?php
-    include __DIR__ . '/../includes/loginNavbar.php'
+    include_once __DIR__ . '/../includes/loginNavbar.php'
     ?>
     <div class="background">
 
@@ -58,13 +58,14 @@
                 <div class="form-group mb-4">
                     <label for="username">Applicant Number</label>
                     <div class="input-group-addon">
-                        <i class="fa fa-user"></i>
+                        <i class="fa fa-user" aria-hidden="true"></i>
                     </div>
                     <input type="text" class="form-control" name="username" placeholder="Applicant Number" required>
                 </div>
 
                 <!-- clear entries and login button -->
-                <div class="btn-toolbar justify-content-between mb-2" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-toolbar justify-content-between mb-2" role="toolbar"
+                aria-label="Toolbar with button groups">
                     <input type="reset" class="btn btn-default" name="reset" value="Clear entries"></input>
                     <input type="submit" class="btn btn-default " name="login" value="Login"></input>
                 </div>
@@ -89,7 +90,7 @@
                 <div class="modal-body small">
                 Your applicant number is sent together with the test permit. Kindly check your email.
                 <p class="mt-3 text-muted">
-                    <i>If you happen to delete your email, please do contact the school administation.</i> 
+                    <i>If you happen to delete your email, please contact the school administration.</i> 
                 </p>
                 </div>
                 <div class="d-flex justify-content-end mx-3 mb-3">
@@ -119,7 +120,7 @@
 								<input type="text" name="firstnameVerify" id="fnameVerify"  class="form-control form-control-sm"
 									required aria-label="First name" onkeydown="return /[a-z ]/i.test(event.key)"
 									placeholder="First Name">
-									<label for="fnameVerify" class="py-2">First name</label>
+									<label for="fnameVerify" class="py-2 asterisk">First name</label>
 							</div>
                         </div>
 						<div class="col mt-1">
@@ -135,7 +136,7 @@
 								<input type="text" name="lastname" id="surnameVerify"  class="form-control form-control-sm"
 									required aria-label="First name"
 									placeholder="Surname">
-								<label for="surnameVerify" class="py-2">Surname</label>
+								<label for="surnameVerify" class="py-2 asterisk">Surname</label>
 							</div>
                         </div>
                         <div class="col">

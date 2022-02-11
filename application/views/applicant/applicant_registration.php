@@ -1,8 +1,8 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 	<meta charset="UTF-8">
@@ -84,8 +84,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				<div class="row height-sm-100 contents">
 					<div class="col">
 						<form method='POST' action="<?php echo site_url('applicantRegistration') ?>"
-							class="needs-validation" novalidate enctype="multipart/form-data" name="applicantform"
-							id="applicantForm">
+							class="needs-validation" novalidate enctype="multipart/form-data"
+							name="applicantform" id="applicantForm">
+
 							<!-- Personal Information -->
 							<div id='personalInfo' class=" container pt-3" style="display: block;">
 								<div class="step_progressbar">
@@ -97,8 +98,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 								</div>
 								<div class="Wrapper">
 									<div class="tabTitle">
-										<p class="text-white"><i class="fa fa-user"></i> <span class="px-2"> Personal
-												Information </span></p>
+										<p class="text-white">
+											<i class="fa fa-user" aria-hidden="true"></i>
+											<span class="px-2">
+											Personal Information </span>
+										</p>
 									</div>
 									<div class="Contents">
 										<p class="fw-bold">COURSE PREFERENCE</p>
@@ -108,7 +112,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 												<select class="form-select form-select-sm" id="courses"
 													name="course_chosen" aria-label="Select Course" required>
 													<option value="" selected>--Please Select--</option>
-													<?php foreach ($course as $course) { ?>
+													<?php foreach ($course as $course)
+													{ ?>
 													<option value='<?php echo $course->courseID ?>'>
 														<?php echo $course->degree ?><?php echo $course->major ?>
 													</option>
@@ -126,8 +131,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 											<div class="col-lg-3 col-md-6 py-1">
 												<label class="form-label small">First Name</label>
 												<input type="text" name="firstname" id="fname"
-													class="form-control form-control-sm" aria-label="First name"
-													required readonly onkeypress="return /[a-z ]/i.test(event.key)"
+													class="form-control form-control-sm"
+													aria-label="First name"
+													readonly onkeypress="return /[a-z ]/i.test(event.key)"
 													value=<?php echo $personalInfo[0]?>>
 												<div class="invalid-feedback">
 													Please input your first name.
@@ -136,7 +142,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 											<div class="col-lg-3 col-md-6 py-1">
 												<label class="small mb-2">Middle Name</label>
 												<input type="text" name='middlename' id="midname"
-													class="form-control form-control-sm" aria-label="Last name"
+													class="form-control form-control-sm"
+													aria-label="Last name"
                                                     readonly onkeypress="return /[a-z ]/i.test(event.key)"
 													value=<?php echo $personalInfo[2]?>>
 												<div class="invalid-feedback">
@@ -146,8 +153,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 											<div class="col-lg-3 col-md-6 py-1">
 												<label class="form-label small">Surname</label>
 												<input type="text" name="lastname" id="surname"
-													class="form-control form-control-sm" aria-label="Surname" required
-													required readonly onkeypress="return /[a-z ]/i.test(event.key)"
+													class="form-control form-control-sm"
+													aria-label="Surname" 
+												readonly onkeypress="return /[a-z ]/i.test(event.key)"
 													value=<?php echo $personalInfo[1]?>>
 												<div class="invalid-feedback">
 													Please input your surname.
@@ -156,7 +164,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 											<div class="col-lg-3 col-md-6 py-1">
 												<label class="small mb-2">Suffix</label>
 												<input type="text" name='extname' id="suffix"
-													class="form-control form-control-sm" aria-label="Extension Name"
+													class="form-control form-control-sm"
+													aria-label="Extension Name"
                                                     readonly onkeypress="return /[a-z ]/i.test(event.key)"
 													value=<?php echo $personalInfo[3]?>>
 												<div class="invalid-feedback">
@@ -184,13 +193,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
 											<div class="col-lg-3 col-md-12 pt-1">
 												<div class="form-check-inline">
 													<input class="form-check-input" type="radio" name="gender"
-														value="Male" required>
+														value="Male" id="male" required>
 													<label class="form-check-label" for="gender"> Male </label>
 													<div class="invalid-feedback"> Please select your gender. </div>
 												</div>
 												<div class="form-check-inline mb-3">
 													<input class="form-check-input" type="radio" name="gender"
-														value="Female" required>
+														value="Female" id="female" required>
 													<label class="form-check-label" for="gender"> Female </label>
 													<div class="invalid-feedback"> &nbsp </div>
 												</div>
@@ -253,7 +262,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 											<label class="form-label col-lg-2 col-md-12 pt-1">Landline:</label>
 											<div class="col-lg-3 col-md-12">
 												<input type="tel" name='landline' id="landline1"
-													class="form-control form-control-sm" aria-label="Landline" required>
+													class="form-control form-control-sm" aria-label="Landline"
+													required>
 												<div class="invalid-feedback">
 													Please input your landline number.
 												</div>
@@ -293,7 +303,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 											<label class="form-label col-lg-2 col-md-12 pt-1">Street:</label>
 											<div class="col-lg-3 col-md-12">
 												<input type="text" name='street' id="street1"
-													class="form-control form-control-sm" aria-label="Street" required>
+													class="form-control form-control-sm" aria-label="Street"
+													required>
 												<div class="invalid-feedback">
 													Please input your street.
 												</div>
@@ -305,7 +316,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 											<label class="form-label col-lg-2 col-md-12  pt-1">Barangay:</label>
 											<div class="col-lg-3 col-md-12">
 												<input type="text" name='barangay' id="brgy"
-													class="form-control form-control-sm" aria-label="Barangay" required>
+													class="form-control form-control-sm" aria-label="Barangay"
+													required>
 												<div class="invalid-feedback">
 													Please input your barangay.
 												</div>
@@ -315,7 +327,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 											<label class="form-label col-lg-2 col-md-12 pt-1">City:</label>
 											<div class="col-lg-3 col-md-12">
 												<input type="text" name='city' id="city1"
-													class="form-control form-control-sm" aria-label="City" required>
+													class="form-control form-control-sm" aria-label="City"
+													required>
 												<div class="invalid-feedback">
 													Please input your city.
 												</div>
@@ -358,7 +371,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 														Attainment
 													</div>
 													<div class="flex-grow-1 ms-2">
-														<i class="fas fa-angle-double-right fa-lg"></i>
+														<i class="fas fa-angle-double-right fa-lg"
+														aria-hidden="true">
+														</i>
 													</div>
 											</button>
 										</div>
@@ -368,9 +383,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 							</div>
 							<!--personalInfoWrapper-->
 
-
-							<!-- ------------------------------------------------------------------------------------------------------- -->
-
+						
 							<!-- Educational Attainment -->
 							<div id='educationalattainment' class=" container pt-3" style="display: none;">
 								<div class="step_progressbar">
@@ -382,8 +395,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 								</div>
 								<div class="Wrapper">
 									<div class="tabTitle">
-										<p class="text-white"><i class="fa fa-user-graduate"></i> <span class="px-2">
-												Educational Attainment </span></p>
+										<p class="text-white">
+											<i class="fa fa-user-graduate" aria-hidden="true"></i> 
+											<span class="px-2">
+												Educational Attainment
+											</span>
+										</p>
 									</div>
 									<div class="Contents">
 										<p class="fw-bold">SCHOOL LAST ATTENDED</p>
@@ -505,11 +522,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 											<button type="button" class="btn btn-warning mb-3" onclick="personalInfo()">
 												<div class="d-flex align-items-center">
 													<div class="flex-grow-1 ms-1 px-0">
-														<i class="fas fa-angle-double-left fa-lg"></i>
+														<i class="fas fa-angle-double-left fa-lg" aria-hidden="true"></i>
 													</div>
 													<div class="flex-shrink-0 text-end">
-														<span class="next text-dark">Previous Step </span> <br> Personal
-														Information
+														<span class="next text-dark">Previous Step </span><br>
+														Personal Information
 													</div>
 												</div>
 											</button>
@@ -521,7 +538,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 														<span class="next text-dark">Next Step </span> <br> Requirements
 													</div>
 													<div class="flex-grow-1 ms-1 px-0">
-														<i class="fas fa-angle-double-right fa-lg"></i>
+														<i class="fas fa-angle-double-right fa-lg" aria-hidden="true"></i>
 													</div>
 												</div>
 											</button>
@@ -534,8 +551,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 							</div>
 							<!-- educational attainment div -->
 
-
-							<!-- ------------------------------------------------------------------------------------------------------- -->
 							<!-- Requirements -->
 							<div id='requirement' class=" container pt-3 " style="display: none;">
 								<div class="step_progressbar">
@@ -547,8 +562,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 								</div>
 								<div class="Wrapper">
 									<div class="tabTitle">
-										<p class="text-white"><i class="fas fa-file"></i> <span
-												class="px-2">Requirements </span></p>
+										<p class="text-white">
+											<i class="fas fa-file" aria-hidden="true"></i> 
+											<span class="px-2">Requirements</span>
+										</p>
 									</div>
 									<div class="Contents">
 										<p class="fw-bold">ADMISSION REQUIREMENTS</p>
@@ -589,7 +606,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 												onclick="educationalAttainment()">
 												<div class="d-flex align-items-center">
 													<div class="flex-shrink-0">
-														<i class="fas fa-angle-double-left fa-lg"></i>
+														<i class="fas fa-angle-double-left fa-lg"
+														aria-hidden="true"></i>
 													</div>
 													<div class="flex-grow-1 ms-3 text-end">
 														<span class="next text-dark">Previous Step </span> <br>
@@ -598,13 +616,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
 												</div>
 											</button>
 											<button type="button" class="btn btn-warning ms-auto mb-3" id="last"
-												data-bs-toggle="modal" data-bs-target="#confirmationPage">
+											data-bs-toggle="modal" data-bs-target="#confirmationPage">
 												<div class=" d-flex align-items-center ">
 													<div class="flex-shrink-0 text-start d-md-block">
 														<span class="next text-dark">PROCEED
 													</div>
 													<div class="flex-grow-1 ms-1 px-0">
-														<i class="fas fa-angle-double-right fa-lg"></i>
+														<i class="fas fa-angle-double-right fa-lg" 
+														aria-hidden="true"></i>
 													</div>
 												</div>
 											</button>

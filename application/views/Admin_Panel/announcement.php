@@ -60,7 +60,8 @@ $this->load->view('includes/adminSideBar');
                   <div class="col">
                     <!--Details-->
                     <label for="announcementDetails" class="form-label">Details</label>
-                    <textarea class="form-control" name="details" id="announcementDetails" required placeholder="Input text here..." rows="4"></textarea>
+                    <textarea class="form-control" name="details" id="announcementDetails" required placeholder="Input text here..." 
+                    rows="5" cols="90"></textarea>
                   </div>
                 </div>
                 <div class="addAnnouncementButton d-flex justify-content-end">
