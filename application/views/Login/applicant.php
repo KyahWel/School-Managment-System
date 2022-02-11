@@ -142,7 +142,7 @@
                         <div class="col">
 							<div class="form-floating mb-2">							
                                 <input type="text" name="extname" id="suffixVerify" class="form-control form-control-sm"
-                                    aria-label="Extension Name" required onkeydown="return /[a-z ]/i.test(event.key)"
+                                    aria-label="Extension Name" onkeydown="return /[a-z ]/i.test(event.key)"
 									placeholder="Suffix">
                                 <label for="suffixVerify" class="py-2">Suffix</label>
 							</div>

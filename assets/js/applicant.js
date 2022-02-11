@@ -70,7 +70,7 @@ const validateForms = () => {
       element.classList.add("is-invalid")
       insertAfter(element, fieldFeedback)
     }
-    if((gender[0].checked === false) && (gender[1].checked===false) && ((element.hasAttribute("required")))){
+    if((gender[0].checked === false) && (gender[1].checked===false)){
        hasError = true
        element.classList.add("is-invalid")
        insertAfter(element, fieldFeedback)

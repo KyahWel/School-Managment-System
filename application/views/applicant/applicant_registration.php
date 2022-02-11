@@ -111,7 +111,7 @@ defined('BASEPATH') || exit('No direct script access allowed');
 											<div class="col-lg-7 col-md-10 col-sm-12">
 												<select class="form-select form-select-sm" id="courses"
 													name="course_chosen" aria-label="Select Course" required>
-													<option value="" selected>--Please Select--</option>
+													<option value="" hidden disabled selected>--Please Select--</option>
 													<?php foreach ($course as $course)
 													{ ?>
 													<option value='<?php echo $course->courseID ?>'>
@@ -135,9 +135,6 @@ defined('BASEPATH') || exit('No direct script access allowed');
 													aria-label="First name"
 													readonly onkeypress="return /[a-z ]/i.test(event.key)"
 													value=<?php echo $personalInfo[0]?>>
-												<div class="invalid-feedback">
-													Please input your first name.
-												</div>
 											</div>
 											<div class="col-lg-3 col-md-6 py-1">
 												<label class="small mb-2">Middle Name</label>
@@ -146,9 +143,6 @@ defined('BASEPATH') || exit('No direct script access allowed');
 													aria-label="Last name"
                                                     readonly onkeypress="return /[a-z ]/i.test(event.key)"
 													value=<?php echo $personalInfo[2]?>>
-												<div class="invalid-feedback">
-													Please input your middle name.
-												</div>
 											</div>
 											<div class="col-lg-3 col-md-6 py-1">
 												<label class="form-label small">Surname</label>
@@ -157,9 +151,6 @@ defined('BASEPATH') || exit('No direct script access allowed');
 													aria-label="Surname" 
 												readonly onkeypress="return /[a-z ]/i.test(event.key)"
 													value=<?php echo $personalInfo[1]?>>
-												<div class="invalid-feedback">
-													Please input your surname.
-												</div>
 											</div>
 											<div class="col-lg-3 col-md-6 py-1">
 												<label class="small mb-2">Suffix</label>
@@ -168,9 +159,6 @@ defined('BASEPATH') || exit('No direct script access allowed');
 													aria-label="Extension Name"
                                                     readonly onkeypress="return /[a-z ]/i.test(event.key)"
 													value=<?php echo $personalInfo[3]?>>
-												<div class="invalid-feedback">
-													Please input your extension name.
-												</div>
 											</div>
 										</div>
 
@@ -669,7 +657,6 @@ defined('BASEPATH') || exit('No direct script access allowed');
 					<button type="button" class="btn btn-secondary text-uppercase"
 						data-bs-dismiss="modal">CANCEL</button>
                 </div>
-
 			</div>
 		</div>
 	</div>
@@ -708,6 +695,7 @@ defined('BASEPATH') || exit('No direct script access allowed');
 	var brgy = $("#brgy").val();
 	var city1 = $("#city1").val();
 	var zip = $("#zip").val();
+	var province1 = $("#province1").val();
 	var nameschool = $("#nameschool").val();
 	var program1 = $("#program1").val();
 	var schooladdress = $("#schooladdress").val();
@@ -739,6 +727,7 @@ defined('BASEPATH') || exit('No direct script access allowed');
 		'<div class="row"> <label class="form-label col-lg-3 col-md-3">Barangay:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> ' + brgy + '</div></div>' +
 		'<div class="row"> <label class="form-label col-lg-3 col-md-3">City:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> ' + city1 + '</div></div>' +
 		'<div class="row"> <label class="form-label col-lg-3 col-md-3">Zipcode:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> ' + zip + '</div></div>' +
+		'<div class="row"> <label class="form-label col-lg-3 col-md-3">Province:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> ' + province1 + '</div></div>' +
 		'<p class="text-decoration-underline text-uppercase fw-bold my-2 pt-3">School Last Attended</p>' +
 		'<div class="row"> <label class="form-label col-lg-3 col-md-3">Name of School:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase"> ' + nameschool + '</div></div>' +
 		'<div class="row"> <label class="form-label col-lg-3 col-md-3">Program/Track:</label><div class="col-lg-9 col-md-9 fw-bold text-uppercase">' + program1 + '</div></div>' +

@@ -102,7 +102,7 @@
                         </div>
 						<div id="errorMessageMain" class="alert alert-danger alert-dismissible fade show" style="display:none">
                                 Error: Cannot change the password of main admin
-                                <button type="button" class="btn-close close exitKey"></button>
+                                <button type="button" class="btn-close close exitMain"></button>
 						</div>
 						<div id="errorMessageConfirm" class="alert alert-danger alert-dismissible fade show" style="display:none">
                                 Error: Passwords do not match
