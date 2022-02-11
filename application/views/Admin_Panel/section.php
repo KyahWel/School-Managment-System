@@ -75,11 +75,11 @@ $this->load->view('includes/adminSideBar');
 					<table class="table table-body align-middle table-striped table-borderless table-hover" aria-label="sectionList" id="sectionTable">
 						<thead>
 							<tr>
-								<th>Section</th>
-								<th>Course</th>
-								<th>Yearlevel</th>
-								<th>Capacity</th>
-								<th>Class Code</th>
+								<th scope="col">Section</th>
+								<th scope="col">Course</th>
+								<th scope="col">Yearlevel</th>
+								<th scope="col">Capacity</th>
+								<th scope="col">Class Code</th>
 							</tr>
 						</thead>
 						<tbody>

@@ -21,7 +21,7 @@
 
                 <!-- My Profile Details -->
                 <div class="table-responsive mx-3">
-                    <table id="myProfileDetails" class="table-body">
+                    <table id="myProfileDetails" class="table-body" aria-label="Faculty_Profile">
                         <tr>
                             <td class="py-3">
                                 <p><b>Faculty ID:</b></p>

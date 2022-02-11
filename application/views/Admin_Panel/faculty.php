@@ -120,11 +120,11 @@ $this->load->view('includes/adminSideBar');
                         <!--Table Body-->
                         <thead>
                             <tr>
-                                <th class="pb-3">Faculty ID</th>
-                                <th class="pb-3">Faculty Name</th>
-                                <th class="pb-3">College</th>
-                                <th class="pb-3">Department</th>
-                                <th class="pb-3">Action</th>
+                                <th scope="col" class="pb-3">Faculty ID</th>
+                                <th scope="col" class="pb-3">Faculty Name</th>
+                                <th scope="col" class="pb-3">College</th>
+                                <th scope="col" class="pb-3">Department</th>
+                                <th scope="col" class="pb-3">Action</th>
                             </tr>
                         </thead>
                         <tbody>
