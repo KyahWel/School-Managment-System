@@ -10,7 +10,21 @@ $this->load->view('includes/adminSideBar');
 <div class="height-100 pt-2 container-fluid">
 
     <div class=" my-3">
+        
+      <?php if ($this->session->flashdata('errorClass')) : ?>
+         <div class="alert alert-danger alert-dismissible fade show">
+            <?= $this->session->flashdata('errorClass'); ?>
+            <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+         </div>
+         <?php $this->session->unset_userdata('errorClass'); ?>
 
+        <?php elseif ($this->session->flashdata('successClass')) : ?>
+         <div class="alert alert-success alert-dismissible fade show">
+            <?= $this->session->flashdata('successClass'); ?>
+            <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+         </div>
+         <?php $this->session->unset_userdata('successClass'); ?>
+      <?php endif; ?>
         <!-- Class Tab -->
         <div class="ClassTab my-3">
             <h3>Class</h3>
@@ -64,8 +78,12 @@ $this->load->view('includes/adminSideBar');
                                             <option value="2">Second Semester</option>
                                         </select>
                                     </div>
-                                    <div class="loadSubject-button col-sm-12 col-md-12 col-lg-2"> <!-- Load Subects Button -->
+                                    <div id="add" class="loadSubject-button col-sm-12 col-md-12 col-lg-2" style="display: block;"> <!-- Load Subects Button -->
                                         <button type="button" id="load" class="btn loadSubjects"><span>Load Subjects</span></button>   
+                                    </div>
+
+                                    <div id="unload" class="loadSubject-button col-sm-12 col-md-12 col-lg-2 "  style="display: none;"> <!-- Load Subects Button -->
+                                        <button type="button" id="load" class="btn unloadSubjects"><span>Unload Subjects</span></button>   
                                     </div>
                                     
                                 </div>
@@ -106,12 +124,12 @@ $this->load->view('includes/adminSideBar');
                     <table class="table align-middle table-striped table-borderless table-hover" aria-label="classList" id="table-body">
                         <thead>
                             <tr>
-                                <th class="pb-3">Class Code</th>
-                                <th class="pb-3">Course</th>
-                                <th class="pb-3">Year Level</th>
-                                <th class="pb-3">Semester</th>
-                                <th class="pb-3">Status</th>
-                                <th class="pb-3">Action</th>
+                                <th scope="col" class="pb-3">Class Code</th>
+                                <th scope="col" class="pb-3">Course</th>
+                                <th scope="col" class="pb-3">Year Level</th>
+                                <th scope="col" class="pb-3">Semester</th>
+                                <th scope="col" class="pb-3">Status</th>
+                                <th scope="col" class="pb-3">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -219,8 +237,18 @@ $this->load->view('includes/adminSideBar');
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <!-- Ajax fetching data -->
 <script type="text/javascript">
+    
     $(document).ready(function() {
         $('#dataTable').DataTable();
+        $(".unloadSubjects").click(function() {
+            $('#listSubjects').html('');
+            $('#add'). css('display','block');  
+            $('#unload'). css('display','none');  
+            $('#courseID').prop('readOnly', false);
+            $('#semester').prop('readOnly', false);
+            $('#yearlevel').prop('readOnly', false);
+        });
+        
         $(".loadSubjects").click(function() {
             var courseID = $('#courseID').val();
             var semester = $('#semester').val()
@@ -235,6 +263,11 @@ $this->load->view('includes/adminSideBar');
                 },
                 success: function(data) {
                     $('#listSubjects').html(data);
+                    $('#courseID').prop('readOnly', true);
+                    $('#semester').prop('readOnly', true);
+                    $('#yearlevel').prop('readOnly', true);  
+                    $('#add'). css('display','none');  
+                    $('#unload'). css('display','block');  
                 }
             });
         });

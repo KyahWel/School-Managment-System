@@ -72,10 +72,10 @@ $this->load->view('includes/adminSideBar');
                     <table class="table table-default align-middle table-striped table-borderless table-hover table-body" aria-label="courseList" id="table-body">
                         <thead>
                             <tr>
-                                <th class="pb-3">Degree</th>
-                                <th class="pb-3">Major</th>
-                                <th class="pb-3">College</th>
-                                <th class="pb-3">Action</th>
+                                <th scope="col" class="pb-3">Degree</th>
+                                <th scope="col" class="pb-3">Major</th>
+                                <th scope="col" class="pb-3">College</th>
+                                <th scope="col" class="pb-3">Action</th>
                             </tr>
                         </thead>
                         <tbody>

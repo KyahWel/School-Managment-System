@@ -21,9 +21,13 @@ class sectionController extends CI_Controller {
 			$studentList = $this->input->post('studentList');
 			$this->sectionModel->insertData();
 			$data = $this->sectionModel->getDataName($sectionName);
-			for($i=0;$i<sizeof($studentList);$i++){
-				$this->sectionModel->addStudents($studentList[$i],$data,$i+1);;
-				$this->sectionModel->addStudentGrades($studentList[$i]);
+			if($studentList!=NULL){
+				for($i=0;$i<sizeof($studentList);$i++){
+					//Add sectionID to stdent Accounts
+					$this->sectionModel->addStudents($studentList[$i],$data,$i+1);;
+					//Add studentGrades data
+					$this->sectionModel->addStudentGrades($studentList[$i]);
+				}
 			}
 			redirect('Admin/section');
 		}
@@ -118,7 +122,7 @@ class sectionController extends CI_Controller {
 			$student = $this->studentModel->viewSection($sectionData);
 			$studentNoSection = $this->studentModel->viewNoSection();
 			$output = '
-				<form class="container" action="">
+				<form action="">
 					<div class="row mb-3">
 						<div class="col-lg-2">
 							<!--Year Level-->
@@ -173,10 +177,8 @@ class sectionController extends CI_Controller {
 					</div>
 					<div class="editSectionButton d-flex justify-content-end">
 						<!--Buttons-->
-						<button class="btn btn-default" id="save" type="button"
-							data-bs-dismiss="modal">Okay</button>
-				</div>
-					
+						<button class="btn btn-default" id="okay" type="button" data-bs-dismiss="modal">Okay</button>
+					</div>
 			';
 		}
 		else{
@@ -186,9 +188,8 @@ class sectionController extends CI_Controller {
 					<h1>No section selected</h1>
 				</div>
 				<div class="editSectionButton d-flex justify-content-end">
-						<!--Buttons-->
-						<button class="btn btn-default" id="okay" type="button"
-							data-bs-dismiss="modal">Okay</button>
+					<!--Buttons-->
+					<button class="btn btn-default" id="okay" type="button" data-bs-dismiss="modal">Okay</button>
 				</div>
 		';
 		}

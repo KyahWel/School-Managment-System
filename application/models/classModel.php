@@ -50,7 +50,7 @@ class classModel extends CI_Model {
 
 	public function ClassList($courseID, $yearlevel){
 		$query = $this->db->query('	SELECT * FROM class 	
-									WHERE courseID = '.$courseID.' AND yearlevel ='.$yearlevel.' GROUP BY class_code');
+									WHERE courseID = '.$courseID.' AND yearlevelClass ='.$yearlevel.' GROUP BY class_code');
 		return $query->result();
 	}
 	

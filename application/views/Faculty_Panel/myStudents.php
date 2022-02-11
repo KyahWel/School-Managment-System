@@ -26,10 +26,10 @@
 				<table class="table table-body align-middle table-striped table-borderless table-hover">
 					<thead>
 						<tr>
-							<th>Subject Code</th>
-							<th>Subject Title</th>
-							<th>Year Level</th>
-							<th>Section</th>
+							<th scope="col">Subject Code</th>
+							<th scope="col">Subject Title</th>
+							<th scope="col">Year Level</th>
+							<th scope="col">Section</th>
 						</tr>
 					</thead>
 					<tbody>

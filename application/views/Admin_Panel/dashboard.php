@@ -9,40 +9,15 @@ $this->load->view('includes/adminSideBar');
 </head>
 
 <body>
-<<<<<<< HEAD
-    <div class="height-100 pt-2 container-fluid">
-        <!-- If user accessed login page or other pages -->
-       
-        <?php if ($this->session->flashdata('logoutAdmin')) : ?>
-            <div class="alert alert-danger alert-dismissible fade show">
-                <?= $this->session->flashdata('logout'); ?>
-                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
-            </div>
-            <?php $this->session->unset_userdata ('logoutAdmin'); ?>
-        <?php endif; ?>
-
-        <h3 class="mt-2">Dashboard</h3>
-        <div class="row pb-3">
-            <!-- Date today -->
-            <div class="col-lg-4 col-md-6 col-sm-12 mb-2">
-                <div class="calendar py-5">
-                    <div class="month pt-4">
-                        <h1 id="getMonth"></h1>
-                    </div>
-                    <div class="day text-center">
-                        <p id="today"></p>
-                    </div>
-                </div>
-=======
    <div class="height-100 pt-2 container-fluid">
       <!-- If user accessed login page or other pages -->
 
-      <?php if ($this->session->flashdata('logout')) : ?>
+      <?php if ($this->session->flashdata('logoutAdmin')) : ?>
          <div class="alert alert-danger alert-dismissible fade show">
             <?= $this->session->flashdata('logout'); ?>
             <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
          </div>
-         <?php $this->session->unset_userdata('logout'); ?>
+         <?php $this->session->unset_userdata('logoutAdmin'); ?>
       <?php endif; ?>
 
       <h3 class="mt-2">Dashboard</h3>
@@ -56,7 +31,6 @@ $this->load->view('includes/adminSideBar');
                <div class="day text-center">
                   <p id="today"></p>
                </div>
->>>>>>> dab01cfcafabc8b26175ebe60ef320d740a79f64
             </div>
          </div>
 
@@ -198,11 +172,11 @@ $this->load->view('includes/adminSideBar');
                      <!--Table Body-->
                      <thead class="text-center">
                         <tr>
-                           <th class="pb-3">Faculty ID</th>
-                           <th class="pb-3">Last Name</th>
-                           <th class="pb-3">First Name</th>
-                           <th class="pb-3">Section</th>
-                           <th class="pb-3">Status</th>
+                           <th scope="col" class="pb-3">Faculty ID</th>
+                           <th scope="col" class="pb-3">Last Name</th>
+                           <th scope="col" class="pb-3">First Name</th>
+                           <th scope="col" class="pb-3">Section</th>
+                           <th scope="col" class="pb-3">Status</th>
                         </tr>
                      </thead>
 
@@ -237,6 +211,10 @@ $this->load->view('includes/adminSideBar');
 
    <!-- Ajax fetching data -->
    <script type="text/javascript">
+
+
+
+      
       $(document).ready(function() {
          $('#dataTable').DataTable();
          $('.view_data').click(function() {

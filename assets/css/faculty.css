@@ -157,6 +157,9 @@ body{
     white-space: nowrap;
     /* line-height: 0; */
 }
+#viewProfessorInformation td{
+    max-width: 100%;
+}
 
 /* Action Button */
 
