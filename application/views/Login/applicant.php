@@ -152,7 +152,9 @@
 				<hr class="line">
                 <div class="d-flex justify-content-center mb-3">
                     <button type="button" class="btn btn-default check mx-2">Continue</button>
-                    <button type="button" class="btn btn-secondary"  data-bs-dismiss="modal" aria-label="Close">
+                    <button type="button" 
+                    onclick="location.href='<?php echo base_url('Login/applicant')?>'" class="btn btn-secondary"
+                    aria-label="Close">
                             Cancel
                     </button>
                 </div>
