@@ -47,7 +47,7 @@ $this->load->view('includes/adminSideBar');
 							<select name="course" id="course" class="form-select">
 								<option value="" disabled selected hidden></option>
 								<?php foreach ($course as $courserow) { ?>
-									<option value="<?php echo $courserow->courseID ?>"><?php echo $courserow->degree ?> in
+									<option value="<?php echo $courserow->courseID ?>"><?php echo $courserow->degree ?>
 										<?php echo $courserow->major ?></option>
 								<?php } ?>
 							</select>
@@ -64,7 +64,7 @@ $this->load->view('includes/adminSideBar');
 						</div>
 						<div class="col-lg-2 d-flex justify-content-evenly" id="addSectionButton">
 							<button type="button" class="btn btn-sm" id="add" data-bs-toggle="modal" data-bs-target="#addSection"><em class="fas fa-plus" data-bs-toggle="tooltip" title="Add Section"></em></button>
-							<button type="button" class="btn btn-sm" id="edit" data-bs-toggle="modal" data-bs-target="#editSection"><em class="fas fa-pen" data-bs-toggle="tooltip" title="Edit Section"></em></button>
+							<button type="button" class="btn btn-sm" id="edit" data-bs-toggle="modal" data-bs-target="#editSection"><em class="fas fa-eye" data-bs-toggle="tooltip" title="Edit Section"></em></button>
 							<button type="button" class="btn btn-sm" id="delete" data-bs-toggle="modal" data-bs-target="#deleteSection"><em class="fas fa-eraser" data-bs-toggle="tooltip" title="Delete Section"></em></button>
 						</div>
 					</div>
@@ -183,7 +183,7 @@ $this->load->view('includes/adminSideBar');
 					</div>
 				</div>
 
-				<!-- Edit Section -->
+				<!-- View Section -->
 				<div class="modal fade" id="editSection" tabindex="-1" aria-modal="true" aria-labelledby="editSectionHeader" aria-hidden="true">
 					<div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
 						<div class="modal-content">

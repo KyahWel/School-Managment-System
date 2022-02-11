@@ -38,7 +38,7 @@ class FacultyControllerFunctions extends CI_Controller
             </div>
             <div class="table-responsive mx-3">
                 <table id="viewProfessorInformation" class="table-body">
-                    <tr>
+                    <tr class="d-flex align-items-start">
                         <td class="py-3">
                             <p><b>Faculty ID:</b></p>
                             <p><b>Name:</b></p>
@@ -48,14 +48,8 @@ class FacultyControllerFunctions extends CI_Controller
                         <td class="py-3">
                             <p>'.$records->teacherNumber.'</p>
                             <p>'.$records->firstname.' '.$records->lastname.'</p>
-                            <p>'.$records->department.'</p>';
-			if($records->email==NULL){
-				$output.=' <p class="mb-0"> &nbsp </p>';
-			}
-			else{
-				$output.='<p class="mb-0">'.$records->email.'</p>';
-			}
-               $output.='          
+                            <p>'.$records->department.'</p>
+							<p class="mb-0">'.$records->email.'</p>     
                         </td>
                     </tr>
                 </table>
