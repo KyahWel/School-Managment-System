@@ -41,8 +41,11 @@ body{
     color: black;
     font-size: 1rem;
     text-align: start;
-    margin-bottom: 0;
+    margin-bottom: 10px;
     padding-right: 10px;
+}
+#myProfileDetails td{
+    max-width: 100%;
 }
 
 /* Table Responsiveness */

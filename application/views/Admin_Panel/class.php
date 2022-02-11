@@ -106,12 +106,12 @@ $this->load->view('includes/adminSideBar');
                     <table class="table align-middle table-striped table-borderless table-hover" aria-label="classList" id="table-body">
                         <thead>
                             <tr>
-                                <th class="pb-3">Class Code</th>
-                                <th class="pb-3">Course</th>
-                                <th class="pb-3">Year Level</th>
-                                <th class="pb-3">Semester</th>
-                                <th class="pb-3">Status</th>
-                                <th class="pb-3">Action</th>
+                                <th scope="col" class="pb-3">Class Code</th>
+                                <th scope="col" class="pb-3">Course</th>
+                                <th scope="col" class="pb-3">Year Level</th>
+                                <th scope="col" class="pb-3">Semester</th>
+                                <th scope="col" class="pb-3">Status</th>
+                                <th scope="col" class="pb-3">Action</th>
                             </tr>
                         </thead>
                         <tbody>

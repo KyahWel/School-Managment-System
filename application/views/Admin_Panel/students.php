@@ -27,13 +27,13 @@ $this->load->view('includes/adminSideBar');
                     <table class="table table-default table-striped align-middle table-borderless table-hover" aria-label="studentListTable" id="table-body">
                         <thead class="thead">
                             <tr>
-                                <th class="pb-3">Student ID</th>
-                                <th class="pb-3">Name </th>
+                                <th scope="col" class="pb-3">Student ID</th>
+                                <th scope="col" class="pb-3">Name </th>
                                 <!-- <th>Last Name</th> -->
-                                <th class="pb-3">Course</th>
-                                <th class="pb-3">Section</th>
-                                <th class="pb-3">Yearlevel</th>
-                                <th class="pb-3">Action</th>
+                                <th scope="col" class="pb-3">Course</th>
+                                <th scope="col" class="pb-3">Section</th>
+                                <th scope="col" class="pb-3">Yearlevel</th>
+                                <th scope="col" class="pb-3">Action</th>
                             </tr>
                         </thead>
                         <tbody class="tbody">
