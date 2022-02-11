@@ -81,12 +81,12 @@ $this->load->view('includes/studentSideBar');
                     <table class="table table-default align-middle table-striped table-borderless table-hover" id="table-body">
                         <thead>
                             <tr>
-			                    <th class="py-3">Subject Code</th>
-			                    <th class="py-3">Subject Name</th>
-			                    <th class="py-3">Teacher</th>
-			                    <th class="py-3">Units</th>
-                                <th class="py-3">Grade</th>
-                                <th class="py-3">Remarks</th>
+			                    <th scope="col" class="py-3">Subject Code</th>
+			                    <th scope="col" class="py-3">Subject Name</th>
+			                    <th scope="col" class="py-3">Teacher</th>
+			                    <th scope="col" class="py-3">Units</th>
+                                <th scope="col" class="py-3">Grade</th>
+                                <th scope="col" class="py-3">Remarks</th>
                             </tr>
                         </thead>
                         <tbody>
