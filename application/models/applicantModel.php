@@ -29,7 +29,7 @@ class applicantModel extends CI_Model {
 			$digits = 4;
 			$year = 22;
 			do{
-				$holder = "TUPM-APPL".$year."-".rand(pow(10, $digits-1), pow(10, $digits)-1);
+				$holder = "TUPM-APPL".$year."-".random_int(0,9).random_int(0,9).random_int(0,9).random_int(0,9);
 				$this->db->select('*');
 				$this->db->from('applicant_accounts');
 				$this->db->where('applicantNumber',$holder);

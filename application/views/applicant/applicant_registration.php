@@ -663,7 +663,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
      <!-- jQuery JS CDN -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <!-- jQuery DataTables JS CDN -->
-    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>           
+	<script src="<?php echo base_url('assets/js/dataTables.min.js'); ?>"></script>         
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>                                        
     <script type="text/javascript">
 	 $(document).ready(function(){

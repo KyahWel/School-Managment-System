@@ -10,7 +10,7 @@ class AdminModel extends CI_Model {
 	{	
 		$digits = 4;
 		do{
-			$holder = "TUP-ADMIN-".rand(pow(10, $digits-1), pow(10, $digits)-1);
+			$holder = "TUP-ADMIN-".random_int(0,9).random_int(0,9).random_int(0,9).random_int(0,9);
 			$this->db->select('*');
 			$this->db->from('admin_accounts');
 			$this->db->where('adminNumber',$holder);

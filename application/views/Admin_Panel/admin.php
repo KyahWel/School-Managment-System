@@ -220,7 +220,7 @@ $this->load->view('includes/adminSideBar');
 </script>
 
 <!-- jQuery DataTables JS CDN -->
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url('assets/js/dataTables.min.js'); ?>"></script>
 <!-- Ajax fetching data -->
 <script type="text/javascript">
     $(document).ready(function() {

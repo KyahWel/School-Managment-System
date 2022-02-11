@@ -12,7 +12,7 @@ class teacherModel extends CI_Model {
 		$digits = 4;
 		$year = 22;
 		do{
-			$holder = "PROF-TUPM-".$year."-".rand(pow(10, $digits-1), pow(10, $digits)-1);
+			$holder = "PROF-TUPM-".$year."-".random_int(0,9).random_int(0,9).random_int(0,9).random_int(0,9);
 			$this->db->select('*');
 			$this->db->from('teacher_accounts');
 			$this->db->where('teacherNumber',$holder);
