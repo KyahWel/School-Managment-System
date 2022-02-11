@@ -9,6 +9,10 @@ body {
     font-weight: 800
 }
 
+#addAnnouncement textarea, #announcementDetails-view, #announcementDetails-edit{
+    overflow: auto;
+    white-space: pre-wrap;
+}
 /*Create Announcement*/
 
 #create {

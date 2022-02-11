@@ -1,5 +1,5 @@
 <?php
-    $this->load->view('includes/facultySideBar'); 
+    $this->load->view('includes/facultySideBar');
 ?>
 
 <head>

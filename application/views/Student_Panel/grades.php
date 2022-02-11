@@ -8,7 +8,7 @@ $this->load->view('includes/studentSideBar');
 </head>
 
 <div class="height-100 pt-2 container-fluid">
-    <div class="container my-3" id="mainGrades" style="display: block;">    
+    <div class="container my-3" id="mainGrades" style="display: block;">
         <div class="GradesTab pt-2">
             <h3>View Grades</h3>
         </div>
@@ -22,8 +22,11 @@ $this->load->view('includes/studentSideBar');
                         <u>Attention to all Students</u>
                     </div>
                     <div class="flex-grow-1 ms-4">
-                        Viewing of grades online is strictly for personal use only! Students who want an official copy from the Registrar for scholarship/employment purposes, must make a request for the official document from the Registrar's Office.<br>
-                        Your GRADES posted in TUP WEB ERS from the previous school years were part of the data we migrated from the old enrollment system and are still subject for checking and validation from the registrar.<br>
+                        Viewing of grades online is strictly for personal use only! Students who want an official copy from the
+                        Registrar for scholarship/employment purposes, must make a request for the official document from the
+                        Registrar's Office.<br>
+                        Your GRADES posted in TUP WEB ERS from the previous school years were part of the data we migrated from
+                        the old enrollment system and are still subject for checking and validation from the registrar.<br>
                     </div>
                 </div>
             </div>
@@ -51,16 +54,20 @@ $this->load->view('includes/studentSideBar');
                     <option value="fourth">Fourth</option>
                 </select>
                 <input type="text" id="searchGradesID" name="searchGradesID" placeholder="Search">
-                <button type="button" class="btn btn-sm" id="search"><i class="fas fa-search" data-bs-toggle="tooltip" title="Search"></i></button>
-            </div> 
-        </div> 
+                <button type="button" class="btn btn-sm" id="search">
+                    <i class="fas fa-search" data-bs-toggle="tooltip"
+                    aria-hidden="true" title="Search"></i>
+                </button>
+            </div>
+        </div>
         <!--Grades List-->
         <div class="col-12 align-self-center" id="GradesTable">
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
                         <div class="col">
-                            <table class="col-11 mb-3 mt-3 align-self-center table-body">
+                            <table class="col-11 mb-3 mt-3 align-self-center table-body"
+                            aria-describedby="Grades Table Header">
                                 <tr>
                                     <td>School Year: <?php echo date("Y"); ?>-<?php echo date("Y") + 1; ?></td>
                                     <td>Year Level: <?php echo $student->yearlevel?></td>
@@ -77,8 +84,9 @@ $this->load->view('includes/studentSideBar');
                         </div>
                     </div>
                 </div>
-                <div class="table-responsive">  
-                    <table class="table table-default align-middle table-striped table-borderless table-hover" id="table-body">
+                <div class="table-responsive">
+                    <table class="table table-default align-middle table-striped table-borderless table-hover"
+                    id="table-body" aria-describedby="Grades Table">
                         <thead>
                             <tr>
 			                    <th scope="col" class="py-3">Subject Code</th>
@@ -100,11 +108,11 @@ $this->load->view('includes/studentSideBar');
                                     <td><?php echo $grades->equivalent?></td>
                                     <td>
                                         <?php if ($grades->equivalent == 0) : ?>
-                                            <b>Unavailable</b>
+                                            <strong>Unavailable</strong>
                                         <?php elseif ($grades->equivalent == 5) : ?>
-                                            <b style="color:red;">Failed</b>
+                                            <strong style="color:red;">Failed</strong>
                                         <?php else: ?>
-                                            <b>Passed</b>
+                                            <strong>Passed</strong>
                                         <?php endif ?>
                                     </td>
                                 </tr>
@@ -112,8 +120,8 @@ $this->load->view('includes/studentSideBar');
                             <?php endif ?>
                         </tbody>
                     </table>	
-                    <div class="col-12 mb-1 text-end px-5 py-3 fw-bold text-decoration-underline" style="font-size: 1rem;"> GPA: <?php echo $gpa?>
-                  
+                    <div class="col-12 mb-1 text-end px-5 py-3 fw-bold text-decoration-underline"
+                    style="font-size: 1rem;"> GPA: <?php echo $gpa?>
                     </div>
                 </div>
             </div>

@@ -23,12 +23,12 @@
                 background: none #f4f4f4;
             }
         }
-    </style> 
+    </style>
 </head>
 
 <body>
 <?php
-include __DIR__.'/../includes/loginNavbar.php'
+include_once __DIR__.'/../includes/loginNavbar.php'
 ?>
 <div class="background">
     <!-- STUDENTS ACCESS -->
@@ -55,29 +55,33 @@ include __DIR__.'/../includes/loginNavbar.php'
             <div class="form-group mb-4">
                 <label for="username">Student Number</label>
                 <div class="input-group-addon">
-                    <i class="fa fa-user"></i>
+                    <i class="fa fa-user" aria-hidden="true"></i>
                 </div>
-                <input type="text" class="form-control" id="username" name="username" placeholder="Student Number" required>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Student Number"
+                required>
             </div>
 
             <!-- Password -->
             <div class="form-group mb-4">
                 <label for="password">Password</label>
                 <div class="input-group-addon">
-                    <i class="fa fa-key"></i>
+                    <i class="fa fa-key" aria-hidden="true"></i>
                 </div>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password"
+                required>
             </div>
 
             <!-- clear entries and login button -->
-            <div class="btn-toolbar justify-content-between pb-2" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-toolbar justify-content-between pb-2" role="toolbar"
+            aria-label="Toolbar with button groups">
                 <input type="reset" class="btn btn-default" name="reset" value="Clear entries"></input>
 
                 <input type="submit" class="btn btn-default " value="Login">
             </div>
 
 
-            <button type="button" class="forgot py-0 my-0" data-bs-toggle="modal" data-bs-target="#forgotStudentPass">
+            <button type="button" class="forgot py-0 my-0" data-bs-toggle="modal"
+            data-bs-target="#forgotStudentPass">
 					Forgot password?
 			   </button>
 
@@ -94,8 +98,9 @@ include __DIR__.'/../includes/loginNavbar.php'
 			<div class="modal-dialog modal-md modal-dialog-centered">
 				<div class=" modal-content">
                <div class="d-flex justify-content-center head  px-0 py-3">
-					  <h5 class="modal-title fw-bold">
-                   Forgot Password</h5>
+				    <h5 class="modal-title fw-bold">
+                        Forgot Password
+                    </h5>
 				  </div>
 					<div class="modal-body px-3">
                         <div id="errorMessageForgot" class="alert alert-danger alert-dismissible fade show" style="display:none">
@@ -109,48 +114,57 @@ include __DIR__.'/../includes/loginNavbar.php'
 						<div id="verify">
 							<p class="text-muted small pt-2">Verify your TUP Student Number</p>
 								<div class="form-floating my-3">
-									<input type="text" class="form-control" id="studentUsername" name="studentUsername" placeholder="Username">
+									<input type="text" class="form-control" id="studentUsername"
+                                    name="studentUsername" placeholder="Username">
 									<label for="forgotPassUsername" class="py-2">Student Number</label>
 								</div>
 								<div class="d-flex justify-content-end pt-3 pb-2">
-									<button type="button" class="btn btn-default check mx-2 studentNumber">Verify</button>
-									<button type="button" onclick="location.href='<?php echo base_url('Login/student')?>'"class="btn btn-secondary px-3" >
+									<button type="button" class="btn btn-default check mx-2 studentNumber">
+                                        Verify
+                                    </button>
+									<button type="button" onclick="location.href='<?php echo base_url('Login/student')?>'"
+                                    class="btn btn-secondary px-3">
 										Cancel
 									</button>
 								</div>
 						</div>
 
 						<div id="code" style="display:none">
-							
-								<p class="text-muted small pt-2">Enter the one-time pin code sent to your email</p>
-								<div class="form-floating mb-3">
-									<input type="text" class="form-control" name="studentOTP" maxlength="6" id="otp" placeholder="One-Time Pin" 
+							<p class="text-muted small pt-2">Enter the one-time pin code sent to your email</p>
+							<div class="form-floating mb-3">
+				    			<input type="text" class="form-control" name="studentOTP" maxlength="6" id="otp"
+                                placeholder="One-Time Pin" 
                            oninput="this.value = this.value.replace(/[^a-z0-9]/g, '').replace(/(\..*?)\..*/g, '$1');">
-									<label for="otp" class="py-2">One-Time PIN</label>
-								</div>
-								<div class="d-flex justify-content-end pt-3 pb-2">
-									<button type="button" class="btn btn-default check mx-2 codekey">Submit</button>
-									<button type="button" onclick="location.href='<?php echo base_url('Login/student')?>'"class="btn btn-secondary px-3" >
-										Cancel
-									</button>
-								</div>
-							
+								<label for="otp" class="py-2">One-Time PIN</label>
+							</div>
+							<div class="d-flex justify-content-end pt-3 pb-2">
+								<button type="button" class="btn btn-default check mx-2 codekey">
+                                    Submit
+                                </button>
+								<button type="button" onclick="location.href='<?php echo base_url('Login/student')?>'"
+                                class="btn btn-secondary px-3" >
+									Cancel
+								</button>
+							</div>							
 						</div>
 
 						<div id="changepass" style="display:none">
 						
 								<p class="text-muted small pt-2">Change your password</p>
 								<div class="form-floating my-3">
-									<input type="password" class="form-control" name="studentNewPass" id="newpass" placeholder="New Password">
+									<input type="password" class="form-control" name="studentNewPass" id="newpass"
+                                    placeholder="New Password">
 									<label for="newpass" class="py-2">New Password</label>
 								</div>
 								<div class="form-floating mb-3">
-									<input type="password" class="form-control" name="studentOldPass" id="confirmpass" placeholder="Confirm Password">
+									<input type="password" class="form-control" name="studentOldPass" id="confirmpass"
+                                    placeholder="Confirm Password">
 									<label for="confirmpass" class="py-2">Confirm Password</label>
 								</div>
 								<div class="d-flex justify-content-end pt-3 pb-2">
 									<button type="submit" class="btn btn-default check mx-2 sendData">Submit</button>
-									<button type="button" onclick="location.href='<?php echo base_url('Login/student')?>'"class="btn btn-secondary px-3" >
+									<button type="button" onclick="location.href='<?php echo base_url('Login/student')?>'"
+                                    class="btn btn-secondary px-3" >
 										Cancel
 									</button>
 								</div>

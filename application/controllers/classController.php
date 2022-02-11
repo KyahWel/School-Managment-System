@@ -1,10 +1,10 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
-class classController extends CI_Controller {
+class classController extends CI_Controller
+{
 
-	public function __construct()
-	{
+	public function __construct(){
 		parent::__construct();
 		$this->load->model('subjectModel');
 		$this->load->model('classModel');
@@ -12,7 +12,8 @@ class classController extends CI_Controller {
 		$this->load->model('teacherModel');
 	}
 
-	public function addClass(){
+	public function addClass()
+	{
 		if(isset($_POST['courseID']) && isset($_POST['yearlevel']) && isset($_POST['semester'])&& isset($_POST['classcode']) && isset($_POST['subjectID'])){
 			$subjectID = $this->input->post('subjectID');
 			$timeFrom = $this->input->post('timeFrom');
@@ -50,8 +51,9 @@ class classController extends CI_Controller {
 				<div class="row mb-3">
 					<div class="col-sm-3">
 						<input type="text" class="form-control mb-2" readonly required value="'.$records[$i]['name'].'">
-						<input type="text" class="form-control mb-2" hidden name="subjectID[]" readonly required value="'.$records[$i]['subjectID'].'">
-					</div>		
+						<input type="text" class="form-control mb-2" hidden name="subjectID[]" readonly required
+						value="'.$records[$i]['subjectID'].'">
+					</div>
 					<div class="col-sm-3"> <!-- Day -->
 						<select name="day[]" class="form-select mb-2" required>
 							<option value="" disabled selected hidden>Day</option>
@@ -80,7 +82,8 @@ class classController extends CI_Controller {
 		}
 	}
 	
-	public function viewClass(){
+	public function viewClass()
+	{
 		$classData = $this->input->post('classcode');
         $records = $this->classModel->getData($classData);
 		$output = '
@@ -103,12 +106,13 @@ class classController extends CI_Controller {
 					<label class="form-label">Semester</label>
 					<input type="text" class="form-control" value="'.$records[0]['semester'].'"  readonly>
 				</div>
-			</div> 
+			</div>
 			
 			<hr class="mx-0 my-4">
 			
 			<label class="form-label"><b>Subjects</b></label>';
-			for ($i=0; $i<count($records); $i++){	
+			for ($i=0; $i<count($records); $i++)
+			{
 				$output.='
 						<div class="row mb-3"> <!--Subject-->
 							<div class="col-sm-3 col-md-12 col-lg-3">

@@ -390,3 +390,9 @@ button.forgot:hover{
     color: #0d3dfd;
     font-weight: 400;
 }
+
+.modal .form-floating label.asterisk:after {
+    content:" *";
+    color:red;
+    font-size: 1rem;
+  }
