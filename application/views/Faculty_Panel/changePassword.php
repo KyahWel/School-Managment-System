@@ -16,13 +16,13 @@
                     <?= $this->session->flashdata('facultyErrorChangePass'); ?>
                     <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
                  </div>
-                 <?php $this->session->unset_userdata('facultyErrorChangePass'); ?>
+                
          <?php elseif($this->session->flashdata('facultySuccessChangePass')) : ?>
-                 <div class="alert alert-danger alert-dismissible fade show">
+                 <div class="alert alert-success alert-dismissible fade show">
                     <?= $this->session->flashdata('facultySuccessChangePass'); ?>
                     <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
                  </div>
-                 <?php $this->session->unset_userdata('facultySuccessChangePass'); ?>
+                
         <?php endif; ?>
             <div class="table-wrapper">
                 

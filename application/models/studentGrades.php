@@ -34,28 +34,28 @@ class studentGrades extends CI_Model {
 		if($_POST['grade']==100 && $_POST['grade']>=99){
 			$equivalent = 1.0;
 		}
-		elseif($_POST['grade']<=98 && $_POST['grade']>=96){
+		elseif($_POST['grade']<99 && $_POST['grade']>=96){
 			$equivalent = 1.25;
 		}
-		elseif($_POST['grade']<=95 && $_POST['grade']>=93){
+		elseif($_POST['grade']<96 && $_POST['grade']>=93){
 			$equivalent = 1.50;
 		}
-		elseif($_POST['grade']<=92 && $_POST['grade']>=90){
+		elseif($_POST['grade']<93 && $_POST['grade']>=90){
 			$equivalent = 1.75;
 		}
-		elseif($_POST['grade']<=89 && $_POST['grade']>=87){
+		elseif($_POST['grade']<90 && $_POST['grade']>=87){
 			$equivalent = 2.0;
 		}
-		elseif($_POST['grade']<=86 && $_POST['grade']>=84){
+		elseif($_POST['grade']<87 && $_POST['grade']>=84){
 			$equivalent = 2.25;
 		}
-		elseif($_POST['grade']<=83 && $_POST['grade']>=81){
+		elseif($_POST['grade']<84 && $_POST['grade']>=81){
 			$equivalent = 2.5;
 		}
-		elseif($_POST['grade']<=80 && $_POST['grade']>=78){
+		elseif($_POST['grade']<81 && $_POST['grade']>=78){
 			$equivalent = 2.75;
 		}
-		elseif($_POST['grade']<=77 && $_POST['grade']>=75){
+		elseif($_POST['grade']<78 && $_POST['grade']>=75){
 			$equivalent = 3.0;
 		}
 		elseif($_POST['grade']<75){
