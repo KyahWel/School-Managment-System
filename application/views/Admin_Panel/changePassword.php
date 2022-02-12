@@ -16,11 +16,19 @@ $this->load->view('includes/adminSideBar');
                 <div class="Changepassword-header">
                     <p class="px-4 py-2">Change Password</p>
                 </div>
-                <?php if($this->session->flashdata('adminError')) : ?>
-                    <div class="alert alert-danger alert-dismissible fade show">
-                        <?= $this->session->flashdata('adminError'); ?>
-                        <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
-                    </div>
+                <?php if($this->session->flashdata('adminErrorChangePass')) : ?>
+                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    test
+                    <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+                 </div>
+            
+
+                <?php elseif($this->session->flashdata('adminSuccessChangePass')) : ?>
+                        <div class="alert alert-success alert-dismissible fade show">
+                            <?= $this->session->flashdata('adminSuccessChangePass'); ?>
+                            <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+                        </div>
+                        
                 <?php endif; ?>
                 <div class="passContents">
                     <div class="alert pt-3 px-4" style="color: #00336D;">
@@ -64,7 +72,7 @@ $this->load->view('includes/adminSideBar');
         </div>
     </div>
 </div>
-
+<script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 <script type="text/javascript">
     var newpass = document.getElementById("newpassword");
     var confirmpass = document.getElementById("confirmpassword");

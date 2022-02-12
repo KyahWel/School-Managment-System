@@ -11,12 +11,19 @@
 
         <!--ChangePassword Box-->
         <div class="col-12 align-self-center pt-3" id="cp">
-                <?php if($this->session->flashdata('facultyError')) : ?>
-                        <div class="alert alert-danger alert-dismissible fade show">
-                            <?= $this->session->flashdata('facultyError'); ?>
-                            <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
-                        </div>
-                <?php endif; ?>
+        <?php if($this->session->flashdata('facultyErrorChangePass')) : ?>
+                 <div class="alert alert-danger alert-dismissible fade show">
+                    <?= $this->session->flashdata('facultyErrorChangePass'); ?>
+                    <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+                 </div>
+                
+         <?php elseif($this->session->flashdata('facultySuccessChangePass')) : ?>
+                 <div class="alert alert-success alert-dismissible fade show">
+                    <?= $this->session->flashdata('facultySuccessChangePass'); ?>
+                    <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+                 </div>
+                
+        <?php endif; ?>
             <div class="table-wrapper">
                 
                 <div class="Changepassword-header">
@@ -65,7 +72,7 @@
         </div>
     </div>
 </div>
-
+<script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 <script type="text/javascript">
     var newpass = document.getElementById("newpassword");
     var confirmpass = document.getElementById("confirmpassword");
