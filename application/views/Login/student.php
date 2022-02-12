@@ -94,7 +94,8 @@ include_once __DIR__.'/../includes/loginNavbar.php'
 
     <!-- Forgot password -->
 		<div class="modal fade" id="forgotStudentPass" tabindex="-1" aria-modal="true" 
-            aria-labelledby="forgotStudentPass" aria-hidden="true">
+            aria-labelledby="forgotStudentPass" aria-hidden="true"
+            data-bs-backdrop="static" data-bs-keyboard="false">
 			<div class="modal-dialog modal-md modal-dialog-centered">
 				<div class=" modal-content">
                <div class="d-flex justify-content-center head  px-0 py-3">

@@ -84,7 +84,7 @@
 		</div>
 
 		<!-- Forgot password -->
-		<div class="modal fade" id="forgotAdminPass" tabindex="-1" aria-modal="true" 
+		<div class="modal fade"  data-bs-backdrop="static" data-bs-keyboard="false" id="forgotAdminPass" tabindex="-1" aria-modal="true" 
             aria-labelledby="forgotAdminPass" aria-hidden="true">
 			<div class="modal-dialog modal-md modal-dialog-centered">
 				<div class=" modal-content">

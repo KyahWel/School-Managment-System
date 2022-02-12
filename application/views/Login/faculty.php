@@ -83,7 +83,8 @@
 
     <!-- Forgot password -->
 		<div class="modal fade" id="forgotFacultyPass" tabindex="-1" aria-modal="true" 
-            aria-labelledby="forgotFacultyPass" aria-hidden="true">
+            aria-labelledby="forgotFacultyPass" aria-hidden="true"
+            data-bs-backdrop="static" data-bs-keyboard="false">
 			<div class="modal-dialog modal-md modal-dialog-centered">
 				<div class=" modal-content">
           <div class="d-flex justify-content-center head py-3">
