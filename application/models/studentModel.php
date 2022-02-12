@@ -341,12 +341,18 @@ class studentModel extends CI_Model {
 	}
 
 	public function changePassword($id) #Changepassword
-	{	
-			if(password_verify($_POST['oldpass'],$this->session->userdata('auth_user')['password'])){ 
+	{		
+		$this->db->select('*');
+		$this->db->from('student_accounts');
+		$this->db->where('studentID',$this->session->userdata('auth_user')['studentID']);
+		$query=$this->db->get();
+		$query = $query->row();
+
+			if(password_verify($_POST['oldpass'],$query->password)){ 
 				$newPassword = $_POST['newpass'];
 				$confirmPassword = $_POST['confirmpass'];
 				if(password_verify($newPassword,$this->session->userdata('auth_user')['password'])){
-					$this->session->set_flashdata('studentError','Old and New passwords are the same'); 
+					$this->session->set_flashdata('studentErrorChangePass','Old and New passwords are the same'); 
 					redirect('Student/changePassword');
 				}
 				else{
@@ -356,16 +362,16 @@ class studentModel extends CI_Model {
 						);
 						$this->db->where('studentID',$id);
 						$this->db->update('student_accounts',$newdata);
-						$this->session->set_flashdata('successStudent','Password changed successfully'); 
-						redirect('Student/Dashboard');
+						$this->session->set_flashdata('studentSuccessChangePass','Password changed successfully'); 
+						redirect('Student/changePassword');
 					}
 					else
-						$this->session->set_flashdata('studentError','Passwords do not match, Please try again'); 
+						$this->session->set_flashdata('studentErrorChangePass','Passwords do not match, Please try again'); 
 						redirect('Student/changePassword');	
 				}
 			}
 			else{
-				$this->session->set_flashdata('studentError','Incorrect Old Password'); 
+				$this->session->set_flashdata('studentErrorChangePass','Incorrect Old Password'); 
 				redirect('Student/changePassword');	
 			} 	
 		}	

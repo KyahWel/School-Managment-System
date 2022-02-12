@@ -257,7 +257,7 @@ $this->load->view('includes/adminSideBar');
                                             aria-label="Close">
                                         </button>
 									</div>
-									<div class="modal-body text-dark">
+									<div class="modal-body text-dark ">
 										Are you sure you want to add the following applicants?
 										<ul>
 											<?php foreach ($applicant as $applicantrow)
@@ -266,7 +266,9 @@ $this->load->view('includes/adminSideBar');
 													<br>
 													<li>
                                                         <?php echo $applicantrow->firstname ?> 
+														<?php echo $applicantrow->middlename ?> 
                                                         <?php echo $applicantrow->lastname ?> 
+														<?php echo $applicantrow->extname ?> 
                                                         (<?php echo $applicantrow->applicantNumber ?>)
                                                     </li>
 													<input type="text" hidden class="form-control" name="applicantID[]"

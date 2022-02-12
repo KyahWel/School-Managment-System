@@ -114,16 +114,24 @@ class AdminModel extends CI_Model {
 
 	public function changePassword($id) #Changepassword
 	{	
+		$this->db->select('*');
+		$this->db->from('admin_accounts');
+		$this->db->where('adminID',$id);
+		$query=$this->db->get();
+		$query = $query->row();
+
 		if ($this->session->userdata('auth_user')['adminID'] == '1'){
-			$this->session->set_flashdata('adminError','Error Cannot change the password of main admin'); 
+			$this->session->set_flashdata('adminErrorChangePass','Error Cannot change the password of main admin'); 
 			redirect('Admin/changePassword');	
 		}
 		else{
-			if(password_verify($_POST['oldpass'],$this->session->userdata('auth_user')['password'])){
+			
+			if(password_verify($_POST['oldpass'],$query->password)){
+		
 				$newPassword = $_POST['newpass'];
 				$confirmPassword = $_POST['confirmpass'];
 				if($newPassword==$this->session->userdata('auth_user')['password']){
-					$this->session->set_flashdata('adminError','Old and New passwords are the same'); 
+					$this->session->set_flashdata('adminErrorChangePass','Old and New passwords are the same'); 
 					redirect('Admin/changePassword');
 				}
 				else{
@@ -133,16 +141,17 @@ class AdminModel extends CI_Model {
 						);
 						$this->db->where('adminID',$id);
 						$this->db->update('admin_accounts',$newdata);
-						$this->session->set_flashdata('successAdmin','Password changed successfully'); 
-						redirect('Admin/dashboard');
+						$this->session->set_flashdata('adminSuccessChangePass','Password changed successfully'); 
+						redirect('Admin/changePassword');
 					}
 					else
-						$this->session->set_flashdata('adminError','Passwords do not match, Please try again'); 
+						$this->session->set_flashdata('adminErrorChangePass','Passwords do not match, Please try again'); 
 						redirect('Admin/changePassword');	
 				}
 			}
 			else{
-				$this->session->set_flashdata('adminError','Incorrect Old Password'); 
+			
+				$this->session->set_flashdata('adminErrorChangePass','Incorrect Old Password'); 
 				redirect('Admin/changePassword');	
 			} 	
 		}	
