@@ -151,11 +151,14 @@ body{
     white-space: nowrap;
 }
 .table-body td{
- max-width: 200px;
- overflow: hidden;
- text-overflow: ellipsis;
- white-space: nowrap;
- /* line-height: 0; */
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /* line-height: 0; */
+}
+#viewProfessorInformation td{
+    max-width: 100%;
 }
 
 /* Action Button */
@@ -280,6 +283,9 @@ ul#viewProfessorTab.nav{
     background-color: white;
     border-color: white;
     font-weight: 200;
+}
+button#viewProfessorInformationTab.nav-link.active{
+    border-top-left-radius: 25px;
 }
 button#viewProfessorInformationTab.nav-link.active::before,
 button#viewProfessorSubjectTab.nav-link.active::before,

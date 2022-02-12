@@ -12,30 +12,41 @@ class teacherModel extends CI_Model {
 		$digits = 4;
 		$year = 22;
 		do{
-			$holder = "PROF-TUPM-".$year."-".rand(pow(10, $digits-1), pow(10, $digits)-1);
+			$holder = "PROF-TUPM-".$year."-".random_int(0,9).random_int(0,9).random_int(0,9).random_int(0,9);
 			$this->db->select('*');
 			$this->db->from('teacher_accounts');
 			$this->db->where('teacherNumber',$holder);
 			$query=$this->db->get();
 		}while($query->num_rows()>0);	
-			$data = array(
-				'teacherID' => NULL,
-				'username' => $holder,
-				'password' => password_hash($_POST['lastname'],PASSWORD_DEFAULT),
-				'teacherNumber' => $holder,
-				'firstname' => $_POST['firstname'],
-				'lastname' => $_POST['lastname'],
-				'middlename' => $_POST['middlename'],
-				'extname' => $_POST['extname'],
-				'college' => $_POST['college'],
-				'department' => $_POST['department'],
-				'creatorID' => $this->session->userdata('auth_user')['adminID'],
-				'status' => 1
-			);
-		$this->db->insert('teacher_accounts',$data);
-		unset($_POST);
-		$this->session->set_flashdata('successAdmin','Added faculty account successfully'); 
-		redirect('Admin/dashboard');	
+			$this->db->select('*');
+			$this->db->from('teacher_accounts');
+			$this->db->where('firstname',$_POST['firstname']);
+			$this->db->where('lastname',$_POST['lastname']);
+			$query=$this->db->get();
+			if($query->num_rows()<=0){
+				$data = array(
+					'teacherID' => NULL,
+					'username' => $holder,
+					'password' => password_hash($_POST['lastname'],PASSWORD_DEFAULT),
+					'teacherNumber' => $holder,
+					'firstname' => $_POST['firstname'],
+					'lastname' => $_POST['lastname'],
+					'middlename' => $_POST['middlename'],
+					'extname' => $_POST['extname'],
+					'college' => $_POST['college'],
+					'department' => $_POST['department'],
+					'creatorID' => $this->session->userdata('auth_user')['adminID'],
+					'status' => 1
+				);
+				$this->db->insert('teacher_accounts',$data);
+				unset($_POST);
+				$this->session->set_flashdata('successAddingFaculty','Added faculty account successfully');
+			}
+			else{	
+				$this->session->set_flashdata('errorAddingFaculty','Error: faculty account exists');	
+			}
+		redirect('Admin/faculty');
+			
 	}
 
 	public function viewData()
@@ -60,6 +71,20 @@ class teacherModel extends CI_Model {
 		return $query->row();
 	}
 
+	
+	public function adminupdateData($id)
+	{
+		$data = array(
+			'college' => $_POST['college'],
+			'department' => $_POST['department']
+		);
+		$this->db->where('teacherID',$id);
+		$this->db->update('teacher_accounts',$data);
+		$this->session->set_flashdata('successAddingFaculty','Updated faculty account successfully');
+		redirect('Admin/faculty');
+	}
+
+
 	public function updateData($id)
 	{
 		$data = array(
@@ -73,6 +98,7 @@ class teacherModel extends CI_Model {
 		);
 		$this->db->where('teacherID',$id);
 		$this->db->update('teacher_accounts',$data);
+		
 	}
 
 	public function deactivateData($id){
@@ -185,8 +211,20 @@ class teacherModel extends CI_Model {
 											ON student_accounts.applicantID = applicant_accounts.applicantID
 											LEFT JOIN course_table
 											ON applicant_accounts.courseID = course_table.courseID
+											LEFT JOIN student_grades
+											ON student_accounts.studentID = student_grades.studentID
 											WHERE student_accounts.sectionID ='.$id);
 		return $getStudentList->result();									
+	}
+
+	public function getStudentsGrade($teacherID,$subjectID){
+	
+		$this->db->select('*');
+		$this->db->from('student_grades');
+		$this->db->where('teacherID',$teacherID);
+		$this->db->where('subjectID',$subjectID);
+		$query=$this->db->get();
+		return $query->result();									
 	}
 
 	public function getSectionData($subjectID,$class_code){
@@ -228,11 +266,17 @@ class teacherModel extends CI_Model {
 
 	public function changePassword($id) #Changepassword
 	{	
-			if(password_verify($_POST['oldpass'],$this->session->userdata('auth_user')['password'])){ 
+		$this->db->select('*');
+		$this->db->from('teacher_accounts');
+		$this->db->where('teacherID',$id);
+		$query=$this->db->get();
+		$query = $query->row();
+
+			if(password_verify($_POST['oldpass'],$query->password)){ 
 				$newPassword = $_POST['newpass'];
 				$confirmPassword = $_POST['confirmpass'];
 				if(password_verify($newPassword,$this->session->userdata('auth_user')['password'])){
-					$this->session->set_flashdata('facultyError','Old and New passwords are the same'); 
+					$this->session->set_flashdata('facultyErrorChangePass','Old and New passwords are the same'); 
 					redirect('Faculty/changePassword');
 				}
 				else{
@@ -242,16 +286,16 @@ class teacherModel extends CI_Model {
 						);
 						$this->db->where('teacherID',$id);
 						$this->db->update('teacher_accounts',$newdata);
-						$this->session->set_flashdata('successFaculty','Password changed successfully'); 
-						redirect('Faculty/dashboard');
+						$this->session->set_flashdata('facultySuccessChangePass','Password changed successfully'); 
+						redirect('Faculty/changePassword');
 					}
 					else
-						$this->session->set_flashdata('facultyError','Passwords do not match, Please try again'); 
+						$this->session->set_flashdata('facultyErrorChangePass','Passwords do not match, Please try again'); 
 						redirect('Faculty/changePassword');	
 				}
 			}
 			else{
-				$this->session->set_flashdata('facultyError','Incorrect Old Password'); 
+				$this->session->set_flashdata('facultyErrorChangePass','Incorrect Old Password'); 
 				redirect('Faculty/changePassword');	
 			} 	
 		}	

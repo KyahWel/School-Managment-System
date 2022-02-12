@@ -1,14 +1,14 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
-class eventsModel extends CI_Model {
-
-	public function __construct()
-	{
+class eventsModel extends CI_Model
+{
+	public function __construct(){
 		$this->load->database();
 	}
 
-    function createData() {
+    public function createData() 
+    {
         $data = array (
             'title' => $this->input->post('title'),
             'details' => $this->input->post('details'),
@@ -17,19 +17,22 @@ class eventsModel extends CI_Model {
             'creatorID' => $this->session->userdata('auth_user')['adminID'],
             'status' => 1
         );
-        $this->db->insert('events_announcements',$data);
+        $this->db->insert('events_announcements', $data);
     }
     
-    function getAllData() {
+    public function getAllData()
+    {
         $query = $this->db->query('SELECT * FROM events_announcements ORDER BY `date` DESC');
         return $query->result();
     }
 
-    function getData($eaID) {
+    public function getData($eaID)
+    {
         $query = $this->db->query('SELECT * FROM events_announcements WHERE `eaID` =' .$eaID);
         return $query->row();
     }
-    function updateData($eaID) {
+    public function updateData($eaID)
+    {
         $data = array (
             'title' => $this->input->post('title'),
             'details' => $this->input->post('details'),
@@ -39,20 +42,22 @@ class eventsModel extends CI_Model {
             'status' => 1
         );
         $this->db->where('eaID',$eaID);
-        $this->db->update('events_announcements',$data);
+        $this->db->update('events_announcements', $data);
     }
-    function deactivateData($eaID){
+    public function deactivateData($eaID)
+    {
         $data = array (
             'status' => 0
         );
         $this->db->where('eaID',$eaID);
-        $this->db->update('events_announcements',$data);
+        $this->db->update('events_announcements', $data);
     }
-    function activateData($eaID){
+    public function activateData($eaID)
+    {
         $data = array (
             'status' => 1
         );
         $this->db->where('eaID',$eaID);
-        $this->db->update('events_announcements',$data);
+        $this->db->update('events_announcements', $data);
     }
 }

@@ -4,7 +4,7 @@
     font-size: 1.5rem;
     font-weight: 800;
 }
-#back-button .btn{
+/* #back-button .btn{
     background-color: #800000;
     color: white;
     border-color: transparent;
@@ -17,84 +17,49 @@
     background-color: white;
     border-color: #800000;
     color: #800000;
-}
+} */
 
 /*Create Page*/
 #create{
     margin-bottom: 20px;
 }
-.accordion-item{
-    border-radius: 30px;
-}
-.accordion-button{
-    background-color: #302323;
-    color: white;
-    font-size: 0.9rem;
-    padding: 15px 1.3rem;
-}
-.accordion-item:first-of-type .accordion-button{
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-}
-.accordion-item:last-of-type {
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
-}
-.accordion-item:last-of-type .accordion-button.collapsed {
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
-    background: maroon;
-}
-.accordion-item:last-of-type {
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-}
-.accordion-button::after{
-    filter: brightness(0%) invert(100%);
-}
-.accordion-button:not(.collapsed){
-    background-color: #800000;
-    color:white;
-}
-.accordion-button:not(.collapsed)::after{
-    filter: brightness(0%) invert(100%);
-}
-.accordion-button:focus{
-    box-shadow: none;
-}
-#addAdminForm .form-control:focus{
-    box-shadow: none;
-    border-color: #800000;
-}
-#save{
+
+/* Save and Cancel Button */
+
+#saveAdmin,
+#saveEdit{
     background-color: #800000;
     border-color: transparent;
     color: white;
     text-decoration: none;
-    margin-right: 8px;
+    font-size: 0.8rem;
+    margin: 0px 8px;
 }
-#cancel, #cancelView{
+#saveAdmin:hover,
+#saveEdit:hover{
+    background-color: white;
+    border-color: #800000;
+    color: #800000;
+}
+#cancelAdmin,
+#cancelEdit,
+#closeView{
     background-color: #aaaaaa;
     border-color: transparent;
     color: black;
     text-decoration: none;
+    font-size: 0.8rem;
+    margin: 0px;
 }
-.container .addAdminButton button:focus{
+#cancelAdmin:hover,
+#cancelEdit:hover,
+#closeView:hover{
+    background-color: white;
+    border-color: #800000;
+    color: #800000;
+}
+.btn:focus{
     box-shadow: none;
-}
-
-#save:hover{
-    background-color: white;
-    border-color: #800000;
-    color: #800000;
-}
-
-#cancel:hover, #cancelView:hover{
-    background-color: white;
-    border-color: #800000;
-    color: #800000;
 }
 
 /*Search*/
@@ -200,4 +165,13 @@ textarea:focus, input:focus{
     .hashed{
         font-size: 0.9rem;
     }
+}
+
+ul{
+    margin: 0px;
+    padding: 0px;
+}
+.form-control[readonly] {
+    background-color: white;
+    opacity: 1;
 }

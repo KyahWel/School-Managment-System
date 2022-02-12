@@ -120,7 +120,7 @@ h3.applicant {
 
 hr {
     background-color: black;
-    opacity: 1;
+    opacity: 0.8;
     margin-top: 2px;
 }
 
@@ -174,10 +174,6 @@ label {
     font-weight: 300;
 }
 
-.text-left1:hover {
-    text-shadow: 0.2px 0.2px black;
-}
-
 .navbar-light button.navbar-toggler {
     outline: none;
 }
@@ -185,13 +181,12 @@ label {
 .wrapper .apply {
     width: 100%;
     padding: 6px;
-    margin-top: 2rem;
     font-size: 0.9rem;
     font-weight: 600;
     letter-spacing: 5px;
     box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.25);
-    background:#ff9a01;
-    opacity: 0.85;
+    background:#f0b134;
+   
     color: black;
 }
 
@@ -232,7 +227,7 @@ input[type=password] {
 
 @media screen and (max-width: 1024px) {
     .navbar-light {
-        background: #B20000;
+        background: maroon;
         box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.25);
         border-bottom: 1px solid white;
     }
@@ -300,3 +295,104 @@ input[type=password] {
         margin: 1rem;
     }
 }
+#verification{
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+#applicantLogin .notice{
+    font-size: 0.9rem;
+    width: 100%;
+    background: rgb(225, 225, 225);
+    border: 1px solid #8f8d8d;
+}
+
+.modal .line{
+    opacity: 0.3;
+}
+.modal-backdrop { 
+    opacity:0.3 !important; 
+}
+
+.modal .head{
+    background: #eeededcd;
+    border: #bdbdbd;
+} 
+.modal .headforget{
+    background: maroon;
+    border: #bdbdbd;
+    color: white;
+} 
+.modal .btn-default {
+    background: maroon;
+    border: 1px solid maroon;
+    font-size: 0.8rem;
+}
+.modal .btn-default:hover {
+    background: rgb(174, 0, 0);
+    border: 1px solid maroon;
+    color: white;
+}
+.modal .btn-secondary{
+    font-size: 0.8rem;
+    background-color: #8f8d8d;
+}
+.modal .btn-secondary:hover{
+    opacity: 1;
+    background: none;
+    border: 1px solid #7b7b7b;
+    color: black;
+}
+
+.modal .btn-secondary:focus, .modal .btn-default:focus{
+    outline: none;
+    box-shadow: none;
+    border: 1px solid maroon;
+}
+
+.modal .form-control:focus{
+    box-shadow: none;
+    outline: maroon;
+    border: 1px solid steelblue
+}
+
+
+button.forgot{
+    background: none;
+    border: none;
+    outline: none;
+    color: #0D6EFD;
+    font-size: 0.9rem;
+ 
+}
+
+button.forgot:hover{
+    color: #0d3dfd;
+    font-weight: 400;
+}
+
+.modal .form-floating label.asterisk:after {
+    content:" *";
+    color:red;
+    font-size: 1rem;
+  }

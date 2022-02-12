@@ -41,10 +41,19 @@ body{
     white-space: nowrap;
 }
 .table-body td{
-    max-width: 200px;
-    overflow: hidden;
+    max-width: 250px;
+    /* overflow: hidden; */
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+@media only screen and (max-width: 1115px){
+    .table-body td{
+        max-width: 250px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 }
 
 /* Form Responsiveness */
@@ -73,24 +82,24 @@ label.form-label{
 }
 .form-select::placeholder,
 .form-control::placeholder{ /* Chrome, Firefox, Opera, Safari 10.1+ */
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 .form-select:-ms-input-placeholder,
 .form-control:-ms-input-placeholder{ /* Internet Explorer 10-11 */
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 .form-select::-ms-input-placeholder,
 .form-control::-ms-input-placeholder{ /* Microsoft Edge */
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 input[type=text], input[type=date], input[type=time], textarea{
     color: black;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 select.form-select,
 select.form-control{
     color: gray;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 .form-select:disabled, .form-select[readonly],
 .form-control:disabled, .form-control[readonly]{
@@ -123,6 +132,13 @@ select.form-control{
 
 /* Save and Cancel Button */
 
+#okay{
+    background-color: #800000;
+    border-color: transparent;
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+}
 #addSectionSave,
 #save{
     background-color: #800000;
@@ -141,7 +157,8 @@ select.form-control{
     font-size: 0.8rem;
 }
 #addSectionSave:hover,
-#save:hover{
+#save:hover,
+#okay:hover{
     background-color: white;
     border-color: #800000;
     color: #800000;

@@ -8,11 +8,18 @@ $this->load->view('includes/studentSideBar');
 
 <div class="height-100 pt-2 container-fluid">
     <div class="container my-3">
-        <?php if($this->session->flashdata('studentError')) : ?>
+        <?php if($this->session->flashdata('studentErrorChangePass')) : ?>
                  <div class="alert alert-danger alert-dismissible fade show">
-                    <?= $this->session->flashdata('studentError'); ?>
+                    <?= $this->session->flashdata('studentErrorChangePass'); ?>
                     <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
                  </div>
+                 <?php $this->session->unset_userdata('studentErrorChangePass'); ?>
+         <?php elseif($this->session->flashdata('studentSuccessChangePass')) : ?>
+                 <div class="alert alert-success alert-dismissible fade show">
+                    <?= $this->session->flashdata('studentSuccessChangePass'); ?>
+                    <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+                 </div>
+                 <?php $this->session->unset_userdata('studentSuccessChangePass'); ?>
         <?php endif; ?>
         <!--ChangePassword Box-->
         <div class="col-12 align-self-center pt-3" id="cp">
@@ -64,7 +71,7 @@ $this->load->view('includes/studentSideBar');
         </div>
     </div>
 </div>
-
+<script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 <script type="text/javascript">
     var newpass = document.getElementById("newpassword");
     var confirmpass = document.getElementById("confirmpassword");

@@ -52,16 +52,16 @@ $this->load->view('includes/studentSideBar');
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-default align-middle table-striped table-borderless table-hover" id="table-body">
+                    <table class="table table-default align-middle table-striped table-borderless table-hover" aria-label="subjectList" id="table-body">
                         <thead>
                             <tr>
-                                <th class="py-3">Subject Code</th>
-                                <th class="py-3">Subject Name</th>
-                                <th class="py-3">Teacher</th>
-                                <th class="py-3">Units</th>
-                                <th class="py-3">Section</th>
-                                <th class="py-3">Schedule</th>
-                                <th class="py-3">Action</th>
+                                <th scope="col" class="py-3">Subject Code</th>
+                                <th scope="col" class="py-3">Subject Name</th>
+                                <th scope="col" class="py-3">Teacher</th>
+                                <th scope="col" class="py-3">Units</th>
+                                <th scope="col" class="py-3">Section</th>
+                                <th scope="col" class="py-3">Schedule</th>
+                                <th scope="col" class="py-3">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -74,7 +74,9 @@ $this->load->view('includes/studentSideBar');
                                 <td>10:00-13:00</td>
                                 <td>
                                     <div class="action-buttons">
-                                        <li><button type="button" class="btn" id="status" data-bs-toggle="modal" data-bs-target="#confirmDrop">DROP</button></li>
+                                        <ul class="my-0 mx-0">
+                                            <li><button type="button" class="btn" id="status" data-bs-toggle="modal" data-bs-target="#confirmDrop">DROP</button></li>
+                                        <ul>
                                     </div>
                                 </td>
                             </tr>

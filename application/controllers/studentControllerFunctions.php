@@ -33,7 +33,7 @@ class StudentControllerFunctions extends CI_Controller {
             <div class="table-responsive mx-3">
                 <table id="viewStudentInformation" class="table-body">
 					<tbody class="lineList">
-						<tr class="text-start">    
+						<tr class="text-start d-flex align-items-start"> 
 							<td class="py-2">
 								<p><b>Email:</b></p>
 								<p><b>Username:</b></p>
@@ -45,15 +45,8 @@ class StudentControllerFunctions extends CI_Controller {
 								<p>'.$records->email.'</p>
 								<p>'.$records->username.'</p>
 								<p>'.$records->studentNumber.'</p>
-								<p>'.$records->degree.' in '.$records->major.'</p>';
-			if($records->sectionName == NULL){
-				$output.= '<p class="mb-0"> &nbsp </p>';
-			}
-			else{
-				$output.= '<p class="mb-0">'.$records->sectionName.'</p>';
-			}
-								
-				$output.='			
+								<p>'.$records->degree.' in '.$records->major.'</p>
+								<p class="mb-0">'.$records->sectionName.'</p>	
 							</td>
 						</tr>
 					</tbody>

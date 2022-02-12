@@ -14,7 +14,7 @@ class courseController extends CI_Controller {
 	{
 		if(isset($_POST['degree']) && isset($_POST['major']) && isset($_POST['college'])){
 			$this->courseModel->insertData();
-			redirect('Admin/course');
+			
 		}
 	}
 
@@ -22,27 +22,26 @@ class courseController extends CI_Controller {
 	{
 		$courseData = $this->input->post('id');
         $records = $this->courseModel->getData($courseData);
-		$output='<div class="row mb-3">
-			<div class="col-6">
-				<label class="form-label">Course ID:</label>
-				<label>'.$records->courseID.'</label>
-			</div>
-			<div class="col-6"> 
-				<label class="form-label">Degree:</label>
-				<label>'.$records->degree.'</label>
-			</div>
-			</div> 
-			<div class="row mb-3">
-				<div class="col-6">
-					<label class="form-label">Major:</label>
-					<label>'.$records->major.'</label>
-				</div>
-				<div class="col-6">
-					<label class="form-label">College:</label>
-					<label>'.$records->college.'</label>
-				</div>
-			</div>    
-			';
+		$output=' <div class="row mb-3">
+					<div class="col-6">
+						<label for="courseID" class="form-label">Course ID</label>
+						<input type="text" class="form-control" id="courseID" name="courseID" value="'.$records->courseID.'" readonly>				
+					</div>
+					<div class="col-6">
+						<label for="degree" class="form-label">Degree</label>
+						<input type="text" class="form-control" id="degree" name="degree" value="'.$records->degree.'" readonly>
+					</div>
+				  </div>
+				  <div class="row mb-3">
+					<div class="col-6">
+						<label for="major" class="form-label">Major</label>
+						<input type="text" class="form-control" id="major" name="major" value="'.$records->major.'" readonly>				
+					</div>
+					<div class="col-6">
+						<label for="college" class="form-label">College</label>
+						<input type="text" class="form-control" id="college" name="college" value="'.$records->college.'" readonly>
+					</div>
+				  </div> ';
 		echo $output;
 	}
 
@@ -371,9 +370,9 @@ class courseController extends CI_Controller {
 				</div> 
 			</div> <br>';
 		// Ending Button 
-		$test .= '<br>
-			<div class="editCourseButton d-flex justify-content-end">
-				<button class="btn btn-default" id="save" type="button" data-bs-dismiss="modal">Exit</button>
+		$test .= '
+			<div class="viewCourseButton d-flex justify-content-end">
+				<button class="btn btn-default" id="okay" type="button" data-bs-dismiss="modal">Okay</button>
 			</div>';
 		echo $test;
 	}
@@ -382,18 +381,20 @@ class courseController extends CI_Controller {
 		$courseData = $this->input->post('id');
         $records = $this->courseModel->getData($courseData);
 		$output = '<form method="POST" action="../courseController/updateCourse/'.$records->courseID.'"" id="editCourseForm">
-			<div class="row">
-				<div class="col-sm-12">
-					<label class="form-label">Degree:</label>
-					<input type="text" class="form-control" name="degree" value="'.$records->degree.'">
+			<div class="row mb-3">
+				<div class="col-6">
+					<label for="degree" class="form-label">Degree</label>
+					<input type="text" class="form-control" id="degree" name="degree" value="'.$records->degree.'">
 				</div>
-				<div class="col-sm-12"> 
-					<label class="form-label">Major:</label>
-					<input type="text" class="form-control" name="major" value="'.$records->major.'">
+				<div class="col-6"> 
+					<label for="major" class="form-label">Major</label>
+					<input type="text" class="form-control" id="major" name="major" value="'.$records->major.'">
 				</div>
-				<div class="col-sm-12">
-					<label class="form-label">College:</label>
-					<select name="college" class="form-control" required id="collegeSelect">
+			</div>
+			<div class="row mb-3">
+				<div class="col-12">
+					<label for="college" class="form-label">College:</label>
+					<select name="college" id="college" class="form-control" required id="collegeSelect">
 						<option value="" disabled selected hidden>'.$records->college.'</option>
 						<option value="College of Science">College of Science</option>
 						<option value="College of Engineering">College of Engineering</option>
@@ -402,10 +403,10 @@ class courseController extends CI_Controller {
 						<option value="College of Liberal Arts">College of Liberal Arts</option>
 					</select>
 				</div>
-			</div><br>
+			</div>
 			<div class="editCourseButton d-flex justify-content-end">
-				<button class="btn btn-default" id="save" type="submit" value="save">Save</button>
-				<button class="btn btn-default" id="cancel" type="submit" value="cancel">Cancel</button>
+				<button class="btn btn-default" id="saveEdit" type="submit" value="save">Save</button>
+				<button class="btn btn-default" id="cancelEdit" type="button" data-bs-dismiss="modal">Cancel</button>
 			</div>  
 		</form>';
 		echo $output;
@@ -414,7 +415,7 @@ class courseController extends CI_Controller {
 	public function updateCourse($id)
 	{	
 		$this->courseModel->updateData($id);
-		redirect('Admin/course');
+
 	}
 
 	public function deactivate($id)

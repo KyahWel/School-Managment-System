@@ -12,7 +12,7 @@ class studentModel extends CI_Model {
 		$digits = 4;
 		$year = 22;
 		do{
-			$holder = "TUPM-".$year."-".rand(pow(10, $digits-1), pow(10, $digits)-1);
+			$holder = "TUPM-".$year."-".random_int(0,9).random_int(0,9).random_int(0,9).random_int(0,9);
 			$this->db->select('*');
 			$this->db->from('student_accounts');
 			$this->db->where('studentNumber',$holder);
@@ -38,8 +38,10 @@ class studentModel extends CI_Model {
 		$this->db->where('applicantID',$applicantID);
 		$this->db->update('applicant_accounts',$applicant);
 		unset($_POST);
-		$this->session->set_flashdata('successAdmin','Added new student accounts successfully'); 
+	
 	}
+
+
 
 	public function viewData()
 	{
@@ -153,12 +155,17 @@ class studentModel extends CI_Model {
 									JOIN `student_accounts` ON section_table.sectionID = student_accounts.sectionID 
 									WHERE `studentID` = ".$id);
 		$class_code = $query->row();
+		if($class_code != NULL){
 		$query2 = $this->db->query("SELECT * FROM `class` 
 									JOIN `subjects_table` ON class.subjectID = subjects_table.subjectID
 									JOIN `teacher_accounts` ON class.teacherID = teacher_accounts.teacherID
 									WHERE `class_code` = '$class_code->class_code' AND class.day='Monday' 
 									ORDER BY `start_time` ASC ");
 		return $query2->result();
+		}
+		else{
+			return NULL;
+		}
 	}
 	public function getScheduleTuesday($id){
 		$query = $this->db->query("SELECT class.class_code FROM `class` 
@@ -166,12 +173,17 @@ class studentModel extends CI_Model {
 									JOIN `student_accounts` ON section_table.sectionID = student_accounts.sectionID 
 									WHERE `studentID` = ".$id);
 		$class_code = $query->row();
+		if($class_code != NULL){
 		$query2 = $this->db->query("SELECT * FROM `class` 
 									JOIN `subjects_table` ON class.subjectID = subjects_table.subjectID
 									JOIN `teacher_accounts` ON class.teacherID = teacher_accounts.teacherID
 									WHERE `class_code` = '$class_code->class_code' AND class.day='Tuesday' 
 									ORDER BY `start_time` ASC ");
 		return $query2->result();
+		}
+		else{
+			return NULL;
+		}
 	}
 
 	public function getScheduleWednesday($id){
@@ -180,12 +192,17 @@ class studentModel extends CI_Model {
 									JOIN `student_accounts` ON section_table.sectionID = student_accounts.sectionID 
 									WHERE `studentID` = ".$id);
 		$class_code = $query->row();
+		if($class_code != NULL){
 		$query2 = $this->db->query("SELECT * FROM `class` 
 									JOIN `subjects_table` ON class.subjectID = subjects_table.subjectID
 									JOIN `teacher_accounts` ON class.teacherID = teacher_accounts.teacherID
 									WHERE `class_code` = '$class_code->class_code' AND class.day='Wednesday' 
 									ORDER BY `start_time` ASC ");
 		return $query2->result();
+		}
+		else{
+			return NULL;
+		}
 	}
 
 	public function getScheduleThursday($id){
@@ -194,12 +211,17 @@ class studentModel extends CI_Model {
 									JOIN `student_accounts` ON section_table.sectionID = student_accounts.sectionID 
 									WHERE `studentID` = ".$id);
 		$class_code = $query->row();
+		if($class_code != NULL){
 		$query2 = $this->db->query("SELECT * FROM `class` 
 									JOIN `subjects_table` ON class.subjectID = subjects_table.subjectID
 									JOIN `teacher_accounts` ON class.teacherID = teacher_accounts.teacherID
 									WHERE `class_code` = '$class_code->class_code' AND class.day='Thursday' 
 									ORDER BY `start_time` ASC ");
 		return $query2->result();
+			}
+			else{
+				return NULL;
+			}
 	}
 
 	public function getScheduleFriday($id){
@@ -208,12 +230,17 @@ class studentModel extends CI_Model {
 									JOIN `student_accounts` ON section_table.sectionID = student_accounts.sectionID 
 									WHERE `studentID` = ".$id);
 		$class_code = $query->row();
+		if($class_code != NULL){
 		$query2 = $this->db->query("SELECT * FROM `class` 
 									JOIN `subjects_table` ON class.subjectID = subjects_table.subjectID
 									JOIN `teacher_accounts` ON class.teacherID = teacher_accounts.teacherID
 									WHERE `class_code` = '$class_code->class_code' AND class.day='Friday' 
 									ORDER BY `start_time` ASC ");
 		return $query2->result();
+		}
+		else{
+			return NULL;
+		}
 	}
 
 	public function getScheduleSaturday($id){
@@ -222,12 +249,17 @@ class studentModel extends CI_Model {
 									JOIN `student_accounts` ON section_table.sectionID = student_accounts.sectionID 
 									WHERE `studentID` = ".$id);
 		$class_code = $query->row();
+		if($class_code != NULL){
 		$query2 = $this->db->query("SELECT * FROM `class` 
 									JOIN `subjects_table` ON class.subjectID = subjects_table.subjectID
 									JOIN `teacher_accounts` ON class.teacherID = teacher_accounts.teacherID
 									WHERE `class_code` = '$class_code->class_code' AND class.day='Saturday' 
 									ORDER BY `start_time` ASC ");
 		return $query2->result();
+		}
+		else{
+			return NULL;
+		}
 	}
 
 	public function getScheduleSunday($id){
@@ -236,12 +268,17 @@ class studentModel extends CI_Model {
 									JOIN `student_accounts` ON section_table.sectionID = student_accounts.sectionID 
 									WHERE `studentID` = ".$id);
 		$class_code = $query->row();
+		if($class_code != NULL){
 		$query2 = $this->db->query("SELECT * FROM `class` 
 									JOIN `subjects_table` ON class.subjectID = subjects_table.subjectID
 									JOIN `teacher_accounts` ON class.teacherID = teacher_accounts.teacherID
 									WHERE `class_code` = '$class_code->class_code' AND class.day='Sunday' 
 									ORDER BY `start_time` ASC ");
 		return $query2->result();
+		}
+		else{
+			return NULL;
+		}
 	}
 
 	public function updateData($id)
@@ -304,12 +341,18 @@ class studentModel extends CI_Model {
 	}
 
 	public function changePassword($id) #Changepassword
-	{	
-			if(password_verify($_POST['oldpass'],$this->session->userdata('auth_user')['password'])){ 
+	{		
+		$this->db->select('*');
+		$this->db->from('student_accounts');
+		$this->db->where('studentID',$this->session->userdata('auth_user')['studentID']);
+		$query=$this->db->get();
+		$query = $query->row();
+
+			if(password_verify($_POST['oldpass'],$query->password)){ 
 				$newPassword = $_POST['newpass'];
 				$confirmPassword = $_POST['confirmpass'];
 				if(password_verify($newPassword,$this->session->userdata('auth_user')['password'])){
-					$this->session->set_flashdata('studentError','Old and New passwords are the same'); 
+					$this->session->set_flashdata('studentErrorChangePass','Old and New passwords are the same'); 
 					redirect('Student/changePassword');
 				}
 				else{
@@ -319,16 +362,16 @@ class studentModel extends CI_Model {
 						);
 						$this->db->where('studentID',$id);
 						$this->db->update('student_accounts',$newdata);
-						$this->session->set_flashdata('successStudent','Password changed successfully'); 
-						redirect('Student/Dashboard');
+						$this->session->set_flashdata('studentSuccessChangePass','Password changed successfully'); 
+						redirect('Student/changePassword');
 					}
 					else
-						$this->session->set_flashdata('studentError','Passwords do not match, Please try again'); 
+						$this->session->set_flashdata('studentErrorChangePass','Passwords do not match, Please try again'); 
 						redirect('Student/changePassword');	
 				}
 			}
 			else{
-				$this->session->set_flashdata('studentError','Incorrect Old Password'); 
+				$this->session->set_flashdata('studentErrorChangePass','Incorrect Old Password'); 
 				redirect('Student/changePassword');	
 			} 	
 		}	

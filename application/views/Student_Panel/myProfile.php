@@ -16,19 +16,23 @@ $this->load->view('includes/studentSideBar');
             <img src="../assets/images/studentAvatar.svg" alt="Student Avatar" id="photo">
         </div>
 
-        <div class="table-responsive mx-3">
-            <table id="viewStudentInformation" class="table-body">
+        <div class="table-responsive mx-3" aria-hidden="true">
+            <table id="viewStudentInformation" class="table-body" aria-describedby="Students Info">
                 <tr>
                     <td class="px-3 pt-2">
+                        <p><b>Name:</b></p>
                         <p><b>Username:</b></p>
                         <p><b>Email:</b></p>
                         <p><b>Course:</b></p>
 
                     </td>
                     <td class="pt-2 px-2">
+                        <p> <?php echo $student->firstname?>
+                        <?php echo $student->middlename?>
+                        <?php echo $student->lastname?></p>
                         <p> <?php echo $student->username?></p>
                         <p> <?php echo $student->email ?></p>
-                        <p> <?php echo $student->degree ?> in  <?php echo $student->major ?> </p>
+                        <p> <?php echo $student->degree ?> <?php echo $student->major ?> </p>
                     </td>
                 </tr>
             </table>
@@ -36,19 +40,21 @@ $this->load->view('includes/studentSideBar');
     </div>
 
     <div class="row height-sm-100 contents">
-        <form method='POST' action="<?php echo site_url('studentControllerFunctions/updateData/')?><?= $this->session->userdata('auth_user')['applicantID']?>">
+        <form method='POST'
+        action="<?php echo site_url('studentControllerFunctions/updateData/')?><?= $this->session->userdata('auth_user')['applicantID']?>">
             <!-- Personal Information -->
             <div id='personalInfo' class="pt-3" style="display: block;">
                 <div class="Wrapper">
                     <div class="tabTitle">
-                        <p class="text-white"><i class="fa fa-user"></i> <span class="px-2"> Personal Information </span></p>
+                        <p class="text-white"><i class="fa fa-user" aria-hidden="true"></i>
+                        <span class="px-2"> Personal Information </span></p>
                     </div>
                     <div class="Contents">
                         <div class="mb-3 row asterisk">
                             <label for="courses" class="col-2 form-label small pt-2">Course: </label>
                             <div class="col-lg-7 col-md-10 col-sm-12">
                                 <select class="form-select form-select-sm" id="courses" name="course_chosen" value="bscs" aria-label="Select Course" disabled>
-                                    <option selected> <?php echo $student->degree ?> in  <?php echo $student->major ?> </option>
+                                    <option selected> <?php echo $student->degree ?> in <?php echo $student->major ?> </option>
 
                                 </select> 
                             </div>
@@ -62,15 +68,15 @@ $this->load->view('includes/studentSideBar');
                                 <input type="text" name="firstname" value="<?php echo $student->firstname?>" class="form-control form-control-sm" aria-label="First name" readonly>
                             </div>
                             <div class="col-lg-3 col-md-6 py-1">
-                                <label class="form-label small">Middle Name</label>
+                                <label class="small py-1">Middle Name</label>
                                 <input type="text" name='middlename' value="<?php echo $student->middlename?>" class="form-control form-control-sm" aria-label="Last name" readonly>
                             </div>
                             <div class="col-lg-3 col-md-6 py-1">
-                                <label class="small">Surname</label>
+                                <label class="form-label small">Surname</label>
                                 <input type="text" name="lastname" value="<?php echo $student->lastname?>" class="form-control form-control-sm" aria-label="Surname" readonly>
                             </div>
                             <div class="col-lg-3 col-md-6 py-1">
-                                <labe class="small">Suffix</label>
+                                <labe class="small py-1">Suffix</label>
                                     <input type="text" name='extname' value="<?php echo $student->extname?>" class="form-control form-control-sm" aria-label="Extension Name" readonly>
                             </div>
                         </div>
@@ -212,7 +218,7 @@ $this->load->view('includes/studentSideBar');
                            <div>
                             <button type="button" class="btn btn-warning ms-auto mb-2 text-center" style="width: 7rem;" onclick="educationalAttainment()">
                                 Next
-                                <i class="fas fa-angle-double-right fa-lg"></i>
+                                <i class="fas fa-angle-double-right fa-lg" aria-hidden="true"></i>
                             </button>
                            </div>
                             
@@ -227,7 +233,10 @@ $this->load->view('includes/studentSideBar');
             <div id='educationalattainment' class="pt-3" style="display: none;">
                 <div class="Wrapper">
                     <div class="tabTitle">
-                        <p class="text-white"><i class="fa fa-user-graduate"></i> <span class="px-2"> Educational Attainment </span></p>
+                        <p class="text-white">
+                            <i class="fa fa-user-graduate" aria-hidden="true"></i>
+                            <span class="px-2"> Educational Attainment </span>
+                        </p>
                     </div>
                     <div class="Contents">
                         <fieldset disabled>
@@ -314,14 +323,14 @@ $this->load->view('includes/studentSideBar');
                         <div class="pt-5 mt-5"></div>
                         <div class="d-flex stepButtons justify-content-between">
                             <button type="button" class="btn btn-warning mb-3 text-center" style="width: 7rem;" onclick="personalInfo()">
-                                <i class="fas fa-angle-double-left fa-lg"></i>
+                                <i class="fas fa-angle-double-left fa-lg" aria-hidden="true"></i>
                                 Previous
                             </button>
                             <div>
                      
                             <button type="button" class="btn btn-warning ms-auto mb-3 text-center" style="width: 7rem;" onclick="requirement()">
                                 Next
-                                <i class="fas fa-angle-double-right fa-lg"></i>
+                                <i class="fas fa-angle-double-right fa-lg" aria-hidden="true"></i>
                             </button>
                             </div>
                         </div>
@@ -337,7 +346,9 @@ $this->load->view('includes/studentSideBar');
         <div id='requirement' class=" pt-3 " style="display: none;">
             <div class="Wrapper">
                 <div class="tabTitle">
-                    <p class="text-white"><i class="fas fa-file"></i> <span class="px-2">Requirements </span></p>
+                    <p class="text-white">
+                        <i class="fas fa-file" aria-hidden="true"></i>
+                        <span class="px-2">Requirements </span></p>
                 </div>
                 <div class="Contents">
                     <p class="fw-bold">ADMISSION REQUIREMENTS</p>
@@ -387,7 +398,7 @@ $this->load->view('includes/studentSideBar');
                     <div class="pt-5 mt-5"></div>
                     <div class="d-flex stepButtons justify-content-between">
                         <button type="button" class="btn btn-warning mb-3 text-center" style="width: 7rem;" onclick="educationalAttainment()">
-                            <i class="fas fa-angle-double-left fa-lg"></i>
+                            <i class="fas fa-angle-double-left fa-lg" aria-hidden="true"></i>
                             Previous
                         </button>
                     </div>

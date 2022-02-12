@@ -8,17 +8,25 @@ class FacultyController extends CI_Controller
 		$this->load->model('teacherModel');
 		$this->load->model('eventsModel');
 		$this->load->model('Authentication');
+		
 		if ($this->session->userdata('authenticated') != '2')
 		{
-			$this->session->set_flashdata('logout', 'Please logout first');
+			
 			if ($this->session->userdata('authenticated') == '1') {
+				$this->session->set_flashdata('logoutAdmin', 'Please logout first');
 				redirect('Admin/dashboard');
 			}
 			elseif ($this->session->userdata('authenticated') == '3') {
+				$this->session->set_flashdata('logoutStudent', 'Please logout first');
 				redirect('Student/dashboard');
 			}
-			else {
+			elseif ($this->session->userdata('authenticated') == '4') {
+				$this->session->set_flashdata('logoutApplicant', 'Please logout first');
 				redirect('Applicant/'.$this->session->userdata('auth_user')['applicantID']);
+			}
+			else{
+				$this->session->set_flashdata('invalid', 'Error: Invalid Action');
+				redirect('Login/Applicant');
 			}
 		}
 	}
@@ -45,6 +53,18 @@ class FacultyController extends CI_Controller
 	{	
 		$data['subjects'] = $this->teacherModel->getSubjects($this->session->userdata('auth_user')['teacherID']);
         $this->load->view('Faculty_Panel/myStudents',$data);
+	}
+
+	public function studentList($sectionName)
+	{	
+		$sectionID = $this->input->get('sectionID');
+		$classCode = $this->input->get('classCode');
+		$subjectID = $this->input->get('subjectID');
+		$data['student'] = $this->teacherModel->getStudents($sectionID);
+		$data['section'] = $this->teacherModel->getSectionData($subjectID,$classCode);
+		$data['sectionName'] = $sectionName;
+		// $data['subjects'] = $this->teacherModel->getSubjects($this->session->userdata('auth_user')['teacherID']);
+        $this->load->view('Faculty_Panel/studentList',$data);
 	}
 
 	public function changePassword() {

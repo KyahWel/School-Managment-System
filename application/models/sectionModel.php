@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 class sectionModel extends CI_Model {
 
 	public function __construct(){	
@@ -12,7 +12,7 @@ class sectionModel extends CI_Model {
 		$this->db->from('section_table');
 		$this->db->where('sectionName',$_POST['sectionName']);
 		$query=$this->db->get();	
-		if($query->num_rows()==0){
+		if($query->num_rows()<=0){
 			$data = array(
 				'sectionID' => NULL,
 				'sectionName' => $_POST['sectionName'],
@@ -21,7 +21,7 @@ class sectionModel extends CI_Model {
 				'schoolyear' => $_POST['schoolyear'],
 				'capacity' => $_POST['capacity'],
 				'studCount' => 0,
-				'yearlevel' => $_POST['yearlevel'],
+				'yearlevelClass' => $_POST['yearlevel'],
 			);
 			$this->db->insert('section_table',$data);
 			$query=$this->db->query('SELECT * FROM class WHERE class_code = "'.$_POST['classID'].'"');	
@@ -32,10 +32,10 @@ class sectionModel extends CI_Model {
 			$this->db->where('class_code',$query->class_code);
 			$this->db->update('class',$classdata);
 			unset($_POST);
-			$this->session->set_flashdata('successAdmin','Added section successfully'); 
+			$this->session->set_flashdata('successSection','Added section successfully'); 
 		
 		}else{
-			$this->session->set_flashdata('adminError','Section already exists'); 
+			$this->session->set_flashdata('errorSection','Section already exists'); 
 			redirect('Admin/section');
 		}
 	}
@@ -59,15 +59,45 @@ class sectionModel extends CI_Model {
 		$this->db->update('section_table',$dataB);
 	}	
 
+	public function addStudentGrades($id){
+
+		// Get Student Section
+		$queryStudent = $this->db->query(' SELECT * from student_accounts WHERE studentID ='.$id);
+		$queryStudent = $queryStudent->row();
+
+		// Get specific section
+		$querySection = $this->db->query(' SELECT * from section_table WHERE sectionID = '.$queryStudent->sectionID);
+		$querySection = $querySection->row();
+
+		// Get Class
+		$queryClass = $this->db->query(' SELECT * from class WHERE class_code ="'.$querySection->class_code.'"');
+		$queryClass = $queryClass->result();
+
+		foreach($queryClass as $queryClass){
+			$data = array(
+				'studentGradesID' => NULL,
+				'studentID' => $queryStudent->studentID,
+				'teacherID' => $queryClass->teacherID,
+				'subjectID' => $queryClass->subjectID,
+				'schoolyear' => $querySection->schoolyear,
+				'class_code' => $queryClass->class_code,
+				'grade' => 0,
+				'equivalent' => 0.0
+			);
+			$this->db->insert('student_grades',$data);
+		}
+	}	
+
+
 	public function viewSectionList($courseID,$yearlevel) #Read
 	{
-		$query = $this->db->query('SELECT * FROM section_table WHERE courseID ='.$courseID.' AND yearlevel ='.$yearlevel );
+		$query = $this->db->query('SELECT * FROM section_table WHERE courseID ='.$courseID.' AND yearlevelClass ='.$yearlevel );
 		return $query->result_array();
 	}
 
 	public function yearlevelBasedSection($id) #Read
 	{
-		$query = $this->db->query('SELECT * FROM section_table WHERE yearlevel ='.$id );
+		$query = $this->db->query('SELECT * FROM section_table WHERE yearlevelClass ='.$id );
 		return $query->result_array();
 	}
 

@@ -35,12 +35,17 @@ span.spare{
 #personalInfo span.spare1, #educationalattainment span.spare1, #requirement span.spare1 {
     display: none;
 }
-@media (max-width: 560px) and  (min-width: 543px) and  (min-width: 543px) {
+@media (max-width: 767px) and  (min-width: 567px) {
     #personalInfo span.spare1, #educationalattainment span.spare1, #requirement span.spare{
         display: block;
     }
 }
-@media  (max-width: 565px){
+@media (max-width: 567px) and  (min-width: 548px) {
+    #personalInfo span.spare1, #educationalattainment span.spare1, #requirement span.spare{
+        display: block;
+    }
+}
+@media  (max-width:767px){
     #personalInfo span.spare, #educationalattainment span.spare, #requirement span.spare{
         display: block;
     }
@@ -270,8 +275,11 @@ label {
     border: 1px solid gray;
 }
 
-.stepButtons .btn-secondary:hover, .modal .modal-footer .btn-secondary:hover{
+.stepButtons .btn-secondary:hover, .modal .btn-secondary:hover{
     opacity: 1;
+    background: none;
+    border: 1px solid #7b7b7b;
+    color: black;
 }
 
 /* common styles */
@@ -279,6 +287,11 @@ label {
     display: none;
 }
 /* final procedure */
+
+#final_step .Wrapper{
+    border: 0.1px solid rgb(221, 220, 220);
+    box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.25);
+}
 
 #final_step .Wrapper .Contents p.note1 {
     color: red;
@@ -339,21 +352,15 @@ label {
     color: white;
 }
 
+.modal .head{
+    background: #f4f4f4;
+    border: #bdbdbd;
+} 
 .modal-title {
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
     font-weight: 500;
+  
 }
-
-.modal-footer button.btn-primary {
-    background: #a94c4c;
-    border: none;
-    opacity: 0.9;
-}
-
-.modal-footer button.btn-primary:hover {
-    opacity: 1;
-}
-
 
 /* this is needed to make the content scrollable on larger screens */
 
@@ -373,3 +380,50 @@ label {
       letter-spacing: 1px;
       text-align: center;
   }
+
+  #applSidebar, #applSidebarRegistration{
+    border-right: 1px solid rgb(232, 226, 226);
+    box-shadow: 3px 0px 5px 0px rgba(0, 0, 0, 0.25);
+  }
+
+  
+.modal .line{
+    opacity: 0.3;
+}
+
+.modal .head{
+    background: maroon;
+    border: #bdbdbd;
+    color: white;
+} 
+.modal .btn-default {
+    background: maroon;
+    color: white;
+    font-size: 0.8rem;
+}
+.modal .btn-default:hover {
+    background: rgb(174, 0, 0);
+    border: 1px solid maroon;
+    color: white;
+}
+.modal .btn-secondary{
+    font-size: 0.8rem;
+    background-color: #7c7c7c;
+}
+.modal .btn-secondary:hover{
+    opacity: 1;
+    background: none;
+    border: 1px solid #646464;
+    color: black;
+}
+
+.modal .btn-secondary:focus, .modal .btn-default:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.modal .form-control:focus{
+    box-shadow: none;
+    outline: maroon;
+    border: 1px solid steelblue
+}

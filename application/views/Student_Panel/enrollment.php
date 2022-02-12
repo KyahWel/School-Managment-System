@@ -24,15 +24,15 @@ $this->load->view('includes/studentSideBar');
     <div class="row my-3 pt-1">
         <div class="col-lg-6">
             <div class="row">
-                <b class="col-lg-3">Student Name:</b>
+                <strong class="col-lg-3">Student Name:</strong>
                 <p class="col-lg-8 text-uppercase"> San Pedro, Gina Borja</p>
             </div>
             <div class="row">
-                <b class="col-lg-3"> Student ID:</b>
+                <strong class="col-lg-3"> Student ID:</strong>
                 <p class="col-lg-8 text-uppercase"> TUPM-21-2321</p>
             </div>
             <div class="row mb-3">
-                <label class="col-lg-3 pt-1"><b>Course:</b></label>
+                <label class="col-lg-3 pt-1"><strong>Course:</strong></label>
                 <div class="col-lg-5">
                     <select class="form-select form-select-sm" name="course" aria-label="Course" value="course nya">
                         <option selected value="Course Nya"> Course Nya</option>
@@ -41,7 +41,7 @@ $this->load->view('includes/studentSideBar');
                 </div>
             </div>
             <div class="row mb-3">
-                <label class="col-lg-3 pt-1"><b>Section:</b></label>
+                <label class="col-lg-3 pt-1"><strong>Section:</strong></label>
                 <div class="col-lg-5">
                     <select class="form-select form-select-sm" name="section" aria-label="Section" value="section nya">
                         <option selected value="Course Nya"> Section nya</option>
@@ -52,15 +52,15 @@ $this->load->view('includes/studentSideBar');
         </div>
         <div class="col-lg-6">
             <div class="row">
-                <b class="col-lg-3">School Year:</b>
+                <strong class="col-lg-3">School Year:</strong>
                 <p class="col-lg-8 text-uppercase"> 2022-2023</p>
             </div>
             <div class="row">
-                <b class="col-lg-3">Year Level:</b>
+                <strong class="col-lg-3">Year Level:</strong>
                 <p class="col-lg-8 text-uppercase"> Third</p>
             </div>
             <div class="row">
-                <label class="col-lg-3 pt-1"><b>Semester:</b></label>
+                <label class="col-lg-3 pt-1"><strong>Semester:</strong></label>
                 <div class="col-lg-5">
                     <select class="form-select form-select-sm" name="course" aria-label="Semester" value="semester">
                         <option selected hidden disabled> Please Select</option>
@@ -79,13 +79,13 @@ $this->load->view('includes/studentSideBar');
         <div class="tabDetails p-3">
             <h6 class="fw-bold px-4">Available Subjects</h6>
             <div class="table-responsive">
-                <table class="table text-center align-middle table-striped table-borderless table-hover px-2" id="table-bodyEnrollment">
+                <table class="table text-center align-middle table-striped table-borderless table-hover px-2" aria-label="availableSubjectList" id="table-bodyEnrollment">
                     <!--Table Body-->
                     <thead>
                         <tr>
-                            <th style="width: 250px;">Subject Code</th>
-                            <th>Subject Name</th>
-                            <th>Credited Units</th>
+                            <th scope="col" style="width: 250px;">Subject Code</th>
+                            <th scope="col">Subject Name</th>
+                            <th scope="col">Credited Units</th>
                         </tr>
                     </thead>
                     <tbody>

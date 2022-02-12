@@ -11,17 +11,29 @@ class Login extends CI_Controller
 		$this->load->model('studentModel');
 		$this->load->model('teacherModel');
 		$this->load->model('applicantModel');
+		$this->load->library('session');
 		if ($this->session->has_userdata('authenticated'))
 		{
-			$this->session->set_flashdata('logout', 'Please logout first');
-			if ($this->session->userdata('authenticated') == '1')
+			
+			if ($this->session->userdata('authenticated') == '1'){
+				$this->session->set_flashdata('logoutAdmin', 'Please logout first');
 				redirect('Admin/dashboard');
-			elseif ($this->session->userdata('authenticated') == '2')
+			}
+			elseif ($this->session->userdata('authenticated') == '2'){
+				$this->session->set_flashdata('logoutFaculty', 'Please logout first');
 				redirect('Faculty/dashboard');
-			elseif ($this->session->userdata('authenticated') == '3')
+			}
+				
+			elseif ($this->session->userdata('authenticated') == '3'){
+				$this->session->set_flashdata('logoutStudent', 'Please logout first');
 				redirect('Student/Dashboard');
-			elseif ($this->session->userdata('authenticated') == '4')
+			}
+				
+			elseif ($this->session->userdata('authenticated') == '4'){
+				$this->session->set_flashdata('logoutApplicant', 'Please logout first');
 				redirect('Applicant/'.$this->session->userdata('auth_user')['applicantID']);
+			}
+			
 		}
     }
 
@@ -60,7 +72,6 @@ class Login extends CI_Controller
 					];
 					$this->session->set_userdata('auth_user', $auth_userdetails);
 					$this->session->set_userdata('authenticated', "1");
-					$this->session->set_flashdata('success', '');
 					redirect('Admin/dashboard');
 				}
 				else {
@@ -120,8 +131,6 @@ class Login extends CI_Controller
 					];
 					$this->session->set_userdata('auth_user', $auth_userdetails);
 					$this->session->set_userdata('authenticated', "3");
-					$this->session->set_flashdata('adminError', '');
-					$this->session->set_flashdata('successAdmin', '');
 					redirect('Student/Dashboard');
 				}
 				else {

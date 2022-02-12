@@ -9,16 +9,25 @@ class StudentController extends CI_Controller {
 		$this->load->model('studentModel');
 		$this->load->model('eventsModel');
 		$this->load->model('Authentication');
+		$this->load->model('studentGrades');
+		
 		if ($this->session->userdata('authenticated') != '3'){
-			$this->session->set_flashdata('logout','Please logout first'); 
+			
 			if ($this->session->userdata('authenticated') == '1') {
+				$this->session->set_flashdata('logoutAdmin','Please logout first'); 
 				redirect('Admin/dashboard');
 			}	
 			elseif ($this->session->userdata('authenticated') == '2') {
+				$this->session->set_flashdata('logoutFaculty','Please logout first'); 
 				redirect('Faculty/dashboard');
 			}
-			else {	
+			elseif ($this->session->userdata('authenticated') == '4') {	
+				$this->session->set_flashdata('logoutApplicant','Please logout first'); 
 				redirect('Applicant/'.$this->session->userdata('auth_user')['applicantID']);
+			}
+			else{
+				$this->session->set_flashdata('invalid','Error: Invalid Action'); 
+				redirect('Login/Applicant');
 			}
 		}
 	}
@@ -49,7 +58,11 @@ class StudentController extends CI_Controller {
 
 	public function grades()
 	{
-        $this->load->view('Student_Panel/grades');
+		$data['grades'] = $this->studentGrades->viewData($this->session->userdata('auth_user')['studentID']);
+		$data['gpa'] = $this->studentGrades->getGPA($this->session->userdata('auth_user')['studentID']);
+		$data['sem'] = $this->studentGrades->getsem($this->session->userdata('auth_user')['studentID']);
+		$data['student'] =  $this->studentModel->getData($this->session->userdata('auth_user')['studentID']);
+        $this->load->view('Student_Panel/grades',$data);
 	}
 
 	public function dropSubject()

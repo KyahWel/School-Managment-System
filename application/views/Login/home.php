@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,6 +48,7 @@
         <?= $this->session->flashdata('login'); ?>
         <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
       </div>
+      <?php $this->session->unset_userdata ('login'); ?>
       <?php endif; ?>
 
       <h1>Access Modules</h1>
@@ -63,5 +64,6 @@
     </div>
   </div>
 </body>
+
 
 </html>

@@ -11,7 +11,6 @@ $this->load->view('includes/adminSideBar');
             text-overflow: ellipsis;
             white-space: nowrap;
         }
-
         .table-body td {
             max-width: 250px;
             overflow: hidden;
@@ -19,12 +18,60 @@ $this->load->view('includes/adminSideBar');
             white-space: nowrap;
             line-height: 0;
         }
+        ul {
+            margin: 0px;
+            padding: 0px;
+        }
+        #saveSubject,
+        #saveEdit {
+            background-color: #800000;
+            border-color: transparent;
+            color: white;
+            text-decoration: none;
+            font-size: 0.8rem;
+            margin: 0px 8px;
+        }
+        #cancelSubject,
+        #cancelEdit {
+            background-color: #aaaaaa;
+            border-color: transparent;
+            color: black;
+            text-decoration: none;
+            font-size: 0.8rem;
+            margin: 0px;
+        }
+        #saveSubject:hover,
+        #saveEdit:hover,
+        #cancelSubject:hover,
+        #cancelEdit:hover {
+            background-color: white;
+            border-color: #800000;
+            color: #800000;
+            font-size: 0.8rem;
+        }
+        .btn:focus {
+            box-shadow: none;
+        }
     </style>
 </head>
-<div class="height-100 pt-2 container-fluid">
+<div class="height-100 pt-2 container-fluid">   
+    <?php if ($this->session->flashdata('errorSubject')) : ?>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <?= $this->session->flashdata('errorSubject'); ?>
+                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+            </div>
+            <?php $this->session->unset_userdata ('errorSubject'); ?>
+
+        <?php elseif ($this->session->flashdata('successSubject')) : ?> 
+            <div class="alert alert-success alert-dismissible fade show">
+                <?= $this->session->flashdata('successSubject'); ?>
+                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+            </div>
+            <?php $this->session->unset_userdata ('successSubject'); ?>
+        <?php endif?>
     <div class="my-3">
         <div class="CourseTab my-3">
-            <h4 class="fw-bold"> Subjects Tab</h4>
+            <h4 class="fw-bold">Subject</h4>
         </div>
         <!--Add Subject-->
         <div class="col-12 align-self-center pt-2 my-3">
@@ -101,7 +148,7 @@ $this->load->view('includes/adminSideBar');
                                         <input type="number" name="units" class="form-control" aria-labelledby="Units" required>
                                     </div>
                                 </div>
-                                <div class="addCourseButton d-flex justify-content-end">
+                                <div class="addSubjectButton d-flex justify-content-end">
                                     <button class="btn btn-default" id="saveSubject" type="submit" value="save">Save</button>
                                     <button class="btn btn-default" id="cancelSubject" type="reset" value="cancel">Cancel</button>
                                 </div>
@@ -123,15 +170,15 @@ $this->load->view('includes/adminSideBar');
                     </div>
                 </div>
                 <div class="table-responsive py-2">
-                    <table class="table table-default align-middle table-striped table-borderless table-hover table-body" id="subjectTable">
+                    <table class="table table-default align-middle table-striped table-borderless table-hover table-body" aria-label="subjectList" id="subjectTable">
                         <thead>
                             <tr>
-                                <th class="pb-3">Subject Code</th>
-                                <th class="pb-3">Subject Name</th>
-                                <th class="pb-3">Units</th>
-                                <th class="pb-3">Semester</th>
-                                <th class="pb-3">College</th>
-                                <th class="pb-3">Action</th>
+                                <th scope="col" class="pb-3">Subject Code</th>
+                                <th scope="col" class="pb-3">Subject Name</th>
+                                <th scope="col" class="pb-3">Units</th>
+                                <th scope="col" class="pb-3">Semester</th>
+                                <th scope="col" class="pb-3">College</th>
+                                <th scope="col" class="pb-3">Action</th>
                             </tr>
                         </thead>
                         <tbody class="tbodySubject">
@@ -147,8 +194,8 @@ $this->load->view('includes/adminSideBar');
                                             <?php if ($subjectrow->status == 1) : ?>
                                                 <ul>
                                                     <li>
-                                                        <button type="button" data-id='' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editSubject">
-                                                            <i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button>
+                                                        <button type="button" data-id='<?php echo $subjectrow->subjectID ?>' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editSubject">
+                                                            <em class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></em> Edit</button>
                                                     </li>
                                                     <li><button type="button" class="btn" onclick="location.href='<?php if ($subjectrow->status == 1) {
                                                                                                                         echo site_url('subjectController/deactivate');
@@ -163,7 +210,7 @@ $this->load->view('includes/adminSideBar');
                                                 <ul>
                                                     <li>
                                                         <button type="button" data-id='<?php echo $subjectrow->subjectID; ?>' class="btn" disabled style="background-color: gray;">
-                                                            <i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button>
+                                                            <em class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></em> Edit</button>
                                                     </li>
                                                     <li><button type="button" class="btn" id="uniqueSubjectEdit" onclick="location.href='<?php if ($subjectrow->status == 1) {
                                                                                                                                                 echo site_url('subjectController/deactivate');
@@ -195,84 +242,9 @@ $this->load->view('includes/adminSideBar');
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div id="edit_course">
-                            <form method="POST" action="">
-                                <div class="row">
-                                    <div class="row mb-3 py-1">
-                                        <div class="col-lg-2 col-md-2 col-sm-12 pt-2">
-                                            <label class="form-label">Select Course: </label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-12 ">
-                                            <select name="courseID" class="form-select " required>
-                                                <option value="" disabled selected hidden>Please Select</option>
-                                                <?php foreach ($course as $courserow) { ?>
-                                                    <option value="<?php echo $courserow->courseID ?>"><?php echo $courserow->degree ?> in <?php echo $courserow->major ?></option>
-                                                <?php } ?>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3 py-1">
-                                        <div class="col-lg-2 col-md-2 col-sm-12 pt-2">
-                                            <label class="form-label">College: </label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-12 ">
-                                            <select name="college" class="form-select" required>
-                                                <option value="" disabled selected hidden>Please Select</option>
-                                                <option value="College of Science">COS</option>
-                                                <option value="College of Engineering">COE</option>
-                                                <option value="College of Industrial Education">CIE</option>
-                                                <option value="College of Architecture and Fine Arts">CAFA</option>
-                                                <option value="College of Liberal Arts">CLA</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3 py-1">
-                                        <div class="col-6">
-                                            <label class="form-label">Year Level: </label>
-                                            <select name="yearlevel" class="form-select" required>
-                                                <option value="" selected hidden>Please Select</option>
-                                                <option value="1">1st Year</option>
-                                                <option value="2">2nd Year</option>
-                                                <option value="3">3rd Year</option>
-                                                <option value="4">4th Year</option>
-                                                <option value="5">5th Year</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-6">
-                                            <label class="form-label">Semester: </label>
-                                            <select name="semester" class="form-select" required>
-                                                <option value="" selected hidden> </option>
-                                                <option value="1">1st Semester</option>
-                                                <option value="2">2nd Semester</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3 py-1">
-                                        <div class="col-6">
-                                            <label class="form-label">Subject Code: </label>
-                                            <input type="text" name="subjectCode" class="form-control" required>
-                                        </div>
-                                        <div class="col-6">
-                                            <label class="form-label">Units: </label>
-                                            <input type="number" name="units" class="form-control" required>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-2">
-                                        <div class="col-lg-2 col-md-2 col-sm-12 pt-2">
-                                            <label class="form-label">Subject Name: </label>
-                                        </div>
-                                        <div class="col-lg-10 col-md-10 col-sm-12 ">
-                                            <input type="text" name="name" class="form-control" required>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div id="edit_subject">
 
-                                <div class="pt-3 d-flex justify-content-end">
-                                    <button class="btn btn-default" id="save" type="submit" value="save">Save</button>
-                            </form>
-                            <button class="btn btn-default" id="cancel" type="button" data-bs-dismiss="modal">Cancel</button>
                         </div>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -285,34 +257,21 @@ $this->load->view('includes/adminSideBar');
 <!-- jQuery JS CDN -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- jQuery DataTables JS CDN -->
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url('assets/js/dataTables.min.js'); ?>"></script>
 <!-- Ajax fetching data -->
 <script type="text/javascript">
     $(document).ready(function() {
         $('#dataTable').DataTable();
-        $('.view_data').click(function() {
-            var id = $(this).data('id');
-            $.ajax({
-                url: "<?php echo site_url('courseController/viewCourse'); ?>",
-                method: "POST",
-                data: {
-                    id: id
-                },
-                success: function(data) {
-                    $('#view_course').html(data);
-                }
-            });
-        });
         $('.edit_data').click(function() {
             var id = $(this).data('id');
             $.ajax({
-                url: "<?php echo site_url('courseController/editCourse'); ?>",
+                url: "<?php echo site_url('subjectController/editSubject'); ?>",
                 method: "POST",
                 data: {
                     id: id
                 },
                 success: function(data) {
-                    $('#edit_course').html(data);
+                    $('#edit_subject').html(data);
                 }
             });
         });

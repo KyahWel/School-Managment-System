@@ -1,5 +1,5 @@
 <?php
-    $this->load->view('includes/facultySideBar'); 
+    $this->load->view('includes/facultySideBar');
 ?>
 
 <head>
@@ -16,24 +16,24 @@
             <div class="d-flex align-items-center my-2">
 
                 <div class=" profile-pic-div">
-                    <img src="../assets/images/facultyAvatar.jpg" alt="Professor Avatar" id="facultyPhoto">
+                    <img src="../assets/images/facultyAvatar.png" alt="Professor Avatar" id="facultyPhoto">
                 </div>
 
                 <!-- My Profile Details -->
                 <div class="table-responsive mx-3">
-                    <table id="myProfileDetails" class="table-body">
-                        <tr>
+                    <table id="myProfileDetails" class="table-body" aria-label="Faculty_Profile">
+                        <tr class="d-flex align-items-start">
                             <td class="py-3">
-                                <p><b>Faculty ID:</b></p>
-                                <p><b>Name:</b></p>
-                                <p><b>Department:</b></p>
-                                <p><b>Email:</b></p>
+                                <p><strong>Faculty ID:</strong></p>
+                                <p><strong>Name:</strong></p>
+                                <p><strong>Department:</strong></p>
+                                <p><strong>Email:</strong></p>
                             </td>
                             <td class="py-3">
                                 <p><?php echo $prof->teacherNumber?></p>
                                 <p><?php echo $prof->firstname?> <?php echo $prof->lastname?></p>
                                 <p><?php echo $prof->department?></p>
-                                <p><?php echo $prof->email?></p>
+                                <p class="mb-0"><?php echo $prof->email?></p>
                             </td>
                         </tr>
                     </table>

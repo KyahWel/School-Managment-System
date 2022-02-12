@@ -8,12 +8,25 @@ $this->load->view('includes/adminSideBar');
 </head>
 
 <div class="height-100 pt-2 container-fluid">
-
+	<?php if ($this->session->flashdata('errorSection')) : ?>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <?= $this->session->flashdata('errorSection'); ?>
+                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+            </div>
+            <?php $this->session->unset_userdata ('errorSection'); ?>
+        <?php elseif ($this->session->flashdata('successSection')) : ?>
+            
+            <div class="alert alert-success alert-dismissible fade show">
+                <?= $this->session->flashdata('successSection'); ?>
+                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+            </div>
+            <?php $this->session->unset_userdata ('successSection'); ?>
+        <?php endif?>
 	<div class="my-3">
 
 		<!-- Section Tab -->
 		<div class="SectionTab my-3">
-			<h3><i>Welcome to Section Tab</i></h3>
+			<h3>Section</h3>
 		</div>
 
 		<div class="col-12 align-self-center my-3">
@@ -32,7 +45,7 @@ $this->load->view('includes/adminSideBar');
 					<div class="row mb-3">
 						<div class="col-lg-3">
 							<!--Year Level-->
-							<label class="form-label">Year Level</label>
+							<label for="yearlevel" class="form-label">Year Level</label>
 							<select name="yearLevel" id="yearlevel" class="form-select">
 								<option value="" disabled selected hidden></option>
 								<option value="1">First Year</option>
@@ -43,18 +56,18 @@ $this->load->view('includes/adminSideBar');
 						</div>
 						<div class="col-lg-3">
 							<!--Course-->
-							<label class="form-label">Course</label>
+							<label for="course" class="form-label">Course</label>
 							<select name="course" id="course" class="form-select">
 								<option value="" disabled selected hidden></option>
 								<?php foreach ($course as $courserow) { ?>
-									<option value="<?php echo $courserow->courseID ?>"><?php echo $courserow->degree ?> in
+									<option value="<?php echo $courserow->courseID ?>"><?php echo $courserow->degree ?>
 										<?php echo $courserow->major ?></option>
 								<?php } ?>
 							</select>
 						</div>
 						<div class="col-lg-4">
 							<!--Section-->
-							<label class="form-label">Section</label>
+							<label for="section" class="form-label">Section</label>
 							<select name="section" id="section" class="form-select">
 								<option value="" disabled selected hidden></option>
 							</select>
@@ -63,31 +76,31 @@ $this->load->view('includes/adminSideBar');
 							</div>
 						</div>
 						<div class="col-lg-2 d-flex justify-content-evenly" id="addSectionButton">
-							<button type="button" class="btn btn-sm" id="add" data-bs-toggle="modal" data-bs-target="#addSection"><i class="fas fa-plus" data-bs-toggle="tooltip" title="Add Section"></i></button>
-							<button type="button" class="btn btn-sm" id="edit" data-bs-toggle="modal" data-bs-target="#editSection"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit Section"></i></button>
-							<button type="button" class="btn btn-sm" id="delete" data-bs-toggle="modal" data-bs-target="#deleteSection"><i class="fas fa-eraser" data-bs-toggle="tooltip" title="Delete Section"></i></button>
+							<button type="button" class="btn btn-sm" id="add" data-bs-toggle="modal" data-bs-target="#addSection"><em class="fas fa-plus" data-bs-toggle="tooltip" title="Add Section"></em></button>
+							<button type="button" class="btn btn-sm" id="edit" data-bs-toggle="modal" data-bs-target="#editSection"><em class="fas fa-eye" data-bs-toggle="tooltip" title="Edit Section"></em></button>
+							<button type="button" class="btn btn-sm" id="delete" data-bs-toggle="modal" data-bs-target="#deleteSection"><em class="fas fa-eraser" data-bs-toggle="tooltip" title="Delete Section"></em></button>
 						</div>
 					</div>
 				</div>
 
 				<!--Table Body-->
 				<div class="table-responsive">
-					<table class="table table-body align-middle table-striped table-borderless table-hover" id="sectionTable">
+					<table class="table table-body align-middle table-striped table-borderless table-hover" aria-label="sectionList" id="sectionTable">
 						<thead>
 							<tr>
-								<th>Section</th>
-								<th>Course</th>
-								<th>Yearlevel</th>
-								<th>Capacity</th>
-								<th>Class Code</th>
+								<th scope="col">Section</th>
+								<th scope="col">Course</th>
+								<th scope="col">Yearlevel</th>
+								<th scope="col">Capacity</th>
+								<th scope="col">Class Code</th>
 							</tr>
 						</thead>
 						<tbody>
 							<?php foreach ($section as $section) { ?>
 								<tr>
 									<td><?php echo $section->sectionName ?></td>
-									<td><?php echo $section->degree; ?> in <?php echo $section->major; ?></td>
-									<td><?php echo $section->yearlevel ?></td>
+									<td><?php echo $section->degree; ?> <?php echo $section->major; ?></td>
+									<td><?php echo $section->yearlevelClass ?></td>
 									<td><?php echo $section->studCount ?>/<?php echo $section->capacity ?></td>
 									<td><?php echo $section->class_code ?></td>
 								</tr>
@@ -98,7 +111,7 @@ $this->load->view('includes/adminSideBar');
 
 				<!-- Add Section -->
 				<div class="modal fade" id="addSection" tabindex="-1" aria-modal="true" aria-labelledby="addSectionHeader" aria-hidden="true">
-					<div class="modal-dialog modal-lg modal-dialog-centered">
+					<div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
 						<div class="modal-content">
 							<div class="modal-header">
 								<h5 class="modal-title" id="addectionHeader">Add Section</h5>
@@ -110,7 +123,7 @@ $this->load->view('includes/adminSideBar');
 										<div class="col-lg-6">
 											<!--Year Level-->
 											<label class="form-label">Year Level</label>
-											<select name="yearlevel" id="AddYearlevel" class="form-select">
+											<select name="yearlevel" id="AddYearlevel" class="form-select" required>
 												<option value="" disabled selected hidden></option>
 												<option value="1">First Year</option>
 												<option value="2">Second Year</option>
@@ -121,11 +134,11 @@ $this->load->view('includes/adminSideBar');
 										<div class="col-lg-6">
 											<!--Course-->
 											<label class="form-label">Course</label>
-											<select name="courseID" id="AddCourse" class="form-select">
+											<select name="courseID" id="AddCourse" class="form-select" required>
 												<option value="" disabled selected hidden></option>
 												<?php foreach ($course as $courserow) { ?>
 													<option value="<?php echo $courserow->courseID ?>">
-														<?php echo $courserow->degree ?>
+														<?php echo $courserow->degree ?> in
 														<?php echo $courserow->major ?></option>
 												<?php } ?>
 											</select>
@@ -135,19 +148,19 @@ $this->load->view('includes/adminSideBar');
 										<div class="col-lg-6">
 											<!--Section-->
 											<label class="form-label">Section Name</label>
-											<input type="text" class="form-control" name="sectionName">
+											<input type="text" class="form-control" name="sectionName" required>
 										</div>
 										<div class="col-lg-6">
 											<!--Capacity-->
 											<label class="form-label">Capacity</label>
-											<input type="number" id="capacity" class="form-control" name="capacity">
+											<input type="number" id="capacity" min="0" max="25" class="form-control" name="capacity" title="Max capacity is 25" required>
 										</div>
 									</div>
-									<div class="row mb-3">
+									<div class="row mb-4">
 										<div class="col-lg-6">
 											<!--Class-->
 											<label class="form-label">Class</label>
-											<select name="classID" class="form-select" id="AddClass">
+											<select name="classID" class="form-select" id="AddClass" required>
 												<option value="" disabled selected hidden></option>
 											</select>
 
@@ -155,7 +168,7 @@ $this->load->view('includes/adminSideBar');
 										<div class="col-lg-6">
 											<!--schoolyear-->
 											<label class="form-label">School Year</label>
-											<input type="text" readonly value="<?php echo date("Y"); ?>-<?php echo date("Y") + 1; ?>" class="form-control" name="schoolyear">
+											<input type="text" readonly value="<?php echo date("Y"); ?>-<?php echo date("Y") + 1; ?>" class="form-control" name="schoolyear" >
 										</div>
 									</div>
 									<div class="table-title">
@@ -183,13 +196,13 @@ $this->load->view('includes/adminSideBar');
 					</div>
 				</div>
 
-				<!-- Edit Section -->
+				<!-- View Section -->
 				<div class="modal fade" id="editSection" tabindex="-1" aria-modal="true" aria-labelledby="editSectionHeader" aria-hidden="true">
-					<div class="modal-dialog modal-lg modal-dialog-centered">
+					<div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
 						<div class="modal-content">
 
 							<div class="modal-header">
-								<h5 class="modal-title" id="editSectionHeader">Edit Section</h5>
+								<h5 class="modal-title" id="editSectionHeader">View Section</h5>
 								<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
 
@@ -216,7 +229,7 @@ $this->load->view('includes/adminSideBar');
 <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 
 <!-- jQuery DataTables JS CDN -->
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url('assets/js/dataTables.min.js'); ?>"></script>
 <!-- Ajax fetching data -->
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -326,11 +339,12 @@ $this->load->view('includes/adminSideBar');
 
 		});
 
+
 		$("#edit").click(function() {
 			var sectionID = $("#section").val();
 			console.log(sectionID);
 			$.ajax({
-				url: "<?php echo site_url('sectionController/editSection'); ?>",
+				url: "<?php echo site_url('sectionController/viewSection'); ?>",
 				method: "POST",
 				data: {
 					sectionID: sectionID
@@ -340,6 +354,7 @@ $this->load->view('includes/adminSideBar');
 				}
 			});
 		});
+
 		$('#sectionTable').DataTable({
 			"lengthMenu": [
 				[15, 25, 50, -1],

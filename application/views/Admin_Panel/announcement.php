@@ -21,48 +21,53 @@ $this->load->view('includes/adminSideBar');
       <div class="accordion accordion-flush" id="accordion-addAnnouncement">
         <div class="accordion-item">
           <h2 class="accordion-header" id="addAnnouncementHeader">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#addAnnouncement" aria-expanded="false" aria-controls="addAnnouncement">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#addAnnouncement" aria-expanded="false"
+            aria-controls="addAnnouncement">
               Add Announcement
             </button>
           </h2>
-          <div id="addAnnouncement" class="accordion-collapse collapse" aria-labelledby="addAnnouncementHeader" data-bs-parent="#accordion-addAnnouncement">
+          <div id="addAnnouncement" class="accordion-collapse collapse" aria-labelledby="addAnnouncementHeader"
+          data-bs-parent="#accordion-addAnnouncement">
             <div class="accordion-body">
               <form method="POST" action="<?php echo site_url('eventsController/create/') ?>" id="addAnnouncementForm">
                 <div class="row mb-3">
                   <div class="col-6">
                     <!--Title-->
-                    <label class="form-label">Title</label>
-                    <input type="text" class="form-control" name="title">
+                    <label for="announcementTitle" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="announcementTitle" required name="title">
                   </div>
                   <div class="col-6">
                     <!--Creator ID-->
-                    <label class="form-label">Created By</label>
-                    <input type="text" class="form-control" disabled value='<?= $this->session->userdata('auth_user')['firstname'] ?>' ;>
+                    <label for="creatorID" class="form-label">Created By</label>
+                    <input type="text" class="form-control" id="creatorID" disabled
+                    value='<?= $this->session->userdata('auth_user')['firstname'] ?>' ;>
                   </div>
                 </div>
                 <div class="row mb-3">
                   <div class="col-6">
                     <!--Date-->
-                    <label class="form-label">Date</label>
-                    <input type="date" class="form-control" name="date">
+                    <label for="announcementDate" class="form-label">Date</label>
+                    <input type="date" class="form-control" id="announcementDate"required  name="date">
                   </div>
                   <div class="col-6">
                     <!--Time-->
-                    <label class="form-label">Time</label>
-                    <input type="time" class="form-control" name="time">
+                    <label for="announcementTime" class="form-label">Time</label>
+                    <input type="time" class="form-control" id="announcementTime" required name="time">
                   </div>
                 </div>
                 <div class="row mb-3">
                   <div class="col">
                     <!--Details-->
-                    <label class="form-label">Details</label>
-                    <textarea class="form-control" name="details" placeholder="Input text here..." rows="4"></textarea>
+                    <label for="announcementDetails" class="form-label">Details</label>
+                    <textarea class="form-control" name="details" id="announcementDetails" required placeholder="Input text here..." 
+                    rows="5" cols="90"></textarea>
                   </div>
                 </div>
                 <div class="addAnnouncementButton d-flex justify-content-end">
                   <!--Buttons-->
-                  <button class="btn btn-default" id="save" type="submit" value="save">Save</button>
-                  <button class="btn btn-default" id="cancel" type="reset" value="cancel">Cancel</button>
+                  <button class="btn btn-default" id="saveAnnouncement" type="submit" value="save">Save</button>
+                  <button class="btn btn-default" id="cancelAnnouncement" type="reset" value="cancel">Cancel</button>
                 </div>
               </form>
             </div>
@@ -85,51 +90,81 @@ $this->load->view('includes/adminSideBar');
         </div>
 
         <div class="table-responsive">
-          <table class="table table-default table-striped align-middle  table-borderless table-hover table-body" id="announcementTable">
+          <table class="table table-default table-striped align-middle table-borderless table-hover table-body"
+          aria-label="Announcements" id="announcementTable">
             <!--Table Body-->
             <thead>
               <tr>
-                <th>Title</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Details</th>
-                <th>Action</th>
+                <th scope="col">Title</th>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">Details</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
-              <?php foreach ($result as $row) { ?>
+              <?php foreach ($result as $row)
+              { ?>
                 <tr>
                   <td><?php echo $row->title; ?></td>
                   <td><?php echo date('m/d/Y', strtotime($row->date)) ?></td>
                   <td><?php echo date('h:i:s a', strtotime($row->time)) ?></td>
                   <td><?php echo $row->details; ?></td>
                   <td>
-                    <div class="action-buttons">
-                      <?php if ($row->status == 1) : ?>
-                        <li><button type="button" id="view" data-id='<?php echo $row->eaID; ?>' class="btn view_data" data-bs-toggle="modal" data-bs-target="#viewAnnouncement"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                        <li><button type="button" id="edit" data-id='<?php echo $row->eaID; ?>' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editAnnouncement"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-                        <li>
-                        <li><button type="button" class="btn" onclick="location.href='<?php if ($row->status == 1) {
-                                                                                        echo site_url('eventsController/deactivate');
-                                                                                      } else {
-                                                                                        echo site_url('eventsController/activate');
-                                                                                      } ?>/<?php echo $row->eaID; ?>'">
-                            Deactivate
-                          </button>
-                        </li>
-                      <?php else : ?>
-                        <li><button type="button" id="view" data-id='<?php echo $row->eaID; ?>' class="btn" disabled style="background-color: gray;"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                        <li><button type="button" id="edit" data-id='<?php echo $row->eaID; ?>' class="btn" disabled style="background-color: gray;"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
-                        <li>
-                        <li><button type="button" class="btn" id="status" onclick="location.href='<?php if ($row->status == 1) {
-                                                                                                    echo site_url('eventsController/deactivate');
-                                                                                                  } else {
-                                                                                                    echo site_url('eventsController/activate');
-                                                                                                  } ?>/<?php echo $row->eaID; ?>'">
-                            Activate
-                          </button>
-                        </li>
-                      <?php endif ?>
+                    <div class="action-buttons" id="actions">
+                      <ul>
+                        <?php if ($row->status == 1) : ?>
+                          <li>
+                            <button type="button" id="view" data-id='<?php echo $row->eaID; ?>'
+                            class="btn view_data" data-bs-toggle="modal" data-bs-target="#viewAnnouncement">
+                            <em class="fas fa-eye" data-bs-toggle="tooltip" title="View"></em>
+                            View</button>
+                          </li>
+                          <li>
+                            <button type="button" id="edit" data-id='<?php echo $row->eaID; ?>'
+                            class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editAnnouncement">
+                            <em class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></em>
+                            Edit</button>
+                          </li>
+                          <li>
+                          <li>
+                            <button type="button" class="btn" onclick="location.href='<?php if ($row->status == 1)
+                              {
+                                echo site_url('eventsController/deactivate');
+                              } 
+                              else{
+                                echo site_url('eventsController/activate');
+                              } ?>/<?php echo $row->eaID; ?>'">
+                                  Deactivate
+                            </button>
+                          </li>
+                        <?php else : ?>
+                          <li>
+                            <button type="button" id="view" data-id='<?php echo $row->eaID; ?>'
+                            class="btn" disabled style="background-color: gray;">
+                            <em class="fas fa-eye" data-bs-toggle="tooltip" title="View"></em>
+                            View</button>
+                          </li>
+                          <li>
+                            <button type="button" id="edit" data-id='<?php echo $row->eaID; ?>'
+                            class="btn" disabled style="background-color: gray;">
+                            <em class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></em>
+                            Edit</button>
+                          </li>
+                          <li>
+                          <li>
+                            <button type="button" class="btn" id="status" onclick="location.href='<?php if ($row->status == 1)
+                              {
+                                echo site_url('eventsController/deactivate');
+                              } 
+                              else{
+                                echo site_url('eventsController/activate');
+                                } ?>/<?php echo $row->eaID; ?>'">
+                                  Activate
+                            </button>
+                          </li>
+                        <?php endif ?>
+                      </ul>
                     </div>
                   </td>
                 </tr>
@@ -142,7 +177,8 @@ $this->load->view('includes/adminSideBar');
     </div>
 
     <!--View Announcement-->
-    <div class="modal fade" id="viewAnnouncement" tabindex="-1" aria-labelledby="viewAnnouncementHeader" aria-hidden="true">
+    <div class="modal fade" id="viewAnnouncement" tabindex="-1" aria-modal="true" 
+    aria-labelledby="viewAnnouncementHeader" aria-hidden="true">
       <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
@@ -153,8 +189,8 @@ $this->load->view('includes/adminSideBar');
             <div id="event_result">
 
             </div>
-            <div class="editAnnouncementButton d-flex justify-content-end">
-              <button class="btn btn-default" id="save" type="button" data-bs-dismiss="modal">Okay</button>
+            <div class="viewAnnouncementButton d-flex justify-content-end">
+              <button class="btn btn-default" id="okay" type="button" data-bs-dismiss="modal">Okay</button>
             </div>
           </div>
         </div>
@@ -162,7 +198,8 @@ $this->load->view('includes/adminSideBar');
     </div>
 
     <!--Edit Announcement-->
-    <div class="modal fade" id="editAnnouncement" tabindex="-1" aria-labelledby="editAnnouncementHeader" aria-hidden="true">
+    <div class="modal fade" id="editAnnouncement" tabindex="-1" aria-modal="true" 
+    aria-labelledby="editAnnouncementHeader" aria-hidden="true">
       <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
@@ -181,10 +218,17 @@ $this->load->view('includes/adminSideBar');
   </div>
   <div class="pt-1"> &nbsp;</div>
 </div>
+
 <!-- jQuery JS CDN -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script 
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+</script>
+
 <!-- jQuery DataTables JS CDN -->
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url('assets/js/dataTables.min.js'); ?>"></script>
+
 <!-- Ajax fetching data -->
 <script type="text/javascript">
   $(document).ready(function() {

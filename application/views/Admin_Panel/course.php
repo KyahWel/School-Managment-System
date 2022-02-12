@@ -4,9 +4,24 @@ $this->load->view('includes/adminSideBar');
 
 <head>
     <link href="<?php echo base_url('assets/css/course.css'); ?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url('assets/css/announcement.css'); ?>" rel="stylesheet" type="text/css">
     <title>Admin | Course</title>
 </head>
 <div class="height-100 pt-2 container-fluid">
+    <?php if ($this->session->flashdata('errorCourse')) : ?>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <?= $this->session->flashdata('errorCourse'); ?>
+                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+            </div>
+            <?php $this->session->unset_userdata ('errorCourse'); ?>
+        <?php elseif ($this->session->flashdata('successCourse')) : ?>
+            
+            <div class="alert alert-success alert-dismissible fade show">
+                <?= $this->session->flashdata('successCourse'); ?>
+                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+            </div>
+            <?php $this->session->unset_userdata ('successCourse'); ?>
+        <?php endif?>
     <div class=" my-3" id="mainCourse" style="display: block;">
         <div class="CourseTab my-3">
             <h3>Course</h3>
@@ -25,18 +40,18 @@ $this->load->view('includes/adminSideBar');
                             <form method="POST" action="<?php echo site_url('courseController/addcourse') ?>" id="addCourseForm">
                                 <div class="row mb-3">
                                     <div class="col-6">
-                                        <label class="form-label">Enter Degree: </label>
-                                        <input type="text" name="degree" class="form-control">
+                                        <label for="degree" class="form-label">Enter Degree: </label>
+                                        <input type="text" id="degree" name="degree" required class="form-control">
                                     </div>
                                     <div class="col-6">
-                                        <label class="form-label">Enter Major: </label>
-                                        <input type="text" name="major" class="form-control">
+                                        <label for="major" class="form-label">Enter Major: </label>
+                                        <input type="text" id="major" name="major" required class="form-control">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <div class="col-12 align-self-center my-3">
-                                        <label class="form-label">College: </label>
-                                        <select name="college" class="form-select" required id="collegeSelect">
+                                    <div class="col-12 align-self-center">
+                                        <label for="college" class="form-label">College: </label>
+                                        <select name="college" id="college" class="form-select" required id="collegeSelect">
                                             <option value="" disabled selected hidden>Please Select</option>
                                             <option value="College of Science">College of Science</option>
                                             <option value="College of Engineering">College of Engineering</option>
@@ -47,8 +62,8 @@ $this->load->view('includes/adminSideBar');
                                     </div>
                                 </div>
                                 <div class="addCourseButton d-flex justify-content-end">
-                                    <button class="btn btn-default" id="save" type="submit" value="save">Save</button>
-                                    <button class="btn btn-default" id="cancel" type="reset" value="cancel">Cancel</button>
+                                    <button class="btn btn-default" id="saveCourse" type="submit" value="save">Save</button>
+                                    <button class="btn btn-default" id="cancelCourse" type="reset" value="cancel">Cancel</button>
                                 </div>
                             </form>
                         </div>
@@ -68,13 +83,13 @@ $this->load->view('includes/adminSideBar');
                     </div>
                 </div>
                 <div class="table-responsive py-2">
-                    <table class="table table-default align-middle table-striped table-borderless table-hover table-body" id="table-body">
+                    <table class="table table-default align-middle table-striped table-borderless table-hover table-body" aria-label="courseList" id="table-body">
                         <thead>
                             <tr>
-                                <th class="pb-3">Degree</th>
-                                <th class="pb-3">Major</th>
-                                <th class="pb-3">College</th>
-                                <th class="pb-3">Action</th>
+                                <th scope="col" class="pb-3">Degree</th>
+                                <th scope="col" class="pb-3">Major</th>
+                                <th scope="col" class="pb-3">College</th>
+                                <th scope="col" class="pb-3">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -85,9 +100,10 @@ $this->load->view('includes/adminSideBar');
                                     <td><?php echo $courserow->college ?></td>
                                     <td>
                                         <div class="action-buttons">
+                                        <ul>
                                             <?php if ($courserow->courseStatus == 1) : ?>
-                                                <li><button type="button" id="view" data-id='<?php echo $courserow->courseID; ?>' class="btn view_data viewsubject_data" data-bs-toggle="modal" data-bs-target="#viewCourse"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                                <li><button type="button" id="edit" data-id='<?php echo $courserow->courseID; ?>' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editCourse"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
+                                                <li><button type="button" id="view" data-id='<?php echo $courserow->courseID; ?>' class="btn view_data viewsubject_data" data-bs-toggle="modal" data-bs-target="#viewCourse"><em class="fas fa-eye" data-bs-toggle="tooltip" title="View"></em> View</button></li>
+                                                <li><button type="button" id="edit" data-id='<?php echo $courserow->courseID; ?>' class="btn edit_data" data-bs-toggle="modal" data-bs-target="#editCourse"><em class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></em> Edit</button></li>
                                                 <li>
                                                 <li><button type="button" class="btn" id="status" onclick="location.href='<?php if ($courserow->courseStatus == 1) {
                                                                                                                                 echo site_url('courseController/deactivate');
@@ -98,8 +114,8 @@ $this->load->view('includes/adminSideBar');
                                                     </button>
                                                 </li>
                                             <?php else : ?>
-                                                <li><button type="button" id="view" data-id='<?php echo $courserow->courseID; ?>' class="btn" disabled style="background-color: gray;"> <i class="fas fa-eye" data-bs-toggle="tooltip" title="View"></i> View</button></li>
-                                                <li><button type="button" id="edit" data-id='<?php echo $courserow->courseID; ?>' class="btn" disabled style="background-color: gray;"><i class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></i> Edit</button></li>
+                                                <li><button type="button" id="view" data-id='<?php echo $courserow->courseID; ?>' class="btn" disabled style="background-color: gray;"><em class="fas fa-eye" data-bs-toggle="tooltip" title="View"></em> View</button></li>
+                                                <li><button type="button" id="edit" data-id='<?php echo $courserow->courseID; ?>' class="btn" disabled style="background-color: gray;"><em class="fas fa-pen" data-bs-toggle="tooltip" title="Edit"></em> Edit</button></li>
                                                 <li>
                                                 <li><button type="button" id="status" class="btn" onclick="location.href='<?php if ($courserow->courseStatus == 1) {
                                                                                                                                 echo site_url('courseController/deactivate');
@@ -110,6 +126,7 @@ $this->load->view('includes/adminSideBar');
                                                     </button>
                                                 </li>
                                             <?php endif ?>
+                                        </ul>
                                         </div>
                                     </td>
                                 </tr>
@@ -122,8 +139,8 @@ $this->load->view('includes/adminSideBar');
         </div>
 
         <!--Course View-->
-        <div class="modal fade" id="viewCourse" tabindex="-1" aria-labelledby="viewCourseHeader" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal fade" id="viewCourse" tabindex="-1" aria-modal="true" aria-labelledby="viewCourseHeader" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="viewCourseHeader">View Course</h5>
@@ -143,7 +160,7 @@ $this->load->view('includes/adminSideBar');
         </div>
 
         <!--Edit Course-->
-        <div class="modal fade" id="editCourse" tabindex="-1" aria-labelledby="editCourseHeader" aria-hidden="true">
+        <div class="modal fade" id="editCourse" tabindex="-1" aria-modal="true" aria-labelledby="editCourseHeader" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -165,7 +182,7 @@ $this->load->view('includes/adminSideBar');
 <!-- jQuery JS CDN -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- jQuery DataTables JS CDN -->
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url('assets/js/dataTables.min.js'); ?>"></script>
 <!-- Ajax fetching data -->
 <script type="text/javascript">
     $(document).ready(function() {

@@ -98,6 +98,10 @@ textarea:focus, input:focus{
 }
 
 /* Action Button */
+ul {
+    margin: 0px;
+    padding: 0px;
+}
 #table-body tbody .action-buttons li{
     list-style-type: none;
     display: inline-block;
@@ -124,6 +128,9 @@ textarea:focus, input:focus{
 }
 #table-body tbody .action-buttons li button:focus{
     box-shadow: none;
+}
+#viewStudentInformation td{
+    max-width: 100%;
 }
 
 /* Back Button */

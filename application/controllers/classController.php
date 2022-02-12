@@ -1,10 +1,10 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') || exit('No direct script access allowed');
 
-class classController extends CI_Controller {
+class classController extends CI_Controller
+{
 
-	public function __construct()
-	{
+	public function __construct(){
 		parent::__construct();
 		$this->load->model('subjectModel');
 		$this->load->model('classModel');
@@ -12,7 +12,8 @@ class classController extends CI_Controller {
 		$this->load->model('teacherModel');
 	}
 
-	public function addClass(){
+	public function addClass()
+	{
 		if(isset($_POST['courseID']) && isset($_POST['yearlevel']) && isset($_POST['semester'])&& isset($_POST['classcode']) && isset($_POST['subjectID'])){
 			$subjectID = $this->input->post('subjectID');
 			$timeFrom = $this->input->post('timeFrom');
@@ -20,20 +21,21 @@ class classController extends CI_Controller {
 			$day = $this->input->post('day');
 			$room = $this->input->post('room');
 			$check = $this->classModel->checkExist();
-			if($check==NULL){
+			if($check==0){
 				for($i=0;$i<sizeof($subjectID);$i++){
 					$this->classModel->insertData($subjectID[$i],$timeFrom[$i],$timeTo[$i],$day[$i],$room[$i]);
+					$this->session->set_flashdata('successClass','Successfully added class'); 
 				}
 				redirect('Admin/class');
 			}
 			else{
-				$this->session->set_flashdata('adminError','Error Adding Class: Class Code already exists'); 
-				redirect('Admin/dashboard');
+				$this->session->set_flashdata('errorClass','Error Adding Class: Class Code already exists'); 
+				redirect('Admin/class');
 			}
 		}
 		else{
-			$this->session->set_flashdata('adminError','Error Adding Class: Subjects not loaded properly'); 
-			redirect('Admin/dashboard');
+			$this->session->set_flashdata('errorClass','Error Adding Class: Subjects not loaded properly'); 
+			redirect('Admin/class');
 		}
 	}
 	
@@ -48,11 +50,12 @@ class classController extends CI_Controller {
 			$output.='
 				<div class="row mb-3">
 					<div class="col-sm-3">
-						<input type="text" class="form-control" readonly required value="'.$records[$i]['name'].'">
-						<input type="text" class="form-control" hidden name="subjectID[]" readonly required value="'.$records[$i]['subjectID'].'">
-					</div>		
+						<input type="text" class="form-control mb-2" readonly required value="'.$records[$i]['name'].'">
+						<input type="text" class="form-control mb-2" hidden name="subjectID[]" readonly required
+						value="'.$records[$i]['subjectID'].'">
+					</div>
 					<div class="col-sm-3"> <!-- Day -->
-						<select name="day[]" class="form-select" required>
+						<select name="day[]" class="form-select mb-2" required>
 							<option value="" disabled selected hidden>Day</option>
 							<option value="Monday">Monday</option>
 							<option value="Tuesday">Tuesday</option>
@@ -64,13 +67,13 @@ class classController extends CI_Controller {
 						</select>
 					</div>
 					<div class="col-sm-2" id="from-time"> <!-- Time from -->
-						<input type="time" class="form-control" name="timeFrom[]" required>
+						<input type="time" class="form-control mb-2" name="timeFrom[]" required>
 					</div>
 					<div class="col-sm-2" id="to-time"> <!--Time to -->
-						<input type="time" class="form-control" name="timeTo[]" required>
+						<input type="time" class="form-control mb-2" name="timeTo[]" required>
 					</div>
 					<div class="col-sm-2" id="time"> <!-- Room No -->
-						<input type="text" class="form-control" name="room[]" placeholder="Room" required>
+						<input type="text" class="form-control mb-2" name="room[]" placeholder="Room" required>
 					</div>
 				</div>';
 				
@@ -79,7 +82,8 @@ class classController extends CI_Controller {
 		}
 	}
 	
-	public function viewClass(){
+	public function viewClass()
+	{
 		$classData = $this->input->post('classcode');
         $records = $this->classModel->getData($classData);
 		$output = '
@@ -102,42 +106,43 @@ class classController extends CI_Controller {
 					<label class="form-label">Semester</label>
 					<input type="text" class="form-control" value="'.$records[0]['semester'].'"  readonly>
 				</div>
-			</div> 
+			</div>
 			
 			<hr class="mx-0 my-4">
 			
 			<label class="form-label"><b>Subjects</b></label>';
-			for ($i=0; $i<count($records); $i++){	
+			for ($i=0; $i<count($records); $i++)
+			{
 				$output.='
 						<div class="row mb-3"> <!--Subject-->
-							<div class="col-sm-3">
-								<input type="text" class="form-control" value="'.$records[$i]['name'].'" readonly>
+							<div class="col-sm-3 col-md-12 col-lg-3">
+								<input type="text" class="form-control mb-2" value="'.$records[$i]['name'].'" readonly>
 							</div>';
 				if($records[$i]['teacherID']==NULL){
 					$output.='
-							<div class="col-sm-3">
-								<input type="text" class="form-control" value="" readonly>  
+							<div class="col-sm-3 col-md-12 col-lg-3">
+								<input type="text" class="form-control mb-2" value="" readonly>  
 							</div>';
 				}
 				else{
 					$output.='
-							<div class="col-sm-3">
-								<input type="text" class="form-control" value="'.$records[$i]['firstname'].' '.$records[$i]['lastname'].'" readonly>  
+							<div class="col-sm-3 col-md-12 col-lg-3">
+								<input type="text" class="form-control mb-2" value="'.$records[$i]['firstname'].' '.$records[$i]['lastname'].'" readonly>  
 							</div>';
 				}
 				
 				$output.='
-							<div class="col-sm-2">
-								<input type="text" class="form-control" value="'.$records[$i]['day'].'" readonly>
+							<div class="col-sm-2 col-md-12 col-lg-2">
+								<input type="text" class="form-control mb-2" value="'.$records[$i]['day'].'" readonly>
 							</div>
-							<div class="col-sm-1" id="start-time">
-								<input type="text" class="form-control" value="'.date('h:i:s a', strtotime($records[$i]['start_time'])).'" readonly>
+							<div class="col-sm-1 col-md-12 col-lg-1" id="start-time">
+								<input type="text" class="form-control mb-2" value="'.date('h:i:s a', strtotime($records[$i]['start_time'])).'" readonly>
 							</div>
-							<div class="col-sm-1" id="end-time">
-								<input type="text" class="form-control" value="'.date('h:i:s a', strtotime($records[$i]['end_time'])).'" readonly>
+							<div class="col-sm-1 col-md-12 col-lg-1" id="end-time">
+								<input type="text" class="form-control mb-2" value="'.date('h:i:s a', strtotime($records[$i]['end_time'])).'" readonly>
 							</div>
-							<div class="col-sm-2" id="time">
-								<input type="text" class="form-control" value="'.$records[$i]['room_no'].'" readonly>
+							<div class="col-sm-2 col-md-12 col-lg-2" id="time">
+								<input type="text" class="form-control mb-2" value="'.$records[$i]['room_no'].'" readonly>
 							</div>
 						</div>
 				';
@@ -181,12 +186,12 @@ class classController extends CI_Controller {
 			for ($i=0; $i<count($records); $i++){	
 				$output.='
 			<div class="row mb-3"> <!--Subject-->
-				<div class="col-sm-3">	
-					<input type="text" class="form-control" readonly required value="'.$records[$i]['name'].'">
-					<input type="text" class="form-control" hidden name="subjectID[]" readonly required value="'.$records[$i]['subjectID'].'">
+				<div class="col-sm-3 col-md-12 col-lg-3">	
+					<input type="text" class="form-control mb-2" readonly required value="'.$records[$i]['name'].'">
+					<input type="text" class="form-control mb-2" hidden name="subjectID[]" readonly required value="'.$records[$i]['subjectID'].'">
 				</div>	
-				<div class="col-sm-3"> <!-- Professor -->
-					<select name="profID[]" class="form-select">';
+				<div class="col-sm-3 col-md-12 col-lg-3"> <!-- Professor -->
+					<select name="profID[]" class="form-select mb-2">';
 						if($records[$i]['teacherID']==NULL){
 							$output.=' <option value="NULL" disabled selected hidden>Select Professor</option>';
 						}
@@ -200,8 +205,8 @@ class classController extends CI_Controller {
 						$output.='
 					</select>
 				</div>
-				<div class="col-sm-2"> <!-- Day -->
-					<select name="day[]" class="form-select">
+				<div class="col-sm-2 col-md-12 col-lg-2"> <!-- Day -->
+					<select name="day[]" class="form-select mb-2">
 						<option value="'.$records[$i]['day'].'" selected hidden>'.$records[$i]['day'].'</option>
 						<option value="Monday">Monday</option>
 						<option value="Tuesday">Tuesday</option>
@@ -212,14 +217,14 @@ class classController extends CI_Controller {
 						<option value="Sunday">Sunday</option>
 					</select>
 				</div>
-				<div class="col-sm-1" id="time"> <!-- Time from -->
-					<input type="time" class="form-control" name="timeFrom[]" value='.$records[$i]['start_time'].'>
+				<div class="col-sm-1 col-md-12 col-lg-1" id="time"> <!-- Time from -->
+					<input type="time" class="form-control mb-2" name="timeFrom[]" value='.$records[$i]['start_time'].'>
 				</div>
-				<div class="col-sm-1" id="time"> <!--Time to -->
-					<input type="time" class="form-control" name="timeTo[]" value='.$records[$i]['end_time'].'>
+				<div class="col-sm-1 col-md-12 col-lg-1" id="time"> <!--Time to -->
+					<input type="time" class="form-control mb-2" name="timeTo[]" value='.$records[$i]['end_time'].'>
 				</div>
-				<div class="col-sm-2" id="time"> <!-- Room No -->
-					<input type="text" class="form-control" name="room[]" value="'.$records[$i]['room_no'].'" required>
+				<div class="col-sm-2 col-md-12 col-lg-2" id="time"> <!-- Room No -->
+					<input type="text" class="form-control mb-2" name="room[]" value="'.$records[$i]['room_no'].'" required>
 				</div>
 			</div>';
 		}

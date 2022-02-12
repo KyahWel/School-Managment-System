@@ -138,11 +138,11 @@ div#viewEnrollmenttButton.tab-pane.active::before {
 #applicantTabContent #table-bodyAppl td,
 #scheduleTabContent #table-bodySched td {
     font-weight: 200;
-    max-width: 200px;
+    max-width: 400px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    line-height: 26px;
+  
 }
 
 #enrollmentTabContent #table-bodyEnroll tr,
@@ -220,17 +220,34 @@ div#viewEnrollmenttButton.tab-pane.active::before {
     letter-spacing: 1.5px;
     font-weight: 500;
 }
-
-.modal-footer button.btn-primary {
-    background: #a94c4c;
-    border: none;
-    opacity: 0.9;
+.modal-footer button.btn-default {
+    background: maroon;
+    border: 1px solid maroon;
+    font-size: 0.8rem;
+    color: white;
 }
 
-.modal-footer button.btn-primary:hover {
+.modal-footer button.btn-default:hover {
+    background: rgb(174, 0, 0);
+    border: 1px solid maroon;
+    color: white;
+}
+.modal-footer button.btn-secondary{
+    font-size: 0.8rem;
+    background-color: #8f8d8d;
+}
+.modal-footer button.btn-secondary:hover{
     opacity: 1;
+    background: none;
+    border: 1px solid #7b7b7b;
+    color: black;
 }
 
+.modal-footer button.btn-secondary:focus, .modal-footer button.btn-default:focus{
+    outline: none;
+    box-shadow: none;
+    border: 1px solid maroon;
+}
 span.confirmTitle {
     font-size: 1.5rem;
     letter-spacing: 1px;
@@ -242,7 +259,10 @@ span.confirmTitle {
 }
 
 .tabDetails h6.step {
-    color: maroon;
+    background-color: #f4f4f4;
+    border:1px solid #d8e3eb;
+    max-width: fit-content;
+    border-radius: 5px;
 }
 
 
@@ -256,7 +276,8 @@ span.confirmTitle {
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
+    overflow: hidden;
+    overflow: -moz-hidden-unscrollable;
     background-color: rgba(0, 0, 0, 0.9);
 }
 
@@ -266,12 +287,12 @@ hr {
 
 .modal-Requirementscontent {
     position: relative;
-    margin: 0 auto;
+    margin: auto;
     padding: 0;
-    max-width: 700px;
-    max-height: 700px;
     padding-left: 1rem;
     padding-right: 1rem;
+    max-width:fit-content;
+    height: 100%;
     -webkit-animation-name: zoom;
     -webkit-animation-duration: 0.6s;
     -moz-animation-name: zoom;
@@ -312,8 +333,8 @@ hr {
 
 /* Next & previous buttons */
 
-.prev,
-.next {
+.modal-Requirementscontent .prev,
+.modal-Requirementscontent .next {
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -510,12 +531,12 @@ img.hover-shadow {
  
 }
 
+
 .table-body td, #table-bodySched td{
     max-width: 200px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    line-height: 32px;
 }
 
 #table-bodySched tbody .action-buttons {
@@ -557,6 +578,57 @@ img.hover-shadow {
     box-shadow: none;
 }
 
-img.bugfix{
-    max-width: 500px;
+.table-wrapper-2 .bugfix {
+    max-width: 32vw;
+    margin-bottom: 2rem;
+    
+}
+
+.wrap {
+    background-color: white;
+    border-radius: 0.5rem;
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .table-wrapper-2 .bugfix {
+        max-width: 45vw;
+    }
+    body{
+        overflow:visible;
+    }
+}
+
+.prev, .next {
+    position: unset;
+}
+
+#viewApplicantDetails{
+    font-size: 1rem;
+}
+
+
+#viewApplicantDetails .enrollmentDetails p{
+    padding-bottom: 8px;
 }
