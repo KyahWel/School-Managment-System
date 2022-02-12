@@ -20,16 +20,10 @@ $this->load->view('includes/studentSideBar');
             <table id="viewStudentInformation" class="table-body" aria-describedby="Students Info">
                 <tr>
                     <td class="px-3 pt-2">
-<<<<<<< Updated upstream
                         <p><b>Name:</b></p>
                         <p><b>Username:</b></p>
                         <p><b>Email:</b></p>
                         <p><b>Course:</b></p>
-=======
-                        <p><strong>Username:</strong></p>
-                        <p><strong>Email:</strong></p>
-                        <p><strong>Course:</strong></p>
->>>>>>> Stashed changes
 
                     </td>
                     <td class="pt-2 px-2">
