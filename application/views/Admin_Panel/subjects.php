@@ -54,7 +54,21 @@ $this->load->view('includes/adminSideBar');
         }
     </style>
 </head>
-<div class="height-100 pt-2 container-fluid">
+<div class="height-100 pt-2 container-fluid">   
+    <?php if ($this->session->flashdata('errorSubject')) : ?>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <?= $this->session->flashdata('errorSubject'); ?>
+                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+            </div>
+            <?php $this->session->unset_userdata ('errorSubject'); ?>
+
+        <?php elseif ($this->session->flashdata('successSubject')) : ?> 
+            <div class="alert alert-success alert-dismissible fade show">
+                <?= $this->session->flashdata('successSubject'); ?>
+                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+            </div>
+            <?php $this->session->unset_userdata ('successSubject'); ?>
+        <?php endif?>
     <div class="my-3">
         <div class="CourseTab my-3">
             <h4 class="fw-bold">Subject</h4>
@@ -79,7 +93,7 @@ $this->load->view('includes/adminSideBar');
                                         <select name="courseID" class="form-select " aria-labelledby="Course" required>
                                             <option value="" disabled selected hidden>Please Select</option>
                                             <?php foreach ($course as $courserow) { ?>
-                                                <option value="<?php echo $courserow->courseID ?>"><?php echo $courserow->degree ?> <?php echo $courserow->major ?></option>
+                                                <option value="<?php echo $courserow->courseID ?>"><?php echo $courserow->degree ?> in <?php echo $courserow->major ?></option>
                                             <?php } ?>
                                         </select>
                                     </div>
@@ -243,7 +257,7 @@ $this->load->view('includes/adminSideBar');
 <!-- jQuery JS CDN -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- jQuery DataTables JS CDN -->
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url('assets/js/dataTables.min.js'); ?>"></script>
 <!-- Ajax fetching data -->
 <script type="text/javascript">
     $(document).ready(function() {

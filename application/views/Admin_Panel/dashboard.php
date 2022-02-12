@@ -14,7 +14,7 @@ $this->load->view('includes/adminSideBar');
 
       <?php if ($this->session->flashdata('logoutAdmin')) : ?>
          <div class="alert alert-danger alert-dismissible fade show">
-            <?= $this->session->flashdata('logout'); ?>
+            <?= $this->session->flashdata('logoutAdmin'); ?>
             <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
          </div>
          <?php $this->session->unset_userdata('logoutAdmin'); ?>
@@ -207,7 +207,7 @@ $this->load->view('includes/adminSideBar');
             crossorigin="anonymous">
    </script>
    <!-- jQuery DataTables JS CDN -->
-   <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+   <script src="<?php echo base_url('assets/js/dataTables.min.js'); ?>"></script>
 
    <!-- Ajax fetching data -->
    <script type="text/javascript">

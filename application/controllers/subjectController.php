@@ -15,6 +15,7 @@ class subjectController extends CI_Controller {
 	{
 		if(isset($_POST['courseID']) && isset($_POST['subjectCode']) && isset($_POST['college']) && isset($_POST['yearlevel']) && isset($_POST['name']) && isset($_POST['units'])){
 			$this->subjectModel->insertData();
+			$this->session->set_flashdata('successSubject','Successfully added subject');
 			redirect('Admin/subject');
 		}
 	}
@@ -60,7 +61,7 @@ class subjectController extends CI_Controller {
 						<label class="form-label">Select Course: </label>
 					</div>
 					<div class="col-lg-10 col-md-10 col-sm-12 ">
-						<input type="text" name="courseID" class="form-control" value="'.$records->degree.' '.$records->major.'" readonly>
+						<input type="text" name="courseID" class="form-control" value="'.$records->degree.' in '.$records->major.'" readonly>
 					</div>
 				</div>
 				<div class="row mb-3 py-1">
@@ -115,6 +116,7 @@ class subjectController extends CI_Controller {
 	public function updatesubject($id)
 	{	
 		$this->subjectModel->updateData($id);
+		$this->session->set_flashdata('successSubject','Successfully edited subject');
 		redirect('Admin/subject');
 	}
 

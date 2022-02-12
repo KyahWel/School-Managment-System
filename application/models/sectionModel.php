@@ -12,7 +12,7 @@ class sectionModel extends CI_Model {
 		$this->db->from('section_table');
 		$this->db->where('sectionName',$_POST['sectionName']);
 		$query=$this->db->get();	
-		if($query->num_rows()==0){
+		if($query->num_rows()<=0){
 			$data = array(
 				'sectionID' => NULL,
 				'sectionName' => $_POST['sectionName'],
@@ -32,10 +32,10 @@ class sectionModel extends CI_Model {
 			$this->db->where('class_code',$query->class_code);
 			$this->db->update('class',$classdata);
 			unset($_POST);
-			$this->session->set_flashdata('successAdmin','Added section successfully'); 
+			$this->session->set_flashdata('successSection','Added section successfully'); 
 		
 		}else{
-			$this->session->set_flashdata('adminError','Section already exists'); 
+			$this->session->set_flashdata('errorSection','Section already exists'); 
 			redirect('Admin/section');
 		}
 	}
@@ -91,13 +91,13 @@ class sectionModel extends CI_Model {
 
 	public function viewSectionList($courseID,$yearlevel) #Read
 	{
-		$query = $this->db->query('SELECT * FROM section_table WHERE courseID ='.$courseID.' AND yearlevel ='.$yearlevel );
+		$query = $this->db->query('SELECT * FROM section_table WHERE courseID ='.$courseID.' AND yearlevelClass ='.$yearlevel );
 		return $query->result_array();
 	}
 
 	public function yearlevelBasedSection($id) #Read
 	{
-		$query = $this->db->query('SELECT * FROM section_table WHERE yearlevel ='.$id );
+		$query = $this->db->query('SELECT * FROM section_table WHERE yearlevelClass ='.$id );
 		return $query->result_array();
 	}
 

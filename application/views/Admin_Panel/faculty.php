@@ -11,19 +11,19 @@ $this->load->view('includes/adminSideBar');
 
     <!-- Faculty Main Page -->
     <div class="my-3" id="mainFaculty" style="display: block;">
-        <?php if ($this->session->flashdata('adminError')) : ?>
+        <?php if ($this->session->flashdata('errorAddingFaculty')) : ?>
             <div class="alert alert-danger alert-dismissible fade show">
-                <?= $this->session->flashdata('adminError'); ?>
+                <?= $this->session->flashdata('errorAddingFaculty'); ?>
                 <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
             </div>
-            <?php $this->session->unset_userdata ('adminError'); ?>
-        <?php elseif ($this->session->flashdata('successAdmin')) : ?>
+            <?php $this->session->unset_userdata ('errorAddingFaculty'); ?>
+        <?php elseif ($this->session->flashdata('successAddingFaculty')) : ?>
             
             <div class="alert alert-success alert-dismissible fade show">
-                <?= $this->session->flashdata('successAdmin'); ?>
+                <?= $this->session->flashdata('successAddingFaculty'); ?>
                 <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
             </div>
-            <?php $this->session->unset_userdata ('successAdmin'); ?>
+            <?php $this->session->unset_userdata ('successAddingFaculty'); ?>
         <?php endif?>
         <!-- Faculty Tab -->
         <div class="FacultyTab my-3">
@@ -210,7 +210,7 @@ $this->load->view('includes/adminSideBar');
 <!-- jQuery JS CDN -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- jQuery DataTables JS CDN -->
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url('assets/js/dataTables.min.js'); ?>"></script>
 <!-- Ajax fetching data -->
 <script type="text/javascript">
     $(document).ready(function() {

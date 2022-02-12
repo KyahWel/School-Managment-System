@@ -21,7 +21,7 @@ class classController extends CI_Controller
 			$day = $this->input->post('day');
 			$room = $this->input->post('room');
 			$check = $this->classModel->checkExist();
-			if($check==NULL){
+			if($check==0){
 				for($i=0;$i<sizeof($subjectID);$i++){
 					$this->classModel->insertData($subjectID[$i],$timeFrom[$i],$timeTo[$i],$day[$i],$room[$i]);
 					$this->session->set_flashdata('successClass','Successfully added class'); 

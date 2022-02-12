@@ -222,7 +222,7 @@ $this->load->view('includes/adminSideBar');
 									<tr>
 										<td><?php echo $applicantrow->applicantNumber ?></td>
 										<td><?php echo $applicantrow->firstname ?> <?php echo $applicantrow->lastname ?></td>
-										<td><?php echo $applicantrow->degree ?><?php echo $applicantrow->major ?></td>
+										<td><?php echo $applicantrow->degree ?> in <?php echo $applicantrow->major ?></td>
 										<td><?php echo $applicantrow->applicant_result ?></td>
 										<td>
 											<button type="button" onclick="applicantDetails()" 
@@ -424,7 +424,7 @@ $this->load->view('includes/adminSideBar');
 </script>
 
 <!-- jQuery DataTables JS CDN -->
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url('assets/js/dataTables.min.js'); ?>"></script>
 
 <!-- Ajax fetching data -->
 <script type="text/javascript">

@@ -11,11 +11,12 @@ class Admin_Main extends CI_Controller
 		$this->load->model('eventsModel');
 	}
 	public function addAdmin() {
-		if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['firstname']) && isset($_POST['lastname']))
+		if (isset($_POST['username']) && isset($_POST['password']))
 		{
 			$this->AdminModel->insertData();
 		}
 	}
+
 	public function viewAdmin() {
 		$adminData = $this->input->post('adminData');
         $records = $this->AdminModel->getData($adminData);
@@ -209,7 +210,7 @@ class Admin_Main extends CI_Controller
 
 	public function updateAdmin($id) {
 		$data['row'] = $this->AdminModel->updateData($id);
-		redirect("Admin/admin");
+		
 	}
 
 	public function deactivate($id) {

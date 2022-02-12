@@ -23,7 +23,7 @@
 						<p class="mb-0"><b>Schedule:</b></p>
 					</td>
 					<td class="text-uppercase">
-						<p><?php echo $section->degree?> <?php echo $section->major?></p>
+						<p><?php echo $section->degree?> in <?php echo $section->major?></p>
 						<p><?php echo $section->subjectCode?></p>
 						<p><?php echo $section->name?></p>
 						<p class="mb-0">
@@ -169,7 +169,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"
 	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- jQuery DataTables JS CDN -->
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url('assets/js/dataTables.min.js'); ?>"></script>
 <!-- Ajax fetching data -->
 <script type="text/javascript">
 	$(document).ready(function () {

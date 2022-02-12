@@ -124,7 +124,7 @@ class FacultyControllerFunctions extends CI_Controller
 								<td>'.$recordsSched->schoolyear.'</td>
 								<td>'.$recordsSched->yearlevel.'</td>
 								<td>'.$recordsSched->semester.'</td>
-								<td>'.$recordsSched->major.''.$recordsSched->degree.'</td>
+								<td>'.$recordsSched->degree.' in '.$recordsSched->major.'</td>
 								<td>'.$recordsSched->subjectCode.'</td>
 								<td>'.$recordsSched->name.'</td>
 							</tr>';
@@ -160,7 +160,7 @@ class FacultyControllerFunctions extends CI_Controller
 											<td>'.$sectionSched->schoolyear.'</td>
 											<td>'.$sectionSched->yearlevel.'</td>
 											<td>'.$sectionSched->semester.'</td>
-											<td>'.$sectionSched->major.''.$sectionSched->degree.'</td>
+											<td>'.$recordsSched->degree.' in '.$recordsSched->major.'</td>
 											<td>'.$sectionSched->sectionName.'</td>
 											<td>'.$sectionSched->subjectCode.'</td>
 											<td>'.$sectionSched->name.'</td>

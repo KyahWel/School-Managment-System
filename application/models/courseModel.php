@@ -9,16 +9,27 @@ class courseModel extends CI_Model {
 
 	public function insertData()
 	{	
-	
-		$data = array(
-			'courseID' => NULL,
-			'degree' => $_POST['degree'],
-			'major' => $_POST['major'],
-			'college' => $_POST['college'],
-			'courseStatus' => 1
-		);
-		$this->db->insert('course_table',$data);
-		unset($_POST);
+		$this->db->select('*');
+		$this->db->from('course_table');
+		$this->db->where('degree',$_POST['degree']);
+		$this->db->where('major',$_POST['major']);
+		$query=$this->db->get();
+		if($query->num_rows()<=0){
+			$data = array(
+				'courseID' => NULL,
+				'degree' => $_POST['degree'],
+				'major' => $_POST['major'],
+				'college' => $_POST['college'],
+				'courseStatus' => 1
+			);
+			$this->db->insert('course_table',$data);
+			$this->session->set_flashdata('successCourse','Added Course successfully'); 
+			unset($_POST);
+		}
+		else{
+			$this->session->set_flashdata('errorCourse','Error: Course already exists'); 
+		}
+		redirect('Admin/course');
 	}
 
 	public function viewData()
@@ -48,6 +59,8 @@ class courseModel extends CI_Model {
 		);
 		$this->db->where('courseID',$id);
 		$this->db->update('course_table',$data);
+		$this->session->set_flashdata('successCourse','Updated Course successfully'); 
+		redirect('Admin/course');
 	}
 
 	public function deactivateData($id){

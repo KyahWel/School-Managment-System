@@ -15,6 +15,9 @@ class classModel extends CI_Model {
 		if($query->num_rows()>0){
 			return NULL;
 		}
+		else{
+			return 0;
+		}
 	}
 
 	public function insertData($subjectID,$timeFrom,$timeTo,$day,$room)
@@ -31,7 +34,7 @@ class classModel extends CI_Model {
 				'courseID' => $_POST['courseID'],
 				'yearlevelClass' => $_POST['yearlevel'],
 				'isTaken' => 0,
-				'status' => 1
+				'statusClass' => 1
 			);
 			$this->db->insert('class',$data);
 		
@@ -108,7 +111,7 @@ class classModel extends CI_Model {
 
 	public function deactivateData($classcode){
 		$data = array(
-			'status' => 0
+			'statusClass' => 0
 		);
 		$this->db->where('class_code',$classcode);
 		$this->db->update('class',$data);
@@ -116,7 +119,7 @@ class classModel extends CI_Model {
 
 	public function reactivateData($classcode){
 		$data = array(
-			'status' => 1
+			'statusClass' => 1
 		);
 		$this->db->where('class_code',$classcode);
 		$this->db->update('class',$data);

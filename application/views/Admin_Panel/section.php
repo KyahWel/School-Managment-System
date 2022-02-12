@@ -8,7 +8,20 @@ $this->load->view('includes/adminSideBar');
 </head>
 
 <div class="height-100 pt-2 container-fluid">
-
+	<?php if ($this->session->flashdata('errorSection')) : ?>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <?= $this->session->flashdata('errorSection'); ?>
+                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+            </div>
+            <?php $this->session->unset_userdata ('errorSection'); ?>
+        <?php elseif ($this->session->flashdata('successSection')) : ?>
+            
+            <div class="alert alert-success alert-dismissible fade show">
+                <?= $this->session->flashdata('successSection'); ?>
+                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+            </div>
+            <?php $this->session->unset_userdata ('successSection'); ?>
+        <?php endif?>
 	<div class="my-3">
 
 		<!-- Section Tab -->
@@ -125,7 +138,7 @@ $this->load->view('includes/adminSideBar');
 												<option value="" disabled selected hidden></option>
 												<?php foreach ($course as $courserow) { ?>
 													<option value="<?php echo $courserow->courseID ?>">
-														<?php echo $courserow->degree ?>
+														<?php echo $courserow->degree ?> in
 														<?php echo $courserow->major ?></option>
 												<?php } ?>
 											</select>
@@ -216,7 +229,7 @@ $this->load->view('includes/adminSideBar');
 <script src="<?php echo base_url('assets/js/bootstrap.bundle.min.js'); ?>"></script>
 
 <!-- jQuery DataTables JS CDN -->
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url('assets/js/dataTables.min.js'); ?>"></script>
 <!-- Ajax fetching data -->
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -324,6 +337,22 @@ $this->load->view('includes/adminSideBar');
 					}
 				});
 
+		});
+
+
+		$("#edit").click(function() {
+			var sectionID = $("#section").val();
+			console.log(sectionID);
+			$.ajax({
+				url: "<?php echo site_url('sectionController/viewSection'); ?>",
+				method: "POST",
+				data: {
+					sectionID: sectionID
+				},
+				success: function(data) {
+					$('#edit_section').html(data);
+				}
+			});
 		});
 
 		$('#sectionTable').DataTable({

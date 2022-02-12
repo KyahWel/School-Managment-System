@@ -12,9 +12,7 @@ class ExamController extends CI_Controller {
 
 	public function addExam()
 	{
-		$this->load->view('/examCRUD/addexam');
-
-		if(isset($_POST['date']) && isset($_POST['time']) && isset($_POST['building']) && isset($_POST['room_no']) && isset($_POST['floor_no'])){
+		if(isset($_POST['date']) && isset($_POST['time'])){
 			$this->examModel->insertData();
 			redirect('Admin/admission');
 		}

@@ -33,7 +33,7 @@ $this->load->view('includes/studentSideBar');
         </div>
     <?php elseif($this->session->flashdata('logoutStudent')): ?>
             <div class="alert alert-danger alert-dismissible fade show">
-                <?= $this->session->flashdata('logout'); ?>
+                <?= $this->session->flashdata('logoutStudent'); ?>
                 <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
         </div>
         <?php $this->session->unset_userdata ('logoutStudent'); ?>
@@ -392,7 +392,7 @@ myModal.addEventListener('shown.bs.modal', function () {
 <!-- jQuery JS CDN -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> 
  <!-- jQuery DataTables JS CDN -->
- <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+ <script src="<?php echo base_url('assets/js/dataTables.min.js'); ?>"></script>
  <!-- Ajax fetching data -->
  <script type="text/javascript">
     $(document).ready(function(){

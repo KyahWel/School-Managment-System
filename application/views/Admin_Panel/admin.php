@@ -8,6 +8,22 @@ $this->load->view('includes/adminSideBar');
     <title>Admin | Admin Tab</title>
 </head>
 <div class="height-100 pt-2 container-fluid">
+         <?php if ($this->session->flashdata('successAdmin')) : ?>
+            <div class="alert alert-success alert-dismissible fade show">
+                <?= $this->session->flashdata('successAdmin'); ?>
+                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+            </div>
+         <?php $this->session->unset_userdata('successAdmin'); ?>
+
+         <?php elseif ($this->session->flashdata('errorAdmin')) : ?>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <?= $this->session->flashdata('errorAdmin'); ?>
+                <button type="button" class="btn-close close" data-bs-dismiss="alert"></button>
+            </div>
+         <?php $this->session->unset_userdata('errorAdmin'); ?>
+
+         <?php endif; ?>
+         
     <div class="my-3" id="mainAdmin" style="display: block;">
         <div class="AdminTab my-3">
             <h3>Admins</h3>
@@ -220,7 +236,7 @@ $this->load->view('includes/adminSideBar');
 </script>
 
 <!-- jQuery DataTables JS CDN -->
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url('assets/js/dataTables.min.js'); ?>"></script>
 <!-- Ajax fetching data -->
 <script type="text/javascript">
     $(document).ready(function() {

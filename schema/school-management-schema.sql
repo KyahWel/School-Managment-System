@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 11, 2022 at 03:11 PM
+-- Generation Time: Feb 11, 2022 at 08:39 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `admin_accounts` (
   `email` varchar(255) NOT NULL,
   `status` int(1) NOT NULL,
   PRIMARY KEY (`adminID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `admin_accounts`
@@ -46,10 +46,11 @@ CREATE TABLE IF NOT EXISTS `admin_accounts` (
 
 INSERT INTO `admin_accounts` (`adminID`, `adminNumber`, `username`, `password`, `firstname`, `lastname`, `email`, `status`) VALUES
 (1, 'TUP-ADMIN-0000', 'admin', '$2y$10$cFxtHgNDDa21QJU/uEQXlOp3j5iREQTk/SDFMpwn2iJAczXNQUv1K', 'admin', '', 'williamcris18@gmail.com', 1),
-(2, 'TUP-ADMIN-5525', 'admin-01', '$2y$10$YTR8MGda4C7k7bAkWanLQu39jjkgT3ZKv634jhm8wjeyuxFZ14rdK', 'William Cris', 'Hod', 'williamcrshd@gmail.com', 1),
-(3, 'TUP-ADMIN-8520', 'admin-02', '$2y$10$CvTeIqw8Z8BrSk44VrQRl.OKLWM/27eyAAYOKSenpgdJ5ccEEYw/W', 'Juan', 'Pedro', 'williamcris18@gmail.com', 1),
+(2, 'TUP-ADMIN-5525', 'admin-012', '$2y$10$YTR8MGda4C7k7bAkWanLQu39jjkgT3ZKv634jhm8wjeyuxFZ14rdK', 'William Cris', 'Hod', 'williamcrshd@gmail.com', 1),
+(3, 'TUP-ADMIN-8520', 'admin-02', '$2y$10$o/ADGphm14MkYIVg/NBvKuO4ht9vaQ59KGQt.6ua9lqaiwoYKShnC', 'Juan', 'Pedro', 'williamcris18@gmail.com', 1),
 (4, 'TUP-ADMIN-2654', 'admin-03', '$2y$10$qVzeyO0IU86FOeXbn3xKxedD.qesE5SBRry6yrt1BMmwM6K0LUO4y', 'Cesar', 'Hawkins', 'williamcris18@gmail.com', 1),
-(5, 'TUP-ADMIN-1667', 'adminstrange', '$2y$10$O2z1ZPIyNgLuP9wIzZ6oYOcsRwrMrxknYBi3y1f5kt6ukVgldUOLS', 'Stephen', 'Strange', 'williamcris18@gmail.com', 1);
+(5, 'TUP-ADMIN-1667', 'adminstrange', '$2y$10$O2z1ZPIyNgLuP9wIzZ6oYOcsRwrMrxknYBi3y1f5kt6ukVgldUOLS', 'Stephen', 'Strange', 'williamcris18@gmail.com', 1),
+(6, 'TUP-ADMIN-2730', 'test', '$2y$10$SoaCezvMy4JtCKR8Po7WOO0wn65i7NjjOxbD.ta5BPbcA3MYGpOyS', 'William Cris', 'Hod', 'williamcrshod@gmail.com', 1);
 
 -- --------------------------------------------------------
 
@@ -93,14 +94,63 @@ CREATE TABLE IF NOT EXISTS `applicant_accounts` (
   `applicant_result` varchar(255) NOT NULL,
   PRIMARY KEY (`applicantID`),
   KEY `studentCourse` (`courseID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `applicant_accounts`
 --
 
 INSERT INTO `applicant_accounts` (`applicantID`, `applicantNumber`, `courseID`, `firstname`, `middlename`, `lastname`, `extname`, `LRN`, `gender`, `age`, `birthday`, `birthplace`, `contactnum`, `landline`, `email`, `unit`, `street`, `barangay`, `city`, `province`, `zipcode`, `last_school_attended`, `track`, `school_address`, `year_level`, `year_graduated`, `category`, `gpa`, `medical_record`, `form_137`, `good_moral`, `applicant_result`) VALUES
-(1, 'TUPM-APPL22-7254', 2, 'William Cris', '', 'Hod', '', 123456, 'Male', 20, '2022-02-11', 'Metro Manila', '09270287483', '717-1426', 'williamcris18@gmail.com', '149', 'Narra Alley', 'Balingasa', 'Quezon City', 'Metro Manila', 1115, 'Siena College', 'ICT', 'Del Monte Avenue, Quezon City', '12', 2017, 'K-12', 93, 'MR-PygRoEIm.jpg', 'F137-PygRoEIm.jpg', 'GM-PygRoEIm.jpg', 'Student');
+(1, 'TUPM-APPL22-1130', 2, 'Bianca', '', 'Aquino', '', 168166824827, 'Female', 20, '2001-04-21', 'Manila', '09281736388', '(074) 304-1996 ', 'lyahbianca.aquino@tup.edu.ph', '121', 'SAN DIONISIO ST.', '17', 'TONDO I / II', 'Tondo, Manila', 1012, 'The National Teachers College', 'ABM', '629 J. Nepomuceno St., Quiapo, Manila', '12', 2019, 'K-12', 93, 'MR-PkUWNGJL.jpg', 'F137-PkUWNGJL.jpg', 'GM-PkUWNGJL.jpg', 'Passed'),
+(2, 'TUPM-APPL22-5805', 2, 'William', 'Cris', 'Hod', '', 168166543727, 'Male', 20, '2001-04-21', 'Manila', '09281736388', '(074) 304-1996 ', 'lyahbianca.aquino@tup.edu.ph', '151', 'SAN DIONISIO ST.', '17', 'TONDO I / II', 'Tondo, Manila', 1012, 'The National Teachers College', 'ABM', '629 J. Nepomuceno St., Quiapo, Manila', '12', 2021, 'K-12', 93, 'MR-fJ2SuqQI.jpg', 'F137-fJ2SuqQI.jpg', 'GM-fJ2SuqQI.jpg', 'Passed'),
+(3, 'TUPM-APPL22-4701', 2, 'Kimberley', '', 'Delgado', '', 168166824827, 'Female', 20, '2021-08-26', 'Manila', '09281736388', '(074) 304-1996 ', 'lyahbianca.aquino04@gmail.com', '149', 'SAN DIONISIO ST.', '17', 'TONDO I / II', 'Tondo, Manila', 1012, 'NTC', 'ABM', 'Quiapo', '12', 2021, 'K-12', 93, 'MR-RKI8Ftvj.jpg', 'F137-RKI8Ftvj.jpg', 'GM-RKI8Ftvj.jpg', 'Passed'),
+(4, 'TUPM-APPL22-3013', 2, 'Czarina', '', 'Pielago', '', 168161294827, 'Female', 20, '2021-09-23', 'Manila', '09281736388', '(074) 304-1996 ', 'lyahbianca.aquino04@gmail.com', '151', 'SAN DIONISIO ST.', '234', 'TONDO I / II', 'Tondo, Manila', 1012, 'NTC', 'ABM', 'Quiapo', '12', 2022, 'K-12', 93, 'MR-ApczXV27.jpg', 'F137-ApczXV27.jpg', 'GM-ApczXV27.jpg', 'Passed'),
+(5, 'TUPM-APPL22-3799', 2, 'Matthew', 'Perry', 'Bustarde', '', 161246824824, 'Female', 20, '2021-10-21', 'Manila', '09281736388', '(074) 304-1996 ', 'lyahbianca.aquino04@gmail.com', '149', 'SAN DIONISIO ST.', '234', 'TONDO I / II', 'Tondo, Manila', 1012, 'NTC', 'STEM', 'Quiapo', '12', 2022, 'K-12', 90, 'MR-S0sqOvBG.jpg', 'F137-S0sqOvBG.jpg', 'GM-S0sqOvBG.jpg', 'Passed'),
+(6, 'TUPM-APPL22-7603', 2, 'Vann', 'Chezter', 'Lizan', '', 123452359743, 'Female', 22, '2021-10-14', 'Quezon City', '09281736388', '(074) 304-1996 ', 'lyahbianca.aquino04@gmail.com', '2324', 'St. Andrew st.', '45', 'Quezon City', 'N/A', 1012, 'Polytechnic University of the Philippines', 'ICT', 'Sta. Mesa Manila', '12', 2022, 'K-12', 93, 'MR-UzatmvQE.jpg', 'F137-UzatmvQE.jpg', 'GM-UzatmvQE.jpg', 'Passed'),
+(7, 'TUPM-APPL22-5305', 2, 'Harold', 'Jay', 'Talavera', '', 168166824827, 'Male', 25, '2021-09-17', 'Caloocan ', '09281736388', 'N/A', 'lyahbianca.aquino04@gmail.com', '151', 'SAN DIONISIO ST.', '32', 'Caloocan City North', 'N/A', 1034, 'NTC', 'ICT', 'Quiapo', '12', 2022, 'K-12', 90, 'MR-pEIcgQJ4.jpg', 'F137-pEIcgQJ4.jpg', 'GM-pEIcgQJ4.jpg', 'Passed'),
+(8, 'TUPM-APPL22-2857', 2, 'Stacey', '', 'Reyes', '', 123456325983, 'Female', 25, '2021-11-10', 'Manila', '09281736388', '(074) 304-1996 ', 'lyahbianca.aquino04@gmail.com', '149', 'SAN DIONISIO ST.', '17', 'TONDO I / II', 'N/A', 1012, 'Polytechnic University of the Philippines', 'ICT', 'Sta. Mesa Manila', '12', 2022, 'K-12', 93, 'MR-NfzFkdhl.jpg', 'F137-NfzFkdhl.jpg', 'GM-NfzFkdhl.jpg', 'Passed'),
+(9, 'TUPM-APPL22-6394', 2, 'Juan', '', 'Dela Cruz', '', 123456789123, 'Female', 21, '2021-11-18', 'Manila', '09281736388', 'N/A', 'lyahbianca.aquino04@gmail.com', 'N/A', 'SAN DIONISIO ST.', '234', 'TONDO I / II', 'Tondo, Manila', 1012, 'NTC', 'ICT', 'Quiapo', '12', 2022, 'K-12', 89, 'MR-2e1VxvcX.jpg', 'F137-2e1VxvcX.jpg', 'GM-2e1VxvcX.jpg', 'Passed'),
+(10, 'TUPM-APPL22-8668', 2, 'Bryan', 'Jay', 'Santos', 'Jr', 121246565473, 'Male', 21, '2021-10-07', 'Manila', '09281736388', '(074) 304-1996 ', 'lyahbianca.aquino04@gmail.com', '151', 'SAN DIONISIO ST.', '45', 'TONDO I / II', 'Tondo, Manila', 1012, 'Polytechnic University of the Philippines', 'ICT', 'Sta. Mesa Manila', '12', 2022, 'K-12', 89, 'MR-KomtexOa.jpg', 'F137-KomtexOa.jpg', 'GM-KomtexOa.jpg', 'Passed'),
+(11, 'TUPM-APPL22-8317', 2, 'Lyah', 'Bianca', 'Garcia', '', 164896738941, 'Female', 21, '2021-10-01', 'Quezon City', '09281736388', 'N/A', 'lyahbianca.aquino04@gmail.com', '151', 'St. Andrew st.', '56', 'TONDO I / II', 'Tondo, Manila', 1012, 'NTC', 'HUMSS', 'Quiapo', '12', 2022, 'K-12', 90, 'MR-xMJ23eHa.jpg', 'F137-xMJ23eHa.jpg', 'GM-xMJ23eHa.jpg', 'Passed'),
+(12, 'TUPM-APPL22-8794', 2, 'Geraldine', 'Mae', 'Bolor', '', 165235224822, 'Female', 25, '2021-09-25', 'Manila', '09281736388', '(074) 304-1996 ', 'lyahbianca.aquino04@gmail.com', '151', 'SAN DIONISIO ST.', '45', 'TONDO I / II', 'Choose...', 1012, 'Polytechnic University of the Philippines', 'N/A', 'Sta. Mesa Manila', '10', 2015, 'Old Curriculum', 89, 'MR-CylYSQsm.jpg', 'F137-CylYSQsm.jpg', 'GM-CylYSQsm.jpg', 'Passed'),
+(13, 'TUPM-APPL22-6107', 2, 'Karl', 'John', 'de Vera', '', 123903486983, 'Male', 21, '2021-07-16', 'Quezon City', '09281736388', 'N/A', 'lyahbianca.aquino04@gmail.com', '151', 'PO BOX 123', '17', 'Quezon City', 'N/A', 1023, 'NTC', 'ICT', 'Quiapo', '12', 2022, 'K-12', 90, 'MR-kuhiP4RK.jpg', 'F137-kuhiP4RK.jpg', 'GM-kuhiP4RK.jpg', 'Passed'),
+(14, 'TUPM-APPL22-1732', 2, 'Joanna', 'Mae', 'Cabarles', '', 134906349603, 'Female', 21, '2021-07-22', 'Caloocan ', '09281736388', '374-3017', 'lyahbianca.aquino04@gmail.com', '151', 'PO BOX 123', '56', 'Caloocan City North', 'N/A', 1034, 'Polytechnic University of the Philippines', 'ICT', 'Sta. Mesa Manila', '12', 2022, 'K-12', 93, 'MR-ZyxjQPKT.jpg', 'F137-ZyxjQPKT.jpg', 'GM-ZyxjQPKT.jpg', 'Passed'),
+(15, 'TUPM-APPL22-8596', 2, 'Razel', 'Paige', 'Clemente', '', 123456789123, 'Female', 21, '2021-10-21', 'Manila', '09281736388', '(074) 304-1996 ', 'lyahbianca.aquino04@gmail.com', '121', 'SAN DIONISIO ST.', '234', 'TONDO I / II', 'N/A', 1088, 'NTC', 'ICT', 'Quiapo', '12', 2022, 'K-12', 90, 'MR-3XKNTU5y.jpg', 'F137-3XKNTU5y.jpg', 'GM-3XKNTU5y.jpg', 'Passed'),
+(16, 'TUPM-APPL22-8669', 2, 'Jerald', '', 'Pascual', '', 123634754867, 'Male', 21, '2021-09-17', 'Cavite', '09281736388', 'N/A', 'lyahbianca.aquino04@gmail.com', '149', 'cavite st', '32', 'Cavite', 'N/A', 1033, 'NTC', 'GAS', 'Quiapo', '12', 2022, 'K-12', 93, 'MR-WsjO5qNB.jpg', 'F137-WsjO5qNB.jpg', 'GM-WsjO5qNB.jpg', 'Passed'),
+(17, 'TUPM-APPL22-6448', 2, 'Alfredo', '', 'Santos', 'Sr', 143352390241, 'Male', 21, '2021-10-22', 'Caloocan ', '09281736388', '(074) 304-1996 ', 'lyahbianca.aquino04@gmail.com', '121', 'Quiapo', '32', 'Caloocan City North', 'Choose...', 3042, 'Polytechnic University of the Philippines', 'STEM', 'Sta. Mesa Manila', '12', 2022, 'K-12', 93, 'MR-WfTDzbvE.jpg', 'F137-WfTDzbvE.jpg', 'GM-WfTDzbvE.jpg', 'Passed'),
+(18, 'TUPM-APPL22-6658', 2, 'Marian', '', 'Rivera', '', 123276689679, 'Female', 21, '2021-09-16', 'Manila', '09281736388', '(074) 304-1996 ', 'lyahbianca.aquino04@gmail.com', '149', 'SAN DIONISIO ST.', '32', 'TONDO I / II', 'N/A', 2031, 'The National Teachers College', 'ICT', '629 J. Nepomuceno St., Quiapo, Manila', '12', 2022, 'K-12', 89, 'MR-U13cgtmN.jpg', 'F137-U13cgtmN.jpg', 'GM-U13cgtmN.jpg', 'Passed'),
+(19, 'TUPM-APPL22-7520', 2, 'Rod', 'Cedric', 'Bersabal', '', 123456789123, 'Male', 20, '2021-11-24', 'Quezon City', '9198445585', '(074) 304-1996 ', 'manuelbobis2123@gmail.com', '2324', 'SAN DIONISIO ST.', '234', 'Quezon City', 'Cebu', 1012, 'NTC', 'ICT', 'Quiapo', '12', 2022, 'K-12', 89, 'MR-COndEGJr.jpg', 'F137-COndEGJr.jpg', 'GM-COndEGJr.jpg', 'Passed'),
+(20, 'TUPM-APPL22-6504', 2, 'Rachel', 'Ann', 'Gordo', '', 174556789112, 'Female', 21, '2021-11-24', 'Cavite', '09281736388', 'N/A', 'lyahbianca.aquino04@gmail.com', '151', 'Quiapo st', '45', 'Cavite', 'Cebu', 2423, 'The National Teachers College', 'ICT', 'Quiapo', '12', 2022, 'K-12', 90, 'MR-57Ez1pmx.jpg', 'F137-57Ez1pmx.jpg', 'GM-57Ez1pmx.jpg', 'Passed'),
+(21, 'TUPM-APPL22-9432', 2, 'Georgette', '', 'Ambong', '', 164363463727, 'Female', 20, '2021-10-05', 'Manila', '09281736388', '21312', 'lyahbianca.aquino04@gmail.com', '149', 'SAN DIONISIO ST.', '32', 'TONDO I / II', 'N/A', 1012, 'Polytechnic University of the Philippines', 'ICT', 'Sta. Mesa Manila', '12', 2022, 'K-12', 93, 'MR-CKt2GsXp.jpg', 'F137-CKt2GsXp.jpg', 'GM-CKt2GsXp.jpg', 'Passed'),
+(22, 'TUPM-APPL22-9580', 2, 'Mikee', '', 'Montecillo', '', 168166824827, 'Female', 21, '2021-11-25', 'Manila', '09281736388', '(074) 304-1996 ', 'lyahbianca.aquino04@gmail.com', '2324', 'SAN DIONISIO ST.', '32', 'TONDO I / II', 'Choose...', 1012, 'NTC', 'ICT', 'Quiapo', '12', 2022, 'K-12', 90, 'MR-VRwdyKbe.jpg', 'F137-VRwdyKbe.jpg', 'GM-VRwdyKbe.jpg', 'Passed'),
+(23, 'TUPM-APPL22-5206', 6, 'Ivy', 'Sophia', 'Gabriola', '', 168138274634, 'Female', 22, '2021-10-20', 'Manila', '09281736388', '374-3017', 'lyahbianca.aquino04@gmail.com', '151', 'SAN DIONISIO ST.', '56', 'TONDO I / II', 'Tondo, Manila', 1012, 'Polytechnic University of the Philippines', 'STEM', 'Sta. Mesa Manila', '12', 2022, 'K-12', 93, 'MR-5Q46tAWl.jpg', 'F137-5Q46tAWl.jpg', 'GM-5Q46tAWl.jpg', 'Passed'),
+(24, 'TUPM-APPL22-4272', 7, 'Yuuki', 'Ron', 'Henley', '', 135756967978, 'Male', 25, '2021-10-15', 'Manila', '09281736388', '374-3017', 'lyahbianca.aquino04@gmail.com', '151', 'SAN DIONISIO ST.', '56', 'TONDO I / II', 'N/A', 1012, 'The National Teachers College', 'N/A', '629 J. Nepomuceno St., Quiapo, Manila', '10', 2015, 'Old Curriculum', 89, 'MR-7BgSeZWK.jpg', 'F137-7BgSeZWK.jpg', 'GM-7BgSeZWK.jpg', 'Passed'),
+(25, 'TUPM-APPL22-1737', 1, 'Marites', 'Ann', 'Garcia', '', 163489346947, 'Female', 21, '2021-11-19', 'Quezon City', '09281730809', '(074) 304-1996 ', 'lyahbianca.aquino04@gmail.com', '149', 'SAN DIONISIO ST.', '45', 'Quezon City', 'Cebu', 1012, 'NTC', 'HUMSS', 'Quiapo', '12', 2021, 'K-12', 93, 'MR-gmtHTD54.jpg', 'F137-gmtHTD54.jpg', 'GM-gmtHTD54.jpg', 'Passed'),
+(26, 'TUPM-APPL22-2595', 6, 'Allexis', 'John', 'Garcia', '', 168352375548, 'Male', 21, '2021-09-17', 'Quezon City', '09281736388', '374-3017', 'lyahbianca.aquino04@gmail.com', '149', 'SAN DIONISIO ST.', '32', 'TONDO I / II', 'N/A', 1012, 'The National Teachers College', 'STEM', '629 J. Nepomuceno St., Quiapo, Manila', '12', 2022, 'K-12', 93, 'MR-pCcke8MA.jpg', 'F137-pCcke8MA.jpg', 'GM-pCcke8MA.jpg', 'Passed'),
+(27, 'TUPM-APPL22-3129', 8, 'Nikki', 'Marie', 'Celis', '', 145856967078, 'Female', 21, '2021-11-20', 'Manila', '09281736388', '(074) 304-1996 ', 'lyahbianca.aquino04@gmail.com', '149', 'SAN DIONISIO ST.', '45', 'TONDO I / II', 'Tondo, Manila', 1012, 'The National Teachers College', 'STEM', '629 J. Nepomuceno St., Quiapo, Manila', '12', 2021, 'K-12', 90, 'MR-gdOrPVRa.jpg', 'F137-gdOrPVRa.jpg', 'GM-gdOrPVRa.jpg', 'Passed'),
+(28, 'TUPM-APPL22-2848', 9, 'Paulo', '', 'Macapanas', '', 164634096340, 'Male', 20, '2021-11-12', 'Manila', '09281736388', '2313321', 'lyahbianca.aquino04@gmail.com', '2324', 'Quiapo st', '45', 'TONDO I / II', 'Tondo, Manila', 1012, 'NTC', 'STEM', 'Quiapo', '12', 2021, 'K-12', 90, 'MR-XZlM8wWt.jpg', 'F137-XZlM8wWt.jpg', 'GM-XZlM8wWt.jpg', 'Passed'),
+(29, 'TUPM-APPL22-7845', 8, 'Mark', 'Gusion', 'Leynes', '', 168166824827, 'Male', 20, '2021-10-20', 'Quezon City', '09281736856', '(074) 304-1996 ', 'lyahbianca.aquino04@gmail.com', '149', 'SAN DIONISIO ST.', '56', 'TONDO I / II', 'N/A', 1012, 'NTC', 'STEM', 'Quiapo', '12', 2020, 'K-12', 98, 'MR-tqz6JIuH.jpg', 'F137-tqz6JIuH.jpg', 'GM-tqz6JIuH.jpg', 'Passed'),
+(30, 'TUPM-APPL22-5679', 7, 'Rebecca', '', 'Medina', '', 123457568679, 'Female', 20, '2021-10-15', 'Manila', '09281775485', '(074) 304-1996 ', 'lyahbianca.aquino04@gmail.com', '151', 'SAN DIONISIO ST.', '56', 'TONDO I / II', 'N/A', 1012, 'The National Teachers College', 'STEM', '629 J. Nepomuceno St., Quiapo, Manila', '12', 2022, 'K-12', 90, 'MR-tCyfW80M.jpg', 'F137-tCyfW80M.jpg', 'GM-tCyfW80M.jpg', 'Passed'),
+(31, 'TUPM-APPL22-9173', 8, 'Vince', 'Jay', 'Siena', 'Jr', 345353, 'Male', 21, '2022-02-09', 'Manila', '09284575488', 'N/A', 'tesaquino2123@gmail.com', '151', 'SAN DIONISIO ST.', '45', 'TONDO I / II', 'Cebu', 2422, 'Polytechnic University of the Philippines', 'STEM', 'Sta. Mesa Manila', '12', 2022, 'K-12', 89, 'MR-gcJwYB4h.jpg', 'F137-gcJwYB4h.jpg', 'GM-gcJwYB4h.jpg', 'Passed'),
+(32, 'TUPM-APPL22-3968', 3, 'Summer', '', 'Gedman', '', 163905689347, 'Female', 21, '2021-11-16', 'Quezon City', '09283473578', '(074) 304-1996 ', 'lyahbianca.aquino04@gmail.com', '121', 'St. Andrew st.', '45', 'Quezon City', 'Cebu', 1353, 'NTC', 'STEM', 'Quiapo', '12', 2022, 'K-12', 93, 'MR-5aQPfwnW.jpg', 'F137-5aQPfwnW.jpg', 'GM-5aQPfwnW.jpg', 'Passed'),
+(33, 'TUPM-APPL22-5638', 3, 'Mina', '', 'Minari', '', 123456789123, 'Female', 21, '2021-10-22', 'Caloocan ', '05745856856', '374-3017', 'lyahbianca.aquino04@gmail.com', '151', 'St. Andrew st.', '56', 'Caloocan City North', 'Cebu', 1235, 'NTC', 'STEM', 'Quiapo', '12', 2022, 'K-12', 90, 'MR-9smM7Bwf.jpg', 'F137-9smM7Bwf.jpg', 'GM-9smM7Bwf.jpg', 'Passed'),
+(34, 'TUPM-APPL22-9750', 9, 'Dante', '', 'Rivera', 'Jr', 168162363475, 'Male', 21, '2022-02-11', 'Manila', '09288569679', '(074) 304-1996 ', 'lyahbianca.aquino04@gmail.com', '151', 'SAN DIONISIO ST.', '56', 'TONDO I / II', 'N/A', 1253, 'NTC', 'HUMSS', 'Quiapo', '12', 2022, 'K-12', 89, 'MR-A4Pw8DgZ.jpg', 'F137-A4Pw8DgZ.jpg', 'GM-A4Pw8DgZ.jpg', 'Passed'),
+(35, 'TUPM-APPL22-6175', 8, 'Bren', 'Kent', 'Lobosco', '', 168347568679, 'Male', 21, '2022-02-11', 'Manila', '09281757574', '(074) 304-1996 ', 'lyahbianca.aquino04@gmail.com', '149', 'SAN DIONISIO ST.', '45', 'TONDO I / II', 'N/A', 1233, 'Polytechnic University of the Philippines', 'STEM', 'Sta. Mesa Manila', '12', 2022, 'K-12', 90, 'MR-MHV7leaK.jpg', 'F137-MHV7leaK.jpg', 'GM-MHV7leaK.jpg', 'Passed'),
+(36, 'TUPM-APPL22-4792', 7, 'Andrei', '', 'Heneroso', '', 163456343463, 'Male', 21, '2021-11-11', 'Manila', '09281743634', '374-3017', 'lyahbianca.aquino04@gmail.com', '149', 'SAN DIONISIO ST.', '45', 'TONDO I / II', 'N/A', 1325, 'NTC', 'STEM', 'Quiapo', '12', 2021, 'K-12', 93, 'MR-wk1RvTIb.jpg', 'F137-wk1RvTIb.jpg', 'GM-wk1RvTIb.jpg', 'Passed'),
+(37, 'TUPM-APPL22-7468', 9, 'Geneve', 'Santos', 'Osorio', '', 16432346436, 'Female', 21, '2021-11-12', 'Quezon City', '09281774545', '(074) 304-1996 ', 'lyahbianca.aquino04@gmail.com', '151', 'SAN DIONISIO ST.', '32', 'TONDO I / II', 'Choose...', 2323, 'NTC', 'STEM', 'Quiapo', '12', 2022, 'K-12', 89, 'MR-91bePRMz.jpg', 'F137-91bePRMz.jpg', 'GM-91bePRMz.jpg', 'Passed'),
+(38, 'TUPM-APPL22-9735', 7, 'Bryan', 'Gobasco', 'Pineda', '', 164482765857, 'Male', 21, '2021-12-16', 'Manila', '09234634634', 'N/A', 'lyahbianca.aquino04@gmail.com', '149', 'SAN DIONISIO ST.', '56', 'TONDO I / II', 'Tondo, Manila', 1012, 'Polytechnic University of the Philippines', 'STEM', 'Sta. Mesa Manila', '12', 2022, 'K-12', 90, 'MR-vfBTRXAn.jpg', 'F137-vfBTRXAn.jpg', 'GM-vfBTRXAn.jpg', 'Passed'),
+(39, 'TUPM-APPL22-2960', 1, 'Mike', 'Lebron', 'Davis', '', 13575475432, 'Male', 21, '2021-11-18', 'Quezon City', '09281547854', '(074) 304-1996 ', 'lyahbianca.aquino04@gmail.com', '121', 'SAN DIONISIO ST.', '32', 'Quezon City', 'N/A', 1012, 'The National Teachers College', 'STEM', '629 J. Nepomuceno St., Quiapo, Manila', '12', 2022, 'K-12', 93, 'MR-EXpBHLum.jpg', 'F137-EXpBHLum.jpg', 'GM-EXpBHLum.jpg', 'Passed'),
+(40, 'TUPM-APPL22-3721', 4, 'Ryan', 'Cortez', 'Johnson', '', 168166823467, 'Male', 21, '2021-12-22', 'Caloocan ', '02353453464', 'N/A', 'lyahbianca.aquino04@gmail.com', '121', 'SAN DIONISIO ST.', '45', 'Caloocan City North', 'Cebu', 2122, 'NTC', 'HUMSS', 'Quiapo', '12', 2022, 'K-12', 90, 'MR-LijCgAcd.jpg', 'F137-LijCgAcd.jpg', 'GM-LijCgAcd.jpg', 'Passed'),
+(41, 'TUPM-APPL22-9213', 4, 'Gwen', 'Mae', 'Alvarez', '', 123456789123, 'Female', 21, '2021-12-10', 'Manila', '09243634634', '374-3017', 'lyahbianca.aquino04@gmail.com', '149', 'SAN DIONISIO ST.', '45', 'TONDO I / II', 'Tondo, Manila', 1012, 'Polytechnic University of the Philippines', 'GAS', 'Sta. Mesa Manila', '12', 2021, 'K-12', 93, 'MR-Gu2DACIL.jpg', 'F137-Gu2DACIL.jpg', 'GM-Gu2DACIL.jpg', 'Passed'),
+(42, 'TUPM-APPL22-1455', 8, 'Catherine', 'Lim', 'Hinkson', '', 146456789123, 'Female', 21, '2022-02-05', 'Manila', '09287457547', '(074) 304-1996 ', 'lyahbianca.aquino04@gmail.com', '151', 'SAN DIONISIO ST.', '56', 'TONDO I / II', 'Tondo, Manila', 1012, 'NTC', 'STEM', 'Quiapo', '12', 2022, 'K-12', 89, 'MR-WbLgSOf0.jpg', 'F137-WbLgSOf0.jpg', 'GM-WbLgSOf0.jpg', 'Passed'),
+(43, 'TUPM-APPL22-2136', 6, 'Lou', '', 'Javier', '', 168166589783, 'Female', 21, '2022-02-17', 'Manila', '09285474575', 'N/A', 'lyahbianca.aquino04@gmail.com', '343', 'SAN DIONISIO ST.', '23', 'TONDO I / II', 'N/A', 1012, 'NTC', 'STEM', 'Quiapo', '12', 2022, 'K-12', 89, 'MR-iYJO5geF.jpg', 'F137-iYJO5geF.jpg', 'GM-iYJO5geF.jpg', 'Passed'),
+(44, 'TUPM-APPL22-8684', 9, 'Lydia', 'Gomez', 'Swift', '', 168165477978, 'Female', 21, '2021-12-10', 'Cavite', '09285474536', 'N/A', 'lydia@gmail.com', '151', 'St. Andrew st.', '32', 'Cavite', 'Cebu', 343, 'NTC', 'STEM', 'Quiapo', '12', 2021, 'K-12', 93, 'MR-ula3mktv.jpg', 'F137-ula3mktv.jpg', 'GM-ula3mktv.jpg', 'Passed'),
+(45, 'TUPM-APPL22-4450', 4, 'Ricardo', 'Clemente', 'Sanchez', '', 168756856845, 'Male', 22, '2021-12-16', 'Manila', '09754744634', 'N/A', 'lyahbianca.aquino04@gmail.com', '2324', 'SAN DIONISIO ST.', '56', 'TONDO I / II', 'N/A', 1012, 'Polytechnic University of the Philippines', 'STEM', 'Sta. Mesa Manila', '12', 2021, 'K-12', 93, 'MR-gXzqlyAE.jpg', 'F137-gXzqlyAE.jpg', 'GM-gXzqlyAE.jpg', 'Passed'),
+(46, 'TUPM-APPL22-8573', 9, 'Benito', '', 'Tolentino', '', 168190687856, 'Male', 21, '2021-11-18', 'Manila', '09281757457', 'N/A', 'lyahbianca.aquino@tup.edu.ph', '151', 'SAN DIONISIO ST.', '45', 'TONDO I / II', 'Tondo, Manila', 1012, 'Polytechnic University of the Philippines', 'STEM', 'Sta. Mesa Manila', '12', 2022, 'K-12', 93, 'MR-lT0QxPkd.jpg', 'F137-lT0QxPkd.jpg', 'GM-lT0QxPkd.jpg', 'Applied'),
+(47, 'TUPM-APPL22-7855', 3, 'Carlota', '', 'Moonhart', '', 127548468568, 'Female', 21, '2022-02-10', 'Manila', '09287457544', '(074) 304-1996 ', 'lyahbianca.aquino04@gmail.com', '325', 'SAN DIONISIO ST.', '34', 'TONDO I / II', 'Tondo, Manila', 1244, 'NTC', 'STEM', 'Quiapo', '12', 2022, 'K-12', 93, 'MR-PZc2hBOQ.jpg', 'F137-PZc2hBOQ.jpg', 'GM-PZc2hBOQ.jpg', 'Applied'),
+(48, 'TUPM-APPL22-5411', 4, 'Justine', 'Lapuz', 'de Jesus', '', 123475475473, 'Male', 21, '2022-02-02', 'Manila', '09745756865', '374-3017', 'lyahbianca.aquino04@gmail.com', '235', 'SAN DIONISIO ST.', '546', 'TONDO I / II', 'Tondo, Manila', 10434, 'Polytechnic University of the Philippines', 'STEM', 'Sta. Mesa Manila', '12', 2022, 'K-12', 93, 'MR-KIz7hjbs.jpg', 'F137-KIz7hjbs.jpg', 'GM-KIz7hjbs.jpg', 'Applied'),
+(49, 'TUPM-APPL22-3629', 6, 'Christian', 'Reyes', 'delo Santos', '', 168166457546, 'Male', 23, '2022-02-10', 'Manila', '092873765', 'N/A', 'lyahbianca.aquino04@gmail.com', '2353', 'SAN DIONISIO ST.', '321', 'TONDO I / II', 'Tondo, Manila', 1023, 'Polytechnic University of the Philippines', 'STEM', 'Sta. Mesa Manila', '12', 2021, 'K-12', 93, 'MR-vmaenSwH.jpg', 'F137-vmaenSwH.jpg', 'GM-vmaenSwH.jpg', 'Applied'),
+(50, 'TUPM-APPL22-6890', 7, 'Fanny', 'Sarraga', 'Basig', '', 123452353252, 'Female', 21, '2022-02-17', 'Manila', '09263634633', 'N/A', 'lyahbianca.aquino04@gmail.com', '149', 'SAN DIONISIO ST.', '32', 'TONDO I / II', 'Tondo, Manila', 1012, 'NTC', 'ICT', 'Quiapo', '12', 2021, 'K-12', 89, 'MR-AvQJEigo.jpg', 'F137-AvQJEigo.jpg', 'GM-AvQJEigo.jpg', 'Applied');
 
 -- --------------------------------------------------------
 
@@ -121,20 +171,202 @@ CREATE TABLE IF NOT EXISTS `class` (
   `day` varchar(255) NOT NULL,
   `room_no` varchar(255) NOT NULL,
   `isTaken` int(1) NOT NULL,
-  `status` int(1) NOT NULL,
+  `statusClass` int(1) NOT NULL,
   PRIMARY KEY (`classID`),
   KEY `class_subject` (`subjectID`),
   KEY `class_teacher` (`teacherID`),
   KEY `class_course` (`courseID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=185 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `class`
 --
 
-INSERT INTO `class` (`classID`, `class_code`, `teacherID`, `subjectID`, `start_time`, `end_time`, `courseID`, `yearlevelClass`, `day`, `room_no`, `isTaken`, `status`) VALUES
-(1, 'CLASS-01', NULL, 71, '16:38:00', '19:41:00', 2, 4, 'Wednesday', 'TBA', 1, 1),
-(2, 'CLASS-01', NULL, 72, '14:36:00', '18:40:00', 2, 4, 'Tuesday', 'TBA', 1, 1);
+INSERT INTO `class` (`classID`, `class_code`, `teacherID`, `subjectID`, `start_time`, `end_time`, `courseID`, `yearlevelClass`, `day`, `room_no`, `isTaken`, `statusClass`) VALUES
+(1, 'BETCET-11A', NULL, 289, '07:00:00', '09:00:00', 9, 1, 'Monday', 'TBA', 0, 1),
+(2, 'BETCET-11A', NULL, 290, '07:00:00', '09:00:00', 9, 1, 'Tuesday', 'TBA', 0, 1),
+(3, 'BETCET-11A', NULL, 291, '07:00:00', '09:00:00', 9, 1, 'Wednesday', 'TBA', 0, 1),
+(4, 'BETCET-11B', NULL, 289, '09:00:00', '11:00:00', 9, 1, 'Monday', 'TBA', 0, 1),
+(5, 'BETCET-11B', NULL, 290, '09:00:00', '11:00:00', 9, 1, 'Tuesday', 'TBA', 0, 1),
+(6, 'BETCET-11B', NULL, 291, '09:00:00', '11:00:00', 9, 1, 'Wednesday', 'TBA', 0, 1),
+(7, 'BETCET-12A', NULL, 292, '07:00:00', '09:00:00', 9, 1, 'Monday', 'TBA', 0, 1),
+(8, 'BETCET-12A', NULL, 293, '07:00:00', '09:00:00', 9, 1, 'Tuesday', 'TBA', 0, 1),
+(9, 'BETCET-12B', NULL, 292, '09:00:00', '11:00:00', 9, 1, 'Monday', 'TBA', 0, 1),
+(10, 'BETCET-12B', NULL, 293, '09:00:00', '11:00:00', 9, 1, 'Tuesday', 'TBA', 0, 1),
+(11, 'BETCET-21A', NULL, 294, '07:00:00', '09:00:00', 9, 2, 'Monday', 'TBA', 0, 1),
+(12, 'BETCET-21A', NULL, 295, '07:00:00', '09:00:00', 9, 2, 'Tuesday', 'TBA', 0, 1),
+(13, 'BETCET-21A', NULL, 296, '07:00:00', '09:00:00', 9, 2, 'Wednesday', 'TBA', 0, 1),
+(14, 'BETCET-22A', NULL, 297, '09:00:00', '11:00:00', 9, 2, 'Monday', 'TBA', 0, 1),
+(15, 'BETCET-22A', NULL, 298, '09:00:00', '11:00:00', 9, 2, 'Tuesday', 'TBA', 0, 1),
+(16, 'BETCET-22A', NULL, 299, '09:00:00', '11:00:00', 9, 2, 'Wednesday', 'TBA', 0, 1),
+(17, 'BETCET-21B', NULL, 294, '09:00:00', '11:00:00', 9, 2, 'Monday', 'TBA', 0, 1),
+(18, 'BETCET-21B', NULL, 295, '09:00:00', '11:00:00', 9, 2, 'Tuesday', 'TBA', 0, 1),
+(19, 'BETCET-21B', NULL, 296, '09:00:00', '11:00:00', 9, 2, 'Wednesday', 'TBA', 0, 1),
+(20, 'BETCET-22B', NULL, 297, '07:00:00', '09:00:00', 9, 2, 'Monday', 'TBA', 0, 1),
+(21, 'BETCET-22B', NULL, 298, '07:00:00', '09:00:00', 9, 2, 'Tuesday', 'TBA', 0, 1),
+(22, 'BETCET-22B', NULL, 299, '07:00:00', '09:00:00', 9, 2, 'Wednesday', 'TBA', 0, 1),
+(23, 'BFA-11A', NULL, 91, '07:00:00', '09:00:00', 8, 1, 'Monday', 'TBA', 0, 1),
+(24, 'BFA-11A', NULL, 92, '07:00:00', '09:00:00', 8, 1, 'Tuesday', 'TBA', 0, 1),
+(25, 'BFA-11A', NULL, 93, '07:00:00', '09:00:00', 8, 1, 'Wednesday', 'TBA', 0, 1),
+(26, 'BFA-11A', NULL, 94, '07:00:00', '09:00:00', 8, 1, 'Thursday', 'TBA', 0, 1),
+(27, 'BFA-11A', NULL, 95, '07:00:00', '09:00:00', 8, 1, 'Friday', 'TBA', 0, 1),
+(28, 'BFA-11A', NULL, 96, '07:00:00', '09:00:00', 8, 1, 'Saturday', 'TBA', 0, 1),
+(29, 'BFA-11A', NULL, 97, '09:00:00', '11:00:00', 8, 1, 'Monday', 'TBA', 0, 1),
+(30, 'BFA-11A', NULL, 98, '09:00:00', '11:00:00', 8, 1, 'Tuesday', 'TBA', 0, 1),
+(31, 'BFA-11A', NULL, 99, '09:00:00', '11:00:00', 8, 1, 'Wednesday', 'TBA', 0, 1),
+(32, 'BFA-11A', NULL, 100, '09:00:00', '11:00:00', 8, 1, 'Thursday', 'TBA', 0, 1),
+(33, 'BFA-11B', NULL, 91, '07:00:00', '09:00:00', 8, 1, 'Monday', 'TBA', 0, 1),
+(34, 'BFA-11B', NULL, 92, '07:00:00', '09:00:00', 8, 1, 'Tuesday', 'TBA', 0, 1),
+(35, 'BFA-11B', NULL, 93, '07:00:00', '09:00:00', 8, 1, 'Wednesday', 'TBA', 0, 1),
+(36, 'BFA-11B', NULL, 94, '07:00:00', '09:00:00', 8, 1, 'Thursday', 'TBA', 0, 1),
+(37, 'BFA-11B', NULL, 95, '07:00:00', '09:00:00', 8, 1, 'Friday', 'TBA', 0, 1),
+(38, 'BFA-11B', NULL, 96, '07:00:00', '09:00:00', 8, 1, 'Saturday', 'TBA', 0, 1),
+(39, 'BFA-11B', NULL, 97, '09:00:00', '11:00:00', 8, 1, 'Monday', 'TBA', 0, 1),
+(40, 'BFA-11B', NULL, 98, '09:00:00', '11:00:00', 8, 1, 'Tuesday', 'TBA', 0, 1),
+(41, 'BFA-11B', NULL, 99, '09:00:00', '11:00:00', 8, 1, 'Wednesday', 'TBA', 0, 1),
+(42, 'BFA-11B', NULL, 100, '09:00:00', '11:00:00', 8, 1, 'Thursday', 'TBA', 0, 1),
+(43, 'BFA-12A', NULL, 101, '10:00:00', '12:00:00', 8, 1, 'Monday', 'TBA', 0, 1),
+(44, 'BFA-12A', NULL, 102, '10:00:00', '12:00:00', 8, 1, 'Tuesday', 'TBA', 0, 1),
+(45, 'BFA-12A', NULL, 103, '10:00:00', '12:00:00', 8, 1, 'Wednesday', 'TBA', 0, 1),
+(46, 'BFA-12A', NULL, 104, '10:00:00', '12:00:00', 8, 1, 'Thursday', 'TBA', 0, 1),
+(47, 'BFA-12A', NULL, 105, '10:00:00', '12:00:00', 8, 1, 'Friday', 'TBA', 0, 1),
+(48, 'BFA-12A', NULL, 106, '10:00:00', '12:00:00', 8, 1, 'Saturday', 'TBA', 0, 1),
+(49, 'BFA-12A', NULL, 107, '13:00:00', '15:00:00', 8, 1, 'Monday', 'TBA', 0, 1),
+(50, 'BFA-12A', NULL, 108, '13:00:00', '15:00:00', 8, 1, 'Tuesday', 'TBA', 0, 1),
+(51, 'BFA-12A', NULL, 109, '13:00:00', '15:00:00', 8, 1, 'Wednesday', 'TBA', 0, 1),
+(52, 'BFA-12B', NULL, 101, '07:00:00', '09:00:00', 8, 1, 'Monday', 'TBA', 0, 1),
+(53, 'BFA-12B', NULL, 102, '07:00:00', '09:00:00', 8, 1, 'Tuesday', 'TBA', 0, 1),
+(54, 'BFA-12B', NULL, 103, '07:00:00', '09:00:00', 8, 1, 'Wednesday', 'TBA', 0, 1),
+(55, 'BFA-12B', NULL, 104, '07:00:00', '09:00:00', 8, 1, 'Thursday', 'TBA', 0, 1),
+(56, 'BFA-12B', NULL, 105, '07:00:00', '09:00:00', 8, 1, 'Friday', 'TBA', 0, 1),
+(57, 'BFA-12B', NULL, 106, '07:00:00', '09:00:00', 8, 1, 'Saturday', 'TBA', 0, 1),
+(58, 'BFA-12B', NULL, 107, '15:00:00', '17:00:00', 8, 1, 'Monday', 'TBA', 0, 1),
+(59, 'BFA-12B', NULL, 108, '15:00:00', '17:00:00', 8, 1, 'Tuesday', 'TBA', 0, 1),
+(60, 'BFA-12B', NULL, 109, '15:00:00', '17:00:00', 8, 1, 'Wednesday', 'TBA', 0, 1),
+(61, 'BFA-21A', NULL, 110, '07:00:00', '09:00:00', 8, 2, 'Monday', 'TBA', 0, 1),
+(62, 'BFA-21A', NULL, 111, '07:00:00', '09:00:00', 8, 2, 'Tuesday', 'TBA', 0, 1),
+(63, 'BFA-21A', NULL, 112, '07:00:00', '09:00:00', 8, 2, 'Wednesday', 'TBA', 0, 1),
+(64, 'BFA-21A', NULL, 113, '07:00:00', '09:00:00', 8, 2, 'Thursday', 'TBA', 0, 1),
+(65, 'BFA-21A', NULL, 114, '07:00:00', '09:00:00', 8, 2, 'Friday', 'TBA', 0, 1),
+(66, 'BFA-21A', NULL, 115, '07:00:00', '09:00:00', 8, 2, 'Saturday', 'TBA', 0, 1),
+(67, 'BFA-21A', NULL, 116, '09:00:00', '11:00:00', 8, 2, 'Monday', 'TBA', 0, 1),
+(68, 'BFA-21A', NULL, 117, '09:00:00', '11:00:00', 8, 2, 'Tuesday', 'TBA', 0, 1),
+(69, 'BFA-21B', NULL, 110, '09:00:00', '11:00:00', 8, 2, 'Monday', 'TBA', 0, 1),
+(70, 'BFA-21B', NULL, 111, '09:00:00', '11:00:00', 8, 2, 'Tuesday', 'TBA', 0, 1),
+(71, 'BFA-21B', NULL, 112, '09:00:00', '11:00:00', 8, 2, 'Wednesday', 'TBA', 0, 1),
+(72, 'BFA-21B', NULL, 113, '09:00:00', '11:00:00', 8, 2, 'Thursday', 'TBA', 0, 1),
+(73, 'BFA-21B', NULL, 114, '09:00:00', '11:00:00', 8, 2, 'Friday', 'TBA', 0, 1),
+(74, 'BFA-21B', NULL, 115, '13:00:00', '15:00:00', 8, 2, 'Saturday', 'TBA', 0, 1),
+(75, 'BFA-21B', NULL, 116, '13:00:00', '15:00:00', 8, 2, 'Monday', 'TBA', 0, 1),
+(76, 'BFA-21B', NULL, 117, '13:00:00', '15:00:00', 8, 2, 'Tuesday', 'TBA', 0, 1),
+(77, 'BFA-22A', NULL, 118, '08:00:00', '10:00:00', 8, 2, 'Monday', 'TBA', 0, 1),
+(78, 'BFA-22A', NULL, 119, '08:00:00', '10:00:00', 8, 2, 'Tuesday', 'TBA', 0, 1),
+(79, 'BFA-22A', NULL, 120, '08:00:00', '10:00:00', 8, 2, 'Wednesday', 'TBA', 0, 1),
+(80, 'BFA-22A', NULL, 121, '08:00:00', '10:00:00', 8, 2, 'Thursday', 'TBA', 0, 1),
+(81, 'BFA-22A', NULL, 122, '08:00:00', '10:00:00', 8, 2, 'Friday', 'TBA', 0, 1),
+(82, 'BFA-22A', NULL, 123, '08:00:00', '10:00:00', 8, 2, 'Saturday', 'TBA', 0, 1),
+(83, 'BFA-22A', NULL, 124, '12:00:00', '15:00:00', 8, 2, 'Monday', 'TBA', 0, 1),
+(84, 'BFA-22A', NULL, 125, '12:00:00', '15:00:00', 8, 2, 'Tuesday', 'TBA', 0, 1),
+(85, 'BFA-22A', NULL, 126, '12:00:00', '15:00:00', 8, 2, 'Wednesday', 'TBA', 0, 1),
+(86, 'BFA-22A', NULL, 127, '12:00:00', '15:00:00', 8, 2, 'Thursday', 'TBA', 0, 1),
+(87, 'BFA-22B', NULL, 118, '10:00:00', '12:00:00', 8, 2, 'Monday', 'TBA', 0, 1),
+(88, 'BFA-22B', NULL, 119, '10:00:00', '12:00:00', 8, 2, 'Tuesday', 'TBA', 0, 1),
+(89, 'BFA-22B', NULL, 120, '10:00:00', '12:00:00', 8, 2, 'Wednesday', 'TBA', 0, 1),
+(90, 'BFA-22B', NULL, 121, '10:00:00', '12:00:00', 8, 2, 'Thursday', 'TBA', 0, 1),
+(91, 'BFA-22B', NULL, 122, '10:00:00', '12:00:00', 8, 2, 'Friday', 'TBA', 0, 1),
+(92, 'BFA-22B', NULL, 123, '10:00:00', '12:00:00', 8, 2, 'Saturday', 'TBA', 0, 1),
+(93, 'BFA-22B', NULL, 124, '13:00:00', '15:00:00', 8, 2, 'Monday', 'TBA', 0, 1),
+(94, 'BFA-22B', NULL, 125, '13:00:00', '15:00:00', 8, 2, 'Tuesday', 'TBA', 0, 1),
+(95, 'BFA-22B', NULL, 126, '13:00:00', '15:00:00', 8, 2, 'Wednesday', 'TBA', 0, 1),
+(96, 'BFA-22B', NULL, 127, '13:00:00', '15:00:00', 8, 2, 'Thursday', 'TBA', 0, 1),
+(97, 'BFA-22B', NULL, 118, '08:30:00', '10:00:00', 8, 2, 'Monday', 'TBA', 0, 1),
+(98, 'BFA-22B', NULL, 119, '08:30:00', '10:00:00', 8, 2, 'Tuesday', 'TBA', 0, 1),
+(99, 'BFA-22B', NULL, 120, '08:30:00', '10:00:00', 8, 2, 'Wednesday', 'TBA', 0, 1),
+(100, 'BFA-22B', NULL, 121, '08:30:00', '10:00:00', 8, 2, 'Thursday', 'TBA', 0, 1),
+(101, 'BFA-22B', NULL, 122, '08:30:00', '10:00:00', 8, 2, 'Friday', 'TBA', 0, 1),
+(102, 'BFA-22B', NULL, 123, '08:30:00', '10:00:00', 8, 2, 'Saturday', 'TBA', 0, 1),
+(103, 'BFA-22B', NULL, 124, '15:00:00', '16:00:00', 8, 2, 'Monday', 'TBA', 0, 1),
+(104, 'BFA-22B', NULL, 125, '15:00:00', '16:00:00', 8, 2, 'Tuesday', 'TBA', 0, 1),
+(105, 'BFA-22B', NULL, 126, '15:00:00', '16:00:00', 8, 2, 'Wednesday', 'TBA', 0, 1),
+(106, 'BFA-22B', NULL, 127, '15:00:00', '16:00:00', 8, 2, 'Thursday', 'TBA', 0, 1),
+(107, 'BSA-11A', NULL, 151, '15:00:00', '17:00:00', 7, 1, 'Monday', 'TBA', 0, 1),
+(108, 'BSA-11A', NULL, 152, '15:00:00', '17:00:00', 7, 1, 'Tuesday', 'TBA', 0, 1),
+(109, 'BSA-11A', NULL, 153, '15:00:00', '17:00:00', 7, 1, 'Wednesday', 'TBA', 0, 1),
+(110, 'BSA-11A', NULL, 154, '15:00:00', '17:00:00', 7, 1, 'Thursday', 'TBA', 0, 1),
+(111, 'BSA-11A', NULL, 155, '15:00:00', '17:00:00', 7, 1, 'Friday', 'TBA', 0, 1),
+(112, 'BSA-11A', NULL, 156, '15:00:00', '17:00:00', 7, 1, 'Saturday', 'TBA', 0, 1),
+(113, 'BSA-11A', NULL, 157, '17:00:00', '19:00:00', 7, 1, 'Monday', 'TBA', 0, 1),
+(114, 'BSA-11A', NULL, 158, '17:00:00', '19:00:00', 7, 1, 'Tuesday', 'TBA', 0, 1),
+(115, 'BSA-11A', NULL, 159, '17:00:00', '19:00:00', 7, 1, 'Wednesday', 'TBA', 0, 1),
+(116, 'BSA-11A', NULL, 160, '17:00:00', '19:00:00', 7, 1, 'Thursday', 'TBA', 0, 1),
+(117, 'BSA-12A', NULL, 161, '07:00:00', '10:00:00', 7, 1, 'Monday', 'TBA', 0, 1),
+(118, 'BSA-12A', NULL, 162, '07:00:00', '09:00:00', 7, 1, 'Tuesday', 'TBA', 0, 1),
+(119, 'BSA-12A', NULL, 163, '07:00:00', '09:00:00', 7, 1, 'Wednesday', 'TBA', 0, 1),
+(120, 'BSA-12A', NULL, 164, '07:00:00', '10:00:00', 7, 1, 'Thursday', 'TBA', 0, 1),
+(121, 'BSA-12A', NULL, 165, '07:00:00', '10:00:00', 7, 1, 'Friday', 'TBA', 0, 1),
+(122, 'BSA-12A', NULL, 166, '07:00:00', '09:00:00', 7, 1, 'Saturday', 'TBA', 0, 1),
+(123, 'BSA-12A', NULL, 167, '09:00:00', '12:00:00', 7, 1, 'Tuesday', 'TBA', 0, 1),
+(124, 'BSA-12A', NULL, 168, '10:00:00', '13:00:00', 7, 1, 'Thursday', 'TBA', 0, 1),
+(125, 'BSA-12A', NULL, 169, '12:00:00', '15:00:00', 7, 1, 'Saturday', 'TBA', 0, 1),
+(126, 'BSA-12A', NULL, 170, '10:00:00', '13:00:00', 7, 1, 'Monday', 'TBA', 0, 1),
+(127, 'BSCS-11A', NULL, 1, '07:00:00', '10:00:00', 2, 1, 'Monday', 'TBA', 0, 1),
+(128, 'BSCS-11A', NULL, 2, '07:00:00', '10:00:00', 2, 1, 'Tuesday', 'TBA', 0, 1),
+(129, 'BSCS-11A', NULL, 3, '07:00:00', '10:00:00', 2, 1, 'Wednesday', 'TBA', 0, 1),
+(130, 'BSCS-11A', NULL, 4, '07:00:00', '10:00:00', 2, 1, 'Thursday', 'TBA', 0, 1),
+(131, 'BSCS-11A', NULL, 5, '07:00:00', '10:00:00', 2, 1, 'Friday', 'TBA', 0, 1),
+(132, 'BSCS-11A', NULL, 6, '07:00:00', '10:00:00', 2, 1, 'Saturday', 'TBA', 0, 1),
+(133, 'BSCS-11A', NULL, 7, '11:00:00', '13:00:00', 2, 1, 'Monday', 'TBA', 0, 1),
+(134, 'BSCS-11A', NULL, 8, '11:00:00', '13:00:00', 2, 1, 'Tuesday', 'TBA', 0, 1),
+(135, 'BSCS-11A', NULL, 9, '11:00:00', '13:00:00', 2, 1, 'Wednesday', 'TBA', 0, 1),
+(136, 'BSCS-11A', NULL, 10, '11:00:00', '13:00:00', 2, 1, 'Thursday', 'TBA', 0, 1),
+(137, 'BSCS-11A', NULL, 11, '11:00:00', '13:00:00', 2, 1, 'Friday', 'TBA', 0, 1),
+(138, 'BSCS-12A', NULL, 12, '07:00:00', '10:00:00', 2, 1, 'Monday', 'TBA', 0, 1),
+(139, 'BSCS-12A', NULL, 13, '07:00:00', '10:00:00', 2, 1, 'Tuesday', 'TBA', 0, 1),
+(140, 'BSCS-12A', NULL, 14, '07:00:00', '10:00:00', 2, 1, 'Wednesday', 'TBA', 0, 1),
+(141, 'BSCS-12A', NULL, 15, '07:00:00', '10:00:00', 2, 1, 'Thursday', 'TBA', 0, 1),
+(142, 'BSCS-12A', NULL, 16, '07:00:00', '10:00:00', 2, 1, 'Friday', 'TBA', 0, 1),
+(143, 'BSCS-12A', NULL, 17, '07:00:00', '10:00:00', 2, 1, 'Saturday', 'TBA', 0, 1),
+(144, 'BSCS-12A', NULL, 18, '11:00:00', '13:00:00', 2, 1, 'Tuesday', 'TBA', 0, 1),
+(145, 'BSCS-12A', NULL, 19, '11:00:00', '13:00:00', 2, 1, 'Thursday', 'TBA', 0, 1),
+(146, 'BSCS-12A', NULL, 20, '11:00:00', '13:00:00', 2, 1, 'Saturday', 'TBA', 0, 1),
+(147, 'BSCE-11A', NULL, 202, '07:00:00', '09:00:00', 3, 1, 'Monday', 'TBA', 0, 1),
+(148, 'BSCE-11A', NULL, 203, '07:00:00', '10:00:00', 3, 1, 'Tuesday', 'TBA', 0, 1),
+(149, 'BSCE-11A', NULL, 204, '07:00:00', '09:00:00', 3, 1, 'Wednesday', 'TBA', 0, 1),
+(150, 'BSCE-11A', NULL, 205, '07:00:00', '11:00:00', 3, 1, 'Thursday', 'TBA', 0, 1),
+(151, 'BSCE-11A', NULL, 206, '07:00:00', '11:00:00', 3, 1, 'Friday', 'TBA', 0, 1),
+(152, 'BSCE-11A', NULL, 207, '09:00:00', '11:00:00', 3, 1, 'Saturday', 'TBA', 0, 1),
+(153, 'BSCE-11A', NULL, 208, '12:00:00', '15:00:00', 3, 1, 'Monday', 'TBA', 0, 1),
+(154, 'BSCE-11A', NULL, 209, '12:00:00', '15:00:00', 3, 1, 'Tuesday', 'TBA', 0, 1),
+(155, 'BSCE-11A', NULL, 210, '12:00:00', '15:00:00', 3, 1, 'Wednesday', 'TBA', 0, 1),
+(156, 'BSCE-11A', NULL, 211, '12:00:00', '15:00:00', 3, 1, 'Thursday', 'TBA', 0, 1),
+(157, 'BSCE-11A', NULL, 212, '12:00:00', '15:00:00', 3, 1, 'Friday', 'TBA', 0, 1),
+(158, 'BSCE-12A', NULL, 213, '07:00:00', '10:00:00', 3, 1, 'Monday', 'TBA', 0, 1),
+(159, 'BSCE-12A', NULL, 214, '07:00:00', '09:00:00', 3, 1, 'Tuesday', 'TBA', 0, 1),
+(160, 'BSCE-12A', NULL, 215, '07:00:00', '09:00:00', 3, 1, 'Wednesday', 'TBA', 0, 1),
+(161, 'BSCE-12A', NULL, 216, '07:00:00', '10:00:00', 3, 1, 'Thursday', 'TBA', 0, 1),
+(162, 'BSCE-12A', NULL, 217, '07:00:00', '11:00:00', 3, 1, 'Friday', 'TBA', 0, 1),
+(163, 'BSCE-12A', NULL, 218, '09:00:00', '12:00:00', 3, 1, 'Saturday', 'TBA', 0, 1),
+(164, 'BSCE-12A', NULL, 219, '12:00:00', '15:00:00', 3, 1, 'Monday', 'TBA', 0, 1),
+(165, 'BSCE-12A', NULL, 220, '12:00:00', '14:00:00', 3, 1, 'Tuesday', 'TBA', 0, 1),
+(166, 'BSCE-12A', NULL, 221, '12:00:00', '15:00:00', 3, 1, 'Wednesday', 'TBA', 0, 1),
+(167, 'BSCE-12A', NULL, 222, '12:00:00', '14:00:00', 3, 1, 'Thursday', 'TBA', 0, 1),
+(168, 'BSCE-12A', NULL, 223, '12:00:00', '14:00:00', 3, 1, 'Friday', 'TBA', 0, 1),
+(169, 'BSEE-11A', NULL, 311, '07:00:00', '10:00:00', 4, 1, 'Monday', 'TBA', 0, 1),
+(170, 'BSEE-11A', NULL, 312, '07:00:00', '11:00:00', 4, 1, 'Tuesday', 'TBA', 0, 1),
+(171, 'BSEE-11A', NULL, 313, '07:00:00', '11:00:00', 4, 1, 'Wednesday', 'TBA', 0, 1),
+(172, 'BSEE-12A', NULL, 314, '07:00:00', '10:00:00', 4, 1, 'Monday', 'TBA', 0, 1),
+(173, 'BSEE-12A', NULL, 315, '08:00:00', '11:00:00', 4, 1, 'Tuesday', 'TBA', 0, 1),
+(174, 'BSIT-11A', NULL, 242, '07:00:00', '10:00:00', 1, 1, 'Monday', 'TBA', 0, 1),
+(175, 'BSIT-11A', NULL, 243, '08:00:00', '11:00:00', 1, 1, 'Tuesday', 'TBA', 0, 1),
+(176, 'BSIT-11A', NULL, 244, '07:00:00', '10:00:00', 1, 1, 'Wednesday', 'TBA', 0, 1),
+(177, 'BSIT-12A', NULL, 245, '07:00:00', '10:00:00', 1, 1, 'Monday', 'TBA', 0, 1),
+(178, 'BSIT-12A', NULL, 246, '07:00:00', '11:00:00', 1, 1, 'Tuesday', 'TBA', 0, 1),
+(179, 'BSIT-12A', NULL, 247, '09:00:00', '12:00:00', 1, 1, 'Wednesday', 'TBA', 0, 1),
+(180, 'BSME-11A', NULL, 265, '07:00:00', '10:00:00', 6, 1, 'Monday', 'TBA', 0, 1),
+(181, 'BSME-11A', NULL, 266, '07:00:00', '11:00:00', 6, 1, 'Tuesday', 'TBA', 0, 1),
+(182, 'BSME-11A', NULL, 267, '08:00:00', '11:00:00', 6, 1, 'Wednesday', 'TBA', 0, 1),
+(183, 'BSME-12A', NULL, 269, '07:00:00', '10:00:00', 6, 1, 'Monday', 'TBA', 0, 1),
+(184, 'BSME-12A', NULL, 270, '07:00:00', '10:00:00', 6, 1, 'Tuesday', 'TBA', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -157,12 +389,12 @@ CREATE TABLE IF NOT EXISTS `course_table` (
 --
 
 INSERT INTO `course_table` (`courseID`, `degree`, `major`, `college`, `courseStatus`) VALUES
-(1, 'Bachelor of Science in Information Technology', '', 'College of Science', 1),
-(2, 'Bachelor of Science in Computer Science', '', 'College of Science', 1),
-(3, 'Bachelor of Science in Civil Engineering', '', 'College of Engineering', 1),
-(4, 'Bachelor of Science in Electrical Engineering', '', 'College of Engineering', 1),
-(6, 'Bachelor of Science in Mechanical Engineering', '', 'College of Engineering', 1),
-(7, 'Bachelor of Science in Architecture', '', 'College of Architecture and Fine Arts', 1),
+(1, 'Bachelor of Science', 'Information Technology', 'College of Science', 1),
+(2, 'Bachelor of Science ', 'Computer Science', 'College of Science', 1),
+(3, 'Bachelor of Science', ' Civil Engineering', 'College of Engineering', 1),
+(4, 'Bachelor of Science', 'Electrical Engineering', 'College of Engineering', 1),
+(6, 'Bachelor of Science ', 'Mechanical Engineering', 'College of Engineering', 1),
+(7, 'Bachelor of Science', 'Architecture', 'College of Architecture and Fine Arts', 1),
 (8, 'Bachelor of Fine Arts', '', 'College of Architecture and Fine Arts', 1),
 (9, 'Bachelor of Engineering Technology', 'Computer Engineering Technology', 'College of Industrial Technology', 1);
 
@@ -246,14 +478,63 @@ CREATE TABLE IF NOT EXISTS `examination_table` (
   PRIMARY KEY (`examID`),
   KEY `applicantSched` (`applicantID`),
   KEY `schedDetails` (`schedID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `examination_table`
 --
 
 INSERT INTO `examination_table` (`examID`, `applicantID`, `schedID`) VALUES
-(1, 1, NULL);
+(1, 1, 1),
+(2, 2, 1),
+(3, 3, 1),
+(4, 4, 1),
+(5, 5, 1),
+(6, 6, 1),
+(7, 7, 1),
+(8, 8, 1),
+(9, 9, 1),
+(10, 10, 1),
+(11, 11, 1),
+(12, 12, 1),
+(13, 13, 1),
+(14, 14, 1),
+(15, 15, 1),
+(16, 16, 1),
+(17, 17, 1),
+(18, 18, 1),
+(19, 19, 1),
+(20, 20, 1),
+(21, 21, 1),
+(22, 22, 1),
+(23, 23, 6),
+(24, 24, 16),
+(25, 25, 1),
+(26, 26, 6),
+(27, 27, 16),
+(28, 28, NULL),
+(29, 29, 16),
+(30, 30, 16),
+(31, 31, 16),
+(32, 32, 6),
+(33, 33, 6),
+(34, 34, NULL),
+(35, 35, 16),
+(36, 36, 16),
+(37, 37, NULL),
+(38, 38, 16),
+(39, 39, 1),
+(40, 40, 6),
+(41, 41, 6),
+(42, 42, 16),
+(43, 43, 6),
+(44, 44, NULL),
+(45, 45, 6),
+(46, 46, NULL),
+(47, 47, 6),
+(48, 48, 6),
+(49, 49, 6),
+(50, 50, 16);
 
 -- --------------------------------------------------------
 
@@ -272,7 +553,38 @@ CREATE TABLE IF NOT EXISTS `exam_schedule` (
   `status` int(1) NOT NULL,
   `capacity` int(255) NOT NULL,
   PRIMARY KEY (`schedID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `exam_schedule`
+--
+
+INSERT INTO `exam_schedule` (`schedID`, `date`, `time`, `building`, `room_no`, `floor_no`, `status`, `capacity`) VALUES
+(1, '2022-02-14', '08:00:00', 'College of Science', 'CSR-001', 2, 1, 1),
+(2, '2022-02-14', '08:00:00', 'College of Science', 'CSR-002', 2, 1, 25),
+(3, '2022-02-14', '08:00:00', 'College of Science', 'CSR-003', 2, 1, 25),
+(4, '2022-02-14', '13:00:00', 'College of Science', 'CSR-001', 2, 1, 25),
+(5, '2022-02-14', '13:00:00', 'College of Science', 'CSR-002', 2, 1, 25),
+(6, '2022-02-15', '08:00:00', 'College of Engineering', 'ENGR-001', 2, 1, 14),
+(7, '2022-02-15', '08:00:00', 'College of Engineering', 'ENGR-002', 2, 1, 25),
+(8, '2022-02-15', '08:00:00', 'College of Engineering', 'ENGR-003', 2, 1, 25),
+(9, '2022-02-15', '13:00:00', 'College of Engineering', 'ENGR-001', 2, 1, 25),
+(10, '2022-02-15', '13:00:00', 'College of Engineering', 'ENGR-002', 2, 1, 25),
+(11, '2022-02-16', '08:00:00', 'College of Industrial Education', 'IE-001', 2, 1, 25),
+(12, '2022-02-16', '08:00:00', 'College of Industrial Education', 'IE-002', 2, 1, 25),
+(13, '2022-02-16', '08:00:00', 'College of Industrial Education', 'IE-003', 2, 1, 25),
+(14, '2022-02-16', '13:00:00', 'College of Industrial Education', 'IE-001', 2, 1, 25),
+(15, '2022-02-16', '13:00:00', 'College of Industrial Education', 'IE-002', 2, 1, 25),
+(16, '2022-02-17', '08:00:00', 'College of Architecture and Fine Arts', 'CAFA-001', 2, 1, 15),
+(17, '2022-02-17', '08:00:00', 'College of Architecture and Fine Arts', 'CAFA-002', 2, 1, 25),
+(18, '2022-02-17', '08:00:00', 'College of Architecture and Fine Arts', 'CAFA-003', 2, 1, 25),
+(19, '2022-02-17', '13:00:00', 'College of Architecture and Fine Arts', 'CAFA-001', 2, 1, 25),
+(20, '2022-02-17', '13:00:00', 'College of Architecture and Fine Arts', 'CAFA-002', 2, 1, 25),
+(21, '2022-02-18', '08:00:00', 'College of Liberal Arts', 'CLA-001', 2, 1, 25),
+(22, '2022-02-18', '08:00:00', 'College of Liberal Arts', 'CLA-002', 2, 1, 25),
+(23, '2022-02-18', '08:00:00', 'College of Liberal Arts', 'CLA-003', 2, 1, 25),
+(24, '2022-02-18', '13:00:00', 'College of Liberal Arts', 'CLA-001', 2, 1, 25),
+(25, '2022-02-18', '13:00:00', 'College of Liberal Arts', 'CLA-002', 2, 1, 25);
 
 -- --------------------------------------------------------
 
@@ -292,14 +604,7 @@ CREATE TABLE IF NOT EXISTS `section_table` (
   `schoolyear` varchar(255) NOT NULL,
   PRIMARY KEY (`sectionID`),
   KEY `sectionCourse` (`courseID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `section_table`
---
-
-INSERT INTO `section_table` (`sectionID`, `sectionName`, `class_code`, `courseID`, `capacity`, `studCount`, `yearlevelClass`, `schoolyear`) VALUES
-(1, 'BSCS-NS-4A', 'CLASS-01', 2, 25, 1, 4, '2022-2023');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -338,14 +643,7 @@ CREATE TABLE IF NOT EXISTS `student_accounts` (
   PRIMARY KEY (`studentID`),
   KEY `studentDetails` (`applicantID`),
   KEY `studentAdmin` (`creatorID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `student_accounts`
---
-
-INSERT INTO `student_accounts` (`studentID`, `applicantID`, `studentNumber`, `username`, `password`, `sectionID`, `yearlevel`, `status`, `creatorID`) VALUES
-(1, 1, 'TUPM-22-6727', 'TUPM-22-6727', '$2y$10$IfzeOt1Zv.UCt19tLbLbF.6zND03POQ.s9uiK66jCvcNNkJ216IWS', 1, 4, 1, 1);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -383,15 +681,7 @@ CREATE TABLE IF NOT EXISTS `student_grades` (
   `grade` int(255) NOT NULL,
   `equivalent` float NOT NULL,
   PRIMARY KEY (`studentGradesID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `student_grades`
---
-
-INSERT INTO `student_grades` (`studentGradesID`, `studentID`, `teacherID`, `subjectID`, `schoolyear`, `class_code`, `grade`, `equivalent`) VALUES
-(1, 1, NULL, 71, '2022-2023', 'CLASS-01', 0, 0),
-(2, 1, NULL, 72, '2022-2023', 'CLASS-01', 0, 0);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -759,44 +1049,43 @@ CREATE TABLE IF NOT EXISTS `teacher_accounts` (
   `creatorID` int(255) NOT NULL,
   PRIMARY KEY (`teacherID`),
   KEY `teacherAdmin` (`creatorID`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `teacher_accounts`
 --
 
 INSERT INTO `teacher_accounts` (`teacherID`, `teacherNumber`, `username`, `password`, `firstname`, `middlename`, `lastname`, `extname`, `phonenum`, `email`, `college`, `department`, `status`, `creatorID`) VALUES
-(1, 'PROF-TUPM-22-7407', 'PROF-TUPM-22-7407', '$2y$10$/JpMPa8Y49g/XtfdwUGMsevqV25dMbFhe.ysHqlyDcCLOAS2RKEaS', 'Lauran', 'Scatton', 'Tovmasyan', '', '+63 895 256 9006', 'williamcris18@gmail.com', '', '', 1, 1),
-(2, 'PROF-TUPM-22-2767', 'PROF-TUPM-22-2767', '$2y$10$BiQ3SM.HjwRVe5o6u3V7zumT34lzeuvOQipY4kWmEObCHHmsYiByi', 'Aaron', 'Perra', 'Kloska', '', '+63 906 203 5209', 'kloska@gmail.com', '', '', 1, 1),
-(3, 'PROF-TUPM-22-6883', 'PROF-TUPM-22-6883', '$2y$10$f17a3jJ7mJu3BKZ5KnTFw.EvD6liBIP8bmyQUfNefWhKN9CQ.ihq.', 'Francene', 'Jelsma', 'Skursky', '', '+63 909 597 1493', 'skursky@gmail.com', '', '', 1, 1),
-(4, 'PROF-TUPM-22-4107', 'PROF-TUPM-22-4107', '$2y$10$gpXVTk.39e.byHoAMgQMN.Q2i.ehBNLRP6RoGViY1V4CQinZ/kscS', 'Zena', 'Brickhouse', 'Daria', '', '+63 817 045 7645', 'daria@gmail.com', '', '', 1, 1),
-(5, 'PROF-TUPM-22-5888', 'PROF-TUPM-22-5888', '$2y$10$qBsEkFZmGDTMy2IhZRtoQ.P72eYaoCncPwxCRsAbFd1xh1Tq3jfdC', 'Brigette', 'Bennett', 'Breckenstein', '', '+63 918 811 4395', 'breckenstein@gmail.com', '', '', 1, 1),
-(6, 'PROF-TUPM-22-9478', 'PROF-TUPM-22-9478', '$2y$10$pf/mrBTVFBexu1qTpCnsIuz4WEY98DR74ZbHqc6YFREU9U0zdJxy.', 'Jeniffer', 'Ebershoff', 'Jezek', '', '+63 925 670 6802', 'jezek@gmail.com', '', '', 1, 1),
-(7, 'PROF-TUPM-22-8973', 'PROF-TUPM-22-8973', '$2y$10$jqqWYLMCEwWKSHSE7MIVTOYUI2/wSWqrFgxVZIpcDtNKqvPS97wju', 'Selma', 'Huro', 'Elm', '', '+63 897 657 5261', 'elm@gmail.com', '', '', 1, 1),
-(8, 'PROF-TUPM-22-3010', 'PROF-TUPM-22-3010', '$2y$10$VNwLjL6sKPrdz8XFup0bl.LhCqgpHaOg0bq1S5eM0g9CfnqHWchUO', 'Elenora', 'Kazeck', 'Handler', '', '+63 896 662 9288', 'handler@gmail.com', '', '', 1, 1),
-(9, 'PROF-TUPM-22-5616', 'PROF-TUPM-22-5616', '$2y$10$.8E.D1k80Yg6kzozZBEdHeBuOoHFsZllUrxEyG9GbwR1TbfppsUK.', 'Nadine', 'Bortignon', 'Okojie', '', '+63 909 876 6860', 'okojie@gmail.com', '', '', 1, 1),
-(10, 'PROF-TUPM-22-4079', 'PROF-TUPM-22-4079', '$2y$10$BwAXi5ai6EoD3rRhRcgzzuoGGNchxzIBBanJkYLRBuwiO5Mt9fP2.', 'Kristin', 'Baley', 'Shiflet', '', '+63 896 817 7973', 'shiflet@gmail.com', '', '', 1, 1),
-(11, 'PROF-TUPM-22-7233', 'PROF-TUPM-22-7233', '$2y$10$PJ/Qm7gwOR0RQh709qR4hOK81Ph1XrZuJ1LVmwpdvtGqUhtkpZDyu', 'Melinda', 'Pawell', 'Fellhauer', '', '+63 895 271 2193', 'fellhauer@gmail.com', '', '', 1, 1),
-(12, 'PROF-TUPM-22-5992', 'PROF-TUPM-22-5992', '$2y$10$XmwyM4b9GI0s1yvyW20PBOzfXMz5WdY0Vocse4LZ42rSs.C1VmgOG', 'Kirby', 'Arellanes', 'Litherland', '', '+63 898 617 3446', 'litherland@gmail.com', '', '', 1, 1),
-(13, 'PROF-TUPM-22-1433', 'PROF-TUPM-22-1433', '$2y$10$rMPUGpKOE3YCaDiuZObOC.BPfCexf.rI21CxE83sICIm9XfnwtqW6', 'Kent', 'Servantes', 'Ivans', '', '+63 971 041 4903', 'ivans@gmail.com', '', '', 1, 1),
-(14, 'PROF-TUPM-22-2811', 'PROF-TUPM-22-2811', '$2y$10$ZNtRJEJO.itlMLezGtDQOuqjDPZM2RSW81cBAYfilTNksGBw/hcuS', 'Dan', 'Fajen', 'Platz', '', '+63 948 241 1072', 'platz@gmail.com', '', '', 1, 1),
-(15, 'PROF-TUPM-22-9758', 'PROF-TUPM-22-9758', '$2y$10$swfAPAy.FCU50OHwEbsTJOSWBhD2tgjBYytpgjT.q6pT.O6J1uhsi', 'Millie', 'Eilers', 'Pirkl', '', '+63 992 361 6844', 'pirkl@gmail.com', '', '', 1, 1),
-(16, 'PROF-TUPM-22-1949', 'PROF-TUPM-22-1949', '$2y$10$eAVgHCSfyM3LZHsYX3pFye5WCQFa6yKRYXqb8CuTN5qgYoz3lepZm', 'Moira', 'Phinazee', 'Qadir', '', '+63 918 980 1415', 'qadir@gmail.com', '', '', 1, 1),
-(17, 'PROF-TUPM-22-9346', 'PROF-TUPM-22-9346', '$2y$10$9e3UA7xkgQjpSGy9n6e7z.Al4cG8hxpdDdOU8iL9e5xtOjzbtViTS', 'Reta', 'Pascucci', 'Qazi', '', '+63 910 451 3195', 'qazi@gmail.com', '', '', 1, 1),
-(18, 'PROF-TUPM-22-9402', 'PROF-TUPM-22-9402', '$2y$10$BFvFjDCRMED.uwi9/GbOlOTYq3KfM8xWN6FQfixlvTgY1UPxUv9J6', 'Brittney', 'Leicht', 'Lolley', '', '+63 953 390 2698', 'lolley@gmail.com', '', '', 1, 1),
-(19, 'PROF-TUPM-22-9592', 'PROF-TUPM-22-9592', '$2y$10$eU7orK7O0K5oy/va7qYtVOIUvrEmSE1HokqK86IeY1fa0T4ibNL9K', 'Leandro', 'Bai', 'Bolka', 'Jr.', '+63 905 569 3081', 'bolka@gmail.com', '', '', 1, 1),
-(20, 'PROF-TUPM-22-6854', 'PROF-TUPM-22-6854', '$2y$10$uo24MHy7t.4Giz7yvLvN5eme0WaKvw06yOG9EjMOQMuL3eG90K3zS', 'Edison', 'Popper', 'Sumera', '', '+63 895 542 9954', 'sumera@gmail.com', '', '', 1, 1),
-(21, 'PROF-TUPM-22-8094', 'PROF-TUPM-22-8094', '$2y$10$HhzHUzkhzKaHAmtrWP6/4eDb8YRe.x8xiyUKZfTNZW8kx3LmAuKiC', 'Breana', 'Polek', 'Cassi', '', '+63 817 777 2637', 'cassi@gmail.com', '', '', 1, 1),
-(22, 'PROF-TUPM-22-7143', 'PROF-TUPM-22-7143', '$2y$10$R61YyGHVEsnnhXN/jviwIOHO9/16ewPcR953ZKIz3XXYM59ED1eHq', 'Jarvis', 'Magnotta', 'Nicols', '', '+63 817 831 4309', 'nicols@gmail.com', '', '', 1, 1),
-(23, 'PROF-TUPM-22-7938', 'PROF-TUPM-22-7938', '$2y$10$GoflTmsq5YDZALB1V6EyeOvzW3FbHz.k8/9Yr/GTJKGuRSxO1FfwK', 'Felicitas', 'Druck', 'Orlinski', '', '+63 939 154 0014', 'orlinski@gmail.com', '', '', 1, 1),
-(24, 'PROF-TUPM-22-9503', 'PROF-TUPM-22-9503', '$2y$10$D2dPUTZi3./M4YRi5coFF.baO/h9wpjAHSQ8ugl5TuPxZueKFhONm', 'Geraldine', 'Kunich', 'Neisius', '', '+63 896 623 6021', 'neisius@gmail.com', '', '', 1, 1),
-(25, 'PROF-TUPM-22-5349', 'PROF-TUPM-22-5349', '$2y$10$7O9BXhLzofrBykgLiuK7uu4o1aYQnVdrsHv7ulm.ahEuwg.tXI0wG', 'Alfred', 'Buchman', 'Pacleb', '', '+63 917 138 0136', 'pacleb@gmail.com', '', '', 1, 1),
-(26, 'PROF-TUPM-22-3193', 'PROF-TUPM-22-3193', '$2y$10$K0YkSVIm8S5B6awfQ62cXeDqTAowIFYDotHB5/jPzk14Tdt2/lIuK', 'Leatha', 'Sionesini', 'Block', '', '+63 905 683 3750', 'block@gmail.com', '', '', 1, 1),
-(27, 'PROF-TUPM-22-1065', 'PROF-TUPM-22-1065', '$2y$10$TXHP4BBzSt3WIYn1YKGwLe6g3yldpaKDmaIA4ZMQCVLLqY9F3dsHq', 'Jacquelyne', 'Driesenga', 'Rosso', '', '+63 813 219 5077', 'rosso@gmail.com', '', '', 1, 1),
-(28, 'PROF-TUPM-22-4879', 'PROF-TUPM-22-4879', '$2y$10$mv0EbvwY9hmNSpV8Cc899.NGSATkLzkIvmJDJkHsPd9CpycPCYkG6', 'Jonelle', 'Vonderahe', 'Epps', '', '+63 895 473 1230', 'epps@gmail.com', '', '', 1, 1),
-(29, 'PROF-TUPM-22-2014', 'PROF-TUPM-22-2014', '$2y$10$hoUIY0KlJZYHQ49tZQ/7y.kYltTfn.622vyfRJq/ZB3YGvl8xh2ce', 'Rosamond', 'Maestri', 'Amlin', '', '+63 983 391 5528', 'amlin@gmail.com', '', '', 1, 1),
-(30, 'PROF-TUPM-22-2994', 'PROF-TUPM-22-2994', '$2y$10$y8nu0HYm794TGx5ZfHV6yudg5hK0WGttkP1PTQU9/neGT.q.euggS', 'Johnson', 'Susmilch', 'Mcenery', 'II', '+63 911 932 0882', 'mcenery@gmail.com', '', '', 1, 1),
-(31, 'PROF-TUPM-22-6218', 'PROF-TUPM-22-6218', '$2y$10$e4qwjIA2ir.SZID3BIc7lOH.2lzgF4j1IQ9ctWiQAsJS3YcusR03S', '', '', '', '', '', '', '', '', 1, 1);
+(1, 'PROF-TUPM-22-7407', 'PROF-TUPM-22-7407', '$2y$10$9jBap6qQCu8srMnknqYSguAyZvW2007MBZvOt4SG21jmN7IbGQdiC', 'Lauran', 'Scatton', 'Tovmasyan', '', '+63 895 256 9006', 'tovmasyan@gmail.com', 'College of Architecture and Fine Arts', 'Architecture', 1, 1),
+(2, 'PROF-TUPM-22-2767', 'PROF-TUPM-22-2767', '$2y$10$BiQ3SM.HjwRVe5o6u3V7zumT34lzeuvOQipY4kWmEObCHHmsYiByi', 'Aaron', 'Perra', 'Kloska', '', '+63 906 203 5209', 'kloska@gmail.com', 'College of Architecture and Fine Arts', 'Fine Arts', 1, 1),
+(3, 'PROF-TUPM-22-6883', 'PROF-TUPM-22-6883', '$2y$10$f17a3jJ7mJu3BKZ5KnTFw.EvD6liBIP8bmyQUfNefWhKN9CQ.ihq.', 'Francene', 'Jelsma', 'Skursky', '', '+63 909 597 1493', 'skursky@gmail.com', 'College of Science', 'Mathematics', 1, 1),
+(4, 'PROF-TUPM-22-4107', 'PROF-TUPM-22-4107', '$2y$10$gpXVTk.39e.byHoAMgQMN.Q2i.ehBNLRP6RoGViY1V4CQinZ/kscS', 'Zena', 'Brickhouse', 'Daria', '', '+63 817 045 7645', 'daria@gmail.com', 'College of Industrial Education', 'Technical Arts', 1, 1),
+(5, 'PROF-TUPM-22-5888', 'PROF-TUPM-22-5888', '$2y$10$qBsEkFZmGDTMy2IhZRtoQ.P72eYaoCncPwxCRsAbFd1xh1Tq3jfdC', 'Brigette', 'Bennett', 'Breckenstein', '', '+63 918 811 4395', 'breckenstein@gmail.com', 'College of Architecture and Fine Arts', 'Graphics', 1, 1),
+(6, 'PROF-TUPM-22-9478', 'PROF-TUPM-22-9478', '$2y$10$pf/mrBTVFBexu1qTpCnsIuz4WEY98DR74ZbHqc6YFREU9U0zdJxy.', 'Jeniffer', 'Ebershoff', 'Jezek', '', '+63 925 670 6802', 'jezek@gmail.com', 'College of Engineering', 'Electronics Engineering', 1, 1),
+(7, 'PROF-TUPM-22-8973', 'PROF-TUPM-22-8973', '$2y$10$jqqWYLMCEwWKSHSE7MIVTOYUI2/wSWqrFgxVZIpcDtNKqvPS97wju', 'Selma', 'Huro', 'Elm', '', '+63 897 657 5261', 'elm@gmail.com', 'College of Engineering', 'Electrical Engineering', 1, 1),
+(8, 'PROF-TUPM-22-3010', 'PROF-TUPM-22-3010', '$2y$10$VNwLjL6sKPrdz8XFup0bl.LhCqgpHaOg0bq1S5eM0g9CfnqHWchUO', 'Elenora', 'Kazeck', 'Handler', '', '+63 896 662 9288', 'handler@gmail.com', 'College of Industrial Technology', 'Basic Industrial Technology', 1, 1),
+(9, 'PROF-TUPM-22-5616', 'PROF-TUPM-22-5616', '$2y$10$.8E.D1k80Yg6kzozZBEdHeBuOoHFsZllUrxEyG9GbwR1TbfppsUK.', 'Nadine', 'Bortignon', 'Okojie', '', '+63 909 876 6860', 'okojie@gmail.com', 'College of Engineering', 'Mechanical Engineering', 1, 1),
+(10, 'PROF-TUPM-22-4079', 'PROF-TUPM-22-4079', '$2y$10$BwAXi5ai6EoD3rRhRcgzzuoGGNchxzIBBanJkYLRBuwiO5Mt9fP2.', 'Kristin', 'Baley', 'Shiflet', '', '+63 896 817 7973', 'shiflet@gmail.com', 'College of Engineering', 'Electrical Engineering', 1, 1),
+(11, 'PROF-TUPM-22-7233', 'PROF-TUPM-22-7233', '$2y$10$PJ/Qm7gwOR0RQh709qR4hOK81Ph1XrZuJ1LVmwpdvtGqUhtkpZDyu', 'Melinda', 'Pawell', 'Fellhauer', '', '+63 895 271 2193', 'fellhauer@gmail.com', 'College of Industrial Technology', 'Graphic Arts and Printing Technology', 1, 1),
+(12, 'PROF-TUPM-22-5992', 'PROF-TUPM-22-5992', '$2y$10$XmwyM4b9GI0s1yvyW20PBOzfXMz5WdY0Vocse4LZ42rSs.C1VmgOG', 'Kirby', 'Arellanes', 'Litherland', '', '+63 898 617 3446', 'litherland@gmail.com', 'College of Liberal Arts', 'Languages', 1, 1),
+(13, 'PROF-TUPM-22-1433', 'PROF-TUPM-22-1433', '$2y$10$rMPUGpKOE3YCaDiuZObOC.BPfCexf.rI21CxE83sICIm9XfnwtqW6', 'Kent', 'Servantes', 'Ivans', '', '+63 971 041 4903', 'ivans@gmail.com', 'College of Engineering', 'Electrical Engineering', 1, 1),
+(14, 'PROF-TUPM-22-2811', 'PROF-TUPM-22-2811', '$2y$10$ZNtRJEJO.itlMLezGtDQOuqjDPZM2RSW81cBAYfilTNksGBw/hcuS', 'Dan', 'Fajen', 'Platz', '', '+63 948 241 1072', 'platz@gmail.com', 'College of Engineering', 'Civil Engineering', 1, 1),
+(15, 'PROF-TUPM-22-9758', 'PROF-TUPM-22-9758', '$2y$10$swfAPAy.FCU50OHwEbsTJOSWBhD2tgjBYytpgjT.q6pT.O6J1uhsi', 'Millie', 'Eilers', 'Pirkl', '', '+63 992 361 6844', 'pirkl@gmail.com', 'College of Liberal Arts', 'Physical Education', 1, 1),
+(16, 'PROF-TUPM-22-1949', 'PROF-TUPM-22-1949', '$2y$10$eAVgHCSfyM3LZHsYX3pFye5WCQFa6yKRYXqb8CuTN5qgYoz3lepZm', 'Moira', 'Phinazee', 'Qadir', '', '+63 918 980 1415', 'qadir@gmail.com', 'College of Science', 'Mathematics', 1, 1),
+(17, 'PROF-TUPM-22-9346', 'PROF-TUPM-22-9346', '$2y$10$9e3UA7xkgQjpSGy9n6e7z.Al4cG8hxpdDdOU8iL9e5xtOjzbtViTS', 'Reta', 'Pascucci', 'Qazi', '', '+63 910 451 3195', 'qazi@gmail.com', 'College of Industrial Education', 'Professional Industrial Education', 1, 1),
+(18, 'PROF-TUPM-22-9402', 'PROF-TUPM-22-9402', '$2y$10$BFvFjDCRMED.uwi9/GbOlOTYq3KfM8xWN6FQfixlvTgY1UPxUv9J6', 'Brittney', 'Leicht', 'Lolley', '', '+63 953 390 2698', 'lolley@gmail.com', 'College of Liberal Arts', 'Social Science', 1, 1),
+(19, 'PROF-TUPM-22-9592', 'PROF-TUPM-22-9592', '$2y$10$eU7orK7O0K5oy/va7qYtVOIUvrEmSE1HokqK86IeY1fa0T4ibNL9K', 'Leandro', 'Bai', 'Bolka', 'Jr.', '+63 905 569 3081', 'bolka@gmail.com', 'College of Industrial Technology', 'Food and Apparel Technology', 1, 1),
+(20, 'PROF-TUPM-22-6854', 'PROF-TUPM-22-6854', '$2y$10$uo24MHy7t.4Giz7yvLvN5eme0WaKvw06yOG9EjMOQMuL3eG90K3zS', 'Edison', 'Popper', 'Sumera', '', '+63 895 542 9954', 'sumera@gmail.com', 'College of Industrial Education', 'Home Economics', 1, 1),
+(21, 'PROF-TUPM-22-8094', 'PROF-TUPM-22-8094', '$2y$10$HhzHUzkhzKaHAmtrWP6/4eDb8YRe.x8xiyUKZfTNZW8kx3LmAuKiC', 'Breana', 'Polek', 'Cassi', '', '+63 817 777 2637', 'cassi@gmail.com', 'College of Architecture and Fine Arts', 'Architecture', 1, 1),
+(22, 'PROF-TUPM-22-7143', 'PROF-TUPM-22-7143', '$2y$10$R61YyGHVEsnnhXN/jviwIOHO9/16ewPcR953ZKIz3XXYM59ED1eHq', 'Jarvis', 'Magnotta', 'Nicols', '', '+63 817 831 4309', 'nicols@gmail.com', 'College of Science', 'Physics', 1, 1),
+(23, 'PROF-TUPM-22-7938', 'PROF-TUPM-22-7938', '$2y$10$GoflTmsq5YDZALB1V6EyeOvzW3FbHz.k8/9Yr/GTJKGuRSxO1FfwK', 'Felicitas', 'Druck', 'Orlinski', '', '+63 939 154 0014', 'orlinski@gmail.com', 'College of Industrial Education', 'Student Teaching', 1, 1),
+(24, 'PROF-TUPM-22-9503', 'PROF-TUPM-22-9503', '$2y$10$D2dPUTZi3./M4YRi5coFF.baO/h9wpjAHSQ8ugl5TuPxZueKFhONm', 'Geraldine', 'Kunich', 'Neisius', '', '+63 896 623 6021', 'neisius@gmail.com', 'College of Industrial Technology', 'Power Plant Engineering Technology', 1, 1),
+(25, 'PROF-TUPM-22-5349', 'PROF-TUPM-22-5349', '$2y$10$7O9BXhLzofrBykgLiuK7uu4o1aYQnVdrsHv7ulm.ahEuwg.tXI0wG', 'Alfred', 'Buchman', 'Pacleb', '', '+63 917 138 0136', 'pacleb@gmail.com', 'College of Liberal Arts', 'Social Science', 1, 1),
+(26, 'PROF-TUPM-22-3193', 'PROF-TUPM-22-3193', '$2y$10$K0YkSVIm8S5B6awfQ62cXeDqTAowIFYDotHB5/jPzk14Tdt2/lIuK', 'Leatha', 'Sionesini', 'Block', '', '+63 905 683 3750', 'block@gmail.com', 'College of Science', 'Physics', 1, 1),
+(27, 'PROF-TUPM-22-1065', 'PROF-TUPM-22-1065', '$2y$10$TXHP4BBzSt3WIYn1YKGwLe6g3yldpaKDmaIA4ZMQCVLLqY9F3dsHq', 'Jacquelyne', 'Driesenga', 'Rosso', '', '+63 813 219 5077', 'rosso@gmail.com', 'College of Science', 'Chemistry', 1, 1),
+(28, 'PROF-TUPM-22-4879', 'PROF-TUPM-22-4879', '$2y$10$mv0EbvwY9hmNSpV8Cc899.NGSATkLzkIvmJDJkHsPd9CpycPCYkG6', 'Jonelle', 'Vonderahe', 'Epps', '', '+63 895 473 1230', 'epps@gmail.com', 'College of Engineering', 'Electronics Engineering', 1, 1),
+(29, 'PROF-TUPM-22-2014', 'PROF-TUPM-22-2014', '$2y$10$hoUIY0KlJZYHQ49tZQ/7y.kYltTfn.622vyfRJq/ZB3YGvl8xh2ce', 'Rosamond', 'Maestri', 'Amlin', '', '+63 983 391 5528', 'amlin@gmail.com', 'College of Industrial Technology', 'Mechanical Engineering Technology', 1, 1),
+(30, 'PROF-TUPM-22-2994', 'PROF-TUPM-22-2994', '$2y$10$y8nu0HYm794TGx5ZfHV6yudg5hK0WGttkP1PTQU9/neGT.q.euggS', 'Johnson', 'Susmilch', 'Mcenery', 'II', '+63 911 932 0882', 'mcenery@gmail.com', 'College of Liberal Arts', 'Physical Education', 1, 1);
 
 --
 -- Constraints for dumped tables
