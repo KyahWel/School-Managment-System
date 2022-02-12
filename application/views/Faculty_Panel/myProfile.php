@@ -1,5 +1,5 @@
 <?php
-    $this->load->view('includes/facultySideBar'); 
+    $this->load->view('includes/facultySideBar');
 ?>
 
 <head>
@@ -24,10 +24,10 @@
                     <table id="myProfileDetails" class="table-body" aria-label="Faculty_Profile">
                         <tr class="d-flex align-items-start">
                             <td class="py-3">
-                                <p><b>Faculty ID:</b></p>
-                                <p><b>Name:</b></p>
-                                <p><b>Department:</b></p>
-                                <p class="mb-0"><b>Email:</b></p>
+                                <p><strong>Faculty ID:</strong></p>
+                                <p><strong>Name:</strong></p>
+                                <p><strong>Department:</strong></p>
+                                <p><strong>Email:</strong></p>
                             </td>
                             <td class="py-3">
                                 <p><?php echo $prof->teacherNumber?></p>
