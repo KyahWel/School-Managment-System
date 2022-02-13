@@ -8,7 +8,7 @@ This is the final project of Team-03 for Software Engineering subject. Created U
 # ©  Copyright 
 **Frontend Developers**
 * **Lyah Bianca Aquino** , Technological Univeristy of the Philippines Manila (lyahbianca.aquino04@gmail.com)
-* **Kimberly Delgado** , Technological Univeristy of the Philippines Manila (kimberly.delgado@tup.edu.com
+* **Kimberley Delgado** , Technological Univeristy of the Philippines Manila (kimdelgado215@gmail.com)
 * **Czarina Pielago** , Technological Univeristy of the Philippines Manila (czarspielago@gmail.com)
 * **Harold Jay Talavera** , Technological Univeristy of the Philippines Manila (haroldjay.talavera@tup.edu.ph)
 
