@@ -1,7 +1,7 @@
 # TUP School Management System
 ***Disclaimer:** Some functionality is not available. **Clone at your own risk!***
 
-This is the final project of Team-03 for Software Engineering subject. Created Using Codeigniter 3 framework and MySQL database. Download it here: https://codeigniter.com/download
+This is the final project of Team-03 for Software Engineering subject. Created Using Codeigniter 3 framework and MySQL database.
 
 
 
