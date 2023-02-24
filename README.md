@@ -1,5 +1,5 @@
 # TUP School Management System
-***Disclaimer:** Some functionality is not available. **Clone at your own risk!***
+***Disclaimer:** Some functionalities are not available. **Clone at your own risk!***
 
 This is the final project of Team-03 for Software Engineering subject. Created Using Codeigniter 3 framework and MySQL database.
 
